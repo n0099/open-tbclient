@@ -1,12 +1,21 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.data.ErrorData;
-import com.repackage.av4;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.ThreadData;
+import java.util.List;
 /* loaded from: classes7.dex */
-public interface q17 extends av4.g {
-    void f(ErrorData errorData);
+public interface q17 {
+    boolean a();
 
-    void i();
+    void b();
 
-    void l0(p27 p27Var);
+    void c(BdUniqueId bdUniqueId);
+
+    void destory();
+
+    List<ThreadData> l();
+
+    void r(String str, String str2, int i);
+
+    void refresh();
 }

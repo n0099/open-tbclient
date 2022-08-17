@@ -104,7 +104,7 @@ public class si4 {
             linearLayout.setVisibility(8);
             this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f9a);
             this.d = new DecimalFormat("0.0#");
-            this.e = this.a.getString(R.string.obfuscated_res_0x7f0f131a);
+            this.e = this.a.getString(R.string.obfuscated_res_0x7f0f131c);
         }
     }
 

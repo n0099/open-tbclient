@@ -119,14 +119,13 @@ public class FirstPraiseToast {
             spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)), 4, spannableString.length(), 33);
             BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableString);
             b.e(R.drawable.obfuscated_res_0x7f0807d0);
-            b.h();
+            b.i();
         }
     }
 
     public void show() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.isFirstPraise) {
-            praiseToast();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 }

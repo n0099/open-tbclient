@@ -247,7 +247,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                     c2 = 1;
                 }
                 try {
-                    InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080bc2, new TypedValue());
+                    InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080bc3, new TypedValue());
                     byte[] d2 = dg.d(openRawResource);
                     try {
                         if (!webClient2.isGif && !qi.B(d2)) {

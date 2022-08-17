@@ -23,12 +23,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cf7;
-import com.repackage.dm8;
-import com.repackage.ee7;
+import com.repackage.bf7;
+import com.repackage.cm8;
+import com.repackage.de7;
 import com.repackage.fb5;
-import com.repackage.se7;
-import com.repackage.ze7;
+import com.repackage.re7;
+import com.repackage.ye7;
 /* loaded from: classes3.dex */
 public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
     public static /* synthetic */ Interceptable $ic;
@@ -153,29 +153,29 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         if (!(interceptable == null || interceptable.invokeL(65541, this, onePicInfoCard) == null) || this.q == null) {
             return;
         }
-        if (onePicInfoCard != null && !cf7.a(onePicInfoCard.gettBgColor()) && !cf7.a(onePicInfoCard.gettBgColorN())) {
+        if (onePicInfoCard != null && !bf7.a(onePicInfoCard.gettBgColor()) && !bf7.a(onePicInfoCard.gettBgColorN())) {
             this.q.setBackgroundColor(r() ? onePicInfoCard.gettBgColorN() : onePicInfoCard.gettBgColor());
         } else {
             SkinManager.setBackgroundResource(this.q, R.drawable.label_bg_tie_n);
         }
     }
 
-    public final void G(TextView textView, TbImageView tbImageView, ze7 ze7Var) {
+    public final void G(TextView textView, TbImageView tbImageView, ye7 ye7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, textView, tbImageView, ze7Var) == null) {
-            String str = r() ? ze7Var.b : ze7Var.a;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, textView, tbImageView, ye7Var) == null) {
+            String str = r() ? ye7Var.b : ye7Var.a;
             if (!TextUtils.isEmpty(str)) {
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 tbImageView.setVisibility(0);
                 tbImageView.K(str, 10, false);
             } else {
                 tbImageView.setVisibility(8);
-                textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(se7.a(ze7Var.c)), (Drawable) null, (Drawable) null, (Drawable) null);
+                textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(re7.a(ye7Var.c)), (Drawable) null, (Drawable) null, (Drawable) null);
             }
             try {
-                textView.setText(StringHelper.numberUniformFormat(Long.parseLong(ze7Var.d)));
+                textView.setText(StringHelper.numberUniformFormat(Long.parseLong(ye7Var.d)));
             } catch (NumberFormatException unused) {
-                textView.setText(ze7Var.d);
+                textView.setText(ye7Var.d);
             }
         }
     }
@@ -234,7 +234,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
                 this.r.setVisibility(8);
                 this.u.setVisibility(8);
             }
-            dm8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            cm8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && readThreadHistory.d(String.valueOf(onePicInfoCard.getItemId()))) {
                 this.x = R.color.CAM_X0108;
             } else {
@@ -251,7 +251,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
     public void v(OnePicInfoCard onePicInfoCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onePicInfoCard) == null) {
-            ee7.e(onePicInfoCard).d(TiebaStatic.Params.OBJ_URL, onePicInfoCard.getScheme()).b("obj_locate", getStatPosition()).a(onePicInfoCard);
+            de7.e(onePicInfoCard).d(TiebaStatic.Params.OBJ_URL, onePicInfoCard.getScheme()).b("obj_locate", getStatPosition()).a(onePicInfoCard);
             super.v(onePicInfoCard);
         }
     }

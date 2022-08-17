@@ -170,24 +170,24 @@ public class LiveBannerStatusAnimView extends FrameLayout {
                     this.b.setBackgroundDrawable(gradientDrawable2);
                     if (!"day".equals(ab0.f().q()) && !LiveFeedPageSdk.IMMERSION.equals(this.h) && !"recommend".equals(this.h)) {
                         if ("tieba".equals(LiveFeedPageSdk.getInstance().getHost())) {
-                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080ce7);
-                        } else {
                             this.b.setImageResource(R.drawable.obfuscated_res_0x7f080ce8);
+                        } else {
+                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080ce9);
                         }
                     } else {
-                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080ce7);
+                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080ce8);
                     }
                 } else if (i == 0) {
                     gradientDrawable2.setColors(new int[]{ab0.f().a(this.a, this.h, "color_4E6EF2"), ab0.f().a(this.a, this.h, "color_4E6EF2")});
                     this.b.setBackgroundDrawable(gradientDrawable2);
                     if (!"day".equals(ab0.f().q()) && !LiveFeedPageSdk.IMMERSION.equals(this.h) && !"recommend".equals(this.h)) {
                         if ("tieba".equals(LiveFeedPageSdk.getInstance().getHost())) {
-                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080ce9);
-                        } else {
                             this.b.setImageResource(R.drawable.obfuscated_res_0x7f080cea);
+                        } else {
+                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080ceb);
                         }
                     } else {
-                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080ce9);
+                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080cea);
                     }
                 } else {
                     gradientDrawable2.setColors(new int[]{ab0.f().a(this.a, this.h, "color_FF3333"), ab0.f().a(this.a, this.h, "color_FF3333")});
@@ -283,24 +283,24 @@ public class LiveBannerStatusAnimView extends FrameLayout {
                     if (i2 == 3) {
                         this.g = false;
                         this.b.setVisibility(0);
-                        this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ced);
-                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f8));
+                        this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cee);
+                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f9));
                         this.d.setPadding(m80.b(this.a, 2.0f), 0, m80.b(this.a, 4.0f), 0);
                         this.e.setVisibility(8);
                     } else if (i2 == 0) {
                         this.g = false;
                         this.b.setVisibility(0);
-                        this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ced);
-                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09fa));
+                        this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cee);
+                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09fb));
                         this.d.setPadding(m80.b(this.a, 2.0f), 0, m80.b(this.a, 4.0f), 0);
                         this.e.setVisibility(8);
                     } else {
                         this.g = true;
                         this.b.setVisibility(8);
-                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f9));
+                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09fa));
                         this.d.setPadding(0, 0, m80.b(this.a, 4.0f), 0);
                         this.e.setVisibility(0);
-                        this.e.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f7), m80.a(this.a, liveBannerEntity.audienceCount)));
+                        this.e.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f8), m80.a(this.a, liveBannerEntity.audienceCount)));
                     }
                     f("day");
                     setVisibility(0);

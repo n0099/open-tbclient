@@ -70,7 +70,7 @@ public class mu8 {
     public String r;
     public k s;
     public hu8 t;
-    public fn7 u;
+    public en7 u;
     public Handler v;
     public GLVideoPreviewView.b w;
     public GLVideoPreviewView.b x;
@@ -110,7 +110,7 @@ public class mu8 {
                     this.a.K();
                 } else if (i != 2) {
                     if (i == 3 && this.a.a != null) {
-                        qi.N(this.a.a, R.string.obfuscated_res_0x7f0f04f0);
+                        qi.M(this.a.a, R.string.obfuscated_res_0x7f0f04f0);
                         if (this.a.u != null) {
                             this.a.u.b(2, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f04f0));
                         }
@@ -118,7 +118,7 @@ public class mu8 {
                     }
                 } else if (this.a.a != null) {
                     if (!"OD103".equals(Build.MODEL)) {
-                        qi.N(this.a.a, R.string.obfuscated_res_0x7f0f04f1);
+                        qi.M(this.a.a, R.string.obfuscated_res_0x7f0f04f1);
                         if (this.a.u != null) {
                             Object obj = message.obj;
                             if (!(obj instanceof String)) {
@@ -517,10 +517,10 @@ public class mu8 {
         this.l = -1;
         this.m = 0;
         this.n = null;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, jn7.class);
-        jn7 jn7Var = runTask != null ? (jn7) runTask.getData() : null;
-        if (jn7Var != null) {
-            this.u = jn7Var.get();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, in7.class);
+        in7 in7Var = runTask != null ? (in7) runTask.getData() : null;
+        if (in7Var != null) {
+            this.u = in7Var.get();
         }
         this.v = new a(this);
         this.x = new d(this);
@@ -590,9 +590,9 @@ public class mu8 {
             } catch (Exception e2) {
                 e2.printStackTrace();
                 J();
-                fn7 fn7Var = this.u;
-                if (fn7Var != null) {
-                    fn7Var.b(8, zm7.a(e2));
+                en7 en7Var = this.u;
+                if (en7Var != null) {
+                    en7Var.b(8, ym7.a(e2));
                 }
             }
         }
@@ -665,7 +665,7 @@ public class mu8 {
             return;
         }
         ur4 ur4Var = new ur4(recordVideoActivity.getPageContext().getPageActivity());
-        ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f152a);
+        ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f152d);
         ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04ee, new g(this));
         ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f04e9, new h(this));
         ur4Var.setCancelable(true);
@@ -720,9 +720,9 @@ public class mu8 {
                 this.d.autoFocus(null);
             } catch (Exception e2) {
                 e2.printStackTrace();
-                fn7 fn7Var = this.u;
-                if (fn7Var != null) {
-                    fn7Var.b(9, zm7.a(e2));
+                en7 en7Var = this.u;
+                if (en7Var != null) {
+                    en7Var.b(9, ym7.a(e2));
                 }
             }
         }
@@ -807,9 +807,9 @@ public class mu8 {
                 this.d.setParameters(this.n);
             } catch (Exception e2) {
                 e2.printStackTrace();
-                fn7 fn7Var = this.u;
-                if (fn7Var != null) {
-                    fn7Var.b(7, zm7.a(e2));
+                en7 en7Var = this.u;
+                if (en7Var != null) {
+                    en7Var.b(7, ym7.a(e2));
                 }
             }
         }
@@ -841,9 +841,9 @@ public class mu8 {
                 return !DebugKt.DEBUG_PROPERTY_VALUE_OFF.equals(this.n.getFlashMode());
             } catch (Exception e2) {
                 e2.printStackTrace();
-                fn7 fn7Var = this.u;
-                if (fn7Var != null) {
-                    fn7Var.b(7, zm7.a(e2));
+                en7 en7Var = this.u;
+                if (en7Var != null) {
+                    en7Var.b(7, ym7.a(e2));
                 }
                 return false;
             }
@@ -973,7 +973,7 @@ public class mu8 {
                 e2.printStackTrace();
                 Message obtainMessage = this.v.obtainMessage();
                 obtainMessage.what = 2;
-                obtainMessage.obj = zm7.a(e2);
+                obtainMessage.obj = ym7.a(e2);
                 this.v.sendMessageDelayed(obtainMessage, 1000L);
             }
         }
@@ -1032,9 +1032,9 @@ public class mu8 {
         if (interceptable == null || interceptable.invokeL(1048609, this, activity) == null) {
             ur4 ur4Var = new ur4(activity);
             ur4Var.setCanceledOnTouchOutside(false);
-            ur4Var.setTitle(R.string.obfuscated_res_0x7f0f0ffd);
-            ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0ff9);
-            ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0980, new c(this, activity)).setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new b(this, activity)).create(h9.a(activity));
+            ur4Var.setTitle(R.string.obfuscated_res_0x7f0f0ffe);
+            ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0ffa);
+            ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0981, new c(this, activity)).setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new b(this, activity)).create(h9.a(activity));
             ur4Var.show();
         }
     }
@@ -1114,9 +1114,9 @@ public class mu8 {
             this.d.release();
         } catch (Exception e2) {
             e2.printStackTrace();
-            fn7 fn7Var = this.u;
-            if (fn7Var != null) {
-                fn7Var.b(6, zm7.a(e2));
+            en7 en7Var = this.u;
+            if (en7Var != null) {
+                en7Var.b(6, ym7.a(e2));
             }
         }
         this.d = null;

@@ -228,8 +228,8 @@ public class fu4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, scene)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long m = (currentTimeMillis - ru4.k().m(d(scene), currentTimeMillis)) / 1000;
-            return m == 0 || m >= LiveRemindConfig.c().d();
+            long m = ru4.k().m(d(scene), currentTimeMillis);
+            return currentTimeMillis == m || (currentTimeMillis - m) / 1000 >= LiveRemindConfig.c().d();
         }
         return invokeL.booleanValue;
     }

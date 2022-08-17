@@ -11,18 +11,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewHottopic.TopicThread;
+import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
 public class c37 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId g;
+    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public ThreadData b;
+    public boolean a;
+    public int b;
     public long c;
-    public int d;
-    public int e;
-    public boolean f;
+    public String d;
+    public ThreadData e;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +36,7 @@ public class c37 extends BaseCardInfo {
                 return;
             }
         }
-        g = BdUniqueId.gen();
+        f = BdUniqueId.gen();
     }
 
     public c37() {
@@ -54,42 +53,21 @@ public class c37 extends BaseCardInfo {
         }
     }
 
-    public void c(TopicThread topicThread) {
+    public void c(ThreadInfo threadInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, topicThread) == null) || topicThread == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, threadInfo) == null) || threadInfo == null) {
             return;
         }
-        this.a = topicThread.feed_id.longValue();
-        if (topicThread.thread_info != null) {
-            ThreadData threadData = new ThreadData();
-            this.b = threadData;
-            threadData.parserProtobuf(topicThread.thread_info);
-            this.b.parser_title();
-        }
-        this.d = topicThread.user_agree.intValue();
-        this.e = topicThread.source.intValue();
-    }
-
-    public void f(tbclient.NewTopicThread.TopicThread topicThread) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicThread) == null) || topicThread == null) {
-            return;
-        }
-        this.a = topicThread.feed_id.longValue();
-        if (topicThread.thread_info != null) {
-            ThreadData threadData = new ThreadData();
-            this.b = threadData;
-            threadData.parserProtobuf(topicThread.thread_info);
-            this.b.parser_title();
-        }
-        this.d = Integer.parseInt(topicThread.user_agree);
-        this.e = topicThread.source.intValue();
+        ThreadData threadData = new ThreadData();
+        this.e = threadData;
+        threadData.parserProtobuf(threadInfo);
+        this.e.parser_title();
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f : (BdUniqueId) invokeV.objValue;
     }
 }

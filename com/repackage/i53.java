@@ -53,12 +53,12 @@ public class i53 extends a13 {
 
         /* renamed from: com.repackage.i53$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0499a implements sf3<c63<e63.e>> {
+        public class C0506a implements sf3<c63<e63.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0499a(a aVar) {
+            public C0506a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -133,7 +133,7 @@ public class i53 extends a13 {
                         z = true;
                     }
                     if (z) {
-                        this.e.c(this.d, this.b, this.c, new C0499a(this));
+                        this.e.c(this.d, this.b, this.c, new C0506a(this));
                         return;
                     }
                     if (z53Var.j > 0) {

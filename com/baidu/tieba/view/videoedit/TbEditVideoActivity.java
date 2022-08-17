@@ -771,7 +771,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
                     }
                     QmFilterItem qmFilterItem = new QmFilterItem();
                     qmFilterItem.id = "-1";
-                    qmFilterItem.bgurl = R.drawable.obfuscated_res_0x7f080a1b + "";
+                    qmFilterItem.bgurl = R.drawable.obfuscated_res_0x7f080a1c + "";
                     qmFilterItem.name = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0626);
                     qmFilterItem.isSelect = true;
                     qmFilterItem.localPath = "origin";
@@ -813,7 +813,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
                 if (this.a.s != null) {
                     QmFilterItem qmFilterItem = new QmFilterItem();
                     qmFilterItem.id = "-1";
-                    qmFilterItem.bgurl = R.drawable.obfuscated_res_0x7f080a1b + "";
+                    qmFilterItem.bgurl = R.drawable.obfuscated_res_0x7f080a1c + "";
                     qmFilterItem.name = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0626);
                     qmFilterItem.isSelect = true;
                     qmFilterItem.localPath = "origin";
@@ -824,7 +824,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
                     this.a.s.setDownLoadFilter(null);
                 }
                 if (StringUtils.isNull(str)) {
-                    str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11f2);
+                    str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11f4);
                 }
                 this.a.showToast(str);
             }
@@ -1375,7 +1375,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
                         BdLog.d(e.getMessage());
                     }
                     tbEditVideoActivity.F = false;
-                    tbEditVideoActivity.showToast(tbEditVideoActivity.getResources().getString(R.string.obfuscated_res_0x7f0f108b));
+                    tbEditVideoActivity.showToast(tbEditVideoActivity.getResources().getString(R.string.obfuscated_res_0x7f0f108c));
                     tbEditVideoActivity.r2();
                     tbEditVideoActivity.s2();
                 } else {
@@ -1529,7 +1529,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.y) {
                 ds4 ds4Var = new ds4(getPageContext(), new fs4(getPageContext().getPageActivity()));
-                ds4Var.i(getResources().getString(R.string.obfuscated_res_0x7f0f052b), new String[]{getResources().getString(R.string.obfuscated_res_0x7f0f0f74)}, new b(this, ds4Var));
+                ds4Var.i(getResources().getString(R.string.obfuscated_res_0x7f0f052b), new String[]{getResources().getString(R.string.obfuscated_res_0x7f0f0f75)}, new b(this, ds4Var));
                 ds4Var.k();
                 return;
             }
@@ -1674,7 +1674,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
             if (this.u != null && (tbMusicData = this.K) != null && !TextUtils.isEmpty(tbMusicData.localPath) && !TextUtils.isEmpty(this.K.id)) {
                 TbMusicData tbMusicData2 = this.K;
                 if (tbMusicData2.type == 2) {
-                    this.s.setEffectLayoutCurrentMusicName(getResources().getString(R.string.obfuscated_res_0x7f0f0b28));
+                    this.s.setEffectLayoutCurrentMusicName(getResources().getString(R.string.obfuscated_res_0x7f0f0b29));
                 } else {
                     this.s.setEffectLayoutCurrentMusicName(tbMusicData2.title);
                 }
@@ -1720,14 +1720,14 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
             RecordPreviewContainer recordPreviewContainer = (RecordPreviewContainer) findViewById(R.id.obfuscated_res_0x7f090864);
             this.n = recordPreviewContainer;
             recordPreviewContainer.setOnViewClickListener(this.Q);
-            TextView centerTextTitle = this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e7a));
+            TextView centerTextTitle = this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e7b));
             this.b = centerTextTitle;
             centerTextTitle.setTextColor(getResources().getColor(R.color.CAM_X0101));
             this.b.setVisibility(8);
             View addSystemImageButton = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.d = addSystemImageButton;
-            ((ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f092615)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a02));
-            TextView addTextButton = this.a.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f1081));
+            ((ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f092615)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a03));
+            TextView addTextButton = this.a.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f1082));
             this.c = addTextButton;
             addTextButton.setTextColor(getResources().getColor(R.color.CAM_X0101));
             this.c.setVisibility(8);
@@ -1879,9 +1879,9 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
             if (view2.getId() == R.id.obfuscated_res_0x7f0904ae) {
                 u2();
                 if (this.s.q()) {
-                    this.f.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a1a));
+                    this.f.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a1b));
                 } else {
-                    this.f.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a1c));
+                    this.f.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a1d));
                 }
                 this.s.v();
                 if (this.s.t()) {
@@ -1893,9 +1893,9 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
             if (view2.getId() == R.id.obfuscated_res_0x7f0904b0) {
                 u2();
                 if (this.s.s()) {
-                    this.g.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a1d));
-                } else {
                     this.g.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a1e));
+                } else {
+                    this.g.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a1f));
                 }
                 this.s.w();
                 TbMusicData tbMusicData = this.K;
@@ -1942,7 +1942,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
                 }
                 if (!ru4.k().h("key_edit_video_pick_cover_tip_show", false)) {
                     o16 o16Var = new o16(getPageContext(), this.r);
-                    o16Var.q0(R.drawable.obfuscated_res_0x7f080f63);
+                    o16Var.q0(R.drawable.obfuscated_res_0x7f080f64);
                     o16Var.Q(1);
                     o16Var.r0(true);
                     o16Var.h0(R.color.CAM_X0101);
@@ -2222,8 +2222,8 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
     public final void u2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.f.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a1a));
-            this.g.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a1d));
+            this.f.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a1b));
+            this.g.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a1e));
         }
     }
 

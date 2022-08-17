@@ -53,7 +53,7 @@ public class yn8 {
             this.b = true;
             InterestGuideActivityConfig interestGuideActivityConfig = new InterestGuideActivityConfig(this.a);
             if (TbSingleton.getInstance().triggerInterestPanelYDaysConfig) {
-                interestGuideActivityConfig.setCustomTitle(new String[]{this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0911), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0912), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f090d)});
+                interestGuideActivityConfig.setCustomTitle(new String[]{this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0912), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0913), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f090e)});
                 interestGuideActivityConfig.setScene(10);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, interestGuideActivityConfig));

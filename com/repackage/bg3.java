@@ -1235,7 +1235,7 @@ public class bg3 {
             return;
         }
         if (!z2) {
-            this.w = textView.getContext().getString(R.string.obfuscated_res_0x7f0f126d);
+            this.w = textView.getContext().getString(R.string.obfuscated_res_0x7f0f126f);
         } else {
             this.w = "";
         }

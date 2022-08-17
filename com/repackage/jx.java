@@ -77,7 +77,7 @@ public class jx extends ly {
             this.A = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092501);
             this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ab9);
             this.y = (InterviewLiveLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ab5);
-            e98 q = q();
+            d98 q = q();
             this.j = q;
             q.getMainView().setBackgroundResource(R.color.transparent);
         }
@@ -118,15 +118,15 @@ public class jx extends ly {
     }
 
     @Override // com.repackage.ly
-    public e98 q() {
+    public d98 q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            f98 f98Var = new f98(this.b, this.i);
-            f98Var.setStageType("2003");
-            return f98Var;
+            e98 e98Var = new e98(this.b, this.i);
+            e98Var.setStageType("2003");
+            return e98Var;
         }
-        return (e98) invokeV.objValue;
+        return (d98) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

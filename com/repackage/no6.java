@@ -17,10 +17,10 @@ public class no6 implements MessageQueue.IdleHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrsModelController a;
-    public MvcSocketResponsedMessage<rj8, ?> b;
-    public MvcSocketMessage<FrsRequestData, rj8> c;
-    public MvcNetMessage<FrsRequestData, rj8> d;
-    public yj8 e;
+    public MvcSocketResponsedMessage<qj8, ?> b;
+    public MvcSocketMessage<FrsRequestData, qj8> c;
+    public MvcNetMessage<FrsRequestData, qj8> d;
+    public xj8 e;
 
     public no6() {
         Interceptable interceptable = $ic;
@@ -43,28 +43,28 @@ public class no6 implements MessageQueue.IdleHandler {
         }
     }
 
-    public void b(yj8 yj8Var) {
+    public void b(xj8 xj8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yj8Var) == null) {
-            this.e = yj8Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xj8Var) == null) {
+            this.e = xj8Var;
         }
     }
 
-    public void c(MvcSocketMessage<FrsRequestData, rj8> mvcSocketMessage) {
+    public void c(MvcSocketMessage<FrsRequestData, qj8> mvcSocketMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcSocketMessage) == null) {
             this.c = mvcSocketMessage;
         }
     }
 
-    public void d(MvcNetMessage<FrsRequestData, rj8> mvcNetMessage) {
+    public void d(MvcNetMessage<FrsRequestData, qj8> mvcNetMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, mvcNetMessage) == null) {
             this.d = mvcNetMessage;
         }
     }
 
-    public void e(MvcSocketResponsedMessage<rj8, ?> mvcSocketResponsedMessage) {
+    public void e(MvcSocketResponsedMessage<qj8, ?> mvcSocketResponsedMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, mvcSocketResponsedMessage) == null) {
             this.b = mvcSocketResponsedMessage;
@@ -81,9 +81,9 @@ public class no6 implements MessageQueue.IdleHandler {
                 return false;
             }
             frsModelController.E0(this.b, this.c, this.d);
-            yj8 yj8Var = this.e;
-            if (yj8Var != null) {
-                yj8Var.b();
+            xj8 xj8Var = this.e;
+            if (xj8Var != null) {
+                xj8Var.b();
             }
             return false;
         }

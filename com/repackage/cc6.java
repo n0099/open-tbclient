@@ -19,7 +19,7 @@ public class cc6 {
     public TbPageContext a;
     public RemoveFansController b;
     public bc6 c;
-    public j28 d;
+    public i28 d;
     public kw8 e;
     public e f;
 
@@ -236,9 +236,9 @@ public class cc6 {
                 arrayList.add(bVar);
                 this.e.g(new d(this));
                 this.e.f(arrayList);
-                j28 j28Var = new j28(this.a.getPageActivity(), this.e.b());
-                this.d = j28Var;
-                j28Var.a(0.7f);
+                i28 i28Var = new i28(this.a.getPageActivity(), this.e.b());
+                this.d = i28Var;
+                i28Var.a(0.7f);
             }
             this.d.show();
         }

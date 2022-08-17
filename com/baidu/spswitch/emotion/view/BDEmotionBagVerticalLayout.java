@@ -1306,7 +1306,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             if (i == 1) {
                 setPadding(0, 0, 0, 0);
             } else if (i == 2) {
-                int dimensionPixelSize = this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0709ad);
+                int dimensionPixelSize = this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0709ae);
                 setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
             }
             sExprTotalExtraHeight = (this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070326) * 2) + this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070322) + this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070320);

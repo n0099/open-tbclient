@@ -160,7 +160,7 @@ public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Cal
             ThreadUtils.checkIsOnMainThread();
             final CountDownLatch countDownLatch = new CountDownLatch(1);
             countDownLatch.getClass();
-            releaseEglSurface(new Runnable() { // from class: com.repackage.zs9
+            releaseEglSurface(new Runnable() { // from class: com.repackage.bt9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

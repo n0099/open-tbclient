@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ai6;
-import com.repackage.h88;
+import com.repackage.g88;
 /* loaded from: classes7.dex */
 public class vh6 extends bz5<ai6> implements wh6 {
     public static /* synthetic */ Interceptable $ic;
@@ -43,8 +43,8 @@ public class vh6 extends bz5<ai6> implements wh6 {
     public ai6 A;
     public int B;
     public bi6 C;
-    public z88 D;
-    public z88 E;
+    public y88 D;
+    public y88 E;
     public int F;
     public boolean G;
     public boolean H;
@@ -70,11 +70,11 @@ public class vh6 extends bz5<ai6> implements wh6 {
     public ImageView v;
     public LinearLayout w;
     public LinearLayout x;
-    public h88 y;
+    public g88 y;
     public TbPageContext<?> z;
 
     /* loaded from: classes7.dex */
-    public class a implements h88.t {
+    public class a implements g88.t {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vh6 a;
@@ -97,7 +97,7 @@ public class vh6 extends bz5<ai6> implements wh6 {
             this.a = vh6Var;
         }
 
-        @Override // com.repackage.h88.t
+        @Override // com.repackage.g88.t
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.y.R0()) {
@@ -105,7 +105,7 @@ public class vh6 extends bz5<ai6> implements wh6 {
             }
         }
 
-        @Override // com.repackage.h88.t
+        @Override // com.repackage.g88.t
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -120,7 +120,7 @@ public class vh6 extends bz5<ai6> implements wh6 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements h88.c0 {
+    public class b implements g88.c0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vh6 a;
@@ -143,7 +143,7 @@ public class vh6 extends bz5<ai6> implements wh6 {
             this.a = vh6Var;
         }
 
-        @Override // com.repackage.h88.c0
+        @Override // com.repackage.g88.c0
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -153,7 +153,7 @@ public class vh6 extends bz5<ai6> implements wh6 {
             }
         }
 
-        @Override // com.repackage.h88.c0
+        @Override // com.repackage.g88.c0
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -168,7 +168,7 @@ public class vh6 extends bz5<ai6> implements wh6 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements h88.w {
+    public class c implements g88.w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vh6 a;
@@ -191,16 +191,16 @@ public class vh6 extends bz5<ai6> implements wh6 {
             this.a = vh6Var;
         }
 
-        @Override // com.repackage.h88.w
+        @Override // com.repackage.g88.w
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
                     this.a.z.showToast(this.a.n.getText().toString());
                     vh6 vh6Var = this.a;
-                    h88 h88Var = vh6Var.y;
+                    g88 g88Var = vh6Var.y;
                     ai6 ai6Var = vh6Var.A;
-                    h88Var.M1(ai6Var.n.d, ai6Var.b);
+                    g88Var.M1(ai6Var.n.d, ai6Var.b);
                     this.a.l.setVisibility(8);
                     this.a.K("2");
                 } else {
@@ -213,7 +213,7 @@ public class vh6 extends bz5<ai6> implements wh6 {
     }
 
     /* loaded from: classes7.dex */
-    public class d implements h88.u {
+    public class d implements g88.u {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vh6 a;
@@ -236,7 +236,7 @@ public class vh6 extends bz5<ai6> implements wh6 {
             this.a = vh6Var;
         }
 
-        @Override // com.repackage.h88.u
+        @Override // com.repackage.g88.u
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -256,7 +256,7 @@ public class vh6 extends bz5<ai6> implements wh6 {
             }
         }
 
-        @Override // com.repackage.h88.u
+        @Override // com.repackage.g88.u
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -362,7 +362,7 @@ public class vh6 extends bz5<ai6> implements wh6 {
     }
 
     /* loaded from: classes7.dex */
-    public class g implements h88.z {
+    public class g implements g88.z {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vh6 a;
@@ -385,7 +385,7 @@ public class vh6 extends bz5<ai6> implements wh6 {
             this.a = vh6Var;
         }
 
-        @Override // com.repackage.h88.z
+        @Override // com.repackage.g88.z
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -419,9 +419,9 @@ public class vh6 extends bz5<ai6> implements wh6 {
         this.i = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f0924a2);
         FrameLayout frameLayout = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f0924ae);
         this.j = frameLayout;
-        h88 h88Var = new h88(tbPageContext, frameLayout, false);
-        this.y = h88Var;
-        h88Var.z1("2005");
+        g88 g88Var = new g88(tbPageContext, frameLayout, false);
+        this.y = g88Var;
+        g88Var.z1("2005");
         this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0921ba);
         this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09084a);
         this.m = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f091519);
@@ -479,16 +479,16 @@ public class vh6 extends bz5<ai6> implements wh6 {
         this.y.u1(new b(this));
         this.y.p1(new c(this));
         this.y.i1(false);
-        z88 z88Var = new z88();
-        this.D = z88Var;
-        z88Var.c = ai6Var.b;
-        z88Var.d = ai6Var.a;
-        z88Var.e = TbadkCoreApplication.getCurrentAccount();
-        z88 z88Var2 = new z88();
-        this.E = z88Var2;
-        z88Var2.c = ai6Var.b;
-        z88Var2.d = ai6Var.a;
-        z88Var2.e = TbadkCoreApplication.getCurrentAccount();
+        y88 y88Var = new y88();
+        this.D = y88Var;
+        y88Var.c = ai6Var.b;
+        y88Var.d = ai6Var.a;
+        y88Var.e = TbadkCoreApplication.getCurrentAccount();
+        y88 y88Var2 = new y88();
+        this.E = y88Var2;
+        y88Var2.c = ai6Var.b;
+        y88Var2.d = ai6Var.a;
+        y88Var2.e = TbadkCoreApplication.getCurrentAccount();
         if (this.N) {
             StatisticItem statisticItem = new StatisticItem("c12590");
             statisticItem.param("tid", ai6Var.b);
@@ -499,27 +499,27 @@ public class vh6 extends bz5<ai6> implements wh6 {
             statisticItem.param("obj_locate", i);
             statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 1);
             TiebaStatic.log(statisticItem);
-            z88 z88Var3 = this.D;
-            z88Var3.g = "auto_midpage";
-            z88Var3.a = "13";
-            z88Var3.i = "1";
-            z88 z88Var4 = this.E;
-            z88Var4.g = "auto_midpage";
-            z88Var4.a = "auto_midpage";
-            z88Var4.i = "1";
+            y88 y88Var3 = this.D;
+            y88Var3.g = "auto_midpage";
+            y88Var3.a = "13";
+            y88Var3.i = "1";
+            y88 y88Var4 = this.E;
+            y88Var4.g = "auto_midpage";
+            y88Var4.a = "auto_midpage";
+            y88Var4.i = "1";
         } else {
-            z88 z88Var5 = this.D;
-            z88Var5.i = "frs_bavideotab";
-            z88Var5.a = "12";
-            z88 z88Var6 = this.E;
-            z88Var6.i = "frs_bavideotab";
-            z88Var6.a = "frs_bavideotab";
+            y88 y88Var5 = this.D;
+            y88Var5.i = "frs_bavideotab";
+            y88Var5.a = "12";
+            y88 y88Var6 = this.E;
+            y88Var6.i = "frs_bavideotab";
+            y88Var6.a = "frs_bavideotab";
         }
         ai6.c cVar = ai6Var.n;
         if (cVar != null) {
-            z88 z88Var7 = this.D;
+            y88 y88Var7 = this.D;
             String str = cVar.c;
-            z88Var7.m = str;
+            y88Var7.m = str;
             this.E.m = str;
         }
         this.y.H0().setVideoStatData(this.D);
@@ -564,9 +564,9 @@ public class vh6 extends bz5<ai6> implements wh6 {
         this.l.setText(StringHelper.stringForVideoTime(ai6Var.n.e * 1000));
         long j = ai6Var.n.h;
         if (j == 0) {
-            format = this.z.getString(R.string.obfuscated_res_0x7f0f151b);
+            format = this.z.getString(R.string.obfuscated_res_0x7f0f151e);
         } else {
-            format = String.format(this.z.getString(R.string.obfuscated_res_0x7f0f151a), Q(String.format("%.1f", Float.valueOf(((float) j) / 1048576.0f))));
+            format = String.format(this.z.getString(R.string.obfuscated_res_0x7f0f151d), Q(String.format("%.1f", Float.valueOf(((float) j) / 1048576.0f))));
         }
         this.n.setText(format);
         this.m.setVisibility(8);
@@ -657,12 +657,12 @@ public class vh6 extends bz5<ai6> implements wh6 {
     }
 
     public void J() {
-        h88 h88Var;
+        g88 g88Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (h88Var = this.y) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (g88Var = this.y) == null) {
             return;
         }
-        h88Var.v0();
+        g88Var.v0();
     }
 
     public final void K(String str) {
@@ -672,7 +672,7 @@ public class vh6 extends bz5<ai6> implements wh6 {
             return;
         }
         if ("1".equals(str) || "2".equals(str)) {
-            o88.e(this.A.n.c, "", str, this.E, this.y.H0().getPcdnState());
+            n88.e(this.A.n.c, "", str, this.E, this.y.H0().getPcdnState());
         }
     }
 
@@ -689,7 +689,7 @@ public class vh6 extends bz5<ai6> implements wh6 {
         if (ai6Var.m.e) {
             SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0109);
             this.r.setCompoundDrawables(null, null, null, null);
-            this.r.setText(this.z.getString(R.string.obfuscated_res_0x7f0f0fbc));
+            this.r.setText(this.z.getString(R.string.obfuscated_res_0x7f0f0fbd));
             return;
         }
         SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0302);
@@ -871,9 +871,9 @@ public class vh6 extends bz5<ai6> implements wh6 {
                         }
                         this.m.setVisibility(8);
                         this.y.f1();
-                        h88 h88Var = this.y;
+                        g88 g88Var = this.y;
                         ai6 ai6Var2 = this.A;
-                        h88Var.M1(ai6Var2.n.d, ai6Var2.b);
+                        g88Var.M1(ai6Var2.n.d, ai6Var2.b);
                         K("2");
                         return;
                     } else if (view2 == this.r) {

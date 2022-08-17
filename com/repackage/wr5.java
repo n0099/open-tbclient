@@ -81,11 +81,11 @@ public class wr5 extends bz5<et5> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, et5Var) == null) {
             if (et5Var.a == 1) {
-                this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a14));
+                this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a15));
                 SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_07);
                 return;
             }
-            this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a13));
+            this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a14));
             SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_06);
         }
     }

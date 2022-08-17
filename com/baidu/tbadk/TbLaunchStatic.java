@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.aa7;
 import com.repackage.ba7;
-import com.repackage.ca7;
-import com.repackage.s57;
+import com.repackage.r57;
+import com.repackage.z97;
 /* loaded from: classes3.dex */
 public class TbLaunchStatic {
     public static /* synthetic */ Interceptable $ic = null;
@@ -73,17 +73,17 @@ public class TbLaunchStatic {
     public static void initRegisterTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            s57.b(202004, ResponseDelSystemMessage.class, false);
-            s57.b(103112, ResponseRemoveMembersMessage.class, false);
-            s57.b(202001, ResponseCommitGroupMessage.class, false);
-            s57.b(103111, ResponseAddGroupUserMessage.class, false);
-            s57.b(103105, ResponseUpgradeMemberGroupMessage.class, false);
-            s57.b(103008, ResponseUserPermissionMessage.class, false).f(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
-            s57.b(103102, ResponseUpdateGroupMessage.class, false).f(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
-            s57.b(103104, ResponseDismissGroupMessage.class, false);
-            s57.a(2001142, aa7.class);
-            s57.a(2001145, ca7.class);
-            s57.a(2001148, ba7.class);
+            r57.b(202004, ResponseDelSystemMessage.class, false);
+            r57.b(103112, ResponseRemoveMembersMessage.class, false);
+            r57.b(202001, ResponseCommitGroupMessage.class, false);
+            r57.b(103111, ResponseAddGroupUserMessage.class, false);
+            r57.b(103105, ResponseUpgradeMemberGroupMessage.class, false);
+            r57.b(103008, ResponseUserPermissionMessage.class, false).f(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
+            r57.b(103102, ResponseUpdateGroupMessage.class, false).f(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
+            r57.b(103104, ResponseDismissGroupMessage.class, false);
+            r57.a(2001142, z97.class);
+            r57.a(2001145, ba7.class);
+            r57.a(2001148, aa7.class);
         }
     }
 }

@@ -24,15 +24,15 @@ import com.repackage.av4;
 import com.repackage.jz4;
 import com.repackage.og;
 import com.repackage.qi;
-import com.repackage.rt6;
-import com.repackage.tt6;
+import com.repackage.qt6;
+import com.repackage.st6;
 /* loaded from: classes3.dex */
 public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public MyGiftListModel b;
-    public tt6 c;
+    public st6 c;
     public String d;
     public int e;
     public String f;
@@ -70,19 +70,19 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         }
 
         @Override // com.baidu.tieba.gift.myGiftList.MyGiftListModel.b
-        public void a(int i, String str, boolean z, rt6 rt6Var) {
+        public void a(int i, String str, boolean z, qt6 qt6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z), rt6Var}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z), qt6Var}) == null) {
                 this.a.closeLoadingDialog();
                 this.a.c.q().setVisibility(8);
                 this.a.c.p();
                 if (i == 0) {
-                    this.a.c.w(rt6Var);
+                    this.a.c.w(qt6Var);
                     return;
                 }
                 this.a.showToast(str);
                 if (z) {
-                    this.a.c.w(rt6Var);
+                    this.a.c.w(qt6Var);
                 } else {
                     this.a.c.y(str, true);
                 }
@@ -120,7 +120,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (!qi.D()) {
                     this.a.c.p();
-                    this.a.c.y(this.a.getString(R.string.obfuscated_res_0x7f0f0c3c), true);
+                    this.a.c.y(this.a.getString(R.string.obfuscated_res_0x7f0f0c3d), true);
                     return;
                 }
                 jz4.h0().m();
@@ -174,7 +174,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
                 this.a.sendMessage(new CustomMessage(2002001, giftTabActivityConfig));
                 return;
             }
-            this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+            this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
         }
     }
 
@@ -330,7 +330,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e == 2 ? getPageContext().getString(R.string.obfuscated_res_0x7f0f1170) : getPageContext().getString(R.string.obfuscated_res_0x7f0f083d);
+            return this.e == 2 ? getPageContext().getString(R.string.obfuscated_res_0x7f0f1172) : getPageContext().getString(R.string.obfuscated_res_0x7f0f083d);
         }
         return (String) invokeV.objValue;
     }
@@ -338,9 +338,9 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
     public final void I1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            tt6 tt6Var = new tt6(this, this.n, this.a);
-            this.c = tt6Var;
-            tt6Var.x(new b(this));
+            st6 st6Var = new st6(this, this.n, this.a);
+            this.c = st6Var;
+            st6Var.x(new b(this));
             F1();
         }
     }
@@ -385,7 +385,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
             if (qi.D()) {
                 this.c.z();
             } else {
-                this.c.y(getString(R.string.obfuscated_res_0x7f0f0c3c), true);
+                this.c.y(getString(R.string.obfuscated_res_0x7f0f0c3d), true);
             }
             jz4.h0().d0(0);
         }

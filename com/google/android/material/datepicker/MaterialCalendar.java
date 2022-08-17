@@ -201,9 +201,9 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view3, accessibilityNodeInfoCompat) == null) {
                         super.onInitializeAccessibilityNodeInfo(view3, accessibilityNodeInfoCompat);
                         if (this.this$0.dayFrame.getVisibility() == 0) {
-                            string = this.this$0.getString(R.string.obfuscated_res_0x7f0f0b21);
+                            string = this.this$0.getString(R.string.obfuscated_res_0x7f0f0b22);
                         } else {
-                            string = this.this$0.getString(R.string.obfuscated_res_0x7f0f0b1f);
+                            string = this.this$0.getString(R.string.obfuscated_res_0x7f0f0b20);
                         }
                         accessibilityNodeInfoCompat.setHintText(string);
                     }

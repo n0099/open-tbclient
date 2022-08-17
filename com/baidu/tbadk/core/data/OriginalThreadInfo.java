@@ -215,7 +215,7 @@ public class OriginalThreadInfo {
             } else {
                 str = (ListUtils.getItem(this.i, 0) == null || StringUtils.isNull(((AbstractData) ListUtils.getItem(this.i, 0)).text)) ? null : ((AbstractData) ListUtils.getItem(this.i, 0)).text;
             }
-            return TextUtils.isEmpty(str) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f40) : str;
+            return TextUtils.isEmpty(str) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f41) : str;
         }
         return (String) invokeV.objValue;
     }
@@ -485,7 +485,7 @@ public class OriginalThreadInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             this.a = 0;
-            this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d15);
+            this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d16);
             this.c = null;
         }
     }
@@ -528,7 +528,7 @@ public class OriginalThreadInfo {
             } else if (!StringUtils.isNull(this.g)) {
                 this.b = this.g;
             } else {
-                this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d15);
+                this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d16);
             }
         }
     }

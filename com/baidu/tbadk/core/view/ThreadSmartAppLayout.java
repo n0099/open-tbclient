@@ -83,14 +83,14 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
                     this.a.L(this.d.avatar, 10, false, false);
                 }
                 if (!pi.isEmpty(this.d.name)) {
-                    this.b.setText(this.d.name + " " + getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11a7));
+                    this.b.setText(this.d.name + " " + getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11a9));
                 } else {
-                    this.b.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0907));
+                    this.b.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0908));
                 }
                 if (!pi.isEmpty(this.d._abstract)) {
                     this.c.setText(this.d._abstract);
                 } else {
-                    this.c.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11a6));
+                    this.c.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11a8));
                 }
                 setVisibility(0);
                 return;

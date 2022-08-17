@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gj8;
+import com.repackage.fj8;
 import com.repackage.qi;
 import com.repackage.rg;
 import java.util.ArrayList;
@@ -80,7 +80,7 @@ public class PasswordView extends RelativeLayout {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.e == null) {
                 return;
             }
-            qi.M(this.a.getContext(), this.a.e);
+            qi.L(this.a.getContext(), this.a.e);
         }
     }
 
@@ -348,7 +348,7 @@ public class PasswordView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setStroke(qi.f(getContext(), R.dimen.tbds3), gj8.a(SkinManager.getColor(R.color.CAM_X0105), 0.16f));
+            gradientDrawable.setStroke(qi.f(getContext(), R.dimen.tbds3), fj8.a(SkinManager.getColor(R.color.CAM_X0105), 0.16f));
             return gradientDrawable;
         }
         return (Drawable) invokeV.objValue;

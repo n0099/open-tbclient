@@ -256,7 +256,7 @@ public class FloatWebLayout extends FrameLayout {
             this.e = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09030f);
             this.f = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09064f);
             this.g = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f0905d3);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f0809f3, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f0809f4, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080612, R.color.CAM_X0105, null);
             SkinManager.setNavbarTitleColor(this.g, R.color.CAM_X0105, R.color.s_navbar_title_color);
             this.e.setOnClickListener(new a(this));

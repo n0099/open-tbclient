@@ -212,7 +212,7 @@ public class ni5 extends Dialog {
             ms4.d(this.h).v(R.color.CAM_X0304);
             ms4.d(this.i).v(R.color.CAM_X0107);
             ms4.d(this.b).f(R.color.CAM_X0107);
-            WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080924, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080925, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
             this.k.i();
         }
     }

@@ -78,7 +78,7 @@ public class vg6 {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                kr6.h(this.a.a.getActivity(), new View.OnClickListener() { // from class: com.repackage.rg6
+                jr6.h(this.a.a.getActivity(), new View.OnClickListener() { // from class: com.repackage.rg6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -172,7 +172,7 @@ public class vg6 {
                     wg6Var.h();
                     return;
                 }
-                BdToast.b(this.a.a.getContext(), this.a.h.getTokenInfo().getFailContent()).h();
+                BdToast.b(this.a.a.getContext(), this.a.h.getTokenInfo().getFailContent()).i();
             }
         }
 
@@ -182,7 +182,7 @@ public class vg6 {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.a.o();
                 if (this.a.a != null) {
-                    BdToast.b(this.a.a.getContext(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0061)).h();
+                    BdToast.b(this.a.a.getContext(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0061)).i();
                 }
             }
         }
@@ -228,9 +228,9 @@ public class vg6 {
                 return;
             }
             if (!TbadkCoreApplication.isLogin()) {
-                BdToast.b(this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0063)).h();
+                BdToast.b(this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0063)).i();
             } else if (TbSingleton.getInstance().acceleratorItemId != this.a.P0().itemInfo.id.intValue() && TbSingleton.getInstance().acceleratorItemId != -1) {
-                kr6.e(this.a.getActivity(), new View.OnClickListener() { // from class: com.repackage.ug6
+                jr6.e(this.a.getActivity(), new View.OnClickListener() { // from class: com.repackage.ug6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

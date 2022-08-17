@@ -1,7 +1,6 @@
 package com.facebook.imagepipeline.producers;
 
 import android.util.Pair;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +10,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Sets;
 import com.facebook.common.internal.VisibleForTesting;
+import com.facebook.common.util.TriState;
 import com.facebook.imagepipeline.common.Priority;
+import com.facebook.imagepipeline.producers.ProducerContext;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.io.Closeable;
 import java.io.IOException;
@@ -26,12 +27,16 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes4.dex */
 public abstract class MultiplexProducer<K, T extends Closeable> implements Producer<T> {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String EXTRAS_STARTED_AS_PREFETCH = "started_as_prefetch";
     public transient /* synthetic */ FieldHolder $fh;
+    public final String mDedupedRequestsCountKey;
     public final Producer<T> mInputProducer;
+    public final boolean mKeepCancelledFetchAsLowPriority;
     @VisibleForTesting
     @GuardedBy("this")
     public final Map<K, MultiplexProducer<K, T>.Multiplexer> mMultiplexers;
+    public final String mProducerName;
 
     /* renamed from: com.facebook.imagepipeline.producers.MultiplexProducer$1  reason: invalid class name */
     /* loaded from: classes4.dex */
@@ -244,7 +249,11 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
                             BaseProducerContext.callOnPriorityChanged(list2);
                             BaseProducerContext.callOnIsIntermediateResultExpectedChanged(list3);
                             if (baseProducerContext != null) {
-                                baseProducerContext.cancel();
+                                if (this.this$1.this$0.mKeepCancelledFetchAsLowPriority && !baseProducerContext.isPrefetch()) {
+                                    BaseProducerContext.callOnPriorityChanged(baseProducerContext.setPriorityNoCallbacks(Priority.LOW));
+                                } else {
+                                    baseProducerContext.cancel();
+                                }
                             }
                             if (remove) {
                                 ((Consumer) this.val$consumerContextPair.first).onCancellation();
@@ -343,9 +352,9 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void startInputProducerIfHasAttachedConsumers() {
+        public void startInputProducerIfHasAttachedConsumers(TriState triState) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            if (interceptable == null || interceptable.invokeL(65548, this, triState) == null) {
                 synchronized (this) {
                     boolean z = true;
                     Preconditions.checkArgument(this.mMultiplexProducerContext == null);
@@ -358,7 +367,12 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
                         return;
                     }
                     ProducerContext producerContext = (ProducerContext) this.mConsumerContextPairs.iterator().next().second;
-                    this.mMultiplexProducerContext = new BaseProducerContext(producerContext.getImageRequest(), producerContext.getId(), producerContext.getListener(), producerContext.getCallerContext(), producerContext.getLowestPermittedRequestLevel(), computeIsPrefetch(), computeIsIntermediateResultExpected(), computePriority());
+                    BaseProducerContext baseProducerContext = new BaseProducerContext(producerContext.getImageRequest(), producerContext.getId(), producerContext.getProducerListener(), producerContext.getCallerContext(), producerContext.getLowestPermittedRequestLevel(), computeIsPrefetch(), computeIsIntermediateResultExpected(), computePriority(), producerContext.getImagePipelineConfig());
+                    this.mMultiplexProducerContext = baseProducerContext;
+                    baseProducerContext.putExtras(producerContext.getExtras());
+                    if (triState.isSet()) {
+                        this.mMultiplexProducerContext.setExtra(MultiplexProducer.EXTRAS_STARTED_AS_PREFETCH, Boolean.valueOf(triState.asBoolean()));
+                    }
                     MultiplexProducer<K, T>.Multiplexer.ForwardingConsumer forwardingConsumer = new ForwardingConsumer(this, null);
                     this.mForwardingConsumer = forwardingConsumer;
                     this.this$0.mInputProducer.produceResults(forwardingConsumer, this.mMultiplexProducerContext);
@@ -470,7 +484,7 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
                     this.mMultiplexProducerContext = null;
                     closeSafely(this.mLastIntermediateResult);
                     this.mLastIntermediateResult = null;
-                    startInputProducerIfHasAttachedConsumers();
+                    startInputProducerIfHasAttachedConsumers(TriState.UNSET);
                 }
             }
         }
@@ -490,6 +504,7 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
                     while (it.hasNext()) {
                         Pair<Consumer<T>, ProducerContext> next = it.next();
                         synchronized (next) {
+                            ((ProducerContext) next.second).getProducerListener().onProducerFinishWithFailure((ProducerContext) next.second, this.this$0.mProducerName, th, null);
                             ((Consumer) next.first).onFailure(th);
                         }
                     }
@@ -507,6 +522,7 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
                     closeSafely(this.mLastIntermediateResult);
                     this.mLastIntermediateResult = null;
                     Iterator<Pair<Consumer<T>, ProducerContext>> it = this.mConsumerContextPairs.iterator();
+                    int size = this.mConsumerContextPairs.size();
                     if (BaseConsumer.isNotLast(i)) {
                         this.mLastIntermediateResult = (T) this.this$0.cloneOrNull(t);
                         this.mLastStatus = i;
@@ -517,6 +533,13 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
                     while (it.hasNext()) {
                         Pair<Consumer<T>, ProducerContext> next = it.next();
                         synchronized (next) {
+                            if (BaseConsumer.isLast(i)) {
+                                ((ProducerContext) next.second).getProducerListener().onProducerFinishWithSuccess((ProducerContext) next.second, this.this$0.mProducerName, null);
+                                if (this.mMultiplexProducerContext != null) {
+                                    ((ProducerContext) next.second).putExtras(this.mMultiplexProducerContext.getExtras());
+                                }
+                                ((ProducerContext) next.second).setExtra(this.this$0.mDedupedRequestsCountKey, Integer.valueOf(size));
+                            }
                             ((Consumer) next.first).onNewResult(t, i);
                         }
                     }
@@ -544,30 +567,32 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
         }
     }
 
-    public MultiplexProducer(Producer<T> producer) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public MultiplexProducer(Producer<T> producer, String str, @ProducerContext.ExtraKeys String str2) {
+        this(producer, str, str2, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {producer};
+            Object[] objArr = {producer, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Producer) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mInputProducer = producer;
-        this.mMultiplexers = new HashMap();
     }
 
     private synchronized MultiplexProducer<K, T>.Multiplexer createAndPutNewMultiplexer(K k) {
         InterceptResult invokeL;
         MultiplexProducer<K, T>.Multiplexer multiplexer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, k)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, k)) == null) {
             synchronized (this) {
                 multiplexer = new Multiplexer(this, k);
                 this.mMultiplexers.put(k, multiplexer);
@@ -577,12 +602,13 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
         return (Multiplexer) invokeL.objValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
+    public abstract T cloneOrNull(T t);
+
     public synchronized MultiplexProducer<K, T>.Multiplexer getExistingMultiplexer(K k) {
         InterceptResult invokeL;
         MultiplexProducer<K, T>.Multiplexer multiplexer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, k)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) {
             synchronized (this) {
                 multiplexer = this.mMultiplexers.get(k);
             }
@@ -591,20 +617,6 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
         return (Multiplexer) invokeL.objValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void removeMultiplexer(K k, MultiplexProducer<K, T>.Multiplexer multiplexer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, this, k, multiplexer) == null) {
-            synchronized (this) {
-                if (this.mMultiplexers.get(k) == multiplexer) {
-                    this.mMultiplexers.remove(k);
-                }
-            }
-        }
-    }
-
-    public abstract T cloneOrNull(T t);
-
     public abstract K getKey(ProducerContext producerContext);
 
     @Override // com.facebook.imagepipeline.producers.Producer
@@ -612,11 +624,12 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
         boolean z;
         MultiplexProducer<K, T>.Multiplexer existingMultiplexer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, consumer, producerContext) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, consumer, producerContext) == null) {
             try {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("MultiplexProducer#produceResults");
                 }
+                producerContext.getProducerListener().onProducerStart(producerContext, this.mProducerName);
                 K key = getKey(producerContext);
                 do {
                     z = false;
@@ -629,7 +642,7 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
                     }
                 } while (!existingMultiplexer.addNewConsumer(consumer, producerContext));
                 if (z) {
-                    existingMultiplexer.startInputProducerIfHasAttachedConsumers();
+                    existingMultiplexer.startInputProducerIfHasAttachedConsumers(TriState.valueOf(producerContext.isPrefetch()));
                 }
             } finally {
                 if (FrescoSystrace.isTracing()) {
@@ -637,5 +650,38 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
                 }
             }
         }
+    }
+
+    public synchronized void removeMultiplexer(K k, MultiplexProducer<K, T>.Multiplexer multiplexer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, k, multiplexer) == null) {
+            synchronized (this) {
+                if (this.mMultiplexers.get(k) == multiplexer) {
+                    this.mMultiplexers.remove(k);
+                }
+            }
+        }
+    }
+
+    public MultiplexProducer(Producer<T> producer, String str, @ProducerContext.ExtraKeys String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {producer, str, str2, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mInputProducer = producer;
+        this.mMultiplexers = new HashMap();
+        this.mKeepCancelledFetchAsLowPriority = z;
+        this.mProducerName = str;
+        this.mDedupedRequestsCountKey = str2;
     }
 }

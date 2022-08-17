@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.GamePlayServiceData;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
@@ -45,8 +46,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ms4;
 import com.repackage.o25;
 import com.repackage.og;
+import com.repackage.qa7;
 import com.repackage.qi;
-import com.repackage.ra7;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -601,8 +602,8 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
     public void a(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && i == 0) {
-            UrlSchemaJumpHelper.jumpGameGodsPage(this.d, "com.baidu.tieba://unidispatch/GameGodsDetailPage?god_id=" + this.p);
-            ra7.a(this.p);
+            UrlSchemaJumpHelper.jumpGameGodsPage(this.d, "com.baidu.tieba://unidispatch/GameGodsDetailPage?god_id=" + this.p + "&" + BdUniDispatchSchemeController.PARAM_FROM_NATIVE + "=1");
+            qa7.a(this.p);
         }
     }
 
@@ -632,7 +633,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
             super.initPersonalHeader(talkableActivity, z);
             PersonalChatActivity personalChatActivity = (PersonalChatActivity) talkableActivity;
             this.d = personalChatActivity;
-            String string = personalChatActivity.y2() ? talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0431) : talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0ae3);
+            String string = personalChatActivity.y2() ? talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0431) : talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0ae4);
             if (this.d.y2()) {
                 View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0717, talkableActivity);
                 this.mBtnGroupInfo = addCustomView;
@@ -674,14 +675,14 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
                     }
                     this.mBtnGroupInfo.setEnabled(false);
                 }
-                this.mNavigationBar.setCenterTextTitle(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f10));
+                this.mNavigationBar.setCenterTextTitle(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f11));
                 if (!this.d.q2()) {
                     KeyboardLayout keyboardLayout = this.mRootView;
                     NoDataViewFactory.d.a aVar = new NoDataViewFactory.d.a();
                     aVar.i(NoDataViewFactory.ImgType.LOCAL);
                     aVar.h(R.drawable.new_pic_emotion_01);
                     aVar.j(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0702bf));
-                    NoDataView a2 = NoDataViewFactory.a(talkableActivity, keyboardLayout, aVar.f(), NoDataViewFactory.e.d(null, talkableActivity.getString(R.string.obfuscated_res_0x7f0f0c55)), null);
+                    NoDataView a2 = NoDataViewFactory.a(talkableActivity, keyboardLayout, aVar.f(), NoDataViewFactory.e.d(null, talkableActivity.getString(R.string.obfuscated_res_0x7f0f0c56)), null);
                     this.m = a2;
                     a2.setVisibility(0);
                     this.m.f(talkableActivity.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
@@ -727,7 +728,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
             super.onChangeSkinType(i);
             ImageView imageView = this.c;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0809fd, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0809fe, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
             }
             TextView textView = this.b;
             if (textView != null) {
@@ -768,7 +769,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
                 this.a = gamePlayServiceView;
                 this.mTool.addView(gamePlayServiceView, indexOfChild);
                 this.a.c(this);
-                ra7.b(this.p);
+                qa7.b(this.p);
             }
             ViewGroup viewGroup = this.mLayBottom;
             if (viewGroup instanceof BottomInputLayout) {

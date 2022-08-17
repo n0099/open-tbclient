@@ -69,7 +69,7 @@ public class TextAppearance {
             }
         }
         this.fontResolved = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i, new int[]{16842901, 16842902, 16842903, 16842904, 16842906, 16842907, 16843105, 16843106, 16843107, 16843108, 16843692, 16844165, R.attr.obfuscated_res_0x7f0402d8, R.attr.obfuscated_res_0x7f0402e0, R.attr.obfuscated_res_0x7f0406cd, R.attr.obfuscated_res_0x7f0406ef});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i, new int[]{16842901, 16842902, 16842903, 16842904, 16842906, 16842907, 16843105, 16843106, 16843107, 16843108, 16843692, 16844165, R.attr.obfuscated_res_0x7f0402d9, R.attr.obfuscated_res_0x7f0402e1, R.attr.obfuscated_res_0x7f0406cd, R.attr.obfuscated_res_0x7f0406ef});
         this.textSize = obtainStyledAttributes.getDimension(0, 0.0f);
         this.textColor = MaterialResources.getColorStateList(context, obtainStyledAttributes, 3);
         this.textColorHint = MaterialResources.getColorStateList(context, obtainStyledAttributes, 4);

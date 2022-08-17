@@ -39,7 +39,7 @@ public final class d {
                             try {
                                 m mVar = f.a.get(str).get(-262969152);
                                 if (mVar != null) {
-                                    c.C0280c a = c.a(randomAccessFile, mVar);
+                                    c.C0282c a = c.a(randomAccessFile, mVar);
                                     Signature[] a2 = a(new Certificate[][]{a.a});
                                     if (a.b != null) {
                                         int size = a.b.a.size();

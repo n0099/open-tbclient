@@ -192,7 +192,7 @@ public class dt8 extends Thread {
     /* JADX WARN: Type inference failed for: r11v10 */
     /* JADX WARN: Type inference failed for: r11v11 */
     /* JADX WARN: Type inference failed for: r11v2 */
-    /* JADX WARN: Type inference failed for: r11v3, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r11v3, types: [int, boolean] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -443,7 +443,7 @@ public class dt8 extends Thread {
         if (r1 == null) goto L38;
      */
     /* JADX WARN: Code restructure failed: missing block: B:49:0x00b2, code lost:
-        r1.onGenFilterVideoRecordError(233, com.repackage.zm7.a(r0));
+        r1.onGenFilterVideoRecordError(233, com.repackage.ym7.a(r0));
      */
     /* JADX WARN: Removed duplicated region for block: B:103:0x015f A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:104:0x0160  */
@@ -502,7 +502,7 @@ public class dt8 extends Thread {
                 } catch (Exception e4) {
                     bt8.c cVar2 = this.e;
                     if (cVar2 != null) {
-                        cVar2.onGenFilterVideoRecordError(231, zm7.a(e4));
+                        cVar2.onGenFilterVideoRecordError(231, ym7.a(e4));
                         return;
                     }
                     return;
@@ -541,7 +541,7 @@ public class dt8 extends Thread {
                     e = e6;
                     bt8.c cVar3 = this.e;
                     if (cVar3 != null) {
-                        cVar3.onGenFilterVideoRecordError(231, zm7.a(e));
+                        cVar3.onGenFilterVideoRecordError(231, ym7.a(e));
                     }
                 }
             }
@@ -555,7 +555,7 @@ public class dt8 extends Thread {
                     }
                     bt8.c cVar4 = this.e;
                     if (cVar4 != null) {
-                        cVar4.onGenFilterVideoRecordError(232, zm7.a(e7));
+                        cVar4.onGenFilterVideoRecordError(232, ym7.a(e7));
                     }
                 }
             }
@@ -579,7 +579,7 @@ public class dt8 extends Thread {
             try {
                 e.printStackTrace();
                 if ((Build.VERSION.SDK_INT < 21 || !(e instanceof MediaCodec.CodecException) || pi.isEmpty(e.getMessage()) || !e.getMessage().contains("0xfffffff3")) && this.e != null) {
-                    this.e.onGenFilterVideoRecordError(230, zm7.a(e));
+                    this.e.onGenFilterVideoRecordError(230, ym7.a(e));
                 }
                 if (mediaExtractor != null) {
                     try {
@@ -588,7 +588,7 @@ public class dt8 extends Thread {
                         e = e10;
                         bt8.c cVar5 = this.e;
                         if (cVar5 != null) {
-                            cVar5.onGenFilterVideoRecordError(231, zm7.a(e));
+                            cVar5.onGenFilterVideoRecordError(231, ym7.a(e));
                         }
                     }
                 }
@@ -602,7 +602,7 @@ public class dt8 extends Thread {
                         }
                         bt8.c cVar6 = this.e;
                         if (cVar6 != null) {
-                            cVar6.onGenFilterVideoRecordError(232, zm7.a(e11));
+                            cVar6.onGenFilterVideoRecordError(232, ym7.a(e11));
                         }
                     }
                 }
@@ -629,7 +629,7 @@ public class dt8 extends Thread {
                         e = e13;
                         bt8.c cVar7 = this.e;
                         if (cVar7 != null) {
-                            cVar7.onGenFilterVideoRecordError(231, zm7.a(e));
+                            cVar7.onGenFilterVideoRecordError(231, ym7.a(e));
                         }
                     }
                 }
@@ -642,7 +642,7 @@ public class dt8 extends Thread {
                         }
                         bt8.c cVar8 = this.e;
                         if (cVar8 != null) {
-                            cVar8.onGenFilterVideoRecordError(232, zm7.a(e14));
+                            cVar8.onGenFilterVideoRecordError(232, ym7.a(e14));
                         }
                     }
                 }
@@ -653,7 +653,7 @@ public class dt8 extends Thread {
                     } catch (Exception e15) {
                         bt8.c cVar9 = this.e;
                         if (cVar9 != null) {
-                            cVar9.onGenFilterVideoRecordError(233, zm7.a(e15));
+                            cVar9.onGenFilterVideoRecordError(233, ym7.a(e15));
                         }
                     }
                 }

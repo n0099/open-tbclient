@@ -422,7 +422,7 @@ public class fx5 extends Dialog {
             TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091486);
             this.c = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080f34);
+            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080f35);
             this.d = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091487);
             this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091492);
             this.f = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091484);
@@ -531,7 +531,7 @@ public class fx5 extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
             if (StringUtils.isNull(str)) {
-                this.c.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f34), 24, false);
+                this.c.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f35), 24, false);
             } else {
                 this.c.K(str, 10, false);
             }
@@ -573,7 +573,7 @@ public class fx5 extends Dialog {
                                 this.j.setText(R.string.obfuscated_res_0x7f0f0237);
                                 this.j.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060401));
                             } else {
-                                this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f08120f);
+                                this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f081210);
                                 this.j.setTextSize(0, u);
                                 this.j.setText(R.string.obfuscated_res_0x7f0f01f0);
                                 this.j.setTextColor(getContext().getResources().getColor(R.color.cp_bg_line_d_alpha60));
@@ -590,23 +590,23 @@ public class fx5 extends Dialog {
                         this.j.setText(R.string.obfuscated_res_0x7f0f01fc);
                         this.j.setTextColor(getContext().getResources().getColorStateList(R.color.obfuscated_res_0x7f060401));
                     } else {
-                        this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2e);
+                        this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2f);
                         this.j.setTextSize(0, v);
                         this.j.setText(R.string.obfuscated_res_0x7f0f01fc);
                         this.j.setTextColor(getContext().getResources().getColorStateList(R.color.obfuscated_res_0x7f06079a));
                     }
                 } else if (this.k.m()) {
-                    this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2b);
+                    this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2c);
                     this.j.setTextSize(0, v);
                     this.j.setText(R.string.obfuscated_res_0x7f0f01fb);
                     this.j.setTextColor(getContext().getResources().getColorStateList(R.color.obfuscated_res_0x7f060799));
                 } else if (this.k.l()) {
-                    this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2b);
+                    this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2c);
                     this.j.setTextSize(0, v);
                     this.j.setText(R.string.obfuscated_res_0x7f0f01fb);
                     this.j.setTextColor(getContext().getResources().getColorStateList(R.color.obfuscated_res_0x7f060799));
                 } else {
-                    this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2b);
+                    this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2c);
                     this.j.setTextSize(0, v);
                     this.j.setText(R.string.obfuscated_res_0x7f0f01fb);
                     this.j.setTextColor(getContext().getResources().getColorStateList(R.color.obfuscated_res_0x7f060799));
@@ -625,7 +625,7 @@ public class fx5 extends Dialog {
                 this.j.setText(R.string.obfuscated_res_0x7f0f0237);
                 this.j.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060401));
             } else {
-                this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f08120f);
+                this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f081210);
                 this.j.setTextSize(0, u);
                 this.j.setText(R.string.obfuscated_res_0x7f0f01f2);
                 this.j.setTextColor(getContext().getResources().getColor(R.color.cp_bg_line_d_alpha60));

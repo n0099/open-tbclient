@@ -25,18 +25,18 @@ import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class cj1 implements gl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,22 +45,22 @@ public class cj1 implements gl1 {
         public boolean c;
         public String d;
         public vo2 e;
-        public HandlerC0458b f;
+        public HandlerC0460b f;
         public a g;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public class a extends hm2 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public HandlerC0458b a;
+            public HandlerC0460b a;
             public final /* synthetic */ b b;
 
-            public a(b bVar, HandlerC0458b handlerC0458b) {
+            public a(b bVar, HandlerC0460b handlerC0460b) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, handlerC0458b};
+                    Object[] objArr = {bVar, handlerC0460b};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -71,7 +71,7 @@ public class cj1 implements gl1 {
                     }
                 }
                 this.b = bVar;
-                this.a = handlerC0458b;
+                this.a = handlerC0460b;
             }
 
             @Override // com.repackage.hm2, android.app.Application.ActivityLifecycleCallbacks
@@ -83,9 +83,9 @@ public class cj1 implements gl1 {
                             this.a.b.cancel();
                             this.a.b = null;
                         }
-                        HandlerC0458b handlerC0458b = this.a;
-                        if (handlerC0458b != null) {
-                            handlerC0458b.removeMessages(1);
+                        HandlerC0460b handlerC0460b = this.a;
+                        if (handlerC0460b != null) {
+                            handlerC0460b.removeMessages(1);
                             this.a.removeMessages(2);
                             this.a = null;
                         }
@@ -96,14 +96,14 @@ public class cj1 implements gl1 {
         }
 
         /* renamed from: com.repackage.cj1$b$b  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public static class HandlerC0458b extends Handler {
+        /* loaded from: classes6.dex */
+        public static class HandlerC0460b extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public WeakReference<Context> a;
             public Dialog b;
 
-            public /* synthetic */ HandlerC0458b(Context context, a aVar) {
+            public /* synthetic */ HandlerC0460b(Context context, a aVar) {
                 this(context);
             }
 
@@ -137,7 +137,7 @@ public class cj1 implements gl1 {
                 }
             }
 
-            public HandlerC0458b(Context context) {
+            public HandlerC0460b(Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -177,7 +177,7 @@ public class cj1 implements gl1 {
             this.c = yd3.c(bundle, "compressed", false);
             this.d = yd3.g(bundle, "swanTmpPath");
             this.e = vo2Var;
-            this.f = new HandlerC0458b(context, null);
+            this.f = new HandlerC0460b(context, null);
         }
 
         public final void b(MediaModel mediaModel, int i) {
@@ -250,9 +250,9 @@ public class cj1 implements gl1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 e();
-                HandlerC0458b handlerC0458b = this.f;
-                if (handlerC0458b != null) {
-                    handlerC0458b.sendEmptyMessage(1);
+                HandlerC0460b handlerC0460b = this.f;
+                if (handlerC0460b != null) {
+                    handlerC0460b.sendEmptyMessage(1);
                 }
                 if (this.c) {
                     Iterator<MediaModel> it = this.b.iterator();
@@ -283,9 +283,9 @@ public class cj1 implements gl1 {
                         }
                     }
                 }
-                HandlerC0458b handlerC0458b2 = this.f;
-                if (handlerC0458b2 != null) {
-                    handlerC0458b2.sendEmptyMessage(2);
+                HandlerC0460b handlerC0460b2 = this.f;
+                if (handlerC0460b2 != null) {
+                    handlerC0460b2.sendEmptyMessage(2);
                 }
                 vo2 vo2Var = this.e;
                 if (vo2Var != null) {

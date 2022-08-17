@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gj8;
+import com.repackage.fj8;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes4.dex */
 public class LinearVideoLoadingSeekBar extends SeekBar {
@@ -102,7 +102,7 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
             if (i >= width) {
                 this.a = 0;
             }
-            paint.setColor(gj8.a(this.d, width == 0 ? 1.0f : Math.max(255 - ((this.a * 255) / width), 30) / 255.0f));
+            paint.setColor(fj8.a(this.d, width == 0 ? 1.0f : Math.max(255 - ((this.a * 255) / width), 30) / 255.0f));
             paint.setStrokeWidth(this.b);
             float f = width / 2.0f;
             int i2 = this.a;
@@ -189,7 +189,7 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
         this.b = 1;
         this.c = false;
         this.e = new a(this);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040496, R.attr.obfuscated_res_0x7f04056b});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040497, R.attr.obfuscated_res_0x7f04056c});
         this.d = obtainStyledAttributes.getColor(1, -16777216);
         this.b = obtainStyledAttributes.getDimensionPixelSize(0, this.b);
         obtainStyledAttributes.recycle();

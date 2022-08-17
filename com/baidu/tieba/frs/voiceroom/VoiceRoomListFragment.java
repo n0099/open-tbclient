@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.am4;
 import com.repackage.av4;
 import com.repackage.bv4;
-import com.repackage.js6;
+import com.repackage.is6;
 import java.util.List;
 import kotlin.Lazy;
 import kotlin.Metadata;
@@ -53,7 +53,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
     /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final C0213a e;
+        public static final C0214a e;
         public transient /* synthetic */ FieldHolder $fh;
         public final View a;
         public final NavigationBar b;
@@ -62,11 +62,11 @@ public final class VoiceRoomListFragment extends BaseFragment {
 
         /* renamed from: com.baidu.tieba.frs.voiceroom.VoiceRoomListFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static final class C0213a {
+        public static final class C0214a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0213a() {
+            public C0214a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,7 +80,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
                 }
             }
 
-            public /* synthetic */ C0213a(DefaultConstructorMarker defaultConstructorMarker) {
+            public /* synthetic */ C0214a(DefaultConstructorMarker defaultConstructorMarker) {
                 this();
             }
 
@@ -114,7 +114,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
                     return;
                 }
             }
-            e = new C0213a(null);
+            e = new C0214a(null);
         }
 
         public a(View root, NavigationBar navBar, BdSwipeRefreshLayout refreshLayout, RecyclerView voiceRoomList) {
@@ -273,10 +273,10 @@ public final class VoiceRoomListFragment extends BaseFragment {
             }
             VoiceRoomStat voiceRoomStat = VoiceRoomStat.a;
             VoiceRoomStat.StatType statType = VoiceRoomStat.StatType.PAGE_ENTER;
-            f = js6.f(arguments);
-            d = js6.d(arguments);
+            f = is6.f(arguments);
+            d = is6.d(arguments);
             Long valueOf = Long.valueOf(d);
-            e = js6.e(arguments);
+            e = is6.e(arguments);
             voiceRoomStat.c(statType, f, null, null, valueOf, e);
         }
     }
@@ -304,7 +304,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
             bv4 bv4Var = new bv4(getPageContext());
             this.b = bv4Var;
             if (bv4Var != null) {
-                bv4Var.f(new av4.g() { // from class: com.repackage.fs6
+                bv4Var.f(new av4.g() { // from class: com.repackage.es6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -367,9 +367,9 @@ public final class VoiceRoomListFragment extends BaseFragment {
         VoiceRoomListViewModel r1 = r1();
         TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
         Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
-        f = js6.f(arguments);
+        f = is6.f(arguments);
         long callFrom = f.getCallFrom();
-        d = js6.d(arguments);
+        d = is6.d(arguments);
         r1.c(pageContext, callFrom, d);
     }
 

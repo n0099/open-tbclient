@@ -3,6 +3,7 @@ package com.repackage;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
@@ -30,7 +31,7 @@ public class ez6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
     public TbPageContext<?> b;
-    public v07 c;
+    public u07 c;
     public String d;
     public boolean e;
     public un f;
@@ -71,8 +72,8 @@ public class ez6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
                 if (view2 == null || this.b.c == null || n06Var == null || n06Var.getThreadData() == null || StringUtils.isNull(n06Var.getThreadData().getTid())) {
                     return;
                 }
-                if ((view2.getTag() instanceof String) && !yy6.b(og.g(n06Var.getThreadData().getTid(), 0L))) {
-                    yy6.a(og.g(n06Var.getThreadData().getTid(), 0L));
+                if ((view2.getTag() instanceof String) && !xy6.b(og.g(n06Var.getThreadData().getTid(), 0L))) {
+                    xy6.a(og.g(n06Var.getThreadData().getTid(), 0L));
                     this.b.c.e(og.g(n06Var.getThreadData().getTid(), 0L), n06Var.D(), n06Var.r(), n06Var.n(), n06Var.c(), og.e((String) view2.getTag(), 1), "homepage", n06Var.getThreadData().getBaijiahaoData());
                 }
                 this.b.y(view2, n06Var);
@@ -186,10 +187,10 @@ public class ez6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
             dy.b bVar = new dy.b(this.b.getPageActivity(), false);
-            nx nxVar = new nx(this.b.getPageActivity());
-            nxVar.t("index");
-            nxVar.u(this.e);
-            bVar.n(nxVar);
+            qx qxVar = new qx(this.b.getPageActivity());
+            qxVar.r("index");
+            qxVar.s(this.e);
+            bVar.n(qxVar);
             dy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.f);
             k.r(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
@@ -219,8 +220,15 @@ public class ez6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
             threadCardViewHolder.a().p(this.g);
             uz5.b().a(n06Var.B());
             nl5.c().a(n06Var.B());
-            c17.i(n06Var.a, this.a, n06Var.n());
-            c17.h(n06Var.a, n06Var.r(), n06Var.n());
+            qx qxVar = (qx) threadCardViewHolder.a().g();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) qxVar.f.d.getLayoutParams();
+            layoutParams.width = n06Var.j;
+            layoutParams.height = n06Var.k;
+            if (qxVar.f.d.getVisibility() != 8) {
+                qxVar.f.d.setLayoutParams(layoutParams);
+            }
+            b17.i(n06Var.a, this.a, n06Var.n());
+            b17.h(n06Var.a, n06Var.r(), n06Var.n());
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
@@ -234,7 +242,7 @@ public class ez6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
             if (view2.getId() == R.id.obfuscated_res_0x7f09212a || id == R.id.obfuscated_res_0x7f09213e) {
                 TiebaStatic.log(n06Var.A());
                 nl5.c().i("page_recommend", "clk_", n06Var.A());
-                c17.c(n06Var.a, n06Var.r(), n06Var.n(), 1);
+                b17.c(n06Var.a, n06Var.r(), n06Var.n(), 1);
                 i = 1;
             } else {
                 if (id == R.id.obfuscated_res_0x7f092422) {
@@ -252,7 +260,6 @@ public class ez6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
                         StatisticItem statisticItem = new StatisticItem("c10760");
                         statisticItem.param("obj_locate", 2);
                         TiebaStatic.log(statisticItem);
-                        c17.c(n06Var.a, n06Var.r(), n06Var.n(), 1);
                     } else if (id != R.id.obfuscated_res_0x7f090cbc && id != R.id.obfuscated_res_0x7f090cbd) {
                         if (view2 instanceof TbImageView) {
                             if (view2.getTag(R.id.obfuscated_res_0x7f090cba) instanceof Integer) {
@@ -262,7 +269,7 @@ public class ez6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
                             }
                             TiebaStatic.log(n06Var.P());
                             nl5.c().i("page_recommend", "clk_", n06Var.P());
-                            c17.c(n06Var.a, n06Var.r(), n06Var.n(), 2);
+                            b17.c(n06Var.a, n06Var.r(), n06Var.n(), 2);
                         } else {
                             i = 0;
                         }
@@ -276,15 +283,15 @@ public class ez6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
                 i = 2;
             }
             if (i != 0) {
-                c17.d(n06Var.a, this.a, n06Var.n(), i);
+                b17.d(n06Var.a, this.a, n06Var.n(), i);
             }
         }
     }
 
-    public void z(v07 v07Var) {
+    public void z(u07 u07Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v07Var) == null) {
-            this.c = v07Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, u07Var) == null) {
+            this.c = u07Var;
         }
     }
 }

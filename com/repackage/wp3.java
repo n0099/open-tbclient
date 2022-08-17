@@ -32,7 +32,7 @@ public class wp3 {
 
         /* renamed from: com.repackage.wp3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0609a extends ResponseCallback<AdResponseInfo> {
+        public class C0612a extends ResponseCallback<AdResponseInfo> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -40,18 +40,18 @@ public class wp3 {
 
             /* renamed from: com.repackage.wp3$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class RunnableC0610a implements Runnable {
+            public class RunnableC0613a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AdElementInfo a;
-                public final /* synthetic */ C0609a b;
+                public final /* synthetic */ C0612a b;
 
-                public RunnableC0610a(C0609a c0609a, AdElementInfo adElementInfo) {
+                public RunnableC0613a(C0612a c0612a, AdElementInfo adElementInfo) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0609a, adElementInfo};
+                        Object[] objArr = {c0612a, adElementInfo};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -61,7 +61,7 @@ public class wp3 {
                             return;
                         }
                     }
-                    this.b = c0609a;
+                    this.b = c0612a;
                     this.a = adElementInfo;
                 }
 
@@ -75,7 +75,7 @@ public class wp3 {
                 }
             }
 
-            public C0609a(a aVar) {
+            public C0612a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,7 +121,7 @@ public class wp3 {
                         }
                         this.b.c.g(errorCode);
                     } else {
-                        nq3.c(new RunnableC0610a(this, adResponseInfo.getPrimaryAdInstanceInfo()));
+                        nq3.c(new RunnableC0613a(this, adResponseInfo.getPrimaryAdInstanceInfo()));
                     }
                 }
             }
@@ -192,7 +192,7 @@ public class wp3 {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bq3Var = this.a) == null || bq3Var.i == null) {
                 return;
             }
-            C0609a c0609a = new C0609a(this);
+            C0612a c0612a = new C0612a(this);
             if (NetworkUtils.f(this.c.a)) {
                 if (this.c.c) {
                     bq3 bq3Var2 = this.a;
@@ -201,7 +201,7 @@ public class wp3 {
                         if (this.b == null || cq3Var.i() == null) {
                             return;
                         }
-                        this.b.a(cq3Var.g(), cq3Var.i(), c0609a);
+                        this.b.a(cq3Var.g(), cq3Var.i(), c0612a);
                         return;
                     }
                 }
@@ -209,7 +209,7 @@ public class wp3 {
                 String g = this.a.g();
                 pp3 pp3Var = this.b;
                 if (pp3Var != null) {
-                    pp3Var.f(g, c0609a);
+                    pp3Var.f(g, c0612a);
                 }
                 this.c.j(this.a, "request", this.b);
                 return;

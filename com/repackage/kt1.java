@@ -21,7 +21,7 @@ public class kt1 extends jt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public vu9 c;
+    public xu9 c;
 
     /* loaded from: classes6.dex */
     public class a implements sf3<c63<e63.e>> {
@@ -164,7 +164,7 @@ public class kt1 extends jt1 {
                 return false;
             }
             tt1 tt1Var = (tt1) r(unitedSchemeEntity);
-            vu9 w = new yw1(context, tt1Var).w();
+            xu9 w = new yw1(context, tt1Var).w();
             this.c = w;
             if (w == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -186,12 +186,12 @@ public class kt1 extends jt1 {
                 String str = tt1Var.b;
                 fr2 fr2Var = tt1Var.h;
                 if (!TextUtils.isEmpty(str) && fr2Var != null && fr2Var.h()) {
-                    vu9 vu9Var = this.c;
-                    if (vu9Var == null) {
+                    xu9 xu9Var = this.c;
+                    if (xu9Var == null) {
                         sx1.a("SwanAppCameraManager", "executionInstruction with a null subscriber");
                         return false;
                     }
-                    vu9Var.onCompleted();
+                    xu9Var.onCompleted();
                     zx1.i("SwanAppCameraManager", "handle insert camera instruction end");
                     return true;
                 }

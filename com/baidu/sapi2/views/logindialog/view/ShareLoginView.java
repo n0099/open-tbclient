@@ -303,7 +303,7 @@ public class ShareLoginView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.e.setTextColor(Color.parseColor("#CCFFFFFF"));
             this.f.setTextColor(Color.parseColor("#80FFFFFF"));
-            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e76));
+            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e77));
         }
     }
 }

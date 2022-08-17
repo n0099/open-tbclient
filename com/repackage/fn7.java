@@ -1,25 +1,27 @@
 package com.repackage;
 /* loaded from: classes6.dex */
 public interface fn7 {
-    void a(int i, String str);
+    void a(long j, long j2, long j3);
 
-    void b(int i, String str);
+    void b(boolean z);
 
-    void c();
+    void c(boolean z, boolean z2);
 
-    void d();
+    boolean d(String str, String str2);
 
-    void e(String str);
+    String e(String str, String str2);
 
-    void f(int i, int i2, String str);
+    void f();
 
-    void g();
+    void g(long j, int i);
 
-    void h(int i, String str);
+    void h(int i);
 
-    void i(int i, String str);
+    void i(int i);
 
     void j();
 
-    void k(String str);
+    void k(String str, String str2);
+
+    void l(int i);
 }

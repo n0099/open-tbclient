@@ -27,12 +27,12 @@ public class mb2 {
 
         /* renamed from: com.repackage.mb2$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0522a implements sf3<Exception> {
+        public class C0524a implements sf3<Exception> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0522a(a aVar) {
+            public C0524a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +100,7 @@ public class mb2 {
                     return;
                 }
                 zx1.k("SwanAppCoresManager", "ensureSwanCore: update preset failed ");
-                ea3.o(this.b, new C0522a(this));
+                ea3.o(this.b, new C0524a(this));
             }
         }
     }

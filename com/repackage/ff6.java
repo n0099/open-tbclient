@@ -226,7 +226,7 @@ public class ff6 {
                 f();
                 this.a.setContentView(inflate);
                 this.a.setPositiveButton(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0745), new b(this, str, str2));
-                this.a.setNegativeButton(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0c48), new c(this));
+                this.a.setNegativeButton(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0c49), new c(this));
                 this.a.create(tbPageContext).show();
             }
         }

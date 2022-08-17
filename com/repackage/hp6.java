@@ -194,9 +194,9 @@ public class hp6 extends ep6 {
             pv4 pv4Var2 = new pv4();
             pv4Var2.u(R.color.CAM_X0105);
             pv4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds39));
-            pv4Var2.i(R.drawable.obfuscated_res_0x7f080938, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            pv4Var2.i(R.drawable.obfuscated_res_0x7f080939, 0, TBSpecificationButtonConfig.IconType.WEBP);
             this.e.setConfig(pv4Var2);
-            this.e.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f117a));
+            this.e.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f117c));
         }
     }
 }

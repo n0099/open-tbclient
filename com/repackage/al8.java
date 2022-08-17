@@ -1,26 +1,31 @@
 package com.repackage;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.App;
 /* loaded from: classes5.dex */
-public class al8 {
+public class al8 extends PostData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
-    public boolean d;
-    public String e;
-    public Object f;
-    public AgreeData g;
-    public int h;
-    public int i;
+    public AdvertAppInfo T0;
+    public boolean U0;
+    public String V0;
+    public String W0;
+    public String X0;
+    public long Y0;
+    public int Z0;
+    public boolean a1;
+    public int b1;
+    public int c1;
 
     public al8() {
         Interceptable interceptable = $ic;
@@ -35,126 +40,113 @@ public class al8 {
                 return;
             }
         }
-        this.c = false;
-        this.d = false;
-        this.e = "";
-        this.i = 0;
+        this.U0 = false;
     }
 
-    public int a() {
+    public AdvertAppInfo getAdvertAppInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.T0 : (AdvertAppInfo) invokeV.objValue;
     }
 
-    public AgreeData b() {
+    public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (AgreeData) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public Object e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : invokeV.intValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.h = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.T0;
+            if (advertAppInfo == null) {
+                return 0;
+            }
+            return og.e(advertAppInfo.f, 0);
         }
+        return invokeV.intValue;
     }
 
-    public void k(AgreeData agreeData) {
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.repackage.on
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        AdvertAppInfo advertAppInfo;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, agreeData) == null) {
-            this.g = agreeData;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!rn4.c().g() && (advertAppInfo = this.T0) != null && (iLegoAdvert = advertAppInfo.h) != null && !iLegoAdvert.isNoPicAd()) {
+                return AdvertAppInfo.x;
+            }
+            if (UbsABTestHelper.isPbPageBannerFunAdSdkTest() && this.U0) {
+                return AdvertAppInfo.x;
+            }
+            AdvertAppInfo advertAppInfo2 = this.T0;
+            if (advertAppInfo2 != null && advertAppInfo2.h != null) {
+                int i = advertAppInfo2.c;
+                if (i != 1001 && i != -1001) {
+                    if (l1() != null) {
+                        return AdvertAppInfo.z;
+                    }
+                    return null;
+                }
+                return AdvertAppInfo.x;
+            }
+            return AdvertAppInfo.x;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void l(String str) {
+    public String i1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.e = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.T0;
+            return advertAppInfo == null ? "" : advertAppInfo.g;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void m(String str) {
+    public String j1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.T0;
+            return advertAppInfo == null ? "" : advertAppInfo.a;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void n(boolean z) {
+    public String k1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.c = z;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.U0 ? "PB_BANNER" : this.a1 ? "VIDEO_PB" : "PB" : (String) invokeV.objValue;
+    }
+
+    public AdvertAppInfo.ILegoAdvert l1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.T0;
+            if (advertAppInfo == null) {
+                return null;
+            }
+            return advertAppInfo.h;
         }
+        return (AdvertAppInfo.ILegoAdvert) invokeV.objValue;
     }
 
-    public void o(Object obj) {
+    public boolean m1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, obj) == null) {
-            this.f = obj;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.T0;
+            return advertAppInfo != null && advertAppInfo.n() == 0;
         }
+        return invokeV.booleanValue;
     }
 
-    public void p(boolean z) {
+    public void n1(App app) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.i = i;
-        }
-    }
-
-    public void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, app) == null) {
+            AdvertAppInfo advertAppInfo = new AdvertAppInfo();
+            this.T0 = advertAppInfo;
+            advertAppInfo.s(app);
+            this.T0.j = k1();
         }
     }
 }

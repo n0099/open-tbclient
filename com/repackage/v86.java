@@ -106,12 +106,12 @@ public class v86 implements EnterForumAdView.c {
 
         /* renamed from: com.repackage.v86$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0598a implements Runnable {
+        public class RunnableC0601a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0598a(a aVar) {
+            public RunnableC0601a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -162,7 +162,7 @@ public class v86 implements EnterForumAdView.c {
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.P) {
                 return;
             }
-            dj8.g().j(this.a.b.getUniqueId());
+            cj8.g().j(this.a.b.getUniqueId());
             if (this.a.B != null) {
                 this.a.A = false;
                 this.a.B.e(z);
@@ -177,7 +177,7 @@ public class v86 implements EnterForumAdView.c {
                     this.a.p0();
                     return;
                 }
-                rg.a().post(new RunnableC0598a(this));
+                rg.a().post(new RunnableC0601a(this));
             }
         }
     }
@@ -804,12 +804,12 @@ public class v86 implements EnterForumAdView.c {
 
             /* renamed from: com.repackage.v86$n$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class RunnableC0599a implements Runnable {
+            public class RunnableC0602a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0599a(a aVar) {
+                public RunnableC0602a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -872,7 +872,7 @@ public class v86 implements EnterForumAdView.c {
                     this.a.a.c.z();
                     this.a.a.d.z();
                     this.a.a.c.C(0, -this.a.a.c.p(), 0, 0);
-                    rg.a().postDelayed(new RunnableC0599a(this), 0L);
+                    rg.a().postDelayed(new RunnableC0602a(this), 0L);
                     this.a.a.d.setVisibility(0);
                 }
             }
@@ -1524,7 +1524,7 @@ public class v86 implements EnterForumAdView.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            t66 t66Var = new t66(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fa6), false, true);
+            t66 t66Var = new t66(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fa7), false, true);
             t66Var.g = R.dimen.M_W_X004;
             t66Var.h = R.dimen.tbds112;
             t66Var.j = R.dimen.M_W_X005;
@@ -1825,7 +1825,7 @@ public class v86 implements EnterForumAdView.c {
             boolean z3 = !ListUtils.isEmpty(list);
             if (!TbadkCoreApplication.isLogin()) {
                 p66 p66Var = new p66();
-                p66Var.setTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b43));
+                p66Var.setTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b44));
                 p66Var.h();
                 arrayList.add(p66Var);
             } else {
@@ -1833,7 +1833,7 @@ public class v86 implements EnterForumAdView.c {
                 dp4Var.f(4);
                 arrayList.add(dp4Var);
                 if (z3) {
-                    t66 t66Var = new t66(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b4d), z2, false);
+                    t66 t66Var = new t66(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b4e), z2, false);
                     v66 v66Var = new v66();
                     v66Var.d = t66Var;
                     v66Var.e = list;

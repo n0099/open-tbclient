@@ -113,9 +113,9 @@ public class VideoContainerManager extends ow1<VideoHolderWrapper, tp2> {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 ImageView imageView = new ImageView(this.d.i);
                 this.b = imageView;
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f0811a9);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f0811aa);
                 this.b.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f08119f);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811a0);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 17;
                 addView(this.b, layoutParams);

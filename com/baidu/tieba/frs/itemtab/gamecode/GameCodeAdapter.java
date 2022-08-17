@@ -173,7 +173,7 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
                     this.c.setText(gameCodeList.claimed_value);
                     pv4 pv4Var2 = new pv4();
                     pv4Var2.p(R.color.CAM_X0302, R.color.CAM_X0101);
-                    pv4Var2.i(R.drawable.obfuscated_res_0x7f080921, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                    pv4Var2.i(R.drawable.obfuscated_res_0x7f080922, 0, TBSpecificationButtonConfig.IconType.WEBP);
                     this.d.setConfig(pv4Var2);
                     this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f044d));
                     this.d.setClickState(true);
@@ -190,9 +190,9 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
                     this.d.setOnClickListener(null);
                 }
                 if (gameCodeList.type.intValue() == 1) {
-                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f0808fc, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f0808fd, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 } else if (gameCodeList.type.intValue() == 2) {
-                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f08093b, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f08093c, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 }
             }
         }
@@ -211,9 +211,9 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 if (this.e.type.intValue() == 1) {
-                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f0808fc, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f0808fd, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 } else if (this.e.type.intValue() == 2) {
-                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f08093b, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f08093c, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 }
                 ms4 d = ms4.d(this.b);
                 d.v(R.color.CAM_X0105);

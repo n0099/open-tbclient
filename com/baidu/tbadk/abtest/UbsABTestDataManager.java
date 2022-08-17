@@ -25,7 +25,6 @@ import com.baidu.tbadk.abtest.group.ImageViewerABTest;
 import com.baidu.tbadk.abtest.group.InduceSharingABTest;
 import com.baidu.tbadk.abtest.group.LaunchUpABTest;
 import com.baidu.tbadk.abtest.group.PbSubABTest;
-import com.baidu.tbadk.abtest.group.PreShowPersonViewABTest;
 import com.baidu.tbadk.abtest.group.PushOpenUbsABTest;
 import com.baidu.tbadk.abtest.group.RecommendBarUbsABTest;
 import com.baidu.tbadk.abtest.group.RecommendCardInterestABTest;
@@ -198,7 +197,6 @@ public class UbsABTestDataManager {
             registerABTestGroup(new BdNetABTest());
             registerABTestGroup(new HttpsABTest());
             registerABTestGroup(new HomeRecommendLoadMoreTest());
-            registerABTestGroup(new PreShowPersonViewABTest());
             registerABTestGroup(new HomeLiveTabAbTest());
             registerABTestGroup(new PushOpenUbsABTest());
         }

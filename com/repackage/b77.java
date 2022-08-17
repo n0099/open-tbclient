@@ -1,22 +1,27 @@
 package com.repackage;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.util.ChatStatusManager;
+import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.PushMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.x67;
+import com.repackage.w67;
+import java.util.Iterator;
 import java.util.LinkedList;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class b77 {
@@ -24,7 +29,7 @@ public class b77 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements x67.c {
+    public static class a implements w67.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,104 +47,185 @@ public class b77 {
             }
         }
 
-        @Override // com.repackage.x67.c
+        @Override // com.repackage.w67.c
         public boolean a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(0) && str.equals(ChatStatusManager.getInst().getCurId(0));
+                return true;
             }
             return invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class b implements x67.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.x67.a
-        public boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, chatMessage, imMessageCenterPojo)) == null) {
-                if (chatMessage == null || chatMessage.getMsgType() != 22) {
-                    return false;
-                }
-                if (ua7.v(chatMessage)) {
-                    return true;
-                }
-                long a = b77.a(chatMessage);
-                if (a > imMessageCenterPojo.getRead_msgId()) {
-                    imMessageCenterPojo.setRead_msgId(a);
-                }
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    public static long a(ChatMessage chatMessage) {
+    public static GroupNewsPojo a(ChatMessage chatMessage) {
         InterceptResult invokeL;
-        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatMessage)) == null) {
-            if (chatMessage != null) {
-                if (chatMessage.getMsgType() == 22) {
-                    try {
-                        String content = chatMessage.getContent();
-                        if (TextUtils.isEmpty(content)) {
-                            return -1L;
-                        }
-                        JSONObject jSONObject = new JSONObject(content);
-                        String optString = jSONObject.optString(TbEnum.SystemMessage.KEY_EVENT_ID);
-                        if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong(TbEnum.SystemMessage.KEY_GROUP_ID) != f97.j.longValue()) {
-                            return -1L;
-                        }
-                    } catch (Exception unused) {
-                        return -1L;
-                    }
-                }
-                return ta7.a(optJSONObject.optLong("readMsgId"));
+            String content = chatMessage.getContent();
+            if (TextUtils.isEmpty(content)) {
+                return null;
             }
-            return -1L;
+            try {
+                if (content.startsWith(PreferencesUtil.LEFT_MOUNT)) {
+                    return null;
+                }
+                String optString = new JSONObject(content).optString(TbEnum.SystemMessage.KEY_EVENT_ID);
+                if (TextUtils.isEmpty(optString)) {
+                    return null;
+                }
+                GroupNewsPojo groupNewsPojo = new GroupNewsPojo(chatMessage, optString);
+                groupNewsPojo.setOriginalPushMsg(chatMessage);
+                return groupNewsPojo;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
+            }
         }
-        return invokeL.longValue;
+        return (GroupNewsPojo) invokeL.objValue;
     }
 
-    public static void b(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, x67.b bVar) {
+    public static LinkedList<GroupNewsPojo> b(LinkedList<ChatMessage> linkedList) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
-            x67.e(groupMsgData, imMessageCenterPojo, bVar, new a(), ChatStatusManager.getInst().getIsOpen(5), new b());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, linkedList)) == null) {
+            if (linkedList == null || linkedList.size() == 0) {
+                return null;
+            }
+            LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
+            Iterator<ChatMessage> it = linkedList.iterator();
+            while (it.hasNext()) {
+                GroupNewsPojo a2 = a(it.next());
+                if (a2 != null) {
+                    linkedList2.add(a2);
+                }
+            }
+            return linkedList2;
+        }
+        return (LinkedList) invokeL.objValue;
+    }
+
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
+        String optString;
+        String optString2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return "";
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str2);
+                String optString3 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG);
+                JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
+                if (!str.equals("apply_join_group")) {
+                    return "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change".contains(str) ? optString3 : "";
+                }
+                if (true != jSONObject.isNull("notice_id")) {
+                    optString = jSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID);
+                    String optString4 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
+                    optString2 = jSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_NAME);
+                    str3 = optString4;
+                } else if (optJSONObject != null) {
+                    optString = optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID);
+                    str3 = optJSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
+                    optString2 = optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_NAME);
+                } else {
+                    optString = "";
+                    optString2 = optString;
+                    str3 = optString2;
+                }
+                ImMessageCenterPojo i = l87.o().i(optString, 1);
+                if (i != null) {
+                    optString2 = i.getGroup_name();
+                }
+                if (TextUtils.isEmpty(optString2) || TextUtils.isEmpty(str3)) {
+                    return "";
+                }
+                return str3 + TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f14f5) + optString2;
+            } catch (Exception e) {
+                BdLog.detailException(e);
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? !TextUtils.isEmpty(str) && "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change".contains(str) : invokeL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? !TextUtils.isEmpty(str) && str.equals("apply_join_group") : invokeL.booleanValue;
+    }
+
+    public static void f(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, w67.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
+            w67.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
         }
     }
 
-    public static void c(GroupMsgData groupMsgData) {
-        LinkedList<ChatMessage> listMessage;
+    public static void g(GroupMsgData groupMsgData) {
+        LinkedList<GroupNewsPojo> b;
+        PushMessage newInstance;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, groupMsgData) == null) || groupMsgData == null || (listMessage = groupMsgData.getListMessage()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, null, groupMsgData) == null) || (b = b(groupMsgData.getListMessage())) == null || b.isEmpty()) {
             return;
         }
-        for (int i = 0; i < listMessage.size(); i++) {
-            try {
-                if (new JSONObject(listMessage.get(i).getContent()).optString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_CYBER_VIOLENCE)) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_CYBER_VIOLENCE_MESSAGE_RECEIVER_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()));
+        LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
+        Iterator<GroupNewsPojo> it = b.iterator();
+        GroupNewsPojo groupNewsPojo = null;
+        GroupNewsPojo groupNewsPojo2 = null;
+        long j = 0;
+        while (it.hasNext()) {
+            GroupNewsPojo next = it.next();
+            if (!TextUtils.isEmpty(next.getNotice_id())) {
+                long parseLong = Long.parseLong(next.getNotice_id());
+                if (parseLong > j) {
+                    j = parseLong;
                 }
-            } catch (Exception unused) {
+                if (d(next.getCmd())) {
+                    linkedList.add(next);
+                    if (groupNewsPojo2 == null || parseLong > Long.parseLong(groupNewsPojo2.getNotice_id())) {
+                        groupNewsPojo2 = next;
+                    }
+                } else if (e(next.getCmd())) {
+                    linkedList.add(next);
+                    if (groupNewsPojo == null || parseLong > Long.parseLong(groupNewsPojo.getNotice_id())) {
+                        groupNewsPojo = next;
+                    }
+                }
+            }
+        }
+        o77.f().m(linkedList);
+        ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
+        imMessageCenterPojo.setGid(String.valueOf(groupMsgData.getGroupInfo().getGroupId()));
+        imMessageCenterPojo.setIs_hidden(1);
+        imMessageCenterPojo.setCustomGroupType(-2);
+        imMessageCenterPojo.setPulled_msgId(j);
+        u77.f().k(imMessageCenterPojo);
+        if (groupNewsPojo != null) {
+            ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
+            imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.GROUP_VALIDATION);
+            imMessageCenterPojo2.setCustomGroupType(-4);
+            imMessageCenterPojo2.setUnread_count(1);
+            imMessageCenterPojo2.setLast_rid(og.g(groupNewsPojo.getNotice_id(), 0L));
+            imMessageCenterPojo2.setLast_content_time(groupNewsPojo.getTime());
+            imMessageCenterPojo2.setLast_content(groupNewsPojo.getContent());
+            imMessageCenterPojo2.setIs_hidden(0);
+            u77.f().l(imMessageCenterPojo2, 2);
+        }
+        Iterator<GroupNewsPojo> it2 = b.iterator();
+        while (it2.hasNext()) {
+            GroupNewsPojo next2 = it2.next();
+            if (next2 != null && (newInstance = PushMessage.newInstance(next2)) != null) {
+                MessageManager.getInstance().dispatchResponsedMessageToUI(newInstance);
             }
         }
     }

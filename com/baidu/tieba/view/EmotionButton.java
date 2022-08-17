@@ -261,7 +261,7 @@ public class EmotionButton extends View {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040269, R.attr.obfuscated_res_0x7f0406cb});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04026a, R.attr.obfuscated_res_0x7f0406cb});
         this.n = obtainStyledAttributes.getString(1);
         this.o = obtainStyledAttributes.getDimension(0, qi.f(context, R.dimen.tbds44));
         obtainStyledAttributes.recycle();
@@ -287,7 +287,7 @@ public class EmotionButton extends View {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040269, R.attr.obfuscated_res_0x7f0406cb});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04026a, R.attr.obfuscated_res_0x7f0406cb});
         this.n = obtainStyledAttributes.getString(1);
         this.o = obtainStyledAttributes.getDimension(0, qi.f(context, R.dimen.tbds44));
         obtainStyledAttributes.recycle();

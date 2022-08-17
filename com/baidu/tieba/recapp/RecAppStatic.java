@@ -17,14 +17,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ac8;
 import com.repackage.am5;
-import com.repackage.bc8;
-import com.repackage.hb8;
-import com.repackage.jb8;
+import com.repackage.gb8;
+import com.repackage.ib8;
 import com.repackage.jk5;
-import com.repackage.lb8;
-import com.repackage.nb8;
-import com.repackage.zb8;
+import com.repackage.kb8;
+import com.repackage.mb8;
+import com.repackage.yb8;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,7 +34,7 @@ public class RecAppStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a implements nb8.a {
+    public static class a implements mb8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,7 +52,7 @@ public class RecAppStatic {
             }
         }
 
-        @Override // com.repackage.nb8.a
+        @Override // com.repackage.mb8.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -142,19 +142,19 @@ public class RecAppStatic {
                 return;
             }
         }
-        zb8.a.set(new bc8());
+        yb8.a.set(new ac8());
         TbadkCoreApplication.getInst().setRecAppExist(true);
         am5.l().e(new a());
-        jk5.b().c(1, new lb8());
-        jk5.b().c(2, new jb8());
+        jk5.b().c(1, new kb8());
+        jk5.b().c(2, new ib8());
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(AdWebVideoActivityConfig.class, AdWebVideoActivity.class);
         b bVar = new b(inst);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.tieba.baidu.notifyprocess");
         inst.registerReceiver(bVar, intentFilter);
-        hb8.t().b();
-        hb8.t().f();
+        gb8.t().b();
+        gb8.t().f();
     }
 
     public RecAppStatic() {

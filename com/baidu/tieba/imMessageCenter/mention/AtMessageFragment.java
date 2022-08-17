@@ -31,14 +31,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jc7;
+import com.repackage.ic7;
 import com.repackage.og;
 import com.repackage.on;
 import com.repackage.qi;
-import com.repackage.sc7;
-import com.repackage.ub7;
+import com.repackage.rc7;
+import com.repackage.tb7;
+import com.repackage.vb7;
 import com.repackage.wb7;
-import com.repackage.xb7;
 import com.repackage.yn;
 import com.repackage.zn;
 import java.util.ArrayList;
@@ -47,7 +47,7 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AtMeModelController a;
-    public ub7 b;
+    public tb7 b;
     public ViewGroup c;
     public int d;
     public boolean e;
@@ -253,33 +253,33 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
         @Override // com.repackage.yn
         public void b(View view2, on onVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, onVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (onVar instanceof jc7)) {
-                jc7 jc7Var = (jc7) onVar;
-                if (jc7Var.F()) {
-                    jc7Var.K(false);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, onVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (onVar instanceof ic7)) {
+                ic7 ic7Var = (ic7) onVar;
+                if (ic7Var.F()) {
+                    ic7Var.K(false);
                     if (this.a.b != null) {
                         this.a.b.W();
                     }
                 }
-                if (jc7Var.isBjh()) {
-                    if (jc7Var.H()) {
-                        this.a.D1(jc7Var);
+                if (ic7Var.isBjh()) {
+                    if (ic7Var.H()) {
+                        this.a.D1(ic7Var);
                     } else {
-                        this.a.C1(jc7Var);
+                        this.a.C1(ic7Var);
                     }
-                } else if (jc7Var.H()) {
-                    this.a.E1(jc7Var);
-                } else if (jc7Var.getThreadType() == 40) {
-                    this.a.I1(jc7Var, true);
+                } else if (ic7Var.H()) {
+                    this.a.E1(ic7Var);
+                } else if (ic7Var.getThreadType() == 40) {
+                    this.a.I1(ic7Var, true);
                 } else {
-                    this.a.G1(jc7Var);
+                    this.a.G1(ic7Var);
                 }
-                sc7.a(jc7Var, 11);
-                if (jc7Var != null) {
+                rc7.a(ic7Var, 11);
+                if (ic7Var != null) {
                     StatisticItem statisticItem = new StatisticItem("c13720");
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.param("tid", jc7Var.E());
-                    statisticItem.param("fname", jc7Var.c());
+                    statisticItem.param("tid", ic7Var.E());
+                    statisticItem.param("fname", ic7Var.c());
                     statisticItem.param("obj_type", 3);
                     TiebaStatic.log(statisticItem);
                 }
@@ -297,7 +297,7 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
         public final /* synthetic */ AtMessageFragment a;
 
         /* loaded from: classes3.dex */
-        public class a implements xb7.c {
+        public class a implements wb7.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
@@ -322,7 +322,7 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
                 this.a = i;
             }
 
-            @Override // com.repackage.xb7.c
+            @Override // com.repackage.wb7.c
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -355,17 +355,17 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view2, onVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-                if (onVar instanceof jc7) {
-                    jc7 jc7Var = (jc7) onVar;
-                    wb7 wb7Var = new wb7();
-                    wb7Var.a = 2;
-                    wb7Var.b = og.g(jc7Var.E(), 0L);
-                    wb7Var.c = og.g(jc7Var.t(), 0L);
-                    wb7Var.d = jc7Var.getBaijiahaoData() != null ? jc7Var.getBaijiahaoData().oriUgcNid : "";
-                    xb7 xb7Var = new xb7(this.a.getPageContext());
-                    xb7Var.g(wb7Var);
-                    xb7Var.h(new a(this, i));
-                    xb7Var.i();
+                if (onVar instanceof ic7) {
+                    ic7 ic7Var = (ic7) onVar;
+                    vb7 vb7Var = new vb7();
+                    vb7Var.a = 2;
+                    vb7Var.b = og.g(ic7Var.E(), 0L);
+                    vb7Var.c = og.g(ic7Var.t(), 0L);
+                    vb7Var.d = ic7Var.getBaijiahaoData() != null ? ic7Var.getBaijiahaoData().oriUgcNid : "";
+                    wb7 wb7Var = new wb7(this.a.getPageContext());
+                    wb7Var.g(vb7Var);
+                    wb7Var.h(new a(this, i));
+                    wb7Var.i();
                     return true;
                 }
                 return false;
@@ -403,93 +403,93 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
         }
     }
 
-    public final void C1(jc7 jc7Var) {
+    public final void C1(ic7 ic7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jc7Var) == null) || jc7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ic7Var) == null) || ic7Var == null) {
             return;
         }
-        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(jc7Var.E(), jc7Var.t(), "mention", false, jc7Var.A() == null ? "" : jc7Var.A().getUserName(), false, jc7Var.t(), 0);
+        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(ic7Var.E(), ic7Var.t(), "mention", false, ic7Var.A() == null ? "" : ic7Var.A().getUserName(), false, ic7Var.t(), 0);
         createSubPbActivityConfig.setKeyPageStartFrom(13);
-        createSubPbActivityConfig.setBjhData(jc7Var.getBaijiahaoData());
-        createSubPbActivityConfig.setHighLightPostId(jc7Var.t());
+        createSubPbActivityConfig.setBjhData(ic7Var.getBaijiahaoData());
+        createSubPbActivityConfig.setHighLightPostId(ic7Var.t());
         createSubPbActivityConfig.setKeyOriUgcTopPid("0");
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
     }
 
-    public final void D1(jc7 jc7Var) {
+    public final void D1(ic7 ic7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jc7Var) == null) || jc7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ic7Var) == null) || ic7Var == null) {
             return;
         }
-        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(jc7Var.E(), jc7Var.w(), "mention", false, jc7Var.A() == null ? "" : jc7Var.A().getUserName(), false, jc7Var.w(), 0);
+        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(ic7Var.E(), ic7Var.w(), "mention", false, ic7Var.A() == null ? "" : ic7Var.A().getUserName(), false, ic7Var.w(), 0);
         createSubPbActivityConfig.setKeyPageStartFrom(13);
-        createSubPbActivityConfig.setBjhData(jc7Var.getBaijiahaoData());
-        createSubPbActivityConfig.setHighLightPostId(jc7Var.t());
-        createSubPbActivityConfig.setKeyOriUgcTopPid(jc7Var.t());
+        createSubPbActivityConfig.setBjhData(ic7Var.getBaijiahaoData());
+        createSubPbActivityConfig.setHighLightPostId(ic7Var.t());
+        createSubPbActivityConfig.setKeyOriUgcTopPid(ic7Var.t());
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
     }
 
-    public void E1(jc7 jc7Var) {
+    public void E1(ic7 ic7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jc7Var) == null) {
-            F1(jc7Var, null);
+        if (interceptable == null || interceptable.invokeL(1048579, this, ic7Var) == null) {
+            F1(ic7Var, null);
         }
     }
 
-    public void F1(jc7 jc7Var, @Nullable String str) {
+    public void F1(ic7 ic7Var, @Nullable String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, jc7Var, str) == null) || jc7Var == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, ic7Var, str) == null) || ic7Var == null) {
             return;
         }
         if (str == null) {
-            str = jc7Var.t();
+            str = ic7Var.t();
         }
-        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getPageContext().getContext()).createSubPbActivityConfig(jc7Var.E(), "", "mention", false, jc7Var.A() == null ? "" : jc7Var.A().getUserName(), false, str, 0);
+        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getPageContext().getContext()).createSubPbActivityConfig(ic7Var.E(), "", "mention", false, ic7Var.A() == null ? "" : ic7Var.A().getUserName(), false, str, 0);
         createSubPbActivityConfig.setKeyPageStartFrom(13);
         createSubPbActivityConfig.setHighLightPostId(str);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
     }
 
-    public void G1(jc7 jc7Var) {
+    public void G1(ic7 ic7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jc7Var) == null) {
-            H1(jc7Var, null);
+        if (interceptable == null || interceptable.invokeL(1048581, this, ic7Var) == null) {
+            H1(ic7Var, null);
         }
     }
 
-    public void H1(jc7 jc7Var, @Nullable String str) {
+    public void H1(ic7 ic7Var, @Nullable String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, jc7Var, str) == null) || jc7Var == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, ic7Var, str) == null) || ic7Var == null) {
             return;
         }
         if (str == null) {
-            str = jc7Var.t();
+            str = ic7Var.t();
         }
-        PbActivityConfig createNormalCfg = new PbActivityConfig(getPageContext().getContext()).createNormalCfg(jc7Var.E(), str, 1, "mention");
+        PbActivityConfig createNormalCfg = new PbActivityConfig(getPageContext().getContext()).createNormalCfg(ic7Var.E(), str, 1, "mention");
         createNormalCfg.setStartFrom(13);
-        createNormalCfg.setBjhData(jc7Var.getBaijiahaoData());
+        createNormalCfg.setBjhData(ic7Var.getBaijiahaoData());
         createNormalCfg.setHighLightPostId(str);
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
     }
 
-    public void I1(jc7 jc7Var, boolean z) {
+    public void I1(ic7 ic7Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, jc7Var, z) == null) {
-            J1(jc7Var, z, null);
+        if (interceptable == null || interceptable.invokeLZ(1048583, this, ic7Var, z) == null) {
+            J1(ic7Var, z, null);
         }
     }
 
-    public void J1(jc7 jc7Var, boolean z, @Nullable String str) {
+    public void J1(ic7 ic7Var, boolean z, @Nullable String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{jc7Var, Boolean.valueOf(z), str}) == null) || jc7Var == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{ic7Var, Boolean.valueOf(z), str}) == null) || ic7Var == null) {
             return;
         }
         if (str == null) {
-            str = jc7Var.t();
+            str = ic7Var.t();
         }
         ArrayList arrayList = new ArrayList();
         VideoItemData videoItemData = new VideoItemData();
-        videoItemData.thread_id = jc7Var.E();
+        videoItemData.thread_id = ic7Var.E();
         if (z) {
             videoItemData.highLightPostId = str;
         }
@@ -538,12 +538,12 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
                     showToast(R.string.obfuscated_res_0x7f0f08ba);
                 }
             }
-            ub7 ub7Var = this.b;
-            if (ub7Var != null) {
-                ub7Var.f(errorData);
+            tb7 tb7Var = this.b;
+            if (tb7Var != null) {
+                tb7Var.f(errorData);
             }
-            ub7 ub7Var2 = this.b;
-            if (ub7Var2 != null && ub7Var2.R() != null) {
+            tb7 tb7Var2 = this.b;
+            if (tb7Var2 != null && tb7Var2.R() != null) {
                 this.b.R().setVisibility(8);
             }
             showNetRefreshView(this.c, null, false);
@@ -573,9 +573,9 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
             super.onChangeSkinType(i);
             if (this.d != i) {
                 this.d = i;
-                ub7 ub7Var = this.b;
-                if (ub7Var != null) {
-                    ub7Var.onChangeSkinType(i);
+                tb7 tb7Var = this.b;
+                if (tb7Var != null) {
+                    tb7Var.onChangeSkinType(i);
                 }
             }
         }
@@ -594,9 +594,9 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
             atMeModelController.C(bundle);
             this.a.setUniqueId(getUniqueId());
             this.c = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0120, viewGroup, false);
-            ub7 ub7Var = new ub7(this);
-            this.b = ub7Var;
-            ub7Var.Y(this.c);
+            tb7 tb7Var = new tb7(this);
+            this.b = tb7Var;
+            tb7Var.Y(this.c);
             this.b.f0(this.j);
             this.b.e0(this.k);
             if (TbadkCoreApplication.getInst().checkInterrupt()) {
@@ -628,9 +628,9 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
             MessageManager.getInstance().unRegisterListener(this.g);
             MessageManager.getInstance().unRegisterListener(this.h);
             MessageManager.getInstance().unRegisterListener(this.i);
-            ub7 ub7Var = this.b;
-            if (ub7Var != null) {
-                ub7Var.Q();
+            tb7 tb7Var = this.b;
+            if (tb7Var != null) {
+                tb7Var.Q();
             }
             AtMeModelController atMeModelController = this.a;
             if (atMeModelController != null) {
@@ -641,14 +641,14 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
-        ub7 ub7Var;
+        tb7 tb7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onNetRefreshButtonClicked();
-            if (!qi.D() || (ub7Var = this.b) == null) {
+            if (!qi.D() || (tb7Var = this.b) == null) {
                 return;
             }
-            ub7Var.g0(true);
+            tb7Var.g0(true);
             M1();
         }
     }
@@ -666,9 +666,9 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             super.onPrimary();
-            ub7 ub7Var = this.b;
-            if (ub7Var != null) {
-                ub7Var.a0();
+            tb7 tb7Var = this.b;
+            if (tb7Var != null) {
+                tb7Var.a0();
             }
         }
     }

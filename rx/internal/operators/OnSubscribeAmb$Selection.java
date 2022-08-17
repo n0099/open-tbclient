@@ -5,15 +5,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mv9;
+import com.repackage.ov9;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class OnSubscribeAmb$Selection<T> extends AtomicReference<mv9<T>> {
+public final class OnSubscribeAmb$Selection<T> extends AtomicReference<ov9<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Collection<mv9<T>> ambSubscribers;
+    public final Collection<ov9<T>> ambSubscribers;
 
     public OnSubscribeAmb$Selection() {
         Interceptable interceptable = $ic;
@@ -32,20 +32,20 @@ public final class OnSubscribeAmb$Selection<T> extends AtomicReference<mv9<T>> {
     }
 
     public void unsubscribeLosers() {
-        mv9<T> mv9Var;
+        ov9<T> ov9Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (mv9Var = get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ov9Var = get()) == null) {
             return;
         }
-        unsubscribeOthers(mv9Var);
+        unsubscribeOthers(ov9Var);
     }
 
-    public void unsubscribeOthers(mv9<T> mv9Var) {
+    public void unsubscribeOthers(ov9<T> ov9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mv9Var) == null) {
-            for (mv9<T> mv9Var2 : this.ambSubscribers) {
-                if (mv9Var2 != mv9Var) {
-                    mv9Var2.unsubscribe();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ov9Var) == null) {
+            for (ov9<T> ov9Var2 : this.ambSubscribers) {
+                if (ov9Var2 != ov9Var) {
+                    ov9Var2.unsubscribe();
                 }
             }
             this.ambSubscribers.clear();

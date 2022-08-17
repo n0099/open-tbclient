@@ -5,30 +5,29 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.su9;
-import com.repackage.tu9;
+import com.repackage.ru9;
+import com.repackage.vu9;
+import java.util.NoSuchElementException;
 /* loaded from: classes6.dex */
-public final class gw9<T> implements tu9.c<T> {
+public final class gw9<T> implements vu9.c<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tu9.c<T> a;
-    public final su9 b;
+    public final ru9.a<T> a;
 
     /* loaded from: classes6.dex */
-    public static final class a<T> extends uu9<T> implements cv9 {
+    public static final class a<T> extends xu9<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final uu9<? super T> b;
-        public final su9.a c;
-        public T d;
-        public Throwable e;
+        public final wu9<? super T> e;
+        public T f;
+        public int g;
 
-        public a(uu9<? super T> uu9Var, su9.a aVar) {
+        public a(wu9<? super T> wu9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {uu9Var, aVar};
+                Object[] objArr = {wu9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -38,55 +37,60 @@ public final class gw9<T> implements tu9.c<T> {
                     return;
                 }
             }
-            this.b = uu9Var;
-            this.c = aVar;
+            this.e = wu9Var;
         }
 
-        @Override // com.repackage.uu9
-        public void b(Throwable th) {
+        @Override // com.repackage.su9
+        public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                this.e = th;
-                this.c.b(this);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i = this.g;
+                if (i == 0) {
+                    this.e.b(new NoSuchElementException());
+                } else if (i == 1) {
+                    this.g = 2;
+                    T t = this.f;
+                    this.f = null;
+                    this.e.c(t);
+                }
             }
         }
 
-        @Override // com.repackage.uu9
-        public void c(T t) {
+        @Override // com.repackage.su9
+        public void onError(Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-                this.d = t;
-                this.c.b(this);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                if (this.g == 2) {
+                    yy9.j(th);
+                    return;
+                }
+                this.f = null;
+                this.e.b(th);
             }
         }
 
-        @Override // com.repackage.cv9
-        public void call() {
+        @Override // com.repackage.su9
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                try {
-                    Throwable th = this.e;
-                    if (th != null) {
-                        this.e = null;
-                        this.b.b(th);
-                    } else {
-                        T t = this.d;
-                        this.d = null;
-                        this.b.c(t);
-                    }
-                } finally {
-                    this.c.unsubscribe();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                int i = this.g;
+                if (i == 0) {
+                    this.g = 1;
+                    this.f = t;
+                } else if (i == 1) {
+                    this.g = 2;
+                    this.e.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
                 }
             }
         }
     }
 
-    public gw9(tu9.c<T> cVar, su9 su9Var) {
+    public gw9(ru9.a<T> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar, su9Var};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -96,22 +100,19 @@ public final class gw9<T> implements tu9.c<T> {
                 return;
             }
         }
-        this.a = cVar;
-        this.b = su9Var;
+        this.a = aVar;
     }
 
-    @Override // com.repackage.tu9.c, com.repackage.dv9
+    @Override // com.repackage.vu9.c, com.repackage.fv9
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((uu9) ((uu9) obj));
+        call((wu9) ((wu9) obj));
     }
 
-    public void call(uu9<? super T> uu9Var) {
+    public void call(wu9<? super T> wu9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, uu9Var) == null) {
-            su9.a createWorker = this.b.createWorker();
-            a aVar = new a(uu9Var, createWorker);
-            uu9Var.a(createWorker);
-            uu9Var.a(aVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, wu9Var) == null) {
+            a aVar = new a(wu9Var);
+            wu9Var.a(aVar);
             this.a.call(aVar);
         }
     }

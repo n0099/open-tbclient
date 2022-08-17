@@ -116,25 +116,25 @@ public class PostprocessedBitmapMemoryCacheProducer implements Producer<Closeabl
     public void produceResults(Consumer<CloseableReference<CloseableImage>> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consumer, producerContext) == null) {
-            ProducerListener listener = producerContext.getListener();
-            String id = producerContext.getId();
+            ProducerListener2 producerListener = producerContext.getProducerListener();
             ImageRequest imageRequest = producerContext.getImageRequest();
             Object callerContext = producerContext.getCallerContext();
             Postprocessor postprocessor = imageRequest.getPostprocessor();
             if (postprocessor != null && postprocessor.getPostprocessorCacheKey() != null) {
-                listener.onProducerStart(id, getProducerName());
+                producerListener.onProducerStart(producerContext, getProducerName());
                 CacheKey postprocessedBitmapCacheKey = this.mCacheKeyFactory.getPostprocessedBitmapCacheKey(imageRequest, callerContext);
                 CloseableReference<CloseableImage> closeableReference = this.mMemoryCache.get(postprocessedBitmapCacheKey);
                 if (closeableReference != null) {
-                    listener.onProducerFinishWithSuccess(id, getProducerName(), listener.requiresExtraMap(id) ? ImmutableMap.of("cached_value_found", "true") : null);
-                    listener.onUltimateProducerReached(id, PRODUCER_NAME, true);
+                    producerListener.onProducerFinishWithSuccess(producerContext, getProducerName(), producerListener.requiresExtraMap(producerContext, getProducerName()) ? ImmutableMap.of("cached_value_found", "true") : null);
+                    producerListener.onUltimateProducerReached(producerContext, PRODUCER_NAME, true);
+                    producerContext.putOriginExtra("memory_bitmap", "postprocessed");
                     consumer.onProgressUpdate(1.0f);
                     consumer.onNewResult(closeableReference, 1);
                     closeableReference.close();
                     return;
                 }
                 CachedPostprocessorConsumer cachedPostprocessorConsumer = new CachedPostprocessorConsumer(consumer, postprocessedBitmapCacheKey, postprocessor instanceof RepeatedPostprocessor, this.mMemoryCache, producerContext.getImageRequest().isMemoryCacheEnabled());
-                listener.onProducerFinishWithSuccess(id, getProducerName(), listener.requiresExtraMap(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+                producerListener.onProducerFinishWithSuccess(producerContext, getProducerName(), producerListener.requiresExtraMap(producerContext, getProducerName()) ? ImmutableMap.of("cached_value_found", "false") : null);
                 this.mInputProducer.produceResults(cachedPostprocessorConsumer, producerContext);
                 return;
             }

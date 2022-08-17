@@ -22,8 +22,8 @@ import com.repackage.cq8;
 import com.repackage.d9;
 import com.repackage.dq8;
 import com.repackage.gr8;
+import com.repackage.jk8;
 import com.repackage.jq8;
-import com.repackage.kk8;
 import com.repackage.ru4;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -226,16 +226,16 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
     public final void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            kk8.h(309020, BackgroundGroupSocketResponseMessage.class, false, false);
-            kk8.c(309020, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, TbConfig.PERSONAL_BACKGROUND_GROUP_PAGE, BackgroundGroupHttpResponseMessage.class, false, false, false, false);
+            jk8.h(309020, BackgroundGroupSocketResponseMessage.class, false, false);
+            jk8.c(309020, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, TbConfig.PERSONAL_BACKGROUND_GROUP_PAGE, BackgroundGroupHttpResponseMessage.class, false, false, false, false);
         }
     }
 
     public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            kk8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-            kk8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+            jk8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+            jk8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
         }
     }
 

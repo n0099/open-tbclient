@@ -259,8 +259,8 @@ public class sm6 {
             for (bn bnVar : this.d) {
                 if (bnVar instanceof ue6) {
                     ((ue6) bnVar).v();
-                } else if (bnVar instanceof qb8) {
-                    ((qb8) bnVar).onDestroy();
+                } else if (bnVar instanceof pb8) {
+                    ((pb8) bnVar).onDestroy();
                 }
             }
         }

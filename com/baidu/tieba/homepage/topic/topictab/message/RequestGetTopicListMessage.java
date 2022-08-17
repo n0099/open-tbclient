@@ -47,7 +47,7 @@ public class RequestGetTopicListMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1301common = this.f1048common;
+            builder.f1302common = this.f1048common;
             builder.call_from = this.callFrom;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
                 te5.a(builder, true);

@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cf7;
-import com.repackage.ef7;
+import com.repackage.bf7;
+import com.repackage.df7;
 import com.repackage.kg;
 import com.repackage.qi;
-import com.repackage.xe7;
+import com.repackage.we7;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class LPBigImgCard extends BaseCardInfo implements xe7<LPBigImgCard> {
+public class LPBigImgCard extends BaseCardInfo implements we7<LPBigImgCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bgColor;
@@ -53,16 +53,16 @@ public class LPBigImgCard extends BaseCardInfo implements xe7<LPBigImgCard> {
             }
         }
         this.picUrl = jSONObject.optString("pic_url");
-        this.picWidth = ef7.a(jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH));
-        this.picHeight = ef7.a(jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
-        this.bgColor = cf7.b(jSONObject.optString("bg_color"));
-        this.bgColorNight = cf7.b(jSONObject.optString("bg_color_n"));
+        this.picWidth = df7.a(jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH));
+        this.picHeight = df7.a(jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+        this.bgColor = bf7.b(jSONObject.optString("bg_color"));
+        this.bgColorNight = bf7.b(jSONObject.optString("bg_color_n"));
         this.btnText = jSONObject.optString("btn_text");
-        this.btnColor = cf7.b(jSONObject.optString("btn_color"));
-        this.btnColorNight = cf7.b(jSONObject.optString("btn_color_n"));
+        this.btnColor = bf7.b(jSONObject.optString("btn_color"));
+        this.btnColorNight = bf7.b(jSONObject.optString("btn_color_n"));
         this.btnImgUrl = jSONObject.optString("btn_img");
-        this.btnWidth = ef7.a(jSONObject.optInt("btn_width"));
-        this.btnHeight = ef7.a(jSONObject.optInt("btn_height"));
+        this.btnWidth = df7.a(jSONObject.optInt("btn_width"));
+        this.btnHeight = df7.a(jSONObject.optInt("btn_height"));
         this.btnPosRatio = jSONObject.optDouble("btn_pos", 0.5d);
         this.btnLink = jSONObject.optString("link");
     }
@@ -160,7 +160,7 @@ public class LPBigImgCard extends BaseCardInfo implements xe7<LPBigImgCard> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.xe7
+    @Override // com.repackage.we7
     public void doLoad(LPBigImgCard lPBigImgCard, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lPBigImgCard, tbPageContext) == null) || lPBigImgCard == null || tbPageContext == null) {

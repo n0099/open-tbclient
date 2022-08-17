@@ -145,14 +145,14 @@ public abstract class LoadingLayout extends FrameLayout implements xh5 {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.getLayoutParams();
         if (a.b[mode.ordinal()] != 1) {
             layoutParams.gravity = orientation == PullToRefreshBase.Orientation.VERTICAL ? 80 : 5;
-            this.i = context.getString(R.string.obfuscated_res_0x7f0f0f42);
-            this.j = context.getString(R.string.obfuscated_res_0x7f0f0f43);
-            this.k = context.getString(R.string.obfuscated_res_0x7f0f0f44);
+            this.i = context.getString(R.string.obfuscated_res_0x7f0f0f43);
+            this.j = context.getString(R.string.obfuscated_res_0x7f0f0f44);
+            this.k = context.getString(R.string.obfuscated_res_0x7f0f0f45);
         } else {
             layoutParams.gravity = orientation == PullToRefreshBase.Orientation.VERTICAL ? 48 : 3;
-            this.i = context.getString(R.string.obfuscated_res_0x7f0f0f42);
-            this.j = context.getString(R.string.obfuscated_res_0x7f0f0f43);
-            this.k = context.getString(R.string.obfuscated_res_0x7f0f0f44);
+            this.i = context.getString(R.string.obfuscated_res_0x7f0f0f43);
+            this.j = context.getString(R.string.obfuscated_res_0x7f0f0f44);
+            this.k = context.getString(R.string.obfuscated_res_0x7f0f0f45);
         }
         if (typedArray.hasValue(7) && (drawable = typedArray.getDrawable(7)) != null) {
             ai5.b(this, drawable);

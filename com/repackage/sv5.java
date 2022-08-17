@@ -219,7 +219,7 @@ public class sv5 extends az5<ThreadData> implements zz5, ol5 {
             return;
         }
         if (!oi.z()) {
-            qi.N(tbPageContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0c75);
+            qi.M(tbPageContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0c76);
             return;
         }
         AlaInfoData threadAlaInfo = ((ThreadData) this.k).getThreadAlaInfo();

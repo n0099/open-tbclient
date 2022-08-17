@@ -222,7 +222,7 @@ public class gp3 implements ep3 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.b = new SwanAdDownloadButtonView(this.a);
-            String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1274);
+            String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1276);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 81;
             layoutParams.bottomMargin = (int) (this.a.getResources().getDisplayMetrics().heightPixels * 0.14d);
@@ -323,17 +323,17 @@ public class gp3 implements ep3 {
             switch (b.a[downloadState.ordinal()]) {
                 case 1:
                 default:
-                    return R.string.obfuscated_res_0x7f0f1274;
-                case 2:
-                    return R.string.obfuscated_res_0x7f0f1279;
-                case 3:
-                    return R.string.obfuscated_res_0x7f0f1275;
-                case 4:
-                    return R.string.obfuscated_res_0x7f0f1277;
-                case 5:
                     return R.string.obfuscated_res_0x7f0f1276;
-                case 6:
+                case 2:
+                    return R.string.obfuscated_res_0x7f0f127b;
+                case 3:
+                    return R.string.obfuscated_res_0x7f0f1277;
+                case 4:
+                    return R.string.obfuscated_res_0x7f0f1279;
+                case 5:
                     return R.string.obfuscated_res_0x7f0f1278;
+                case 6:
+                    return R.string.obfuscated_res_0x7f0f127a;
             }
         }
         return invokeL.intValue;
@@ -392,10 +392,10 @@ public class gp3 implements ep3 {
                 SwanAdDownloadButtonView swanAdDownloadButtonView = this.b;
                 if (swanAdDownloadButtonView != null && swanAdDownloadButtonView.getVisibility() != 8) {
                     if (this.c.c < this.b.getMax()) {
-                        String string2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1273);
+                        String string2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1275);
                         string = String.format(string2, this.c.c + "%");
                     } else {
-                        string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1277);
+                        string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1279);
                     }
                     this.b.setText(string);
                     this.b.setProgress(this.c.c);

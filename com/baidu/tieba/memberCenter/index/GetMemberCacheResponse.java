@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xk7;
+import com.repackage.wk7;
 /* loaded from: classes3.dex */
 public class GetMemberCacheResponse extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xk7 mMembercenter;
+    public wk7 mMembercenter;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetMemberCacheResponse() {
@@ -32,16 +32,16 @@ public class GetMemberCacheResponse extends CustomResponsedMessage<Object> {
         }
     }
 
-    public xk7 getMembercenterData() {
+    public wk7 getMembercenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mMembercenter : (xk7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mMembercenter : (wk7) invokeV.objValue;
     }
 
-    public void setMemberCenterData(xk7 xk7Var) {
+    public void setMemberCenterData(wk7 wk7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xk7Var) == null) {
-            this.mMembercenter = xk7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wk7Var) == null) {
+            this.mMembercenter = wk7Var;
         }
     }
 }

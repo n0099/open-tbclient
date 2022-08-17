@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ld8;
-import com.repackage.pu6;
+import com.repackage.kd8;
+import com.repackage.ou6;
 import com.repackage.ru4;
 import com.repackage.te5;
 import com.repackage.vd5;
@@ -51,10 +51,10 @@ public class ConcernPageRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             boolean isEmpty = TextUtils.isEmpty(this.pageTag);
-            int e = isEmpty ? 0 : ld8.f().e("CONCERN");
+            int e = isEmpty ? 0 : kd8.f().e("CONCERN");
             String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
             String str = "";
-            String d = isEmpty ? "" : ld8.f().d("CONCERN");
+            String d = isEmpty ? "" : kd8.f().d("CONCERN");
             vd5 vd5Var = this.adInfo;
             if (vd5Var != null && !isEmpty) {
                 str = vd5Var.b;
@@ -77,11 +77,11 @@ public class ConcernPageRequestMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.page_tag = this.pageTag;
-                if (pu6.H()) {
-                    if (!pu6.A()) {
-                        builder.page_tag = pu6.v();
+                if (ou6.H()) {
+                    if (!ou6.A()) {
+                        builder.page_tag = ou6.v();
                     } else {
-                        builder.page_tag = pu6.u();
+                        builder.page_tag = ou6.u();
                     }
                 }
                 builder.last_req_unix = Long.valueOf(ru4.k().m(ru4.o("concern_data_res_request_time"), 0L));

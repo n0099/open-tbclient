@@ -1,23 +1,57 @@
 package com.repackage;
 
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
-import java.util.List;
-import tv.athena.revenue.api.IMiddleRevenue;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-/* loaded from: classes6.dex */
-public interface nz9 {
-    void addLogDelegate(IRLogDelegate iRLogDelegate);
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.internal.subscriptions.SequentialSubscription;
+/* loaded from: classes7.dex */
+public final class nz9 implements yu9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final SequentialSubscription a;
 
-    void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig);
+    public nz9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new SequentialSubscription();
+    }
 
-    List<IRevenue> getAllRevenue();
+    public void a(yu9 yu9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, yu9Var) == null) {
+            if (yu9Var != null) {
+                this.a.update(yu9Var);
+                return;
+            }
+            throw new IllegalArgumentException("Subscription can not be null");
+        }
+    }
 
-    IMiddleRevenue getMiddleRevenue(int i, int i2);
+    @Override // com.repackage.yu9
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.isUnsubscribed() : invokeV.booleanValue;
+    }
 
-    IRevenue getRevenue(int i, int i2);
-
-    void removeRevenueConfig(int i, int i2);
-
-    void updateMiddleRevenueConfig(int i, int i2, Long l, String str);
+    @Override // com.repackage.yu9
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.unsubscribe();
+        }
+    }
 }

@@ -60,7 +60,7 @@ public class RequestHotTopicMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f1281common = getCommon();
+                builder.f1282common = getCommon();
                 builder.topic_id = getTopicId();
                 builder.topic_name = getTopicName();
                 builder.scr_w = getScrW();

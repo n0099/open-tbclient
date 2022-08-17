@@ -3,6 +3,7 @@ package com.facebook.drawee.generic;
 import android.content.res.Resources;
 import android.graphics.ColorFilter;
 import android.graphics.PointF;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.ColorDrawable;
@@ -68,15 +69,16 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         this.mRoundingParams = genericDraweeHierarchyBuilder.getRoundingParams();
         this.mActualImageWrapper = new ForwardingDrawable(this.mEmptyActualImageDrawable);
         int i4 = 1;
-        int size = (genericDraweeHierarchyBuilder.getOverlays() != null ? genericDraweeHierarchyBuilder.getOverlays().size() : 1) + (genericDraweeHierarchyBuilder.getPressedStateOverlay() != null ? 1 : 0);
-        Drawable[] drawableArr = new Drawable[size + 6];
+        int size = genericDraweeHierarchyBuilder.getOverlays() != null ? genericDraweeHierarchyBuilder.getOverlays().size() : 1;
+        int i5 = (size == 0 ? 1 : size) + (genericDraweeHierarchyBuilder.getPressedStateOverlay() != null ? 1 : 0);
+        Drawable[] drawableArr = new Drawable[i5 + 6];
         drawableArr[0] = buildBranch(genericDraweeHierarchyBuilder.getBackground(), null);
         drawableArr[1] = buildBranch(genericDraweeHierarchyBuilder.getPlaceholderImage(), genericDraweeHierarchyBuilder.getPlaceholderImageScaleType());
         drawableArr[2] = buildActualImageBranch(this.mActualImageWrapper, genericDraweeHierarchyBuilder.getActualImageScaleType(), genericDraweeHierarchyBuilder.getActualImageFocusPoint(), genericDraweeHierarchyBuilder.getActualImageColorFilter());
         drawableArr[3] = buildBranch(genericDraweeHierarchyBuilder.getProgressBarImage(), genericDraweeHierarchyBuilder.getProgressBarImageScaleType());
         drawableArr[4] = buildBranch(genericDraweeHierarchyBuilder.getRetryImage(), genericDraweeHierarchyBuilder.getRetryImageScaleType());
         drawableArr[5] = buildBranch(genericDraweeHierarchyBuilder.getFailureImage(), genericDraweeHierarchyBuilder.getFailureImageScaleType());
-        if (size > 0) {
+        if (i5 > 0) {
             if (genericDraweeHierarchyBuilder.getOverlays() != null) {
                 for (Drawable drawable : genericDraweeHierarchyBuilder.getOverlays()) {
                     drawableArr[i3 + 6] = buildBranch(drawable, null);
@@ -238,10 +240,23 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
     }
 
     @Nullable
-    public ScalingUtils.ScaleType getActualImageScaleType() {
+    public PointF getActualImageFocusPoint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (hasScaleTypeDrawableAtIndex(2)) {
+                return getScaleTypeDrawableAtIndex(2).getFocusPoint();
+            }
+            return null;
+        }
+        return (PointF) invokeV.objValue;
+    }
+
+    @Nullable
+    public ScalingUtils.ScaleType getActualImageScaleType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (hasScaleTypeDrawableAtIndex(2)) {
                 return getScaleTypeDrawableAtIndex(2).getScaleType();
             }
@@ -250,49 +265,56 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         return (ScalingUtils.ScaleType) invokeV.objValue;
     }
 
+    @Override // com.facebook.drawee.interfaces.DraweeHierarchy
+    public Rect getBounds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTopLevelDrawable.getBounds() : (Rect) invokeV.objValue;
+    }
+
     public int getFadeDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFadeDrawable.getTransitionDuration() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mFadeDrawable.getTransitionDuration() : invokeV.intValue;
     }
 
     @Nullable
     public RoundingParams getRoundingParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRoundingParams : (RoundingParams) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mRoundingParams : (RoundingParams) invokeV.objValue;
     }
 
     @Override // com.facebook.drawee.interfaces.DraweeHierarchy
     public Drawable getTopLevelDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mTopLevelDrawable : (Drawable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mTopLevelDrawable : (Drawable) invokeV.objValue;
     }
 
     public boolean getUseGlobalColorFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mTopLevelDrawable.getUseGlobalColorFilter() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mTopLevelDrawable.getUseGlobalColorFilter() : invokeV.booleanValue;
     }
 
     @VisibleForTesting
     public boolean hasImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mActualImageWrapper.getDrawable() != this.mEmptyActualImageDrawable : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mActualImageWrapper.getDrawable() != this.mEmptyActualImageDrawable : invokeV.booleanValue;
     }
 
     public boolean hasPlaceholderImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mFadeDrawable.getDrawable(1) != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mFadeDrawable.getDrawable(1) != null : invokeV.booleanValue;
     }
 
     @Override // com.facebook.drawee.interfaces.SettableDraweeHierarchy
     public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             resetActualImages();
             resetFade();
         }
@@ -300,14 +322,14 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
 
     public void setActualImageColorFilter(ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, colorFilter) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, colorFilter) == null) {
             this.mActualImageWrapper.setColorFilter(colorFilter);
         }
     }
 
     public void setActualImageFocusPoint(PointF pointF) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, pointF) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, pointF) == null) {
             Preconditions.checkNotNull(pointF);
             getScaleTypeDrawableAtIndex(2).setFocusPoint(pointF);
         }
@@ -315,7 +337,7 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
 
     public void setActualImageScaleType(ScalingUtils.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, scaleType) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, scaleType) == null) {
             Preconditions.checkNotNull(scaleType);
             getScaleTypeDrawableAtIndex(2).setScaleType(scaleType);
         }
@@ -323,7 +345,7 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
 
     public void setBackgroundImage(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, drawable) == null) {
             setChildDrawableAtIndex(0, drawable);
         }
     }
@@ -331,14 +353,14 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
     @Override // com.facebook.drawee.interfaces.SettableDraweeHierarchy
     public void setControllerOverlay(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, drawable) == null) {
             this.mTopLevelDrawable.setControllerOverlay(drawable);
         }
     }
 
     public void setFadeDuration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             this.mFadeDrawable.setTransitionDuration(i);
         }
     }
@@ -346,7 +368,7 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
     @Override // com.facebook.drawee.interfaces.SettableDraweeHierarchy
     public void setFailure(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, th) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, th) == null) {
             this.mFadeDrawable.beginBatchMode();
             fadeOutBranches();
             if (this.mFadeDrawable.getDrawable(5) != null) {
@@ -360,7 +382,7 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
 
     public void setFailureImage(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, drawable) == null) {
             setChildDrawableAtIndex(5, drawable);
         }
     }
@@ -368,7 +390,7 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
     @Override // com.facebook.drawee.interfaces.SettableDraweeHierarchy
     public void setImage(Drawable drawable, float f, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{drawable, Float.valueOf(f), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{drawable, Float.valueOf(f), Boolean.valueOf(z)}) == null) {
             Drawable maybeApplyLeafRounding = WrappingUtils.maybeApplyLeafRounding(drawable, this.mRoundingParams, this.mResources);
             maybeApplyLeafRounding.mutate();
             this.mActualImageWrapper.setDrawable(maybeApplyLeafRounding);
@@ -383,9 +405,16 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         }
     }
 
+    public void setOnFadeFinishedListener(FadeDrawable.OnFadeFinishedListener onFadeFinishedListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, onFadeFinishedListener) == null) {
+            this.mFadeDrawable.setOnFadeFinishedListener(onFadeFinishedListener);
+        }
+    }
+
     public void setOverlayImage(int i, @Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048597, this, i, drawable) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048600, this, i, drawable) == null) {
             Preconditions.checkArgument(i >= 0 && i + 6 < this.mFadeDrawable.getNumberOfLayers(), "The given index does not correspond to an overlay image.");
             setChildDrawableAtIndex(i + 6, drawable);
         }
@@ -393,14 +422,14 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
 
     public void setPlaceholderImage(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048604, this, drawable) == null) {
             setChildDrawableAtIndex(1, drawable);
         }
     }
 
     public void setPlaceholderImageFocusPoint(PointF pointF) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, pointF) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, pointF) == null) {
             Preconditions.checkNotNull(pointF);
             getScaleTypeDrawableAtIndex(1).setFocusPoint(pointF);
         }
@@ -408,7 +437,7 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
 
     public void setProgressBarImage(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048610, this, drawable) == null) {
             setChildDrawableAtIndex(3, drawable);
         }
     }
@@ -416,7 +445,7 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
     @Override // com.facebook.drawee.interfaces.SettableDraweeHierarchy
     public void setRetry(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, th) == null) {
+        if (interceptable == null || interceptable.invokeL(1048612, this, th) == null) {
             this.mFadeDrawable.beginBatchMode();
             fadeOutBranches();
             if (this.mFadeDrawable.getDrawable(4) != null) {
@@ -430,14 +459,14 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
 
     public void setRetryImage(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048615, this, drawable) == null) {
             setChildDrawableAtIndex(4, drawable);
         }
     }
 
     public void setRoundingParams(@Nullable RoundingParams roundingParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, roundingParams) == null) {
+        if (interceptable == null || interceptable.invokeL(1048617, this, roundingParams) == null) {
             this.mRoundingParams = roundingParams;
             WrappingUtils.updateOverlayColorRounding(this.mTopLevelDrawable, roundingParams);
             for (int i = 0; i < this.mFadeDrawable.getNumberOfLayers(); i++) {
@@ -448,14 +477,14 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
 
     public void setUseGlobalColorFilter(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048615, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
             this.mTopLevelDrawable.setUseGlobalColorFilter(z);
         }
     }
 
     public void setFailureImage(Drawable drawable, ScalingUtils.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, drawable, scaleType) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048597, this, drawable, scaleType) == null) {
             setChildDrawableAtIndex(5, drawable);
             getScaleTypeDrawableAtIndex(5).setScaleType(scaleType);
         }
@@ -463,7 +492,7 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
 
     public void setPlaceholderImage(Drawable drawable, ScalingUtils.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048602, this, drawable, scaleType) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048605, this, drawable, scaleType) == null) {
             setChildDrawableAtIndex(1, drawable);
             getScaleTypeDrawableAtIndex(1).setScaleType(scaleType);
         }
@@ -471,7 +500,7 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
 
     public void setProgressBarImage(Drawable drawable, ScalingUtils.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048608, this, drawable, scaleType) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048611, this, drawable, scaleType) == null) {
             setChildDrawableAtIndex(3, drawable);
             getScaleTypeDrawableAtIndex(3).setScaleType(scaleType);
         }
@@ -479,7 +508,7 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
 
     public void setRetryImage(Drawable drawable, ScalingUtils.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048613, this, drawable, scaleType) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048616, this, drawable, scaleType) == null) {
             setChildDrawableAtIndex(4, drawable);
             getScaleTypeDrawableAtIndex(4).setScaleType(scaleType);
         }
@@ -487,63 +516,63 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
 
     public void setFailureImage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             setFailureImage(this.mResources.getDrawable(i));
         }
     }
 
     public void setPlaceholderImage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
             setPlaceholderImage(this.mResources.getDrawable(i));
         }
     }
 
     public void setProgressBarImage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
             setProgressBarImage(this.mResources.getDrawable(i));
         }
     }
 
     public void setRetryImage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
             setRetryImage(this.mResources.getDrawable(i));
         }
     }
 
     public void setFailureImage(int i, ScalingUtils.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048593, this, i, scaleType) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048595, this, i, scaleType) == null) {
             setFailureImage(this.mResources.getDrawable(i), scaleType);
         }
     }
 
     public void setOverlayImage(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, drawable) == null) {
             setOverlayImage(0, drawable);
         }
     }
 
     public void setPlaceholderImage(int i, ScalingUtils.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048600, this, i, scaleType) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048603, this, i, scaleType) == null) {
             setPlaceholderImage(this.mResources.getDrawable(i), scaleType);
         }
     }
 
     public void setProgressBarImage(int i, ScalingUtils.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048606, this, i, scaleType) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048609, this, i, scaleType) == null) {
             setProgressBarImage(this.mResources.getDrawable(i), scaleType);
         }
     }
 
     public void setRetryImage(int i, ScalingUtils.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048611, this, i, scaleType) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048614, this, i, scaleType) == null) {
             setRetryImage(this.mResources.getDrawable(i), scaleType);
         }
     }
@@ -551,7 +580,7 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
     @Override // com.facebook.drawee.interfaces.SettableDraweeHierarchy
     public void setProgress(float f, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Float.valueOf(f), Boolean.valueOf(z)}) == null) || this.mFadeDrawable.getDrawable(3) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{Float.valueOf(f), Boolean.valueOf(z)}) == null) || this.mFadeDrawable.getDrawable(3) == null) {
             return;
         }
         this.mFadeDrawable.beginBatchMode();

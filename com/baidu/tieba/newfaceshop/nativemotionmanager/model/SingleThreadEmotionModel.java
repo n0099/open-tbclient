@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bq7;
-import com.repackage.ep7;
-import com.repackage.hp7;
+import com.repackage.aq7;
+import com.repackage.dp7;
+import com.repackage.gp7;
 import com.repackage.rg;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ import org.json.JSONArray;
 public class SingleThreadEmotionModel extends NativeManageEmotionModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bq7 a;
+    public aq7 a;
     public List<String> b;
     public final HttpMessageListener c;
 
@@ -108,7 +108,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.G();
-                List<MyEmotionGroupData> f = hp7.i().f();
+                List<MyEmotionGroupData> f = gp7.i().f();
                 JSONArray jSONArray = new JSONArray();
                 if (f != null && !f.isEmpty()) {
                     for (MyEmotionGroupData myEmotionGroupData : f) {
@@ -232,10 +232,10 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         }
     }
 
-    public void H(bq7 bq7Var) {
+    public void H(aq7 aq7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bq7Var) == null) {
-            this.a = bq7Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aq7Var) == null) {
+            this.a = aq7Var;
         }
     }
 
@@ -263,7 +263,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ep7.b().a(new b(this));
+            dp7.b().a(new b(this));
             return false;
         }
         return invokeV.booleanValue;

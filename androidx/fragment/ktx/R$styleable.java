@@ -72,8 +72,8 @@ public final class R$styleable {
             }
         }
         ColorStateListItem = new int[]{16843173, 16843551, R.attr.obfuscated_res_0x7f04008a};
-        FontFamily = new int[]{R.attr.obfuscated_res_0x7f0402d9, R.attr.obfuscated_res_0x7f0402da, R.attr.obfuscated_res_0x7f0402db, R.attr.obfuscated_res_0x7f0402dc, R.attr.obfuscated_res_0x7f0402dd, R.attr.obfuscated_res_0x7f0402de};
-        FontFamilyFont = new int[]{16844082, 16844083, 16844095, 16844143, 16844144, R.attr.obfuscated_res_0x7f0402d7, R.attr.obfuscated_res_0x7f0402df, R.attr.obfuscated_res_0x7f0402e0, R.attr.obfuscated_res_0x7f0402e1, R.attr.obfuscated_res_0x7f040749};
+        FontFamily = new int[]{R.attr.obfuscated_res_0x7f0402da, R.attr.obfuscated_res_0x7f0402db, R.attr.obfuscated_res_0x7f0402dc, R.attr.obfuscated_res_0x7f0402dd, R.attr.obfuscated_res_0x7f0402de, R.attr.obfuscated_res_0x7f0402df};
+        FontFamilyFont = new int[]{16844082, 16844083, 16844095, 16844143, 16844144, R.attr.obfuscated_res_0x7f0402d8, R.attr.obfuscated_res_0x7f0402e0, R.attr.obfuscated_res_0x7f0402e1, R.attr.obfuscated_res_0x7f0402e2, R.attr.obfuscated_res_0x7f040749};
         Fragment = new int[]{16842755, 16842960, 16842961};
         FragmentContainerView = new int[]{16842755, 16842961};
         GradientColor = new int[]{16843165, 16843166, 16843169, 16843170, 16843171, 16843172, 16843265, 16843275, 16844048, 16844049, 16844050, 16844051};

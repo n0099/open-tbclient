@@ -1,18 +1,23 @@
 package com.repackage;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.mobstat.MtjConfig;
+import com.baidu.mobstat.StatService;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.repackage.aq8;
 /* loaded from: classes6.dex */
-public class fu6 extends l17 {
+public class fu6 implements aq8.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pf7 c;
 
     public fu6() {
         Interceptable interceptable = $ic;
@@ -24,38 +29,38 @@ public class fu6 extends l17 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    private void update() {
-        pf7 pf7Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (pf7Var = this.c) != null && pf7Var.a()) {
-            List<ICardInfo> d = this.c.d();
-            ArrayList arrayList = new ArrayList();
-            this.a = arrayList;
-            arrayList.addAll(d);
-            this.c.hasMore();
-            this.c.b();
-        }
-    }
-
-    public final void a() {
-        List<Object> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.a) == null) {
+        String version = TbConfig.getVersion();
+        if (TextUtils.isEmpty(version)) {
             return;
         }
-        bk8.e(list, 2);
+        StatService.setAppVersionName(TbadkCoreApplication.getInst(), version);
     }
 
-    public void b(pf7 pf7Var) {
+    @Override // com.repackage.aq8.a
+    public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pf7Var) == null) {
-            this.c = pf7Var;
-            update();
-            a();
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            StatService.setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_NONE);
+            StatService.autoTrace(context);
+        }
+    }
+
+    @Override // com.repackage.aq8.a
+    public void b(Context context, WebView webView, WebChromeClient webChromeClient) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, webView, webChromeClient) == null) {
+            StatService.trackWebView(context, webView, webChromeClient);
+        }
+    }
+
+    @Override // com.repackage.aq8.a
+    public void c(Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, context, str, z) == null) {
+            StatService.setAppChannel(context, str, z);
         }
     }
 }

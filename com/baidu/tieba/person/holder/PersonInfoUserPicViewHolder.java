@@ -67,7 +67,7 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
                     this.a.K(b, 25, false);
                 }
             } else {
-                this.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080bc1);
+                this.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080bc2);
                 this.b.setVisibility(8);
                 this.a.K(u15Var.b(), 10, false);
             }

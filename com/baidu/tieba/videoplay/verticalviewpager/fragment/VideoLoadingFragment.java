@@ -361,7 +361,7 @@ public final class VideoLoadingFragment extends BaseFragment implements hw8 {
             this.mRefreshView = h65Var;
             h65Var.p();
             this.mRefreshView.m(null);
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0fb9);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0fba);
             Intrinsics.checkNotNullExpressionValue(string, "resources.getString(R.st….refresh_view_title_text)");
             this.mRefreshView.n(string);
             this.mRefreshView.i(R.drawable.new_pic_emotion_08);

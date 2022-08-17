@@ -307,7 +307,7 @@ public class CardItemRecommendLayout extends LinearLayout implements ix {
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 ImageView imageView = this.c;
                 int i2 = R.color.CAM_X0305;
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0809d5, R.color.CAM_X0305, null);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0809d6, R.color.CAM_X0305, null);
                 ms4.d(this.b).v(R.color.CAM_X0105);
                 TextView textView = this.d;
                 if (!this.e) {

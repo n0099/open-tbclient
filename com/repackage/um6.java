@@ -103,7 +103,7 @@ public class um6 implements NetModel.k {
             return;
         }
         this.c.loadData();
-        us6.a();
+        ts6.a();
     }
 
     public final ArrayList<on> e(ArrayList<on> arrayList) {

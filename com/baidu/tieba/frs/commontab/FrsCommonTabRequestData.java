@@ -12,7 +12,7 @@ import com.repackage.qi;
 import com.repackage.s85;
 import com.repackage.te5;
 import com.repackage.ud5;
-import com.repackage.ys6;
+import com.repackage.xs6;
 import java.util.HashMap;
 import tbclient.GeneralTabList.DataReq;
 import tbclient.GeneralTabList.GeneralTabListReqIdl;
@@ -68,7 +68,7 @@ public class FrsCommonTabRequestData extends OrmObject implements s85 {
             builder.request_times = Integer.valueOf(this.requestTimes);
             builder.is_general_tab = Integer.valueOf(this.isGeneralTab);
             builder.sort_type = Integer.valueOf(this.sortType);
-            String d = ys6.e().d("frs_feed");
+            String d = xs6.e().d("frs_feed");
             builder.ad_bear_sid = d;
             builder.ad_bear_context = ud5.g(d, ud5.f());
             builder.ad_bear_sid_price = Double.valueOf(ud5.i());

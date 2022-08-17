@@ -38,7 +38,7 @@ public class tc6 implements zf6 {
     public BdUniqueId a;
     public String b;
     public String c;
-    public ck8 d;
+    public bk8 d;
     public List<MemberGroupInfo> e;
     public MemberGodInfo f;
     public ManagerApplyInfo g;
@@ -230,7 +230,7 @@ public class tc6 implements zf6 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ck8)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof bk8)) {
                 this.a.m.e = customResponsedMessage.getError();
                 this.a.m.f = customResponsedMessage.getErrorString();
                 this.a.m.g = false;
@@ -239,12 +239,12 @@ public class tc6 implements zf6 {
                 this.a.m.b = this.a.b;
                 this.a.m.a = this.a.c;
                 this.a.m.c = 1;
-                ck8 ck8Var = (ck8) customResponsedMessage.getData();
-                if (ck8Var != null && ck8Var.n() == 0 && this.a.d != null) {
-                    ck8Var.u(this.a.d.c());
-                    ck8Var.x(this.a.d.i());
+                bk8 bk8Var = (bk8) customResponsedMessage.getData();
+                if (bk8Var != null && bk8Var.m() == 0 && this.a.d != null) {
+                    bk8Var.t(this.a.d.c());
+                    bk8Var.w(this.a.d.i());
                 }
-                this.a.d = ck8Var;
+                this.a.d = bk8Var;
                 if (this.a.k != null) {
                     dg6 dg6Var = this.a.k;
                     ng6 ng6Var = this.a.m;
@@ -316,17 +316,17 @@ public class tc6 implements zf6 {
         this.q = new d(this, 2001222);
     }
 
-    public ArrayList<on> A(ck8 ck8Var, List<MemberGroupInfo> list, MemberGodInfo memberGodInfo, ManagerApplyInfo managerApplyInfo, boolean z, boolean z2, PriManagerApplyInfo priManagerApplyInfo) {
+    public ArrayList<on> A(bk8 bk8Var, List<MemberGroupInfo> list, MemberGodInfo memberGodInfo, ManagerApplyInfo managerApplyInfo, boolean z, boolean z2, PriManagerApplyInfo priManagerApplyInfo) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ck8Var, list, memberGodInfo, managerApplyInfo, Boolean.valueOf(z), Boolean.valueOf(z2), priManagerApplyInfo})) == null) {
-            if (ck8Var == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bk8Var, list, memberGodInfo, managerApplyInfo, Boolean.valueOf(z), Boolean.valueOf(z2), priManagerApplyInfo})) == null) {
+            if (bk8Var == null) {
                 return null;
             }
             ArrayList<on> arrayList = new ArrayList<>();
-            if (ck8Var.n() == 1) {
+            if (bk8Var.m() == 1) {
                 xc6 xc6Var = new xc6();
-                xc6Var.h(ck8Var);
+                xc6Var.h(bk8Var);
                 xc6Var.f(this.b);
                 xc6Var.g(this.c);
                 arrayList.add(xc6Var);
@@ -433,9 +433,9 @@ public class tc6 implements zf6 {
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            kk8.h(301004, ForumMemberSocketResponseMessage.class, false, false);
-            kk8.c(301004, CmdConfigHttp.FRS_MEMBER_TAB_CMD, TbConfig.GET_MEMBER_INFO, ForumMemberHttpResponseMessage.class, false, false, false, false);
-            kk8.b(2003009, uc6.class);
+            jk8.h(301004, ForumMemberSocketResponseMessage.class, false, false);
+            jk8.c(301004, CmdConfigHttp.FRS_MEMBER_TAB_CMD, TbConfig.GET_MEMBER_INFO, ForumMemberHttpResponseMessage.class, false, false, false, false);
+            jk8.b(2003009, uc6.class);
         }
     }
 
@@ -529,7 +529,7 @@ public class tc6 implements zf6 {
                 f = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07026c);
             }
             xe6Var.f(i - (((f2 + f3) + f) + (f4 * size)));
-            xe6Var.c(R.drawable.obfuscated_res_0x7f08120f);
+            xe6Var.c(R.drawable.obfuscated_res_0x7f081210);
             return xe6Var;
         }
         return (xe6) invokeV.objValue;

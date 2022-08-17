@@ -36,15 +36,15 @@ import com.repackage.a98;
 import com.repackage.b98;
 import com.repackage.c98;
 import com.repackage.d98;
-import com.repackage.e98;
-import com.repackage.gn7;
-import com.repackage.jn7;
+import com.repackage.fn7;
+import com.repackage.in7;
+import com.repackage.j88;
 import com.repackage.k88;
 import com.repackage.l88;
-import com.repackage.m88;
 import com.repackage.of5;
 import com.repackage.pi;
 import com.repackage.us8;
+import com.repackage.w88;
 import com.repackage.x88;
 import com.repackage.y88;
 import com.repackage.z88;
@@ -54,17 +54,17 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class TbCyberVideoView extends CyberVideoView implements l88 {
+public class TbCyberVideoView extends CyberVideoView implements k88 {
     public static /* synthetic */ Interceptable $ic;
-    public static jn7 w0;
+    public static in7 w0;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean J;
     public String K;
     public String L;
     public boolean M;
     public boolean N;
-    public c98 O;
-    public gn7 P;
+    public b98 O;
+    public fn7 P;
     public String Q;
     public String R;
     public PowerManager.WakeLock S;
@@ -74,10 +74,10 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
     public boolean W;
     public boolean a0;
     public int b0;
-    public m88 c0;
+    public l88 c0;
     public boolean d0;
-    public b98 e0;
-    public e98 f0;
+    public a98 e0;
+    public d98 f0;
     public TbVideoViewContainer.a g0;
     public boolean h0;
     public CyberPlayerManager.OnPreparedListener i0;
@@ -136,7 +136,7 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
                 if (this.a.f0 != null) {
                     this.a.f0.onPrepared();
                 }
-                if (this.a.J && (c = y88.d().c(this.a.L)) > 0) {
+                if (this.a.J && (c = x88.d().c(this.a.L)) > 0) {
                     this.a.seekTo(c);
                 }
                 if (this.a.M) {
@@ -184,7 +184,7 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
                     this.a.P = null;
                 }
                 this.a.setVideoStatus(OnStatusChangedListener.VideoStatus.VIDEO_COMPLETE);
-                y88.d().e(this.a.L);
+                x88.d().e(this.a.L);
                 if (this.a.getCyberPlayer().isLooping()) {
                     return;
                 }
@@ -229,7 +229,7 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, obj)) == null) {
                 if (this.a.getCurrentPosition() > 0 && this.a.E()) {
-                    y88.d().update(this.a.L, this.a.getCurrentPosition());
+                    x88.d().update(this.a.L, this.a.getCurrentPosition());
                 }
                 TbVideoViewSet.c().e(this.a.L);
                 if (this.a.f0 != null) {
@@ -395,9 +395,9 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
                 return;
             }
         }
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, jn7.class);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, in7.class);
         if (runTask != null) {
-            w0 = (jn7) runTask.getData();
+            w0 = (in7) runTask.getData();
         }
     }
 
@@ -435,21 +435,21 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public gn7 getVideoMonitor() {
+    public fn7 getVideoMonitor() {
         InterceptResult invokeV;
-        jn7 jn7Var;
+        in7 in7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            gn7 gn7Var = this.P;
-            if (gn7Var != null) {
-                return gn7Var;
+            fn7 fn7Var = this.P;
+            if (fn7Var != null) {
+                return fn7Var;
             }
-            if (!StringUtils.isNull(this.L) && (jn7Var = w0) != null) {
-                this.P = jn7Var.a(this.K, this.L, null);
+            if (!StringUtils.isNull(this.L) && (in7Var = w0) != null) {
+                this.P = in7Var.a(this.K, this.L, null);
             }
             return this.P;
         }
-        return (gn7) invokeV.objValue;
+        return (fn7) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -522,8 +522,8 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
             super.setOnErrorListener(this.q0);
             super.setOnSeekCompleteListener(this.r0);
             super.setOnInfoListener(this.s0);
-            this.O = new c98();
-            this.c0 = new m88();
+            this.O = new b98();
+            this.c0 = new l88();
             SkinManager.setBackgroundResource(this, R.color.black_alpha100);
         }
     }
@@ -533,15 +533,15 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
         if (interceptable == null || interceptable.invokeL(1048579, this, uri) == null) {
             super.stopPlayback();
             setOption(CyberPlayerManager.OPT_PCDN_TYPE, "2014");
-            a98 pcdnConfigData = TbSingleton.getInstance().getPcdnConfigData();
+            z88 pcdnConfigData = TbSingleton.getInstance().getPcdnConfigData();
             if (pcdnConfigData != null && pcdnConfigData.c()) {
                 if (!pcdnConfigData.a(uri)) {
                     this.b0 = 2;
                     return;
-                } else if (d98.e() != 0 && d98.e() != -1) {
+                } else if (c98.e() != 0 && c98.e() != -1) {
                     setOption(CyberPlayerManager.OPT_ENABLE_PCDN, "1");
                     setOption(CyberPlayerManager.OPT_ENABLE_P2P, pcdnConfigData.b() ? "1" : "0");
-                    setOption(CyberPlayerManager.OPT_PCDN_NETHANDLE, String.valueOf(d98.e()));
+                    setOption(CyberPlayerManager.OPT_PCDN_NETHANDLE, String.valueOf(c98.e()));
                     this.W = true;
                     this.a0 = pcdnConfigData.b();
                     this.b0 = 1;
@@ -565,14 +565,14 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (isPlaying() && E()) {
-                y88.d().update(this.L, getCurrentPositionSync());
+                x88.d().update(this.L, getCurrentPositionSync());
             }
             this.M = false;
             super.pause();
             H();
-            c98 c98Var = this.O;
-            if (c98Var != null) {
-                c98Var.e();
+            b98 b98Var = this.O;
+            if (b98Var != null) {
+                b98Var.e();
             }
             try {
                 if (this.S != null && this.S.isHeld()) {
@@ -581,9 +581,9 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
-            gn7 gn7Var = this.P;
-            if (gn7Var != null) {
-                gn7Var.f();
+            fn7 fn7Var = this.P;
+            if (fn7Var != null) {
+                fn7Var.f();
             }
         }
     }
@@ -624,7 +624,7 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
             }
             this.M = false;
             if (isPlaying() && E()) {
-                y88.d().update(this.L, getCurrentPositionSync());
+                x88.d().update(this.L, getCurrentPositionSync());
             }
             try {
                 if (this.S != null && this.S.isHeld()) {
@@ -635,13 +635,13 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
             }
             super.pause();
             H();
-            c98 c98Var = this.O;
-            if (c98Var != null) {
-                c98Var.j();
+            b98 b98Var = this.O;
+            if (b98Var != null) {
+                b98Var.j();
             }
             this.c0.n();
-            gn7 gn7Var = this.P;
-            if (gn7Var == null || !gn7Var.d(this.Q, this.R)) {
+            fn7 fn7Var = this.P;
+            if (fn7Var == null || !fn7Var.d(this.Q, this.R)) {
                 return;
             }
             this.P = null;
@@ -666,14 +666,14 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
         return (OnStatusChangedListener.VideoStatus) invokeL.objValue;
     }
 
-    @Override // com.repackage.l88
+    @Override // com.repackage.k88
     public void a(long j, long j2, long j3) {
-        gn7 gn7Var;
+        fn7 fn7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) || (gn7Var = this.P) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) || (fn7Var = this.P) == null) {
             return;
         }
-        gn7Var.a(j, j2, j3);
+        fn7Var.a(j, j2, j3);
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
@@ -726,7 +726,7 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.cyberplayer.sdk.CyberVideoView, com.repackage.l88
+    @Override // com.baidu.cyberplayer.sdk.CyberVideoView, com.repackage.k88
     public int getCurrentPositionSync() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -739,11 +739,11 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.l88
-    public m88 getMediaProgressObserver() {
+    @Override // com.repackage.k88
+    public l88 getMediaProgressObserver() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.c0 : (m88) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.c0 : (l88) invokeV.objValue;
     }
 
     public String getOriginUrl() {
@@ -752,26 +752,26 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.L : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.l88
+    @Override // com.repackage.k88
     public int getPcdnState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.b0 : invokeV.intValue;
     }
 
-    public k88 getPlayer() {
+    public j88 getPlayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             if (this.e0 == null) {
-                this.e0 = new b98(getCyberPlayer());
+                this.e0 = new a98(getCyberPlayer());
             }
             return this.e0;
         }
-        return (k88) invokeV.objValue;
+        return (j88) invokeV.objValue;
     }
 
-    @Override // com.repackage.l88
+    @Override // com.repackage.k88
     public int getPlayerHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -784,7 +784,7 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.l88
+    @Override // com.repackage.k88
     public int getPlayerWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -839,14 +839,14 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             of5.e(this.T, false);
             if (isPlaying() && E()) {
-                y88.d().update(this.L, getCurrentPositionSync());
+                x88.d().update(this.L, getCurrentPositionSync());
             }
             this.M = false;
             super.pause();
             H();
-            c98 c98Var = this.O;
-            if (c98Var != null) {
-                c98Var.e();
+            b98 b98Var = this.O;
+            if (b98Var != null) {
+                b98Var.e();
             }
             try {
                 if (this.S != null && this.S.isHeld()) {
@@ -855,9 +855,9 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
-            gn7 gn7Var = this.P;
-            if (gn7Var != null) {
-                gn7Var.f();
+            fn7 fn7Var = this.P;
+            if (fn7Var != null) {
+                fn7Var.f();
             }
         }
     }
@@ -904,7 +904,7 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
         }
     }
 
-    @Override // com.repackage.l88
+    @Override // com.repackage.k88
     public void setOnSurfaceDestroyedListener(TbVideoViewContainer.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, aVar) == null) {
@@ -912,25 +912,25 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
         }
     }
 
-    @Override // com.repackage.l88
-    public void setOperableVideoContainer(e98 e98Var) {
+    @Override // com.repackage.k88
+    public void setOperableVideoContainer(d98 d98Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, e98Var) == null) {
-            this.f0 = e98Var;
+        if (interceptable == null || interceptable.invokeL(1048610, this, d98Var) == null) {
+            this.f0 = d98Var;
         }
     }
 
-    @Override // com.repackage.l88
+    @Override // com.repackage.k88
     public void setPlayMode(String str) {
-        c98 c98Var;
+        b98 b98Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048611, this, str) == null) || (c98Var = this.O) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048611, this, str) == null) || (b98Var = this.O) == null) {
             return;
         }
-        c98Var.l(str);
+        b98Var.l(str);
     }
 
-    @Override // com.repackage.l88
+    @Override // com.repackage.k88
     public void setStageType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
@@ -949,7 +949,7 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, threadData) == null) {
             if (this.O == null) {
-                this.O = new c98();
+                this.O = new b98();
             }
             this.O.m(threadData);
         }
@@ -962,13 +962,13 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
         }
     }
 
-    public void setVideoModel(x88 x88Var) {
+    public void setVideoModel(w88 w88Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, x88Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048615, this, w88Var) == null) {
         }
     }
 
-    @Override // com.repackage.l88
+    @Override // com.repackage.k88
     public void setVideoPath(String str, String str2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048617, this, str, str2) == null) || pi.isEmpty(str)) {
@@ -978,16 +978,16 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
         setVideoPath(str);
     }
 
-    @Override // com.repackage.l88
-    public void setVideoStatData(z88 z88Var) {
+    @Override // com.repackage.k88
+    public void setVideoStatData(y88 y88Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, z88Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048618, this, y88Var) == null) {
             if (this.O == null) {
-                this.O = new c98();
+                this.O = new b98();
             }
-            this.O.o(z88Var);
-            if (z88Var != null) {
-                this.Q = z88Var.a;
+            this.O.o(y88Var);
+            if (y88Var != null) {
+                this.Q = y88Var.a;
             }
         }
     }
@@ -999,7 +999,7 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
         }
     }
 
-    @Override // com.repackage.l88
+    @Override // com.repackage.k88
     public void setVolume(float f2, float f3) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || getCyberPlayer() == null) {
@@ -1029,9 +1029,9 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
             if (this.u0 == OnStatusChangedListener.VideoStatus.INTERNAL_VIDEO_PAUSING_BUFFER) {
                 setVideoStatus(OnStatusChangedListener.VideoStatus.INTERNAL_VIDEO_BUFFERING_BUFFER);
             }
-            c98 c98Var = this.O;
-            if (c98Var != null) {
-                c98Var.i();
+            b98 b98Var = this.O;
+            if (b98Var != null) {
+                b98Var.i();
             }
             this.c0.m();
             try {
@@ -1057,7 +1057,7 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
             }
             this.M = false;
             if (isPlaying() && E()) {
-                y88.d().update(this.L, getCurrentPositionSync());
+                x88.d().update(this.L, getCurrentPositionSync());
             }
             try {
                 if (this.S != null && this.S.isHeld()) {
@@ -1068,13 +1068,13 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
             }
             super.stopPlayback();
             TbVideoViewSet.c().e(this.L);
-            c98 c98Var = this.O;
-            if (c98Var != null) {
-                c98Var.j();
+            b98 b98Var = this.O;
+            if (b98Var != null) {
+                b98Var.j();
             }
             this.c0.n();
-            gn7 gn7Var = this.P;
-            if (gn7Var == null || !gn7Var.d(this.Q, this.R)) {
+            fn7 fn7Var = this.P;
+            if (fn7Var == null || !fn7Var.d(this.Q, this.R)) {
                 return;
             }
             this.P = null;
@@ -1091,23 +1091,23 @@ public class TbCyberVideoView extends CyberVideoView implements l88 {
         if (UbsABTestHelper.isVideoSetUrlAgainABTest() || !pi.isEquals(this.L, str)) {
             this.L = str;
             String A = A(str);
-            jn7 jn7Var = w0;
-            if (jn7Var != null) {
-                gn7 a2 = jn7Var.a(this.K, this.L, null);
+            in7 in7Var = w0;
+            if (in7Var != null) {
+                fn7 a2 = in7Var.a(this.K, this.L, null);
                 this.P = a2;
                 if (a2 != null) {
                     a2.b(CyberPlayerManager.hasCacheFile(A));
                 }
             }
             this.c0.l(this);
-            c98 c98Var = this.O;
-            if (c98Var != null) {
-                c98Var.h();
+            b98 b98Var = this.O;
+            if (b98Var != null) {
+                b98Var.h();
             }
             D(Uri.parse(A));
-            gn7 gn7Var = this.P;
-            if (gn7Var != null) {
-                gn7Var.j();
+            fn7 fn7Var = this.P;
+            if (fn7Var != null) {
+                fn7Var.j();
             }
             super.setVideoPath(A);
         }

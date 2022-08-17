@@ -209,7 +209,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!oi.z()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                 }
                 if (jf5.a() || this.a.i3()) {
                     return;
@@ -217,7 +217,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                 if (this.a.j3()) {
                     BdTopToast bdTopToast = new BdTopToast(this.a.getActivity());
                     bdTopToast.h(false);
-                    bdTopToast.g(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f1143), this.a.c0.getSelectedTabItemData().name));
+                    bdTopToast.g(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f1144), this.a.c0.getSelectedTabItemData().name));
                     bdTopToast.i((ViewGroup) this.a.C);
                     return;
                 }
@@ -424,7 +424,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
     public void L2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TextView addTextButton = this.D.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f1125));
+            TextView addTextButton = this.D.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f1126));
             this.F = addTextButton;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) addTextButton.getLayoutParams();
             layoutParams.rightMargin = qi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701b2);
@@ -478,18 +478,18 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
         }
         int type = writeData.getType();
         if (type != 0 && type != 9) {
-            this.G.setText(R.string.obfuscated_res_0x7f0f110d);
+            this.G.setText(R.string.obfuscated_res_0x7f0f110e);
             this.L.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1000)});
             this.H.setVisibility(8);
             return;
         }
         String str3 = this.l;
         if (str3 != null && str3.equals("1")) {
-            this.G.setText(R.string.obfuscated_res_0x7f0f1160);
+            this.G.setText(R.string.obfuscated_res_0x7f0f1162);
         } else {
             String str4 = this.l;
             if (str4 != null && str4.equals("2")) {
-                String fixedBarText = UtilHelper.getFixedBarText(getResources().getString(R.string.obfuscated_res_0x7f0f115d) + this.r.getForumName(), 9, true, false);
+                String fixedBarText = UtilHelper.getFixedBarText(getResources().getString(R.string.obfuscated_res_0x7f0f115f) + this.r.getForumName(), 9, true, false);
                 if (fixedBarText.length() < 14) {
                     str2 = fixedBarText + getResources().getString(R.string.obfuscated_res_0x7f0f02d9);
                 } else {
@@ -570,7 +570,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
             }
             PostPrefixData postPrefixData = this.d;
             if (postPrefixData != null && postPrefixData.getPrefixs().size() > 0) {
-                this.d.getPrefixs().add(0, getPageContext().getString(R.string.obfuscated_res_0x7f0f15d1));
+                this.d.getPrefixs().add(0, getPageContext().getString(R.string.obfuscated_res_0x7f0f15d4));
             }
             OriginalThreadInfo.ShareInfo shareInfo = this.B0;
             if (shareInfo != null && (str = shareInfo.videoId) != null) {
@@ -601,9 +601,9 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
             if (StringUtils.isNull(obj)) {
                 OriginalThreadInfo.ShareInfo shareInfo = this.B0;
                 if (shareInfo != null && shareInfo.showType == 3) {
-                    return getString(R.string.obfuscated_res_0x7f0f1164);
+                    return getString(R.string.obfuscated_res_0x7f0f1166);
                 }
-                return getString(R.string.obfuscated_res_0x7f0f1163);
+                return getString(R.string.obfuscated_res_0x7f0f1165);
             }
             return obj;
         }
@@ -647,12 +647,12 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
             }
             if (TextUtils.isEmpty(obj)) {
                 if (TextUtils.isEmpty(this.r.getContent())) {
-                    return getString(R.string.obfuscated_res_0x7f0f1163);
+                    return getString(R.string.obfuscated_res_0x7f0f1165);
                 }
-                if (getString(R.string.obfuscated_res_0x7f0f1163).equals(this.r.getContent())) {
-                    return getString(R.string.obfuscated_res_0x7f0f1163);
+                if (getString(R.string.obfuscated_res_0x7f0f1165).equals(this.r.getContent())) {
+                    return getString(R.string.obfuscated_res_0x7f0f1165);
                 }
-                return getString(R.string.obfuscated_res_0x7f0f1164).equals(this.r.getContent()) ? getString(R.string.obfuscated_res_0x7f0f1164) : obj;
+                return getString(R.string.obfuscated_res_0x7f0f1166).equals(this.r.getContent()) ? getString(R.string.obfuscated_res_0x7f0f1166) : obj;
             }
             return obj;
         }
@@ -772,7 +772,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             if (((ImageSpan[]) W1().getText().getSpans(0, W1().getText().length(), ImageSpan.class)).length > 10) {
                 if (this.P == null) {
-                    this.P = Toast.makeText(getPageContext().getPageActivity(), (int) R.string.obfuscated_res_0x7f0f1431, 0);
+                    this.P = Toast.makeText(getPageContext().getPageActivity(), (int) R.string.obfuscated_res_0x7f0f1433, 0);
                 }
                 if (Build.VERSION.SDK_INT >= 28 && this.P.getView().isShown()) {
                     this.P.cancel();
@@ -845,10 +845,10 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
             this.G0.U().setVoice(null);
             this.G0.U().setVoiceDuringTime(-1);
             if (!oi.z()) {
-                showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                showToast(R.string.obfuscated_res_0x7f0f0c3d);
                 return;
             }
-            showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f1112), this.F0);
+            showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f1113), this.F0);
             this.G0.g0();
         }
     }
@@ -906,7 +906,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
             super.o2();
             if (this.D.getBackImageView() != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.D.getBackImageView(), R.drawable.obfuscated_res_0x7f0809f3, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.D.getBackImageView(), R.drawable.obfuscated_res_0x7f0809f4, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
             g3();
             ShowSoftKeyPad(this.f0, this.H);
@@ -1106,9 +1106,9 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
             this.L.addTextChangedListener(this.i0);
             OriginalThreadInfo.ShareInfo shareInfo = this.B0;
             if (shareInfo != null && shareInfo.showType == 3) {
-                this.L.setHint(R.string.obfuscated_res_0x7f0f1164);
+                this.L.setHint(R.string.obfuscated_res_0x7f0f1166);
             } else {
-                this.L.setHint(R.string.obfuscated_res_0x7f0f1163);
+                this.L.setHint(R.string.obfuscated_res_0x7f0f1165);
             }
         }
     }
@@ -1139,7 +1139,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
             if (!this.r.getHaveDraft()) {
                 j2();
             }
-            this.H.setHint(getResources().getString(R.string.obfuscated_res_0x7f0f0edf));
+            this.H.setHint(getResources().getString(R.string.obfuscated_res_0x7f0f0ee0));
         }
     }
 
@@ -1197,7 +1197,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                 this.r.setVideoInfo(null);
             } else if (i2 == 24) {
                 if (t2()) {
-                    showToast(R.string.obfuscated_res_0x7f0f0d19);
+                    showToast(R.string.obfuscated_res_0x7f0f0d1a);
                     return;
                 }
                 Object obj2 = h25Var.c;

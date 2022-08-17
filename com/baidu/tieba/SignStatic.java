@@ -40,8 +40,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dr4;
 import com.repackage.kf;
 import com.repackage.pi;
-import com.repackage.ri8;
-import com.repackage.wi8;
+import com.repackage.qi8;
+import com.repackage.vi8;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class SignStatic {
@@ -139,7 +139,7 @@ public class SignStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<wi8> {
+    public static class b implements CustomMessageTask.CustomRunnable<vi8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -158,12 +158,12 @@ public class SignStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<wi8> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<vi8> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && (customMessage.getData() instanceof dr4)) {
-                    new ri8().j((dr4) customMessage.getData());
+                    new qi8().j((dr4) customMessage.getData());
                 }
                 return null;
             }

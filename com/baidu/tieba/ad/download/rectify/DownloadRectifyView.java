@@ -18,10 +18,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ac8;
 import com.repackage.ho4;
 import com.repackage.lm5;
 import com.repackage.qi;
+import com.repackage.zb8;
 /* loaded from: classes3.dex */
 public class DownloadRectifyView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -69,7 +69,7 @@ public class DownloadRectifyView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Context context = this.b.getContext();
                 ho4.b bVar = this.a;
-                ac8.a(context, bVar.b, null, null, bVar.c);
+                zb8.a(context, bVar.b, null, null, bVar.c);
             }
         }
     }
@@ -106,7 +106,7 @@ public class DownloadRectifyView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Context context = this.b.getContext();
                 ho4.a aVar = this.a;
-                ac8.a(context, aVar.b, null, null, aVar.c);
+                zb8.a(context, aVar.b, null, null, aVar.c);
             }
         }
     }

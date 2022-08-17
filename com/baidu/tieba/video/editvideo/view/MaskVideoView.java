@@ -25,10 +25,10 @@ import com.faceunity.gles.FullFrameRect;
 import com.faceunity.gles.Texture2dProgram;
 import com.faceunity.wrapper.faceunity;
 import com.repackage.ct8;
-import com.repackage.fn7;
+import com.repackage.en7;
 import com.repackage.it8;
 import com.repackage.rg;
-import com.repackage.zm7;
+import com.repackage.ym7;
 import java.util.ArrayList;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -40,7 +40,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
     public e b;
     public int c;
     public int d;
-    public fn7 e;
+    public en7 e;
     public MediaPlayer.OnVideoSizeChangedListener f;
     public MediaPlayer.OnPreparedListener g;
     public MediaPlayer.OnPreparedListener h;
@@ -805,10 +805,10 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
         }
     }
 
-    public void setPostMonitorManager(fn7 fn7Var) {
+    public void setPostMonitorManager(en7 en7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, fn7Var) == null) {
-            this.e = fn7Var;
+        if (interceptable == null || interceptable.invokeL(1048599, this, en7Var) == null) {
+            this.e = en7Var;
         }
     }
 
@@ -820,9 +820,9 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                 this.a.prepare();
             } catch (Exception e2) {
                 e2.printStackTrace();
-                fn7 fn7Var = this.e;
-                if (fn7Var != null) {
-                    fn7Var.a(204, zm7.a(e2));
+                en7 en7Var = this.e;
+                if (en7Var != null) {
+                    en7Var.a(204, ym7.a(e2));
                 }
             }
         }
@@ -846,9 +846,9 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
             mediaPlayer.stop();
             this.a.release();
         } catch (Throwable th) {
-            fn7 fn7Var = this.e;
-            if (fn7Var != null) {
-                fn7Var.a(205, zm7.a(th));
+            en7 en7Var = this.e;
+            if (en7Var != null) {
+                en7Var.a(205, ym7.a(th));
             }
         }
         this.a = null;

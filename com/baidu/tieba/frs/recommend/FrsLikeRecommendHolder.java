@@ -16,11 +16,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gj8;
+import com.repackage.fj8;
 import com.repackage.ms4;
+import com.repackage.pj8;
 import com.repackage.pv4;
 import com.repackage.qi;
-import com.repackage.qj8;
 import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
 /* loaded from: classes3.dex */
@@ -77,23 +77,23 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
     }
 
     @SuppressLint({"SetTextI18n"})
-    public void a(qj8 qj8Var) {
+    public void a(pj8 pj8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, qj8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, pj8Var) == null) {
             BarImageView barImageView = this.b;
             if (barImageView != null) {
-                barImageView.K(qj8Var.a, 10, false);
+                barImageView.K(pj8Var.a, 10, false);
             }
             SymbolEMTextView symbolEMTextView = this.c;
             if (symbolEMTextView != null) {
-                symbolEMTextView.setText(qj8Var.b + this.c.getContext().getString(R.string.obfuscated_res_0x7f0f065a));
+                symbolEMTextView.setText(pj8Var.b + this.c.getContext().getString(R.string.obfuscated_res_0x7f0f065a));
             }
             TextView textView = this.d;
             if (textView != null) {
-                textView.setText(qj8Var.c);
+                textView.setText(pj8Var.c);
             }
             if (this.e != null) {
-                if (qj8Var.d) {
+                if (pj8Var.d) {
                     pv4 pv4Var = new pv4();
                     pv4Var.p(R.color.CAM_X0903, R.color.CAM_X0109);
                     this.e.setConfig(pv4Var);
@@ -118,7 +118,7 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
                     }
                 }
                 pv4 pv4Var2 = new pv4();
-                pv4Var2.s(gj8.f(str));
+                pv4Var2.s(fj8.f(str));
                 this.e.setConfig(pv4Var2);
                 TBSpecificationBtn tBSpecificationBtn2 = this.e;
                 tBSpecificationBtn2.setText(tBSpecificationBtn2.getContext().getString(R.string.obfuscated_res_0x7f0f071d));

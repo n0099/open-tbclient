@@ -57,12 +57,12 @@ public final class PbVideoDetailBrowseModeEmotionHolder extends TypeAdapter.View
         Intrinsics.checkNotNullExpressionValue(findViewById3, "getView().findViewById(R.id.agree_btn)");
         this.c = (TBSpecificationBtn) findViewById3;
         SkinManager.setImageResource(this.a, R.drawable.new_pic_emotion_01);
-        this.b.setText(R.string.obfuscated_res_0x7f0f0df4);
+        this.b.setText(R.string.obfuscated_res_0x7f0f0df5);
         ms4.d(this.b).v(R.color.CAM_X0107);
         pv4 pv4Var = new pv4();
         pv4Var.p(R.color.CAM_X0303, R.color.CAM_X0101);
         this.c.setConfig(pv4Var);
-        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0df3));
+        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0df4));
         this.c.setTextSize(R.dimen.T_X07);
     }
 

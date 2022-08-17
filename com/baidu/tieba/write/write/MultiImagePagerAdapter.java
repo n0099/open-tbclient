@@ -67,12 +67,12 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
 
         /* renamed from: com.baidu.tieba.write.write.MultiImagePagerAdapter$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0264a implements m19 {
+        public class C0266a implements m19 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0264a(a aVar) {
+            public C0266a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,7 +145,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.l.f.f(new C0264a(this));
+                this.a.l.f.f(new C0266a(this));
                 MultiImagePagerAdapter multiImagePagerAdapter = this.a;
                 multiImagePagerAdapter.i(multiImagePagerAdapter.h, false);
             }
@@ -676,8 +676,8 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.h = i;
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.a);
-            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0e77);
-            tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f1012);
+            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0e78);
+            tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f1013);
             tBAlertBuilder.r(new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f0370), TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f0265), TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
             tBAlertBuilder.g();
             tBAlertBuilder.w();

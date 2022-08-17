@@ -49,11 +49,11 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements s
                 pv4Var.t(R.color.CAM_X0109);
                 setConfig(pv4Var);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbd));
             } else {
                 pv4 pv4Var2 = new pv4();
                 pv4Var2.r(R.color.CAM_X0302);
-                pv4Var2.i(R.drawable.obfuscated_res_0x7f0808fd, 0, TBSpecificationButtonConfig.IconType.SVG);
+                pv4Var2.i(R.drawable.obfuscated_res_0x7f0808fe, 0, TBSpecificationButtonConfig.IconType.SVG);
                 pv4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
                 setConfig(pv4Var2);
                 setClickable(true);

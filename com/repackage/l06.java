@@ -16,7 +16,7 @@ public class l06 extends e06 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<n47> a;
+    public List<m47> a;
     public String b;
     public String c;
 
@@ -52,10 +52,10 @@ public class l06 extends e06 {
         this.a = new ArrayList();
     }
 
-    public void c(n47 n47Var) {
+    public void c(m47 m47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, n47Var) == null) {
-            this.a.add(n47Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, m47Var) == null) {
+            this.a.add(m47Var);
         }
     }
 
@@ -65,7 +65,7 @@ public class l06 extends e06 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public List<n47> getDataList() {
+    public List<m47> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (List) invokeV.objValue;

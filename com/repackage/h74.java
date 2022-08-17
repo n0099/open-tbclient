@@ -37,8 +37,8 @@ public class h74 {
         a.put(37, new f74(37, R.string.obfuscated_res_0x7f0f00ef, R.drawable.obfuscated_res_0x7f0800d7, true));
         a.put(38, new f74(38, R.string.obfuscated_res_0x7f0f00f8, R.drawable.obfuscated_res_0x7f0800d3, true));
         a.put(42, new f74(42, R.string.obfuscated_res_0x7f0f00f0, R.drawable.obfuscated_res_0x7f0800f7, true));
-        a.put(49, new f74(49, R.string.obfuscated_res_0x7f0f1247, R.drawable.obfuscated_res_0x7f081127, true));
-        a.put(50, new f74(50, R.string.obfuscated_res_0x7f0f12cb, R.drawable.obfuscated_res_0x7f081126, true));
+        a.put(49, new f74(49, R.string.obfuscated_res_0x7f0f1249, R.drawable.obfuscated_res_0x7f081128, true));
+        a.put(50, new f74(50, R.string.obfuscated_res_0x7f0f12cd, R.drawable.obfuscated_res_0x7f081127, true));
         a.put(43, new f74(43, R.string.obfuscated_res_0x7f0f00ee, R.drawable.obfuscated_res_0x7f0800d8, true));
         a.put(9, new f74(9, R.string.obfuscated_res_0x7f0f00f9, R.drawable.obfuscated_res_0x7f0800e4, true));
         a.put(46, new f74(46, R.string.obfuscated_res_0x7f0f00f1, R.drawable.obfuscated_res_0x7f0800e9, true));

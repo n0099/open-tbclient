@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.r48;
+import com.repackage.q48;
 import com.repackage.tr4;
 import com.repackage.ue;
 /* loaded from: classes4.dex */
@@ -29,7 +29,7 @@ public class PersonBarModel extends BdBaseModel {
     public static final String e;
     public static TbHttpMessageTask f;
     public transient /* synthetic */ FieldHolder $fh;
-    public r48 a;
+    public q48 a;
     public boolean b;
     public String c;
     public int d;
@@ -73,7 +73,7 @@ public class PersonBarModel extends BdBaseModel {
                 return;
             }
         }
-        this.a = new r48();
+        this.a = new q48();
         this.b = z;
     }
 
@@ -170,9 +170,9 @@ public class PersonBarModel extends BdBaseModel {
         }
     }
 
-    public r48 z() {
+    public q48 z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a : (r48) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a : (q48) invokeV.objValue;
     }
 }

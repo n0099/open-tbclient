@@ -33,10 +33,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.appbar.AppBarLayout;
+import com.repackage.er7;
 import com.repackage.ew4;
 import com.repackage.fr7;
 import com.repackage.g65;
-import com.repackage.gr7;
 import com.repackage.h65;
 import com.repackage.ms4;
 import com.repackage.oi;
@@ -52,7 +52,7 @@ public class HotTopicListView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public TbPageContext<?> b;
-    public fr7 c;
+    public er7 c;
     public View d;
     public NavigationBar e;
     public ViewGroup f;
@@ -63,7 +63,7 @@ public class HotTopicListView extends RelativeLayout {
     public ImageView k;
     public View l;
     public BdTypeRecyclerView m;
-    public gr7 n;
+    public fr7 n;
     public ViewGroup o;
     public PbListView p;
     public g65 q;
@@ -109,7 +109,7 @@ public class HotTopicListView extends RelativeLayout {
                 if (i + HotTopicListView.y < 0) {
                     this.a.d.setVisibility(0);
                     if (UbsABTestHelper.isNewHomeHotTopicTab()) {
-                        this.a.e.setCenterTextTitle(this.a.e.getContext().getString(R.string.obfuscated_res_0x7f0f0949));
+                        this.a.e.setCenterTextTitle(this.a.e.getContext().getString(R.string.obfuscated_res_0x7f0f094a));
                         return;
                     } else {
                         this.a.e.setCenterTextTitle(this.a.e.getContext().getString(R.string.obfuscated_res_0x7f0f088d));
@@ -282,13 +282,13 @@ public class HotTopicListView extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicListView(TbPageContext<?> tbPageContext, fr7 fr7Var, Bundle bundle) {
+    public HotTopicListView(TbPageContext<?> tbPageContext, er7 er7Var, Bundle bundle) {
         super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, fr7Var, bundle};
+            Object[] objArr = {tbPageContext, er7Var, bundle};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -306,7 +306,7 @@ public class HotTopicListView extends RelativeLayout {
         this.w = new b(this);
         this.x = new c(this);
         this.b = tbPageContext;
-        this.c = fr7Var;
+        this.c = er7Var;
         o(bundle);
         q();
     }
@@ -384,7 +384,7 @@ public class HotTopicListView extends RelativeLayout {
             this.m.setFadingEdgeLength(0);
             this.m.setOverScrollMode(2);
             this.m.setPadding(0, qi.f(getContext(), R.dimen.tbds16), 0, qi.f(getContext(), R.dimen.tbds16));
-            this.n = new gr7(this.b, this.m);
+            this.n = new fr7(this.b, this.m);
             this.o = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0906ce);
             View findViewById = findViewById(R.id.obfuscated_res_0x7f091f30);
             ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
@@ -415,9 +415,9 @@ public class HotTopicListView extends RelativeLayout {
         this.u = true;
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f092615), R.drawable.obfuscated_res_0x7f080612, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         SkinManager.setViewTextColor(this.e.getCenterText(), (int) R.color.CAM_X0101);
-        fr7 fr7Var = this.c;
-        if (fr7Var instanceof Activity) {
-            UtilHelper.changeStatusBarIconAndTextColor(true, (Activity) fr7Var);
+        er7 er7Var = this.c;
+        if (er7Var instanceof Activity) {
+            UtilHelper.changeStatusBarIconAndTextColor(true, (Activity) er7Var);
         }
     }
 
@@ -429,12 +429,12 @@ public class HotTopicListView extends RelativeLayout {
         }
         if (UbsABTestHelper.isNewHomeHotTopicTab()) {
             SkinManager.setBackgroundColor(this.d, R.color.obfuscated_res_0x7f0608d5);
-            SkinManager.setImageResource(this.j, R.drawable.obfuscated_res_0x7f080f25);
-            SkinManager.setImageResource(this.k, R.drawable.obfuscated_res_0x7f080f27);
+            SkinManager.setImageResource(this.j, R.drawable.obfuscated_res_0x7f080f26);
+            SkinManager.setImageResource(this.k, R.drawable.obfuscated_res_0x7f080f28);
         } else {
             SkinManager.setBackgroundColor(this.d, R.color.obfuscated_res_0x7f0608d4);
-            SkinManager.setImageResource(this.j, R.drawable.obfuscated_res_0x7f080f24);
-            SkinManager.setImageResource(this.k, R.drawable.obfuscated_res_0x7f080f26);
+            SkinManager.setImageResource(this.j, R.drawable.obfuscated_res_0x7f080f25);
+            SkinManager.setImageResource(this.k, R.drawable.obfuscated_res_0x7f080f27);
         }
         ms4 d2 = ms4.d(this.l);
         d2.m(1);
@@ -498,7 +498,7 @@ public class HotTopicListView extends RelativeLayout {
             this.m.setNextPage(this.p);
             this.p.f();
             this.p.L(0);
-            this.p.C(getResources().getString(R.string.obfuscated_res_0x7f0f0f7f));
+            this.p.C(getResources().getString(R.string.obfuscated_res_0x7f0f0f80));
         }
     }
 

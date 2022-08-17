@@ -39,13 +39,13 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
 
         /* renamed from: com.baidu.tieba.myAttentionAndFans.MyFansUserLikeButton$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0230a implements fs4.d {
+        public class C0231a implements fs4.d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ View a;
             public final /* synthetic */ a b;
 
-            public C0230a(a aVar, View view2) {
+            public C0231a(a aVar, View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,7 +154,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                             fs4Var.q(this.b.g.getString(R.string.obfuscated_res_0x7f0f043b));
                             ArrayList arrayList = new ArrayList();
                             bs4 bs4Var = new bs4(this.b.g.getString(R.string.obfuscated_res_0x7f0f0431), fs4Var);
-                            bs4Var.m(new C0230a(this, view2));
+                            bs4Var.m(new C0231a(this, view2));
                             arrayList.add(bs4Var);
                             fs4Var.m(new b(this));
                             fs4Var.j(arrayList);

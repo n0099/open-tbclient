@@ -72,12 +72,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.az8;
 import com.repackage.h9;
+import com.repackage.jk8;
 import com.repackage.jm4;
 import com.repackage.k16;
-import com.repackage.kk8;
 import com.repackage.qa;
 import com.repackage.qi;
-import com.repackage.wm8;
+import com.repackage.vm8;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class WriteActivityStatic {
@@ -163,12 +163,12 @@ public class WriteActivityStatic {
                             if (WriteActivityConfig.class == cls || WorkPublishActivityConfig.class == cls || RecordVideoActivityConfig.class == cls || WriteVoteActivityConfig.class == cls || AlbumFloatActivityConfig.class == cls) {
                                 String simpleName = intentConfig.getContext().getClass().getSimpleName();
                                 if ("FrsActivity".equals(simpleName) || "MainTabActivity".equals(simpleName)) {
-                                    wm8.k().w(h9.a(intentConfig.getContext()).getUniqueId());
-                                    wm8.k().z(false);
+                                    vm8.k().w(h9.a(intentConfig.getContext()).getUniqueId());
+                                    vm8.k().z(false);
                                 }
                             }
                             if (WorkPublishManager.isWorkPublishLocateMyTab()) {
-                                wm8.k().w(null);
+                                vm8.k().w(null);
                             }
                         }
                     }
@@ -279,10 +279,10 @@ public class WriteActivityStatic {
         UrlManager.getInstance().registerSchema(UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK, new a());
         f();
         g();
-        kk8.h(309450, GetRepostForumSocketResMessage.class, false, false);
-        kk8.c(309450, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, TbConfig.CMD_GET_REPOST_FORUM_LIST, GetRepostForumHttpResMessage.class, false, false, true, false);
-        kk8.c(309713, CmdConfigHttp.CMD_GET_SELECT_CLASS, TbConfig.URL_GET_WORKS_TAGS, GetSelectClassHttpResMessage.class, false, false, true, false);
-        kk8.c(309719, CmdConfigHttp.CMD_GET_RECOMMEND_TOPIC, TbConfig.URL_GET_RECOMMEND_TOPIC, GetRecommendTopicHttpResMessage.class, false, false, true, false);
+        jk8.h(309450, GetRepostForumSocketResMessage.class, false, false);
+        jk8.c(309450, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, TbConfig.CMD_GET_REPOST_FORUM_LIST, GetRepostForumHttpResMessage.class, false, false, true, false);
+        jk8.c(309713, CmdConfigHttp.CMD_GET_SELECT_CLASS, TbConfig.URL_GET_WORKS_TAGS, GetSelectClassHttpResMessage.class, false, false, true, false);
+        jk8.c(309719, CmdConfigHttp.CMD_GET_RECOMMEND_TOPIC, TbConfig.URL_GET_RECOMMEND_TOPIC, GetRecommendTopicHttpResMessage.class, false, false, true, false);
     }
 
     public WriteActivityStatic() {
@@ -320,7 +320,7 @@ public class WriteActivityStatic {
                 AntiData antiData = new AntiData();
                 antiData.setIfpost(1);
                 if (antiData.getIfpost() == 0) {
-                    qi.O(tbPageContext.getPageActivity(), antiData.getForbid_info());
+                    qi.N(tbPageContext.getPageActivity(), antiData.getForbid_info());
                     return;
                 }
                 antiData.setIfVoice(false);
@@ -344,8 +344,8 @@ public class WriteActivityStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2001449, new d());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            kk8.f(309686, UrlParserSocketResponseMessage.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_URL_PARSER_MESSAGE, kk8.a(TbConfig.URL_URL_PARSER, 309686));
+            jk8.f(309686, UrlParserSocketResponseMessage.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_URL_PARSER_MESSAGE, jk8.a(TbConfig.URL_URL_PARSER, 309686));
             tbHttpMessageTask.setResponsedClass(UrlParserHttpResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }

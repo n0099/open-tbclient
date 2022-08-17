@@ -41,13 +41,13 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
 
         /* renamed from: com.baidu.swan.apps.relateswans.SwanAppRelatedSwanListAdapter$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class View$OnClickListenerC0180a implements View.OnClickListener {
+        public class View$OnClickListenerC0181a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Context a;
             public final /* synthetic */ String b;
 
-            public View$OnClickListenerC0180a(a aVar, Context context, String str) {
+            public View$OnClickListenerC0181a(a aVar, Context context, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
                     return;
                 }
                 textView.setVisibility(0);
-                textView.setOnClickListener(new View$OnClickListenerC0180a(this, context, str));
+                textView.setOnClickListener(new View$OnClickListenerC0181a(this, context, str));
             }
         }
     }
@@ -156,13 +156,13 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
 
         /* renamed from: com.baidu.swan.apps.relateswans.SwanAppRelatedSwanListAdapter$b$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0181b implements wd3.b {
+        public class C0182b implements wd3.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SwanAppRoundedImageView a;
             public final /* synthetic */ Context b;
 
-            public C0181b(b bVar, SwanAppRoundedImageView swanAppRoundedImageView, Context context) {
+            public C0182b(b bVar, SwanAppRoundedImageView swanAppRoundedImageView, Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -220,7 +220,7 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
                 return;
             }
             ((RelativeLayout) this.itemView.findViewById(R.id.obfuscated_res_0x7f091b82)).setOnClickListener(new a(this, aVar, context, i));
-            wd3.e(aVar.a, new C0181b(this, (SwanAppRoundedImageView) this.itemView.findViewById(R.id.obfuscated_res_0x7f091f6e), context));
+            wd3.e(aVar.a, new C0182b(this, (SwanAppRoundedImageView) this.itemView.findViewById(R.id.obfuscated_res_0x7f091f6e), context));
             ((TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f091f70)).setText(aVar.b);
         }
     }

@@ -21,11 +21,11 @@ public interface os0 {
 
         /* renamed from: com.repackage.os0$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0552a implements qs0 {
+        public class C0553a implements qs0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0552a(a aVar) {
+            public C0553a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public interface os0 {
         public qs0 a(Map<String, String> map, Object obj) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) ? new C0552a(this) : (qs0) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) ? new C0553a(this) : (qs0) invokeLL.objValue;
         }
     }
 

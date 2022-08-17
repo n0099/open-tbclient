@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ms4;
 import com.repackage.qi;
-import com.repackage.rz7;
+import com.repackage.qz7;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -37,7 +37,7 @@ public class SubPbLayout extends ViewGroup {
     public View.OnClickListener a;
     public View.OnLongClickListener b;
     public View.OnTouchListener c;
-    public rz7 d;
+    public qz7 d;
     public int e;
     public PostData f;
     public View g;
@@ -123,9 +123,9 @@ public class SubPbLayout extends ViewGroup {
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
             if ((i > 0 && (this.f.F() == 1 || this.f.F() == 3 || this.f.a0() > this.e)) || this.f.m0(this.l)) {
                 if (this.k) {
-                    format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f120a), Integer.valueOf(this.f.a0()));
+                    format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f120c), Integer.valueOf(this.f.a0()));
                 } else {
-                    format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f120b), Integer.valueOf(this.f.a0()));
+                    format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f120d), Integer.valueOf(this.f.a0()));
                 }
                 this.j.setText(format);
                 this.i.setOnClickListener(this.a);
@@ -218,7 +218,7 @@ public class SubPbLayout extends ViewGroup {
                         sparseArray.put(-3, this.n.get(-3));
                         sparseArray.put(-4, this.n.get(-4));
                     }
-                    rz7.b bVar = (rz7.b) sparseArray.get(R.id.obfuscated_res_0x7f091ffd);
+                    qz7.b bVar = (qz7.b) sparseArray.get(R.id.obfuscated_res_0x7f091ffd);
                     this.d.c(bVar, list.get(i3), this.f.a0() > list.size() || list.size() - i3 > 1, i3 == 0, false);
                     bVar.e.setPadding(0, 0, 0, qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds7));
                     if (UbsABTestHelper.isPBPlanA()) {
@@ -433,10 +433,10 @@ public class SubPbLayout extends ViewGroup {
         }
     }
 
-    public void setSubPbAdapter(rz7 rz7Var) {
+    public void setSubPbAdapter(qz7 qz7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, rz7Var) == null) {
-            this.d = rz7Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, qz7Var) == null) {
+            this.d = qz7Var;
         }
     }
 

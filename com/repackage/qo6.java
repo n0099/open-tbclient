@@ -189,7 +189,7 @@ public class qo6 implements NetModel.k {
         }
         if (po6Var.b != 0) {
             if (StringUtils.isNull(po6Var.c)) {
-                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0c3c);
+                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0c3d);
                 return;
             } else {
                 this.a.showToast(po6Var.c);
@@ -217,7 +217,7 @@ public class qo6 implements NetModel.k {
         }
         if (po6Var.b != 0) {
             if (StringUtils.isNull(po6Var.c)) {
-                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0c3c);
+                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0c3d);
                 return;
             } else {
                 this.a.showToast(po6Var.c);
@@ -314,7 +314,7 @@ public class qo6 implements NetModel.k {
             ur4Var.setCanceledOnTouchOutside(false);
             ur4Var.setCancelable(false);
             ur4Var.setMessage(str);
-            ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f09a0, new c(this, ur4Var));
+            ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f09a1, new c(this, ur4Var));
             ur4Var.create(this.a);
             ur4Var.show();
         }

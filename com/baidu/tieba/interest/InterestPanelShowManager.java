@@ -18,9 +18,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.jd7;
 import com.repackage.kd7;
 import com.repackage.ld7;
-import com.repackage.md7;
 import com.repackage.ny4;
 import com.repackage.ru4;
 import java.util.List;
@@ -29,7 +29,7 @@ public class InterestPanelShowManager {
     public static /* synthetic */ Interceptable $ic;
     public static volatile InterestPanelShowManager c;
     public transient /* synthetic */ FieldHolder $fh;
-    public md7 a;
+    public ld7 a;
     public boolean b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -136,10 +136,10 @@ public class InterestPanelShowManager {
         return invokeJ.booleanValue;
     }
 
-    public void c(md7 md7Var) {
+    public void c(ld7 ld7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, md7Var) == null) {
-            this.a = md7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ld7Var) == null) {
+            this.a = ld7Var;
         }
     }
 
@@ -163,7 +163,7 @@ public class InterestPanelShowManager {
         if (this.b) {
             interestGuideActivityConfig.setScene(8);
         } else {
-            interestGuideActivityConfig.setCustomTitle(new String[]{context.getResources().getString(R.string.obfuscated_res_0x7f0f0911), context.getResources().getString(R.string.obfuscated_res_0x7f0f0912), context.getResources().getString(R.string.obfuscated_res_0x7f0f090d)});
+            interestGuideActivityConfig.setCustomTitle(new String[]{context.getResources().getString(R.string.obfuscated_res_0x7f0f0912), context.getResources().getString(R.string.obfuscated_res_0x7f0f0913), context.getResources().getString(R.string.obfuscated_res_0x7f0f090e)});
             interestGuideActivityConfig.setScene(9);
         }
         if (z) {
@@ -175,14 +175,14 @@ public class InterestPanelShowManager {
 
     public final InterestPanelShowState f() {
         InterceptResult invokeV;
-        md7 md7Var;
+        ld7 ld7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!TimeHelper.isSameDay(ru4.k().m("key_interest_panel_show_time", 0L), System.currentTimeMillis()) && (md7Var = this.a) != null && md7Var.b() != null && this.a.a() != null) {
+            if (!TimeHelper.isSameDay(ru4.k().m("key_interest_panel_show_time", 0L), System.currentTimeMillis()) && (ld7Var = this.a) != null && ld7Var.b() != null && this.a.a() != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int registerTime = (int) (((currentTimeMillis - (this.a.b().getRegisterTime() * 1000)) / 86400000) + 1);
-                kd7 a = this.a.a();
-                List<ld7> b = a.b();
+                jd7 a = this.a.a();
+                List<kd7> b = a.b();
                 if (ListUtils.isEmpty(b)) {
                     return null;
                 }

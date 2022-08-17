@@ -184,7 +184,7 @@ public final class pz5 implements View.OnClickListener {
             Intrinsics.checkNotNullParameter(v, "v");
             if (v.getId() == R.id.obfuscated_res_0x7f09054a) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new InterestGuideActivityConfig(this.b, 5)));
-                f17.a(1);
+                e17.a(1);
             }
         }
     }

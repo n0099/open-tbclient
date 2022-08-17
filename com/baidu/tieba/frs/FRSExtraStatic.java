@@ -31,15 +31,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ek6;
 import com.repackage.fk6;
+import com.repackage.it6;
 import com.repackage.jm6;
-import com.repackage.jt6;
-import com.repackage.lk8;
+import com.repackage.kk8;
 import com.repackage.mg6;
 import com.repackage.n65;
 import com.repackage.oe6;
 import com.repackage.og;
+import com.repackage.oj8;
 import com.repackage.pi;
-import com.repackage.pj8;
 import com.repackage.ql6;
 import com.repackage.r06;
 import com.repackage.rl6;
@@ -90,8 +90,8 @@ public class FRSExtraStatic {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                 absDelegateAdapterList.add(new FrsSchoolRecommendAdapter(null, xq4.c, null));
                 absDelegateAdapterList.add(new ek6(null, r06.g, true));
-                absDelegateAdapterList.add(new fk6(null, lk8.d, null));
-                absDelegateAdapterList.add(new ql6(null, jt6.e, null));
+                absDelegateAdapterList.add(new fk6(null, kk8.d, null));
+                absDelegateAdapterList.add(new ql6(null, it6.e, null));
             }
         }
     }
@@ -291,7 +291,7 @@ public class FRSExtraStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new yk6(null, pj8.c, true));
+                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new yk6(null, oj8.c, true));
             }
         }
     }

@@ -58,7 +58,7 @@ public class c33 extends d33 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (this.e.d) {
-                    r03 f = r03.f(this.a.getApplicationContext(), R.string.obfuscated_res_0x7f0f1308);
+                    r03 f = r03.f(this.a.getApplicationContext(), R.string.obfuscated_res_0x7f0f130a);
                     f.l(2);
                     f.G();
                 }

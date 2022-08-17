@@ -83,7 +83,7 @@ public class fi5 {
                     return;
                 }
             }
-            h(R.drawable.obfuscated_res_0x7f080a27);
+            h(R.drawable.obfuscated_res_0x7f080a28);
             i(R.dimen.tbds3);
         }
 
@@ -114,9 +114,9 @@ public class fi5 {
             if (interceptable == null || interceptable.invokeLIL(1048579, this, view2, i, z65Var) == null) {
                 if (z65Var.n()) {
                     Context context = view2.getContext();
-                    BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f150a));
+                    BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f150d));
                     b.f(BdToast.ToastIcon.FAILURE);
-                    b.h();
+                    b.i();
                     return;
                 }
                 if (z65Var.o()) {
@@ -232,9 +232,9 @@ public class fi5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                BdToast b = BdToast.b(SelectorHelper.getContext(), SelectorHelper.getContext().getString(R.string.obfuscated_res_0x7f0f150a));
+                BdToast b = BdToast.b(SelectorHelper.getContext(), SelectorHelper.getContext().getString(R.string.obfuscated_res_0x7f0f150d));
                 b.f(BdToast.ToastIcon.FAILURE);
-                b.h();
+                b.i();
             }
         }
     }
@@ -845,16 +845,16 @@ public class fi5 {
             if (intValue != 2) {
                 if (intValue != 3) {
                     if (intValue == 5) {
-                        a2.h(R.drawable.obfuscated_res_0x7f0807f1);
+                        a2.h(R.drawable.obfuscated_res_0x7f0807f2);
                     } else if (intValue == 6) {
-                        a2.h(R.drawable.obfuscated_res_0x7f080f57);
+                        a2.h(R.drawable.obfuscated_res_0x7f080f58);
                     } else if (intValue != 7) {
-                        a2.h(R.drawable.obfuscated_res_0x7f0809a1);
+                        a2.h(R.drawable.obfuscated_res_0x7f0809a2);
                     }
                 }
-                a2.h(R.drawable.obfuscated_res_0x7f080a2d);
+                a2.h(R.drawable.obfuscated_res_0x7f080a2e);
             } else {
-                a2.h(R.drawable.obfuscated_res_0x7f080998);
+                a2.h(R.drawable.obfuscated_res_0x7f080999);
             }
             return Pair.create(a2.b(i, tiebaPlusInfo.desc, c2), c2);
         }
@@ -872,7 +872,7 @@ public class fi5 {
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds10);
             int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds36);
             int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.tbds13);
-            SpannableString spannableString = new SpannableString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0995));
+            SpannableString spannableString = new SpannableString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0996));
             spannableString.setSpan(new jw4(i2, dimenPixelSize, dimenPixelSize2, dimenPixelSize3, 0, z), 0, spannableString.length(), 33);
             return spannableString;
         }
@@ -919,13 +919,13 @@ public class fi5 {
                     gVar.j(-1);
                 }
                 if (z) {
-                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809a1, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809a2, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
                     eMRichTextAnyIconSpan.c(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
                     spannableString2.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
                     spannableString2.setSpan(gVar, 1, (str5.length() + 1) - 1, 33);
                     return spannableString2;
                 } else if (z2) {
-                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan2 = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080adc, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan2 = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080add, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
                     eMRichTextAnyIconSpan2.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006));
                     spannableString2.setSpan(eMRichTextAnyIconSpan2, str5.length() - 1, str5.length() + 1, 33);
                     spannableString2.setSpan(gVar, 0, str5.length() - 1, 33);
@@ -1004,7 +1004,7 @@ public class fi5 {
     public static void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65566, null) == null) {
-            b.b(35, new b(RichTextMaker.IconPos.START, R.drawable.obfuscated_res_0x7f0809a1, R.color.CAM_X0304, R.dimen.M_W_X002));
+            b.b(35, new b(RichTextMaker.IconPos.START, R.drawable.obfuscated_res_0x7f0809a2, R.color.CAM_X0304, R.dimen.M_W_X002));
         }
     }
 

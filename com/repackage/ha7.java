@@ -3,22 +3,16 @@ package com.repackage;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.chat.officialBar.RequestLocalHistoryMessage;
-import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
-import com.baidu.tieba.im.chat.officialBar.ResponseLocalHistoryMessage;
+import com.baidu.tieba.im.message.RequestOfficialBarMenuLocalMessage;
+import com.baidu.tieba.im.message.ResponseOfficialBarMenuLocalMessage;
+import com.baidu.tieba.im.message.ResponseOfficialBarMenuMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.util.Date;
-import java.util.LinkedList;
-import protobuf.QueryHistoryMsg.MsgInfo;
-import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
 /* loaded from: classes6.dex */
-public class ha7 implements CustomMessageTask.CustomRunnable<String> {
+public class ha7 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -37,40 +31,22 @@ public class ha7 implements CustomMessageTask.CustomRunnable<String> {
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof RequestLocalHistoryMessage)) {
-                tr4.f();
-                ue<byte[]> d = tr4.d("tb.im_official_history");
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                byte[] bArr = d.get(currentAccount + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
-                if (bArr == null) {
-                    return null;
-                }
-                LinkedList linkedList = new LinkedList();
-                try {
-                    QueryHistoryMsgResIdl queryHistoryMsgResIdl = (QueryHistoryMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryHistoryMsgResIdl.class);
-                    if (queryHistoryMsgResIdl.data.res != null) {
-                        for (MsgInfo msgInfo : queryHistoryMsgResIdl.data.res) {
-                            ResponseHistoryMessage.a aVar = new ResponseHistoryMessage.a();
-                            if (msgInfo != null) {
-                                Date date = new Date();
-                                date.setTime(msgInfo.sendTime.longValue() * 1000);
-                                pi.getDateStringMouth(date);
-                                msgInfo.type.intValue();
-                                String str = msgInfo.content;
-                                msgInfo.id.intValue();
-                                linkedList.add(aVar);
-                            }
-                        }
-                    }
-                    return new ResponseLocalHistoryMessage(linkedList);
-                } catch (Exception unused) {
-                }
+            if (customMessage == null || !(customMessage instanceof RequestOfficialBarMenuLocalMessage)) {
+                return null;
             }
-            return null;
+            tr4.f();
+            byte[] bArr = tr4.d("tb.official_bar_menu").get(ResponseOfficialBarMenuMessage.OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuLocalMessage) customMessage).getForum_id());
+            ResponseOfficialBarMenuLocalMessage responseOfficialBarMenuLocalMessage = new ResponseOfficialBarMenuLocalMessage();
+            try {
+                responseOfficialBarMenuLocalMessage.decodeInBackGround(2001177, bArr);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return responseOfficialBarMenuLocalMessage;
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

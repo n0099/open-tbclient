@@ -1,159 +1,55 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.Intent;
+import android.net.Uri;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.play.cyberPlayer.CyberRemotePlayerService;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class z88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public int j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
-    public String u;
-    public String v;
-    public String w;
-    public int x;
-    public int y;
-    public String z;
+    public boolean a;
+    public boolean b;
+    public HashMap<String, Integer> c;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static String a(String str) {
-            InterceptResult invokeL;
+        public a(z88 z88Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    return "";
-                }
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 1567) {
-                    if (hashCode != 1568) {
-                        if (hashCode != 1570) {
-                            if (hashCode != 1576) {
-                                if (hashCode != 1599) {
-                                    switch (hashCode) {
-                                        case 49:
-                                            if (str.equals("1")) {
-                                                c = 0;
-                                                break;
-                                            }
-                                            break;
-                                        case 50:
-                                            if (str.equals("2")) {
-                                                c = 2;
-                                                break;
-                                            }
-                                            break;
-                                        case 51:
-                                            if (str.equals("3")) {
-                                                c = 4;
-                                                break;
-                                            }
-                                            break;
-                                        case 52:
-                                            if (str.equals("4")) {
-                                                c = 3;
-                                                break;
-                                            }
-                                            break;
-                                        default:
-                                            switch (hashCode) {
-                                                case 54:
-                                                    if (str.equals("6")) {
-                                                        c = 7;
-                                                        break;
-                                                    }
-                                                    break;
-                                                case 55:
-                                                    if (str.equals("7")) {
-                                                        c = 1;
-                                                        break;
-                                                    }
-                                                    break;
-                                                case 56:
-                                                    if (str.equals("8")) {
-                                                        c = '\b';
-                                                        break;
-                                                    }
-                                                    break;
-                                                case 57:
-                                                    if (str.equals("9")) {
-                                                        c = '\t';
-                                                        break;
-                                                    }
-                                                    break;
-                                            }
-                                    }
-                                } else if (str.equals("21")) {
-                                    c = '\f';
-                                }
-                            } else if (str.equals("19")) {
-                                c = '\n';
-                            }
-                        } else if (str.equals("13")) {
-                            c = 11;
-                        }
-                    } else if (str.equals("11")) {
-                        c = 6;
-                    }
-                } else if (str.equals("10")) {
-                    c = 5;
-                }
-                switch (c) {
-                    case 0:
-                    case 1:
-                        return "a002";
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                        return "a006";
-                    case 7:
-                        return "a005";
-                    case '\b':
-                    case '\t':
-                    case '\n':
-                        return "a020";
-                    case 11:
-                        return "a023";
-                    case '\f':
-                        return "a088";
-                    default:
-                        return "";
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z88Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return (String) invokeL.objValue;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                TbadkCoreApplication.getInst().getContext().stopService(new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class));
+            }
         }
     }
 
@@ -167,130 +63,68 @@ public class z88 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.z = "index";
     }
 
-    public StatisticItem a(StatisticItem statisticItem) {
+    public boolean a(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, statisticItem)) == null) {
-            if (statisticItem != null) {
-                if (!StringUtils.isNull(this.a)) {
-                    statisticItem.param("obj_locate", this.a);
-                    statisticItem.param("page_type", a.a(this.a));
-                    if (this.a.equals("21")) {
-                        statisticItem.param(TiebaStatic.Params.BHV_ID, TbSingleton.getInstance().getCurrentClickTime());
-                    }
-                    if (this.a.equals("13") && !StringUtils.isNull(this.i) && this.z.equals(this.i)) {
-                        statisticItem.param(TiebaStatic.Params.BHV_ID, TbSingleton.getInstance().getCurrentClickTime());
-                    }
-                }
-                if (!StringUtils.isNull(this.c)) {
-                    statisticItem.param("tid", this.c);
-                }
-                if (!StringUtils.isNull(this.d)) {
-                    statisticItem.param("fid", this.d);
-                }
-                if (!StringUtils.isNull(this.e)) {
-                    statisticItem.param("uid", this.e);
-                }
-                if (!StringUtils.isNull(this.f)) {
-                    statisticItem.param("obj_source", this.f);
-                } else {
-                    statisticItem.param("obj_source", 0);
-                }
-                if (!StringUtils.isNull(this.g)) {
-                    statisticItem.param("obj_param1", this.g);
-                } else {
-                    statisticItem.param("obj_param1", 0);
-                }
-                if (!StringUtils.isNull(this.h)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, this.h);
-                }
-                if (!StringUtils.isNull(this.i)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, this.i);
-                }
-                int i = this.j;
-                if (i > 0) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, i);
-                }
-                if (!StringUtils.isNull(this.k)) {
-                    statisticItem.param("obj_id", this.k);
-                }
-                if (!StringUtils.isNull(this.l)) {
-                    statisticItem.param("ab_tag", this.l);
-                } else {
-                    statisticItem.param("ab_tag", 0);
-                }
-                if (!StringUtils.isNull(this.n)) {
-                    statisticItem.param(TiebaStatic.Params.TOPIC_TYPE, this.n);
-                }
-                if (!StringUtils.isNull(this.o)) {
-                    statisticItem.param("extra", this.o);
-                } else {
-                    statisticItem.param("extra", 0);
-                }
-                if (!StringUtils.isNull(this.p)) {
-                    statisticItem.param(TiebaStatic.Params.IS_VERTICAL, this.p);
-                }
-                if (!StringUtils.isNull(this.q)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, this.q);
-                }
-                if (!StringUtils.isNull(this.r)) {
-                    statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.r);
-                }
-                if (!StringUtils.isNull(this.s)) {
-                    statisticItem.param("group_id", this.s);
-                }
-                int i2 = this.x;
-                if (i2 > 0) {
-                    statisticItem.param("request_num", i2);
-                }
-                int i3 = this.y;
-                if (i3 > 0) {
-                    statisticItem.param("video_num", i3);
-                }
-                statisticItem.param("obj_extra", StringUtils.isNull(this.w) ? "" : this.w);
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, StringUtils.isNull(this.t) ? "" : this.t);
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, StringUtils.isNull(this.u) ? "" : this.u);
-                statisticItem.param("nid", StringUtils.isNull(this.v) ? "" : this.v);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
+            HashMap<String, Integer> hashMap = this.c;
+            if (hashMap == null || uri == null) {
+                return false;
             }
-            return statisticItem;
+            return hashMap.containsKey(uri.getHost());
         }
-        return (StatisticItem) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public z88 b() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            z88 z88Var = new z88();
-            z88Var.a = this.a;
-            z88Var.b = this.b;
-            z88Var.c = this.c;
-            z88Var.d = this.d;
-            z88Var.e = this.e;
-            z88Var.f = this.f;
-            z88Var.g = this.g;
-            z88Var.h = this.h;
-            z88Var.i = this.i;
-            z88Var.k = this.k;
-            z88Var.l = this.l;
-            z88Var.m = this.m;
-            z88Var.n = this.n;
-            z88Var.q = this.q;
-            z88Var.r = this.r;
-            z88Var.s = this.s;
-            z88Var.t = this.t;
-            z88Var.u = this.u;
-            z88Var.v = this.v;
-            z88Var.x = this.x;
-            z88Var.y = this.y;
-            return z88Var;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a) {
+                c98.f();
+            }
+            return this.a;
         }
-        return (z88) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void d(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        boolean z = this.a;
+        this.a = jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0) == 1;
+        this.b = jSONObject.optInt("p2p_config", 0) == 1;
+        JSONArray optJSONArray = jSONObject.optJSONArray("domain_list");
+        if (optJSONArray != null) {
+            this.c = new HashMap<>();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                String optString = optJSONArray.optString(i);
+                if (!StringUtils.isNull(optString)) {
+                    this.c.put(optString, 0);
+                }
+            }
+        }
+        if (this.a) {
+            c98.f();
+            if (z) {
+                return;
+            }
+            Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class);
+            intent.putExtra("pcdn", true);
+            TbadkCoreApplication.getInst().getContext().startService(intent);
+            rg.a().postDelayed(new a(this), 3000L);
+        }
     }
 }

@@ -45,24 +45,25 @@ import com.repackage.az4;
 import com.repackage.bn8;
 import com.repackage.cn8;
 import com.repackage.d9;
+import com.repackage.el8;
+import com.repackage.em8;
+import com.repackage.en7;
+import com.repackage.es7;
 import com.repackage.fl8;
-import com.repackage.fm8;
-import com.repackage.fn7;
-import com.repackage.fs7;
-import com.repackage.gl8;
 import com.repackage.gu4;
+import com.repackage.in7;
 import com.repackage.j55;
-import com.repackage.jn7;
-import com.repackage.ku7;
+import com.repackage.ju7;
 import com.repackage.oi;
 import com.repackage.pi;
 import com.repackage.rg;
 import com.repackage.ru4;
+import com.repackage.um8;
 import com.repackage.ur4;
 import com.repackage.ur8;
+import com.repackage.vg;
 import com.repackage.vm8;
 import com.repackage.wm8;
-import com.repackage.xm8;
 import com.repackage.z05;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -79,13 +80,13 @@ public class NewWriteModel extends BdBaseModel {
     public e d;
     public boolean e;
     public d9<?> f;
-    public fl8.c g;
+    public el8.c g;
     public SpanGroupManager h;
     public String i;
     public boolean j;
     public boolean k;
-    public gl8 l;
-    public fm8.c m;
+    public fl8 l;
+    public em8.c m;
 
     /* loaded from: classes4.dex */
     public class a implements ur4.e {
@@ -161,7 +162,7 @@ public class NewWriteModel extends BdBaseModel {
     }
 
     /* loaded from: classes4.dex */
-    public class c extends fm8.c {
+    public class c extends em8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewWriteModel a;
@@ -184,7 +185,7 @@ public class NewWriteModel extends BdBaseModel {
             this.a = newWriteModel;
         }
 
-        @Override // com.repackage.fm8.c
+        @Override // com.repackage.em8.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -201,7 +202,7 @@ public class NewWriteModel extends BdBaseModel {
             }
         }
 
-        @Override // com.repackage.fm8.c
+        @Override // com.repackage.em8.c
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -218,7 +219,7 @@ public class NewWriteModel extends BdBaseModel {
             }
         }
 
-        @Override // com.repackage.fm8.c
+        @Override // com.repackage.em8.c
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -231,7 +232,7 @@ public class NewWriteModel extends BdBaseModel {
             }
         }
 
-        @Override // com.repackage.fm8.c
+        @Override // com.repackage.em8.c
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -260,19 +261,55 @@ public class NewWriteModel extends BdBaseModel {
     public class f extends BdAsyncTask<Integer, Integer, cn8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public fl8 a;
+        public el8 a;
         public String b;
         public JSONObject c;
         public boolean d;
-        public jn7 e;
-        public fn7 f;
+        public in7 e;
+        public en7 f;
         public final /* synthetic */ NewWriteModel g;
 
         /* loaded from: classes4.dex */
-        public class a implements gl8.e {
+        public class a implements fl8.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ f a;
+
+            /* renamed from: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel$f$a$a  reason: collision with other inner class name */
+            /* loaded from: classes4.dex */
+            public class RunnableC0257a implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ cn8 a;
+                public final /* synthetic */ a b;
+
+                public RunnableC0257a(a aVar, cn8 cn8Var) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {aVar, cn8Var};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.b = aVar;
+                    this.a = cn8Var;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                        this.b.a.onPostExecute(this.a);
+                    }
+                }
+            }
 
             public a(f fVar) {
                 Interceptable interceptable = $ic;
@@ -292,20 +329,55 @@ public class NewWriteModel extends BdBaseModel {
                 this.a = fVar;
             }
 
-            @Override // com.repackage.gl8.e
+            @Override // com.repackage.fl8.e
             public void a(cn8 cn8Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, cn8Var) == null) {
-                    this.a.onPostExecute(cn8Var);
+                    vg.b(new RunnableC0257a(this, cn8Var));
                 }
             }
         }
 
         /* loaded from: classes4.dex */
-        public class b implements gl8.e {
+        public class b implements fl8.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ f a;
+
+            /* loaded from: classes4.dex */
+            public class a implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ cn8 a;
+                public final /* synthetic */ b b;
+
+                public a(b bVar, cn8 cn8Var) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {bVar, cn8Var};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.b = bVar;
+                    this.a = cn8Var;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                        this.b.a.onPostExecute(this.a);
+                    }
+                }
+            }
 
             public b(f fVar) {
                 Interceptable interceptable = $ic;
@@ -325,11 +397,11 @@ public class NewWriteModel extends BdBaseModel {
                 this.a = fVar;
             }
 
-            @Override // com.repackage.gl8.e
+            @Override // com.repackage.fl8.e
             public void a(cn8 cn8Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, cn8Var) == null) {
-                    this.a.onPostExecute(cn8Var);
+                    vg.b(new a(this, cn8Var));
                 }
             }
         }
@@ -364,7 +436,7 @@ public class NewWriteModel extends BdBaseModel {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ku7.a((TbPageContext) this.b.g.f, this.a).show();
+                    ju7.a((TbPageContext) this.b.g.f, this.a).show();
                 }
             }
         }
@@ -389,16 +461,16 @@ public class NewWriteModel extends BdBaseModel {
             this.b = null;
             this.c = null;
             this.d = false;
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, jn7.class);
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, in7.class);
             if (runTask != null) {
-                this.e = (jn7) runTask.getData();
+                this.e = (in7) runTask.getData();
             }
-            jn7 jn7Var = this.e;
-            if (jn7Var != null) {
-                this.f = jn7Var.get();
+            in7 in7Var = this.e;
+            if (in7Var != null) {
+                this.f = in7Var.get();
             }
             setPriority(3);
-            xm8.a("发帖：任务创建：PostThreadTask");
+            wm8.a("发帖：任务创建：PostThreadTask");
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -412,11 +484,11 @@ public class NewWriteModel extends BdBaseModel {
                     return null;
                 }
                 j55.e(this.g.b.getContent());
-                xm8.a("doInBackground() start");
-                xm8.a("发帖：任务后台执行 开始 doInBackground");
-                fl8 fl8Var = new fl8();
-                this.a = fl8Var;
-                fl8Var.o(this.g.h);
+                wm8.a("doInBackground() start");
+                wm8.a("发帖：任务后台执行 开始 doInBackground");
+                el8 el8Var = new el8();
+                this.a = el8Var;
+                el8Var.o(this.g.h);
                 this.a.p(this.g.i);
                 this.a.q(this.f);
                 this.a.n(this.g.g);
@@ -458,7 +530,7 @@ public class NewWriteModel extends BdBaseModel {
 
         public final void c(bn8 bn8Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bn8Var) == null) || fm8.a(bn8Var.f(), AuthTokenData.parse(this.c), this.g.m)) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bn8Var) == null) || em8.a(bn8Var.f(), AuthTokenData.parse(this.c), this.g.m)) {
                 return;
             }
             if (bn8Var.x()) {
@@ -496,9 +568,9 @@ public class NewWriteModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.d = true;
-                fl8 fl8Var = this.a;
-                if (fl8Var != null) {
-                    fl8Var.e();
+                el8 el8Var = this.a;
+                if (el8Var != null) {
+                    el8Var.e();
                 }
                 if (this.g.d != null) {
                     this.g.d.callback(false, null, null, this.g.b, null);
@@ -511,11 +583,11 @@ public class NewWriteModel extends BdBaseModel {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Code restructure failed: missing block: B:168:0x05af, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:168:0x05b7, code lost:
             if (r7 != 9) goto L103;
          */
-        /* JADX WARN: Removed duplicated region for block: B:133:0x0466  */
-        /* JADX WARN: Removed duplicated region for block: B:161:0x059a  */
+        /* JADX WARN: Removed duplicated region for block: B:133:0x046e  */
+        /* JADX WARN: Removed duplicated region for block: B:161:0x05a2  */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
         /*
@@ -565,22 +637,22 @@ public class NewWriteModel extends BdBaseModel {
                 }
                 this.c = cn8Var.d();
                 this.a.m(this.g.b, cn8Var);
-                xm8.a("发帖：任务后台执行 开始 doInBackground 结束");
+                wm8.a("发帖：任务后台执行 开始 doInBackground 结束");
                 ErrorData h2 = this.a.h();
-                vm8.c(this.g.b, h2);
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", (!this.a.j() || this.c == null) ? 19 : 18).param("obj_type", this.g.b != null ? this.g.b.getType() : -1).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
+                um8.c(this.g.b, h2);
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param(TiebaStatic.Params.OBJ_PARAM2, h2.getError_code()).param("obj_locate", (cn8Var.e() || this.c == null) ? 19 : 18).param("obj_type", this.g.b != null ? this.g.b.getType() : -1).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
                 if (!cn8Var.e() && this.c != null) {
-                    xm8.a("发帖：任务后台执行 开始 doInBackground 成功");
+                    wm8.a("发帖：任务后台执行 开始 doInBackground 成功");
                     AntiData f = this.a.f();
                     String error_msg = h2.getError_msg();
                     if (pi.isEmpty(error_msg)) {
-                        error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f110f);
+                        error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1110);
                     }
                     bn8Var = new bn8(h2.getError_code(), error_msg, f);
                     if (this.g.b != null && this.g.b.isHasImages() && !bn8Var.v()) {
                         this.g.b.deleteUploadedTempImages();
                     }
-                    xm8.a("发帖：任务后台执行 开始 doInBackground 删除临时的图片");
+                    wm8.a("发帖：任务后台执行 开始 doInBackground 删除临时的图片");
                 } else if (h2 != null && h2.error_code == 220015) {
                     bn8Var = new bn8(h2.getError_code(), h2.getError_msg(), null);
                     JSONObject jSONObject = this.c;
@@ -599,7 +671,7 @@ public class NewWriteModel extends BdBaseModel {
                             e.printStackTrace();
                         }
                     }
-                    xm8.a("发帖：任务后台执行 开始 doInBackground 失败 1");
+                    wm8.a("发帖：任务后台执行 开始 doInBackground 失败 1");
                 } else if (h2 != null && h2.error_code == 238010) {
                     bn8Var = new bn8(h2.getError_code(), h2.getError_msg(), null);
                     JSONObject jSONObject2 = this.c;
@@ -610,21 +682,21 @@ public class NewWriteModel extends BdBaseModel {
                         ar4Var.c = optJSONObject.optString("block_confirm");
                         bn8Var.P(ar4Var);
                     }
-                    xm8.a("发帖：任务后台执行 开始 doInBackground 失败 2");
+                    wm8.a("发帖：任务后台执行 开始 doInBackground 失败 2");
                 } else if (h2 != null && h2.error_code != 0) {
                     String error_msg2 = h2.getError_msg();
                     if (StringUtils.isNull(error_msg2)) {
                         if (h2.error_code == 3250013) {
                             error_msg2 = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0283);
                         } else {
-                            error_msg2 = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1103);
+                            error_msg2 = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1104);
                         }
                     }
                     bn8Var = new bn8(h2.getError_code(), error_msg2, this.a.f());
-                    xm8.a("发帖：任务后台执行 开始 doInBackground 失败 3");
+                    wm8.a("发帖：任务后台执行 开始 doInBackground 失败 3");
                 } else {
-                    bn8Var = new bn8(-17, TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0c3c), null);
-                    xm8.a("发帖：任务后台执行 开始 doInBackground 失败 4");
+                    bn8Var = new bn8(-17, TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0c3d), null);
+                    wm8.a("发帖：任务后台执行 开始 doInBackground 失败 4");
                 }
                 if (bn8Var.v()) {
                     obj = "pid";
@@ -640,7 +712,7 @@ public class NewWriteModel extends BdBaseModel {
                         String optString5 = jSONObject3.optString("pid");
                         String optString6 = jSONObject3.optString("video_id");
                         String optString7 = jSONObject3.optString("invitees_number");
-                        CustomDialogData a2 = fs7.a(jSONObject3);
+                        CustomDialogData a2 = es7.a(jSONObject3);
                         JSONObject optJSONObject3 = jSONObject3.optJSONObject("twzhibo_info");
                         int optInt = optJSONObject3 != null ? optJSONObject3.optInt("is_copytwzhibo", 0) : 0;
                         JSONObject optJSONObject4 = jSONObject3.optJSONObject("exp");
@@ -738,7 +810,7 @@ public class NewWriteModel extends BdBaseModel {
                     }
                     if (StringUtils.isNull(str11)) {
                         videoEasterEggData2 = videoEasterEggData;
-                        str11 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f110f);
+                        str11 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1110);
                     } else {
                         videoEasterEggData2 = videoEasterEggData;
                     }
@@ -760,10 +832,10 @@ public class NewWriteModel extends BdBaseModel {
                     bn8Var.C(z05Var);
                     bn8Var.I(iconStampData);
                 }
-                xm8.a("doInBackground end");
-                xm8.a("发帖：任务后台执行 开始 doInBackground 完全结束");
-                xm8.a("onPostExecute start");
-                xm8.a("发帖： onPostExecute");
+                wm8.a("doInBackground end");
+                wm8.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                wm8.a("onPostExecute start");
+                wm8.a("发帖： onPostExecute");
                 this.g.a = null;
                 if (bn8Var.f() != 0) {
                     gu4.a(AlbumActivityConfig.FROM_WRITE, 0L, 0, "write_result", bn8Var.f(), bn8Var.g(), obj2, bn8Var.s(), obj, bn8Var.m());
@@ -773,7 +845,7 @@ public class NewWriteModel extends BdBaseModel {
                         if (this.g.b != null) {
                             this.g.b.getType();
                         }
-                        xm8.a("onPostExecute success");
+                        wm8.a("onPostExecute success");
                         if (this.g.d == null) {
                             if (this.g.c != null) {
                                 this.g.c.a(true, bn8Var.g(), null, null, bn8Var.c());
@@ -806,11 +878,11 @@ public class NewWriteModel extends BdBaseModel {
                                 postWriteCallBackData.setIconStampData(bn8Var.j());
                                 az4 az4Var = new az4();
                                 az4Var.f(this.c);
-                                if (this.g.b != null || wm8.k().i() == null) {
+                                if (this.g.b != null || vm8.k().i() == null) {
                                     if (this.g.b != null || !this.g.j) {
                                         if (this.g.b != null && this.g.k) {
-                                            wm8.k().C(this.g.b.getForumId());
-                                            wm8.k().D(this.g.b.getForumName());
+                                            vm8.k().C(this.g.b.getForumId());
+                                            vm8.k().D(this.g.b.getForumName());
                                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921655, postWriteCallBackData));
                                         }
                                     } else {
@@ -820,15 +892,15 @@ public class NewWriteModel extends BdBaseModel {
                                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921650, postWriteCallBackData));
                                     }
                                 } else {
-                                    wm8.k().C(this.g.b.getForumId());
-                                    wm8.k().D(this.g.b.getForumName());
+                                    vm8.k().C(this.g.b.getForumId());
+                                    vm8.k().D(this.g.b.getForumName());
                                     if (this.g.b.getVideoInfo() != null) {
                                         postWriteCallBackData.writeDataForVideo = this.g.b;
                                     }
                                     CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001383, postWriteCallBackData);
-                                    customResponsedMessage.setOrginalMessage(new CustomMessage(2001383, wm8.k().i()));
+                                    customResponsedMessage.setOrginalMessage(new CustomMessage(2001383, vm8.k().i()));
                                     MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-                                    wm8.k().z(false);
+                                    vm8.k().z(false);
                                 }
                                 activityDialog = postWriteCallBackData.getActivityDialog();
                                 if (activityDialog != null && bn8Var.j() == null) {
@@ -869,8 +941,8 @@ public class NewWriteModel extends BdBaseModel {
                             if (this.g.b != null) {
                             }
                             if (this.g.b != null) {
-                                wm8.k().C(this.g.b.getForumId());
-                                wm8.k().D(this.g.b.getForumName());
+                                vm8.k().C(this.g.b.getForumId());
+                                vm8.k().D(this.g.b.getForumName());
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921655, postWriteCallBackData));
                             }
                             activityDialog = postWriteCallBackData.getActivityDialog();
@@ -884,22 +956,22 @@ public class NewWriteModel extends BdBaseModel {
                         if (this.g.b != null && !this.g.b.isWork()) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001375, Boolean.valueOf(bn8Var.j() == null)));
                         }
-                        fn7 fn7Var = this.f;
-                        if (fn7Var != null) {
-                            fn7Var.c();
+                        en7 en7Var = this.f;
+                        if (en7Var != null) {
+                            en7Var.c();
                         }
                     } else {
-                        xm8.a("onPostExecute error");
+                        wm8.a("onPostExecute error");
                         c(bn8Var);
-                        fn7 fn7Var2 = this.f;
-                        if (fn7Var2 != null) {
-                            fn7Var2.h(bn8Var.a, bn8Var.g());
+                        en7 en7Var2 = this.f;
+                        if (en7Var2 != null) {
+                            en7Var2.h(bn8Var.a, bn8Var.g());
                         }
                     }
-                    xm8.a("发帖： onPostExecute 完全结束");
+                    wm8.a("发帖： onPostExecute 完全结束");
                     return;
                 }
-                xm8.a("发帖： onPostExecute isCanceled");
+                wm8.a("发帖： onPostExecute isCanceled");
             }
         }
     }
@@ -966,17 +1038,17 @@ public class NewWriteModel extends BdBaseModel {
             WriteData writeData = this.b;
             TiebaStatic.log(param.param("obj_type", writeData != null ? writeData.getType() : -1).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
             if (this.a == null) {
-                if (wm8.k().i() != null) {
+                if (vm8.k().i() != null) {
                     CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001378, U());
-                    customResponsedMessage.setOrginalMessage(new CustomMessage(2001378, wm8.k().i()));
+                    customResponsedMessage.setOrginalMessage(new CustomMessage(2001378, vm8.k().i()));
                     MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                 }
                 if (this.l == null) {
-                    this.l = new gl8(this.f);
+                    this.l = new fl8(this.f);
                 }
                 this.a = new f(this);
-                xm8.a("dealPost()");
-                vm8.l(this.b);
+                wm8.a("dealPost()");
+                um8.l(this.b);
                 this.a.execute(new Integer[0]);
             }
         }
@@ -1003,7 +1075,7 @@ public class NewWriteModel extends BdBaseModel {
     public final void W(bn8 bn8Var) {
         d9<?> d9Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, bn8Var) == null) || (d9Var = this.f) == null || bn8Var == null || (this.d instanceof wm8)) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, bn8Var) == null) || (d9Var = this.f) == null || bn8Var == null || (this.d instanceof vm8)) {
             return;
         }
         ur8.e(d9Var.getPageActivity(), bn8Var.g());
@@ -1127,7 +1199,7 @@ public class NewWriteModel extends BdBaseModel {
             if (this.b == null) {
                 return false;
             }
-            xm8.a("发帖：开始上传");
+            wm8.a("发帖：开始上传");
             this.b.startPublish();
             PublishProgressData.valueOf(this.b, 0).send(true);
             T();
@@ -1155,7 +1227,7 @@ public class NewWriteModel extends BdBaseModel {
                     return true;
                 }
                 ur4 ur4Var = new ur4(d9Var.getPageActivity());
-                ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0d11);
+                ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0d12);
                 ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0265, new a(this, ur4Var));
                 ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new b(this, ur4Var));
                 ur4Var.create(this.f);

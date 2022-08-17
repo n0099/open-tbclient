@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r48;
+import com.repackage.q48;
 /* loaded from: classes4.dex */
 public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r48 mData;
+    public q48 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsePersonBarByUidLocalMessage() {
@@ -32,16 +32,16 @@ public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage<S
         }
     }
 
-    public r48 getPersonBarData() {
+    public q48 getPersonBarData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (r48) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (q48) invokeV.objValue;
     }
 
-    public void setPersonBarData(r48 r48Var) {
+    public void setPersonBarData(q48 q48Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, r48Var) == null) {
-            this.mData = r48Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, q48Var) == null) {
+            this.mData = q48Var;
         }
     }
 
@@ -70,9 +70,9 @@ public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage<S
     public void decodeInBackGround(int i, String str) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            r48 r48Var = new r48();
-            this.mData = r48Var;
-            r48Var.n(str);
+            q48 q48Var = new q48();
+            this.mData = q48Var;
+            q48Var.n(str);
         }
     }
 }

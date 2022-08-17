@@ -177,7 +177,7 @@ public class mo5 implements bi3 {
 
         /* renamed from: com.repackage.mo5$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class DialogInterface$OnClickListenerC0525b implements DialogInterface.OnClickListener {
+        public class DialogInterface$OnClickListenerC0527b implements DialogInterface.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -187,14 +187,14 @@ public class mo5 implements bi3 {
             public class a implements lh1 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ DialogInterface$OnClickListenerC0525b a;
+                public final /* synthetic */ DialogInterface$OnClickListenerC0527b a;
 
-                public a(DialogInterface$OnClickListenerC0525b dialogInterface$OnClickListenerC0525b) {
+                public a(DialogInterface$OnClickListenerC0527b dialogInterface$OnClickListenerC0527b) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {dialogInterface$OnClickListenerC0525b};
+                        Object[] objArr = {dialogInterface$OnClickListenerC0527b};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -204,7 +204,7 @@ public class mo5 implements bi3 {
                             return;
                         }
                     }
-                    this.a = dialogInterface$OnClickListenerC0525b;
+                    this.a = dialogInterface$OnClickListenerC0527b;
                 }
 
                 @Override // com.repackage.lh1
@@ -220,7 +220,7 @@ public class mo5 implements bi3 {
                 }
             }
 
-            public DialogInterface$OnClickListenerC0525b(b bVar) {
+            public DialogInterface$OnClickListenerC0527b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -336,7 +336,7 @@ public class mo5 implements bi3 {
                 d03.a aVar = new d03.a(this.b);
                 aVar.V(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0078));
                 aVar.x(string);
-                aVar.P(string2, new DialogInterface$OnClickListenerC0525b(this));
+                aVar.P(string2, new DialogInterface$OnClickListenerC0527b(this));
                 aVar.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0073), new a(this));
                 aVar.X();
             }
@@ -759,10 +759,10 @@ public class mo5 implements bi3 {
             ProgressBar progressBar = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f0913f0);
             TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0914ee);
             if (findViewById != null) {
-                findViewById.setBackground(findViewById.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e50));
+                findViewById.setBackground(findViewById.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e51));
             }
             if (progressBar != null) {
-                progressBar.setIndeterminateDrawable(progressBar.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d26));
+                progressBar.setIndeterminateDrawable(progressBar.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d27));
             }
             if (textView != null) {
                 textView.setTextColor(textView.getResources().getColor(R.color.obfuscated_res_0x7f06078f));

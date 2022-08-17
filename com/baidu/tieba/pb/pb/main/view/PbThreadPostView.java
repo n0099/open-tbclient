@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ft7;
+import com.repackage.et7;
 /* loaded from: classes4.dex */
 public class PbThreadPostView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -86,9 +86,9 @@ public class PbThreadPostView extends LinearLayout {
         }
     }
 
-    public void setData(ft7 ft7Var) {
+    public void setData(et7 et7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ft7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, et7Var) == null) {
             c(TbadkCoreApplication.getInst().getSkinType());
         }
     }

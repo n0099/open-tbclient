@@ -1,18 +1,18 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.interest.data.RecentClientInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ld7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public jd7 a;
+    public RecentClientInfo b;
 
     public ld7() {
         Interceptable interceptable = $ic;
@@ -28,46 +28,29 @@ public class ld7 {
         }
     }
 
-    public static ld7 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            int optInt = jSONObject.optInt("day");
-            int optInt2 = jSONObject.optInt("forum_num");
-            ld7 ld7Var = new ld7();
-            ld7Var.d(optInt);
-            ld7Var.e(optInt2);
-            return ld7Var;
-        }
-        return (ld7) invokeL.objValue;
-    }
-
-    public int a() {
+    public jd7 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (jd7) invokeV.objValue;
     }
 
-    public int b() {
+    public RecentClientInfo b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (RecentClientInfo) invokeV.objValue;
     }
 
-    public void d(int i) {
+    public void c(jd7 jd7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jd7Var) == null) {
+            this.a = jd7Var;
         }
     }
 
-    public void e(int i) {
+    public void d(RecentClientInfo recentClientInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || interceptable.invokeL(1048579, this, recentClientInfo) == null) {
+            this.b = recentClientInfo;
         }
     }
 }

@@ -1,140 +1,94 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.util.SparseIntArray;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class u18 extends cn {
+public class u18 {
     public static /* synthetic */ Interceptable $ic;
+    public static SparseIntArray a;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment b;
-    public b c;
-    public TBSpecificationBtn d;
-    public View.OnClickListener e;
 
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u18 a;
-
-        public a(u18 u18Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755313707, "Lcom/repackage/u18;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u18Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = u18Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ViewHelper.skipToLoginActivity(this.a.b.getContext());
-                if (this.a.c != null) {
-                    this.a.c.W0(true);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface b {
-        void W0(boolean z);
-    }
-
-    public u18(BaseFragment baseFragment, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment, bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755313707, "Lcom/repackage/u18;");
                 return;
             }
         }
-        this.e = new a(this);
-        this.b = baseFragment;
-        this.c = bVar;
+        a = new SparseIntArray();
     }
 
-    @Override // com.repackage.cn
-    public View a() {
-        InterceptResult invokeV;
+    public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0550, (ViewGroup) null);
-            this.a = inflate;
-            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f09141a);
-            ov4 ov4Var = new ov4();
-            BaseFragment baseFragment = this.b;
-            if (baseFragment != null && baseFragment.getContext() != null) {
-                this.d.setText(this.b.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a66));
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{smallTailInfo, textView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || smallTailInfo == null || textView == null) {
+            return;
+        }
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
+        int b = b(R.dimen.obfuscated_res_0x7f070207);
+        if (z2 && z3) {
+            layoutParams.setMargins(b, b(R.dimen.obfuscated_res_0x7f07022f), b, b(R.dimen.obfuscated_res_0x7f07025f));
+        } else if (z) {
+            layoutParams.setMargins(0, b(R.dimen.obfuscated_res_0x7f07022f), 0, 0);
+        } else if (!z2) {
+            layoutParams.setMargins(b(R.dimen.obfuscated_res_0x7f070231), b(R.dimen.obfuscated_res_0x7f07022f), b(R.dimen.obfuscated_res_0x7f07020f), b(R.dimen.obfuscated_res_0x7f0701b2));
+        } else {
+            layoutParams.setMargins(b, b(R.dimen.obfuscated_res_0x7f07022f), b, b(R.dimen.obfuscated_res_0x7f0701b2));
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) "icon");
+        spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
+        Drawable drawable = SkinManager.getDrawable(R.drawable.icon_pb_tail);
+        drawable.setBounds(0, 0, b, b);
+        yf5 yf5Var = new yf5(drawable);
+        yf5Var.c(b(R.dimen.obfuscated_res_0x7f070224));
+        spannableStringBuilder.setSpan(yf5Var, 0, 4, 33);
+        textView.setLayoutParams(layoutParams);
+        textView.setText(spannableStringBuilder);
+        textView.setTextColor(smallTailInfo.showColorId);
+        textView.setVisibility(0);
+    }
+
+    public static int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            int i2 = a.get(i, -1);
+            if (i2 == -1) {
+                int f = qi.f(TbadkCoreApplication.getInst().getContext(), i);
+                a.put(i, f);
+                return f;
             }
-            this.d.setTextSize(R.dimen.tbds42);
-            this.d.setConfig(ov4Var);
-            this.d.setOnClickListener(this.e);
-            f(TbadkCoreApplication.getInst().getSkinType());
-            return this.a;
+            return i2;
         }
-        return (View) invokeV.objValue;
+        return invokeI.intValue;
     }
 
-    @Override // com.repackage.cn
-    public void c() {
+    public static void c(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
+        SpannableString spannableString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{smallTailInfo, textView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || smallTailInfo == null || (spannableString = smallTailInfo.tailSpannable) == null || spannableString.length() == 0 || textView == null) {
+            return;
         }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            fb5.a(this.b.getPageContext(), this.a);
-            TBSpecificationBtn tBSpecificationBtn = this.d;
-            if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.k();
-            }
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        }
-    }
-
-    public void h(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.d.setOnClickListener(onClickListener);
-        }
+        smallTailInfo.updateShowInfo();
+        a(smallTailInfo, textView, z, z2, z3);
     }
 }

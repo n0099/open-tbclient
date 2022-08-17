@@ -15,14 +15,14 @@ public class j59 {
     public static o49 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? qg8.a() : (o49) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? pg8.a() : (o49) invokeV.objValue;
     }
 
     @Inject
     public static n49 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? og8.a() : (n49) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ng8.a() : (n49) invokeV.objValue;
     }
 
     @Inject

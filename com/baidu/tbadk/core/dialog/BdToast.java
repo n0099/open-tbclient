@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
@@ -64,8 +65,8 @@ public class BdToast {
                     return;
                 }
             }
-            SUCCESS = new ToastIcon("SUCCESS", 0, R.drawable.obfuscated_res_0x7f0809e2, true);
-            FAILURE = new ToastIcon("FAILURE", 1, R.drawable.obfuscated_res_0x7f0809e0, true);
+            SUCCESS = new ToastIcon("SUCCESS", 0, R.drawable.obfuscated_res_0x7f0809e3, true);
+            FAILURE = new ToastIcon("FAILURE", 1, R.drawable.obfuscated_res_0x7f0809e1, true);
             ToastIcon toastIcon = new ToastIcon("NOT", 2, 0, false);
             NOT = toastIcon;
             $VALUES = new ToastIcon[]{SUCCESS, FAILURE, toastIcon};
@@ -136,7 +137,7 @@ public class BdToast {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, charSequence)) == null) {
             BdToast bdToast = new BdToast(context);
-            bdToast.g(charSequence);
+            bdToast.h(charSequence);
             return bdToast;
         }
         return (BdToast) invokeLL.objValue;
@@ -149,7 +150,7 @@ public class BdToast {
             Toast toast = new Toast(this.a);
             this.b = toast;
             zi.a(toast);
-            i();
+            j();
             int i = this.g;
             if (i != -1) {
                 if (this.h) {
@@ -213,10 +214,36 @@ public class BdToast {
         return (BdToast) invokeL.objValue;
     }
 
-    public BdToast g(CharSequence charSequence) {
+    public BdToast g(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048581, this, i, i2, i3)) == null) {
+            if (i != 0) {
+                this.h = false;
+                this.g = i;
+            }
+            ImageView imageView = this.d;
+            if (imageView != null && i2 > 0 && i3 > 0) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
+                if (layoutParams == null) {
+                    layoutParams = new LinearLayout.LayoutParams(i2, i3);
+                    layoutParams.topMargin = R.dimen.obfuscated_res_0x7f0702c3;
+                    layoutParams.gravity = 17;
+                } else {
+                    layoutParams.width = i2;
+                    layoutParams.height = i3;
+                }
+                this.d.setLayoutParams(layoutParams);
+            }
+            return this;
+        }
+        return (BdToast) invokeIII.objValue;
+    }
+
+    public BdToast h(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, charSequence)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, charSequence)) == null) {
             this.f = charSequence;
             this.e.setText(charSequence);
             return this;
@@ -224,10 +251,10 @@ public class BdToast {
         return (BdToast) invokeL.objValue;
     }
 
-    public BdToast h() {
+    public BdToast i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (this.b == null) {
                 a();
             }
@@ -240,9 +267,9 @@ public class BdToast {
         return (BdToast) invokeV.objValue;
     }
 
-    public final void i() {
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             SoftReference<Toast> softReference = j;
             if (softReference != null && softReference.get() != null) {
                 j.get().cancel();

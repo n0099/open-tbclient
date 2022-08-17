@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.SidSessionMeta;
 import com.fun.ad.sdk.internal.api.reporter.Reporter;
-import com.repackage.bl9;
+import com.repackage.dl9;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class h0 {
@@ -79,7 +79,7 @@ public class h0 {
                 return;
             }
         }
-        this.c = bl9.a();
+        this.c = dl9.a();
         this.a = sidSessionMeta;
         this.b = str;
     }

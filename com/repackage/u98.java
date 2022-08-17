@@ -1,28 +1,216 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tieba.VideoPlatformStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.UUID;
 /* loaded from: classes7.dex */
-public class u98 implements dn7 {
+public class u98 implements en7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public w98 b;
+    public String b;
+    public HashMap<String, cn7> c;
 
-    public u98(String str) {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final en7 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(369759, "Lcom/repackage/u98$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(369759, "Lcom/repackage/u98$b;");
+                    return;
+                }
+            }
+            a = new u98(null);
+        }
+    }
+
+    public /* synthetic */ u98(a aVar) {
+        this();
+    }
+
+    public static en7 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (en7) invokeV.objValue;
+    }
+
+    @Override // com.repackage.en7
+    public void a(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            n().c(this.a, i, str);
+        }
+    }
+
+    @Override // com.repackage.en7
+    public void b(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            n().f(this.a, i, str);
+        }
+    }
+
+    @Override // com.repackage.en7
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            n().k(this.a);
+            q(this.a);
+        }
+    }
+
+    @Override // com.repackage.en7
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = this.a;
+        }
+    }
+
+    @Override // com.repackage.en7
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || StringUtils.isNull(this.b)) {
+            return;
+        }
+        if (!o(this.b) && !p(this.b)) {
+            bn7.b(this.b);
+            this.c.remove(this.a);
+        } else {
+            q(this.b);
+        }
+        g();
+        n().h(this.b, str);
+        this.b = null;
+    }
+
+    @Override // com.repackage.en7
+    public void f(int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, str) == null) {
+            n().b(this.a, i, i2, str);
+        }
+    }
+
+    @Override // com.repackage.en7
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a = UUID.randomUUID().toString();
+        }
+    }
+
+    @Override // com.repackage.en7
+    public void h(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, str) == null) {
+            n().g(this.a, i, str);
+        }
+    }
+
+    @Override // com.repackage.en7
+    public void i(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) {
+            n().l(this.a, i, str);
+        }
+    }
+
+    @Override // com.repackage.en7
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            n().j(this.a);
+        }
+    }
+
+    @Override // com.repackage.en7
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            n().i(this.a, str);
+            if (!o(this.a) && !p(this.a)) {
+                bn7.b(this.a);
+                this.c.remove(this.a);
+            } else {
+                q(this.a);
+            }
+            this.a = null;
+        }
+    }
+
+    public final cn7 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            t98 t98Var = new t98(this.a);
+            this.c.put(this.a, t98Var);
+            return t98Var;
+        }
+        return (cn7) invokeV.objValue;
+    }
+
+    public final cn7 n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            cn7 cn7Var = this.c.get(this.a);
+            return cn7Var == null ? l() : cn7Var;
+        }
+        return (cn7) invokeV.objValue;
+    }
+
+    public boolean o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) ? n().d(str) : invokeL.booleanValue;
+    }
+
+    public boolean p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? n().e(str) : invokeL.booleanValue;
+    }
+
+    public void q(String str) {
+        cn7 cn7Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, str) == null) || (cn7Var = this.c.get(str)) == null) {
+            return;
+        }
+        cn7Var.a(str);
+        this.c.remove(str);
+    }
+
+    public u98() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,129 +220,6 @@ public class u98 implements dn7 {
                 return;
             }
         }
-        this.a = str;
-        this.b = new w98(str);
-    }
-
-    @Override // com.repackage.dn7
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && m(str)) {
-            qr8.d().j(this.a, qr8.i(VideoPlatformStatic.c(), this.b.d(), this.b.b()));
-        }
-    }
-
-    @Override // com.repackage.dn7
-    public void b(String str, int i, int i2, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2}) == null) && m(str)) {
-            this.b.f();
-            this.b.i();
-            this.b.k();
-            this.b.a(new l98(i, AlbumActivityConfig.FROM_WRITE, i2, str2));
-        }
-    }
-
-    @Override // com.repackage.dn7
-    public void c(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2) == null) && m(str)) {
-            this.b.f();
-            this.b.a(new l98(i, "edit", i, str2));
-        }
-    }
-
-    @Override // com.repackage.dn7
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (m(str)) {
-                return this.b.g();
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.dn7
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.b.h() : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.dn7
-    public void f(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(1048581, this, str, i, str2) == null) && m(str)) {
-            this.b.f();
-            this.b.a(new l98(i, "record", i, str2));
-        }
-    }
-
-    @Override // com.repackage.dn7
-    public void g(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(1048582, this, str, i, str2) == null) && m(str)) {
-            this.b.f();
-            this.b.i();
-            this.b.k();
-            this.b.a(new l98(402, AlbumActivityConfig.FROM_WRITE, i, str2));
-        }
-    }
-
-    @Override // com.repackage.dn7
-    public void h(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) && m(str)) {
-            this.b.a(new l98(503, str2, -4399, ""));
-        }
-    }
-
-    @Override // com.repackage.dn7
-    public void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) && m(str)) {
-            this.b.a(new l98(501, str2, -4399, ""));
-        }
-    }
-
-    @Override // com.repackage.dn7
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && m(str)) {
-            this.b.k();
-            this.b.a(new l98(301, AlbumActivityConfig.FROM_WRITE, -4399, ""));
-        }
-    }
-
-    @Override // com.repackage.dn7
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, str) == null) && m(str)) {
-            this.b.k();
-            this.b.j();
-            this.b.a(new l98(401, AlbumActivityConfig.FROM_WRITE, -4399, ""));
-        }
-    }
-
-    @Override // com.repackage.dn7
-    public void l(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(1048587, this, str, i, str2) == null) && m(str)) {
-            if (i != 103 && i != 105 && i != 106 && i != 107 && i != 104) {
-                this.b.a(new l98(i, str2, -4399, ""));
-                return;
-            }
-            this.b.f();
-            this.b.a(new l98(i, str2, i, VideoPlatformStatic.g(i)));
-        }
-    }
-
-    public final boolean m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) ? (!TextUtils.equals(this.a, str) || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.a)) ? false : true : invokeL.booleanValue;
+        this.c = new HashMap<>();
     }
 }

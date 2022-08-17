@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.backends.pipeline.info.ImageOriginListener;
-import com.facebook.drawee.backends.pipeline.info.ImageOriginUtils;
 /* loaded from: classes4.dex */
 public class DebugOverlayImageOriginListener implements ImageOriginListener {
     public static /* synthetic */ Interceptable $ic;
@@ -30,16 +29,16 @@ public class DebugOverlayImageOriginListener implements ImageOriginListener {
         this.mImageOrigin = 1;
     }
 
-    public String getImageOrigin() {
+    public int getImageOrigin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ImageOriginUtils.toString(this.mImageOrigin) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mImageOrigin : invokeV.intValue;
     }
 
     @Override // com.facebook.drawee.backends.pipeline.info.ImageOriginListener
-    public void onImageLoaded(String str, int i, boolean z) {
+    public void onImageLoaded(String str, int i, boolean z, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z), str2}) == null) {
             this.mImageOrigin = i;
         }
     }

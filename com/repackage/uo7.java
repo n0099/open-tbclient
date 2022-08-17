@@ -7,8 +7,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,16 +21,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dy;
 import com.repackage.oy;
 /* loaded from: classes7.dex */
-public class uo7 extends oo7<ir4, ThreadCardViewHolder<ThreadData>> {
+public class uo7 extends no7<ir4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId c;
     public TbPageContext<?> d;
     public un e;
-    public b06<ThreadData> f;
+    public b06<ir4> f;
 
     /* loaded from: classes7.dex */
-    public class a extends b06<ThreadData> {
+    public class a extends b06<ir4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ uo7 b;
@@ -53,12 +56,13 @@ public class uo7 extends oo7<ir4, ThreadCardViewHolder<ThreadData>> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.repackage.b06
         /* renamed from: d */
-        public void a(View view2, ThreadData threadData) {
+        public void a(View view2, ir4 ir4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                uz5.b().d(true);
-                this.b.z(view2, threadData);
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ir4Var) == null) || ir4Var == null) {
+                return;
             }
+            uz5.b().d(true);
+            this.b.z(view2, ir4Var.t);
         }
     }
 
@@ -91,13 +95,51 @@ public class uo7 extends oo7<ir4, ThreadCardViewHolder<ThreadData>> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, onVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (onVar instanceof ir4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                ThreadData threadData = ((ir4) onVar).t;
+                ir4 ir4Var = (ir4) onVar;
+                ThreadData threadData = ir4Var.t;
                 threadData.objType = 1;
                 if (this.a.f != null) {
-                    this.a.f.a(threadCardViewHolder.getView(), threadData);
+                    this.a.f.a(threadCardViewHolder.getView(), ir4Var);
                 }
-                ThreadCardUtils.jumpToPB(threadData, view2.getContext(), 17, false, this.a.b.getOrignalPage().B1(), this.a.s() ? "3" : "2");
+                ThreadCardUtils.jumpToPB(threadData, view2.getContext(), 17, false, vw.a((un) viewGroup, view2, i), this.a.b.getOrignalPage().B1(), this.a.s() ? "3" : "2");
                 threadCardViewHolder.a().o(new oy.a(1));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements ThreadCommentAndPraiseInfoLayout.k {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ View b;
+        public final /* synthetic */ int c;
+
+        public c(uo7 uo7Var, ViewGroup viewGroup, View view2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uo7Var, viewGroup, view2, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = viewGroup;
+            this.b = view2;
+            this.c = i;
+        }
+
+        @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.k
+        public void a(IntentConfig intentConfig) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, intentConfig) == null) && (intentConfig instanceof PbActivityConfig)) {
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(vw.a((un) this.a, this.b, this.c));
             }
         }
     }
@@ -141,8 +183,19 @@ public class uo7 extends oo7<ir4, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             dy.b bVar = new dy.b(this.d.getPageActivity(), false);
-            bVar.h(new bx(this.d.getPageActivity()));
-            dy k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.e);
+            fy fyVar = new fy(this.d.getPageActivity());
+            lo4 lo4Var = new lo4();
+            lo4Var.b = 22;
+            lo4Var.h = 19;
+            fyVar.w(lo4Var);
+            fyVar.y(18);
+            fyVar.E("personalize_page");
+            fyVar.D(18);
+            fyVar.z(17);
+            fyVar.c(32);
+            fyVar.x(false);
+            bVar.m(fyVar);
+            dy k = bVar.k(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.e);
             k.r(17);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.i(this.c);
@@ -155,7 +208,7 @@ public class uo7 extends oo7<ir4, ThreadCardViewHolder<ThreadData>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.bn
     /* renamed from: y */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ir4 ir4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ir4 ir4Var, ThreadCardViewHolder threadCardViewHolder) {
         InterceptResult invokeCommon;
         ThreadData threadData;
         Interceptable interceptable = $ic;
@@ -165,10 +218,13 @@ public class uo7 extends oo7<ir4, ThreadCardViewHolder<ThreadData>> {
             }
             threadData.statFloor = getPositionByType(i) + 1;
             threadCardViewHolder.a().q(i);
-            threadCardViewHolder.e(ir4Var.t);
+            if (threadCardViewHolder.a().f() instanceof fy) {
+                ((fy) threadCardViewHolder.a().f()).C(new c(this, viewGroup, view2, i));
+            }
+            threadCardViewHolder.e(ir4Var);
             threadCardViewHolder.a().onChangeSkinType(this.d, TbadkCoreApplication.getInst().getSkinType());
             threadCardViewHolder.a().p(this.f);
-            lo7.c(this, ir4Var);
+            ko7.c(this, ir4Var);
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
@@ -177,7 +233,7 @@ public class uo7 extends oo7<ir4, ThreadCardViewHolder<ThreadData>> {
     public final void z(View view2, ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, threadData) == null) {
-            lo7.b(this, threadData);
+            ko7.b(this, threadData);
         }
     }
 }

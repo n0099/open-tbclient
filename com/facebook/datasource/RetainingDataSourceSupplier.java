@@ -166,7 +166,7 @@ public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
         public void onDataSourceNewResult(DataSource<T> dataSource) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(65543, this, dataSource) == null) && dataSource == this.mDataSource) {
-                setResult(null, false);
+                setResult(null, false, dataSource.getExtras());
             }
         }
 

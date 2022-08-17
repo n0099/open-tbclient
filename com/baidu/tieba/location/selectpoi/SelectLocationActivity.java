@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.hb5;
-import com.repackage.wg7;
+import com.repackage.vg7;
 /* loaded from: classes3.dex */
 public class SelectLocationActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -79,7 +79,7 @@ public class SelectLocationActivity extends SuspendedActivity {
     public hb5 E0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) ? new wg7(getPageContext(), linearLayout, navigationBar) : (hb5) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) ? new vg7(getPageContext(), linearLayout, navigationBar) : (hb5) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity

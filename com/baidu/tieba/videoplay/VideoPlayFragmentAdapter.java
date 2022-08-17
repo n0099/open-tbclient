@@ -42,11 +42,11 @@ import com.repackage.bv8;
 import com.repackage.bw8;
 import com.repackage.cw8;
 import com.repackage.dv8;
-import com.repackage.g47;
+import com.repackage.f47;
 import com.repackage.hw8;
-import com.repackage.m88;
+import com.repackage.l88;
+import com.repackage.rs6;
 import com.repackage.ru4;
-import com.repackage.ss6;
 import com.repackage.ss8;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -73,7 +73,7 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
     public BdUniqueId o;
     public cw8 p;
     public final SparseArray<hw8> q;
-    public m88.c r;
+    public l88.c r;
     public VideoPlayFragment.g1 s;
     public bw8 t;
     public final int u;
@@ -287,7 +287,7 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
             } else if (VideoMiddleAdSwitch.isOnAndHitVideoAdDrawTest() && m != null && m.isFunAdType()) {
                 VideoAdFragment videoAdFragment = new VideoAdFragment();
                 if (m.getVideoAdData() == null) {
-                    m.setVideoAdData(new ss8(g47.a(10, 500)));
+                    m.setVideoAdData(new ss8(f47.a(10, 500)));
                 }
                 videoAdFragment.O1(this.d.n());
                 videoAdFragment.P1(this.d.o());
@@ -405,14 +405,14 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048586, this, i) == null) && this.u == 1 && VideoMiddleAdSwitch.isOnAndHitVideoAdDrawTest() && this.d.y(i)) {
             if (UbsABTestHelper.isVideoAdDrawABTestA()) {
-                ss6.m().z(this.k, null, this.d.o());
-                if (ss6.m().v("6061002332-203360688") || !this.d.g(i)) {
+                rs6.m().z(this.k, null, this.d.o());
+                if (rs6.m().v("6061002332-203360688") || !this.d.g(i)) {
                     return;
                 }
                 notifyDataSetChanged();
             } else if (UbsABTestHelper.isVideoAdDrawABTestB()) {
-                ss6.m().y(this.k, null, this.d.o());
-                if (ss6.m().v(ss6.s()) || !this.d.g(i)) {
+                rs6.m().y(this.k, null, this.d.o());
+                if (rs6.m().v(rs6.s()) || !this.d.g(i)) {
                     return;
                 }
                 notifyDataSetChanged();
@@ -481,7 +481,7 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         }
     }
 
-    public void n(m88.c cVar) {
+    public void n(l88.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, cVar) == null) {
             this.r = cVar;

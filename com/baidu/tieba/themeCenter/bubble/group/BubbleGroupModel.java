@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.d9;
 import com.repackage.gr8;
-import com.repackage.kk8;
+import com.repackage.jk8;
 import com.repackage.uq8;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -180,8 +180,8 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            kk8.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
-            kk8.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, false, false);
+            jk8.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
+            jk8.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, false, false);
         }
     }
 

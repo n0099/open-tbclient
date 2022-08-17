@@ -54,8 +54,8 @@ import com.repackage.gy4;
 import com.repackage.h25;
 import com.repackage.hy4;
 import com.repackage.jz8;
+import com.repackage.k28;
 import com.repackage.ks4;
-import com.repackage.l28;
 import com.repackage.ms4;
 import com.repackage.n45;
 import com.repackage.pv4;
@@ -313,7 +313,7 @@ public class PbNewInputContainer extends LinearLayout implements t25, View.OnCli
                         z = true;
                     }
                     boolean h = ru4.k().h("key_virtual_image_and_state_has_show", true);
-                    l28 a2 = l28.a();
+                    k28 a2 = k28.a();
                     if (h && (a2 == null || a2.b() != 1)) {
                         TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 21).param("obj_type", z ? 2 : 1).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
                         this.a.x = true;
@@ -324,7 +324,7 @@ public class PbNewInputContainer extends LinearLayout implements t25, View.OnCli
                     this.a.J(new h25(8, -1, null));
                     return;
                 }
-                qi.O(this.a.getContext(), String.format(ks4.E(R.string.obfuscated_res_0x7f0f0fe3), new Object[0]));
+                qi.N(this.a.getContext(), String.format(ks4.E(R.string.obfuscated_res_0x7f0f0fe4), new Object[0]));
             }
         }
     }
@@ -485,7 +485,7 @@ public class PbNewInputContainer extends LinearLayout implements t25, View.OnCli
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qi.M(this.a.getContext(), this.a.b);
+                qi.L(this.a.getContext(), this.a.b);
             }
         }
     }
@@ -654,7 +654,7 @@ public class PbNewInputContainer extends LinearLayout implements t25, View.OnCli
                     if (i2 != 19) {
                         if (i2 == 20) {
                             L(true);
-                            this.d.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a58));
+                            this.d.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a59));
                         } else if (i2 != 28) {
                             if (i2 == 29) {
                                 this.u[3] = false;
@@ -749,11 +749,11 @@ public class PbNewInputContainer extends LinearLayout implements t25, View.OnCli
                         L(true);
                         w35 w35Var = (w35) h25Var.c;
                         if (w35Var.a == 1) {
-                            this.d.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a52));
+                            this.d.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a53));
                         } else if (!TextUtils.isEmpty(w35Var.b)) {
                             this.d.setText(w35Var.b);
                         } else {
-                            this.d.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a58));
+                            this.d.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a59));
                         }
                     }
                 }
@@ -806,7 +806,7 @@ public class PbNewInputContainer extends LinearLayout implements t25, View.OnCli
             this.d.setConfig(pv4Var);
             this.d.setTextSize(R.dimen.T_X09);
             this.d.setOnClickListener(this);
-            this.d.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a58));
+            this.d.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a59));
             this.h.addView(this.d);
         }
     }
@@ -840,7 +840,7 @@ public class PbNewInputContainer extends LinearLayout implements t25, View.OnCli
             tBSpecificationBtn.setConfig(pv4Var);
             this.c.setEnabled(false);
             this.c.setTextSize(R.dimen.T_X08);
-            this.c.setText(context.getString(R.string.obfuscated_res_0x7f0f0dee));
+            this.c.setText(context.getString(R.string.obfuscated_res_0x7f0f0def));
             this.c.setOnClickListener(new e(this));
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(qi.f(context, R.dimen.tbds150), qi.f(context, R.dimen.tbds75));
             layoutParams2.rightMargin = qi.f(context, R.dimen.M_W_X007);
@@ -898,7 +898,7 @@ public class PbNewInputContainer extends LinearLayout implements t25, View.OnCli
             if (!this.q || gy4Var.getType() == EmotionGroupType.LOCAL) {
                 String obj = this.b.getText().toString();
                 if (this.r && da6.a(obj) >= 10 && getContext() != null) {
-                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1431);
+                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1433);
                     return;
                 }
                 this.y.add(gy4Var);
@@ -914,7 +914,7 @@ public class PbNewInputContainer extends LinearLayout implements t25, View.OnCli
         }
         String obj = this.b.getText().toString();
         if (this.r && da6.a(obj) >= 10 && getContext() != null) {
-            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1431);
+            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1433);
             return;
         }
         this.y.add(gy4Var);
@@ -941,7 +941,7 @@ public class PbNewInputContainer extends LinearLayout implements t25, View.OnCli
             this.b.setFocusable(true);
             this.b.setFocusableInTouchMode(true);
             this.b.requestFocus();
-            qi.M(getContext(), this.b);
+            qi.L(getContext(), this.b);
         }
     }
 
@@ -962,8 +962,8 @@ public class PbNewInputContainer extends LinearLayout implements t25, View.OnCli
     public final void M(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.i.setText(BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1179));
-            this.i.getStyleConfig().i(z ? R.drawable.obfuscated_res_0x7f080997 : R.drawable.obfuscated_res_0x7f080996, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            this.i.setText(BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f117b));
+            this.i.getStyleConfig().i(z ? R.drawable.obfuscated_res_0x7f080998 : R.drawable.obfuscated_res_0x7f080997, 0, TBSpecificationButtonConfig.IconType.WEBP);
             this.i.getStyleConfig().h(z ? R.color.CAM_X0302 : R.color.CAM_X0110);
             this.i.a = Boolean.valueOf(z);
             rg.a().postDelayed(new d(this, z), 200L);

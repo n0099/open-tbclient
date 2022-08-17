@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class iv5 extends ue6<lj8, FrsPageAlaStageViewHolder> implements zz5 {
+public class iv5 extends ue6<kj8, FrsPageAlaStageViewHolder> implements zz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String l;
@@ -60,18 +60,18 @@ public class iv5 extends ue6<lj8, FrsPageAlaStageViewHolder> implements zz5 {
         return (FrsPageAlaStageViewHolder) invokeL.objValue;
     }
 
-    public View F(int i, View view2, ViewGroup viewGroup, lj8 lj8Var, FrsPageAlaStageViewHolder frsPageAlaStageViewHolder) {
+    public View F(int i, View view2, ViewGroup viewGroup, kj8 kj8Var, FrsPageAlaStageViewHolder frsPageAlaStageViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lj8Var, frsPageAlaStageViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, lj8Var, frsPageAlaStageViewHolder);
-            if (lj8Var != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, kj8Var, frsPageAlaStageViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, kj8Var, frsPageAlaStageViewHolder);
+            if (kj8Var != null) {
                 FrsViewData frsViewData = this.b;
                 int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
                 tv5 tv5Var = frsPageAlaStageViewHolder.a;
                 tv5Var.x = (i + 1) - topThreadSize;
                 tv5Var.a(this.l);
-                frsPageAlaStageViewHolder.a.i(lj8Var);
+                frsPageAlaStageViewHolder.a.i(kj8Var);
             }
             return view2;
         }
@@ -88,7 +88,7 @@ public class iv5 extends ue6<lj8, FrsPageAlaStageViewHolder> implements zz5 {
 
     @Override // com.repackage.ue6, com.repackage.bn
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        F(i, view2, viewGroup, (lj8) obj, (FrsPageAlaStageViewHolder) viewHolder);
+        F(i, view2, viewGroup, (kj8) obj, (FrsPageAlaStageViewHolder) viewHolder);
         return view2;
     }
 

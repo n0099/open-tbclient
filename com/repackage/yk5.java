@@ -366,7 +366,7 @@ public class yk5 {
             if (this.C == null) {
                 this.C = new uu4(this.b);
             }
-            this.C.i(R.string.obfuscated_res_0x7f0f0a3c);
+            this.C.i(R.string.obfuscated_res_0x7f0f0a3d);
             this.C.h(true);
         }
     }
@@ -462,7 +462,7 @@ public class yk5 {
                 TextView textView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090d1b);
                 this.x = textView;
                 if (this.h) {
-                    textView.setText(R.string.obfuscated_res_0x7f0f1175);
+                    textView.setText(R.string.obfuscated_res_0x7f0f1177);
                 }
                 this.y = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091f43);
             }

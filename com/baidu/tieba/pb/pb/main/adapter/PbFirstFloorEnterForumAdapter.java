@@ -25,15 +25,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.an8;
 import com.repackage.bn;
-import com.repackage.ht7;
-import com.repackage.iz7;
+import com.repackage.gt7;
+import com.repackage.hz7;
 import com.repackage.pv4;
 import com.repackage.qi;
 import com.repackage.t95;
+import com.repackage.zm8;
 /* loaded from: classes4.dex */
-public class PbFirstFloorEnterForumAdapter extends bn<ht7, PbFirstFloorEnterForumViewHolder> {
+public class PbFirstFloorEnterForumAdapter extends bn<gt7, PbFirstFloorEnterForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragment a;
@@ -49,7 +49,7 @@ public class PbFirstFloorEnterForumAdapter extends bn<ht7, PbFirstFloorEnterForu
         public View b;
         public View c;
         public ImageView d;
-        public ht7 e;
+        public gt7 e;
         public TBSpecificationBtn f;
         public String g;
         public String h;
@@ -96,21 +96,21 @@ public class PbFirstFloorEnterForumAdapter extends bn<ht7, PbFirstFloorEnterForu
             }
         }
 
-        public void c(ht7 ht7Var) {
+        public void c(gt7 gt7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ht7Var) == null) {
-                if (ht7Var != null) {
-                    this.e = ht7Var;
-                    this.g = ht7Var.f;
-                    this.h = ht7Var.a;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gt7Var) == null) {
+                if (gt7Var != null) {
+                    this.e = gt7Var;
+                    this.g = gt7Var.f;
+                    this.h = gt7Var.a;
                     if (!this.i.c) {
-                        this.i.c = ht7Var.h;
+                        this.i.c = gt7Var.h;
                     }
-                    this.c.setVisibility(ht7Var.e ? 0 : 8);
+                    this.c.setVisibility(gt7Var.e ? 0 : 8);
                     if (getView() != null) {
-                        getView().setPadding(0, 0, 0, ht7Var.e ? qi.f(this.i.mContext, R.dimen.tbds42) : 0);
+                        getView().setPadding(0, 0, 0, gt7Var.e ? qi.f(this.i.mContext, R.dimen.tbds42) : 0);
                     }
-                    this.a.setData(ht7Var.a, ht7Var.b, ht7Var.c, ht7Var.d);
+                    this.a.setData(gt7Var.a, gt7Var.b, gt7Var.c, gt7Var.d);
                 }
                 if (this.f == null || this.i.c) {
                     return;
@@ -124,12 +124,12 @@ public class PbFirstFloorEnterForumAdapter extends bn<ht7, PbFirstFloorEnterForu
 
         public final void d(String str) {
             TbPageTag l;
-            ht7 ht7Var;
+            gt7 gt7Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (l = t95.l(this.i.a.getContext())) == null || (ht7Var = this.e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (l = t95.l(this.i.a.getContext())) == null || (gt7Var = this.e) == null) {
                 return;
             }
-            iz7.a(str, ht7Var.f, ht7Var.g, TbadkCoreApplication.getCurrentAccount(), l.locatePage);
+            hz7.a(str, gt7Var.f, gt7Var.g, TbadkCoreApplication.getCurrentAccount(), l.locatePage);
         }
 
         public final void e() {
@@ -186,7 +186,7 @@ public class PbFirstFloorEnterForumAdapter extends bn<ht7, PbFirstFloorEnterForu
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof an8) && ((an8) customResponsedMessage.getData()).b) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof zm8) && ((zm8) customResponsedMessage.getData()).b) {
                 this.a.c = true;
                 this.a.b.e();
             }
@@ -220,8 +220,8 @@ public class PbFirstFloorEnterForumAdapter extends bn<ht7, PbFirstFloorEnterForu
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
     @Override // com.repackage.bn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ht7 ht7Var, PbFirstFloorEnterForumViewHolder pbFirstFloorEnterForumViewHolder) {
-        y(i, view2, viewGroup, ht7Var, pbFirstFloorEnterForumViewHolder);
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, gt7 gt7Var, PbFirstFloorEnterForumViewHolder pbFirstFloorEnterForumViewHolder) {
+        y(i, view2, viewGroup, gt7Var, pbFirstFloorEnterForumViewHolder);
         return view2;
     }
 
@@ -263,12 +263,12 @@ public class PbFirstFloorEnterForumAdapter extends bn<ht7, PbFirstFloorEnterForu
         return (PbFirstFloorEnterForumViewHolder) invokeL.objValue;
     }
 
-    public View y(int i, View view2, ViewGroup viewGroup, ht7 ht7Var, PbFirstFloorEnterForumViewHolder pbFirstFloorEnterForumViewHolder) {
+    public View y(int i, View view2, ViewGroup viewGroup, gt7 gt7Var, PbFirstFloorEnterForumViewHolder pbFirstFloorEnterForumViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ht7Var, pbFirstFloorEnterForumViewHolder})) == null) {
-            if (ht7Var != null) {
-                pbFirstFloorEnterForumViewHolder.c(ht7Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gt7Var, pbFirstFloorEnterForumViewHolder})) == null) {
+            if (gt7Var != null) {
+                pbFirstFloorEnterForumViewHolder.c(gt7Var);
             }
             pbFirstFloorEnterForumViewHolder.b();
             return view2;

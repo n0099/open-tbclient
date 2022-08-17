@@ -68,7 +68,7 @@ public class qk6 {
             this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0923fe);
             this.d = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092400);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(context.getResources().getString(R.string.obfuscated_res_0x7f0f06b8));
-            EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f08090d, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
+            EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f08090e, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
             eMRichTextAnyIconSpan.b(qi.f(context, R.dimen.tbds0));
             eMRichTextAnyIconSpan.d(qi.f(context, R.dimen.M_W_X002));
             spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);

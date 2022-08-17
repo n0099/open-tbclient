@@ -45,6 +45,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.shape.MaterialShapeDrawable;
@@ -510,7 +511,7 @@ public final class MaterialContainerTransform extends Transition {
                     canvas.restoreToCount(save);
                     drawDebugCumulativePath(canvas, this.currentStartBounds, this.debugPath, -65281);
                     drawDebugRect(canvas, this.currentStartBoundsMasked, -256);
-                    drawDebugRect(canvas, this.currentStartBounds, -16711936);
+                    drawDebugRect(canvas, this.currentStartBounds, DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK);
                     drawDebugRect(canvas, this.currentEndBoundsMasked, -16711681);
                     drawDebugRect(canvas, this.currentEndBounds, -16776961);
                 }

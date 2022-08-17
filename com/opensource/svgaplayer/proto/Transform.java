@@ -8,9 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nq9;
-import com.repackage.oq9;
-import com.repackage.sq9;
+import com.repackage.pq9;
+import com.repackage.qq9;
+import com.repackage.uq9;
 import com.squareup.wire2.FieldEncoding;
 import com.squareup.wire2.Message;
 import com.squareup.wire2.ProtoAdapter;
@@ -164,41 +164,41 @@ public final class Transform extends Message<Transform, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public Transform decode(nq9 nq9Var) throws IOException {
+        public Transform decode(pq9 pq9Var) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, nq9Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pq9Var)) == null) {
                 Builder builder = new Builder();
-                long c = nq9Var.c();
+                long c = pq9Var.c();
                 while (true) {
-                    int f = nq9Var.f();
+                    int f = pq9Var.f();
                     if (f != -1) {
                         switch (f) {
                             case 1:
-                                builder.a(ProtoAdapter.FLOAT.decode(nq9Var));
+                                builder.a(ProtoAdapter.FLOAT.decode(pq9Var));
                                 break;
                             case 2:
-                                builder.b(ProtoAdapter.FLOAT.decode(nq9Var));
+                                builder.b(ProtoAdapter.FLOAT.decode(pq9Var));
                                 break;
                             case 3:
-                                builder.c(ProtoAdapter.FLOAT.decode(nq9Var));
+                                builder.c(ProtoAdapter.FLOAT.decode(pq9Var));
                                 break;
                             case 4:
-                                builder.d(ProtoAdapter.FLOAT.decode(nq9Var));
+                                builder.d(ProtoAdapter.FLOAT.decode(pq9Var));
                                 break;
                             case 5:
-                                builder.tx(ProtoAdapter.FLOAT.decode(nq9Var));
+                                builder.tx(ProtoAdapter.FLOAT.decode(pq9Var));
                                 break;
                             case 6:
-                                builder.ty(ProtoAdapter.FLOAT.decode(nq9Var));
+                                builder.ty(ProtoAdapter.FLOAT.decode(pq9Var));
                                 break;
                             default:
-                                FieldEncoding g = nq9Var.g();
-                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(nq9Var));
+                                FieldEncoding g = pq9Var.g();
+                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(pq9Var));
                                 break;
                         }
                     } else {
-                        nq9Var.d(c);
+                        pq9Var.d(c);
                         return builder.build();
                     }
                 }
@@ -209,34 +209,34 @@ public final class Transform extends Message<Transform, Builder> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(oq9 oq9Var, Transform transform) throws IOException {
+        public void encode(qq9 qq9Var, Transform transform) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, oq9Var, transform) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, qq9Var, transform) == null) {
                 Float f = transform.a;
                 if (f != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(oq9Var, 1, f);
+                    ProtoAdapter.FLOAT.encodeWithTag(qq9Var, 1, f);
                 }
                 Float f2 = transform.b;
                 if (f2 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(oq9Var, 2, f2);
+                    ProtoAdapter.FLOAT.encodeWithTag(qq9Var, 2, f2);
                 }
                 Float f3 = transform.c;
                 if (f3 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(oq9Var, 3, f3);
+                    ProtoAdapter.FLOAT.encodeWithTag(qq9Var, 3, f3);
                 }
                 Float f4 = transform.d;
                 if (f4 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(oq9Var, 4, f4);
+                    ProtoAdapter.FLOAT.encodeWithTag(qq9Var, 4, f4);
                 }
                 Float f5 = transform.tx;
                 if (f5 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(oq9Var, 5, f5);
+                    ProtoAdapter.FLOAT.encodeWithTag(qq9Var, 5, f5);
                 }
                 Float f6 = transform.ty;
                 if (f6 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(oq9Var, 6, f6);
+                    ProtoAdapter.FLOAT.encodeWithTag(qq9Var, 6, f6);
                 }
-                oq9Var.k(transform.unknownFields());
+                qq9Var.k(transform.unknownFields());
             }
         }
 
@@ -329,7 +329,7 @@ public final class Transform extends Message<Transform, Builder> {
             }
             if (obj instanceof Transform) {
                 Transform transform = (Transform) obj;
-                return unknownFields().equals(transform.unknownFields()) && sq9.f(this.a, transform.a) && sq9.f(this.b, transform.b) && sq9.f(this.c, transform.c) && sq9.f(this.d, transform.d) && sq9.f(this.tx, transform.tx) && sq9.f(this.ty, transform.ty);
+                return unknownFields().equals(transform.unknownFields()) && uq9.f(this.a, transform.a) && uq9.f(this.b, transform.b) && uq9.f(this.c, transform.c) && uq9.f(this.d, transform.d) && uq9.f(this.tx, transform.tx) && uq9.f(this.ty, transform.ty);
             }
             return false;
         }

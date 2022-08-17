@@ -39,10 +39,10 @@ public class rt5 extends mt5 {
     public String m;
     public long n;
     public String o;
-    public e98 p;
+    public d98 p;
 
     /* loaded from: classes7.dex */
-    public class a implements e98 {
+    public class a implements d98 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rt5 a;
@@ -65,14 +65,14 @@ public class rt5 extends mt5 {
             this.a = rt5Var;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void changeRenderViewMode(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public int getCurrentPosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public class rt5 extends mt5 {
             return invokeV.intValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public View getMainView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class rt5 extends mt5 {
             return (View) invokeV.objValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public boolean isFullScreen() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -102,7 +102,7 @@ public class rt5 extends mt5 {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public boolean isPlaying() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class rt5 extends mt5 {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public boolean onBackPress() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -122,7 +122,7 @@ public class rt5 extends mt5 {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public boolean onBackground(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -175,7 +175,7 @@ public class rt5 extends mt5 {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void onScroll() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -196,7 +196,7 @@ public class rt5 extends mt5 {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public boolean onVolumeUp() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -206,63 +206,63 @@ public class rt5 extends mt5 {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setAfterClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setData(ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setFrom(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setJumpToPbClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048595, this, onClickListener) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setStageType(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             }
         }
 
-        @Override // com.repackage.e98
-        public void setStatistic(z88 z88Var) {
+        @Override // com.repackage.d98
+        public void setStatistic(y88 y88Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048597, this, z88Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048597, this, y88Var) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setUniqueId(BdUniqueId bdUniqueId) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048598, this, bdUniqueId) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void startPlay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void stopPlay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048600, this) == null) {

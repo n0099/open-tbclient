@@ -53,12 +53,12 @@ public class ob1 {
 
         /* renamed from: com.repackage.ob1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0544a implements uo0.b {
+        public class C0547a implements uo0.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0544a(a aVar) {
+            public C0547a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +123,7 @@ public class ob1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    uo0.a(this.a, this.b, new C0544a(this));
+                    uo0.a(this.a, this.b, new C0547a(this));
                 } catch (Exception e) {
                     hy0.b(new jy0(ClogBuilder.LogType.DOWNLOAD_FAILED, this.b, this.d, true).b(-1, e.getMessage(), "download"));
                 }

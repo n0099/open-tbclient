@@ -86,7 +86,7 @@ import com.repackage.oi;
 import com.repackage.oj5;
 import com.repackage.qi;
 import com.repackage.qv8;
-import com.repackage.ss6;
+import com.repackage.rs6;
 import com.repackage.z8;
 import com.repackage.zu8;
 import java.util.ArrayList;
@@ -363,7 +363,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements aw8
     }
 
     /* loaded from: classes4.dex */
-    public static final class c implements ss6.h {
+    public static final class c implements rs6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoVerticalPageFragment a;
@@ -386,10 +386,10 @@ public final class VideoVerticalPageFragment extends BaseFragment implements aw8
             this.a = videoVerticalPageFragment;
         }
 
-        @Override // com.repackage.ss6.h
+        @Override // com.repackage.rs6.h
         public void a(String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && ss6.m().v("6061002332-203360688") && this.a.f != null) {
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && rs6.m().v("6061002332-203360688") && this.a.f != null) {
                 dv8 dv8Var = this.a.h;
                 VideoPlayView videoPlayView = this.a.f;
                 Intrinsics.checkNotNull(videoPlayView);
@@ -402,7 +402,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements aw8
             }
         }
 
-        @Override // com.repackage.ss6.h
+        @Override // com.repackage.rs6.h
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -411,7 +411,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements aw8
     }
 
     /* loaded from: classes4.dex */
-    public static final class d implements ss6.h {
+    public static final class d implements rs6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoVerticalPageFragment a;
@@ -434,10 +434,10 @@ public final class VideoVerticalPageFragment extends BaseFragment implements aw8
             this.a = videoVerticalPageFragment;
         }
 
-        @Override // com.repackage.ss6.h
+        @Override // com.repackage.rs6.h
         public void a(String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && ss6.m().v(ss6.s()) && this.a.f != null) {
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && rs6.m().v(rs6.s()) && this.a.f != null) {
                 dv8 dv8Var = this.a.h;
                 VideoPlayView videoPlayView = this.a.f;
                 Intrinsics.checkNotNull(videoPlayView);
@@ -450,7 +450,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements aw8
             }
         }
 
-        @Override // com.repackage.ss6.h
+        @Override // com.repackage.rs6.h
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -505,13 +505,13 @@ public final class VideoVerticalPageFragment extends BaseFragment implements aw8
                 } else {
                     this.a.h.z(datas);
                 }
-                if (VideoMiddleAdSwitch.isOnAndHitVideoAdDrawTest() && UbsABTestHelper.isVideoAdDrawABTestA() && ss6.m().v("6061002332-203360688") && this.a.f != null) {
+                if (VideoMiddleAdSwitch.isOnAndHitVideoAdDrawTest() && UbsABTestHelper.isVideoAdDrawABTestA() && rs6.m().v("6061002332-203360688") && this.a.f != null) {
                     dv8 dv8Var = this.a.h;
                     VideoPlayView videoPlayView = this.a.f;
                     Intrinsics.checkNotNull(videoPlayView);
                     dv8Var.a(videoPlayView.h - 1);
                 }
-                if (VideoMiddleAdSwitch.isOnAndHitVideoAdDrawTest() && UbsABTestHelper.isVideoAdDrawABTestB() && ss6.m().v(ss6.s()) && this.a.f != null) {
+                if (VideoMiddleAdSwitch.isOnAndHitVideoAdDrawTest() && UbsABTestHelper.isVideoAdDrawABTestB() && rs6.m().v(rs6.s()) && this.a.f != null) {
                     dv8 dv8Var2 = this.a.h;
                     VideoPlayView videoPlayView2 = this.a.f;
                     Intrinsics.checkNotNull(videoPlayView2);
@@ -648,7 +648,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements aw8
                     return;
                 }
                 this.a.h.z(datas);
-                if (VideoMiddleAdSwitch.isOnAndHitVideoAdDrawTest() && (((UbsABTestHelper.isVideoAdDrawABTestA() && ss6.m().v("6061002332-203360688")) || (UbsABTestHelper.isVideoAdDrawABTestB() && ss6.m().v(ss6.s()))) && this.a.f != null)) {
+                if (VideoMiddleAdSwitch.isOnAndHitVideoAdDrawTest() && (((UbsABTestHelper.isVideoAdDrawABTestA() && rs6.m().v("6061002332-203360688")) || (UbsABTestHelper.isVideoAdDrawABTestB() && rs6.m().v(rs6.s()))) && this.a.f != null)) {
                     dv8 dv8Var = this.a.h;
                     VideoPlayView videoPlayView = this.a.f;
                     Intrinsics.checkNotNull(videoPlayView);
@@ -1049,7 +1049,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements aw8
     }
 
     /* loaded from: classes4.dex */
-    public static final class n implements ss6.h {
+    public static final class n implements rs6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoVerticalPageFragment a;
@@ -1072,10 +1072,10 @@ public final class VideoVerticalPageFragment extends BaseFragment implements aw8
             this.a = videoVerticalPageFragment;
         }
 
-        @Override // com.repackage.ss6.h
+        @Override // com.repackage.rs6.h
         public void a(String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && ss6.m().v("6061002332-203360688") && this.a.f != null) {
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && rs6.m().v("6061002332-203360688") && this.a.f != null) {
                 dv8 dv8Var = this.a.h;
                 VideoPlayView videoPlayView = this.a.f;
                 Intrinsics.checkNotNull(videoPlayView);
@@ -1088,7 +1088,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements aw8
             }
         }
 
-        @Override // com.repackage.ss6.h
+        @Override // com.repackage.rs6.h
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -1097,7 +1097,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements aw8
     }
 
     /* loaded from: classes4.dex */
-    public static final class o implements ss6.h {
+    public static final class o implements rs6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoVerticalPageFragment a;
@@ -1120,10 +1120,10 @@ public final class VideoVerticalPageFragment extends BaseFragment implements aw8
             this.a = videoVerticalPageFragment;
         }
 
-        @Override // com.repackage.ss6.h
+        @Override // com.repackage.rs6.h
         public void a(String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && ss6.m().v(ss6.s()) && this.a.f != null) {
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && rs6.m().v(rs6.s()) && this.a.f != null) {
                 dv8 dv8Var = this.a.h;
                 VideoPlayView videoPlayView = this.a.f;
                 Intrinsics.checkNotNull(videoPlayView);
@@ -1136,7 +1136,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements aw8
             }
         }
 
-        @Override // com.repackage.ss6.h
+        @Override // com.repackage.rs6.h
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -1369,7 +1369,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements aw8
             if (!z || !this$0.b2() || this$0.getPageContext() == null || this$0.getPageContext().getPageActivity() == null || this$0.V1() || this$0.N1() || this$0.M1() || this$0.X1() || this$0.S1() || this$0.P1() || this$0.Y1() || this$0.U1() || this$0.T1() || this$0.O1() || this$0.R1() || this$0.Q1()) {
                 return;
             }
-            qi.O(this$0.getPageContext().getPageActivity(), this$0.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c70));
+            qi.N(this$0.getPageContext().getPageActivity(), this$0.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c71));
         }
     }
 
@@ -1433,7 +1433,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements aw8
         if (interceptable == null || interceptable.invokeL(65559, null, this$0) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (this$0.b2() && this$0.getPageContext() != null && this$0.getPageContext().getPageActivity() != null && !this$0.V1() && !this$0.N1() && !this$0.M1() && !this$0.X1() && !this$0.S1() && !this$0.P1() && !this$0.Y1() && !this$0.U1() && !this$0.T1() && !this$0.O1() && !this$0.R1() && !this$0.Q1()) {
-                qi.O(this$0.getPageContext().getPageActivity(), this$0.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c70));
+                qi.N(this$0.getPageContext().getPageActivity(), this$0.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c71));
             }
             if (this$0.Z1()) {
                 VideoPlayView videoPlayView = this$0.f;
@@ -1444,7 +1444,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements aw8
                 if (!z || this$0.getPageContext() == null || this$0.getPageContext().getPageActivity() == null || this$0.Q1()) {
                     return;
                 }
-                qi.O(this$0.getPageContext().getPageActivity(), this$0.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c72));
+                qi.N(this$0.getPageContext().getPageActivity(), this$0.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c73));
             }
         }
     }
@@ -1888,10 +1888,10 @@ public final class VideoVerticalPageFragment extends BaseFragment implements aw8
             } else {
                 if (VideoMiddleAdSwitch.isOnAndHitVideoAdDrawTest()) {
                     if (UbsABTestHelper.isVideoAdDrawABTestA()) {
-                        ss6.m().z(getActivity(), new c(this), this.h.o());
+                        rs6.m().z(getActivity(), new c(this), this.h.o());
                     }
                     if (UbsABTestHelper.isVideoAdDrawABTestB()) {
-                        ss6.m().y(getActivity(), new d(this), this.h.o());
+                        rs6.m().y(getActivity(), new d(this), this.h.o());
                     }
                 }
                 VideoPlayModel videoPlayModel = new VideoPlayModel(getPageContext(), getUniqueId());
@@ -2108,8 +2108,8 @@ public final class VideoVerticalPageFragment extends BaseFragment implements aw8
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
             super.onDestroyView();
-            ss6.m().d("6061002332-203360688");
-            ss6.m().c(ss6.s());
+            rs6.m().d("6061002332-203360688");
+            rs6.m().c(rs6.s());
         }
     }
 
@@ -2152,9 +2152,9 @@ public final class VideoVerticalPageFragment extends BaseFragment implements aw8
             if (!this.B && isPrimary() && VideoMiddleAdSwitch.isOnAndHitVideoAdDrawTest() && this.d == 3) {
                 this.B = true;
                 if (UbsABTestHelper.isVideoAdDrawABTestA()) {
-                    ss6.m().z(getActivity(), new n(this), this.h.o());
+                    rs6.m().z(getActivity(), new n(this), this.h.o());
                 } else if (UbsABTestHelper.isVideoAdDrawABTestB()) {
-                    ss6.m().y(getActivity(), new o(this), this.h.o());
+                    rs6.m().y(getActivity(), new o(this), this.h.o());
                 }
             }
         }

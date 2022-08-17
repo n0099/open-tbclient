@@ -24,17 +24,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d17;
+import com.repackage.c17;
+import com.repackage.cw6;
 import com.repackage.dw6;
-import com.repackage.ew6;
-import com.repackage.gw6;
+import com.repackage.fw6;
 import com.repackage.hn8;
-import com.repackage.l17;
+import com.repackage.k17;
 import com.repackage.my4;
 import com.repackage.oi;
 import com.repackage.ra5;
+import com.repackage.v07;
 import com.repackage.vd5;
-import com.repackage.w07;
 import com.repackage.yf6;
 import java.util.List;
 import tbclient.Personalized.DataRes;
@@ -43,8 +43,8 @@ public class PersonalizeWrapperFragment extends BaseFragment implements yf6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PersonalizeWrapperTabHost a;
-    public gw6 b;
-    public ew6 c;
+    public fw6 b;
+    public dw6 c;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -82,7 +82,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements yf6 {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements gw6.d {
+    public class b implements fw6.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalizeWrapperFragment a;
@@ -105,7 +105,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements yf6 {
             this.a = personalizeWrapperFragment;
         }
 
-        @Override // com.repackage.gw6.d
+        @Override // com.repackage.fw6.d
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.a == null) {
@@ -118,7 +118,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements yf6 {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016325, Integer.valueOf(z ? 1 : 0)));
         }
 
-        @Override // com.repackage.gw6.d
+        @Override // com.repackage.fw6.d
         public void b(DataRes dataRes, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
@@ -126,16 +126,16 @@ public class PersonalizeWrapperFragment extends BaseFragment implements yf6 {
             }
         }
 
-        @Override // com.repackage.gw6.d
+        @Override // com.repackage.fw6.d
         public void c(String str, String str2, int i, boolean z, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) && this.a.a.w()) {
-                d17.a("mTabHostError");
+                c17.a("mTabHostError");
                 this.a.a.J(str2, i, i2);
             }
         }
 
-        @Override // com.repackage.gw6.d
+        @Override // com.repackage.fw6.d
         public void d(tbclient.Userlike.DataRes dataRes, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048579, this, dataRes, z) == null) {
@@ -143,16 +143,16 @@ public class PersonalizeWrapperFragment extends BaseFragment implements yf6 {
             }
         }
 
-        @Override // com.repackage.gw6.d
-        public void e(boolean z, l17 l17Var, boolean z2, String str, String str2, boolean z3) {
+        @Override // com.repackage.fw6.d
+        public void e(boolean z, k17 k17Var, boolean z2, String str, String str2, boolean z3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), l17Var, Boolean.valueOf(z2), str, str2, Boolean.valueOf(z3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), k17Var, Boolean.valueOf(z2), str, str2, Boolean.valueOf(z3)}) == null) {
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c implements ew6 {
+    public class c implements dw6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalizeWrapperFragment a;
@@ -175,14 +175,14 @@ public class PersonalizeWrapperFragment extends BaseFragment implements yf6 {
             this.a = personalizeWrapperFragment;
         }
 
-        @Override // com.repackage.ew6
+        @Override // com.repackage.dw6
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.repackage.ew6
+        @Override // com.repackage.dw6
         public void c(int i, vd5 vd5Var, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), vd5Var, Integer.valueOf(i2)}) == null) {
@@ -193,7 +193,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements yf6 {
             }
         }
 
-        @Override // com.repackage.ew6
+        @Override // com.repackage.dw6
         public void d(int i, int i2, vd5 vd5Var, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), vd5Var, Integer.valueOf(i3)}) == null) {
@@ -355,9 +355,9 @@ public class PersonalizeWrapperFragment extends BaseFragment implements yf6 {
     public final void t1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            gw6 gw6Var = new gw6(getPageContext(), getUniqueId());
-            this.b = gw6Var;
-            gw6Var.k(new b(this));
+            fw6 fw6Var = new fw6(getPageContext(), getUniqueId());
+            this.b = fw6Var;
+            fw6Var.k(new b(this));
             MessageManager.getInstance().sendMessage(new RecommendFrsControlFragment.ControlModelMessage(this.b));
         }
     }
@@ -383,7 +383,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements yf6 {
             if (MainTabDataSwitch.isCacheOpen()) {
                 RecPersonalizePageModel.g().r(this.b.e());
             } else {
-                w07.m().q(this.b.e());
+                v07.m().q(this.b.e());
             }
         }
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_FIRST_LOAD_START_STAMP_KEY);
@@ -391,16 +391,43 @@ public class PersonalizeWrapperFragment extends BaseFragment implements yf6 {
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_FIRST_LOAD_END_STAMP_KEY);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_START_STAMP_KEY);
-        dw6.d().h(System.currentTimeMillis() - dw6.d().a(1));
-        ra5.b().C(System.currentTimeMillis() - dw6.d().a(1));
+        cw6.d().h(System.currentTimeMillis() - cw6.d().a(1));
+        ra5.b().C(System.currentTimeMillis() - cw6.d().a(1));
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_END_STAMP_KEY);
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_ON_ACTIVITY_CREATED_END_STAMP_KEY);
+    }
+
+    public void v1(String str) {
+        PersonalizeWrapperTabHost personalizeWrapperTabHost;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || (personalizeWrapperTabHost = this.a) == null) {
+            return;
+        }
+        personalizeWrapperTabHost.setCurrentTabByCode(str);
+    }
+
+    public void w1(String str) {
+        PersonalizeWrapperTabHost personalizeWrapperTabHost;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, str) == null) || (personalizeWrapperTabHost = this.a) == null) {
+            return;
+        }
+        personalizeWrapperTabHost.setCurrentTab(str);
+    }
+
+    public void x1(int i) {
+        PersonalizeWrapperTabHost personalizeWrapperTabHost;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048592, this, i) == null) || (personalizeWrapperTabHost = this.a) == null) {
+            return;
+        }
+        personalizeWrapperTabHost.setCurrentTab(i);
     }
 
     @Override // com.repackage.yf6
     public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
         }
     }
 

@@ -203,7 +203,7 @@ public class HotUserRankView {
                     this.a.a.finish();
                 } else if (view2 == this.a.l) {
                     if (TextUtils.isEmpty(this.a.m)) {
-                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0a37);
+                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0a38);
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(this.a.a.getPageContext(), new String[]{this.a.m});
@@ -407,7 +407,7 @@ public class HotUserRankView {
             SkinManager.setBackgroundColor(this.d, R.color.CAM_X0207);
             SkinManager.setViewTextColorSelector(this.l, R.color.CAM_X0105, R.color.cp_cont_b_alpha50);
             this.j.d(i);
-            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0810f2, R.color.CAM_X0302, null);
+            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0810f3, R.color.CAM_X0302, null);
             int f = qi.f(this.a, R.dimen.tbds63);
             int f2 = qi.f(this.a, R.dimen.tbds2);
             if (pureDrawable != null) {

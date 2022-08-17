@@ -38,12 +38,12 @@ public class x63 {
 
         /* renamed from: com.repackage.x63$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0614a implements Runnable {
+        public class RunnableC0616a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0614a(a aVar, b bVar) {
+            public RunnableC0616a(a aVar, b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,12 +86,12 @@ public class x63 {
 
             /* renamed from: com.repackage.x63$a$b$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class RunnableC0615a implements Runnable {
+            public class RunnableC0617a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b a;
 
-                public RunnableC0615a(b bVar) {
+                public RunnableC0617a(b bVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,7 +178,7 @@ public class x63 {
                         }
                         return;
                     }
-                    this.a.submit(new RunnableC0615a(this));
+                    this.a.submit(new RunnableC0617a(this));
                 }
             }
         }
@@ -208,7 +208,7 @@ public class x63 {
                 boolean z = y63.e(0) == 1;
                 Timer timer = new Timer();
                 b bVar = new b(null);
-                te3.e0(new RunnableC0614a(this, bVar));
+                te3.e0(new RunnableC0616a(this, bVar));
                 timer.schedule(new b(this, f, c, timer, w63Var, z, bVar), 0L, w63Var.a);
             }
         }

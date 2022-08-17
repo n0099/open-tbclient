@@ -1,43 +1,41 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.ListAdapter;
 import com.baidu.tieba.R;
-import com.baidu.tieba.memberCenter.tail.edit.color.TailEditColorToolHost;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zl7 extends s25 {
+public class zl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public GridView a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zl7(TbPageContext<?> tbPageContext, int i, String str) {
-        super(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1366), 17, i);
+    public zl7(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i), str};
+            Object[] objArr = {viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = R.drawable.tail_edit_tool_color_selector;
-        this.h = R.drawable.icon_pure_post_more_bubble64;
-        this.m = new TailEditColorToolHost(tbPageContext, str);
-        this.o = true;
-        this.n = 6;
-        this.p = new int[]{1};
+        this.a = (GridView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09204b);
+    }
+
+    public void a(vl7 vl7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, vl7Var) == null) {
+            this.a.setAdapter((ListAdapter) vl7Var);
+        }
     }
 }

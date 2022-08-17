@@ -84,7 +84,7 @@ public class LocalContentUriFetchProducer extends LocalFetchProducer {
                 query.moveToFirst();
                 String string = query.getString(query.getColumnIndex("_data"));
                 if (string != null) {
-                    return getEncodedImage(new FileInputStream(string), getLength(string));
+                    return getEncodedImage(new FileInputStream(this.mContentResolver.openFileDescriptor(uri, "r").getFileDescriptor()), getLength(string));
                 }
                 return null;
             } finally {

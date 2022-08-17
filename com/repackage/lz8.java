@@ -186,7 +186,7 @@ public class lz8 {
             if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i, str, str2) == null) {
                 super.onReceivedError(webView, i, str, str2);
                 this.a.p(false);
-                this.a.b.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                this.a.b.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                 this.a.b.finish();
             }
         }
@@ -332,7 +332,7 @@ public class lz8 {
             this.f = findViewById2;
             TextView textView = (TextView) findViewById2.findViewById(R.id.obfuscated_res_0x7f09073e);
             this.g = textView;
-            textView.setText(accountAccessActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1112));
+            textView.setText(accountAccessActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1113));
             wu4 wu4Var = new wu4();
             this.i = wu4Var;
             wu4Var.a = 1000L;

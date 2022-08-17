@@ -193,7 +193,7 @@ public class fj6 implements tj6 {
         if (interceptable == null || interceptable.invokeLL(1048583, this, arrayList, frsViewData) == null) {
             w(frsViewData);
             v();
-            bk8.f(arrayList, 1);
+            ak8.f(arrayList, 1);
             o(arrayList);
             y(arrayList);
             s(arrayList);
@@ -284,8 +284,8 @@ public class fj6 implements tj6 {
             for (bn bnVar : this.c) {
                 if (bnVar instanceof ue6) {
                     ((ue6) bnVar).v();
-                } else if (bnVar instanceof qb8) {
-                    ((qb8) bnVar).onDestroy();
+                } else if (bnVar instanceof pb8) {
+                    ((pb8) bnVar).onDestroy();
                 }
             }
         }
@@ -336,7 +336,7 @@ public class fj6 implements tj6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048593, this, frsFragment, unVar) == null) {
             this.a = frsFragment;
-            this.j = oe6.e().c(frsFragment.getPageContext(), ek8.d, this.a.getUniqueId(), false);
+            this.j = oe6.e().c(frsFragment.getPageContext(), dk8.d, this.a.getUniqueId(), false);
             nj6 nj6Var = new nj6(frsFragment.o(), ThreadData.TYPE_USER_NORMAL, this.a.getUniqueId());
             this.k = nj6Var;
             nj6Var.A(unVar);
@@ -397,7 +397,7 @@ public class fj6 implements tj6 {
             dj6Var.A(unVar);
             cj6 cj6Var = new cj6(frsFragment.getPageContext(), ThreadData.TYPE_FRS_HOTTOPIC, this.a.getUniqueId());
             cj6Var.A(unVar);
-            this.i = new sj6(frsFragment.getPageContext(), wj8.c, this.a.getUniqueId());
+            this.i = new sj6(frsFragment.getPageContext(), vj8.c, this.a.getUniqueId());
             ij6 ij6Var = new ij6(frsFragment.getPageContext(), ThreadData.TYPE_GOD_NORMAL, this.a.getUniqueId());
             this.w = ij6Var;
             ij6Var.A(unVar);
@@ -441,7 +441,7 @@ public class fj6 implements tj6 {
             this.c.add(oj6Var2);
             this.c.add(si6Var);
             this.c.add(xi6Var);
-            this.c.add(ts6.e().d(this.a.getBaseFragmentActivity(), AdvertAppInfo.H, "frs_hot_tab"));
+            this.c.add(ss6.e().d(this.a.getBaseFragmentActivity(), AdvertAppInfo.H, "frs_hot_tab"));
             ok5 ok5Var = new ok5(this.a, 1);
             ok5Var.u(this.c);
             ok5Var.x("frs_hot_tab");

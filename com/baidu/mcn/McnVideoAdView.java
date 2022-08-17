@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ac8;
 import com.repackage.lc0;
 import com.repackage.qi;
+import com.repackage.zb8;
 /* loaded from: classes2.dex */
 public class McnVideoAdView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -213,7 +213,7 @@ public class McnVideoAdView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (context = this.a) == null || (lc0Var = this.j) == null || (str = lc0Var.d) == null) {
             return;
         }
-        ac8.a(context, str, null, null, null);
+        zb8.a(context, str, null, null, null);
         c cVar = this.k;
         if (cVar != null) {
             cVar.b(this.j);
@@ -244,8 +244,8 @@ public class McnVideoAdView extends FrameLayout {
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090e29);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090e28);
             this.b.setConrers(5);
-            this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080d3a);
-            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080d3a);
+            this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080d3b);
+            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080d3b);
             this.b.setRadius(qi.f(this.a, R.dimen.tbds20));
             this.e = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f01009e);
             Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f01009d);

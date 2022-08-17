@@ -1,9 +1,21 @@
 package com.repackage;
+
+import android.view.View;
 /* loaded from: classes6.dex */
 public interface i88 {
-    void a();
+    int getCurrentPosition();
 
-    void b();
+    String getPlayUrl();
 
-    void e();
+    View getVideoContainer();
+
+    boolean isFullScreen();
+
+    boolean isPlayStarted();
+
+    boolean isPlaying();
+
+    void startPlay();
+
+    void stopPlay();
 }

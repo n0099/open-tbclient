@@ -1054,7 +1054,7 @@ public class RefresherView extends ViewGroup {
         float f2 = getResources().getDisplayMetrics().density;
         this.a = (int) ((100.0f * f2) + 0.5f);
         this.b = (int) ((500.0f * f2) + 0.5f);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040211, R.attr.obfuscated_res_0x7f040270, R.attr.obfuscated_res_0x7f0404c8, R.attr.obfuscated_res_0x7f0405ab, R.attr.obfuscated_res_0x7f0405ac, R.attr.obfuscated_res_0x7f0406fc});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040212, R.attr.obfuscated_res_0x7f040271, R.attr.obfuscated_res_0x7f0404c9, R.attr.obfuscated_res_0x7f0405ac, R.attr.obfuscated_res_0x7f0405ad, R.attr.obfuscated_res_0x7f0406fc});
         int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(5, -1);
         this.c = dimensionPixelOffset;
         if (dimensionPixelOffset == -1) {

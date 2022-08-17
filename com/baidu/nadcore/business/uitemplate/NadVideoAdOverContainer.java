@@ -336,7 +336,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080dd9);
+            Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080dda);
             if (drawable == null) {
                 return spannableStringBuilder;
             }

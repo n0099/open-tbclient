@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.se8;
+import com.repackage.re8;
 /* loaded from: classes4.dex */
 public class BrowseSettingActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public se8 a;
+    public re8 a;
 
     public BrowseSettingActivity() {
         Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class BrowseSettingActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new se8(this);
+            this.a = new re8(this);
         }
     }
 }

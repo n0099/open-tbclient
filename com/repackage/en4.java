@@ -28,11 +28,11 @@ public class en4 {
 
         /* renamed from: com.repackage.en4$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0469a extends Thread {
+        public class C0472a extends Thread {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0469a(a aVar) {
+            public C0472a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,7 +94,7 @@ public class en4 {
                     m = currentTimeMillis;
                 }
                 if (currentTimeMillis - m > en4.a) {
-                    new C0469a(this).start();
+                    new C0472a(this).start();
                     ru4.k().x("key_clear_resource", currentTimeMillis);
                 }
             }

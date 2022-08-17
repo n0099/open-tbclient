@@ -47,12 +47,12 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
 
         /* renamed from: com.baidu.tbadk.widget.RightFloatLayerLottieView$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0192a extends AnimatorListenerAdapter {
+        public class C0193a extends AnimatorListenerAdapter {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0192a(a aVar) {
+            public C0193a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.y.getVisibility() == 0) {
                 RightFloatLayerLottieView rightFloatLayerLottieView = this.a;
-                rightFloatLayerLottieView.D(rightFloatLayerLottieView.y, new C0192a(this), 0L);
+                rightFloatLayerLottieView.D(rightFloatLayerLottieView.y, new C0193a(this), 0L);
             }
         }
     }

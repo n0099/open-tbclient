@@ -44,7 +44,7 @@ public class bm5 extends ng0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, rg0Var, map, vg0Var)) == null) {
             super.b(context, rg0Var, map, vg0Var);
-            return ac8.d(context, rg0Var.d());
+            return zb8.d(context, rg0Var.d());
         }
         return invokeLLLL.booleanValue;
     }

@@ -63,13 +63,13 @@ public class h53 {
 
         /* renamed from: com.repackage.h53$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0486a implements Runnable {
+        public class RunnableC0493a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Uri a;
             public final /* synthetic */ a b;
 
-            public RunnableC0486a(a aVar, Uri uri) {
+            public RunnableC0493a(a aVar, Uri uri) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -126,7 +126,7 @@ public class h53 {
                 if (h53.a) {
                     Log.d("SYSTEM_SCREENSHOT", "onChange(), uri: " + uri);
                 }
-                ExecutorUtilsExt.postOnElastic(new RunnableC0486a(this, uri), "systemScreenShot", 1);
+                ExecutorUtilsExt.postOnElastic(new RunnableC0493a(this, uri), "systemScreenShot", 1);
             }
         }
     }

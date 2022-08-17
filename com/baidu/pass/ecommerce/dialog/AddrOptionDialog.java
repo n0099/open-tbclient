@@ -95,16 +95,16 @@ public class AddrOptionDialog extends BaseDialogFragment implements View.OnClick
             textView2.setOnClickListener(this);
             if (this.isDarkMode) {
                 Resources resources = getResources();
-                this.setDefaultView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081067);
+                this.setDefaultView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081068);
                 this.setDefaultView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609bd));
                 this.setDefaultViewBottomLine.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f06093e));
-                this.copyView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081065);
+                this.copyView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081066);
                 this.copyView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609bd));
                 view2.findViewById(R.id.obfuscated_res_0x7f091c83).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f06093e));
-                textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081065);
+                textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081066);
                 textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609ad));
                 view2.findViewById(R.id.obfuscated_res_0x7f091c8f).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f06093e));
-                textView2.setBackgroundResource(R.drawable.obfuscated_res_0x7f081065);
+                textView2.setBackgroundResource(R.drawable.obfuscated_res_0x7f081066);
                 textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609bd));
             }
             Bundle arguments = getArguments();

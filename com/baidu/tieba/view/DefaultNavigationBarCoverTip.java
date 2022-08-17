@@ -212,7 +212,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                 tBSpecificationBtn.setVisibility(8);
             } else {
                 tBSpecificationBtn.setVisibility(0);
-                tBSpecificationBtn.setText(context.getString(R.string.obfuscated_res_0x7f0f099d));
+                tBSpecificationBtn.setText(context.getString(R.string.obfuscated_res_0x7f0f099e));
             }
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
             tBSpecificationBtn.k();

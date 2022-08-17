@@ -1,318 +1,299 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.im.chat.AbsMsglistView;
-import com.baidu.tieba.im.chat.MsgAdapterScanMessage;
-import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
-import com.baidu.tieba.im.chat.MsgIceBreakItemAdapter;
-import com.baidu.tieba.im.chat.MsgLeftViewItemAdapter;
-import com.baidu.tieba.im.chat.MsgMidViewItemAdapter;
-import com.baidu.tieba.im.chat.MsgRightViewItemAdapter;
-import com.baidu.tieba.im.chat.MsgStrangerTipItemAdapter;
-import com.baidu.tieba.im.chat.MsglistActivity;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.util.PicManager;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.resourceLoader.IMImageSize;
+import com.baidu.tbadk.data.ShareFromFrsMsgData;
+import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
+import com.baidu.tbadk.data.ShareFromPBMsgData;
+import com.baidu.tbadk.gif.GifInfo;
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.widget.richText.TbRichText;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
+import com.baidu.tieba.im.data.InviteMsgData;
 import com.baidu.tieba.im.data.MsgCacheData;
+import com.baidu.tieba.im.data.VoiceMsgData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
+import com.baidu.tieba.im.widget.ShareFromFrsView;
+import com.baidu.tieba.im.widget.ShareFromGameCenter;
+import com.baidu.tieba.im.widget.ShareFromPBView;
+import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
+import com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class b67 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<MsglistActivity<?>> a;
-    public List<ChatMessage> b;
-    public BdTypeListView c;
-    public MsgLeftViewItemAdapter d;
-    public MsgRightViewItemAdapter e;
-    public MsgMidViewItemAdapter f;
-    public MsgIceBreakItemAdapter g;
-    public List<MsgCommonItemAdapter> h;
-    public CustomMessageListener i;
 
-    /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b67 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(b67 b67Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755874962, "Lcom/repackage/b67;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b67Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755874962, "Lcom/repackage/b67;");
+                return;
+            }
+        }
+        ke5.b();
+    }
+
+    public static void a(Context context, GifView gifView, ChatMessage chatMessage, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, gifView, chatMessage, Boolean.valueOf(z)}) == null) {
+            int i = (context.getResources().getDisplayMetrics().density > 1.5d ? 1 : (context.getResources().getDisplayMetrics().density == 1.5d ? 0 : -1));
+            int i2 = i > 0 ? 240 : 160;
+            int i3 = i <= 0 ? 160 : 240;
+            gifView.setVisibility(0);
+            GifInfo gifInfo = chatMessage.getGifInfo();
+            if (chatMessage.getGifInfo() != null) {
+                int i4 = gifInfo.mGifWidth;
+                if (i4 > 0) {
+                    i2 = i4;
                 }
-            }
-            this.a = b67Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
+                gifInfo.mGifWidth = i2;
+                int i5 = gifInfo.mGifHeight;
+                if (i5 > 0) {
+                    i3 = i5;
+                }
+                gifInfo.mGifHeight = i3;
+                gifView.setLayoutParams(new FrameLayout.LayoutParams(gifInfo.mGifWidth, gifInfo.mGifHeight));
+                gifView.i0(gifInfo);
+                gifView.setVisibility(0);
                 return;
             }
-            MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.b == null || aVar.a == null) {
-                return;
-            }
-            this.a.h.addAll(aVar.b);
-            this.a.c.a(new ArrayList(this.a.h));
+            gifView.setVisibility(8);
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public b67(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView) {
-        this(tbPageContext, bdTypeListView, 0);
+    public static void b(Context context, View view2, ShareFromPBView shareFromPBView, ShareFromFrsView shareFromFrsView, ShareFromGameCenter shareFromGameCenter, ChatMessage chatMessage, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((TbPageContext) objArr2[0], (BdTypeListView) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public List<ChatMessage> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MsgLeftViewItemAdapter msgLeftViewItemAdapter = new MsgLeftViewItemAdapter(this.a, ChatMessage.TYPE_MSG_LEFT);
-            this.d = msgLeftViewItemAdapter;
-            msgLeftViewItemAdapter.x(true);
-            this.d.y(true);
-            MsgRightViewItemAdapter msgRightViewItemAdapter = new MsgRightViewItemAdapter(this.a, ChatMessage.TYPE_MSG_RIGHT);
-            this.e = msgRightViewItemAdapter;
-            msgRightViewItemAdapter.x(true);
-            this.e.y(true);
-            this.f = new MsgMidViewItemAdapter(this.a, ChatMessage.TYPE_MSG_MID);
-            MsgIceBreakItemAdapter msgIceBreakItemAdapter = new MsgIceBreakItemAdapter(this.a);
-            this.g = msgIceBreakItemAdapter;
-            msgIceBreakItemAdapter.x(true);
-            this.h.add(this.d);
-            this.h.add(this.e);
-            this.h.add(this.f);
-            this.h.add(this.g);
-            this.h.add(new MsgStrangerTipItemAdapter(this.a));
-            e();
-            MsgAdapterScanMessage.a aVar = new MsgAdapterScanMessage.a();
-            aVar.b = new ArrayList();
-            aVar.a = this.a;
-            MessageManager.getInstance().dispatchResponsedMessage(new MsgAdapterScanMessage(aVar));
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.i.setPriority(Integer.MAX_VALUE);
-            this.a.registerListener(this.i);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (this.c.getAdapter2() instanceof fn)) {
-            this.c.getAdapter2().notifyDataSetChanged();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (this.c.getAdapter2() instanceof fn)) {
-            this.c.getAdapter2().notifyDataSetInvalidated();
-        }
-    }
-
-    public void h(ChatMessage chatMessage) {
-        a67 itemView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, chatMessage) == null) || chatMessage == null || (itemView = chatMessage.getItemView()) == null || itemView.h == null || chatMessage.getMsgId() != itemView.h.longValue()) {
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, view2, shareFromPBView, shareFromFrsView, shareFromGameCenter, chatMessage, str}) == null) || chatMessage.getContent() == null || chatMessage.getContent().length() == 0) {
             return;
         }
-        itemView.E(null, chatMessage);
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.d.E(i);
-            this.e.F(i);
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.i == null) {
-            return;
-        }
-        MessageManager.getInstance().unRegisterListener(this.i);
-        this.i = null;
-    }
-
-    public void k(List<ChatMessage> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            this.b = list;
-            ArrayList arrayList = new ArrayList();
-            if (this.b != null) {
-                int size = list.size();
-                for (int i = 0; i < size; i++) {
-                    if (i > 0) {
-                        if (list.get(i).getCacheData() == null) {
-                            list.get(i).setCacheData(new MsgCacheData());
-                        }
-                        list.get(i).getCacheData().setLastMsgTime(list.get(i - 1).getTime());
+        xa7 xa7Var = new xa7();
+        int c = xa7Var.c(chatMessage.getContent(), str);
+        if (1 == xa7Var.b()) {
+            if (xa7Var.a() != null) {
+                if (c == 0) {
+                    shareFromPBView.setVisibility(0);
+                    shareFromPBView.setData(xa7Var.a() instanceof ShareFromPBMsgData ? (ShareFromPBMsgData) xa7Var.a() : null);
+                } else if (c == 1) {
+                    shareFromGameCenter.setVisibility(0);
+                    ShareFromGameCenterMsgData shareFromGameCenterMsgData = xa7Var.a() instanceof ShareFromGameCenterMsgData ? (ShareFromGameCenterMsgData) xa7Var.a() : null;
+                    if (!TextUtils.isEmpty(str) && str.endsWith("MsgleftView")) {
+                        shareFromGameCenter.setData(shareFromGameCenterMsgData, false);
+                    } else if (TextUtils.isEmpty(str) || !str.endsWith("MsgrightView")) {
+                    } else {
+                        shareFromGameCenter.setData(shareFromGameCenterMsgData, true);
                     }
                 }
-                arrayList.addAll(this.b);
             }
-            this.c.setData(arrayList);
+        } else if (4 == xa7Var.b()) {
+            shareFromFrsView.setVisibility(0);
+            shareFromFrsView.setData(xa7Var.a() instanceof ShareFromFrsMsgData ? (ShareFromFrsMsgData) xa7Var.a() : null);
         }
     }
 
-    public void l(boolean z) {
+    public static void c(TbPageContext<?> tbPageContext, Context context, View view2, Invite2GroupView invite2GroupView, ChatMessage chatMessage, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            MsgLeftViewItemAdapter msgLeftViewItemAdapter = this.d;
-            if (msgLeftViewItemAdapter != null) {
-                msgLeftViewItemAdapter.w(z);
-            }
-            MsgRightViewItemAdapter msgRightViewItemAdapter = this.e;
-            if (msgRightViewItemAdapter != null) {
-                msgRightViewItemAdapter.w(z);
-            }
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            MsgLeftViewItemAdapter msgLeftViewItemAdapter = this.d;
-            if (msgLeftViewItemAdapter != null) {
-                msgLeftViewItemAdapter.G(z);
-            }
-            MsgRightViewItemAdapter msgRightViewItemAdapter = this.e;
-            if (msgRightViewItemAdapter != null) {
-                msgRightViewItemAdapter.H(z);
-            }
-        }
-    }
-
-    public void n(boolean z) {
-        MsgRightViewItemAdapter msgRightViewItemAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || (msgRightViewItemAdapter = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{tbPageContext, context, view2, invite2GroupView, chatMessage, str}) == null) || chatMessage.getContent() == null || chatMessage.getContent().length() == 0) {
             return;
         }
-        msgRightViewItemAdapter.J(z);
-    }
-
-    public void o(boolean z) {
-        MsgLeftViewItemAdapter msgLeftViewItemAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (msgLeftViewItemAdapter = this.d) == null) {
-            return;
-        }
-        msgLeftViewItemAdapter.H(z);
-    }
-
-    public void p(Cif cif) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, cif) == null) {
-            for (MsgCommonItemAdapter msgCommonItemAdapter : this.h) {
-                if (msgCommonItemAdapter.t()) {
-                    msgCommonItemAdapter.z(cif);
-                }
-            }
-        }
-    }
-
-    public void q(jf jfVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, jfVar) == null) {
-            for (MsgCommonItemAdapter msgCommonItemAdapter : this.h) {
-                if (msgCommonItemAdapter.u()) {
-                    msgCommonItemAdapter.A(jfVar);
-                }
-            }
-        }
-    }
-
-    public void r(ArrayList<ReportPrivateMsgData> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, arrayList) == null) {
-            this.e.B(arrayList);
-            this.d.B(arrayList);
-        }
-    }
-
-    public void s(AbsMsglistView.j jVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, jVar) == null) {
-            this.d.D(jVar);
-            this.e.D(jVar);
-        }
-    }
-
-    public b67(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        invite2GroupView.setVisibility(0);
+        try {
+            JSONObject jSONObject = new JSONObject(chatMessage.getContent());
+            if (jSONObject.getString("portrait") == null) {
                 return;
             }
+            InviteMsgData inviteMsgData = new InviteMsgData();
+            inviteMsgData.setFromUid(jSONObject.getLong("fromUid"));
+            inviteMsgData.setGroupId(jSONObject.getLong(TbEnum.SystemMessage.KEY_GROUP_ID));
+            inviteMsgData.setNotice(jSONObject.getString("notice"));
+            inviteMsgData.setPortrait(jSONObject.getString("portrait"));
+            inviteMsgData.setText(jSONObject.getString("text"));
+            inviteMsgData.setTitle(jSONObject.getString("title"));
+            inviteMsgData.setToUid(jSONObject.getLong("toUid"));
+            inviteMsgData.setGroupName(jSONObject.getString(TbEnum.SystemMessage.KEY_GROUP_NAME));
+            inviteMsgData.setGroupOwnerId(jSONObject.getLong("groupOwnerId"));
+            invite2GroupView.setData(tbPageContext, inviteMsgData);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        this.b = null;
-        this.h = new ArrayList();
-        this.i = new a(this, 2001275);
-        this.a = tbPageContext;
-        this.c = bdTypeListView;
-        d();
-        this.d.C(i);
-        this.e.C(i);
+    }
+
+    @SuppressLint({"ResourceAsColor"})
+    public static void d(Context context, View view2, ChatImageWithTailView chatImageWithTailView, ChatMessage chatMessage, long j, String str) {
+        String optString;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, view2, chatImageWithTailView, chatMessage, Long.valueOf(j), str}) == null) || chatMessage.getContent() == null || chatMessage.getContent().length() == 0) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONArray(chatMessage.getContent()).getJSONObject(0);
+            String j2 = ta7.j(jSONObject, false);
+            String optString2 = jSONObject.optString("shareSourceIcon");
+            String optString3 = jSONObject.optString("shareSource");
+            String optString4 = jSONObject.optString("shareSourceUrl");
+            if (j2 == null) {
+                return;
+            }
+            zm zmVar = null;
+            if (j2.startsWith("http")) {
+                chatImageWithTailView.getImage().j0(j2, 38);
+            } else {
+                try {
+                    zm m = i55.k().m(j2);
+                    if (m == null) {
+                        Bitmap reSizeBitmap = PicManager.getInstance().getReSizeBitmap(ii.d().c(j2));
+                        if (reSizeBitmap != null) {
+                            zm zmVar2 = new zm(reSizeBitmap, false);
+                            try {
+                                if (chatMessage.getWidth() < 1) {
+                                    chatMessage.setWidth(zmVar2.r());
+                                    chatMessage.setHeight(zmVar2.m());
+                                }
+                                i55.k().d(j2, zmVar2);
+                            } catch (Exception unused) {
+                            }
+                            zmVar = zmVar2;
+                        }
+                    } else {
+                        try {
+                            if (chatMessage.getWidth() < 1) {
+                                chatMessage.setWidth(m.r());
+                                chatMessage.setHeight(m.m());
+                            }
+                        } catch (Exception unused2) {
+                        }
+                        zmVar = m;
+                    }
+                } catch (Exception unused3) {
+                }
+            }
+            if (chatMessage.getWidth() < 1 && (optString = jSONObject.optString("bsize")) != null) {
+                String[] split = optString.split(",");
+                if (split.length > 0) {
+                    chatMessage.setWidth(og.e(split[0], 0));
+                }
+                if (split.length > 1) {
+                    chatMessage.setHeight(og.e(split[1], 0));
+                }
+            }
+            IMImageSize chatImageSize = PicManager.getInstance().getChatImageSize(chatMessage.getWidth(), chatMessage.getHeight());
+            ViewGroup.LayoutParams layoutParams = chatImageWithTailView.getImage().getLayoutParams();
+            layoutParams.height = chatImageSize.height;
+            layoutParams.width = chatImageSize.width;
+            chatImageWithTailView.getImage().setLayoutParams(layoutParams);
+            if (zmVar != null) {
+                chatImageWithTailView.getImage().F();
+                chatImageWithTailView.getImage().Y();
+                zmVar.h(chatImageWithTailView.getImage());
+            } else {
+                chatImageWithTailView.getImage().setDefaultResource(SkinManager.getResourceId(R.drawable.icon_pic_im_image_default));
+                chatImageWithTailView.getImage().setTag(j2);
+            }
+            chatImageWithTailView.getImage().setAutoChangeStyle(true);
+            if (!TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString2)) {
+                if (!TextUtils.isEmpty(str) && str.endsWith("MsgleftView")) {
+                    LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
+                    layoutParams2.setMargins(qi.f(context, R.dimen.obfuscated_res_0x7f0701b2), 0, 0, 0);
+                    layoutParams2.height = qi.f(context, R.dimen.obfuscated_res_0x7f0702cb);
+                    chatImageWithTailView.getTail().setLayoutParams(layoutParams2);
+                }
+                chatImageWithTailView.getIcon().setDefaultResource(R.drawable.obfuscated_res_0x7f081833);
+                chatImageWithTailView.getIcon().K(optString2, 10, false);
+                chatImageWithTailView.getFromSource().setText(optString3);
+                chatImageWithTailView.setVisibility(0);
+                chatImageWithTailView.getTail().setVisibility(0);
+                return;
+            }
+            chatImageWithTailView.setVisibility(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void e(TbRichTextView tbRichTextView, ChatMessage chatMessage, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLI(65541, null, tbRichTextView, chatMessage, str, i) == null) || chatMessage == null) {
+            return;
+        }
+        MsgCacheData cacheData = chatMessage.getCacheData();
+        if (cacheData == null) {
+            cacheData = ta7.k(chatMessage);
+            chatMessage.setCacheData(cacheData);
+        }
+        if (cacheData.getRich_content() == null) {
+            String content = chatMessage.getContent();
+            if (content == null) {
+                return;
+            }
+            TbRichText tbRichText = null;
+            if (StringUtils.isJSONArray(content)) {
+                try {
+                    tbRichText = TbRichTextView.T(new JSONArray(chatMessage.getContent()), 7);
+                } catch (Exception unused) {
+                }
+            }
+            if (tbRichText == null) {
+                tbRichText = new TbRichText(u57.c(chatMessage.getContent(), i));
+            }
+            cacheData.setRich_content(tbRichText);
+        }
+        tbRichTextView.setVisibility(0);
+        tbRichTextView.setText(cacheData.getRich_content());
+    }
+
+    public static void f(Context context, ChatVoiceView chatVoiceView, ChatMessage chatMessage, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(65542, null, context, chatVoiceView, chatMessage, str) == null) || chatMessage.getContent() == null || chatMessage.getContent().length() <= 0) {
+            return;
+        }
+        try {
+            MsgCacheData cacheData = chatMessage.getCacheData();
+            if (cacheData == null) {
+                cacheData = new MsgCacheData();
+                cacheData.setVoice_status(1);
+                chatMessage.setCacheData(cacheData);
+            } else if (cacheData.getVoice_status() == 0) {
+                cacheData.setVoice_status(1);
+            }
+            VoiceMsgData q = ta7.q(chatMessage);
+            if (q != null && q.getDuring_time() != 0.0f && cacheData.getVoice_model() == null) {
+                cacheData.setVoice_model(new VoiceData.VoiceModel());
+                cacheData.getVoice_model().voiceId = q.getVoice_md5();
+                cacheData.getVoice_model().duration = Math.round(q.getDuring_time());
+            }
+            chatVoiceView.setTag(null);
+            chatVoiceView.setData(chatMessage);
+            chatVoiceView.setVisibility(0);
+        } catch (Exception unused) {
+        }
     }
 }

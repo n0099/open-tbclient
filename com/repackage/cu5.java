@@ -76,7 +76,7 @@ public class cu5 {
                     this.a.h.a(this.a.e, this.a.f, this.a.g);
                     return;
                 }
-                qi.L(this.a.b.getPageActivity(), this.a.b.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c75));
+                qi.K(this.a.b.getPageActivity(), this.a.b.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c76));
             }
         }
     }
@@ -216,7 +216,7 @@ public class cu5 {
                 this.c.b.setBorderSurroundContent(true);
                 this.c.b.setDrawBorder(true);
                 this.c.b.K(this.g.getThreadAlaInfo().cover, 10, false);
-                this.c.d.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11d9, StringHelper.numberUniformFormatExtra(this.g.getThreadAlaInfo().audience_count)));
+                this.c.d.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11db, StringHelper.numberUniformFormatExtra(this.g.getThreadAlaInfo().audience_count)));
                 this.c.f.setData(this.g, false);
                 this.c.h.setText(this.g.getTitle());
                 if (this.g.getAuthor() != null) {
@@ -234,7 +234,7 @@ public class cu5 {
                     this.c.c.setVisibility(8);
                 }
                 if (iq5Var.e) {
-                    this.c.i.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11d8, StringHelper.numberUniformFormatExtra((long) (this.g.getThreadAlaInfo().distance / 1000.0d))));
+                    this.c.i.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11da, StringHelper.numberUniformFormatExtra((long) (this.g.getThreadAlaInfo().distance / 1000.0d))));
                     this.c.i.setVisibility(0);
                 } else {
                     this.c.i.setVisibility(8);

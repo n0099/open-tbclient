@@ -8,20 +8,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mz9;
-import com.repackage.wu9;
+import com.repackage.oz9;
+import com.repackage.yu9;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class RefCountSubscription implements wu9 {
+public final class RefCountSubscription implements yu9 {
     public static /* synthetic */ Interceptable $ic;
     public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wu9 a;
+    public final yu9 a;
     public final AtomicReference<a> b;
 
     /* loaded from: classes8.dex */
-    public static final class InnerSubscription extends AtomicInteger implements wu9 {
+    public static final class InnerSubscription extends AtomicInteger implements yu9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7005765588239987643L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,14 +45,14 @@ public final class RefCountSubscription implements wu9 {
             this.parent = refCountSubscription;
         }
 
-        @Override // com.repackage.wu9
+        @Override // com.repackage.yu9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() != 0 : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.wu9
+        @Override // com.repackage.yu9
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && compareAndSet(0, 1)) {
@@ -122,12 +122,12 @@ public final class RefCountSubscription implements wu9 {
         c = new a(false, 0);
     }
 
-    public RefCountSubscription(wu9 wu9Var) {
+    public RefCountSubscription(yu9 yu9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wu9Var};
+            Object[] objArr = {yu9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -138,14 +138,14 @@ public final class RefCountSubscription implements wu9 {
             }
         }
         this.b = new AtomicReference<>(c);
-        if (wu9Var != null) {
-            this.a = wu9Var;
+        if (yu9Var != null) {
+            this.a = yu9Var;
             return;
         }
         throw new IllegalArgumentException("s");
     }
 
-    public wu9 a() {
+    public yu9 a() {
         InterceptResult invokeV;
         a aVar;
         Interceptable interceptable = $ic;
@@ -154,12 +154,12 @@ public final class RefCountSubscription implements wu9 {
             do {
                 aVar = atomicReference.get();
                 if (aVar.a) {
-                    return mz9.c();
+                    return oz9.c();
                 }
             } while (!atomicReference.compareAndSet(aVar, aVar.a()));
             return new InnerSubscription(this);
         }
-        return (wu9) invokeV.objValue;
+        return (yu9) invokeV.objValue;
     }
 
     public void b() {
@@ -183,14 +183,14 @@ public final class RefCountSubscription implements wu9 {
         }
     }
 
-    @Override // com.repackage.wu9
+    @Override // com.repackage.yu9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b.get().a : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.wu9
+    @Override // com.repackage.yu9
     public void unsubscribe() {
         a aVar;
         a c2;

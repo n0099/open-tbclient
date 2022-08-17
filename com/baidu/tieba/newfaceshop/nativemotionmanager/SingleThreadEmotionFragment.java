@@ -17,15 +17,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bq7;
-import com.repackage.hq7;
+import com.repackage.aq7;
+import com.repackage.gq7;
 import com.repackage.rg;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class SingleThreadEmotionFragment extends BaseFragment implements bq7<List<EmotionPackageData>> {
+public class SingleThreadEmotionFragment extends BaseFragment implements aq7<List<EmotionPackageData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hq7 a;
+    public gq7 a;
     public SingleThreadEmotionModel b;
     public CustomMessageListener c;
 
@@ -154,7 +154,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements bq7<Lis
         this.c = new a(this, 2921314);
     }
 
-    @Override // com.repackage.bq7
+    @Override // com.repackage.aq7
     public void L0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -166,9 +166,9 @@ public class SingleThreadEmotionFragment extends BaseFragment implements bq7<Lis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            hq7 hq7Var = this.a;
-            if (hq7Var != null) {
-                hq7Var.d(i);
+            gq7 gq7Var = this.a;
+            if (gq7Var != null) {
+                gq7Var.d(i);
             }
         }
     }
@@ -178,7 +178,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements bq7<Lis
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.a = new hq7(getPageContext());
+            this.a = new gq7(getPageContext());
             SingleThreadEmotionModel singleThreadEmotionModel = new SingleThreadEmotionModel();
             this.b = singleThreadEmotionModel;
             singleThreadEmotionModel.H(this);
@@ -204,7 +204,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements bq7<Lis
         }
     }
 
-    @Override // com.repackage.bq7
+    @Override // com.repackage.aq7
     public void onFail() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -222,16 +222,16 @@ public class SingleThreadEmotionFragment extends BaseFragment implements bq7<Lis
     }
 
     public final void v1() {
-        hq7 hq7Var;
+        gq7 gq7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (hq7Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (gq7Var = this.a) == null) {
             return;
         }
-        hq7Var.b();
+        gq7Var.b();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bq7
+    @Override // com.repackage.aq7
     /* renamed from: w1 */
     public void onSuccess(List<EmotionPackageData> list) {
         Interceptable interceptable = $ic;

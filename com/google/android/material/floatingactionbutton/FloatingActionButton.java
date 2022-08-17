@@ -1408,7 +1408,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0402bb);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0402bc);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1495,7 +1495,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         this.shadowPadding = new Rect();
         this.touchArea = new Rect();
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842766, R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f0400ba, R.attr.obfuscated_res_0x7f0400ed, R.attr.obfuscated_res_0x7f04026d, R.attr.obfuscated_res_0x7f040286, R.attr.obfuscated_res_0x7f0402a3, R.attr.obfuscated_res_0x7f0402a4, R.attr.obfuscated_res_0x7f040304, R.attr.obfuscated_res_0x7f040327, R.attr.obfuscated_res_0x7f0404c1, R.attr.obfuscated_res_0x7f040566, R.attr.obfuscated_res_0x7f0405c7, R.attr.obfuscated_res_0x7f040614, R.attr.obfuscated_res_0x7f040617, R.attr.obfuscated_res_0x7f04061f, R.attr.obfuscated_res_0x7f04074d}, i, obfuscated_res_0x7f100333, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842766, R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f0400ba, R.attr.obfuscated_res_0x7f0400ed, R.attr.obfuscated_res_0x7f04026e, R.attr.obfuscated_res_0x7f040287, R.attr.obfuscated_res_0x7f0402a4, R.attr.obfuscated_res_0x7f0402a5, R.attr.obfuscated_res_0x7f040305, R.attr.obfuscated_res_0x7f040328, R.attr.obfuscated_res_0x7f0404c2, R.attr.obfuscated_res_0x7f040567, R.attr.obfuscated_res_0x7f0405c8, R.attr.obfuscated_res_0x7f040615, R.attr.obfuscated_res_0x7f040618, R.attr.obfuscated_res_0x7f040620, R.attr.obfuscated_res_0x7f04074d}, i, obfuscated_res_0x7f100333, new int[0]);
         this.backgroundTint = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 1);
         this.backgroundTintMode = ViewUtils.parseTintMode(obtainStyledAttributes.getInt(2, -1), null);
         this.rippleColor = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 12);

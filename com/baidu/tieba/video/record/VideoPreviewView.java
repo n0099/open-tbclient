@@ -22,12 +22,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.encoder.TextureMovieEncoder;
 import com.repackage.ct8;
-import com.repackage.fn7;
-import com.repackage.jn7;
+import com.repackage.en7;
+import com.repackage.in7;
 import com.repackage.lu8;
 import com.repackage.mu8;
 import com.repackage.ps8;
-import com.repackage.zm7;
+import com.repackage.ym7;
 import java.io.File;
 import java.io.IOException;
 /* loaded from: classes4.dex */
@@ -41,7 +41,7 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
     public boolean e;
     public boolean f;
     public lu8.a g;
-    public fn7 h;
+    public en7 h;
 
     /* loaded from: classes4.dex */
     public class a implements MediaRecorder.OnErrorListener {
@@ -81,8 +81,8 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
                     }
                 }
                 if (this.a.h != null) {
-                    fn7 fn7Var = this.a.h;
-                    fn7Var.b(28, "what-->" + i + "  extra-->" + i2);
+                    en7 en7Var = this.a.h;
+                    en7Var.b(28, "what-->" + i + "  extra-->" + i2);
                 }
             }
         }
@@ -174,10 +174,10 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
                 return;
             }
         }
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, jn7.class);
-        jn7 jn7Var = runTask != null ? (jn7) runTask.getData() : null;
-        if (jn7Var != null) {
-            this.h = jn7Var.get();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, in7.class);
+        in7 in7Var = runTask != null ? (in7) runTask.getData() : null;
+        if (in7Var != null) {
+            this.h = in7Var.get();
         }
         this.a = mu8Var;
         getHolder().addCallback(this);
@@ -195,9 +195,9 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
             camera.setPreviewCallback(this);
         } catch (IOException e) {
             e.printStackTrace();
-            fn7 fn7Var = this.h;
-            if (fn7Var != null) {
-                fn7Var.b(27, zm7.a(e));
+            en7 en7Var = this.h;
+            if (en7Var != null) {
+                en7Var.b(27, ym7.a(e));
             }
         }
         camera.startPreview();
@@ -265,9 +265,9 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
             this.c.start();
         } catch (Throwable th2) {
             th2.printStackTrace();
-            fn7 fn7Var = this.h;
-            if (fn7Var != null) {
-                fn7Var.b(28, zm7.a(th2));
+            en7 en7Var = this.h;
+            if (en7Var != null) {
+                en7Var.b(28, ym7.a(th2));
             }
         }
     }
@@ -284,9 +284,9 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
             this.c.release();
         } catch (Exception e) {
             e.printStackTrace();
-            fn7 fn7Var = this.h;
-            if (fn7Var != null) {
-                fn7Var.b(29, zm7.a(e));
+            en7 en7Var = this.h;
+            if (en7Var != null) {
+                en7Var.b(29, ym7.a(e));
             }
         }
     }

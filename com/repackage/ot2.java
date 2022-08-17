@@ -391,7 +391,7 @@ public class ot2 implements vt2 {
             }
             CallbackHandler callbackHandler = this.f.c;
             String str2 = this.f.i;
-            callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.f.a.w().getString(R.string.obfuscated_res_0x7f0f1268) + str).toString());
+            callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.f.a.w().getString(R.string.obfuscated_res_0x7f0f126a) + str).toString());
         }
 
         @Override // com.repackage.ot2.k
@@ -1068,11 +1068,11 @@ public class ot2 implements vt2 {
         if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (z03Var = this.a) == null) {
             return;
         }
-        r03.f(z03Var.w(), R.string.obfuscated_res_0x7f0f12d5).G();
+        r03.f(z03Var.w(), R.string.obfuscated_res_0x7f0f12d7).G();
         if (TextUtils.isEmpty(this.i)) {
             return;
         }
-        this.c.handleSchemeDispatchCallback(this.i, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.a.w().getString(R.string.obfuscated_res_0x7f0f12d5)).toString());
+        this.c.handleSchemeDispatchCallback(this.i, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.a.w().getString(R.string.obfuscated_res_0x7f0f12d7)).toString());
     }
 
     public final void O(int i2, String str, String str2) {

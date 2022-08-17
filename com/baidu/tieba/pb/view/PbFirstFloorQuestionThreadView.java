@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i08;
+import com.repackage.h08;
 import com.repackage.ms4;
 import com.repackage.o16;
 import com.repackage.qi;
@@ -68,9 +68,9 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.h != null && this.a.h.O()) {
                     this.a.h.N();
-                    i08.p("c14884");
+                    h08.p("c14884");
                 }
-                i08.p("c14885");
+                h08.p("c14885");
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921724));
             }
         }
@@ -110,6 +110,47 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
         }
     }
 
+    /* loaded from: classes4.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PbFirstFloorQuestionThreadView a;
+
+        public c(PbFirstFloorQuestionThreadView pbFirstFloorQuestionThreadView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbFirstFloorQuestionThreadView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pbFirstFloorQuestionThreadView;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int[] iArr = new int[2];
+                this.a.c.getLocationOnScreen(iArr);
+                int i = iArr[1];
+                int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.obfuscated_res_0x7f070306);
+                if (this.a.g || i <= dimenPixelSize) {
+                    return;
+                }
+                this.a.g = true;
+                this.a.i();
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbFirstFloorQuestionThreadView(Context context) {
         super(context);
@@ -129,20 +170,19 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
             }
         }
         this.g = false;
-        c(context);
+        g(context);
     }
 
-    public void b() {
+    public void f() {
         TextView textView;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || !this.f || this.g || getVisibility() == 8 || (textView = this.c) == null || textView.getVisibility() == 8) {
             return;
         }
-        this.g = true;
-        e();
+        this.c.post(new c(this));
     }
 
-    public final void c(Context context) {
+    public final void g(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(1);
@@ -151,11 +191,11 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091aeb);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091aef);
             this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091af0);
-            d();
+            h();
         }
     }
 
-    public void d() {
+    public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
@@ -166,7 +206,7 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
         }
     }
 
-    public final void e() {
+    public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             o16 o16Var = new o16(this.e, this.c);
@@ -185,10 +225,10 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
             this.h.v0(-UtilHelper.getDimenPixelSize(R.dimen.M_H_X001));
             this.h.g0(100);
             this.h.S(3000);
-            String string = getContext().getString(R.string.obfuscated_res_0x7f0f0dbe);
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f0dbf);
             this.h.R(new b(this));
             this.h.w0(string);
-            i08.p("c14883");
+            h08.p("c14883");
         }
     }
 
@@ -204,16 +244,16 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
                 } else {
                     this.a.setVisibility(0);
                     TextView textView = this.a;
-                    textView.setText(j + getContext().getString(R.string.obfuscated_res_0x7f0f0dbf));
+                    textView.setText(j + getContext().getString(R.string.obfuscated_res_0x7f0f0dc0));
                 }
                 if (reply_num <= 0) {
-                    this.b.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0dbc));
-                    this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0dbd));
+                    this.b.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0dbd));
+                    this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0dbe));
                     this.f = true;
                 } else {
                     TextView textView2 = this.b;
-                    textView2.setText(reply_num + getContext().getString(R.string.obfuscated_res_0x7f0f0dbb));
-                    this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0dbb));
+                    textView2.setText(reply_num + getContext().getString(R.string.obfuscated_res_0x7f0f0dbc));
+                    this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0dbc));
                 }
                 this.c.setOnClickListener(new a(this));
                 if (z) {
@@ -223,7 +263,7 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
                     this.d.setAlpha(1.0f);
                     this.c.setClickable(true);
                 }
-                b();
+                f();
                 return;
             }
             setVisibility(8);
@@ -257,7 +297,7 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
             }
         }
         this.g = false;
-        c(context);
+        g(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -280,6 +320,6 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
             }
         }
         this.g = false;
-        c(context);
+        g(context);
     }
 }

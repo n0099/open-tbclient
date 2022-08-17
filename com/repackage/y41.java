@@ -35,7 +35,7 @@ public class y41 extends z41 {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (imageView = this.t) == null) {
             return;
         }
-        imageView.setBackground(a41.a().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d8f));
+        imageView.setBackground(a41.a().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d90));
         this.t.setVisibility(0);
     }
 

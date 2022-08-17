@@ -98,8 +98,8 @@ public class nh6 extends bz5<oh6> {
         this.i.setDrawBorder(true);
         this.i.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
         this.i.setBorderWidth(qi.f(getContext(), R.dimen.tbds1));
-        this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f08120f);
-        this.i.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120f);
+        this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f081210);
+        this.i.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081210);
         this.j.setText(oh6Var.f());
         this.k.setText(oh6Var.c());
         SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);

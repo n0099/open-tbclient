@@ -117,7 +117,7 @@ public class TbSettingTextTipView extends FrameLayout {
     public void e(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04060b, R.attr.obfuscated_res_0x7f04060c, R.attr.obfuscated_res_0x7f04060d, R.attr.obfuscated_res_0x7f04060e, R.attr.obfuscated_res_0x7f04060f, R.attr.obfuscated_res_0x7f040610});
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04060c, R.attr.obfuscated_res_0x7f04060d, R.attr.obfuscated_res_0x7f04060e, R.attr.obfuscated_res_0x7f04060f, R.attr.obfuscated_res_0x7f040610, R.attr.obfuscated_res_0x7f040611});
             if (obtainStyledAttributes != null) {
                 String string = obtainStyledAttributes.getString(1);
                 String string2 = obtainStyledAttributes.getString(4);

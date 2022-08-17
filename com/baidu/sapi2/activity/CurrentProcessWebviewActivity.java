@@ -126,13 +126,13 @@ public class CurrentProcessWebviewActivity extends Activity implements View.OnCl
             }
             if (this.a) {
                 this.mTitleBgLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c5));
-                this.mLeftBtnIv.setImageResource(R.drawable.obfuscated_res_0x7f081005);
+                this.mLeftBtnIv.setImageResource(R.drawable.obfuscated_res_0x7f081006);
                 this.mTitle.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c2));
                 this.mLeftBtnLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c5));
                 this.dividerLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c5));
                 ImageView imageView2 = this.mBottomBackBtnIv;
                 if (imageView2 != null) {
-                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f081005);
+                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f081006);
                 }
                 RelativeLayout relativeLayout = this.mBottomBgLayout;
                 if (relativeLayout != null) {

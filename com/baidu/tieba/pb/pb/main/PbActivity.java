@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.at4;
 import com.repackage.dt4;
-import com.repackage.nx7;
+import com.repackage.mx7;
 import com.repackage.rn;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -199,8 +199,8 @@ public class PbActivity extends AbsPbActivity {
             return;
         }
         this.u = true;
-        if (b1() == null || b1().P1() != 7) {
-            i2 = (b1() == null || !b1().v2()) ? 3 : 1;
+        if (b1() == null || b1().R1() != 7) {
+            i2 = (b1() == null || !b1().z2()) ? 3 : 1;
         } else {
             i2 = 2;
         }
@@ -211,21 +211,21 @@ public class PbActivity extends AbsPbActivity {
         bdTypeRecyclerView.w = true;
     }
 
-    public void u1(int i, nx7 nx7Var) {
+    public void u1(int i, mx7 mx7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, nx7Var) == null) || this.u || b1() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, mx7Var) == null) || this.u || b1() == null) {
             return;
         }
         int i2 = 1;
         this.u = true;
-        if (b1() != null && b1().P1() == 7) {
+        if (b1() != null && b1().R1() == 7) {
             i2 = 2;
-        } else if (b1() == null || !b1().v2()) {
+        } else if (b1() == null || !b1().z2()) {
             i2 = 3;
         }
         if (i2 != 3) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
         }
-        nx7Var.n2(new b(this, i, i2));
+        mx7Var.o2(new b(this, i, i2));
     }
 }

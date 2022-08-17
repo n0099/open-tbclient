@@ -26,9 +26,9 @@ import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
 import com.fun.n0;
 import com.fun.openid.sdk.FunOpenIDSdk;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
-import com.repackage.jm9;
-import com.repackage.pf9;
-import com.repackage.sf9;
+import com.repackage.lm9;
+import com.repackage.rf9;
+import com.repackage.uf9;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashSet;
 import org.json.JSONException;
@@ -128,7 +128,7 @@ public class HostAppInfo {
                         if (!TextUtils.isEmpty(imeiNew)) {
                             b.v = FunOpenIDSdk.getMD5(imeiNew);
                         }
-                        FunOpenIDSdk.getOaid(appContext, pf9.a);
+                        FunOpenIDSdk.getOaid(appContext, rf9.a);
                         if (FunAdSdk.isLogEnabled()) {
                             LogPrinter.d(b.toString(), new Object[0]);
                         }
@@ -162,7 +162,7 @@ public class HostAppInfo {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                         try {
-                                            HostAppInfo.b.x = jm9.a(this.a).a();
+                                            HostAppInfo.b.x = lm9.a(this.a).a();
                                         } catch (Exception e) {
                                             HostAppInfo.b.x = null;
                                             LogPrinter.e(e);
@@ -366,14 +366,14 @@ public class HostAppInfo {
             }
             this.l = String.valueOf(displayMetrics.heightPixels);
             this.m = String.valueOf(displayMetrics.widthPixels);
-            this.o = sf9.c();
+            this.o = uf9.c();
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            n0.b bVar = new n0.b() { // from class: com.repackage.of9
+            n0.b bVar = new n0.b() { // from class: com.repackage.qf9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

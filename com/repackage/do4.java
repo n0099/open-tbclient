@@ -219,14 +219,14 @@ public class do4 extends PopupWindow {
         }
         this.e = gk4Var;
         if (pi.isEmpty(gk4Var.e)) {
-            this.b.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f1370));
+            this.b.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f1372));
         } else {
             this.b.setText(gk4Var.e);
         }
         if (pi.isEmpty(gk4Var.p)) {
             this.b.setTextColor(context.getResources().getColor(R.color.CAM_X0107));
         } else {
-            this.b.setTextColor(cf7.b(gk4Var.p));
+            this.b.setTextColor(bf7.b(gk4Var.p));
         }
         if (pi.isEmpty(gk4Var.f)) {
             this.c.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f02c9));
@@ -236,10 +236,10 @@ public class do4 extends PopupWindow {
         if (pi.isEmpty(gk4Var.q)) {
             this.c.setTextColor(context.getResources().getColor(R.color.CAM_X0101));
         } else {
-            this.c.setTextColor(cf7.b(gk4Var.q));
+            this.c.setTextColor(bf7.b(gk4Var.q));
         }
         if (!pi.isEmpty(gk4Var.o)) {
-            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(qi.f(context, R.dimen.tbds120), cf7.b(gk4Var.o)));
+            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(qi.f(context, R.dimen.tbds120), bf7.b(gk4Var.o)));
         }
         if (!pi.isEmpty(gk4Var.j)) {
             this.a.K(gk4Var.j, 10, false);

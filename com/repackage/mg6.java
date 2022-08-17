@@ -49,7 +49,7 @@ public class mg6 implements xf6 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
-            if (bdUniqueId == ek8.d) {
+            if (bdUniqueId == dk8.d) {
                 return new ri6(tbPageContext, bdUniqueId, z);
             }
             if (bdUniqueId == ThreadData.TYPE_STAR_INTERVIEW) {

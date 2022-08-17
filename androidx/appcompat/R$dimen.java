@@ -116,14 +116,14 @@ public final class R$dimen {
     public static final int notification_subtext_size = 2131166697;
     public static final int notification_top_pad = 2131166698;
     public static final int notification_top_pad_large_text = 2131166699;
-    public static final int tooltip_corner_radius = 2131167639;
-    public static final int tooltip_horizontal_padding = 2131167640;
-    public static final int tooltip_margin = 2131167641;
-    public static final int tooltip_precise_anchor_extra_offset = 2131167642;
-    public static final int tooltip_precise_anchor_threshold = 2131167643;
-    public static final int tooltip_vertical_padding = 2131167644;
-    public static final int tooltip_y_offset_non_touch = 2131167645;
-    public static final int tooltip_y_offset_touch = 2131167646;
+    public static final int tooltip_corner_radius = 2131167640;
+    public static final int tooltip_horizontal_padding = 2131167641;
+    public static final int tooltip_margin = 2131167642;
+    public static final int tooltip_precise_anchor_extra_offset = 2131167643;
+    public static final int tooltip_precise_anchor_threshold = 2131167644;
+    public static final int tooltip_vertical_padding = 2131167645;
+    public static final int tooltip_y_offset_non_touch = 2131167646;
+    public static final int tooltip_y_offset_touch = 2131167647;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$dimen() {

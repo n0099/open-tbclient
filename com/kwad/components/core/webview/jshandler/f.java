@@ -293,7 +293,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
                             } else {
                                 adTemplate = bVar.getAdTemplate();
                             }
-                            a.C0352a b = new a.C0352a(this.Lr.Lk.Gl.getContext()).L(adTemplate).b(this.Lr.s(this.Lq.creativeId));
+                            a.C0354a b = new a.C0354a(this.Lr.Lk.Gl.getContext()).L(adTemplate).b(this.Lr.s(this.Lq.creativeId));
                             f fVar = this.Lr;
                             com.kwad.components.core.c.a.a.a(b.aj(f.b(this.Lq)).ak(this.Lr.Ln).c(this.Lr.Lk.mReportExtData).ae(this.Lq.Mx).al(this.Lr.Lo || this.Lq.DZ).ag(this.Lr.Lm).a(this.Lr.a(this.Lq, adTemplate)).a(new a.b(this) { // from class: com.kwad.components.core.webview.jshandler.f.1.1
                                 public static /* synthetic */ Interceptable $ic;

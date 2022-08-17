@@ -100,12 +100,12 @@ public class mn8 {
 
         /* renamed from: com.repackage.mn8$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0524a implements Runnable {
+        public class RunnableC0526a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
 
-            public RunnableC0524a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public RunnableC0526a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -170,7 +170,7 @@ public class mn8 {
                 } else {
                     prePageKey = TbPageExtraHelper.getPrePageKey();
                 }
-                rg.a().postDelayed(new RunnableC0524a(this, new CustomResponsedMessage(2921520, prePageKey)), 100L);
+                rg.a().postDelayed(new RunnableC0526a(this, new CustomResponsedMessage(2921520, prePageKey)), 100L);
             }
         }
 
@@ -242,10 +242,10 @@ public class mn8 {
             return invokeCommon.booleanValue;
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:28:0x00e9, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:28:0x00f0, code lost:
             if (com.baidu.tbadk.core.util.UtilHelper.isNumber(r1) != false) goto L119;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:87:0x0261, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:87:0x0268, code lost:
             if (com.baidu.tbadk.core.util.UtilHelper.isNumber(r14) != false) goto L45;
          */
         @Override // com.baidu.tbadk.core.tabHost.FragmentTabHost.a
@@ -262,6 +262,7 @@ public class mn8 {
                 int i5 = 3;
                 int i6 = 2;
                 if (i4 == 8) {
+                    TbSingleton.getInstance().setMyTabClicked(true);
                     if (this.a.m != null && this.a.m.getAnimationView() != null && this.a.m.getAnimationView().getVisibility() == 0) {
                         TiebaStatic.log(new StatisticItem("c10605").param("obj_type", 1));
                     } else {
@@ -359,7 +360,7 @@ public class mn8 {
                         }
                         this.a.b.q(true);
                         if (!oi.z()) {
-                            qi.L(this.a.a, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3c));
+                            qi.K(this.a.a, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3d));
                         }
                         if (!TbSingleton.getInstance().isFromFeedVideoClick()) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921580, Boolean.TRUE));
@@ -656,7 +657,7 @@ public class mn8 {
                 statisticItem.param("obj_locate", "2");
                 TiebaStatic.log(statisticItem);
                 ur4Var.dismiss();
-                xt6.d();
+                wt6.d();
             }
         }
     }

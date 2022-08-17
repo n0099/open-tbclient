@@ -76,7 +76,7 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
             if (view2.getId() != this.a.i.getId() && view2.getId() != this.a.a.getId()) {
                 if (view2.getId() == this.a.e.getId() && (this.a.itemView.getContext() instanceof Activity) && ViewHelper.checkUpIsLogin(this.a.itemView.getContext())) {
                     if (this.a.g.k) {
-                        qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f082d);
+                        qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f082d);
                         return;
                     }
                     CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(this.a.g.b, this.a.g.a, this.a.g.l, 3);
@@ -148,7 +148,7 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
             if (valueOf != null && valueOf.length() < 4) {
                 valueOf = String.format("%04d", Long.valueOf(by5Var.e));
             }
-            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0cc5), valueOf, Integer.valueOf(by5Var.f)), by5Var.j);
+            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0cc6), valueOf, Integer.valueOf(by5Var.f)), by5Var.j);
             this.d.setText(String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f00e8), StringHelper.numFormatOverWanWithNegative(by5Var.g), StringHelper.numFormatOverWanWithNegative(by5Var.h), StringHelper.numFormatOverWanWithNegative(by5Var.i)));
             i();
         }

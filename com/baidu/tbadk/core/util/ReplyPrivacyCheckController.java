@@ -127,7 +127,7 @@ public class ReplyPrivacyCheckController {
                             BdToast b = BdToast.b(this.this$0.mContext.getPageActivity(), updateAttentionMessage.getErrorString());
                             b.f(BdToast.ToastIcon.FAILURE);
                             b.c(3000);
-                            b.h();
+                            b.i();
                         } else {
                             AntiHelper.s(this.this$0.mContext.getPageActivity(), data.l);
                         }
@@ -189,7 +189,7 @@ public class ReplyPrivacyCheckController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             if (!oi.A()) {
-                this.mContext.showToast(R.string.obfuscated_res_0x7f0f0c3e);
+                this.mContext.showToast(R.string.obfuscated_res_0x7f0f0c3f);
             } else if (this.mLikeData != null && ViewHelper.checkUpIsLogin(this.mContext.getPageActivity())) {
                 if (this.mAttentionModel == null) {
                     this.mAttentionModel = new pz4(this.mContext);
@@ -207,7 +207,7 @@ public class ReplyPrivacyCheckController {
             if (this.mDialog == null) {
                 ur4 ur4Var = new ur4(this.mContext.getPageActivity());
                 this.mDialog = ur4Var;
-                ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0acb);
+                ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0acc);
                 this.mDialog.setPositiveButton(R.string.obfuscated_res_0x7f0f02ae, new ur4.e(this) { // from class: com.baidu.tbadk.core.util.ReplyPrivacyCheckController.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -283,13 +283,13 @@ public class ReplyPrivacyCheckController {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             if (i == PRIVACY_MY_ATTENTION) {
-                qi.N(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f80);
+                qi.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f81);
                 return false;
             } else if (i == PRIVACY_MYSELF) {
-                qi.N(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f80);
+                qi.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f81);
                 return false;
             } else if (i == PRIVACY_READ_ONLY) {
-                qi.N(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f01);
+                qi.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f02);
                 return false;
             } else {
                 return true;
@@ -311,13 +311,13 @@ public class ReplyPrivacyCheckController {
                 showAttentionDialog();
                 return false;
             } else if (i == PRIVACY_MY_ATTENTION) {
-                qi.N(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f80);
+                qi.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f81);
                 return false;
             } else if (i == PRIVACY_MYSELF) {
-                qi.N(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f80);
+                qi.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f81);
                 return false;
             } else if (i == PRIVACY_READ_ONLY) {
-                qi.N(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f01);
+                qi.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f02);
                 return false;
             } else {
                 return true;
@@ -364,16 +364,16 @@ public class ReplyPrivacyCheckController {
                 if (attentionHostData == null || attentionHostData.isAttention) {
                     return true;
                 }
-                qi.N(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0acb);
+                qi.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0acc);
                 return false;
             } else if (i == PRIVACY_MY_ATTENTION) {
-                qi.N(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f80);
+                qi.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f81);
                 return false;
             } else if (i == PRIVACY_MYSELF) {
-                qi.N(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f80);
+                qi.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f81);
                 return false;
             } else if (i == PRIVACY_READ_ONLY) {
-                qi.N(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f01);
+                qi.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f02);
                 return false;
             } else {
                 return true;

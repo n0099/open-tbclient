@@ -21,16 +21,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.co7;
 import com.repackage.do7;
-import com.repackage.eo7;
 import com.repackage.hx;
 import com.repackage.ix;
 import com.repackage.l15;
 import com.repackage.ms4;
-import com.repackage.o17;
+import com.repackage.n17;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
-public class NearbyForumFriendCardView extends LinearLayout implements ix, hx<eo7>, View.OnClickListener {
+public class NearbyForumFriendCardView extends LinearLayout implements ix, hx<do7>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -42,8 +42,8 @@ public class NearbyForumFriendCardView extends LinearLayout implements ix, hx<eo
     public View g;
     public LinearLayout h;
     public BdTypeRecyclerView i;
-    public do7 j;
-    public eo7 k;
+    public co7 j;
+    public do7 k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NearbyForumFriendCardView(Context context) {
@@ -90,7 +90,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements ix, hx<eo
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.j = new do7(context, l15.l, 1);
+            this.j = new co7(context, l15.l, 1);
             LinkedList linkedList = new LinkedList();
             linkedList.add(this.j);
             this.i.a(linkedList);
@@ -100,18 +100,18 @@ public class NearbyForumFriendCardView extends LinearLayout implements ix, hx<eo
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.hx
     /* renamed from: d */
-    public void a(eo7 eo7Var) {
+    public void a(do7 do7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, eo7Var) == null) {
-            this.k = eo7Var;
-            do7 do7Var = this.j;
-            if (do7Var != null) {
-                do7Var.B(eo7Var.a);
+        if (interceptable == null || interceptable.invokeL(1048579, this, do7Var) == null) {
+            this.k = do7Var;
+            co7 co7Var = this.j;
+            if (co7Var != null) {
+                co7Var.B(do7Var.a);
             }
-            this.i.setData(eo7Var.b);
-            if (eo7Var.c) {
+            this.i.setData(do7Var.b);
+            if (do7Var.c) {
                 this.d.setVisibility(0);
-                o17.s();
+                n17.s();
                 return;
             }
             this.d.setVisibility(4);
@@ -133,7 +133,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements ix, hx<eo
         d2.v(R.color.CAM_X0109);
         d2.z(R.dimen.T_X08);
         d2.A(R.string.F_X01);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f08094c, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f08094d, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         this.a = i;
         ms4 d3 = ms4.d(this.h);
         d3.n(R.string.J_X06);
@@ -147,19 +147,19 @@ public class NearbyForumFriendCardView extends LinearLayout implements ix, hx<eo
             return;
         }
         new NearbyFriendsActivityConfig(getContext(), this.k.a).start();
-        o17.j();
+        n17.j();
     }
 
     public void setNeedCompleteProfile(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            eo7 eo7Var = this.k;
-            if (eo7Var != null) {
-                eo7Var.a = z;
-            }
-            do7 do7Var = this.j;
+            do7 do7Var = this.k;
             if (do7Var != null) {
-                do7Var.B(z);
+                do7Var.a = z;
+            }
+            co7 co7Var = this.j;
+            if (co7Var != null) {
+                co7Var.B(z);
             }
         }
     }

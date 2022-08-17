@@ -76,7 +76,7 @@ public abstract class a implements c {
             if (d.p(this.mAdTemplate)) {
                 this.nM.a(this.wU.getContext(), z ? 1 : 153, view2 == this.xa ? 1 : 2);
             } else if (com.kwad.sdk.core.response.a.a.am(this.mAdInfo)) {
-                com.kwad.components.core.c.a.a.a(new a.C0352a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.wZ).ae(r1).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.tailframe.a.2
+                com.kwad.components.core.c.a.a.a(new a.C0354a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.wZ).ae(r1).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.tailframe.a.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ boolean rl;
@@ -111,7 +111,7 @@ public abstract class a implements c {
                     }
                 }));
             } else {
-                com.kwad.components.core.c.a.a.a(new a.C0352a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.wZ).ae(r1).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.tailframe.a.2
+                com.kwad.components.core.c.a.a.a(new a.C0354a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.wZ).ae(r1).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.tailframe.a.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ boolean rl;

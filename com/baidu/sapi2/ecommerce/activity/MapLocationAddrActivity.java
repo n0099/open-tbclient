@@ -277,18 +277,18 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
             if (this.isDarkMode) {
                 this.titleBarView.setDarkMode();
                 this.mapMaskView.setVisibility(0);
-                findViewById(R.id.obfuscated_res_0x7f091ca9).setBackgroundResource(R.drawable.obfuscated_res_0x7f080ff3);
-                this.mSearchBox.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ff3);
-                findViewById(R.id.obfuscated_res_0x7f091d20).setBackgroundResource(R.drawable.obfuscated_res_0x7f080ff5);
-                findViewById(R.id.obfuscated_res_0x7f091d27).setBackgroundResource(R.drawable.obfuscated_res_0x7f080ff7);
-                ((ImageView) findViewById(R.id.obfuscated_res_0x7f091d26)).setImageResource(R.drawable.obfuscated_res_0x7f081055);
+                findViewById(R.id.obfuscated_res_0x7f091ca9).setBackgroundResource(R.drawable.obfuscated_res_0x7f080ff4);
+                this.mSearchBox.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ff4);
+                findViewById(R.id.obfuscated_res_0x7f091d20).setBackgroundResource(R.drawable.obfuscated_res_0x7f080ff6);
+                findViewById(R.id.obfuscated_res_0x7f091d27).setBackgroundResource(R.drawable.obfuscated_res_0x7f080ff8);
+                ((ImageView) findViewById(R.id.obfuscated_res_0x7f091d26)).setImageResource(R.drawable.obfuscated_res_0x7f081056);
                 this.addrMapSearchEt.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06099a));
                 this.addrMapSearchEt.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06099c));
                 findViewById(R.id.obfuscated_res_0x7f091d28).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06093e));
                 this.cancelSearchBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060944));
                 ((TextView) findViewById(R.id.obfuscated_res_0x7f091d16)).setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060934));
                 this.mapAddrEmpty.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060998));
-                this.cleanSearchTextBtn.setImageResource(R.drawable.obfuscated_res_0x7f08100e);
+                this.cleanSearchTextBtn.setImageResource(R.drawable.obfuscated_res_0x7f08100f);
             }
         }
     }

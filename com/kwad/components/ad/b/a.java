@@ -64,10 +64,10 @@ public final class a {
                 r4 = ad != null ? ad.length() : 0L;
                 adTemplate.mDownloadType = 2;
             } else if (sc > 0) {
-                a.C0394a c0394a = new a.C0394a();
+                a.C0396a c0396a = new a.C0396a();
                 int i = sc * 1024;
-                boolean a2 = com.kwad.sdk.core.videocache.b.a.bC(KsAdSDKImpl.get().getContext()).a(A, i, c0394a);
-                str = c0394a.Qd;
+                boolean a2 = com.kwad.sdk.core.videocache.b.a.bC(KsAdSDKImpl.get().getContext()).a(A, i, c0396a);
+                str = c0396a.Qd;
                 adTemplate.mDownloadType = 3;
                 adTemplate.mDownloadSize = i;
                 z2 = a2;

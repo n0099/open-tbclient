@@ -256,7 +256,7 @@ public class BdTextProgressView extends View {
         this.c = BdPlayerProgressView.DEFAULT_PROGRESS_TIME_TEXT;
         TypedArray typedArray = null;
         try {
-            typedArray = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404f4, R.attr.obfuscated_res_0x7f0404f5, R.attr.obfuscated_res_0x7f0404f6, R.attr.obfuscated_res_0x7f0404f7});
+            typedArray = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404f5, R.attr.obfuscated_res_0x7f0404f6, R.attr.obfuscated_res_0x7f0404f7, R.attr.obfuscated_res_0x7f0404f8});
             this.a = typedArray.getDimension(3, 15.0f);
             this.b = typedArray.getColor(1, -1);
             this.f = typedArray.getInt(0, 1);

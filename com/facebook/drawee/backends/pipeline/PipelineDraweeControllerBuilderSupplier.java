@@ -8,8 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.executors.UiThreadImmediateExecutorService;
 import com.facebook.common.internal.Supplier;
+import com.facebook.drawee.backends.pipeline.info.ImagePerfDataListener;
 import com.facebook.drawee.components.DeferredReleaser;
 import com.facebook.drawee.controller.ControllerListener;
+import com.facebook.fresco.ui.common.ControllerListener2;
 import com.facebook.imagepipeline.core.ImagePipeline;
 import com.facebook.imagepipeline.core.ImagePipelineFactory;
 import java.util.Set;
@@ -19,7 +21,10 @@ public class PipelineDraweeControllerBuilderSupplier implements Supplier<Pipelin
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Set<ControllerListener> mBoundControllerListeners;
+    public final Set<ControllerListener2> mBoundControllerListeners2;
     public final Context mContext;
+    @Nullable
+    public final ImagePerfDataListener mDefaultImagePerfDataListener;
     public final ImagePipeline mImagePipeline;
     public final PipelineDraweeControllerFactory mPipelineDraweeControllerFactory;
 
@@ -71,12 +76,12 @@ public class PipelineDraweeControllerBuilderSupplier implements Supplier<Pipelin
     public PipelineDraweeControllerBuilder get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new PipelineDraweeControllerBuilder(this.mContext, this.mPipelineDraweeControllerFactory, this.mImagePipeline, this.mBoundControllerListeners) : (PipelineDraweeControllerBuilder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new PipelineDraweeControllerBuilder(this.mContext, this.mPipelineDraweeControllerFactory, this.mImagePipeline, this.mBoundControllerListeners, this.mBoundControllerListeners2).setPerfDataListener(this.mDefaultImagePerfDataListener) : (PipelineDraweeControllerBuilder) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PipelineDraweeControllerBuilderSupplier(Context context, ImagePipelineFactory imagePipelineFactory, @Nullable DraweeConfig draweeConfig) {
-        this(context, imagePipelineFactory, null, draweeConfig);
+        this(context, imagePipelineFactory, null, null, draweeConfig);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,7 +92,7 @@ public class PipelineDraweeControllerBuilderSupplier implements Supplier<Pipelin
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (ImagePipelineFactory) objArr2[1], (Set) objArr2[2], (DraweeConfig) objArr2[3]);
+                this((Context) objArr2[0], (ImagePipelineFactory) objArr2[1], (Set) objArr2[2], (Set) objArr2[3], (DraweeConfig) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -95,12 +100,12 @@ public class PipelineDraweeControllerBuilderSupplier implements Supplier<Pipelin
         }
     }
 
-    public PipelineDraweeControllerBuilderSupplier(Context context, ImagePipelineFactory imagePipelineFactory, Set<ControllerListener> set, @Nullable DraweeConfig draweeConfig) {
+    public PipelineDraweeControllerBuilderSupplier(Context context, ImagePipelineFactory imagePipelineFactory, Set<ControllerListener> set, Set<ControllerListener2> set2, @Nullable DraweeConfig draweeConfig) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, imagePipelineFactory, set, draweeConfig};
+            Object[] objArr = {context, imagePipelineFactory, set, set2, draweeConfig};
             interceptable.invokeUnInit(65539, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -119,5 +124,7 @@ public class PipelineDraweeControllerBuilderSupplier implements Supplier<Pipelin
         }
         this.mPipelineDraweeControllerFactory.init(context.getResources(), DeferredReleaser.getInstance(), imagePipelineFactory.getAnimatedDrawableFactory(context), UiThreadImmediateExecutorService.getInstance(), this.mImagePipeline.getBitmapMemoryCache(), draweeConfig != null ? draweeConfig.getCustomDrawableFactories() : null, draweeConfig != null ? draweeConfig.getDebugOverlayEnabledSupplier() : null);
         this.mBoundControllerListeners = set;
+        this.mBoundControllerListeners2 = set2;
+        this.mDefaultImagePerfDataListener = draweeConfig != null ? draweeConfig.getImagePerfDataListener() : null;
     }
 }

@@ -169,8 +169,8 @@ public class f05 {
         }
         this.b = null;
         this.c = null;
-        this.d = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f115a);
-        this.e = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f159a) + this.d;
+        this.d = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f115c);
+        this.e = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f159d) + this.d;
         this.g = new a(this);
         this.h = new b(this);
         this.i = new c(this);
@@ -225,7 +225,7 @@ public class f05 {
                     } else {
                         String k = k(threadData, str2);
                         if (!StringUtils.isNull(k)) {
-                            sb.append(inst.getString(R.string.obfuscated_res_0x7f0f0ece));
+                            sb.append(inst.getString(R.string.obfuscated_res_0x7f0f0ecf));
                             sb.append(k);
                             sb.append(StringUtils.lineSeparator);
                         }
@@ -237,7 +237,7 @@ public class f05 {
                 } else {
                     String k2 = k(threadData, str2);
                     if (!StringUtils.isNull(k2)) {
-                        sb.append(inst.getString(R.string.obfuscated_res_0x7f0f0ece));
+                        sb.append(inst.getString(R.string.obfuscated_res_0x7f0f0ecf));
                         sb.append(k2);
                         sb.append(StringUtils.lineSeparator);
                     }
@@ -254,7 +254,7 @@ public class f05 {
                 }
                 String k3 = k(threadData, str2);
                 if (!StringUtils.isNull(k3)) {
-                    sb.append(inst.getString(R.string.obfuscated_res_0x7f0f0ece));
+                    sb.append(inst.getString(R.string.obfuscated_res_0x7f0f0ecf));
                     sb.append(k3);
                     sb.append(StringUtils.lineSeparator);
                 }
@@ -398,14 +398,14 @@ public class f05 {
             if (shareItem == null) {
                 return shareItem;
             }
-            if (WeChatShareSmallAppToH5Switch.isOn() && (!StringUtils.isNull(shareItem.D0) || !StringUtils.isNull(shareItem.E0) || shareItem.F0 != null)) {
-                if (!StringUtils.isNull(shareItem.D0)) {
-                    shareItem.u = pi.cutString(shareItem.D0, 100);
-                }
+            if (WeChatShareSmallAppToH5Switch.isOn() && (!StringUtils.isNull(shareItem.E0) || !StringUtils.isNull(shareItem.F0) || shareItem.G0 != null)) {
                 if (!StringUtils.isNull(shareItem.E0)) {
-                    shareItem.v = pi.cutString(shareItem.E0, 100);
+                    shareItem.u = pi.cutString(shareItem.E0, 100);
                 }
-                Uri uri = shareItem.F0;
+                if (!StringUtils.isNull(shareItem.F0)) {
+                    shareItem.v = pi.cutString(shareItem.F0, 100);
+                }
+                Uri uri = shareItem.G0;
                 if (uri != null) {
                     shareItem.y = uri;
                 }
@@ -422,10 +422,10 @@ public class f05 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, shareItem)) == null) {
-            if (!StringUtils.isNull(shareItem.E0)) {
-                shareItem.v = pi.cutString(shareItem.E0, 100);
+            if (!StringUtils.isNull(shareItem.F0)) {
+                shareItem.v = pi.cutString(shareItem.F0, 100);
             }
-            Uri uri = shareItem.F0;
+            Uri uri = shareItem.G0;
             if (uri != null) {
                 shareItem.y = uri;
             }
@@ -525,7 +525,7 @@ public class f05 {
             return;
         }
         if (!zz4.b(TbadkApplication.getInst().getApplicationContext(), 6)) {
-            BdToast.b(TbadkApplication.getInst().getApplicationContext(), TbadkApplication.getInst().getApplicationContext().getText(R.string.obfuscated_res_0x7f0f1157)).h();
+            BdToast.b(TbadkApplication.getInst().getApplicationContext(), TbadkApplication.getInst().getApplicationContext().getText(R.string.obfuscated_res_0x7f0f1158)).i();
             return;
         }
         shareItem.v = d(shareItem.v, Cea708Decoder.COMMAND_DLW, 20, shareItem.m0 ? this.e : "");

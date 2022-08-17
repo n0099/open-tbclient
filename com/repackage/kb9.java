@@ -868,12 +868,12 @@ public class kb9 extends BaseEffectProcessor implements SurfaceTexture.OnFrameAv
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, sticker)) == null) {
-            int i2 = !sticker.isSupport(zc0.a0()) ? R.string.obfuscated_res_0x7f0f11fe : 0;
+            int i2 = !sticker.isSupport(zc0.a0()) ? R.string.obfuscated_res_0x7f0f1200 : 0;
             if (TextUtils.isEmpty(sticker.getPath()) || !new File(sticker.getPath()).exists()) {
-                i2 = R.string.obfuscated_res_0x7f0f11f3;
+                i2 = R.string.obfuscated_res_0x7f0f11f5;
             }
             if (!zc0.k1(sticker.getPath())) {
-                i2 = R.string.obfuscated_res_0x7f0f11f4;
+                i2 = R.string.obfuscated_res_0x7f0f11f6;
             }
             if (i2 != 0) {
                 jc9.a().post(new g(this, i2));

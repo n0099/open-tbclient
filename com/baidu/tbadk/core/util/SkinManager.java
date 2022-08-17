@@ -44,7 +44,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gj8;
+import com.repackage.fj8;
 import com.repackage.gu4;
 import com.repackage.ks4;
 import com.repackage.qi;
@@ -72,6 +72,7 @@ public class SkinManager {
     public static String TYPE_ERROR = null;
     public static AssetManager am = null;
     public static final String darkSuffix = "_2";
+    public static Bitmap mDefaultBitmap = null;
     public static Resources mPluginRes = null;
     public static String mSkinPackageName = null;
     public static Resources mSkinRes = null;
@@ -181,7 +182,7 @@ public class SkinManager {
             if (i == 0 || i2 == 0 || i3 == 0) {
                 return null;
             }
-            return new ColorStateList(new int[][]{new int[]{16842912}, new int[]{-16842910}, new int[0]}, new int[]{getColor(i4, i2), gj8.a(getColor(i4, i3), RESOURCE_ALPHA_DISABLE), getColor(i4, i)});
+            return new ColorStateList(new int[][]{new int[]{16842912}, new int[]{-16842910}, new int[0]}, new int[]{getColor(i4, i2), fj8.a(getColor(i4, i3), RESOURCE_ALPHA_DISABLE), getColor(i4, i)});
         }
         return (ColorStateList) invokeIIII.objValue;
     }
@@ -364,7 +365,7 @@ public class SkinManager {
             if (i <= 0) {
                 return null;
             }
-            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{-16842910}, new int[0]}, new int[]{gj8.a(getColor(i2, i), RESOURCE_ALPHA_PRESS), gj8.a(getColor(i2, i), RESOURCE_ALPHA_DISABLE), getColor(i2, i)});
+            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{-16842910}, new int[0]}, new int[]{fj8.a(getColor(i2, i), RESOURCE_ALPHA_PRESS), fj8.a(getColor(i2, i), RESOURCE_ALPHA_DISABLE), getColor(i2, i)});
         }
         return (ColorStateList) invokeII.objValue;
     }
@@ -376,7 +377,7 @@ public class SkinManager {
             if (i <= 0) {
                 return null;
             }
-            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{gj8.a(getColor(i), RESOURCE_ALPHA_PRESS), getColor(i)});
+            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{fj8.a(getColor(i), RESOURCE_ALPHA_PRESS), getColor(i)});
         }
         return (ColorStateList) invokeI.objValue;
     }
@@ -476,7 +477,7 @@ public class SkinManager {
     public static ColorStateList getIntColorStateListWithClickState(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65569, null, i)) == null) ? new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{gj8.a(i, RESOURCE_ALPHA_PRESS), i}) : (ColorStateList) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65569, null, i)) == null) ? new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{fj8.a(i, RESOURCE_ALPHA_PRESS), i}) : (ColorStateList) invokeI.objValue;
     }
 
     public static int getLottieAnimation(int i) {
@@ -652,11 +653,24 @@ public class SkinManager {
         return invokeLI.intValue;
     }
 
+    public static Bitmap getTbDefaultBitmap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65577, null)) == null) {
+            Bitmap bitmap = mDefaultBitmap;
+            if (bitmap == null || bitmap.isRecycled()) {
+                mDefaultBitmap = getBitmap(null, R.color.transparent, new BitmapFactory.Options());
+            }
+            return mDefaultBitmap;
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
     public static int getVectorToDefaultResId(Resources resources, int i) {
         InterceptResult invokeLI;
         String replace;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65577, null, resources, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65578, null, resources, i)) == null) {
             if (mPluginRes == null) {
                 mPluginRes = resources;
             }
@@ -684,19 +698,19 @@ public class SkinManager {
     public static boolean isCurrentSystemDarkMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65578, null)) == null) ? (TbadkCoreApplication.getInst() == null || TbadkCoreApplication.getInst().getResources() == null || TbadkCoreApplication.getInst().getResources().getConfiguration() == null || (TbadkCoreApplication.getInst().getResources().getConfiguration().uiMode & 48) != 32) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) ? (TbadkCoreApplication.getInst() == null || TbadkCoreApplication.getInst().getResources() == null || TbadkCoreApplication.getInst().getResources().getConfiguration() == null || (TbadkCoreApplication.getInst().getResources().getConfiguration().uiMode & 48) != 32) ? false : true : invokeV.booleanValue;
     }
 
     public static void setBackgroundColor(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65579, null, view2, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65580, null, view2, i) == null) {
             setBackgroundColor(view2, i, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public static void setBackgroundColorToTransparent(View view2, @ColorRes int i, GradientDrawable.Orientation orientation) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65581, null, view2, i, orientation) == null) || view2 == null || i == 0 || orientation == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(65582, null, view2, i, orientation) == null) || view2 == null || i == 0 || orientation == null) {
             return;
         }
         view2.setBackgroundDrawable(new GradientDrawable(orientation, new int[]{getColor(i), 0}));
@@ -705,7 +719,7 @@ public class SkinManager {
     public static void setBackgroundColorWithAlpha(View view2, int i, float f, int i2) {
         int color;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65582, null, new Object[]{view2, Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) || view2 == null || i == 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65583, null, new Object[]{view2, Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) || view2 == null || i == 0) {
             return;
         }
         int paddingLeft = view2.getPaddingLeft();
@@ -717,7 +731,7 @@ public class SkinManager {
         } else {
             color = getColor(i2, view2.getResources(), i);
         }
-        view2.setBackgroundColor(gj8.a(color, f));
+        view2.setBackgroundColor(fj8.a(color, f));
         if (paddingLeft == 0 && paddingRight == 0 && paddingTop == 0 && paddingBottom == 0) {
             return;
         }
@@ -726,7 +740,7 @@ public class SkinManager {
 
     public static void setBackgroundDrawable(PopupWindow popupWindow, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65583, null, popupWindow, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65584, null, popupWindow, i) == null) {
             setBackgroundDrawable(popupWindow, i, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -734,11 +748,11 @@ public class SkinManager {
     public static void setBackgroundEndColorToAutoColor(View view2, @ColorRes int i, GradientDrawable.Orientation orientation, float[] fArr) {
         GradientDrawable gradientDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(65585, null, view2, i, orientation, fArr) == null) || view2 == null || i == 0 || orientation == null || fArr.length < 8) {
+        if (!(interceptable == null || interceptable.invokeLILL(65586, null, view2, i, orientation, fArr) == null) || view2 == null || i == 0 || orientation == null || fArr.length < 8) {
             return;
         }
         int color = getColor(i);
-        int[] iArr = {gj8.c(color), color};
+        int[] iArr = {fj8.c(color), color};
         if (Build.VERSION.SDK_INT >= 16) {
             gradientDrawable = new GradientDrawable();
             gradientDrawable.setOrientation(orientation);
@@ -754,14 +768,14 @@ public class SkinManager {
 
     public static void setBackgroundResource(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65586, null, view2, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65587, null, view2, i) == null) {
             setBackgroundResource(view2, i, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public static void setBackgroundResourceSelector(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65588, null, view2, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLII(65589, null, view2, i, i2) == null) {
             setBackgroundSelector(view2, i, i2, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -769,7 +783,7 @@ public class SkinManager {
     public static void setBackgroundSelector(View view2, int i, int i2, int i3) {
         StateListDrawable createStateDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(65589, null, view2, i, i2, i3) == null) || i == 0 || i2 == 0 || view2 == null || (createStateDrawable = createStateDrawable(i, i2, i3)) == null) {
+        if (!(interceptable == null || interceptable.invokeLIII(65590, null, view2, i, i2, i3) == null) || i == 0 || i2 == 0 || view2 == null || (createStateDrawable = createStateDrawable(i, i2, i3)) == null) {
             return;
         }
         view2.setBackgroundDrawable(createStateDrawable);
@@ -777,7 +791,7 @@ public class SkinManager {
 
     public static void setBackgroundShapeDrawable(View view2, int i, int i2, int i3, int i4, int i5, int i6, int i7) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65593, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) || view2 == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65594, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) || view2 == null) {
             return;
         }
         GradientDrawable createShapeDrawable = createShapeDrawable(i, i2, i4, i6, i7);
@@ -794,7 +808,7 @@ public class SkinManager {
 
     public static void setBgColor(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65594, null, view2, i) == null) || view2 == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65595, null, view2, i) == null) || view2 == null) {
             return;
         }
         Application app = BdBaseApplication.getInst().getApp();
@@ -808,7 +822,7 @@ public class SkinManager {
     @Deprecated
     public static void setBlueTextColor1(TextView textView, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65595, null, textView, i) == null) || textView == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65596, null, textView, i) == null) || textView == null) {
             return;
         }
         setViewTextColor(textView, R.color.common_color_10213, 1);
@@ -817,7 +831,7 @@ public class SkinManager {
     @Deprecated
     public static void setButtonTextColor(TextView textView, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65596, null, textView, i) == null) || textView == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65597, null, textView, i) == null) || textView == null) {
             return;
         }
         Application app = BdBaseApplication.getInst().getApp();
@@ -831,7 +845,7 @@ public class SkinManager {
     public static void setDarkLottieAnimation(TBLottieAnimationView tBLottieAnimationView, int i) {
         int darkResourceId;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65597, null, tBLottieAnimationView, i) == null) || (darkResourceId = getDarkResourceId(TbadkCoreApplication.getInst().getResources(), i)) <= 0) {
+        if (!(interceptable == null || interceptable.invokeLI(65598, null, tBLottieAnimationView, i) == null) || (darkResourceId = getDarkResourceId(TbadkCoreApplication.getInst().getResources(), i)) <= 0) {
             return;
         }
         tBLottieAnimationView.setAnimation(darkResourceId);
@@ -839,7 +853,7 @@ public class SkinManager {
 
     public static void setDayOrDarkSkinTypeWithSystemMode(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65598, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65599, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             boolean isCurrentSystemDarkMode = isCurrentSystemDarkMode();
             Activity b = z8.g().b();
             if (b == null) {
@@ -877,7 +891,7 @@ public class SkinManager {
 
     public static void setFrsPBBgColor(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65599, null, view2, i) == null) || view2 == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65600, null, view2, i) == null) || view2 == null) {
             return;
         }
         setBackgroundResource(view2, R.drawable.common_bg);
@@ -885,7 +899,7 @@ public class SkinManager {
 
     public static void setImageResource(ImageView imageView, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65600, null, imageView, i) == null) || imageView == null || i == 0) {
+        if (!(interceptable == null || interceptable.invokeLI(65601, null, imageView, i) == null) || imageView == null || i == 0) {
             return;
         }
         imageView.setImageDrawable(getDrawable(imageView.getResources(), i));
@@ -894,7 +908,7 @@ public class SkinManager {
     public static void setLottieAnimation(TBLottieAnimationView tBLottieAnimationView, int i) {
         int lottieAnimation;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65602, null, tBLottieAnimationView, i) == null) || (lottieAnimation = getLottieAnimation(i)) <= 0) {
+        if (!(interceptable == null || interceptable.invokeLI(65603, null, tBLottieAnimationView, i) == null) || (lottieAnimation = getLottieAnimation(i)) <= 0) {
             return;
         }
         tBLottieAnimationView.setAnimation(lottieAnimation);
@@ -902,14 +916,14 @@ public class SkinManager {
 
     public static void setNavbarIconSrc(ImageView imageView, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65603, null, imageView, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLII(65604, null, imageView, i, i2) == null) {
             setNavbarIconSrc(imageView, i, i2, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public static void setNavbarTitleColor(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65606, null, view2, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLII(65607, null, view2, i, i2) == null) {
             setNavbarTitleColor(view2, i, i2, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -917,7 +931,7 @@ public class SkinManager {
     public static void setNightLottieAnimation(TBLottieAnimationView tBLottieAnimationView, int i) {
         int nightResouceId;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65608, null, tBLottieAnimationView, i) == null) || (nightResouceId = getNightResouceId(TbadkCoreApplication.getInst().getResources(), i)) <= 0) {
+        if (!(interceptable == null || interceptable.invokeLI(65609, null, tBLottieAnimationView, i) == null) || (nightResouceId = getNightResouceId(TbadkCoreApplication.getInst().getResources(), i)) <= 0) {
             return;
         }
         tBLottieAnimationView.setAnimation(nightResouceId);
@@ -925,14 +939,14 @@ public class SkinManager {
 
     public static void setPackageName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65609, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65610, null, str) == null) {
             sPackagename = str;
         }
     }
 
     public static void setSkinRes(String str) throws SecurityException, IllegalArgumentException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65610, null, str) == null) || StringUtils.isNull(str)) {
+        if (!(interceptable == null || interceptable.invokeL(65611, null, str) == null) || StringUtils.isNull(str)) {
             return;
         }
         try {
@@ -948,7 +962,7 @@ public class SkinManager {
                 mSkinPackageName = FileHelper.getApkFilePackageName(str);
                 return;
             }
-            qi.N(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f13b9);
+            qi.M(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f13bb);
         } catch (Throwable th) {
             BdLog.e(th);
         }
@@ -957,7 +971,7 @@ public class SkinManager {
     @Deprecated
     public static void setTextColor(TextView textView, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65611, null, textView, i) == null) || textView == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65612, null, textView, i) == null) || textView == null) {
             return;
         }
         Application app = BdBaseApplication.getInst().getApp();
@@ -970,7 +984,7 @@ public class SkinManager {
 
     public static void setTopBarBackBgImage(ImageView imageView, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65612, null, imageView, i) == null) || imageView == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65613, null, imageView, i) == null) || imageView == null) {
             return;
         }
         imageView.setScaleType(ImageView.ScaleType.CENTER);
@@ -979,7 +993,7 @@ public class SkinManager {
 
     public static void setTopBarBgImage(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65613, null, view2, i) == null) || view2 == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65614, null, view2, i) == null) || view2 == null) {
             return;
         }
         setBackgroundResource(view2, R.drawable.titlebar_bg);
@@ -987,7 +1001,7 @@ public class SkinManager {
 
     public static void setTopBarCommonFinishButton(TextView textView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65614, null, textView, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65615, null, textView, i) == null) {
             if (textView != null) {
                 setBackgroundResource(textView, R.drawable.navi_done_text_bg);
             }
@@ -997,7 +1011,7 @@ public class SkinManager {
 
     public static void setTopBarCommonFinishButtonText(TextView textView, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65615, null, textView, i) == null) || textView == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65616, null, textView, i) == null) || textView == null) {
             return;
         }
         setViewTextColor(textView, R.color.navi_done_text, 1);
@@ -1005,7 +1019,7 @@ public class SkinManager {
 
     public static void setTopBarRefrshBgImage(ImageView imageView, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65616, null, imageView, i) == null) || imageView == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65617, null, imageView, i) == null) || imageView == null) {
             return;
         }
         imageView.setScaleType(ImageView.ScaleType.CENTER);
@@ -1014,7 +1028,7 @@ public class SkinManager {
 
     public static void setTopBarTitleColor(TextView textView, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65617, null, textView, i) == null) || textView == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65618, null, textView, i) == null) || textView == null) {
             return;
         }
         Application app = BdBaseApplication.getInst().getApp();
@@ -1028,7 +1042,7 @@ public class SkinManager {
     public static void setViewCheckedTextColorSelector(View view2, int i, int i2, int i3) {
         ColorStateList createCheckedColorStateList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(65618, null, view2, i, i2, i3) == null) || i == 0 || i2 == 0 || view2 == null || (createCheckedColorStateList = createCheckedColorStateList(i, i2, i3, TbadkCoreApplication.getInst().getSkinType())) == null || !(view2 instanceof CheckBox)) {
+        if (!(interceptable == null || interceptable.invokeLIII(65619, null, view2, i, i2, i3) == null) || i == 0 || i2 == 0 || view2 == null || (createCheckedColorStateList = createCheckedColorStateList(i, i2, i3, TbadkCoreApplication.getInst().getSkinType())) == null || !(view2 instanceof CheckBox)) {
             return;
         }
         ((CheckBox) view2).setTextColor(createCheckedColorStateList);
@@ -1036,7 +1050,7 @@ public class SkinManager {
 
     public static void setViewTextColor(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65619, null, view2, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65620, null, view2, i) == null) {
             setViewTextColor(view2, i, 1);
         }
     }
@@ -1044,7 +1058,7 @@ public class SkinManager {
     public static void setViewTextColorSelector(View view2, int i) {
         ColorStateList createColorStateList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65623, null, view2, i) == null) || i == 0 || view2 == null || (createColorStateList = createColorStateList(i)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65624, null, view2, i) == null) || i == 0 || view2 == null || (createColorStateList = createColorStateList(i)) == null) {
             return;
         }
         if (view2 instanceof Button) {
@@ -1060,7 +1074,7 @@ public class SkinManager {
 
     public static void setViewTextColorWithClickState(TextView textView, @ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65626, null, textView, i) == null) || textView == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65627, null, textView, i) == null) || textView == null) {
             return;
         }
         textView.setTextColor(getIntColorStateListWithClickState(i));
@@ -1069,7 +1083,7 @@ public class SkinManager {
     public static void setBackgroundColor(View view2, int i, int i2) {
         int color;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65580, null, view2, i, i2) == null) || view2 == null || i == 0) {
+        if (!(interceptable == null || interceptable.invokeLII(65581, null, view2, i, i2) == null) || view2 == null || i == 0) {
             return;
         }
         int paddingLeft = view2.getPaddingLeft();
@@ -1090,7 +1104,7 @@ public class SkinManager {
 
     public static void setBackgroundDrawable(PopupWindow popupWindow, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65584, null, popupWindow, i, i2) == null) || popupWindow == null || i == 0) {
+        if (!(interceptable == null || interceptable.invokeLII(65585, null, popupWindow, i, i2) == null) || popupWindow == null || i == 0) {
             return;
         }
         popupWindow.setBackgroundDrawable(getDrawable(i2, i));
@@ -1098,7 +1112,7 @@ public class SkinManager {
 
     public static void setBackgroundResource(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65587, null, view2, i, i2) == null) || view2 == null || i == 0) {
+        if (!(interceptable == null || interceptable.invokeLII(65588, null, view2, i, i2) == null) || view2 == null || i == 0) {
             return;
         }
         int paddingLeft = view2.getPaddingLeft();
@@ -1115,7 +1129,7 @@ public class SkinManager {
     public static void setViewTextColor(View view2, int i, int i2, int i3) {
         ColorStateList colorList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(65621, null, view2, i, i2, i3) == null) || view2 == null || i == 0 || view2.getResources() == null) {
+        if (!(interceptable == null || interceptable.invokeLIII(65622, null, view2, i, i2, i3) == null) || view2 == null || i == 0 || view2.getResources() == null) {
             return;
         }
         if (i3 == 0) {
@@ -1192,7 +1206,7 @@ public class SkinManager {
 
     public static void setImageResource(ImageView imageView, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65601, null, imageView, i, i2) == null) || imageView == null || i == 0) {
+        if (!(interceptable == null || interceptable.invokeLII(65602, null, imageView, i, i2) == null) || imageView == null || i == 0) {
             return;
         }
         Drawable drawable = null;
@@ -1209,7 +1223,7 @@ public class SkinManager {
 
     public static void setNavbarIconSrc(ImageView imageView, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(65604, null, imageView, i, i2, i3) == null) || i == 0 || i2 == 0 || imageView == null) {
+        if (!(interceptable == null || interceptable.invokeLIII(65605, null, imageView, i, i2, i3) == null) || i == 0 || i2 == 0 || imageView == null) {
             return;
         }
         boolean z = TbadkCoreApplication.getInst().getUsedThemeColor() == 1;
@@ -1228,7 +1242,7 @@ public class SkinManager {
 
     public static void setNavbarTitleColor(View view2, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(65607, null, view2, i, i2, i3) == null) || i == 0 || i2 == 0 || view2 == null) {
+        if (!(interceptable == null || interceptable.invokeLIII(65608, null, view2, i, i2, i3) == null) || i == 0 || i2 == 0 || view2 == null) {
             return;
         }
         boolean z = TbadkCoreApplication.getInst().getUsedThemeColor() == 1;
@@ -1249,7 +1263,7 @@ public class SkinManager {
                 return null;
             }
             int color = getColor(TbadkCoreApplication.getInst().getSkinType(), i);
-            int a = gj8.a(color, RESOURCE_ALPHA_PRESS);
+            int a = fj8.a(color, RESOURCE_ALPHA_PRESS);
             return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{16842910, 16842908}, new int[0]}, new int[]{a, a, color});
         }
         return (ColorStateList) invokeI.objValue;
@@ -1274,7 +1288,7 @@ public class SkinManager {
 
     public static void setBackgroundShapeDrawable(View view2, int i, int i2, int i3, int i4, int i5, int i6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65592, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65593, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
             setBackgroundShapeDrawable(view2, i, i2, i3, i4, i5, i6, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -1287,7 +1301,7 @@ public class SkinManager {
 
     public static void setNavbarIconSrc(ImageView imageView, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65605, null, new Object[]{imageView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || i == 0 || i2 == 0 || imageView == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65606, null, new Object[]{imageView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || i == 0 || i2 == 0 || imageView == null) {
             return;
         }
         boolean z = TbadkCoreApplication.getInst().getUsedThemeColor() == 1;
@@ -1312,7 +1326,7 @@ public class SkinManager {
 
     public static void setBackgroundShapeDrawable(View view2, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(65590, null, view2, i, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLIII(65591, null, view2, i, i2, i3) == null) {
             setBackgroundShapeDrawable(view2, i, i2, i3, 0, 0, 0, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -1320,7 +1334,7 @@ public class SkinManager {
     public static void setViewTextColorSelector(View view2, int i, int i2, int i3) {
         ColorStateList createColorStateList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(65625, null, view2, i, i2, i3) == null) || i == 0 || i2 == 0 || view2 == null || (createColorStateList = createColorStateList(i, i2, i3)) == null) {
+        if (!(interceptable == null || interceptable.invokeLIII(65626, null, view2, i, i2, i3) == null) || i == 0 || i2 == 0 || view2 == null || (createColorStateList = createColorStateList(i, i2, i3)) == null) {
             return;
         }
         if (view2 instanceof Button) {
@@ -1388,7 +1402,7 @@ public class SkinManager {
 
     public static void setBackgroundShapeDrawable(View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65591, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65592, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             setBackgroundShapeDrawable(view2, i, i2, i3, 0, 0, 0, i4);
         }
     }
@@ -1401,7 +1415,7 @@ public class SkinManager {
 
     public static void setViewTextColor(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65620, null, view2, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLII(65621, null, view2, i, i2) == null) {
             setViewTextColor(view2, i, i2, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -1412,7 +1426,7 @@ public class SkinManager {
         int identifier;
         ColorStateList colorList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65622, null, view2, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65623, null, view2, str)) == null) {
             if (view2 == null || StringUtils.isNull(str) || (resources = view2.getResources()) == null || (identifier = resources.getIdentifier(str, "color", TbadkCoreApplication.getInst().getPackageName())) <= 0 || (colorList = getColorList(resources, identifier)) == null || !(view2 instanceof TextView)) {
                 return false;
             }
@@ -1424,7 +1438,7 @@ public class SkinManager {
 
     public static void setViewTextColorSelector(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65624, null, view2, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLII(65625, null, view2, i, i2) == null) {
             setViewTextColorSelector(view2, i, i2, TbadkCoreApplication.getInst().getSkinType());
         }
     }

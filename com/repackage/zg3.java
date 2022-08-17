@@ -645,8 +645,8 @@ public final class zg3 {
             aVar.x(str2);
             aVar.n(new hg3());
             aVar.m(true);
-            aVar.P(activity.getString(R.string.obfuscated_res_0x7f0f1244), new i(activity));
-            aVar.C(activity.getString(R.string.obfuscated_res_0x7f0f1245), null);
+            aVar.P(activity.getString(R.string.obfuscated_res_0x7f0f1246), new i(activity));
+            aVar.C(activity.getString(R.string.obfuscated_res_0x7f0f1247), null);
             aVar.X();
         }
     }

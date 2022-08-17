@@ -279,7 +279,7 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
             }
             if (ListUtils.getCount(O) == 0) {
                 AlaSquareLiveFragment alaSquareLiveFragment2 = this.a;
-                alaSquareLiveFragment2.showNetRefreshView(alaSquareLiveFragment2.a.e(), this.a.getString(R.string.obfuscated_res_0x7f0f0c56), false);
+                alaSquareLiveFragment2.showNetRefreshView(alaSquareLiveFragment2.a.e(), this.a.getString(R.string.obfuscated_res_0x7f0f0c57), false);
                 return;
             }
             AlaSquareLiveFragment alaSquareLiveFragment3 = this.a;

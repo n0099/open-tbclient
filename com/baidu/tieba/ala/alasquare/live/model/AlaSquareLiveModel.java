@@ -26,7 +26,7 @@ import com.repackage.ab;
 import com.repackage.d9;
 import com.repackage.hq5;
 import com.repackage.iq5;
-import com.repackage.kk8;
+import com.repackage.jk8;
 import com.repackage.lq5;
 import com.repackage.on;
 import java.util.ArrayList;
@@ -184,8 +184,8 @@ public class AlaSquareLiveModel extends BdBaseModel {
     public static void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            kk8.h(AlaCmdConfigSocket.CMD_SQUARE_LIVE, AlaSquareLiveSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_SQUARE_LIVE, kk8.a(AlaConfig.SQUARE_LIVE, AlaCmdConfigSocket.CMD_SQUARE_LIVE));
+            jk8.h(AlaCmdConfigSocket.CMD_SQUARE_LIVE, AlaSquareLiveSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_SQUARE_LIVE, jk8.a(AlaConfig.SQUARE_LIVE, AlaCmdConfigSocket.CMD_SQUARE_LIVE));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -198,7 +198,7 @@ public class AlaSquareLiveModel extends BdBaseModel {
     public void M() {
         Pair<List<on>, List<on>> d;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (d = hq5.d(this.a.getString(R.string.obfuscated_res_0x7f0f11ce), this.e)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (d = hq5.d(this.a.getString(R.string.obfuscated_res_0x7f0f11d0), this.e)) == null) {
             return;
         }
         this.f = (List) d.first;

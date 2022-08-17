@@ -1,249 +1,229 @@
 package com.repackage;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.Signature;
+import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.inner.BaseStatisContent;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import org.brotli.dec.BrotliRuntimeException;
+import java.security.MessageDigest;
+import java.util.Locale;
 /* loaded from: classes6.dex */
-public final class hr9 {
+public class hr9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[][] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final byte[] a;
-    public final int[] b;
-    public final or9 c;
-    public InputStream d;
-    public boolean e;
-    public long f;
-    public int g;
-    public int h;
-    public int i;
 
-    public hr9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755638494, "Lcom/repackage/hr9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755638494, "Lcom/repackage/hr9;");
                 return;
             }
         }
-        this.a = new byte[4160];
-        this.b = new int[1040];
-        this.c = new or9();
-        this.i = 0;
+        a = new String[][]{new String[]{"com.duowan.mobile", "7.10.0"}};
     }
 
-    public static void a(hr9 hr9Var, boolean z) {
+    public static int a(Context context) {
+        InterceptResult invokeL;
+        String[][] strArr;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65537, null, hr9Var, z) == null) && hr9Var.e) {
-            int i = ((hr9Var.h << 2) + ((hr9Var.g + 7) >> 3)) - 8;
-            int i2 = hr9Var.i;
-            if (i > i2) {
-                throw new BrotliRuntimeException("Read after end");
-            }
-            if (z && i != i2) {
-                throw new BrotliRuntimeException("Unused bytes after end");
-            }
-        }
-    }
-
-    public static void b(hr9 hr9Var) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, hr9Var) == null) {
-            InputStream inputStream = hr9Var.d;
-            hr9Var.d = null;
-            if (inputStream != null) {
-                inputStream.close();
-            }
-        }
-    }
-
-    public static void c(hr9 hr9Var, byte[] bArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65539, null, hr9Var, bArr, i, i2) == null) {
-            if ((hr9Var.g & 7) != 0) {
-                throw new BrotliRuntimeException("Unaligned copyBytes");
-            }
-            while (true) {
-                int i3 = hr9Var.g;
-                if (i3 == 64 || i2 == 0) {
-                    break;
-                }
-                bArr[i] = (byte) (hr9Var.f >>> i3);
-                hr9Var.g = i3 + 8;
-                i2--;
-                i++;
-            }
-            if (i2 == 0) {
-                return;
-            }
-            int min = Math.min(f(hr9Var), i2 >> 2);
-            if (min > 0) {
-                int i4 = min << 2;
-                System.arraycopy(hr9Var.a, hr9Var.h << 2, bArr, i, i4);
-                i += i4;
-                i2 -= i4;
-                hr9Var.h += min;
-            }
-            if (i2 == 0) {
-                return;
-            }
-            if (f(hr9Var) <= 0) {
-                while (i2 > 0) {
-                    try {
-                        int read = hr9Var.d.read(bArr, i, i2);
-                        if (read == -1) {
-                            throw new BrotliRuntimeException("Unexpected end of input");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                boolean z = false;
+                for (String[] strArr2 : a) {
+                    if (strArr2.length > 1) {
+                        String str = strArr2[0];
+                        try {
+                            if (gr9.a(context.getPackageManager().getPackageInfo(str, 1).versionName, strArr2[1]) >= 0) {
+                                Intent intent = new Intent();
+                                intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");
+                                if (gr9.e(context, intent)) {
+                                    return 0;
+                                }
+                            }
+                            z = true;
+                        } catch (Exception unused) {
+                            z = false;
                         }
-                        i += read;
-                        i2 -= read;
-                    } catch (IOException e) {
-                        throw new BrotliRuntimeException("Failed to read input", e);
                     }
                 }
-                return;
+                return z ? 2 : 1;
+            } catch (Exception unused2) {
+                return 1;
             }
-            d(hr9Var);
-            while (i2 != 0) {
-                long j = hr9Var.f;
-                int i5 = hr9Var.g;
-                bArr[i] = (byte) (j >>> i5);
-                hr9Var.g = i5 + 8;
-                i2--;
-                i++;
-            }
-            a(hr9Var, false);
-        }
-    }
-
-    public static void d(hr9 hr9Var) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, hr9Var) == null) || (i = hr9Var.g) < 32) {
-            return;
-        }
-        int[] iArr = hr9Var.b;
-        int i2 = hr9Var.h;
-        hr9Var.h = i2 + 1;
-        hr9Var.f = (iArr[i2] << 32) | (hr9Var.f >>> 32);
-        hr9Var.g = i - 32;
-    }
-
-    public static void e(hr9 hr9Var, InputStream inputStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, hr9Var, inputStream) == null) {
-            if (hr9Var.d == null) {
-                or9.b(hr9Var.c, hr9Var.a, hr9Var.b);
-                hr9Var.d = inputStream;
-                hr9Var.f = 0L;
-                hr9Var.g = 64;
-                hr9Var.h = 1024;
-                hr9Var.e = false;
-                h(hr9Var);
-                return;
-            }
-            throw new IllegalStateException("Bit reader already has associated input stream");
-        }
-    }
-
-    public static int f(hr9 hr9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, hr9Var)) == null) {
-            return (hr9Var.e ? (hr9Var.i + 3) >> 2 : 1024) - hr9Var.h;
         }
         return invokeL.intValue;
     }
 
-    public static void g(hr9 hr9Var) {
-        int i;
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Signature[] signatureArr;
+        ByteArrayOutputStream byteArrayOutputStream;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, hr9Var) == null) && (i = (64 - hr9Var.g) & 7) != 0 && i(hr9Var, i) != 0) {
-            throw new BrotliRuntimeException("Corrupted padding bits");
-        }
-    }
-
-    public static void h(hr9 hr9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, hr9Var) == null) {
-            j(hr9Var);
-            a(hr9Var, false);
-            d(hr9Var);
-            d(hr9Var);
-        }
-    }
-
-    public static int i(hr9 hr9Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, hr9Var, i)) == null) {
-            d(hr9Var);
-            long j = hr9Var.f;
-            int i2 = hr9Var.g;
-            int i3 = ((int) (j >>> i2)) & ((1 << i) - 1);
-            hr9Var.g = i2 + i;
-            return i3;
-        }
-        return invokeLI.intValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x003b, code lost:
-        r4.e = true;
-        r4.i = r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0040, code lost:
-        r1 = r1 + 3;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void j(hr9 hr9Var) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, null, hr9Var) == null) || (i = hr9Var.h) <= 1015) {
-            return;
-        }
-        if (hr9Var.e) {
-            if (f(hr9Var) < -2) {
-                throw new BrotliRuntimeException("No more input");
-            }
-            return;
-        }
-        int i2 = i << 2;
-        int i3 = 4096 - i2;
-        byte[] bArr = hr9Var.a;
-        System.arraycopy(bArr, i2, bArr, 0, i3);
-        hr9Var.h = 0;
-        while (true) {
-            if (i3 >= 4096) {
-                break;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream2 = null;
+            try {
+                try {
+                    signatureArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures;
+                    byteArrayOutputStream = new ByteArrayOutputStream();
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (Exception e) {
+                e = e;
             }
             try {
-                int read = hr9Var.d.read(hr9Var.a, i3, 4096 - i3);
-                if (read <= 0) {
-                    break;
+                for (Signature signature : signatureArr) {
+                    if (signature != null) {
+                        byteArrayOutputStream.write(signature.toByteArray());
+                    }
                 }
-                i3 += read;
-            } catch (IOException e) {
-                throw new BrotliRuntimeException("Failed to read input", e);
+                byteArrayOutputStream.flush();
+                String f = f(byteArrayOutputStream.toByteArray());
+                try {
+                    byteArrayOutputStream.close();
+                } catch (IOException unused) {
+                }
+                return f;
+            } catch (Exception e2) {
+                e = e2;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                e.printStackTrace();
+                if (byteArrayOutputStream2 != null) {
+                    try {
+                        byteArrayOutputStream2.close();
+                        return "";
+                    } catch (IOException unused2) {
+                        return "";
+                    }
+                }
+                return "";
+            } catch (Throwable th2) {
+                th = th2;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                if (byteArrayOutputStream2 != null) {
+                    try {
+                        byteArrayOutputStream2.close();
+                    } catch (IOException unused3) {
+                    }
+                }
+                throw th;
             }
         }
-        or9.a(hr9Var.c, i3 >> 2);
+        return (String) invokeL.objValue;
     }
 
-    public static void k(hr9 hr9Var) {
+    public static String c(Context context, String str, String str2, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, null, hr9Var) == null) && hr9Var.g == 64) {
-            h(hr9Var);
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, Boolean.valueOf(z)})) == null) ? String.format(Locale.getDefault(), "%s?appId=%s&appType=android&appSign=%s&appDeviceid=%s&grantType=code&callbackType=uri&redirectUri=%s&state=%s", "https://thirdlogin.yy.com/open/oauth/authorize.do", str, b(context), fr9.a(context), g(z), str2) : (String) invokeCommon.objValue;
+    }
+
+    public static Bundle d(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("appid", str);
+            bundle.putString("appname", gr9.b(context, context.getPackageName()));
+            bundle.putString("appver", gr9.c(context));
+            bundle.putString("appdeviceid", fr9.a(context));
+            bundle.putString(BaseStatisContent.SDKVER, "1.0.0");
+            return bundle;
         }
+        return (Bundle) invokeLL.objValue;
+    }
+
+    public static Intent e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            for (String[] strArr : a) {
+                String str = strArr[0];
+                Intent intent = new Intent();
+                intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");
+                if (gr9.e(context, intent)) {
+                    return intent;
+                }
+            }
+            return null;
+        }
+        return (Intent) invokeL.objValue;
+    }
+
+    public static String f(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
+            char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(bArr);
+                byte[] digest = messageDigest.digest();
+                char[] cArr2 = new char[digest.length * 2];
+                int i = 0;
+                for (byte b : digest) {
+                    int i2 = i + 1;
+                    cArr2[i] = cArr[(b >>> 4) & 15];
+                    i = i2 + 1;
+                    cArr2[i2] = cArr[b & 15];
+                }
+                return new String(cArr2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(65543, null, z)) == null) ? z ? "https://raqweb.yy.com/" : "https://raq.yy.com/" : (String) invokeZ.objValue;
+    }
+
+    public static String h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
+            if (i != 444111001) {
+                switch (i) {
+                    case 444222000:
+                        return "参数为空，请检查";
+                    case 444222001:
+                        return "请求操作类型错误";
+                    case 444222002:
+                        return "请求操作附带参数为空";
+                    case 444222003:
+                        return "请求操作附带参数错误";
+                    default:
+                        switch (i) {
+                            case 444222104:
+                                return "授权APP返回的请求码出错";
+                            case 444222105:
+                                return "Json格式错误";
+                            default:
+                                return "未知错误";
+                        }
+                }
+            }
+            return "成功";
+        }
+        return (String) invokeI.objValue;
     }
 }

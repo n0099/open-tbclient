@@ -149,9 +149,9 @@ public class u33 extends w23 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
                 if (i == 0) {
-                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08113b));
+                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08113c));
                 } else {
-                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08113a));
+                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08113b));
                 }
             }
         }

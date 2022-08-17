@@ -122,12 +122,12 @@ public class xu0 extends pu0 {
         public void b(@NonNull BdVideoSeries bdVideoSeries) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdVideoSeries) == null) {
-                String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0bc6);
+                String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0bc7);
                 int a2 = mv0.a(bdVideoSeries);
                 ClarityUrlList clarityList = bdVideoSeries.getClarityList();
                 if (a2 >= 0 && clarityList != null && clarityList.size() > 0) {
-                    String string2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c05, String.valueOf(clarityList.get(0).k()));
-                    this.c.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c01) + l01.a(a2, false));
+                    String string2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c06, String.valueOf(clarityList.get(0).k()));
+                    this.c.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c02) + l01.a(a2, false));
                     this.d.setText(string2);
                     this.e.setVisibility(0);
                     this.d.setVisibility(0);
@@ -186,7 +186,7 @@ public class xu0 extends pu0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             String h1 = u().h1();
-            StringBuilder sb = new StringBuilder(t().getString(R.string.obfuscated_res_0x7f0f0bd2));
+            StringBuilder sb = new StringBuilder(t().getString(R.string.obfuscated_res_0x7f0f0bd3));
             if (!h1.isEmpty()) {
                 sb.append("，\n");
                 sb.append(str);
@@ -299,7 +299,7 @@ public class xu0 extends pu0 {
             BdNetUtils.NetStatus a2 = BdNetUtils.a();
             if (a2 == BdNetUtils.NetStatus.NET_MOBILE && !BdNetUtils.h() && this.h != BdNetUtils.NetStatus.NET_MOBILE) {
                 if (u().Y() && u().r() > 0 && u().S()) {
-                    L(this.c.getString(R.string.obfuscated_res_0x7f0f0c04));
+                    L(this.c.getString(R.string.obfuscated_res_0x7f0f0c05));
                 }
             } else {
                 BdNetUtils.NetStatus netStatus = BdNetUtils.NetStatus.NET_WIFI;
@@ -313,7 +313,7 @@ public class xu0 extends pu0 {
                         } else {
                             u().l0();
                         }
-                        xz0.a().a(t(), R.string.obfuscated_res_0x7f0f0bd4);
+                        xz0.a().a(t(), R.string.obfuscated_res_0x7f0f0bd5);
                     }
                 }
             }

@@ -30,6 +30,6 @@ public class bj1 implements el1 {
     public InputStream a(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) ? new ir9(inputStream) : (InputStream) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) ? new kr9(inputStream) : (InputStream) invokeL.objValue;
     }
 }

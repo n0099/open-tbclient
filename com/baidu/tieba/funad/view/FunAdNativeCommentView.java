@@ -28,10 +28,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunNativeAd2;
-import com.repackage.al8;
-import com.repackage.at6;
 import com.repackage.ms4;
-import com.repackage.ss6;
+import com.repackage.rs6;
+import com.repackage.zk8;
+import com.repackage.zs6;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -91,25 +91,25 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
-    public void f(@NonNull al8 al8Var, @NonNull Activity activity) {
+    public void f(@NonNull zk8 zk8Var, @NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, al8Var, activity) == null) {
-            super.f(al8Var, activity);
-            if (al8Var.e() == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, zk8Var, activity) == null) {
+            super.f(zk8Var, activity);
+            if (zk8Var.e() == null) {
                 return;
             }
-            FunNativeAd2 funNativeAd2 = (FunNativeAd2) al8Var.e();
+            FunNativeAd2 funNativeAd2 = (FunNativeAd2) zk8Var.e();
             this.w.setText(this.c);
-            this.u.K(at6.j(funNativeAd2), 10, false);
-            if (at6.m(funNativeAd2) != null) {
-                boolean B = at6.B(funNativeAd2);
-                at6.I(this.k, B);
-                at6.G(this.h, B);
+            this.u.K(zs6.j(funNativeAd2), 10, false);
+            if (zs6.m(funNativeAd2) != null) {
+                boolean B = zs6.B(funNativeAd2);
+                zs6.I(this.k, B);
+                zs6.G(this.h, B);
                 return;
             }
-            boolean A = at6.A(funNativeAd2, at6.k(funNativeAd2));
-            at6.I(this.k, A);
-            at6.G(this.h, A);
+            boolean A = zs6.A(funNativeAd2, zs6.k(funNativeAd2));
+            zs6.I(this.k, A);
+            zs6.G(this.h, A);
         }
     }
 
@@ -162,13 +162,13 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
-    public ss6.g getLogItem() {
+    public rs6.g getLogItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return ss6.b("pb", UbsABTestHelper.isPbCommentFunAdABTest() ? "1" : "0");
+            return rs6.b("pb", UbsABTestHelper.isPbCommentFunAdABTest() ? "1" : "0");
         }
-        return (ss6.g) invokeV.objValue;
+        return (rs6.g) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView

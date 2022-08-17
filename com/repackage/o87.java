@@ -3,12 +3,13 @@ package com.repackage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.MemoryChangedMessage;
+import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class o87 extends pa {
     public static /* synthetic */ Interceptable $ic;
@@ -16,7 +17,7 @@ public class o87 extends pa {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o87() {
-        super(2016004);
+        super(2016007);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,19 +38,33 @@ public class o87 extends pa {
     /* renamed from: c */
     public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
         InterceptResult invokeL;
+        List<ImMessageCenterPojo> data;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage)) == null) {
+            ImMessageCenterPojo imMessageCenterPojo = null;
             if (customResponsedMessage == null) {
                 return null;
             }
-            if (customResponsedMessage instanceof MemoryChangedMessage) {
-                MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
-                ImMessageCenterPojo data = memoryChangedMessage.getData();
-                if (data != null && data.getCustomGroupType() == -8) {
-                    return new MemoryChangedMessage(t57.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
-                }
-                if (data != null && data.getCustomGroupType() == -7) {
-                    return new MemoryChangedMessage(u57.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
+            if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
+                ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
+                if (responsedMemoryListMessage.getType() == 1 && (data = responsedMemoryListMessage.getData()) != null) {
+                    ImMessageCenterPojo imMessageCenterPojo2 = null;
+                    for (ImMessageCenterPojo imMessageCenterPojo3 : data) {
+                        if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == -8) {
+                            imMessageCenterPojo = imMessageCenterPojo3;
+                        }
+                        if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == -7) {
+                            imMessageCenterPojo2 = imMessageCenterPojo3;
+                        }
+                    }
+                    if (imMessageCenterPojo != null) {
+                        data.remove(imMessageCenterPojo);
+                        data.add(s57.a(imMessageCenterPojo));
+                    }
+                    if (imMessageCenterPojo2 != null) {
+                        data.remove(imMessageCenterPojo2);
+                        data.add(t57.a(imMessageCenterPojo2));
+                    }
                 }
             }
             return customResponsedMessage;

@@ -30,14 +30,14 @@ public final class mr2 {
 
         /* renamed from: com.repackage.mr2$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0526a implements Runnable {
+        public class RunnableC0528a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ Bitmap b;
             public final /* synthetic */ Rect c;
 
-            public RunnableC0526a(a aVar, int i, Bitmap bitmap, Rect rect) {
+            public RunnableC0528a(a aVar, int i, Bitmap bitmap, Rect rect) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,7 +99,7 @@ public final class mr2 {
                 return;
             }
             Bitmap p = qe3.p();
-            td3.f().execute(new RunnableC0526a(this, ir2.d(o), p, ir2.b(p, o, mm2.U().B(this.a))), "SwanNAArrivalCheck");
+            td3.f().execute(new RunnableC0528a(this, ir2.d(o), p, ir2.b(p, o, mm2.U().B(this.a))), "SwanNAArrivalCheck");
         }
     }
 

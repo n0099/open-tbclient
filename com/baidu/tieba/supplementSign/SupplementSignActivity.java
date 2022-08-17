@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pl8;
+import com.repackage.ol8;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class SupplementSignActivity extends TbWebViewActivity {
@@ -27,7 +27,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
     public int c;
     public int d;
     public CustomMessageListener e;
-    public pl8 f;
+    public ol8 f;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -83,7 +83,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
         this.c = 0;
         this.d = 0;
         this.e = new a(this, 2001194);
-        this.f = new pl8(this) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
+        this.f = new ol8(this) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SupplementSignActivity this$0;
@@ -106,7 +106,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
                 this.this$0 = this;
             }
 
-            @Override // com.repackage.pl8
+            @Override // com.repackage.ol8
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;

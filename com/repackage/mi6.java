@@ -68,7 +68,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m88;
+import com.repackage.l88;
 import com.repackage.ur4;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -81,7 +81,7 @@ import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes6.dex */
-public class mi6 extends bs6 {
+public class mi6 extends as6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View A0;
@@ -175,9 +175,9 @@ public class mi6 extends bs6 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                cr6.b(this.c.a, this.a.k(), this.a.g(), this.a.i());
+                br6.b(this.c.a, this.a.k(), this.a.g(), this.a.i());
                 if (this.c.b != null) {
-                    ar6.d(this.b, 2, this.c.b.getUniqueId());
+                    zq6.d(this.b, 2, this.c.b.getUniqueId());
                 }
             }
         }
@@ -228,9 +228,9 @@ public class mi6 extends bs6 {
                 if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
                     statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().k);
                 }
-                ar6.d(this.b, 1, this.c.b.getUniqueId());
+                zq6.d(this.b, 1, this.c.b.getUniqueId());
             }
-            cr6.b(this.c.a, this.a.k(), this.a.g(), this.a.i());
+            br6.b(this.c.a, this.a.k(), this.a.g(), this.a.i());
             ThirdStatisticHelper.sendReq((String) ListUtils.getItem(this.a.n(), 1));
         }
     }
@@ -583,7 +583,7 @@ public class mi6 extends bs6 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && jr6.m(this.a.q1)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && ir6.m(this.a.q1)) {
                 this.a.x1();
             }
         }
@@ -623,11 +623,11 @@ public class mi6 extends bs6 {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
                 int intValue = ((Integer) customResponsedMessage.getData()).intValue();
                 if (intValue == 1) {
-                    if (jr6.m(this.a.q1) && this.a.b1.getVisibility() == 0) {
+                    if (ir6.m(this.a.q1) && this.a.b1.getVisibility() == 0) {
                         this.a.x1();
                     }
                     this.a.o1 = false;
-                } else if (intValue == 2 && jr6.m(this.a.q1)) {
+                } else if (intValue == 2 && ir6.m(this.a.q1)) {
                     if (!this.a.o1) {
                         mi6 mi6Var = this.a;
                         mi6Var.H(mi6Var.q1.getForum(), this.a.q1);
@@ -673,13 +673,13 @@ public class mi6 extends bs6 {
                 int intValue = ((Integer) customResponsedMessage.getData()).intValue();
                 this.a.n1 = true;
                 if (intValue == 1) {
-                    if (FrsFragment.m2 || !jr6.m(this.a.q1)) {
+                    if (FrsFragment.n2 || !ir6.m(this.a.q1)) {
                         return;
                     }
                     mi6 mi6Var = this.a;
                     mi6Var.H(mi6Var.q1.getForum(), this.a.q1);
                 } else if (intValue == 2) {
-                    if (jr6.m(this.a.q1)) {
+                    if (ir6.m(this.a.q1)) {
                         mi6 mi6Var2 = this.a;
                         mi6Var2.H(mi6Var2.q1.getForum(), this.a.q1);
                     }
@@ -758,7 +758,7 @@ public class mi6 extends bs6 {
         public void a(ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
-                ir6.d(this.a.b, this.a.q1, threadData);
+                hr6.d(this.a.b, this.a.q1, threadData);
             }
         }
     }
@@ -800,10 +800,10 @@ public class mi6 extends bs6 {
                     this.c.e1.setVisibility(8);
                     this.c.q1();
                     this.c.L1(this.a, 0);
-                    ar6.l("c14592", this.b);
+                    zq6.l("c14592", this.b);
                 } else if (videoStatus == OnStatusChangedListener.VideoStatus.VIDEO_COMPLETE) {
                     this.c.x1();
-                    ar6.l("c14593", this.b);
+                    zq6.l("c14593", this.b);
                 } else if (videoStatus == OnStatusChangedListener.VideoStatus.INTERNAL_VIDEO_BUFFERING_ERROR) {
                     this.c.x1();
                 } else if (videoStatus == OnStatusChangedListener.VideoStatus.INTERNAL_VIDEO_BUFFERING_BUFFER) {
@@ -814,7 +814,7 @@ public class mi6 extends bs6 {
     }
 
     /* loaded from: classes6.dex */
-    public class p implements m88.c {
+    public class p implements l88.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ hp4 a;
@@ -839,7 +839,7 @@ public class mi6 extends bs6 {
             this.a = hp4Var;
         }
 
-        @Override // com.repackage.m88.c
+        @Override // com.repackage.l88.c
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
@@ -884,9 +884,9 @@ public class mi6 extends bs6 {
                     this.c.b1.start();
                     return;
                 }
-                cr6.b(this.c.a, this.a.k(), this.a.g(), this.a.i());
+                br6.b(this.c.a, this.a.k(), this.a.g(), this.a.i());
                 if (this.c.b != null) {
-                    ar6.d(this.b, 2, this.c.b.getUniqueId());
+                    zq6.d(this.b, 2, this.c.b.getUniqueId());
                 }
             }
         }
@@ -938,14 +938,14 @@ public class mi6 extends bs6 {
         this.w = tbImageView;
         tbImageView.setPageId(this.b.getUniqueId());
         this.w.setDefaultBgResource(R.color.transparent);
-        this.w.setDefaultResource(R.drawable.obfuscated_res_0x7f080f0c);
+        this.w.setDefaultResource(R.drawable.obfuscated_res_0x7f080f0d);
         this.z0 = this.d.findViewById(R.id.obfuscated_res_0x7f090d3b);
         this.b1 = (TbVideoView) this.d.findViewById(R.id.obfuscated_res_0x7f0924cd);
         TbImageView tbImageView2 = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f0924c7);
         this.c1 = tbImageView2;
         tbImageView2.setPageId(this.b.getUniqueId());
-        this.c1.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f0c);
-        this.c1.setDefaultResource(R.drawable.obfuscated_res_0x7f080f0c);
+        this.c1.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f0d);
+        this.c1.setDefaultResource(R.drawable.obfuscated_res_0x7f080f0d);
         this.c1.setPlaceHolder(2);
         this.d1 = this.d.findViewById(R.id.obfuscated_res_0x7f0924cc);
         this.e1 = this.d.findViewById(R.id.obfuscated_res_0x7f0924cb);
@@ -1020,7 +1020,7 @@ public class mi6 extends bs6 {
         this.m = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0314, (ViewGroup) null);
         this.O0 = (HotRankEntryView) this.d.findViewById(R.id.obfuscated_res_0x7f090b44);
         this.m.setVisibility(8);
-        new vq6(this.a);
+        new uq6(this.a);
         this.E = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f0906f1);
         this.m0 = (ViewGroup) this.d.findViewById(R.id.obfuscated_res_0x7f090d29);
         MessageManager.getInstance().registerListener(this.r1);
@@ -1037,7 +1037,7 @@ public class mi6 extends bs6 {
         }
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public void B(boolean z, float f2) {
         int i2;
         Interceptable interceptable = $ic;
@@ -1048,7 +1048,7 @@ public class mi6 extends bs6 {
                 return;
             }
             if (this.j0) {
-                this.j.setText(R.string.obfuscated_res_0x7f0f09d8);
+                this.j.setText(R.string.obfuscated_res_0x7f0f09d9);
                 if (f2 >= 1.0f) {
                     i2 = this.Z;
                 } else {
@@ -1058,11 +1058,11 @@ public class mi6 extends bs6 {
                 if (P0 != null && P0.getForum() != null) {
                     P0.getForum().setUser_level(i2);
                 }
-                this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a7c, Integer.valueOf(i2)));
+                this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a7d, Integer.valueOf(i2)));
             } else {
                 this.Z0.d(this.Z, this.V);
                 this.j.setText(this.V);
-                this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a7c, Integer.valueOf(this.Z)));
+                this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a7d, Integer.valueOf(this.Z)));
             }
             this.k.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, m1(this.Z)));
             if (!this.j0) {
@@ -1083,7 +1083,7 @@ public class mi6 extends bs6 {
         }
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -1094,11 +1094,11 @@ public class mi6 extends bs6 {
     public void C1(ur4 ur4Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, ur4Var) == null) {
-            ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0cf5, new d(this));
+            ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0cf6, new d(this));
         }
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public void D() {
         FrsViewData frsViewData;
         Interceptable interceptable = $ic;
@@ -1136,14 +1136,14 @@ public class mi6 extends bs6 {
         }
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public void E() {
-        sr6 sr6Var;
+        rr6 rr6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (sr6Var = this.Q) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (rr6Var = this.Q) == null) {
             return;
         }
-        sr6Var.o(this.c0);
+        rr6Var.o(this.c0);
     }
 
     public final int E1(boolean z, boolean z2) {
@@ -1168,26 +1168,26 @@ public class mi6 extends bs6 {
         return invokeCommon.intValue;
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public void F() {
-        sr6 sr6Var;
+        rr6 rr6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (sr6Var = this.Q) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (rr6Var = this.Q) == null) {
             return;
         }
-        sr6Var.q(this.F);
+        rr6Var.q(this.F);
     }
 
     public void F1() {
-        rr6 rr6Var;
+        qr6 qr6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (rr6Var = this.R) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (qr6Var = this.R) == null) {
             return;
         }
-        rr6Var.n();
+        qr6Var.n();
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public void G(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) {
@@ -1221,7 +1221,7 @@ public class mi6 extends bs6 {
         }
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public void H(ForumData forumData, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048589, this, forumData, frsViewData) == null) || forumData == null) {
@@ -1229,7 +1229,7 @@ public class mi6 extends bs6 {
         }
         boolean z = true;
         this.o1 = true;
-        if (jr6.m(this.q1)) {
+        if (ir6.m(this.q1)) {
             x1();
         }
         this.T = forumData.getName();
@@ -1371,14 +1371,14 @@ public class mi6 extends bs6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048594, this, hp4Var, i2) == null) {
             if (i2 == -1) {
-                b2 = ar6.c(this.q1);
+                b2 = zq6.c(this.q1);
             } else {
-                b2 = ar6.b(hp4Var, i2);
+                b2 = zq6.b(hp4Var, i2);
             }
             if (StringUtils.isNull(b2)) {
                 return;
             }
-            int b3 = cf7.b(b2);
+            int b3 = bf7.b(b2);
             this.m1.setGradientColors(0, b3);
             this.l1.setBackgroundColor(b3);
         }
@@ -1414,9 +1414,9 @@ public class mi6 extends bs6 {
         }
     }
 
-    public final void N1(List<on> list, mj8 mj8Var) {
+    public final void N1(List<on> list, lj8 lj8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048596, this, list, mj8Var) == null) || this.A == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048596, this, list, lj8Var) == null) || this.A == null) {
             return;
         }
         this.P0 = list;
@@ -1438,7 +1438,7 @@ public class mi6 extends bs6 {
                 this.D.setVisibility(8);
             }
         }
-        if (mj8Var != null) {
+        if (lj8Var != null) {
             this.z = new th6(this.a.getPageActivity());
             this.y.setVisibility(0);
             this.y.addView(this.z.f());
@@ -1446,8 +1446,8 @@ public class mi6 extends bs6 {
             ForumData forum = frsViewData2 != null ? frsViewData2.getForum() : null;
             th6 th6Var = this.z;
             FrsViewData frsViewData3 = this.q1;
-            th6Var.e(forum, mj8Var, frsViewData3 == null || frsViewData3.isFromCache);
-            j1(mj8Var);
+            th6Var.e(forum, lj8Var, frsViewData3 == null || frsViewData3.isFromCache);
+            j1(lj8Var);
         } else {
             this.y.setVisibility(8);
         }
@@ -1458,21 +1458,21 @@ public class mi6 extends bs6 {
             this.G0.setVisibility(this.Z0.l(LogicField.TOP_DIVIDER));
         }
         FrsFragment frsFragment = this.b;
-        if (frsFragment != null && frsFragment.X3()) {
+        if (frsFragment != null && frsFragment.Y3()) {
             this.A.setVisibility(0);
             this.A.setFragmentUniqueId(this.b.getUniqueId());
             FrsViewData frsViewData4 = this.q1;
             ForumData forum2 = frsViewData4 != null ? frsViewData4.getForum() : null;
             FrsViewData frsViewData5 = this.q1;
-            this.A.setForum(this.U, this.T, forum2, frsViewData5 != null ? frsViewData5.getUserData() : null, this.b.o3());
-            if (list.size() > 0 && (list.get(0) instanceof vj8)) {
+            this.A.setForum(this.U, this.T, forum2, frsViewData5 != null ? frsViewData5.getUserData() : null, this.b.p3());
+            if (list.size() > 0 && (list.get(0) instanceof uj8)) {
                 this.R0 = 0;
-            } else if (list.size() > 1 && (list.get(1) instanceof vj8)) {
+            } else if (list.size() > 1 && (list.get(1) instanceof uj8)) {
                 this.R0 = 1;
             } else {
                 this.R0 = -1;
             }
-            this.A.setDatas(list, mj8Var);
+            this.A.setDatas(list, lj8Var);
             if (this.x0 == null) {
                 this.x0 = new n(this);
             }
@@ -1525,7 +1525,7 @@ public class mi6 extends bs6 {
             if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
                 statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().k);
             }
-            ar6.e(frsViewData, 1, this.b.getUniqueId());
+            zq6.e(frsViewData, 1, this.b.getUniqueId());
         }
         this.w.K(hp4Var.f(), 10, false);
         this.w.setOnClickListener(new b(this, hp4Var, frsViewData));
@@ -1564,10 +1564,10 @@ public class mi6 extends bs6 {
             this.b1.setLooping(false);
             this.b1.setVideoStatusChangeListener(new o(this, hp4Var, frsViewData));
             this.b1.getMediaProgressObserver().j(new p(this, hp4Var));
-            if (ar6.f()) {
+            if (zq6.f()) {
                 this.e1.setVisibility(8);
                 FrsFragment frsFragment = this.b;
-                if (frsFragment != null && !this.q1.isFromCache && (this.n1 || (!frsFragment.U3() && !this.b.T3() && !this.b.x3()))) {
+                if (frsFragment != null && !this.q1.isFromCache && (this.n1 || (!frsFragment.V3() && !this.b.U3() && !this.b.y3()))) {
                     this.b1.start();
                 }
             } else {
@@ -1577,12 +1577,12 @@ public class mi6 extends bs6 {
             this.b1.setOnClickListener(new a(this, hp4Var, frsViewData));
             FrsFragment frsFragment2 = this.b;
             if (frsFragment2 != null) {
-                ar6.e(frsViewData, 2, frsFragment2.getUniqueId());
+                zq6.e(frsViewData, 2, frsFragment2.getUniqueId());
             }
         }
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     @SuppressLint({"ResourceAsColor"})
     public void S(View view2, boolean z) {
         Interceptable interceptable = $ic;
@@ -1662,7 +1662,7 @@ public class mi6 extends bs6 {
         }
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public void T() {
         FrsViewData frsViewData;
         String string;
@@ -1700,7 +1700,7 @@ public class mi6 extends bs6 {
         this.Q0.v0(UtilHelper.getDimenPixelSize(R.dimen.tbds_10));
         this.Q0.r0(true);
         this.Q0.S(4000);
-        if (this.Q0.O() || this.b.w3()) {
+        if (this.Q0.O() || this.b.x3()) {
             return;
         }
         this.Q0.x0(string, str);
@@ -1722,7 +1722,7 @@ public class mi6 extends bs6 {
         }
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public void V() {
         View contentView;
         Interceptable interceptable = $ic;
@@ -1752,14 +1752,14 @@ public class mi6 extends bs6 {
         }
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
         }
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public void Z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
@@ -1771,7 +1771,7 @@ public class mi6 extends bs6 {
         }
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
@@ -1780,7 +1780,7 @@ public class mi6 extends bs6 {
         }
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
@@ -1877,7 +1877,7 @@ public class mi6 extends bs6 {
         }
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1908,7 +1908,7 @@ public class mi6 extends bs6 {
         if (!z && !z2 && !this.y0) {
             f2 -= qi.f(this.a.getPageActivity(), R.dimen.tbds80);
         } else if (this.y0) {
-            if (jr6.m(this.q1)) {
+            if (ir6.m(this.q1)) {
                 f2 = K1(z, z2);
             } else {
                 f2 = E1(z, z2);
@@ -1943,7 +1943,7 @@ public class mi6 extends bs6 {
 
     public final void h1(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.b.E3() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.b.F3() == null) {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.C0.getLayoutParams();
@@ -1957,7 +1957,7 @@ public class mi6 extends bs6 {
             this.E0.setVisibility(this.Z0.l(LogicField.SERVICE_AREA));
             layoutParams.topMargin = qi.f(this.a.getPageActivity(), R.dimen.tbds55);
         }
-        this.b.E3().u(z, z2);
+        this.b.F3().u(z, z2);
     }
 
     public final void i1() {
@@ -1995,9 +1995,9 @@ public class mi6 extends bs6 {
         y1(signActivityInfo2.countdown_msg, (signActivityInfo2.activity_time.intValue() - this.G.countdown_time.intValue()) - currentTimeMillis);
     }
 
-    public final void j1(mj8 mj8Var) {
+    public final void j1(lj8 lj8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048615, this, mj8Var) == null) || mj8Var == null || this.q1 == null || this.Y0) {
+        if (!(interceptable == null || interceptable.invokeL(1048615, this, lj8Var) == null) || lj8Var == null || this.q1 == null || this.Y0) {
             return;
         }
         this.Y0 = true;
@@ -2005,18 +2005,18 @@ public class mi6 extends bs6 {
         statisticItem.param("page_type", "a006");
         statisticItem.param(TiebaStatic.Params.OBJ_ISAD, "1");
         int i2 = 6;
-        if (mj8Var.getType() != 1) {
-            if (mj8Var.getType() == 2) {
+        if (lj8Var.getType() != 1) {
+            if (lj8Var.getType() == 2) {
                 i2 = 7;
-            } else if (mj8Var.getType() == 3) {
+            } else if (lj8Var.getType() == 3) {
                 i2 = 8;
-            } else if (mj8Var.getType() == 4) {
+            } else if (lj8Var.getType() == 4) {
                 i2 = 21;
             }
         }
         statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, 1);
         statisticItem.param(TiebaStatic.Params.OBJ_AD_LOCATE, i2);
-        statisticItem.param("obj_id", mj8Var.c());
+        statisticItem.param("obj_id", lj8Var.c());
         ForumData forum = this.q1.getForum();
         if (forum != null) {
             statisticItem.param("fid", forum.getId());
@@ -2024,11 +2024,11 @@ public class mi6 extends bs6 {
             statisticItem.param(TiebaStatic.Params.FIRST_DIR, forum.getFirst_class());
             statisticItem.param(TiebaStatic.Params.SECOND_DIR, forum.getSecond_class());
         }
-        if (mj8Var.getType() == 1) {
-            statisticItem.param("tid", mj8Var.l());
-            statisticItem.param("thread_type", mj8Var.m());
+        if (lj8Var.getType() == 1) {
+            statisticItem.param("tid", lj8Var.l());
+            statisticItem.param("thread_type", lj8Var.m());
         }
-        if (StringUtils.isNull(mj8Var.p())) {
+        if (StringUtils.isNull(lj8Var.p())) {
             statisticItem.param("obj_type", 1);
         } else {
             statisticItem.param("obj_type", 2);
@@ -2036,7 +2036,7 @@ public class mi6 extends bs6 {
         TiebaStatic.log(statisticItem);
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public SignActivityInfo k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2062,7 +2062,7 @@ public class mi6 extends bs6 {
         return (interceptable == null || (invokeI = interceptable.invokeI(1048619, this, i2)) == null) ? i2 <= 3 ? new int[]{-8331843, -10499102} : i2 <= 9 ? new int[]{-10499102, -154262} : i2 <= 15 ? new int[]{-154262, -148180} : new int[]{-148180, -100818} : (int[]) invokeI.objValue;
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public void n() {
         o16 o16Var;
         Interceptable interceptable = $ic;
@@ -2078,8 +2078,8 @@ public class mi6 extends bs6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
             FrsFragment frsFragment = this.b;
-            if (frsFragment != null && frsFragment.E3() != null) {
-                View E = this.b.E3().E();
+            if (frsFragment != null && frsFragment.F3() != null) {
+                View E = this.b.F3().E();
                 if (E instanceof LinearGradientView) {
                     return (LinearGradientView) E;
                 }
@@ -2092,13 +2092,13 @@ public class mi6 extends bs6 {
     public final int o1(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         List<on> list;
-        List<ik8> list2;
+        List<hk8> list2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048622, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             int i2 = 0;
             if (z2) {
-                hk8 hk8Var = this.q1.serviceAreaData;
-                if (hk8Var != null && (list2 = hk8Var.b) != null && list2.size() == 1) {
+                gk8 gk8Var = this.q1.serviceAreaData;
+                if (gk8Var != null && (list2 = gk8Var.b) != null && list2.size() == 1) {
                     i2 = 0 + qi.f(this.a.getPageActivity(), R.dimen.tbds83);
                 } else {
                     i2 = 0 + qi.f(this.a.getPageActivity(), R.dimen.tbds84);
@@ -2130,7 +2130,7 @@ public class mi6 extends bs6 {
         this.d1.setAlpha(f2);
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2155,7 +2155,7 @@ public class mi6 extends bs6 {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, hp4Var)) == null) ? (hp4Var == null || StringUtils.isNull(hp4Var.e()) || StringUtils.isNull(hp4Var.j())) ? false : true : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2182,7 +2182,7 @@ public class mi6 extends bs6 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048630, this) == null) {
@@ -2228,7 +2228,7 @@ public class mi6 extends bs6 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public void v(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048632, this, z) == null) {
@@ -2274,19 +2274,19 @@ public class mi6 extends bs6 {
         }
         ServiceAreaView serviceAreaView = this.x;
         if (serviceAreaView != null) {
-            serviceAreaView.setThemeFontColor(cf7.b(themeElement.common_color));
+            serviceAreaView.setThemeFontColor(bf7.b(themeElement.common_color));
         }
         if (this.A != null) {
-            this.A.setUrlAndColor(forum.getTopIcon(), cf7.b(themeElement.common_color));
+            this.A.setUrlAndColor(forum.getTopIcon(), bf7.b(themeElement.common_color));
         }
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
             super.w();
-            if (jr6.m(this.q1)) {
+            if (ir6.m(this.q1)) {
                 x1();
             }
             th6 th6Var = this.z;
@@ -2304,7 +2304,7 @@ public class mi6 extends bs6 {
             this.Z0.f(O1);
             if (this.y0) {
                 this.v.setVisibility(8);
-                if (jr6.m(this.q1)) {
+                if (ir6.m(this.q1)) {
                     this.z0.setVisibility(4);
                 } else {
                     this.z0.setVisibility(0);
@@ -2350,7 +2350,7 @@ public class mi6 extends bs6 {
         }
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public void x(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048636, this, z) == null) {
@@ -2376,7 +2376,7 @@ public class mi6 extends bs6 {
         }
     }
 
-    @Override // com.repackage.bs6
+    @Override // com.repackage.as6
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048638, this) == null) {
@@ -2384,8 +2384,8 @@ public class mi6 extends bs6 {
             if (th6Var != null) {
                 th6Var.l();
             }
-            if (FrsFragment.m2 && jr6.m(this.q1)) {
-                FrsFragment.m2 = false;
+            if (FrsFragment.n2 && ir6.m(this.q1)) {
+                FrsFragment.n2 = false;
                 H(this.q1.getForum(), this.q1);
             }
         }
@@ -2417,13 +2417,13 @@ public class mi6 extends bs6 {
                 }
             }
         } else if (jo4Var.d() < jo4Var.b()) {
-            this.g1.setText(R.string.obfuscated_res_0x7f0f1228);
+            this.g1.setText(R.string.obfuscated_res_0x7f0f122a);
             I1();
         } else if (jo4Var.d() < jo4Var.c()) {
-            this.g1.setText(R.string.obfuscated_res_0x7f0f1227);
+            this.g1.setText(R.string.obfuscated_res_0x7f0f1229);
             I1();
         } else {
-            this.g1.setText(R.string.obfuscated_res_0x7f0f1229);
+            this.g1.setText(R.string.obfuscated_res_0x7f0f122b);
             this.h1.setVisibility(4);
             if (this.h1.isAnimating()) {
                 this.h1.cancelAnimation();

@@ -63,12 +63,12 @@ public class iy5 implements ky5 {
 
         /* renamed from: com.repackage.iy5$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0508a implements Camera.PictureCallback {
+        public class C0513a implements Camera.PictureCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0508a(a aVar) {
+            public C0513a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public class iy5 implements ky5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.b.g.takePicture(null, null, new C0508a(this));
+                    this.b.g.takePicture(null, null, new C0513a(this));
                 } catch (Exception e) {
                     e.printStackTrace();
                     this.b.J(false);

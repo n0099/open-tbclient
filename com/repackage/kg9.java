@@ -1,26 +1,24 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.repackage.al9;
-import com.repackage.dg9;
-import java.util.HashMap;
+import com.fun.ad.sdk.FunAdLoader;
+import com.repackage.hg9;
 /* loaded from: classes6.dex */
-public class kg9 implements al9.a<cg9> {
+public class kg9 implements hg9.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ al9 a;
+    public final /* synthetic */ eg9 a;
 
-    public kg9(al9 al9Var) {
+    public kg9(mg9 mg9Var, eg9 eg9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {al9Var};
+            Object[] objArr = {mg9Var, eg9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,32 +28,13 @@ public class kg9 implements al9.a<cg9> {
                 return;
             }
         }
-        this.a = al9Var;
+        this.a = eg9Var;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.repackage.al9.a
-    public void a(cg9 cg9Var) {
+    @Override // com.repackage.hg9.a
+    public FunAdLoader a(sf9 sf9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cg9Var) == null) {
-            LogPrinter.v("SlotId:%s is totally same with oldOne", cg9Var.a);
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.repackage.al9.a
-    public void b(cg9 cg9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cg9Var) == null) {
-            cg9 cg9Var2 = cg9Var;
-            LogPrinter.v("Update SlotId:%s", cg9Var2.a);
-            HashMap<String, fg9> hashMap = this.a.c;
-            String str = cg9Var2.a;
-            hashMap.put(str, new fg9(str, new ig9(this, cg9Var2)));
-            dg9 dg9Var = this.a.b;
-            synchronized (dg9Var.a) {
-                dg9Var.a(cg9Var2.a).add(new dg9.a(cg9Var2));
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sf9Var)) == null) ? new sl9(this.a, sf9Var) : (FunAdLoader) invokeL.objValue;
     }
 }

@@ -23,12 +23,12 @@ import com.repackage.bn4;
 import com.repackage.hx;
 import com.repackage.ix;
 import com.repackage.ms4;
-import com.repackage.o17;
-import com.repackage.o27;
+import com.repackage.n17;
+import com.repackage.n27;
 import com.repackage.qi;
-import com.repackage.sx6;
+import com.repackage.rx6;
 /* loaded from: classes3.dex */
-public class HotTopicRankLayout extends LinearLayout implements ix, hx<o27>, View.OnClickListener {
+public class HotTopicRankLayout extends LinearLayout implements ix, hx<n27>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -41,10 +41,10 @@ public class HotTopicRankLayout extends LinearLayout implements ix, hx<o27>, Vie
     public View h;
     public LinearLayout i;
     public String j;
-    public bn4<sx6> k;
+    public bn4<rx6> k;
 
     /* loaded from: classes3.dex */
-    public class a implements bn4<sx6> {
+    public class a implements bn4<rx6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotTopicRankLayout a;
@@ -70,21 +70,21 @@ public class HotTopicRankLayout extends LinearLayout implements ix, hx<o27>, Vie
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.repackage.bn4
         /* renamed from: a */
-        public void d(View view2, sx6 sx6Var, int i, long j) {
+        public void d(View view2, rx6 rx6Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, sx6Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || sx6Var == null) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, rx6Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || rx6Var == null) {
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.repackage.bn4
         /* renamed from: b */
-        public void c(View view2, sx6 sx6Var, int i, long j) {
+        public void c(View view2, rx6 rx6Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, sx6Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || sx6Var == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, rx6Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || rx6Var == null) {
                 return;
             }
-            o17.a("c13753", sx6Var, i + 1, this.a.j);
+            n17.a("c13753", rx6Var, i + 1, this.a.j);
         }
     }
 
@@ -150,20 +150,20 @@ public class HotTopicRankLayout extends LinearLayout implements ix, hx<o27>, Vie
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.hx
     /* renamed from: d */
-    public void a(o27 o27Var) {
+    public void a(n27 n27Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, o27Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n27Var) == null) {
             TextView textView = this.d;
-            String str = o27Var.b;
+            String str = n27Var.b;
             if (str == null) {
                 str = "";
             }
             textView.setText(str);
-            this.b.b(o27Var);
+            this.b.b(n27Var);
             this.g.setVisibility(0);
             this.h.setVisibility(8);
             HomeGroupUbsUIHelper.handleLine(this.g);
-            o17.c("c13753", this.j);
+            n17.c("c13753", this.j);
         }
     }
 
@@ -177,7 +177,7 @@ public class HotTopicRankLayout extends LinearLayout implements ix, hx<o27>, Vie
         d.v(R.color.CAM_X0105);
         d.z(R.dimen.T_X07);
         d.A(R.string.F_X02);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f08094c, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f08094d, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         HomeGroupUbsUIHelper.handleLineColor(this.g);
         this.a = i;
         ms4 d2 = ms4.d(this.i);

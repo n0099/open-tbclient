@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f37;
+import com.repackage.e37;
 import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
@@ -141,13 +141,13 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         this.d.notifyDataSetChanged();
     }
 
-    public void setData(f37 f37Var) {
+    public void setData(e37 e37Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f37Var) == null) {
-            if (f37Var != null && !ListUtils.isEmpty(f37Var.b)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e37Var) == null) {
+            if (e37Var != null && !ListUtils.isEmpty(e37Var.b)) {
                 setVisibility(0);
-                this.b.setText(f37Var.a);
-                this.d.setData(f37Var.b);
+                this.b.setText(e37Var.a);
+                this.d.setData(e37Var.b);
                 this.d.notifyDataSetChanged();
                 return;
             }

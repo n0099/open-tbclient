@@ -40,18 +40,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.ms4;
 import com.repackage.pi;
+import com.repackage.qg7;
 import com.repackage.qi;
-import com.repackage.rg7;
-import com.repackage.ug7;
-import com.repackage.zl8;
+import com.repackage.tg7;
+import com.repackage.yl8;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SearchLocationActivity extends NavigationBarActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rg7 f;
-    public ug7 g;
+    public qg7 f;
+    public tg7 g;
     public BdListView h;
     public LinearLayout i;
     public EditText j;
@@ -108,7 +108,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
                     this.a.g.notifyDataSetChanged();
                     return;
                 }
-                this.a.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3c) : responsedMessage.getErrorString());
+                this.a.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3d) : responsedMessage.getErrorString());
             }
         }
     }
@@ -229,7 +229,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
                 if (i == 3) {
                     if (!qi.D()) {
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c75);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c76);
                         return false;
                     } else if (StringUtils.isNull(this.a.G1())) {
                         return false;
@@ -273,7 +273,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!qi.D()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c75);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c76);
                 } else if (StringUtils.isNull(this.a.G1())) {
                 } else {
                     this.a.H1();
@@ -354,7 +354,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && this.a.g != null && this.a.g.c()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002013));
                 MessageManager messageManager = MessageManager.getInstance();
-                rg7.a aVar = (rg7.a) this.a.g.getItem(i);
+                qg7.a aVar = (qg7.a) this.a.g.getItem(i);
                 messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, aVar.a(), aVar.a(), aVar.b()));
                 LocationEvent locationEvent = new LocationEvent();
                 locationEvent.setType(1);
@@ -426,15 +426,15 @@ public class SearchLocationActivity extends NavigationBarActivity {
             textView.setEnabled(false);
             this.k.setOnClickListener(new e(this));
             this.h = (BdListView) findViewById(R.id.obfuscated_res_0x7f091db5);
-            ug7 ug7Var = new ug7(this);
-            this.g = ug7Var;
-            this.h.setAdapter((ListAdapter) ug7Var);
+            tg7 tg7Var = new tg7(this);
+            this.g = tg7Var;
+            this.h.setAdapter((ListAdapter) tg7Var);
             this.h.setOnItemClickListener(this.o);
             this.h.setOnScrollListener(this.n);
         }
     }
 
-    public final ArrayList<rg7.a> J1(List<LocationData.NearByAddressData> list, String str, String str2) {
+    public final ArrayList<qg7.a> J1(List<LocationData.NearByAddressData> list, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, list, str, str2)) == null) {
@@ -442,13 +442,13 @@ public class SearchLocationActivity extends NavigationBarActivity {
             if (list == null || list.size() <= 0) {
                 return null;
             }
-            ArrayList<rg7.a> arrayList = new ArrayList<>();
+            ArrayList<qg7.a> arrayList = new ArrayList<>();
             for (LocationData.NearByAddressData nearByAddressData2 : list) {
                 if (nearByAddressData2 != null && !TextUtils.isEmpty(nearByAddressData2.getName())) {
                     if (TextUtils.equals(nearByAddressData2.getName(), str)) {
                         nearByAddressData = nearByAddressData2;
                     } else {
-                        rg7.a aVar = new rg7.a();
+                        qg7.a aVar = new qg7.a();
                         aVar.d(nearByAddressData2.getName());
                         aVar.e(nearByAddressData2.getSn());
                         arrayList.add(aVar);
@@ -456,12 +456,12 @@ public class SearchLocationActivity extends NavigationBarActivity {
                 }
             }
             if (nearByAddressData != null) {
-                rg7.a aVar2 = new rg7.a();
+                qg7.a aVar2 = new qg7.a();
                 aVar2.d(nearByAddressData.getName());
                 aVar2.e(nearByAddressData.getSn());
                 arrayList.add(0, aVar2);
             } else {
-                rg7.a aVar3 = new rg7.a();
+                qg7.a aVar3 = new qg7.a();
                 aVar3.d(str);
                 aVar3.e(str2);
                 arrayList.add(0, aVar3);
@@ -474,8 +474,8 @@ public class SearchLocationActivity extends NavigationBarActivity {
     public void initData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f = new rg7();
-            LocationData b2 = zl8.a().b();
+            this.f = new qg7();
+            LocationData b2 = yl8.a().b();
             if (b2 != null) {
                 this.f.c(J1(b2.getPoi_info(), b2.getFormatted_address(), b2.getSn()));
             }

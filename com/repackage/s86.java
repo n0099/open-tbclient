@@ -55,7 +55,7 @@ public class s86 {
     public TextView m;
     public RecommendForumLayout n;
     public boolean o;
-    public p88 p;
+    public o88 p;
     public a86 q;
     public BdListView.p r;
     public RecyclerView.OnScrollListener s;
@@ -107,7 +107,7 @@ public class s86 {
                         this.a.b.i();
                         return;
                     }
-                    this.a.g.C(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e8));
+                    this.a.g.C(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e9));
                     this.a.g.f();
                     return;
                 }
@@ -485,9 +485,9 @@ public class s86 {
             this.j = smartBubbleAnimatedView;
             smartBubbleAnimatedView.setLayoutParams(new FrameLayout.LayoutParams(-1, qi.f(this.a.getContext(), R.dimen.tbds83)));
             if (this.p == null) {
-                p88 p88Var = new p88(this.a.getPageContext(), this.f);
-                this.p = p88Var;
-                p88Var.p(2);
+                o88 o88Var = new o88(this.a.getPageContext(), this.f);
+                this.p = o88Var;
+                o88Var.p(2);
                 this.p.u(this.a.getUniqueId());
             }
             t86 t86Var = new t86(this.a.getPageContext());
@@ -502,7 +502,7 @@ public class s86 {
             TextView textView = new TextView(this.a.getContext());
             this.m = textView;
             textView.setPadding(qi.f(this.a.getContext(), R.dimen.tbds44), qi.f(this.a.getContext(), R.dimen.tbds60), 0, qi.f(this.a.getContext(), R.dimen.tbds24));
-            this.m.setText(R.string.obfuscated_res_0x7f0f1345);
+            this.m.setText(R.string.obfuscated_res_0x7f0f1347);
             this.m.setTextSize(0, qi.f(this.a.getContext(), R.dimen.tbds46));
             this.m.setTypeface(Typeface.DEFAULT_BOLD);
             this.f.removeHeaderView(this.m);
@@ -588,20 +588,20 @@ public class s86 {
             if (q86Var.h) {
                 s(q86Var.f);
             }
-            p88 p88Var = this.p;
-            if (p88Var != null) {
-                p88Var.n(this.f.getFirstVisiblePosition(), this.f.getLastVisiblePosition(), false, true);
+            o88 o88Var = this.p;
+            if (o88Var != null) {
+                o88Var.n(this.f.getFirstVisiblePosition(), this.f.getLastVisiblePosition(), false, true);
             }
         }
     }
 
     public void n() {
-        p88 p88Var;
+        o88 o88Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (p88Var = this.p) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (o88Var = this.p) == null) {
             return;
         }
-        p88Var.y();
+        o88Var.y();
         this.p.r(false);
     }
 
@@ -615,12 +615,12 @@ public class s86 {
     }
 
     public void p() {
-        p88 p88Var;
+        o88 o88Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (p88Var = this.p) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (o88Var = this.p) == null) {
             return;
         }
-        p88Var.r(true);
+        o88Var.r(true);
         BdTypeRecyclerView bdTypeRecyclerView = this.f;
         if (bdTypeRecyclerView != null) {
             this.p.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.f.getLastVisiblePosition(), false, true);
@@ -653,9 +653,9 @@ public class s86 {
         }
         this.i.f();
         if (i > 0) {
-            string = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa3), Integer.valueOf(i));
+            string = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa4), Integer.valueOf(i));
         } else {
-            string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa2);
+            string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa3);
         }
         if (TextUtils.isEmpty(string) || !oi.z()) {
             return;

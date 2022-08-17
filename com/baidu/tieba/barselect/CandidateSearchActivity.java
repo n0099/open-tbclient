@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.by5;
-import com.repackage.fm8;
+import com.repackage.em8;
 import com.repackage.my5;
 import com.repackage.og;
 import com.repackage.pi;
@@ -246,25 +246,25 @@ public class CandidateSearchActivity extends BaseActivity {
             }
             int error = httpResponsedMessage.getError();
             if (error == 0) {
-                qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f02eb);
+                qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f02eb);
                 if (this.a.l != null) {
                     for (by5 by5Var : this.a.l) {
                         by5Var.k = true;
                     }
                 }
             } else if (error == 3250023) {
-                fm8.b(error, "", null);
+                em8.b(error, "", null);
             } else if (error == 3250021) {
                 if (httpResponsedMessage instanceof CommitVoteResMsg) {
-                    fm8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    em8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 }
             } else if (error != 3250002 && error != 3250004) {
-                qi.O(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
+                qi.N(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
             } else {
                 BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
                 blockPopInfoData.block_info = pi.isEmpty(httpResponsedMessage.getErrorString()) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0323) : httpResponsedMessage.getErrorString();
                 blockPopInfoData.ahead_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0321);
-                blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09a0);
+                blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09a1);
                 blockPopInfoData.ahead_url = "https://tieba.baidu.com/mo/q/userappeal";
                 AntiHelper.s(this.a, blockPopInfoData);
             }
@@ -350,7 +350,7 @@ public class CandidateSearchActivity extends BaseActivity {
             }
             this.a.i.requestFocus();
             CandidateSearchActivity candidateSearchActivity = this.a;
-            qi.M(candidateSearchActivity, candidateSearchActivity.i);
+            qi.L(candidateSearchActivity, candidateSearchActivity.i);
         }
     }
 
@@ -414,7 +414,7 @@ public class CandidateSearchActivity extends BaseActivity {
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0109, null);
             this.i.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
             SkinManager.setNavbarTitleColor(this.i, R.color.CAM_X0105, R.color.s_navbar_title_color);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.obfuscated_res_0x7f0809c0, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.obfuscated_res_0x7f0809c1, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0302, 1);
         }
     }

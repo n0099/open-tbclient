@@ -1,32 +1,88 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.funad.view.FunAdButton;
+import com.baidu.tieba.funad.view.FunAdAgreeView;
+import com.baidu.tieba.pb.ejection.EjectionAnimationView;
+import com.baidu.tieba.view.WaterRippleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
-import com.fun.ad.sdk.ChannelNativeAds;
-import com.kwad.sdk.api.KsAppDownloadListener;
-import com.qq.e.ads.nativ.NativeUnifiedADData;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class et6 implements TTAppDownloadListener, ChannelNativeAds.GdtADStatusChangeListener, KsAppDownloadListener {
+public class et6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FunAdButton a;
-    public final al8 b;
-    public ChannelNativeAds c;
+    public final Activity a;
+    public int b;
+    public FrameLayout c;
+    public WaterRippleView d;
+    public EjectionAnimationView e;
+    public PopupWindow f;
 
-    public et6(FunAdButton funAdButton, al8 al8Var, ChannelNativeAds channelNativeAds) {
+    /* loaded from: classes6.dex */
+    public class a implements du7 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ et6 a;
+
+        public a(et6 et6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {et6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = et6Var;
+        }
+
+        @Override // com.repackage.du7
+        public /* synthetic */ void onStart() {
+            cu7.a(this);
+        }
+
+        @Override // com.repackage.du7
+        public void onStop() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.e.setVisibility(8);
+                if (this.a.f == null || !this.a.f.isShowing()) {
+                    return;
+                }
+                tg.d(this.a.f, this.a.a);
+            }
+        }
+    }
+
+    public et6(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {funAdButton, al8Var, channelNativeAds};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,151 +92,119 @@ public class et6 implements TTAppDownloadListener, ChannelNativeAds.GdtADStatusC
                 return;
             }
         }
-        this.a = funAdButton;
-        this.b = al8Var;
-        this.c = channelNativeAds;
+        this.b = 0;
+        this.a = activity;
+        e();
+        f();
     }
 
-    public void a(int i) {
+    public final int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            FunAdButton funAdButton = this.a;
-            if (funAdButton != null && funAdButton.getTag() == this.b) {
-                this.a.setText(i);
-            }
-            al8 al8Var = this.b;
-            if (al8Var != null) {
-                al8Var.l(TbadkApplication.getInst().getString(i));
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? UtilHelper.getImmersiveStickyBarHeight() + UtilHelper.getScreenHeight(this.a) : invokeV.intValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = new FrameLayout(this.a);
+            this.e = new EjectionAnimationView(this.a);
+            this.c.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+            this.e.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            this.e.setEjectionAnimationViewCallback(new a(this));
+            this.c.addView(this.e);
         }
     }
 
-    public void b(int i) {
-        FunAdButton funAdButton;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (funAdButton = this.a) != null && funAdButton.getTag() == this.b) {
-            this.a.setProgress(i);
-        }
-    }
-
-    @Override // com.fun.ad.sdk.ChannelNativeAds.GdtADStatusChangeListener
-    public void onADStatusChanged() {
+    public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ChannelNativeAds channelNativeAds = this.c;
-            NativeUnifiedADData nativeUnifiedADData = channelNativeAds != null ? (NativeUnifiedADData) channelNativeAds.gdtNative : null;
-            if (nativeUnifiedADData == null) {
-                return;
-            }
-            if (!nativeUnifiedADData.isAppAd()) {
-                a(R.string.obfuscated_res_0x7f0f00b3);
-                return;
-            }
-            int appStatus = nativeUnifiedADData.getAppStatus();
-            if (appStatus == 0) {
-                a(R.string.obfuscated_res_0x7f0f00ad);
-            } else if (appStatus == 1) {
-                a(R.string.obfuscated_res_0x7f0f00b1);
-            } else if (appStatus == 2) {
-                a(R.string.obfuscated_res_0x7f0f00b2);
-            } else if (appStatus == 4) {
-                b(nativeUnifiedADData.getProgress());
-            } else if (appStatus == 8) {
-                a(R.string.obfuscated_res_0x7f0f00ae);
-            } else if (appStatus != 16) {
-                a(R.string.obfuscated_res_0x7f0f00b3);
+            PopupWindow popupWindow = new PopupWindow();
+            this.f = popupWindow;
+            popupWindow.setContentView(this.c);
+            this.f.setHeight(d());
+            this.f.setWidth(-1);
+            this.f.setOutsideTouchable(false);
+            this.f.setFocusable(false);
+            this.f.setTouchable(false);
+        }
+    }
+
+    public final void g(View view2, Rect rect) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, view2, rect) == null) && tg.m(this.f, view2, this.b, 0, 0)) {
+            this.e.setAnchorPosition((rect.right + rect.left) / 2, (rect.bottom + rect.top) / 2);
+            this.e.k();
+        }
+    }
+
+    public void h(FunAdAgreeView funAdAgreeView) {
+        WaterRippleView waterRippleView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, funAdAgreeView) == null) || funAdAgreeView == null || (waterRippleView = this.d) == null) {
+            return;
+        }
+        ViewParent parent = waterRippleView.getParent();
+        if (parent instanceof ViewGroup) {
+            ((ViewGroup) parent).removeView(this.d);
+        }
+    }
+
+    public void i(boolean z) {
+        PopupWindow popupWindow;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (popupWindow = this.f) == null) {
+            return;
+        }
+        popupWindow.setClippingEnabled(z);
+    }
+
+    public void j(View view2, List<Bitmap> list, Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, view2, list, rect) == null) {
+            this.e.setVisibility(0);
+            this.e.setBitmaps(list);
+            g(view2, rect);
+        }
+    }
+
+    public void k(LinearLayout linearLayout, FunAdAgreeView funAdAgreeView) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048583, this, linearLayout, funAdAgreeView) == null) || linearLayout == null || funAdAgreeView == null) {
+            return;
+        }
+        if (funAdAgreeView.getWidth() != 0 && funAdAgreeView.getHeight() != 0) {
+            WaterRippleView waterRippleView = this.d;
+            if (waterRippleView == null) {
+                this.d = new WaterRippleView(this.a);
             } else {
-                a(R.string.obfuscated_res_0x7f0f00b0);
+                ViewParent parent = waterRippleView.getParent();
+                if (parent instanceof ViewGroup) {
+                    ((ViewGroup) parent).removeView(this.d);
+                }
             }
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadActive(long j, long j2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) || j <= 0) {
+            linearLayout.getGlobalVisibleRect(new Rect());
+            Rect rect = new Rect();
+            funAdAgreeView.getImgAgree().getGlobalVisibleRect(rect);
+            int centerX = rect.centerX();
+            int centerY = rect.centerY();
+            int f = qi.f(this.a, R.dimen.tbds166);
+            int i = centerX - f;
+            int i2 = centerY - f;
+            int i3 = f * 2;
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i3, i3);
+            layoutParams.addRule(13, -1);
+            layoutParams.setMargins(i, i2, 0, 0);
+            this.c.addView(this.d, layoutParams);
             return;
         }
-        b((int) ((j2 * 100) / j));
+        BdLog.e("FunAdAgreeView not measured");
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadFailed(long j, long j2, String str, String str2) {
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-            a(R.string.obfuscated_res_0x7f0f00ad);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadFinished(long j, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
-            a(R.string.obfuscated_res_0x7f0f00ae);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadPaused(long j, long j2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) || j <= 0) {
-            return;
-        }
-        b((int) ((j2 * 100) / j));
-    }
-
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onDownloadStarted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener, com.kwad.sdk.api.KsAppDownloadListener
-    public void onIdle() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            a(R.string.obfuscated_res_0x7f0f00ad);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onInstalled(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
-            a(R.string.obfuscated_res_0x7f0f00af);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onProgressUpdate(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            b(i);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onDownloadFailed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a(R.string.obfuscated_res_0x7f0f00ad);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onDownloadFinished() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            a(R.string.obfuscated_res_0x7f0f00ae);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onInstalled() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            a(R.string.obfuscated_res_0x7f0f00af);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.e.l();
         }
     }
 }

@@ -33,9 +33,9 @@ public class e66 extends s25 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f08099b;
-        this.e = R.drawable.obfuscated_res_0x7f08099c;
-        this.h = R.drawable.obfuscated_res_0x7f08099d;
+        this.d = R.drawable.obfuscated_res_0x7f08099c;
+        this.e = R.drawable.obfuscated_res_0x7f08099d;
+        this.h = R.drawable.obfuscated_res_0x7f08099e;
         this.i = false;
         this.j = true;
         EmotionTabHost emotionTabHost = new EmotionTabHost(context);
@@ -82,9 +82,9 @@ public class e66 extends s25 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f08099b;
-        this.e = R.drawable.obfuscated_res_0x7f080802;
-        this.h = R.drawable.obfuscated_res_0x7f08099d;
+        this.d = R.drawable.obfuscated_res_0x7f08099c;
+        this.e = R.drawable.obfuscated_res_0x7f080803;
+        this.h = R.drawable.obfuscated_res_0x7f08099e;
         this.i = false;
         this.j = true;
         this.m = new EmotionTabHost(context);

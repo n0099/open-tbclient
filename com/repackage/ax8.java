@@ -99,11 +99,11 @@ public class ax8 extends zw8 {
 
         /* renamed from: com.repackage.ax8$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0444a implements Runnable {
+        public class RunnableC0442a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0444a(a aVar) {
+            public RunnableC0442a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -160,7 +160,7 @@ public class ax8 extends zw8 {
                 this.a.u = cameraCaptureSession;
                 this.a.T = (CameraConstrainedHighSpeedCaptureSession) cameraCaptureSession;
                 this.a.N();
-                jc9.a().post(new RunnableC0444a(this));
+                jc9.a().post(new RunnableC0442a(this));
             }
         }
     }

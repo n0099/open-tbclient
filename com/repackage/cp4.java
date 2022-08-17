@@ -53,34 +53,34 @@ public class cp4 implements Comparable<cp4> {
         this.b = i2;
     }
 
-    public static cp4 b(TbLinkSpanGroup tbLinkSpanGroup, vt6 vt6Var) {
+    public static cp4 b(TbLinkSpanGroup tbLinkSpanGroup, ut6 ut6Var) {
         InterceptResult invokeLL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbLinkSpanGroup, vt6Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbLinkSpanGroup, ut6Var)) == null) {
             if (tbLinkSpanGroup == null) {
                 return null;
             }
             cp4 cp4Var = new cp4(tbLinkSpanGroup.e(), 2);
-            if (vt6Var == null) {
+            if (ut6Var == null) {
                 return cp4Var;
             }
-            if (TextUtils.isEmpty(vt6Var.f())) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1593);
+            if (TextUtils.isEmpty(ut6Var.f())) {
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1596);
             } else {
-                str = vt6Var.f() + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0413);
+                str = ut6Var.f() + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0413);
             }
             cp4Var.d = str;
-            cp4Var.c = vt6Var.c();
-            cp4Var.m = vt6Var.a();
-            if (!ListUtils.isEmpty(vt6Var.b()) && vt6Var.b().get(0) != null) {
-                cp4Var.e = vt6Var.b().get(0).a();
+            cp4Var.c = ut6Var.c();
+            cp4Var.m = ut6Var.a();
+            if (!ListUtils.isEmpty(ut6Var.b()) && ut6Var.b().get(0) != null) {
+                cp4Var.e = ut6Var.b().get(0).a();
             }
-            cp4Var.l = vt6Var.f();
-            cp4Var.f = vt6Var.d();
-            if (vt6Var.e() != null) {
-                cp4Var.j = vt6Var.e().a();
-                cp4Var.k = vt6Var.e().b();
+            cp4Var.l = ut6Var.f();
+            cp4Var.f = ut6Var.d();
+            if (ut6Var.e() != null) {
+                cp4Var.j = ut6Var.e().a();
+                cp4Var.k = ut6Var.e().b();
             }
             tbLinkSpanGroup.A(cp4Var);
             return cp4Var;

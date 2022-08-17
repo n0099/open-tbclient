@@ -33,11 +33,11 @@ public class oe1 {
 
         /* renamed from: com.repackage.oe1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0545a implements Thread.UncaughtExceptionHandler {
+        public class C0548a implements Thread.UncaughtExceptionHandler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0545a(a aVar) {
+            public C0548a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +84,7 @@ public class oe1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
                 Thread thread = new Thread(runnable, "TaskScheduler #" + this.a.getAndIncrement());
-                thread.setUncaughtExceptionHandler(new C0545a(this));
+                thread.setUncaughtExceptionHandler(new C0548a(this));
                 return thread;
             }
             return (Thread) invokeL.objValue;

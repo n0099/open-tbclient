@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fg8;
+import com.repackage.eg8;
 import com.repackage.jc1;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
@@ -379,7 +379,7 @@ public final class DeviceInfoManager {
     public final IDeviceInfoAppHost getAppHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65570, this)) == null) ? fg8.a() : (IDeviceInfoAppHost) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65570, this)) == null) ? eg8.a() : (IDeviceInfoAppHost) invokeV.objValue;
     }
 
     @JvmStatic

@@ -84,7 +84,7 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
                     wa0.k(textView, 1, 12.0f, 0, 0, 12, null);
                 }
                 View view2 = this.a;
-                Drawable drawable = (view2 == null || (context = view2.getContext()) == null || (resources = context.getResources()) == null) ? null : resources.getDrawable(R.drawable.obfuscated_res_0x7f080ce5);
+                Drawable drawable = (view2 == null || (context = view2.getContext()) == null || (resources = context.getResources()) == null) ? null : resources.getDrawable(R.drawable.obfuscated_res_0x7f080ce6);
                 ImageView imageView = this.b;
                 if (imageView != null) {
                     imageView.setImageDrawable(wa0.b(drawable, 0, 0, 6, null));

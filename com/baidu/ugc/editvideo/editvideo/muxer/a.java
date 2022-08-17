@@ -23,13 +23,13 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinkedList<Pair<String, Object>> a;
-    public InterfaceC0272a b;
+    public InterfaceC0274a b;
     public String c;
     public boolean d;
 
     /* renamed from: com.baidu.ugc.editvideo.editvideo.muxer.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0272a {
+    public interface InterfaceC0274a {
         void onAudioVideoMuxerCancel();
 
         void onAudioVideoMuxerFail(na9 na9Var);
@@ -138,9 +138,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.d = true;
-            InterfaceC0272a interfaceC0272a = this.b;
-            if (interfaceC0272a != null) {
-                interfaceC0272a.onAudioVideoMuxerCancel();
+            InterfaceC0274a interfaceC0274a = this.b;
+            if (interfaceC0274a != null) {
+                interfaceC0274a.onAudioVideoMuxerCancel();
             }
             try {
                 File file = new File(this.c);
@@ -240,10 +240,10 @@ public class a {
         }
     }
 
-    public void a(InterfaceC0272a interfaceC0272a) {
+    public void a(InterfaceC0274a interfaceC0274a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0272a) == null) {
-            this.b = interfaceC0272a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0274a) == null) {
+            this.b = interfaceC0274a;
         }
     }
 }

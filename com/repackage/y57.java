@@ -1,43 +1,142 @@
 package com.repackage;
 
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
-import android.widget.HorizontalScrollView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import com.baidu.tieba.setting.SecretSettingActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class y57 extends a9<MsglistActivity<?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView b;
-    public ImageView c;
-    public HorizontalScrollView d;
-    public LinearLayout e;
-    public int f;
-    public Cif g;
+    public LinearLayout c;
+    public TextView d;
+    public TextView e;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y57 a;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ y57 d;
 
-        public a(y57 y57Var) {
+        public a(y57 y57Var, long j, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y57Var, Long.valueOf(j), str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = y57Var;
+            this.a = j;
+            this.b = str;
+            this.c = str2;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(this.d.mContext.getPageActivity(), String.valueOf(this.a), this.b, this.c, "", false, AddFriendActivityConfig.TYPE_NEW_FRD)));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends me5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ChatMessage a;
+        public final /* synthetic */ y57 b;
+
+        public b(y57 y57Var, ChatMessage chatMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y57Var, chatMessage};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = y57Var;
+            this.a = chatMessage;
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(@NonNull View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.b.mContext == null) {
+                return;
+            }
+            nz7 nz7Var = new nz7(TbadkCoreApplication.getInst());
+            nz7Var.b(this.b.mContext.getUniqueId());
+            nz7Var.c(String.valueOf(this.a.getUserId()));
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_CYBER_VIOLENCE_MESSAGE_RECEIVER_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1));
+        }
+
+        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+        public void updateDrawState(@NonNull TextPaint textPaint) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
+                super.updateDrawState(textPaint);
+                textPaint.setColor(SkinManager.getColor(R.color.CAM_X0304));
+                textPaint.setUnderlineText(false);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c extends me5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(y57 y57Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,69 +148,33 @@ public class y57 extends a9<MsglistActivity<?>> {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = y57Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // android.text.style.ClickableSpan
+        public void onClick(@NonNull View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.g == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SecretSettingActivityConfig(TbadkCoreApplication.getInst())));
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_CYBER_VIOLENCE_MESSAGE_RECEIVER_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 2));
             }
-            this.a.g.o(view2, 18, this.a.f, 0L);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GifView a;
-        public final /* synthetic */ g77 b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ y57 d;
-
-        public b(y57 y57Var, GifView gifView, g77 g77Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y57Var, gifView, g77Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = y57Var;
-            this.a = gifView;
-            this.b = g77Var;
-            this.c = i;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+        public void updateDrawState(@NonNull TextPaint textPaint) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.getBdImage() != null && this.a.getBdImage().w()) {
-                this.b.c = this.a.getBdImage().r();
-                this.b.d = this.a.getBdImage().m();
-                if (this.d.g != null) {
-                    new StatisticItem("c14658").addParam("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
-                    this.d.g.o(view2, 19, this.d.f, this.c);
-                }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
+                super.updateDrawState(textPaint);
+                textPaint.setColor(SkinManager.getColor(R.color.CAM_X0304));
+                textPaint.setUnderlineText(false);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y57(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0581);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0584);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,74 +191,117 @@ public class y57 extends a9<MsglistActivity<?>> {
                 return;
             }
         }
-        if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
-            return;
-        }
-        this.b = (TextView) j(R.id.obfuscated_res_0x7f091557);
-        this.c = (ImageView) j(R.id.obfuscated_res_0x7f091554);
-        this.d = (HorizontalScrollView) j(R.id.obfuscated_res_0x7f091556);
-        this.e = (LinearLayout) j(R.id.obfuscated_res_0x7f091555);
-        this.b.setText(R.string.obfuscated_res_0x7f0f08bb);
-        this.c.setOnClickListener(new a(this));
+        this.b = null;
+        o();
     }
 
-    public final GifView n(g77 g77Var, int i) {
-        InterceptResult invokeLI;
+    public final void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, g77Var, i)) == null) {
-            GifView gifView = new GifView(this.e.getContext());
-            gifView.setDrawerType(1);
-            gifView.setConrers(15);
-            gifView.setRadiusById(R.string.J_X05);
-            gifView.setShowStaticDrawable(false);
-            gifView.setPlaceHolder(2);
-            gifView.j0(g77Var.b, 38);
-            gifView.setOnClickListener(new b(this, gifView, g77Var, i));
-            return gifView;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TextView textView = (TextView) j(R.id.obfuscated_res_0x7f0920a3);
+            this.b = textView;
+            textView.setMovementMethod(LinkMovementMethod.getInstance());
+            this.c = (LinearLayout) j(R.id.obfuscated_res_0x7f09123d);
+            this.d = (TextView) j(R.id.obfuscated_res_0x7f09041c);
+            this.e = (TextView) j(R.id.obfuscated_res_0x7f0920b1);
+            this.c.setVisibility(8);
         }
-        return (GifView) invokeLI.objValue;
     }
 
-    public void o(int i) {
+    public final boolean p(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        UserData toUserInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            HorizontalScrollView horizontalScrollView = this.d;
-            if (horizontalScrollView != null) {
-                ms4 d = ms4.d(horizontalScrollView);
-                d.n(R.string.J_X05);
-                d.f(R.color.CAM_X0201);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chatMessage)) == null) {
+            if (chatMessage != null && (chatMessage instanceof PersonalChatMessage) && chatMessage.getMsgType() == 11 && !TextUtils.isEmpty(chatMessage.getContent())) {
+                try {
+                    JSONObject jSONObject = new JSONObject(chatMessage.getContent());
+                    String optString = jSONObject.optString(TbEnum.SystemMessage.KEY_EVENT_ID);
+                    if (optString != null && optString.equals(TbEnum.SystemMessage.EVENT_ID_ADD_FRIEND)) {
+                        this.c.setVisibility(0);
+                        this.b.setVisibility(8);
+                        String optString2 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG);
+                        JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
+                        if (optJSONObject == null) {
+                            return false;
+                        }
+                        int optInt = optJSONObject.optInt("button_type");
+                        String optString3 = optJSONObject.optString("name");
+                        long optLong = optJSONObject.optLong("userId");
+                        if (chatMessage.getUserId() == optLong) {
+                            toUserInfo = chatMessage.getUserInfo();
+                        } else {
+                            toUserInfo = chatMessage.getToUserInfo();
+                        }
+                        String userName = toUserInfo.getUserName();
+                        String portrait = toUserInfo.getPortrait();
+                        this.e.setText(optString2);
+                        if (optInt == 1) {
+                            this.d.setVisibility(0);
+                            this.d.setText(optString3);
+                            this.d.setOnClickListener(new a(this, optLong, userName, portrait));
+                            return true;
+                        }
+                    }
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                }
             }
-            TextView textView = this.b;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0107);
-            }
-            ImageView imageView = this.c;
-            if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080944, R.color.CAM_X0111, null);
-            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public void p(Cif cif) {
+    public final boolean q(ChatMessage chatMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cif) == null) {
-            this.g = cif;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessage)) == null) {
+            if (chatMessage != null && (chatMessage instanceof PersonalChatMessage) && chatMessage.getMsgType() == 11 && !TextUtils.isEmpty(chatMessage.getContent())) {
+                try {
+                    String optString = new JSONObject(chatMessage.getContent()).optString(TbEnum.SystemMessage.KEY_EVENT_ID);
+                    if (!TextUtils.isEmpty(optString) && optString.equals(TbEnum.SystemMessage.EVENT_ID_CYBER_VIOLENCE)) {
+                        this.c.setVisibility(8);
+                        this.b.setVisibility(0);
+                        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+                        String string = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08b4);
+                        SpannableString spannableString = new SpannableString(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08b8));
+                        String string2 = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08b5);
+                        SpannableString spannableString2 = new SpannableString(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08b7));
+                        String string3 = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08b6);
+                        b bVar = new b(this, chatMessage);
+                        c cVar = new c(this);
+                        spannableString.setSpan(bVar, 0, spannableString.length(), 33);
+                        spannableString2.setSpan(cVar, 0, spannableString2.length(), 33);
+                        spannableStringBuilder.append((CharSequence) string).append((CharSequence) spannableString).append((CharSequence) string2).append((CharSequence) spannableString2).append((CharSequence) string3);
+                        this.b.setText(spannableStringBuilder);
+                        this.b.setMovementMethod(LinkMovementMethod.getInstance());
+                        return true;
+                    }
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                }
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public void q(ChatMessage chatMessage) {
+    public void r(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, chatMessage) == null) || this.e == null || chatMessage == null || chatMessage.getIceBreakEmotions() == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, chatMessage) == null) {
+            this.c.setVisibility(8);
+            if (chatMessage == null) {
+                this.b.setText("");
+            } else if (p(chatMessage) || q(chatMessage)) {
+            } else {
+                this.b.setVisibility(0);
+                String B = ta7.B(chatMessage);
+                if (!TextUtils.isEmpty(B)) {
+                    this.b.setText(B);
+                } else {
+                    this.b.setText("");
+                }
+            }
         }
-        this.e.removeAllViews();
-        int f = qi.f(this.e.getContext(), R.dimen.tbds260);
-        int f2 = qi.f(this.e.getContext(), R.dimen.M_W_X004);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(f, f);
-        layoutParams.setMargins(0, 0, f2, 0);
-        for (int i = 0; i < chatMessage.getIceBreakEmotions().size(); i++) {
-            this.e.addView(n(chatMessage.getIceBreakEmotions().get(i), i), layoutParams);
-        }
-        new StatisticItem("c14661").addParam("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
     }
 }

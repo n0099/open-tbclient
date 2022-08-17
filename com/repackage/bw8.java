@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nc8;
+import com.repackage.mc8;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -27,21 +27,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 /* loaded from: classes5.dex */
-public class bw8 implements IAdBaseAsyncController.a, lc8<VideoItemModel> {
+public class bw8 implements IAdBaseAsyncController.a, kc8<VideoItemModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<BaseFragmentActivity> a;
     public final List<VideoItemModel> b;
-    public final nc8 c;
+    public final mc8 c;
     public final Queue<AdvertAppInfo> d;
     public final Map<VideoItemModel, AdvertAppInfo> e;
     public int f;
     public boolean g;
     public int h;
     public VideoPlayView i;
-    public ic8 j;
+    public hc8 j;
     public final boolean k;
-    public nc8.a l;
+    public mc8.a l;
     public int m;
     public VideoItemModel n;
 
@@ -65,9 +65,9 @@ public class bw8 implements IAdBaseAsyncController.a, lc8<VideoItemModel> {
         this.g = true;
         this.b = list;
         this.a = tbPageContext;
-        nc8 nc8Var = (nc8) zb8.l().h(IAdBaseAsyncController.Type.VIDEO_FLOW, this);
-        this.c = nc8Var;
-        nc8Var.a(this.a);
+        mc8 mc8Var = (mc8) yb8.l().h(IAdBaseAsyncController.Type.VIDEO_FLOW, this);
+        this.c = mc8Var;
+        mc8Var.a(this.a);
         this.d = new LinkedList();
         this.e = new HashMap();
         int d = rj5.a().d();
@@ -77,14 +77,14 @@ public class bw8 implements IAdBaseAsyncController.a, lc8<VideoItemModel> {
         }
         this.k = z;
         if (z) {
-            ic8 ic8Var = new ic8();
-            this.j = ic8Var;
-            ic8Var.d(d - 1);
+            hc8 hc8Var = new hc8();
+            this.j = hc8Var;
+            hc8Var.d(d - 1);
             this.j.e(e);
         }
     }
 
-    @Override // com.repackage.lc8
+    @Override // com.repackage.kc8
     public void a(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
@@ -101,14 +101,14 @@ public class bw8 implements IAdBaseAsyncController.a, lc8<VideoItemModel> {
     @Override // com.baidu.tieba.recapp.async.IAdBaseAsyncController.a
     public void b(@Nullable List<AdvertAppInfo> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || bf7.e(list)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || af7.e(list)) {
             return;
         }
         this.g = true;
         this.d.addAll(list);
         VideoItemModel videoItemModel = new VideoItemModel(new VideoItemData(), 5);
         this.n = videoItemModel;
-        jc8.b(this.b, this.m, this.j, this.f, videoItemModel, this.d.peek(), this);
+        ic8.b(this.b, this.m, this.j, this.f, videoItemModel, this.d.peek(), this);
     }
 
     public void f(int i) {
@@ -123,7 +123,7 @@ public class bw8 implements IAdBaseAsyncController.a, lc8<VideoItemModel> {
 
     public AdVideoFlowFragment g(int i) {
         InterceptResult invokeI;
-        ob8 i2;
+        nb8 i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             AdvertAppInfo advertAppInfo = this.e.get(this.b.get(i));
@@ -170,12 +170,12 @@ public class bw8 implements IAdBaseAsyncController.a, lc8<VideoItemModel> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.lc8
+    @Override // com.repackage.kc8
     /* renamed from: j */
-    public void c(int i, int i2, kc8 kc8Var, VideoItemModel videoItemModel) {
+    public void c(int i, int i2, jc8 jc8Var, VideoItemModel videoItemModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), kc8Var, videoItemModel}) == null) {
-            AdvertAppInfo advertAppInfo = (AdvertAppInfo) kc8Var;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), jc8Var, videoItemModel}) == null) {
+            AdvertAppInfo advertAppInfo = (AdvertAppInfo) jc8Var;
             this.d.remove(advertAppInfo);
             this.f = i2;
             this.e.put(videoItemModel, advertAppInfo);
@@ -187,12 +187,12 @@ public class bw8 implements IAdBaseAsyncController.a, lc8<VideoItemModel> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.lc8
+    @Override // com.repackage.kc8
     /* renamed from: k */
-    public void e(int i, int i2, VideoItemModel videoItemModel, kc8 kc8Var, VideoItemModel videoItemModel2) {
+    public void e(int i, int i2, VideoItemModel videoItemModel, jc8 jc8Var, VideoItemModel videoItemModel2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), videoItemModel, kc8Var, videoItemModel2}) == null) {
-            AdvertAppInfo advertAppInfo = (AdvertAppInfo) kc8Var;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), videoItemModel, jc8Var, videoItemModel2}) == null) {
+            AdvertAppInfo advertAppInfo = (AdvertAppInfo) jc8Var;
             this.d.remove(advertAppInfo);
             this.f = i2;
             this.e.put(videoItemModel, advertAppInfo);
@@ -200,11 +200,11 @@ public class bw8 implements IAdBaseAsyncController.a, lc8<VideoItemModel> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.lc8
+    @Override // com.repackage.kc8
     /* renamed from: l */
-    public void d(int i, int i2, int i3, kc8 kc8Var, VideoItemModel videoItemModel) {
+    public void d(int i, int i2, int i3, jc8 jc8Var, VideoItemModel videoItemModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), kc8Var, videoItemModel}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), jc8Var, videoItemModel}) == null) {
         }
     }
 
@@ -212,11 +212,11 @@ public class bw8 implements IAdBaseAsyncController.a, lc8<VideoItemModel> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && this.k) {
             this.m = i;
-            VideoItemModel videoItemModel = (VideoItemModel) bf7.d(this.b, i);
+            VideoItemModel videoItemModel = (VideoItemModel) af7.d(this.b, i);
             if (this.e.containsKey(videoItemModel)) {
                 AdvertAppInfo advertAppInfo = this.e.get(videoItemModel);
-                md8.o(advertAppInfo);
-                we7.b(we7.a(advertAppInfo));
+                ld8.o(advertAppInfo);
+                ve7.b(ve7.a(advertAppInfo));
                 this.c.c(advertAppInfo, true);
                 return;
             }
@@ -226,11 +226,11 @@ public class bw8 implements IAdBaseAsyncController.a, lc8<VideoItemModel> {
             }
             VideoItemModel videoItemModel2 = new VideoItemModel(new VideoItemData(), 5);
             this.n = videoItemModel2;
-            jc8.b(this.b, i, this.j, this.f, videoItemModel2, this.d.peek(), this);
+            ic8.b(this.b, i, this.j, this.f, videoItemModel2, this.d.peek(), this);
         }
     }
 
-    public void n(nc8.a aVar) {
+    public void n(mc8.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
             this.l = aVar;

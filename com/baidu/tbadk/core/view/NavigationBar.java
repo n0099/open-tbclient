@@ -504,7 +504,7 @@ public class NavigationBar extends RelativeLayout {
             View findViewById = this.mRootView.findViewById(R.id.obfuscated_res_0x7f09162d);
             this.topCoverBgView = findViewById;
             boolean z2 = false;
-            findViewById.setBackgroundDrawable(SkinManager.getDrawable(0, (int) R.drawable.obfuscated_res_0x7f080e1f));
+            findViewById.setBackgroundDrawable(SkinManager.getDrawable(0, (int) R.drawable.obfuscated_res_0x7f080e20));
             this.barBgView = this.mRootView.findViewById(R.id.obfuscated_res_0x7f09162c);
             if (attributeSet != null) {
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04012f});
@@ -870,8 +870,13 @@ public class NavigationBar extends RelativeLayout {
             super.onLayout(z, i, i2, i3, i4);
             int measuredWidth = this.mLeftBox.getMeasuredWidth() + getPaddingLeft();
             int measuredWidth2 = this.mRightBox.getMeasuredWidth() + getPaddingRight();
+            int i5 = this.containerWidth;
+            int i6 = i5 - measuredWidth2;
+            if (i5 - measuredWidth2 > 0) {
+                i5 = i6;
+            }
             LinearLayout linearLayout = this.mCenterBox;
-            linearLayout.layout(measuredWidth, linearLayout.getTop(), this.containerWidth - measuredWidth2, this.mCenterBox.getBottom());
+            linearLayout.layout(measuredWidth, linearLayout.getTop(), i5, this.mCenterBox.getBottom());
         }
     }
 
@@ -1211,7 +1216,7 @@ public class NavigationBar extends RelativeLayout {
             if (i3 > 0 && (i2 = this.mBackImagelightResId) > 0) {
                 SkinManager.setNavbarIconSrc(this.mBackImageView, i3, i2, i);
             } else if (this.mIsClose) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.obfuscated_res_0x7f0809f3, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.obfuscated_res_0x7f0809f4, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             } else {
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.obfuscated_res_0x7f080612, R.color.CAM_X0105, null);
             }
@@ -1321,7 +1326,7 @@ public class NavigationBar extends RelativeLayout {
             if (i4 > 0 && (i3 = this.mBackImagelightResId) > 0) {
                 SkinManager.setNavbarIconSrc(this.mBackImageView, i4, i3, i);
             } else if (this.mIsClose) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.obfuscated_res_0x7f0809f3, i2, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.obfuscated_res_0x7f0809f4, i2, null);
             } else {
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.obfuscated_res_0x7f080612, i2, null);
             }

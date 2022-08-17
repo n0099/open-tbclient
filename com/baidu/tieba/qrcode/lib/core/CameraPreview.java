@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sa8;
+import com.repackage.ra8;
 /* loaded from: classes4.dex */
 public class CameraPreview extends TextureView implements TextureView.SurfaceTextureListener {
     public static /* synthetic */ Interceptable $ic;
@@ -24,7 +24,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public Camera a;
     public boolean b;
     public boolean c;
-    public sa8 d;
+    public ra8 d;
     public SurfaceTexture e;
     public Runnable f;
     public Camera.AutoFocusCallback g;
@@ -218,8 +218,8 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             int defaultSize = TextureView.getDefaultSize(getSuggestedMinimumWidth(), i);
             int defaultSize2 = TextureView.getDefaultSize(getSuggestedMinimumHeight(), i2);
-            sa8 sa8Var = this.d;
-            if (sa8Var != null && sa8Var.e() != null) {
+            ra8 ra8Var = this.d;
+            if (ra8Var != null && ra8Var.e() != null) {
                 Point e = this.d.e();
                 float f = defaultSize;
                 float f2 = defaultSize2;
@@ -280,9 +280,9 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
         if (interceptable == null || interceptable.invokeL(1048583, this, camera) == null) {
             this.a = camera;
             if (camera != null) {
-                sa8 sa8Var = new sa8(getContext());
-                this.d = sa8Var;
-                sa8Var.h(this.a);
+                ra8 ra8Var = new ra8(getContext());
+                this.d = ra8Var;
+                ra8Var.h(this.a);
                 if (this.b) {
                     requestLayout();
                 } else {

@@ -41,7 +41,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bn4;
 import com.repackage.hx;
 import com.repackage.ix;
-import com.repackage.o17;
+import com.repackage.n17;
 import com.repackage.qi;
 import java.util.ArrayList;
 import java.util.List;
@@ -288,7 +288,7 @@ public class SpecialTopicLayout extends LinearLayout implements ix, hx<SpecialCo
             if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, specialColumnItemData, Integer.valueOf(i), Long.valueOf(j)}) == null) || specialColumnItemData == null) {
                 return;
             }
-            o17.b("c13754", specialColumnItemData, i + 1, this.a.j);
+            n17.b("c13754", specialColumnItemData, i + 1, this.a.j);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -312,10 +312,10 @@ public class SpecialTopicLayout extends LinearLayout implements ix, hx<SpecialCo
                     alaLiveInfoCoreData.liveID = specialColumnItemData.liveId;
                     this.a.a.sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.a.getContext(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_ACTIVE_VIEW, "", false, "")));
                 }
-                o17.a("c13754", specialColumnItemData, i + 1, this.a.j);
+                n17.a("c13754", specialColumnItemData, i + 1, this.a.j);
             }
             this.a.a.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.a.getContext()).createNormalCfg(String.valueOf(specialColumnItemData.threadId), null, null)));
-            o17.a("c13754", specialColumnItemData, i + 1, this.a.j);
+            n17.a("c13754", specialColumnItemData, i + 1, this.a.j);
         }
     }
 

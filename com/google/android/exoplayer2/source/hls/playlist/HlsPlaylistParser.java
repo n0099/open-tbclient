@@ -35,7 +35,7 @@ import java.util.HashSet;
 import java.util.Queue;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlaylist> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ATTR_CLOSED_CAPTIONS_NONE = "CLOSED-CAPTIONS=NONE";
@@ -96,7 +96,7 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
     public static final String TYPE_VIDEO = "VIDEO";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class LineIterator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

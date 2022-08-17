@@ -69,7 +69,7 @@ public class bf6 extends ue6<cf6, FrsNoListItemViewHolder> {
             if (cf6Var.a() == 6) {
                 frsNoListItemViewHolder.d.setText(R.string.obfuscated_res_0x7f0f02b6);
             } else {
-                frsNoListItemViewHolder.d.setText(R.string.obfuscated_res_0x7f0f0c55);
+                frsNoListItemViewHolder.d.setText(R.string.obfuscated_res_0x7f0f0c56);
             }
             SkinManager.setViewTextColor(frsNoListItemViewHolder.d, R.color.CAM_X0107, 1);
             SkinManager.setImageResource(frsNoListItemViewHolder.e, R.drawable.new_pic_emotion_06);

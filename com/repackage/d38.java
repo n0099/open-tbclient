@@ -17,6 +17,7 @@ public class d38 extends bn<v38, CardViewHolder<l48>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
+    public b06<v38> b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d38(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -46,7 +47,12 @@ public class d38 extends bn<v38, CardViewHolder<l48>> {
     public CardViewHolder<l48> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new l48(this.a)) : (CardViewHolder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            l48 l48Var = new l48(this.a);
+            l48Var.n(this.b);
+            return new CardViewHolder<>(l48Var);
+        }
+        return (CardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -60,5 +66,12 @@ public class d38 extends bn<v38, CardViewHolder<l48>> {
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
+    }
+
+    public void u(b06<v38> b06Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, b06Var) == null) {
+            this.b = b06Var;
+        }
     }
 }

@@ -34,7 +34,7 @@ public class ou8 implements nu8.b {
     public boolean e;
     public Context f;
     public boolean g;
-    public fn7 h;
+    public en7 h;
 
     /* loaded from: classes7.dex */
     public class a implements jt8.b {
@@ -72,7 +72,7 @@ public class ou8 implements nu8.b {
                 this.a.b.setVisibility(4);
                 this.a.a.setDrawBorder(true);
                 this.a.a.invalidate();
-                qi.O(TbadkCoreApplication.getInst(), str);
+                qi.N(TbadkCoreApplication.getInst(), str);
                 if (this.c.h != null) {
                     this.c.h.b(3, str);
                 }
@@ -136,7 +136,7 @@ public class ou8 implements nu8.b {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                qi.O(TbadkCoreApplication.getInst(), str);
+                qi.N(TbadkCoreApplication.getInst(), str);
                 if (this.b.h != null) {
                     this.b.h.b(3, str);
                 }
@@ -226,8 +226,8 @@ public class ou8 implements nu8.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i, i2)) == null) {
                 if (this.a.h != null) {
-                    fn7 fn7Var = this.a.h;
-                    fn7Var.b(4, "what-->" + i + "  extra-->" + i2);
+                    en7 en7Var = this.a.h;
+                    en7Var.b(4, "what-->" + i + "  extra-->" + i2);
                     return false;
                 }
                 return false;
@@ -251,10 +251,10 @@ public class ou8 implements nu8.b {
                 return;
             }
         }
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, jn7.class);
-        jn7 jn7Var = runTask != null ? (jn7) runTask.getData() : null;
-        if (jn7Var != null) {
-            this.h = jn7Var.get();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, in7.class);
+        in7 in7Var = runTask != null ? (in7) runTask.getData() : null;
+        if (in7Var != null) {
+            this.h = in7Var.get();
         }
         this.f = activity;
     }

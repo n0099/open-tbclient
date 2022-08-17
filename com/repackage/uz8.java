@@ -630,11 +630,11 @@ public class uz8 extends BaseAdapter {
         }
         if (z) {
             imageView.setContentDescription(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f03ae));
-            imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080814, WebPManager.ResourceStateType.NORMAL));
+            imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080815, WebPManager.ResourceStateType.NORMAL));
             return;
         }
         imageView.setContentDescription(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f03af));
-        imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080813, WebPManager.ResourceStateType.NORMAL));
+        imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080814, WebPManager.ResourceStateType.NORMAL));
     }
 
     public void u(tz8 tz8Var) {

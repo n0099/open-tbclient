@@ -61,7 +61,7 @@ public class wk5 {
                 if (oi.A()) {
                     wk5.e(jSONArray, this.b.a(), this.b.b(), this.c);
                 } else {
-                    qi.N(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c3c);
+                    qi.M(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c3d);
                 }
             }
         }
@@ -102,7 +102,7 @@ public class wk5 {
                 if (oi.A()) {
                     wk5.e(jSONArray, this.b.a(), this.b.b(), this.c);
                 } else {
-                    qi.N(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c3c);
+                    qi.M(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c3d);
                 }
             }
         }

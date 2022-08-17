@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.lg6;
-import com.repackage.n47;
+import com.repackage.m47;
 import com.repackage.pi;
 import com.repackage.tw4;
 /* loaded from: classes3.dex */
@@ -112,10 +112,10 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void a(n47 n47Var) {
+    public void a(m47 m47Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, n47Var) == null) && (n47Var instanceof lg6)) {
-            lg6 lg6Var = (lg6) n47Var;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, m47Var) == null) && (m47Var instanceof lg6)) {
+            lg6 lg6Var = (lg6) m47Var;
             this.h = lg6Var;
             if (StringUtils.isNull(lg6Var.a.getUserId())) {
                 return;

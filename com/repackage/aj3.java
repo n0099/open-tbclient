@@ -155,12 +155,12 @@ public class aj3 {
                 d03.a aVar = new d03.a(context);
                 aVar.n(new hg3());
                 d03 c = aVar.c();
-                aVar.U(R.string.obfuscated_res_0x7f0f1238);
-                aVar.x(context.getString(R.string.obfuscated_res_0x7f0f1237));
+                aVar.U(R.string.obfuscated_res_0x7f0f123a);
+                aVar.x(context.getString(R.string.obfuscated_res_0x7f0f1239));
                 aVar.y();
                 aVar.J(gk2.M().a());
-                aVar.O(R.string.obfuscated_res_0x7f0f1239, a2);
-                aVar.B(R.string.obfuscated_res_0x7f0f1236, a2);
+                aVar.O(R.string.obfuscated_res_0x7f0f123b, a2);
+                aVar.B(R.string.obfuscated_res_0x7f0f1238, a2);
                 aVar.a();
                 c.setCancelable(false);
                 c.show();

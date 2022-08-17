@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class j38 extends bn<u38, CardViewHolder<j48>> {
+public class j38 extends bn<c48, CardViewHolder<j48>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -52,11 +52,11 @@ public class j38 extends bn<u38, CardViewHolder<j48>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.bn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, u38 u38Var, CardViewHolder<j48> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, c48 c48Var, CardViewHolder<j48> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, u38Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(u38Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, c48Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(c48Var);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

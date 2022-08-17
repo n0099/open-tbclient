@@ -652,7 +652,7 @@ public class BaseActivity extends FragmentActivity {
         if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
             super.onMultiWindowModeChanged(z);
             if (z && !s) {
-                xz0.a().b(getApplicationContext(), R.string.obfuscated_res_0x7f0f0b5f, 1);
+                xz0.a().b(getApplicationContext(), R.string.obfuscated_res_0x7f0f0b60, 1);
                 i1(true);
             } else if (z || p01.a()) {
             } else {

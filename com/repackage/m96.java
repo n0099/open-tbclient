@@ -532,7 +532,7 @@ public class m96 implements j96, PreViewPickCoverView.c, ny8, OnChangeStickerLis
             if (this.k == null) {
                 MultiMediaData multiMediaData = new MultiMediaData();
                 this.k = multiMediaData;
-                multiMediaData.setExt("text", ic9.l(R.string.obfuscated_res_0x7f0f1494));
+                multiMediaData.setExt("text", ic9.l(R.string.obfuscated_res_0x7f0f1496));
                 this.i.add(this.k);
                 this.j.e(-1);
             } else {
@@ -660,7 +660,7 @@ public class m96 implements j96, PreViewPickCoverView.c, ny8, OnChangeStickerLis
         if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{multiMediaData, Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
             MultiMediaData multiMediaData2 = this.k;
             if (multiMediaData2 != null) {
-                multiMediaData2.setExt("text", ic9.l(R.string.obfuscated_res_0x7f0f1494));
+                multiMediaData2.setExt("text", ic9.l(R.string.obfuscated_res_0x7f0f1496));
             }
             this.k = null;
             this.e.h();

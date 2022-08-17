@@ -13,6 +13,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.MessageTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
 import com.baidu.tbadk.TbConfig;
@@ -29,8 +30,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ln4;
 import com.repackage.og;
-import com.repackage.rg;
 import com.repackage.ru4;
+import com.repackage.xa5;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -83,8 +84,7 @@ public class UrlSchemaJumpHelper {
         if (interceptable == null || interceptable.invokeL(65538, null, checkSchemeFlutterCallBack) == null) {
             MessageTask findTask = MessageManager.getInstance().findTask(2002015);
             if (ln4.c().contains("-Flutter") && findTask == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, null));
-                rg.a().postDelayed(new Runnable(checkSchemeFlutterCallBack) { // from class: com.baidu.tbadk.core.util.UrlSchemaJumpHelper.7
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, new xa5(checkSchemeFlutterCallBack) { // from class: com.baidu.tbadk.core.util.UrlSchemaJumpHelper.7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ CheckSchemeFlutterCallBack val$callBack;
@@ -107,8 +107,8 @@ public class UrlSchemaJumpHelper {
                         this.val$callBack = checkSchemeFlutterCallBack;
                     }
 
-                    @Override // java.lang.Runnable
-                    public void run() {
+                    @Override // com.repackage.xa5
+                    public void onFail() {
                         CheckSchemeFlutterCallBack checkSchemeFlutterCallBack2;
                         Interceptable interceptable2 = $ic;
                         if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (checkSchemeFlutterCallBack2 = this.val$callBack) == null) {
@@ -116,7 +116,17 @@ public class UrlSchemaJumpHelper {
                         }
                         checkSchemeFlutterCallBack2.toJump();
                     }
-                }, 1500L);
+
+                    @Override // com.repackage.xa5
+                    public void onSuccess() {
+                        CheckSchemeFlutterCallBack checkSchemeFlutterCallBack2;
+                        Interceptable interceptable2 = $ic;
+                        if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (checkSchemeFlutterCallBack2 = this.val$callBack) == null) {
+                            return;
+                        }
+                        checkSchemeFlutterCallBack2.toJump();
+                    }
+                }));
             } else if (checkSchemeFlutterCallBack != null) {
                 checkSchemeFlutterCallBack.toJump();
             }
@@ -229,11 +239,12 @@ public class UrlSchemaJumpHelper {
                         String queryParameter = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_GAME_ID);
                         String queryParameter2 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_GOD_ID);
                         String queryParameter3 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_OPEN_PAY);
+                        String queryParameter4 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_FROM_NATIVE);
                         HashMap hashMap = new HashMap();
                         hashMap.put("game_id", queryParameter);
                         hashMap.put("god_id", queryParameter2);
                         hashMap.put("swipeback", Boolean.FALSE);
-                        hashMap.put("isFromNative", "1");
+                        hashMap.put("isFromNative", queryParameter4);
                         if (TextUtils.isEmpty(queryParameter3)) {
                             queryParameter3 = "1";
                         }

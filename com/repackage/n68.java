@@ -1,6 +1,7 @@
 package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,9 +14,14 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class n68 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<q68> a;
+    public boolean a;
+    public boolean b;
+    public String c;
+    public String d;
+    public int e;
+    public List<UserData> f;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +36,7 @@ public class n68 extends BaseCardInfo {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        g = BdUniqueId.gen();
     }
 
     public n68() {
@@ -51,6 +57,6 @@ public class n68 extends BaseCardInfo {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? g : (BdUniqueId) invokeV.objValue;
     }
 }

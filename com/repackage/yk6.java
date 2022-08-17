@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yk6 extends ue6<pj8, FrsFeedItemViewHolder> {
+public class yk6 extends ue6<oj8, FrsFeedItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public wk6 l;
@@ -57,13 +57,13 @@ public class yk6 extends ue6<pj8, FrsFeedItemViewHolder> {
         return (FrsFeedItemViewHolder) invokeL.objValue;
     }
 
-    public View F(int i, View view2, ViewGroup viewGroup, pj8 pj8Var, FrsFeedItemViewHolder frsFeedItemViewHolder) {
+    public View F(int i, View view2, ViewGroup viewGroup, oj8 oj8Var, FrsFeedItemViewHolder frsFeedItemViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pj8Var, frsFeedItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, pj8Var, frsFeedItemViewHolder);
-            if (pj8Var != null) {
-                this.l.o(pj8Var.b(), pj8Var.a());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, oj8Var, frsFeedItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, oj8Var, frsFeedItemViewHolder);
+            if (oj8Var != null) {
+                this.l.o(oj8Var.b(), oj8Var.a());
             }
             return view2;
         }
@@ -72,7 +72,7 @@ public class yk6 extends ue6<pj8, FrsFeedItemViewHolder> {
 
     @Override // com.repackage.ue6, com.repackage.bn
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        F(i, view2, viewGroup, (pj8) obj, (FrsFeedItemViewHolder) viewHolder);
+        F(i, view2, viewGroup, (oj8) obj, (FrsFeedItemViewHolder) viewHolder);
         return view2;
     }
 }

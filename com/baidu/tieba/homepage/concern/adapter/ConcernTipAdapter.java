@@ -18,9 +18,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bn;
 import com.repackage.qi;
-import com.repackage.uv6;
+import com.repackage.tv6;
 /* loaded from: classes3.dex */
-public class ConcernTipAdapter extends bn<uv6, ConcernTipViewHolder> {
+public class ConcernTipAdapter extends bn<tv6, ConcernTipViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
     public static int b;
@@ -70,7 +70,7 @@ public class ConcernTipAdapter extends bn<uv6, ConcernTipViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernTipAdapter(Context context) {
-        super(context, uv6.f);
+        super(context, tv6.f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,16 +113,16 @@ public class ConcernTipAdapter extends bn<uv6, ConcernTipViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.bn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, uv6 uv6Var, ConcernTipViewHolder concernTipViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, tv6 tv6Var, ConcernTipViewHolder concernTipViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uv6Var, concernTipViewHolder})) == null) {
-            concernTipViewHolder.a.setText(uv6Var.b);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tv6Var, concernTipViewHolder})) == null) {
+            concernTipViewHolder.a.setText(tv6Var.b);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.a.getLayoutParams();
-            if (uv6Var.c) {
+            if (tv6Var.c) {
                 layoutParams.height = b;
                 concernTipViewHolder.b.setVisibility(0);
-            } else if (uv6Var.d) {
+            } else if (tv6Var.d) {
                 layoutParams.height = a;
             }
             concernTipViewHolder.a.setLayoutParams(layoutParams);

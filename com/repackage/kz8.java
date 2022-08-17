@@ -70,7 +70,7 @@ public class kz8 {
                 this.a.c = true;
                 if (writeData2.getType() != 0 || writeData2.isUserFeedback()) {
                     if (postWriteCallBackData == null) {
-                        dn8.b(this.a.a.getContext().getActivity(), this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f110f), null, null);
+                        dn8.b(this.a.a.getContext().getActivity(), this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1110), null, null);
                     } else {
                         dn8.b(this.a.a.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
                     }
@@ -193,7 +193,7 @@ public class kz8 {
             return;
         }
         if (!qi.D()) {
-            this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c3c);
+            this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c3d);
             this.a.getContext().finish();
             return;
         }

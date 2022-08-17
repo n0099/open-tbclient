@@ -18,7 +18,7 @@ public class r64 extends s64 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public r64(@NonNull Context context) {
-        super("GaodeMap", context.getString(R.string.obfuscated_res_0x7f0f0cfc), "com.autonavi.minimap");
+        super("GaodeMap", context.getString(R.string.obfuscated_res_0x7f0f0cfd), "com.autonavi.minimap");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

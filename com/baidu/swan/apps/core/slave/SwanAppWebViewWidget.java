@@ -590,12 +590,12 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements in1<NgW
 
         /* renamed from: com.baidu.swan.apps.core.slave.SwanAppWebViewWidget$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0176a implements Runnable {
+        public class RunnableC0177a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0176a(a aVar) {
+            public RunnableC0177a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -717,7 +717,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements in1<NgW
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
                 zx1.b("SwanAppWebViewWidget", "isblockdomain request success, response data: " + jSONObject + ", url: " + this.a);
                 if (jSONObject != null && jSONObject.optInt(TiebaStatic.LogFields.RESULT, -1) == 0) {
-                    te3.a0(new RunnableC0176a(this));
+                    te3.a0(new RunnableC0177a(this));
                     return;
                 }
                 zx1.o("SwanAppWebViewWidget", "isblockdomain request success, but check result failed: " + jSONObject + ", url: " + this.a);

@@ -78,8 +78,8 @@ public class YoungsterFrsDialogView extends LinearLayout {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundResource(this, R.drawable.obfuscated_res_0x7f08120f);
-            this.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f3d, WebPManager.ResourceStateType.NORMAL));
+            SkinManager.setBackgroundResource(this, R.drawable.obfuscated_res_0x7f081210);
+            this.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f3e, WebPManager.ResourceStateType.NORMAL));
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0107);
             this.h.b();

@@ -238,7 +238,7 @@ public final class RoundImageView extends ImageView {
         }
         this.e = new Paint();
         this.f = new Paint();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040541, R.attr.obfuscated_res_0x7f040542, R.attr.obfuscated_res_0x7f040543, R.attr.obfuscated_res_0x7f040544}, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040542, R.attr.obfuscated_res_0x7f040543, R.attr.obfuscated_res_0x7f040544, R.attr.obfuscated_res_0x7f040545}, i, 0);
         this.a = obtainStyledAttributes.getDimensionPixelSize(2, 0);
         this.b = obtainStyledAttributes.getDimensionPixelSize(3, 0);
         this.c = obtainStyledAttributes.getDimensionPixelSize(0, 0);

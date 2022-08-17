@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h97;
+import com.repackage.g97;
 import com.repackage.qi;
 import com.repackage.wr4;
 import java.util.ArrayList;
@@ -80,12 +80,12 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
 
         /* renamed from: com.baidu.tieba.im.chat.AbsMsgImageActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class animation.Animation$AnimationListenerC0216a implements Animation.AnimationListener {
+        public class animation.Animation$AnimationListenerC0217a implements Animation.AnimationListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public animation.Animation$AnimationListenerC0216a(a aVar) {
+            public animation.Animation$AnimationListenerC0217a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -181,7 +181,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                             this.a.c.execute(new String[0]);
                             this.a.e.setClickable(false);
                         } else {
-                            this.a.showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c54));
+                            this.a.showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c55));
                         }
                     } catch (Exception unused) {
                     }
@@ -197,7 +197,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                     }
                     this.a.l.setDuration(300L);
                     this.a.l.setFillAfter(true);
-                    this.a.l.setAnimationListener(new animation.Animation$AnimationListenerC0216a(this));
+                    this.a.l.setAnimationListener(new animation.Animation$AnimationListenerC0217a(this));
                     this.a.m = false;
                     this.a.g.startAnimation(this.a.l);
                 }
@@ -337,7 +337,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                             this.a.c.execute(new String[0]);
                             this.a.e.setClickable(false);
                         } else {
-                            this.a.showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c54));
+                            this.a.showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c55));
                         }
                     } catch (Exception unused) {
                     }
@@ -378,7 +378,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                this.b.createListMenu(new String[]{this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f1081)}, this.a);
+                this.b.createListMenu(new String[]{this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f1082)}, this.a);
                 this.b.showListMenu();
                 return false;
             }
@@ -387,7 +387,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     }
 
     /* loaded from: classes3.dex */
-    public class f implements h97 {
+    public class f implements g97 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsMsgImageActivity a;
@@ -410,7 +410,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             this.a = absMsgImageActivity;
         }
 
-        @Override // com.repackage.h97
+        @Override // com.repackage.g97
         public void a(LinkedHashMap<String, String> linkedHashMap, HashMap<String, ImageUrlData> hashMap) {
             boolean z;
             Interceptable interceptable = $ic;
@@ -521,9 +521,9 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                 int saveImageFileByUser = FileHelper.saveImageFileByUser(this.a, this.b, this.c.getPageContext().getPageActivity());
                 if (saveImageFileByUser != -2) {
                     if (saveImageFileByUser != 0) {
-                        return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f1088);
+                        return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f1089);
                     }
-                    return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f1089);
+                    return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f108a);
                 }
                 return FileHelper.getSdErrorString();
             }
@@ -716,7 +716,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    public abstract void j2(String str, h97 h97Var);
+    public abstract void j2(String str, g97 g97Var);
 
     public final void k2() {
         Interceptable interceptable = $ic;
@@ -728,7 +728,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             valueOf = (valueOf + "/") + this.o;
         }
         if (this.h.getHasNext() && this.b == this.h.getItemNum() - 1) {
-            this.f.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f08d4));
+            this.f.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f08d5));
             this.e.setClickable(false);
             return;
         }

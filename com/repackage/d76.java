@@ -170,7 +170,7 @@ public class d76 implements h55, v85 {
                 if (TextUtils.isEmpty(this.a)) {
                     return null;
                 }
-                m97.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), this.b);
+                l97.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), this.b);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -403,7 +403,7 @@ public class d76 implements h55, v85 {
                     if (responsedMessage.getError() == 0) {
                         BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
                         bdTopToast.h(true);
-                        bdTopToast.g(this.a.j.getActivity().getString(R.string.obfuscated_res_0x7f0f09e0));
+                        bdTopToast.g(this.a.j.getActivity().getString(R.string.obfuscated_res_0x7f0f09e1));
                         bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
                         return;
                     }
@@ -521,7 +521,7 @@ public class d76 implements h55, v85 {
                     this.a.c.K(!StringUtils.isNull(this.a.i));
                 } else if (StringUtils.isNull(this.a.m.getErrorString())) {
                 } else {
-                    qi.O(TbadkCoreApplication.getInst(), this.a.m.getErrorString());
+                    qi.N(TbadkCoreApplication.getInst(), this.a.m.getErrorString());
                 }
             }
         }
@@ -811,7 +811,7 @@ public class d76 implements h55, v85 {
                     if (netWork.getNetContext().getResponse().isRequestSuccess()) {
                         this.c.l = true;
                         if (this.c.a.isAdded() && this.c.j != null) {
-                            this.c.j.showToast(this.c.j.getActivity().getString(R.string.obfuscated_res_0x7f0f14ba));
+                            this.c.j.showToast(this.c.j.getActivity().getString(R.string.obfuscated_res_0x7f0f14bc));
                         }
                         TbadkCoreApplication.getInst().setLikeBarChanged(true);
                         this.c.Q(false, this.b.getId());
@@ -1394,7 +1394,7 @@ public class d76 implements h55, v85 {
             TbadkCoreApplication.getInst().clearSignedForum();
             String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount2 != null && currentAccount2.length() > 0) {
-                am8.g(currentAccount2);
+                zl8.g(currentAccount2);
             }
             this.b.c0(this.c.I());
         }

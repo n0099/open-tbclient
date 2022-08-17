@@ -119,16 +119,16 @@ public class co6 {
         return invokeL.booleanValue;
     }
 
-    public ArrayList<on> c(boolean z, boolean z2, ArrayList<on> arrayList, tk8 tk8Var, boolean z3, int i, List<AdMixFloor> list) {
+    public ArrayList<on> c(boolean z, boolean z2, ArrayList<on> arrayList, sk8 sk8Var, boolean z3, int i, List<AdMixFloor> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), arrayList, tk8Var, Boolean.valueOf(z3), Integer.valueOf(i), list})) == null) ? d(z, z2, arrayList, tk8Var, false, z3, i, list) : (ArrayList) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), arrayList, sk8Var, Boolean.valueOf(z3), Integer.valueOf(i), list})) == null) ? d(z, z2, arrayList, sk8Var, false, z3, i, list) : (ArrayList) invokeCommon.objValue;
     }
 
-    public ArrayList<on> d(boolean z, boolean z2, ArrayList<on> arrayList, tk8 tk8Var, boolean z3, boolean z4, int i, List<AdMixFloor> list) {
+    public ArrayList<on> d(boolean z, boolean z2, ArrayList<on> arrayList, sk8 sk8Var, boolean z3, boolean z4, int i, List<AdMixFloor> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), arrayList, tk8Var, Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i), list})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), arrayList, sk8Var, Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i), list})) == null) {
             if (this.d == null) {
                 return arrayList;
             }
@@ -136,7 +136,7 @@ public class co6 {
             if (this.d.w0()) {
                 return this.c.B(z, v0, arrayList, z3, z4, i, list);
             }
-            return this.b.G(z, v0, z2, arrayList, tk8Var, list, i);
+            return this.b.G(z, v0, z2, arrayList, sk8Var, list, i);
         }
         return (ArrayList) invokeCommon.objValue;
     }
@@ -216,7 +216,7 @@ public class co6 {
                 if (this.b.D(frsViewData.getThreadListIds())) {
                     this.b.E();
                     this.b.setSortType(this.d.d0());
-                    this.b.R(og.g(str2, 0L), frsViewData.getThreadListIds(), str, pn2, frsViewData.isBrandForum, this.d.g0() != null ? db8.e(this.d.g0().getThreadList(), false) : "");
+                    this.b.R(og.g(str2, 0L), frsViewData.getThreadListIds(), str, pn2, frsViewData.isBrandForum, this.d.g0() != null ? cb8.e(this.d.g0().getThreadList(), false) : "");
                 } else if (this.b.I() == 1) {
                     this.b.E();
                     this.b.setPn(pn2);
@@ -268,11 +268,11 @@ public class co6 {
         }
     }
 
-    public void m(zs6 zs6Var) {
+    public void m(ys6 ys6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, zs6Var) == null) {
-            this.b.T(zs6Var);
-            this.c.O(zs6Var);
+        if (interceptable == null || interceptable.invokeL(1048587, this, ys6Var) == null) {
+            this.b.T(ys6Var);
+            this.c.O(ys6Var);
         }
     }
 

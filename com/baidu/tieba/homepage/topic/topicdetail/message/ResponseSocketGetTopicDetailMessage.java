@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a37;
+import com.repackage.z27;
 import com.squareup.wire.Wire;
 import tbclient.NewHottopic.NewHottopicResIdl;
 /* loaded from: classes3.dex */
 public class ResponseSocketGetTopicDetailMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a37 mTopicDetailData;
+    public z27 mTopicDetailData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketGetTopicDetailMessage() {
@@ -48,18 +48,18 @@ public class ResponseSocketGetTopicDetailMessage extends SocketResponsedMessage 
             setError(newHottopicResIdl.error.errorno.intValue());
             setErrorString(newHottopicResIdl.error.usermsg);
             if (getError() == 0 && newHottopicResIdl.data != null) {
-                a37 a37Var = new a37();
-                this.mTopicDetailData = a37Var;
-                a37Var.b(newHottopicResIdl.data);
+                z27 z27Var = new z27();
+                this.mTopicDetailData = z27Var;
+                z27Var.b(newHottopicResIdl.data);
             }
             return newHottopicResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public a37 getTopicDetailData() {
+    public z27 getTopicDetailData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTopicDetailData : (a37) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTopicDetailData : (z27) invokeV.objValue;
     }
 }

@@ -43,13 +43,13 @@ public class om5 {
 
         /* renamed from: com.repackage.om5$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0548a extends BdRunnable {
+        public class C0550a extends BdRunnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONObject c;
             public final /* synthetic */ a d;
 
-            public C0548a(a aVar, JSONObject jSONObject) {
+            public C0550a(a aVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +118,7 @@ public class om5 {
                     e2.printStackTrace();
                 }
                 try {
-                    aw.f().h(new C0548a(this, new JSONObject(response.body().string())));
+                    aw.f().h(new C0550a(this, new JSONObject(response.body().string())));
                 } catch (IOException e3) {
                     e3.printStackTrace();
                 } catch (JSONException e4) {
@@ -205,7 +205,7 @@ public class om5 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, jSONObject)) == null) {
-            if (bf7.f(map)) {
+            if (af7.f(map)) {
                 return jSONObject;
             }
             for (Map.Entry<String, String> entry : map.entrySet()) {

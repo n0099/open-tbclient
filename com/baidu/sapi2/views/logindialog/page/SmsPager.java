@@ -463,12 +463,12 @@ public class SmsPager extends LinearLayout implements a.c {
             aVar.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
             this.n.setBox(i);
             if (ColorType.DARK == this.c) {
-                this.n.setBoxNormalBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081078));
-                this.n.setBoxErrorBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081076));
+                this.n.setBoxNormalBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081079));
+                this.n.setBoxErrorBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081077));
                 this.n.setTextColor(Color.parseColor("#CCFFFFFF"));
             } else {
-                this.n.setBoxNormalBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081077));
-                this.n.setBoxErrorBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081075));
+                this.n.setBoxNormalBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081078));
+                this.n.setBoxErrorBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081076));
                 this.n.setTextColor(Color.parseColor("#1F1F1F"));
             }
             this.n.b();

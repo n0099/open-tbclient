@@ -358,7 +358,7 @@ public class a63 implements al1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
                 if (bitmap == null) {
-                    bitmap = BitmapFactory.decodeResource(this.a.getResources(), R.drawable.obfuscated_res_0x7f081137);
+                    bitmap = BitmapFactory.decodeResource(this.a.getResources(), R.drawable.obfuscated_res_0x7f081138);
                 }
                 SwanAppRoundedImageView swanAppRoundedImageView = this.b;
                 if (swanAppRoundedImageView != null) {
@@ -807,7 +807,7 @@ public class a63 implements al1 {
             return;
         }
         if (!u(this.d)) {
-            xf3 xf3Var = new xf3(this.a, R.drawable.obfuscated_res_0x7f081114);
+            xf3 xf3Var = new xf3(this.a, R.drawable.obfuscated_res_0x7f081115);
             SpannableString spannableString = new SpannableString(" # ");
             spannableString.setSpan(xf3Var, 1, 2, 33);
             spannableString.setSpan(new f(this, textView), 0, spannableString.length(), 33);
@@ -864,9 +864,9 @@ public class a63 implements al1 {
         SpannableString spannableString = new SpannableString(textView2.getText());
         textView.setEnabled(z);
         if (z) {
-            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08118d);
-        } else {
             drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08118e);
+        } else {
+            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08118f);
         }
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         spannableString.setSpan(new b(this, drawable), 0, 4, 33);
@@ -927,12 +927,12 @@ public class a63 implements al1 {
         if (!(interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), view2, textView, z53Var}) == null) || view2 == null || z53Var == null || z53Var.n == null || (textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902ea)) == null) {
             return;
         }
-        textView2.setText("XXXX   " + this.a.getString(R.string.obfuscated_res_0x7f0f12ce));
+        textView2.setText("XXXX   " + this.a.getString(R.string.obfuscated_res_0x7f0f12d0));
         textView.setEnabled(z);
         if (z) {
-            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08118d);
-        } else {
             drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08118e);
+        } else {
+            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08118f);
         }
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         h hVar = new h(this, drawable);

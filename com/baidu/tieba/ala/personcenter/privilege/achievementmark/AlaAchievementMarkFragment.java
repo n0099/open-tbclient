@@ -157,7 +157,7 @@ public class AlaAchievementMarkFragment extends AbsFragment {
                     return;
                 }
                 AlaAchievementMarkFragment alaAchievementMarkFragment = this.a;
-                alaAchievementMarkFragment.showToast(alaAchievementMarkFragment.getResources().getString(R.string.obfuscated_res_0x7f0f0c75));
+                alaAchievementMarkFragment.showToast(alaAchievementMarkFragment.getResources().getString(R.string.obfuscated_res_0x7f0f0c76));
             }
         }
     }

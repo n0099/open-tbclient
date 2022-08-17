@@ -1,124 +1,67 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.ViewGroup;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.channel.GdtHelper;
+import com.qq.e.ads.nativ.widget.NativeAdContainer;
+import java.lang.ref.WeakReference;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public class pi9 implements PidLoaderCreator {
+public class pi9 implements GdtHelper.GdtNativeContainerCreator {
     public static /* synthetic */ Interceptable $ic;
+    public static final pi9 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Set<WeakReference<NativeAdContainer>> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755408815, "Lcom/repackage/pi9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755408815, "Lcom/repackage/pi9;");
+                return;
+            }
+        }
+        b = new pi9();
+    }
 
     public pi9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new HashSet();
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
-    public PidLoader create(Ssp.Pid pid) {
+    @Override // com.fun.ad.sdk.internal.api.channel.GdtHelper.GdtNativeContainerCreator
+    public ViewGroup generateGdtNativeContainer(Context context) {
         InterceptResult invokeL;
-        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            String str = pid.type;
-            str.hashCode();
-            switch (str.hashCode()) {
-                case -1303381232:
-                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS2)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -942661506:
-                    if (str.equals(FunAdType.GDT_SPLASH)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -596233886:
-                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 114133351:
-                    if (str.equals(FunAdType.GDT_UNIFIED_BANNER)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 125016359:
-                    if (str.equals(FunAdType.GDT_UNIFIED_INTERSTITIAL)) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 425812868:
-                    if (str.equals(FunAdType.GDT_NATIVE_UNIFIED)) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 543046357:
-                    if (str.equals(FunAdType.GDT_REWARD_VIDEO)) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1990506825:
-                    if (str.equals(FunAdType.GDT_FULLSCREEN_VIDEO)) {
-                        c = 7;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    return new ui9(pid);
-                case 1:
-                    return new dj9(pid);
-                case 2:
-                    return new xi9(pid);
-                case 3:
-                    return new ej9(pid);
-                case 4:
-                    return new fj9(pid);
-                case 5:
-                    return new zi9(pid);
-                case 6:
-                    return new cj9(pid);
-                case 7:
-                    return new ti9(pid);
-                default:
-                    return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            NativeAdContainer nativeAdContainer = new NativeAdContainer(context);
+            this.a.add(new WeakReference<>(nativeAdContainer));
+            return nativeAdContainer;
         }
-        return (PidLoader) invokeL.objValue;
+        return (ViewGroup) invokeL.objValue;
     }
 }

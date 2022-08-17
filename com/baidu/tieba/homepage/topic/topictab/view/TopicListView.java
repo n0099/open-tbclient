@@ -23,8 +23,8 @@ import com.repackage.av4;
 import com.repackage.bv4;
 import com.repackage.g65;
 import com.repackage.h65;
+import com.repackage.l37;
 import com.repackage.m37;
-import com.repackage.n37;
 import com.repackage.oi;
 import com.repackage.on;
 import com.repackage.qi;
@@ -35,10 +35,10 @@ public class TopicListView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public TbPageContext<?> b;
-    public m37 c;
+    public l37 c;
     public BdSwipeRefreshLayout d;
     public BdTypeRecyclerView e;
-    public n37 f;
+    public m37 f;
     public bv4 g;
     public g65 h;
     public h65 i;
@@ -168,9 +168,9 @@ public class TopicListView extends FrameLayout {
         if (h65Var != null) {
             h65Var.onChangeSkinType();
         }
-        n37 n37Var = this.f;
-        if (n37Var != null) {
-            n37Var.a();
+        m37 m37Var = this.f;
+        if (m37Var != null) {
+            m37Var.a();
         }
         PbListView pbListView = this.k;
         if (pbListView != null) {
@@ -235,7 +235,7 @@ public class TopicListView extends FrameLayout {
             this.k.f();
             this.k.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.k.t(qi.f(this.b.getPageActivity(), R.dimen.tbds150));
-            this.k.C(getResources().getString(R.string.obfuscated_res_0x7f0f0f7f));
+            this.k.C(getResources().getString(R.string.obfuscated_res_0x7f0f0f80));
         }
     }
 
@@ -282,9 +282,9 @@ public class TopicListView extends FrameLayout {
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, bdUniqueId) == null) {
-            n37 n37Var = this.f;
-            if (n37Var != null) {
-                n37Var.c(bdUniqueId);
+            m37 m37Var = this.f;
+            if (m37Var != null) {
+                m37Var.c(bdUniqueId);
             }
             bv4 bv4Var = this.g;
             if (bv4Var != null) {
@@ -293,10 +293,10 @@ public class TopicListView extends FrameLayout {
         }
     }
 
-    public void setPresenter(m37 m37Var) {
+    public void setPresenter(l37 l37Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, m37Var) == null) {
-            this.c = m37Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, l37Var) == null) {
+            this.c = l37Var;
         }
     }
 

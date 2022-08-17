@@ -60,7 +60,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
-import com.repackage.al8;
 import com.repackage.ap4;
 import com.repackage.b15;
 import com.repackage.bp4;
@@ -92,10 +91,11 @@ import com.repackage.rn4;
 import com.repackage.ru4;
 import com.repackage.sr4;
 import com.repackage.vm;
+import com.repackage.vm8;
 import com.repackage.w15;
-import com.repackage.wm8;
 import com.repackage.xo4;
 import com.repackage.xp4;
+import com.repackage.zk8;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -259,7 +259,7 @@ public class ThreadData extends fo4 implements PreLoadImageProvider, on, IVideoD
     public ForumRecTip forumRecTip;
     public String forum_name;
     public String from;
-    public al8 funAdData;
+    public zk8 funAdData;
     public String funAdId;
     public boolean hasPlayVirtualImage;
     public boolean hasRecommend;
@@ -556,20 +556,20 @@ public class ThreadData extends fo4 implements PreLoadImageProvider, on, IVideoD
         activityResMap.put(new Point(2, 2), Integer.valueOf((int) R.drawable.label_frs_activity_shai_over));
         activityResMap.put(new Point(2, 3), Integer.valueOf((int) R.drawable.label_frs_activity_shai_off));
         activityResMap.put(new Point(2, 4), Integer.valueOf((int) R.drawable.label_frs_activity_shai_d));
-        activityResStringMap.put(new Point(1, 1), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0a74));
-        activityResStringMap.put(new Point(1, 2), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0a77));
-        activityResStringMap.put(new Point(1, 3), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0a76));
-        activityResStringMap.put(new Point(1, 4), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0a75));
-        activityResStringMap.put(new Point(2, 1), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f113e));
-        activityResStringMap.put(new Point(2, 2), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f1141));
-        activityResStringMap.put(new Point(2, 3), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f1140));
-        activityResStringMap.put(new Point(2, 4), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f113f));
+        activityResStringMap.put(new Point(1, 1), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0a75));
+        activityResStringMap.put(new Point(1, 2), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0a78));
+        activityResStringMap.put(new Point(1, 3), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0a77));
+        activityResStringMap.put(new Point(1, 4), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0a76));
+        activityResStringMap.put(new Point(2, 1), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f113f));
+        activityResStringMap.put(new Point(2, 2), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f1142));
+        activityResStringMap.put(new Point(2, 3), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f1141));
+        activityResStringMap.put(new Point(2, 4), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f1140));
         mInterviewResMap.put(1, Integer.valueOf((int) R.drawable.label_interview_no));
         mInterviewResMap.put(2, Integer.valueOf((int) R.drawable.label_interview_live));
         mInterviewResMap.put(3, Integer.valueOf((int) R.drawable.label_interview_off));
-        mInterviewResMapForPb.put(1, new mz5.a(R.string.obfuscated_res_0x7f0f0947, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
-        mInterviewResMapForPb.put(2, new mz5.a(R.string.obfuscated_res_0x7f0f0946, R.color.CAM_X0309, R.drawable.pic_dot_title_green));
-        mInterviewResMapForPb.put(3, new mz5.a(R.string.obfuscated_res_0x7f0f0948, R.color.CAM_X0303, R.drawable.pic_dot_title_blue));
+        mInterviewResMapForPb.put(1, new mz5.a(R.string.obfuscated_res_0x7f0f0948, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+        mInterviewResMapForPb.put(2, new mz5.a(R.string.obfuscated_res_0x7f0f0947, R.color.CAM_X0309, R.drawable.pic_dot_title_green));
+        mInterviewResMapForPb.put(3, new mz5.a(R.string.obfuscated_res_0x7f0f0949, R.color.CAM_X0303, R.drawable.pic_dot_title_blue));
     }
 
     public ThreadData() {
@@ -957,7 +957,7 @@ public class ThreadData extends fo4 implements PreLoadImageProvider, on, IVideoD
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             if ((this instanceof dq4) && "0".equals(getId())) {
-                this.threadExtendInfo = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1513);
+                this.threadExtendInfo = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1516);
                 return;
             }
             int i = 36;
@@ -973,7 +973,7 @@ public class ThreadData extends fo4 implements PreLoadImageProvider, on, IVideoD
                         if (StringHelper.isThisYear(formatTimeForJustNow)) {
                             formatTimeForJustNow = StringHelper.getFormatTimeShort(last_time_int);
                         }
-                        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0fdc);
+                        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0fdd);
                         if (showWeakenName()) {
                             formatTimeForJustNow = StringHelper.getFormatTimeForHomeC(last_time_int);
                         }
@@ -1150,21 +1150,21 @@ public class ThreadData extends fo4 implements PreLoadImageProvider, on, IVideoD
             BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
             bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
             fv4 fv4Var = new fv4(bitmapDrawable, -100, dimensionPixelOffset, dimensionPixelOffset);
-            String q = ru4.k().q("nani_key_show_tail_txt", TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f0c2b));
+            String q = ru4.k().q("nani_key_show_tail_txt", TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f0c2c));
             if (StringUtils.isNull(q)) {
-                q = TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f0c2b);
+                q = TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f0c2c);
             }
             StringBuilder sb = new StringBuilder(q);
             if (getAuthor() != null) {
                 if (getAuthor().getGender() == 1) {
                     sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f083d));
                 } else if (getAuthor().getGender() == 2) {
-                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1170));
+                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1172));
                 } else {
-                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1342));
+                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1344));
                 }
             } else {
-                sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1342));
+                sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1344));
             }
             sb.insert(0, "[icon]");
             SpannableString spannableString = new SpannableString(sb.toString());
@@ -1962,7 +1962,7 @@ public class ThreadData extends fo4 implements PreLoadImageProvider, on, IVideoD
         if (interceptable == null || (invokeV = interceptable.invokeV(1048674, this)) == null) {
             ArrayList<ci5> arrayList = new ArrayList<>();
             if (this.isSCard) {
-                arrayList.add(new ci5(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1019)));
+                arrayList.add(new ci5(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f101a)));
             }
             return arrayList;
         }
@@ -2325,9 +2325,9 @@ public class ThreadData extends fo4 implements PreLoadImageProvider, on, IVideoD
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048725, this)) == null) {
-            al8 al8Var = this.funAdData;
-            if (al8Var != null) {
-                return al8Var.h() ? this.funAdData.i() ? AdvertAppInfo.G : AdvertAppInfo.H : this.funAdData.i() ? AdvertAppInfo.G : AdvertAppInfo.F;
+            zk8 zk8Var = this.funAdData;
+            if (zk8Var != null) {
+                return zk8Var.h() ? this.funAdData.i() ? AdvertAppInfo.G : AdvertAppInfo.H : this.funAdData.i() ? AdvertAppInfo.G : AdvertAppInfo.F;
             } else if (getIsDailyThread()) {
                 if (getThreadVideoInfo() != null) {
                     return TYPE_VIDEO;
@@ -2718,9 +2718,9 @@ public class ThreadData extends fo4 implements PreLoadImageProvider, on, IVideoD
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048757, this)) == null) {
-            al8 al8Var = this.funAdData;
-            if (al8Var != null) {
-                return al8Var.h();
+            zk8 zk8Var = this.funAdData;
+            if (zk8Var != null) {
+                return zk8Var.h();
             }
             return false;
         }
@@ -3105,10 +3105,10 @@ public class ThreadData extends fo4 implements PreLoadImageProvider, on, IVideoD
             this.forum_name = writeData.getForumName();
             VideoInfo.Builder builder = new VideoInfo.Builder();
             builder.is_vertical = Integer.valueOf(writeData.getVideoInfo().getVideoHeight() > writeData.getVideoInfo().getVideoWidth() ? 1 : 0);
-            if (pi.isEmpty(wm8.k().n())) {
+            if (pi.isEmpty(vm8.k().n())) {
                 n = writeData.getVideoInfo().getThumbPath();
             } else {
-                n = wm8.k().n();
+                n = vm8.k().n();
             }
             builder.thumbnail_url = n;
             builder.video_url = writeData.getVideoInfo().getVideoUrl();
@@ -4987,10 +4987,10 @@ public class ThreadData extends fo4 implements PreLoadImageProvider, on, IVideoD
                     if (getIsLive() == 1 || getThreadType() == 33 || (getTopicData() != null && getTopicData().a() != 0)) {
                         if (getTaskInfoData() == null || !isInterviewLive()) {
                             if (!needShowGodTitle) {
-                                arrayList.add(new mz5.a((int) R.string.obfuscated_res_0x7f0f0e75));
+                                arrayList.add(new mz5.a((int) R.string.obfuscated_res_0x7f0f0e76));
                             }
                         } else if (getTaskInfoStatus() == 2) {
-                            arrayList.add(new mz5.a((int) R.string.obfuscated_res_0x7f0f0940));
+                            arrayList.add(new mz5.a((int) R.string.obfuscated_res_0x7f0f0941));
                         }
                     }
                     if (isInterviewLive()) {
@@ -5015,16 +5015,16 @@ public class ThreadData extends fo4 implements PreLoadImageProvider, on, IVideoD
                         arrayList.add(new mz5.a((int) R.string.obfuscated_res_0x7f0f07ea));
                     }
                     if ((getIsLive() == 1 || getThreadType() == 33) && !isInterviewLive() && !needShowGodTitle) {
-                        arrayList.add(new mz5.a((int) R.string.obfuscated_res_0x7f0f0e75));
+                        arrayList.add(new mz5.a((int) R.string.obfuscated_res_0x7f0f0e76));
                     }
                     if (getIs_good() == 1) {
                         arrayList.add(new mz5.a((int) R.string.obfuscated_res_0x7f0f07eb));
                     }
                     if (getIs_top() == 1) {
-                        arrayList.add(new mz5.a((int) R.string.obfuscated_res_0x7f0f1432));
+                        arrayList.add(new mz5.a((int) R.string.obfuscated_res_0x7f0f1434));
                     }
                     if (isInterviewLive() && getTaskInfoData() != null && getTaskInfoStatus() == 2) {
-                        arrayList.add(new mz5.a((int) R.string.obfuscated_res_0x7f0f0940));
+                        arrayList.add(new mz5.a((int) R.string.obfuscated_res_0x7f0f0941));
                     }
                     if (isActInfo()) {
                         Integer num2 = activityResStringMap.get(new Point(getActInfoType(), getActInfoStatus()));
@@ -5038,7 +5038,7 @@ public class ThreadData extends fo4 implements PreLoadImageProvider, on, IVideoD
                         arrayList.add(new mz5.a((int) R.string.obfuscated_res_0x7f0f0386));
                     }
                     if (getAppCodeData() != null) {
-                        arrayList.add(new mz5.a(R.string.obfuscated_res_0x7f0f1101, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                        arrayList.add(new mz5.a(R.string.obfuscated_res_0x7f0f1102, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
                     }
                     if (getYulePostActivityData() != null) {
                         arrayList.add(new mz5.a(R.string.obfuscated_res_0x7f0f0385, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
@@ -5050,12 +5050,12 @@ public class ThreadData extends fo4 implements PreLoadImageProvider, on, IVideoD
                         arrayList.add(new mz5.a((int) R.string.obfuscated_res_0x7f0f0224));
                     }
                     if (z3 && isLiveRecordThread()) {
-                        arrayList.add(new mz5.a((int) R.string.obfuscated_res_0x7f0f0a12));
+                        arrayList.add(new mz5.a((int) R.string.obfuscated_res_0x7f0f0a13));
                     } else if (isRealVideoThread()) {
-                        arrayList.add(new mz5.a((int) R.string.obfuscated_res_0x7f0f1538));
+                        arrayList.add(new mz5.a((int) R.string.obfuscated_res_0x7f0f153b));
                     }
                     if (z4) {
-                        arrayList.add(new mz5.a((int) R.string.obfuscated_res_0x7f0f152e));
+                        arrayList.add(new mz5.a((int) R.string.obfuscated_res_0x7f0f1531));
                     }
                 }
             }

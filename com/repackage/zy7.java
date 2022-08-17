@@ -17,14 +17,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.rw;
 /* loaded from: classes8.dex */
-public class zy7 extends uy7 {
+public class zy7 extends ty7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout f;
-    public ItemCardView g;
-    public ThreadData h;
-    public fo4 i;
-    public gx j;
+    public yx g;
+    public ItemCardView h;
+    public ThreadData i;
+    public fo4 j;
+    public ky k;
 
     /* loaded from: classes8.dex */
     public class a extends fo4 {
@@ -64,7 +65,7 @@ public class zy7 extends uy7 {
         public ThreadData getThreadData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.h : (ThreadData) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.i : (ThreadData) invokeV.objValue;
         }
 
         @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
@@ -110,7 +111,7 @@ public class zy7 extends uy7 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = (zy7Var = this.a).c) == null) {
                 return;
             }
-            aVar.a(zy7Var.i);
+            aVar.a(zy7Var.j);
         }
     }
 
@@ -134,7 +135,7 @@ public class zy7 extends uy7 {
         }
     }
 
-    @Override // com.repackage.uy7
+    @Override // com.repackage.ty7
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -149,35 +150,41 @@ public class zy7 extends uy7 {
                 this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             }
             this.f.removeAllViews();
-            if (this.j == null) {
-                gx gxVar = new gx(this.a.getPageActivity());
-                this.j = gxVar;
-                gxVar.o(Boolean.TRUE);
-                this.j.y("pb");
-                this.j.A(0);
-                this.j.F(this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005), this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), 0);
-                this.j.G(false);
-                this.j.E(true);
-            }
-            this.f.addView(this.j.h());
             if (this.g == null) {
-                ItemCardView itemCardView = new ItemCardView(this.a.getPageActivity());
-                this.g = itemCardView;
-                itemCardView.setIsShowRightBtn(true);
+                yx yxVar = new yx(this.a);
+                this.g = yxVar;
+                yxVar.o(Boolean.TRUE);
             }
-            this.g.setBackGroundColor(R.color.CAM_X0205);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
+            layoutParams.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
             layoutParams.leftMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
             layoutParams.rightMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            layoutParams.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
-            this.f.addView(this.g, layoutParams);
+            this.f.addView(this.g.h(), layoutParams);
+            if (this.k == null) {
+                ky kyVar = new ky(this.a.getPageActivity());
+                this.k = kyVar;
+                kyVar.x("pb");
+            }
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
+            layoutParams2.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
+            layoutParams2.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.tbds_30);
+            this.f.addView(this.k.h(), layoutParams2);
+            if (this.h == null) {
+                this.h = new ItemCardView(this.a.getPageActivity());
+            }
+            this.h.setBackGroundColor(R.color.CAM_X0205);
+            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, -2);
+            layoutParams3.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
+            layoutParams3.leftMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
+            layoutParams3.rightMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
+            layoutParams3.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
+            this.f.addView(this.h, layoutParams3);
             return this.f;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.uy7
+    @Override // com.repackage.ty7
     public void b(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) || this.e == i) {
@@ -185,42 +192,55 @@ public class zy7 extends uy7 {
         }
         this.e = i;
         SkinManager.setBackgroundColor(this.f, R.color.CAM_X0206);
-        gx gxVar = this.j;
-        if (gxVar != null) {
-            gxVar.onChangeSkinType(tbPageContext, i);
+        yx yxVar = this.g;
+        if (yxVar != null) {
+            yxVar.onChangeSkinType(tbPageContext, i);
         }
-        ItemCardView itemCardView = this.g;
+        ItemCardView itemCardView = this.h;
         if (itemCardView != null) {
             itemCardView.G();
         }
+        ky kyVar = this.k;
+        if (kyVar != null) {
+            kyVar.onChangeSkinType(tbPageContext, i);
+        }
     }
 
-    @Override // com.repackage.uy7
+    @Override // com.repackage.ty7
     public void c(OriginalThreadInfo originalThreadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
             this.d = originalThreadInfo;
-            this.h = originalThreadInfo == null ? null : originalThreadInfo.b();
-            this.i = new a(this);
-            ItemCardView itemCardView = this.g;
+            this.i = originalThreadInfo == null ? null : originalThreadInfo.b();
+            a aVar = new a(this);
+            this.j = aVar;
+            ky kyVar = this.k;
+            if (kyVar != null) {
+                kyVar.a(aVar);
+            }
+            ItemCardView itemCardView = this.h;
             if (itemCardView != null && originalThreadInfo != null) {
                 itemCardView.setData(originalThreadInfo.D, 17, originalThreadInfo.f);
             }
-            gx gxVar = this.j;
-            if (gxVar != null) {
-                gxVar.a(this.i);
+            yx yxVar = this.g;
+            if (yxVar != null) {
+                yxVar.a(this.j);
             }
         }
     }
 
-    @Override // com.repackage.uy7
+    @Override // com.repackage.ty7
     public void d(rw.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             super.d(aVar);
-            gx gxVar = this.j;
-            if (gxVar != null) {
-                gxVar.B(aVar);
+            ky kyVar = this.k;
+            if (kyVar != null) {
+                kyVar.y(aVar);
+            }
+            yx yxVar = this.g;
+            if (yxVar != null) {
+                yxVar.x(aVar);
             }
             LinearLayout linearLayout = this.f;
             if (linearLayout != null) {
@@ -229,14 +249,14 @@ public class zy7 extends uy7 {
         }
     }
 
-    @Override // com.repackage.uy7
+    @Override // com.repackage.ty7
     public void e(b06 b06Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, b06Var) == null) {
             super.e(b06Var);
-            gx gxVar = this.j;
-            if (gxVar != null) {
-                gxVar.m(this.b);
+            ky kyVar = this.k;
+            if (kyVar != null) {
+                kyVar.m(this.b);
             }
         }
     }

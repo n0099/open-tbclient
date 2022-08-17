@@ -94,7 +94,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || i <= 0) {
             return;
         }
-        this.e.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0df6), StringHelper.stringForVideoTime(i * 1000)));
+        this.e.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0df7), StringHelper.stringForVideoTime(i * 1000)));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

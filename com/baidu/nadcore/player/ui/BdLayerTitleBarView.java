@@ -83,7 +83,7 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09146a);
             BdVideoBattery bdVideoBattery = (BdVideoBattery) findViewById(R.id.obfuscated_res_0x7f09145b);
             this.e = bdVideoBattery;
-            bdVideoBattery.setImage(R.drawable.obfuscated_res_0x7f080e0a);
+            bdVideoBattery.setImage(R.drawable.obfuscated_res_0x7f080e0b);
             this.f = (BdTextProgressView) findViewById(R.id.obfuscated_res_0x7f091464);
             f();
             this.h = findViewById(R.id.obfuscated_res_0x7f092240);
@@ -107,7 +107,7 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
             if (z2) {
                 this.b.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060874));
             } else {
-                this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de3));
+                this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de4));
             }
             c(z);
         }

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.b39;
 import com.repackage.d9;
-import com.repackage.p57;
+import com.repackage.o57;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetRecommendTopic.TopicList;
@@ -28,7 +28,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
     public final ab a;
     public b b;
     public boolean c;
-    public List<p57> d;
+    public List<o57> d;
 
     /* loaded from: classes4.dex */
     public class a extends ab {
@@ -72,7 +72,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(@NonNull List<p57> list);
+        void a(@NonNull List<o57> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -119,7 +119,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         }
         this.d = new ArrayList();
         for (TopicList topicList : list) {
-            this.d.add(new p57(topicList));
+            this.d.add(new o57(topicList));
         }
         b bVar = this.b;
         if (bVar != null) {

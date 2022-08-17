@@ -47,7 +47,7 @@ import com.repackage.pi;
 import com.repackage.pw4;
 import com.repackage.qi;
 import com.repackage.qw4;
-import com.repackage.vt6;
+import com.repackage.ut6;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -1104,15 +1104,15 @@ public class SpanGroupManager {
                     String substring = group.substring(18, group.length() - 7);
                     int start = matcher.start();
                     int end = matcher.end();
-                    vt6 vt6Var = null;
+                    ut6 ut6Var = null;
                     try {
-                        vt6Var = vt6.g(new JSONObject(substring));
+                        ut6Var = ut6.g(new JSONObject(substring));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    if (vt6Var != null) {
+                    if (ut6Var != null) {
                         TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
-                        cp4 b2 = cp4.b(tbLinkSpanGroup, vt6Var);
+                        cp4 b2 = cp4.b(tbLinkSpanGroup, ut6Var);
                         tbLinkSpanGroup.a(text, start, end, (int) this.c.getTextSize());
                         b2.h = substring;
                         tbLinkSpanGroup.B(b2.d);

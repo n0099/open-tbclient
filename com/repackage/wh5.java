@@ -12,15 +12,15 @@ public class wh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, dk8 dk8Var) {
+    public static boolean a(Context context, ck8 ck8Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, dk8Var)) == null) {
-            if (context == null || dk8Var == null || !dk8Var.b()) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, ck8Var)) == null) {
+            if (context == null || ck8Var == null || !ck8Var.b()) {
                 return false;
             }
             TiePlusHelper tiePlusHelper = new TiePlusHelper(context);
-            TiebaPlusInfo a = dk8Var.a();
+            TiebaPlusInfo a = ck8Var.a();
             if (a == null) {
                 return false;
             }

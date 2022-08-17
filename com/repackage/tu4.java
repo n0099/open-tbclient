@@ -37,7 +37,7 @@ public class tu4 {
     public PopupWindow g;
 
     /* loaded from: classes7.dex */
-    public class a implements eu7 {
+    public class a implements du7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ tu4 a;
@@ -60,12 +60,12 @@ public class tu4 {
             this.a = tu4Var;
         }
 
-        @Override // com.repackage.eu7
+        @Override // com.repackage.du7
         public /* synthetic */ void onStart() {
-            du7.a(this);
+            cu7.a(this);
         }
 
-        @Override // com.repackage.eu7
+        @Override // com.repackage.du7
         public void onStop() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -74,7 +74,7 @@ public class tu4 {
                     tg.d(this.a.g, this.a.a.getPageActivity());
                 }
                 if (this.a.f != null) {
-                    this.a.f.P();
+                    this.a.f.Q();
                 }
             }
         }

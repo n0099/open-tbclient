@@ -153,13 +153,13 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 
         /* renamed from: com.baidu.swan.apps.camera.view.CameraPreview$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0175a implements Runnable {
+        public class RunnableC0176a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ byte[] a;
             public final /* synthetic */ a b;
 
-            public RunnableC0175a(a aVar, byte[] bArr) {
+            public RunnableC0176a(a aVar, byte[] bArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -241,7 +241,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
                         e.printStackTrace();
                     }
                 }
-                td3.k(new RunnableC0175a(this, bArr), CommonTbJsBridge.SAVE_IMAGE);
+                td3.k(new RunnableC0176a(this, bArr), CommonTbJsBridge.SAVE_IMAGE);
             }
         }
     }

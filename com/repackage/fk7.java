@@ -2,31 +2,36 @@ package com.repackage;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.GridView;
+import android.widget.ListAdapter;
+import android.widget.ProgressBar;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
-import com.baidu.tieba.memberCenter.bubble.BubbleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class fk7 extends BaseAdapter {
+public class fk7 extends b9<BubbleChooseActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<BubbleListData.BubbleData> a;
-    public TbPageContext<BubbleChooseActivity> b;
-    public int c;
-    public int d;
-    public boolean e;
+    public NavigationBar a;
+    public ViewGroup b;
+    public GridView c;
+    public View d;
+    public ek7 e;
+    public BubbleChooseActivity f;
+    public ProgressBar g;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fk7(TbPageContext<BubbleChooseActivity> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -36,114 +41,89 @@ public class fk7 extends BaseAdapter {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = tbPageContext;
-        this.c = (int) tbPageContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201);
-        this.d = (int) this.b.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201);
+        BubbleChooseActivity orignalPage = tbPageContext.getOrignalPage();
+        this.f = orignalPage;
+        orignalPage.setContentView(R.layout.obfuscated_res_0x7f0d0160);
+        NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.obfuscated_res_0x7f09124a);
+        this.a = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.a.setTitleText(R.string.obfuscated_res_0x7f0f053d);
+        this.d = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0161, this.f);
+        this.b = (ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f0906bd);
+        this.c = (GridView) this.f.findViewById(R.id.obfuscated_res_0x7f090cf8);
+        ek7 ek7Var = new ek7(tbPageContext);
+        this.e = ek7Var;
+        this.c.setAdapter((ListAdapter) ek7Var);
+        this.g = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f09046a);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public BubbleListData.BubbleData getItem(int i) {
+    public ek7 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (ek7) invokeV.objValue;
+    }
+
+    public View k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (View) invokeV.objValue;
+    }
+
+    public GridView l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (GridView) invokeV.objValue;
+    }
+
+    public BubbleListData.BubbleData m(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<BubbleListData.BubbleData> list = this.a;
-            if (list != null) {
-                if (i >= 0 || i < list.size()) {
-                    return this.a.get(i);
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            ek7 ek7Var = this.e;
+            if (ek7Var == null) {
                 return null;
             }
-            return null;
+            return ek7Var.getItem(i);
         }
         return (BubbleListData.BubbleData) invokeI.objValue;
     }
 
-    public List<BubbleListData.BubbleData> b() {
-        InterceptResult invokeV;
+    public void n() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public void c(List<BubbleListData.BubbleData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a.clear();
-            BubbleListData.BubbleData bubbleData = new BubbleListData.BubbleData();
-            bubbleData.setBcode(0);
-            this.a.add(bubbleData);
-            this.a.addAll(list);
-            notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.g.setVisibility(8);
         }
     }
 
-    public void d(boolean z) {
+    public void o(List<BubbleListData.BubbleData> list, boolean z) {
+        ek7 ek7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.e = z;
+        if (!(interceptable == null || interceptable.invokeLZ(1048581, this, list, z) == null) || (ek7Var = this.e) == null) {
+            return;
+        }
+        ek7Var.d(z);
+        this.e.c(list);
+    }
+
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.a.onChangeSkinType((TbPageContext) getPageContext(), i);
+            this.f.getLayoutMode().l(i == 1);
+            this.f.getLayoutMode().k(this.b);
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<BubbleListData.BubbleData> list = this.a;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.g.setVisibility(0);
         }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        BubbleView bubbleView;
-        BubbleView bubbleView2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                bubbleView2 = new BubbleView(this.b.getPageActivity());
-                bubbleView = bubbleView2;
-            } else {
-                bubbleView = view2;
-                bubbleView2 = (BubbleView) view2;
-            }
-            if (i == 0 || i == 1) {
-                bubbleView2.setPadding(0, this.d, 0, 0);
-            }
-            if (getCount() % 2 == 0) {
-                if (i == getCount() - 1 || i == getCount() - 2) {
-                    bubbleView2.setPadding(0, bubbleView2.getPaddingTop(), 0, this.c);
-                }
-            } else if (i == getCount() - 1) {
-                bubbleView2.setPadding(0, bubbleView2.getPaddingTop(), 0, this.c);
-            }
-            BubbleListData.BubbleData item = getItem(i);
-            if (item != null) {
-                bubbleView2.setShowName(true);
-                bubbleView2.setData(item, this.e);
-            }
-            bubbleView2.a(this.b);
-            return bubbleView;
-        }
-        return (View) invokeILL.objValue;
     }
 }

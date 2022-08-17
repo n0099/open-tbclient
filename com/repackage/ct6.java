@@ -1,128 +1,93 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.funad.adapter.FunAdNativeNewAdapter;
+import com.baidu.tieba.funad.adapter.FunAdEmptyHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ct6 implements vs6 {
+public class ct6 extends bn<on, FunAdEmptyHolder> implements ub8, pb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaseFragmentActivity a;
 
-    public ct6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ct6(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        super(baseFragmentActivity, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragmentActivity, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = baseFragmentActivity;
+    }
+
+    @Override // com.repackage.pb8
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    @Override // com.repackage.vs6
-    public bn<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.pb8
+    public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
-            if (baseFragmentActivity == null) {
-                return null;
-            }
-            if (bdUniqueId == AdvertAppInfo.F) {
-                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
-                funAdNativeNewAdapter.setSid(ys6.e().d("pb_banner"));
-                funAdNativeNewAdapter.setPageType("pb");
-                funAdNativeNewAdapter.setSceneKey("pb_banner");
-                return funAdNativeNewAdapter;
-            } else if (bdUniqueId == AdvertAppInfo.I) {
-                FunAdNativeNewAdapter funAdNativeNewAdapter2 = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
-                funAdNativeNewAdapter2.setSid(ss6.f());
-                funAdNativeNewAdapter2.setPageType("pb");
-                return funAdNativeNewAdapter2;
-            } else if (bdUniqueId == AdvertAppInfo.G) {
-                return new dt6(baseFragmentActivity, bdUniqueId);
-            } else {
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
-        return (bn) invokeLL.objValue;
     }
 
-    @Override // com.repackage.vs6
-    public bn<?, ?> b(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.pb8
+    public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseFragmentActivity, bdUniqueId)) == null) {
-            if (baseFragmentActivity == null) {
-                return null;
-            }
-            if (bdUniqueId == AdvertAppInfo.H) {
-                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
-                funAdNativeNewAdapter.setSid(ss6.g());
-                funAdNativeNewAdapter.setPageType("personalize");
-                return funAdNativeNewAdapter;
-            } else if (bdUniqueId == AdvertAppInfo.G) {
-                return new dt6(baseFragmentActivity, bdUniqueId);
-            } else {
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
-        return (bn) invokeLL.objValue;
     }
 
-    @Override // com.repackage.vs6
-    public bn<?, ?> c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: s */
+    public FunAdEmptyHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseFragmentActivity, bdUniqueId)) == null) {
-            if (baseFragmentActivity == null) {
-                return null;
-            }
-            if (bdUniqueId == AdvertAppInfo.H) {
-                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
-                funAdNativeNewAdapter.setSid(ys6.e().d("frs_feed"));
-                funAdNativeNewAdapter.setPageType("frs");
-                funAdNativeNewAdapter.setSceneKey("frs_feed");
-                return funAdNativeNewAdapter;
-            } else if (bdUniqueId == AdvertAppInfo.G) {
-                return new dt6(baseFragmentActivity, bdUniqueId);
-            } else {
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+            View view2 = new View(this.a.getPageContext().getPageActivity());
+            view2.setVisibility(8);
+            return new FunAdEmptyHolder(view2);
         }
-        return (bn) invokeLL.objValue;
+        return (FunAdEmptyHolder) invokeL.objValue;
     }
 
-    @Override // com.repackage.vs6
-    public bn<?, ?> d(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, String str) {
-        InterceptResult invokeLLL;
+    @Override // com.repackage.ub8
+    public void setIsFromCDN(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, baseFragmentActivity, bdUniqueId, str)) == null) {
-            if (baseFragmentActivity == null) {
-                return null;
-            }
-            if (bdUniqueId == AdvertAppInfo.H) {
-                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
-                funAdNativeNewAdapter.setSid(ys6.e().d("frs_feed"));
-                funAdNativeNewAdapter.setPageType("frs");
-                funAdNativeNewAdapter.setPageTab(str);
-                funAdNativeNewAdapter.setSceneKey("frs_feed");
-                return funAdNativeNewAdapter;
-            } else if (bdUniqueId == AdvertAppInfo.G) {
-                return new dt6(baseFragmentActivity, bdUniqueId);
-            } else {
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
         }
-        return (bn) invokeLLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, on onVar, FunAdEmptyHolder funAdEmptyHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, onVar, funAdEmptyHolder})) == null) ? funAdEmptyHolder.getView() : (View) invokeCommon.objValue;
     }
 }

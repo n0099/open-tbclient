@@ -401,12 +401,12 @@ public class uk5 {
                 if (!pi.isEmpty(G)) {
                     this.s.setText(G);
                 } else {
-                    this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13ad));
+                    this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13af));
                 }
             }
             TBSpecificationBtn tBSpecificationBtn2 = this.t;
             if (tBSpecificationBtn2 != null) {
-                tBSpecificationBtn2.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c9f));
+                tBSpecificationBtn2.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ca0));
             }
         }
     }
@@ -483,7 +483,7 @@ public class uk5 {
                 pv4Var.r(R.color.CAM_X0304);
                 this.t.setConfig(this.u);
                 this.t.setOnClickListener(this.D);
-                this.t.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c9f));
+                this.t.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ca0));
                 this.t.setTextSize(R.dimen.T_X08);
                 ViewGroup viewGroup2 = this.d;
                 int i = this.n;
@@ -631,11 +631,11 @@ public class uk5 {
         }
         l();
         new wu4().a = 1500L;
-        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fb5);
+        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fb6);
         if (o != null && "7".equals(o.optString("dislike_ids"))) {
             string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0652);
         }
-        qi.O(this.a, string);
+        qi.N(this.a, string);
         NEGFeedBackView.b bVar = this.p;
         if (bVar != null) {
             bVar.a(arrayList, n(), this.e);

@@ -266,20 +266,20 @@ public class a51 extends c51 {
         }
         if (size == 1) {
             linearLayout.setOrientation(0);
-            linearLayout.addView(g(list.get(0), linearLayout, R.drawable.obfuscated_res_0x7f080d6f));
+            linearLayout.addView(g(list.get(0), linearLayout, R.drawable.obfuscated_res_0x7f080d70));
         } else if (size == this.h) {
             linearLayout.setOrientation(0);
-            linearLayout.addView(g(list.get(0), linearLayout, R.drawable.obfuscated_res_0x7f080d6d));
+            linearLayout.addView(g(list.get(0), linearLayout, R.drawable.obfuscated_res_0x7f080d6e));
             linearLayout.addView(j(0));
-            linearLayout.addView(g(list.get(1), linearLayout, R.drawable.obfuscated_res_0x7f080d71));
+            linearLayout.addView(g(list.get(1), linearLayout, R.drawable.obfuscated_res_0x7f080d72));
         } else {
             linearLayout.setOrientation(1);
             for (int i = 0; i < list.size(); i++) {
                 if (i < list.size() - 1) {
-                    linearLayout.addView(g(list.get(i), linearLayout, R.drawable.obfuscated_res_0x7f080d6b));
+                    linearLayout.addView(g(list.get(i), linearLayout, R.drawable.obfuscated_res_0x7f080d6c));
                     linearLayout.addView(j(1));
                 } else if (i == list.size() - 1) {
-                    linearLayout.addView(g(list.get(i), linearLayout, R.drawable.obfuscated_res_0x7f080d6f));
+                    linearLayout.addView(g(list.get(i), linearLayout, R.drawable.obfuscated_res_0x7f080d70));
                 }
             }
         }

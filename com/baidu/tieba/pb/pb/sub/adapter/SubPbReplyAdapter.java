@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.su7;
-import com.repackage.vz7;
-import com.repackage.zz7;
+import com.repackage.ru7;
+import com.repackage.uz7;
+import com.repackage.yz7;
 /* loaded from: classes4.dex */
-public class SubPbReplyAdapter extends vz7<zz7, SubPbReplyViewHolder> {
+public class SubPbReplyAdapter extends uz7<yz7, SubPbReplyViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean c;
@@ -78,19 +78,19 @@ public class SubPbReplyAdapter extends vz7<zz7, SubPbReplyViewHolder> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SubPbReplyAdapter(su7 su7Var, BdUniqueId bdUniqueId) {
-        super(su7Var, bdUniqueId);
+    public SubPbReplyAdapter(ru7 ru7Var, BdUniqueId bdUniqueId) {
+        super(ru7Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {su7Var, bdUniqueId};
+            Object[] objArr = {ru7Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((su7) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((ru7) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -109,13 +109,13 @@ public class SubPbReplyAdapter extends vz7<zz7, SubPbReplyViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.vz7, com.repackage.bn
+    @Override // com.repackage.uz7, com.repackage.bn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, zz7 zz7Var, SubPbReplyViewHolder subPbReplyViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, yz7 yz7Var, SubPbReplyViewHolder subPbReplyViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zz7Var, subPbReplyViewHolder})) == null) {
-            String format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1214), String.valueOf(zz7Var == null ? 0 : zz7Var.a()));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, yz7Var, subPbReplyViewHolder})) == null) {
+            String format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1216), String.valueOf(yz7Var == null ? 0 : yz7Var.a()));
             subPbReplyViewHolder.c(this.c);
             ((SubPbReplyViewHolder) this.viewholder).a.setText(format);
             ((SubPbReplyViewHolder) this.viewholder).b();

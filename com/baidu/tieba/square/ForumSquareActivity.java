@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oh8;
+import com.repackage.nh8;
 /* loaded from: classes4.dex */
 public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -41,9 +41,9 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            oh8 oh8Var = this.a.mForumSquareView;
-            if (oh8Var != null) {
-                oh8Var.a(i);
+            nh8 nh8Var = this.a.mForumSquareView;
+            if (nh8Var != null) {
+                nh8Var.a(i);
             }
         }
     }

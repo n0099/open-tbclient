@@ -116,7 +116,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             } else {
                 setBtnVisibility(4, 0, 4);
                 setTitleDrawable(null, null, null, null);
-                setLeftBtnDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081004), null, null, null);
+                setLeftBtnDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081005), null, null, null);
             }
             b();
             if (this.configuration.showBottomBack) {
@@ -131,7 +131,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && (sapiConfiguration = this.configuration) != null && sapiConfiguration.isDarkMode) {
             if (this.useTitle) {
                 setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f0609c5));
-                setLeftBtnImage(R.drawable.obfuscated_res_0x7f081005);
+                setLeftBtnImage(R.drawable.obfuscated_res_0x7f081006);
                 setLeftBtnTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c2));
                 setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c2));
                 setRightBtnColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c2));
@@ -141,7 +141,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
                 }
                 ImageView imageView = this.mRightBtnClose;
                 if (imageView != null) {
-                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f081074);
+                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f081075);
                 }
                 View view2 = this.dividerLine;
                 if (view2 != null) {
@@ -150,7 +150,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             }
             ImageView imageView2 = this.mBottomBackBtnIv;
             if (imageView2 != null) {
-                imageView2.setImageResource(R.drawable.obfuscated_res_0x7f081005);
+                imageView2.setImageResource(R.drawable.obfuscated_res_0x7f081006);
             }
             RelativeLayout relativeLayout = this.mBottomBgLayout;
             if (relativeLayout != null) {

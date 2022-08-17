@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.qi;
-import com.repackage.ss6;
+import com.repackage.rs6;
 import com.repackage.ud5;
 /* loaded from: classes2.dex */
 public class InitBearTask extends LaunchTask {
@@ -67,7 +67,7 @@ public class InitBearTask extends LaunchTask {
             SpeedStatsManager.getInstance().setIsNeedBear(q);
             SpeedStatsManager.getInstance().setIsNeedPlg(ud5.w());
             if (q) {
-                ss6.m().u(new ss6.l(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
+                rs6.m().u(new rs6.l(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ InitBearTask this$0;
@@ -90,7 +90,7 @@ public class InitBearTask extends LaunchTask {
                         this.this$0 = this;
                     }
 
-                    @Override // com.repackage.ss6.l
+                    @Override // com.repackage.rs6.l
                     public void initComplete() {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {

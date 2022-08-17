@@ -54,23 +54,23 @@ public class tj5 {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
                 if (z) {
                     if (z2) {
-                        qi.O(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f00d0));
+                        qi.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f00d0));
                     } else {
-                        qi.O(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f0fd1));
+                        qi.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f0fd2));
                     }
                     if (this.a.c != null) {
                         this.a.c.a(z2);
                     }
                     if (this.a.d != null) {
-                        yk8 yk8Var = new yk8();
-                        yk8Var.a = this.a.d.getThreadId();
-                        yk8Var.b = z2;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, yk8Var));
+                        xk8 xk8Var = new xk8();
+                        xk8Var.a = this.a.d.getThreadId();
+                        xk8Var.b = z2;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, xk8Var));
                         return;
                     }
                     return;
                 }
-                qi.O(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f14c0));
+                qi.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f14c2));
             }
         }
     }

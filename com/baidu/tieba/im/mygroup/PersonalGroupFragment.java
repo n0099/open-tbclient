@@ -44,7 +44,7 @@ import com.repackage.av4;
 import com.repackage.bv4;
 import com.repackage.cb;
 import com.repackage.oi;
-import com.repackage.w87;
+import com.repackage.v87;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -54,7 +54,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
     public transient /* synthetic */ FieldHolder $fh;
     public BdListView a;
     public bv4 b;
-    public w87 c;
+    public v87 c;
     public NoDataView d;
     public View e;
     public boolean f;
@@ -230,7 +230,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
                 ResponseGroupsByUidMessage responseGroupsByUidMessage = (ResponseGroupsByUidMessage) socketResponsedMessage;
                 if (responseGroupsByUidMessage.getError() != 0) {
                     if (responseGroupsByUidMessage.getError() != 0) {
-                        this.a.showToast(StringUtils.isNull(responseGroupsByUidMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3c) : responseGroupsByUidMessage.getErrorString());
+                        this.a.showToast(StringUtils.isNull(responseGroupsByUidMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3d) : responseGroupsByUidMessage.getErrorString());
                         return;
                     }
                     return;
@@ -437,9 +437,9 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            w87 w87Var = this.c;
-            if (w87Var != null) {
-                w87Var.notifyDataSetChanged();
+            v87 v87Var = this.c;
+            if (v87Var != null) {
+                v87Var.notifyDataSetChanged();
             }
             NoDataView noDataView = this.d;
             if (noDataView != null) {
@@ -480,9 +480,9 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
             PersonGroupActivity v1 = v1();
             if (v1 != null && !v1.P0()) {
                 if (this.g == 0) {
-                    d2 = NoDataViewFactory.e.c(String.format(getString(R.string.obfuscated_res_0x7f0f0e49), v1.T0()));
+                    d2 = NoDataViewFactory.e.c(String.format(getString(R.string.obfuscated_res_0x7f0f0e4a), v1.T0()));
                 } else {
-                    d2 = NoDataViewFactory.e.c(getString(R.string.obfuscated_res_0x7f0f0e48));
+                    d2 = NoDataViewFactory.e.c(getString(R.string.obfuscated_res_0x7f0f0e49));
                 }
             } else {
                 d2 = (v1 == null || !v1.P0()) ? null : NoDataViewFactory.e.d(getString(R.string.obfuscated_res_0x7f0f0805), getString(R.string.obfuscated_res_0x7f0f0806));
@@ -490,7 +490,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
             this.d = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070231)), d2, null);
             this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f091905);
             this.b = new bv4(getPageContext());
-            this.c = new w87(this);
+            this.c = new v87(this);
             this.b.f(new b(this));
             this.a.setPullRefresh(this.b);
             this.a.setAdapter((ListAdapter) this.c);

@@ -5,19 +5,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class zc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public double b;
-    public List<String> c;
-    public int d;
-    public int e;
+    public int a;
+    public int b;
+    public int c;
+    public long d;
 
     public zc8() {
         Interceptable interceptable = $ic;
@@ -41,22 +37,10 @@ public class zc8 {
                 return null;
             }
             zc8 zc8Var = new zc8();
-            zc8Var.a = jSONObject.optInt("label_measure") == 2;
-            zc8Var.b = jSONObject.optDouble("show_width_scale", 1.0d);
-            ArrayList arrayList = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("thread_pic_list");
-            if (optJSONArray != null) {
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        bf7.a(arrayList, optJSONObject.optString("pic"));
-                    }
-                }
-            }
-            zc8Var.c = arrayList;
-            zc8Var.d = jSONObject.optInt("width");
-            zc8Var.e = jSONObject.optInt("height");
+            zc8Var.a = jSONObject.optInt("agree_num", -1);
+            zc8Var.b = jSONObject.optInt("share_num", -1);
+            zc8Var.c = jSONObject.optInt("reply_num", -1);
+            zc8Var.d = jSONObject.optLong("time", System.currentTimeMillis());
             return zc8Var;
         }
         return (zc8) invokeL.objValue;

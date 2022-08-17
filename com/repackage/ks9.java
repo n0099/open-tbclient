@@ -4,16 +4,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes6.dex */
-public class ks9 extends gs9 {
+public class ks9 extends hs9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ks9() {
-        super(Framedata.Opcode.TEXT);
+        super(Framedata.Opcode.PING);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -25,17 +24,6 @@ public class ks9 extends gs9 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
-            }
-        }
-    }
-
-    @Override // com.repackage.gs9, com.repackage.hs9
-    public void h() throws InvalidDataException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.h();
-            if (!ys9.b(a())) {
-                throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
             }
         }
     }

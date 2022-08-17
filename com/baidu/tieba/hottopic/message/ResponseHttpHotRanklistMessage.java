@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b57;
+import com.repackage.a57;
 import com.squareup.wire.Wire;
 import tbclient.TopicList.TopicListResIdl;
 /* loaded from: classes3.dex */
 public class ResponseHttpHotRanklistMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b57 ranklistData;
+    public a57 ranklistData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpHotRanklistMessage() {
@@ -35,10 +35,10 @@ public class ResponseHttpHotRanklistMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public b57 getHotRanklistData() {
+    public a57 getHotRanklistData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.ranklistData : (b57) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.ranklistData : (a57) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -63,8 +63,8 @@ public class ResponseHttpHotRanklistMessage extends TbHttpResponsedMessage {
         if (getError() != 0) {
             return;
         }
-        b57 b57Var = new b57();
-        this.ranklistData = b57Var;
-        b57Var.b(topicListResIdl.data);
+        a57 a57Var = new a57();
+        this.ranklistData = a57Var;
+        a57Var.b(topicListResIdl.data);
     }
 }

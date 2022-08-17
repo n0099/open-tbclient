@@ -67,7 +67,7 @@ public class ga1 {
                     message = th != null ? th.getMessage() : null;
                 }
                 ChannelListView channelListView = this.b;
-                channelListView.S(da1.a().getString(R.string.obfuscated_res_0x7f0f0d70) + message, str);
+                channelListView.S(da1.a().getString(R.string.obfuscated_res_0x7f0f0d71) + message, str);
                 n91 n91Var = new n91("1");
                 n91Var.b(new SdkException("pay_platform error --> " + str, th).getStackMessage());
                 q91.e(n91Var);

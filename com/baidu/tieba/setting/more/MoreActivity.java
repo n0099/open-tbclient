@@ -65,10 +65,10 @@ import com.repackage.c55;
 import com.repackage.c9;
 import com.repackage.mu4;
 import com.repackage.ru4;
+import com.repackage.se8;
 import com.repackage.te8;
-import com.repackage.ue8;
 import com.repackage.un4;
-import com.repackage.y88;
+import com.repackage.x88;
 import com.repackage.z55;
 import java.util.ArrayList;
 import java.util.List;
@@ -76,7 +76,7 @@ import java.util.List;
 public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ue8 a;
+    public te8 a;
     public MoreModel b;
     public MoreDiscoveryModel c;
     public g d;
@@ -227,7 +227,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     }
 
     /* loaded from: classes4.dex */
-    public class d implements te8 {
+    public class d implements se8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MoreActivity a;
@@ -250,7 +250,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             this.a = moreActivity;
         }
 
-        @Override // com.repackage.te8
+        @Override // com.repackage.se8
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.a.e2(i)) {
@@ -291,7 +291,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 TbadkSettings.getInst().saveBoolean("is_exit_app_not_start_websocket", true);
                 z55.b(0, 0, 0, 2, 12);
                 BdSocketLinkService.close("exit app");
-                y88.d().b();
+                x88.d().b();
                 mu4.g(this.a.getPageContext().getPageActivity(), 12, false);
             }
         }
@@ -389,7 +389,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && obj != null && (obj instanceof MoreModel.TaskType)) {
                 if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
                     MoreActivity moreActivity = this.a;
-                    moreActivity.showToast(moreActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f08cc));
+                    moreActivity.showToast(moreActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f08cd));
                 }
                 this.a.closeLoadingDialog();
             }
@@ -472,10 +472,10 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, personChangeData)) == null) ? (personChangeData == null || (TextUtils.isEmpty(personChangeData.getUserId()) && TextUtils.isEmpty(personChangeData.getName()) && TextUtils.isEmpty(personChangeData.getPortrait()) && TextUtils.isEmpty(personChangeData.getmTiebaId()))) ? false : true : invokeL.booleanValue;
     }
 
-    public final te8 R1() {
+    public final se8 R1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new d(this) : (te8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new d(this) : (se8) invokeV.objValue;
     }
 
     public final void S1() {
@@ -636,12 +636,12 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void i0(View view2, BdSwitchView.SwitchState switchState) {
-        ue8 ue8Var;
+        te8 te8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048595, this, view2, switchState) == null) || view2 == null || (ue8Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048595, this, view2, switchState) == null) || view2 == null || (te8Var = this.a) == null) {
             return;
         }
-        if (view2 == ue8Var.B()) {
+        if (view2 == te8Var.B()) {
             if (BdSwitchView.SwitchState.ON == switchState) {
                 UtilHelper.showSkinChangeAnimation(this);
                 UtilHelper.setNavigationBarBackground(this, getResources().getColor(R.color.CAM_X0201_1));
@@ -723,7 +723,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new ue8(this, R1());
+            this.a = new te8(this, R1());
             d2(bundle);
             h2();
             registerListener(this.g);
@@ -739,9 +739,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onDestroy();
             i2();
-            ue8 ue8Var = this.a;
-            if (ue8Var != null) {
-                ue8Var.z();
+            te8 te8Var = this.a;
+            if (te8Var != null) {
+                te8Var.z();
             }
         }
     }
@@ -774,9 +774,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             super.onResume();
-            ue8 ue8Var = this.a;
-            if (ue8Var != null) {
-                ue8Var.K();
+            te8 te8Var = this.a;
+            if (te8Var != null) {
+                te8Var.K();
                 this.a.H();
             }
         }
@@ -809,9 +809,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             if (this.k != null) {
                 this.k = new GetImageWatermarkTypeModel(this);
             }
-            ue8 ue8Var = this.a;
-            if (ue8Var != null) {
-                ue8Var.N();
+            te8 te8Var = this.a;
+            if (te8Var != null) {
+                te8Var.N();
                 this.a.P();
             }
         }

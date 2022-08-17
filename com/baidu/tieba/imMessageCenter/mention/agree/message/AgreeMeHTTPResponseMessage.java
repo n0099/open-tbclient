@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jc7;
+import com.repackage.ic7;
 import com.repackage.tr4;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import tbclient.Error;
 public class AgreeMeHTTPResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<jc7> datas;
+    public ArrayList<ic7> datas;
     public boolean hasMore;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -76,9 +76,9 @@ public class AgreeMeHTTPResponseMessage extends TbHttpResponsedMessage {
                 this.hasMore = dataRes.has_more.intValue() == 1;
                 for (AgreeList agreeList : agreeMeResIdl.data.agree_list) {
                     if (agreeList != null) {
-                        jc7 jc7Var = new jc7();
-                        jc7Var.J(agreeList);
-                        this.datas.add(jc7Var);
+                        ic7 ic7Var = new ic7();
+                        ic7Var.J(agreeList);
+                        this.datas.add(ic7Var);
                     }
                 }
             }

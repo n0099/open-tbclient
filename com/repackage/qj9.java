@@ -1,77 +1,99 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.win.opensdk.PBDrawVideo;
-import com.win.opensdk.PBDrawVideoListener;
 /* loaded from: classes7.dex */
-public class qj9 extends FunNativeAd2Bridger<PBDrawVideo, View> {
+public class qj9 implements PidLoaderCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ pj9 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qj9(pj9 pj9Var, ReporterPidLoader reporterPidLoader) {
-        super(reporterPidLoader);
+    public qj9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pj9Var, reporterPidLoader};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = pj9Var;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public View createExpressView(PBDrawVideo pBDrawVideo) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
+    public PidLoader create(Ssp.Pid pid) {
         InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pBDrawVideo)) == null) ? pBDrawVideo.getDrawVideoView() : (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, PBDrawVideo pBDrawVideo, BaseNativeAd2<PBDrawVideo, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, pBDrawVideo, baseNativeAd2, funAdInteractionListener}) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            String str = pid.type;
+            str.hashCode();
+            switch (str.hashCode()) {
+                case -1900686778:
+                    if (str.equals(FunAdType.JY_NATIVE)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1743934314:
+                    if (str.equals(FunAdType.JY_SPLASH)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1659486968:
+                    if (str.equals(FunAdType.JY_DRAW_VIDEO)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -39027267:
+                    if (str.equals(FunAdType.JY_REWARD_VIDEO)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1872382491:
+                    if (str.equals(FunAdType.JY_INTERSTITIAL)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            if (c != 4) {
+                                return null;
+                            }
+                            return new tj9(pid);
+                        }
+                        return new wj9(pid);
+                    }
+                    return new rj9(pid);
+                }
+                return new xj9(pid);
+            }
+            return new uj9(pid);
         }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, PBDrawVideo pBDrawVideo, BaseNativeAd2<PBDrawVideo, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Ssp.Pid pid;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, pBDrawVideo, baseNativeAd2, funAdInteractionListener}) == null) {
-            pj9 pj9Var = this.b;
-            FunNativeAdListenerHelper<PBDrawVideo, PBDrawVideoListener> funNativeAdListenerHelper = pj9Var.e;
-            pid = pj9Var.mPid;
-            funNativeAdListenerHelper.startShow(pBDrawVideo, str, pid, null, funAdInteractionListener);
-            expressInflater.inflate();
-        }
+        return (PidLoader) invokeL.objValue;
     }
 }

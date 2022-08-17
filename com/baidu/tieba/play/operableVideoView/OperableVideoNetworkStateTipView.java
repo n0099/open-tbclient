@@ -90,11 +90,11 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
             qv4Var.s();
             qv4Var.i(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
             qv4Var.g(qi.f(getContext(), R.dimen.tbds32));
-            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f150e));
+            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1511));
             this.a.setTextSize(R.dimen.tbds36);
             this.a.setConfig(qv4Var);
             ov4 ov4Var = new ov4();
-            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1521));
+            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1524));
             this.b.setTextSize(R.dimen.tbds36);
             this.b.setConfig(ov4Var);
             this.a.setOnClickListener(this);
@@ -169,7 +169,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         if (!(interceptable == null || interceptable.invokeJ(1048586, this, j) == null) || j <= 0) {
             return;
         }
-        this.a.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f150b), StringHelper.getFormatSize(j)));
+        this.a.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f150e), StringHelper.getFormatSize(j)));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

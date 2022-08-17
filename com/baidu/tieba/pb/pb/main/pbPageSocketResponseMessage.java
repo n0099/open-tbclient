@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dt7;
-import com.repackage.ft7;
-import com.repackage.ld8;
-import com.repackage.xv7;
+import com.repackage.ct7;
+import com.repackage.et7;
+import com.repackage.kd8;
+import com.repackage.wv7;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.PbPage.AppealInfo;
@@ -27,8 +27,8 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public String cacheKey;
     public boolean isFromMark;
-    public dt7 mAppealInfo;
-    public ft7 pbData;
+    public ct7 mAppealInfo;
+    public et7 pbData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -62,12 +62,12 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 if (getError() != 4 || pbPageResIdl.data == null) {
                     return pbPageResIdl;
                 }
-                dt7 dt7Var = new dt7();
-                this.mAppealInfo = dt7Var;
+                ct7 ct7Var = new ct7();
+                this.mAppealInfo = ct7Var;
                 AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
                 if (appealInfo != null) {
-                    dt7Var.a = appealInfo.source;
-                    dt7Var.c = appealInfo.appeal_url;
+                    ct7Var.a = appealInfo.source;
+                    ct7Var.c = appealInfo.appeal_url;
                 }
                 SimpleForum simpleForum = pbPageResIdl.data.forum;
                 if (simpleForum != null) {
@@ -75,18 +75,18 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 }
                 return pbPageResIdl;
             }
-            ft7 ft7Var = new ft7();
-            this.pbData = ft7Var;
-            ft7Var.B0(2);
+            et7 et7Var = new et7();
+            this.pbData = et7Var;
+            et7Var.B0(2);
             this.pbData.A0(pbPageResIdl.data);
             DataRes dataRes = pbPageResIdl.data;
             if (dataRes != null) {
-                JSONObject b = ld8.b(dataRes.thread);
+                JSONObject b = kd8.b(dataRes.thread);
                 ArrayList arrayList = new ArrayList();
                 if (b != null) {
                     arrayList.add(b);
                 }
-                ld8.f().h("PB", arrayList);
+                kd8.f().h("PB", arrayList);
             }
             BdLog.detailException(null);
             return pbPageResIdl;
@@ -94,16 +94,16 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public dt7 getAppealInfo() {
+    public ct7 getAppealInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAppealInfo : (dt7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAppealInfo : (ct7) invokeV.objValue;
     }
 
-    public ft7 getPbData() {
+    public et7 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.pbData : (ft7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.pbData : (et7) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -133,10 +133,10 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             int i2 = this.updateType;
             if (i2 == 3) {
-                xv7.b().e(this.cacheKey, this.isFromMark, bArr);
+                wv7.b().e(this.cacheKey, this.isFromMark, bArr);
             } else if (i2 != 4) {
             } else {
-                xv7.b().f(this.cacheKey, bArr);
+                wv7.b().f(this.cacheKey, bArr);
             }
         }
     }

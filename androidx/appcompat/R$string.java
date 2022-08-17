@@ -34,8 +34,8 @@ public final class R$string {
     public static final int abc_shareactionprovider_share_with = 2131689552;
     public static final int abc_shareactionprovider_share_with_application = 2131689553;
     public static final int abc_toolbar_collapse_description = 2131689554;
-    public static final int search_menu_title = 2131693763;
-    public static final int status_bar_notification_info_overflow = 2131694062;
+    public static final int search_menu_title = 2131693764;
+    public static final int status_bar_notification_info_overflow = 2131694064;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$string() {

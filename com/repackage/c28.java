@@ -1,33 +1,122 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
+import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pbextra.praise.PraiseListActivity;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pbextra.praise.PraiseListResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class c28 extends BaseAdapter implements AbsListView.OnScrollListener {
+public class c28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PraiseListActivity a;
-    public List<a28> b;
-    public volatile boolean c;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public int e;
+    public int f;
+    public int g;
+    public final List<z18> h;
+    public b i;
+    public final HttpMessageListener j;
 
-    public c28(PraiseListActivity praiseListActivity) {
+    /* loaded from: classes5.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c28 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(c28 c28Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c28Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c28Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001400) {
+                    if (this.a.i != null) {
+                        this.a.i.h(null);
+                    }
+                } else if (httpResponsedMessage.getError() != 0 || !(httpResponsedMessage instanceof PraiseListResponsedMessage)) {
+                    if (this.a.i != null) {
+                        this.a.i.h(null);
+                    }
+                } else {
+                    PraiseListResponsedMessage praiseListResponsedMessage = (PraiseListResponsedMessage) httpResponsedMessage;
+                    if (praiseListResponsedMessage.getError() != 0) {
+                        if (this.a.i != null) {
+                            this.a.i.h(praiseListResponsedMessage.getErrMsg());
+                            return;
+                        }
+                        return;
+                    }
+                    List<z18> list = praiseListResponsedMessage.getmZanItemDataList();
+                    if (list != null) {
+                        for (z18 z18Var : list) {
+                            this.a.h.add(z18Var);
+                        }
+                    }
+                    c28 c28Var = this.a;
+                    c28Var.g = c28Var.h.size();
+                    this.a.f = praiseListResponsedMessage.getTotalNum();
+                    c28.h(this.a);
+                    int i = this.a.e > 5 ? 1003 : 1001;
+                    if (this.a.g >= this.a.f) {
+                        i = 1002;
+                    }
+                    if (this.a.i != null) {
+                        this.a.i.Q0(this.a.f, this.a.h, i, this.a.f - this.a.g);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void Q0(int i, List<z18> list, int i2, int i3);
+
+        void h(String str);
+    }
+
+    public c28() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {praiseListActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,92 +126,165 @@ public class c28 extends BaseAdapter implements AbsListView.OnScrollListener {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.a = praiseListActivity;
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = true;
+        this.e = 1;
+        this.f = 0;
+        this.g = 0;
+        this.h = new ArrayList(100);
+        this.i = null;
+        this.j = new a(this, CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
+        this.a = "";
+        this.b = "";
     }
 
-    public final View a(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    public static /* synthetic */ int h(c28 c28Var) {
+        int i = c28Var.e;
+        c28Var.e = i + 1;
+        return i;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
-            b28 b = b28.b(this.a.getPageContext().getPageActivity(), view2);
-            a28 item = getItem(i);
-            b.c(StringUtils.isNull(item.b()) ? item.d() : item.b(), item.a(), item.e(), this.c);
-            this.a.changSkinType(b.a());
-            return b.a();
-        }
-        return (View) invokeILL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public a28 getItem(int i) {
+    public z18 j(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List<a28> list = this.b;
-            if (list != null) {
-                return list.get(i);
+            if (i <= -1 || i >= this.h.size()) {
+                return null;
             }
-            return null;
+            return this.h.get(i);
         }
-        return (a28) invokeI.objValue;
+        return (z18) invokeI.objValue;
     }
 
-    public void c(List<a28> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b = list;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<a28> list = this.b;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public boolean l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    public void m(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) ? a(i, view2, viewGroup) : (View) invokeILL.objValue;
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048583, this, absListView, i, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            n();
         }
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    public final void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, absListView, i) == null) {
-            if (i == 0) {
-                this.c = false;
-                notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
+            httpMessage.addParam("post_id", this.b + "");
+            httpMessage.addParam(SuggestAddrField.KEY_PAGE_NUM, this.e + "");
+            httpMessage.addParam("res_num", PayUVEventType.PAY_WALLET_BANNER_SHOW);
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    public void o(Bundle bundle, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, bundle, str) == null) {
+            bundle.putBoolean(str, this.d);
+        }
+    }
+
+    public void p(Bundle bundle, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, bundle, str) == null) {
+            bundle.putString(str, this.c);
+        }
+    }
+
+    public void q(Bundle bundle, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle, str) == null) {
+            bundle.putString(str, this.b);
+        }
+    }
+
+    public void r(Bundle bundle, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, bundle, str) == null) {
+            bundle.putInt(str, this.f);
+        }
+    }
+
+    public void s(Bundle bundle, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, bundle, str) == null) {
+            bundle.putString(str, this.a);
+        }
+    }
+
+    public void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        }
+    }
+
+    public void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            messageManager.unRegisterListener(this.j);
+            messageManager.unRegisterTask(CmdConfigHttp.CMD_GRAFFITI_LIST);
+            messageManager.unRegisterTask(309326);
+        }
+    }
+
+    public c28(String str, String str2, String str3, boolean z, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, Boolean.valueOf(z), bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            this.c = true;
         }
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = true;
+        this.e = 1;
+        this.f = 0;
+        this.g = 0;
+        this.h = new ArrayList(100);
+        this.i = null;
+        this.j = new a(this, CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        this.i = bVar;
+        this.d = z;
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PRAISE_LIST_HTTP_CMD, TbConfig.SERVER_ADDRESS + "c/u/zan/getuserlist");
+        tbHttpMessageTask.setResponsedClass(PraiseListResponsedMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        MessageManager.getInstance().registerListener(this.j);
     }
 }

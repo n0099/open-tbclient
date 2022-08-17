@@ -147,9 +147,9 @@ public class ProfessionDialogLayout extends LinearLayout {
             SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f090785), (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f090471), (int) R.color.CAM_X0302);
             setImageAttribute(tbImageView);
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080bc6);
+            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080bc7);
             TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09064a);
-            SkinManager.setImageResource(tbImageView2, R.drawable.obfuscated_res_0x7f0808fa);
+            SkinManager.setImageResource(tbImageView2, R.drawable.obfuscated_res_0x7f0808fb);
             tbImageView2.setOnClickListener(new a(this));
             findViewById(R.id.obfuscated_res_0x7f090471).setOnClickListener(new b(this));
         }

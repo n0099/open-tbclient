@@ -1,159 +1,249 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.TimeUnit;
+import rx.functions.Actions;
+import rx.schedulers.Schedulers;
 /* loaded from: classes7.dex */
-public abstract class vu9<T> implements qu9<T>, wu9 {
+public class vu9<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ax9 a;
-    public final vu9<?> b;
-    public ru9 c;
-    public long d;
+    public final c<T> a;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public vu9() {
-        this(null, false);
+    /* loaded from: classes7.dex */
+    public class a extends wu9<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fv9 b;
+        public final /* synthetic */ fv9 c;
+
+        public a(vu9 vu9Var, fv9 fv9Var, fv9 fv9Var2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vu9Var, fv9Var, fv9Var2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = fv9Var;
+            this.c = fv9Var2;
+        }
+
+        @Override // com.repackage.wu9
+        public final void b(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+                try {
+                    this.b.call(th);
+                } finally {
+                    unsubscribe();
+                }
+            }
+        }
+
+        @Override // com.repackage.wu9
+        public final void c(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+                try {
+                    this.c.call(t);
+                } finally {
+                    unsubscribe();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements fv9<Throwable> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fv9 a;
+
+        public b(vu9 vu9Var, fv9 fv9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vu9Var, fv9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fv9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.fv9
+        public void call(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                this.a.call(th);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface c<T> extends fv9<wu9<? super T>> {
+        @Override // com.repackage.fv9
+        /* synthetic */ void call(T t);
+    }
+
+    public vu9(c<T> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((vu9) objArr[0], ((Boolean) objArr[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = yy9.i(cVar);
     }
 
-    public final void b(wu9 wu9Var) {
+    public static <T> ru9<T> a(vu9<T> vu9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, wu9Var) == null) {
-            this.a.a(wu9Var);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, vu9Var)) == null) ? ru9.a(new jw9(vu9Var.a)) : (ru9) invokeL.objValue;
     }
 
-    public final void c(long j) {
+    public static <T> vu9<T> b(c<T> cVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            long j2 = this.d;
-            if (j2 == Long.MIN_VALUE) {
-                this.d = j;
-                return;
-            }
-            long j3 = j2 + j;
-            if (j3 < 0) {
-                this.d = Long.MAX_VALUE;
-            } else {
-                this.d = j3;
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cVar)) == null) ? new vu9<>(cVar) : (vu9) invokeL.objValue;
     }
 
-    public void d() {
+    public static <T> vu9<T> g(T t) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, t)) == null) ? bx9.m(t) : (vu9) invokeL.objValue;
     }
 
-    public final void e(long j) {
+    public final vu9<T> c(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            if (j >= 0) {
-                synchronized (this) {
-                    if (this.c != null) {
-                        this.c.request(j);
-                        return;
-                    }
-                    c(j);
-                    return;
-                }
-            }
-            throw new IllegalArgumentException("number requested cannot be negative: " + j);
-        }
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) ? d(j, timeUnit, Schedulers.computation()) : (vu9) invokeJL.objValue;
     }
 
-    public void f(ru9 ru9Var) {
-        long j;
-        boolean z;
+    public final vu9<T> d(long j, TimeUnit timeUnit, uu9 uu9Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ru9Var) == null) {
-            synchronized (this) {
-                j = this.d;
-                this.c = ru9Var;
-                z = this.b != null && j == Long.MIN_VALUE;
-            }
-            if (z) {
-                this.b.f(this.c);
-            } else if (j == Long.MIN_VALUE) {
-                this.c.request(Long.MAX_VALUE);
-            } else {
-                this.c.request(j);
-            }
-        }
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), timeUnit, uu9Var})) == null) ? b(new ew9(this.a, j, timeUnit, uu9Var)) : (vu9) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.wu9
-    public final boolean isUnsubscribed() {
+    public final vu9<T> e(fv9<Throwable> fv9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fv9Var)) == null) {
+            if (fv9Var != null) {
+                return b(new fw9(this, Actions.a(), new b(this, fv9Var)));
+            }
+            throw new IllegalArgumentException("onError is null");
+        }
+        return (vu9) invokeL.objValue;
+    }
+
+    public final vu9<T> f(fv9<? super T> fv9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fv9Var)) == null) {
+            if (fv9Var != null) {
+                return b(new fw9(this, fv9Var, Actions.a()));
+            }
+            throw new IllegalArgumentException("onSuccess is null");
+        }
+        return (vu9) invokeL.objValue;
+    }
+
+    public final vu9<T> h(uu9 uu9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, uu9Var)) == null) {
+            if (this instanceof bx9) {
+                return ((bx9) this).n(uu9Var);
+            }
+            if (uu9Var != null) {
+                return b(new iw9(this.a, uu9Var));
+            }
+            throw new NullPointerException("scheduler is null");
+        }
+        return (vu9) invokeL.objValue;
+    }
+
+    public final yu9 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.isUnsubscribed() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? k(Actions.a(), Actions.b()) : (yu9) invokeV.objValue;
     }
 
-    @Override // com.repackage.wu9
-    public final void unsubscribe() {
+    public final yu9 j(wu9<? super T> wu9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a.unsubscribe();
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public vu9(vu9<?> vu9Var) {
-        this(vu9Var, true);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vu9Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((vu9) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, wu9Var)) == null) {
+            if (wu9Var != null) {
+                try {
+                    yy9.t(this, this.a).call(wu9Var);
+                    return yy9.s(wu9Var);
+                } catch (Throwable th) {
+                    dv9.e(th);
+                    try {
+                        wu9Var.b(yy9.r(th));
+                        return oz9.b();
+                    } catch (Throwable th2) {
+                        dv9.e(th2);
+                        RuntimeException runtimeException = new RuntimeException("Error occurred attempting to subscribe [" + th.getMessage() + "] and then again while trying to pass to onError.", th2);
+                        yy9.r(runtimeException);
+                        throw runtimeException;
+                    }
+                }
             }
+            throw new IllegalArgumentException("te is null");
         }
+        return (yu9) invokeL.objValue;
     }
 
-    public vu9(vu9<?> vu9Var, boolean z) {
+    public final yu9 k(fv9<? super T> fv9Var, fv9<Throwable> fv9Var2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vu9Var, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, fv9Var, fv9Var2)) == null) {
+            if (fv9Var != null) {
+                if (fv9Var2 != null) {
+                    return j(new a(this, fv9Var2, fv9Var));
+                }
+                throw new IllegalArgumentException("onError can not be null");
             }
+            throw new IllegalArgumentException("onSuccess can not be null");
         }
-        this.d = Long.MIN_VALUE;
-        this.b = vu9Var;
-        this.a = (!z || vu9Var == null) ? new ax9() : vu9Var.a;
+        return (yu9) invokeLL.objValue;
+    }
+
+    public final ru9<T> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? a(this) : (ru9) invokeV.objValue;
     }
 }

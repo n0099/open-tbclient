@@ -119,11 +119,11 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
         }
         w35 w35Var = (w35) obj;
         if (w35Var.a == 1) {
-            this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a52));
+            this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a53));
         } else if (!TextUtils.isEmpty(w35Var.b)) {
             this.a.setText(w35Var.b);
         } else {
-            this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a58));
+            this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a59));
         }
     }
 
@@ -166,7 +166,7 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
             tBSpecificationBtn.setConfig(pv4Var);
             this.a.setTextSize(R.dimen.tbds32);
             this.a.setOnClickListener(this);
-            this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a58));
+            this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a59));
             addView(this.a, new LinearLayout.LayoutParams(-2, qi.f(getContext(), R.dimen.tbds63)));
             e(getContext());
         }
@@ -212,8 +212,8 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
     public final void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.b.setText(BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1179));
-            this.b.getStyleConfig().i(z ? R.drawable.obfuscated_res_0x7f080997 : R.drawable.obfuscated_res_0x7f080996, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            this.b.setText(BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f117b));
+            this.b.getStyleConfig().i(z ? R.drawable.obfuscated_res_0x7f080998 : R.drawable.obfuscated_res_0x7f080997, 0, TBSpecificationButtonConfig.IconType.WEBP);
             this.b.getStyleConfig().h(z ? R.color.CAM_X0302 : R.color.CAM_X0110);
             this.b.a = Boolean.valueOf(z);
             J(new h25(67, -1, Boolean.valueOf(z)));
@@ -231,7 +231,7 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a58));
+            this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a59));
         }
     }
 

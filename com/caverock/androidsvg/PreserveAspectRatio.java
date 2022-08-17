@@ -22,16 +22,16 @@ public class PreserveAspectRatio {
     public static final class Alignment {
         public static final /* synthetic */ Alignment[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
-        public static final Alignment None;
-        public static final Alignment XMaxYMax;
-        public static final Alignment XMaxYMid;
-        public static final Alignment XMaxYMin;
-        public static final Alignment XMidYMax;
-        public static final Alignment XMidYMid;
-        public static final Alignment XMidYMin;
-        public static final Alignment XMinYMax;
-        public static final Alignment XMinYMid;
-        public static final Alignment XMinYMin;
+        public static final Alignment none;
+        public static final Alignment xMaxYMax;
+        public static final Alignment xMaxYMid;
+        public static final Alignment xMaxYMin;
+        public static final Alignment xMidYMax;
+        public static final Alignment xMidYMid;
+        public static final Alignment xMidYMin;
+        public static final Alignment xMinYMax;
+        public static final Alignment xMinYMid;
+        public static final Alignment xMinYMin;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,18 +47,18 @@ public class PreserveAspectRatio {
                     return;
                 }
             }
-            None = new Alignment("None", 0);
-            XMinYMin = new Alignment("XMinYMin", 1);
-            XMidYMin = new Alignment("XMidYMin", 2);
-            XMaxYMin = new Alignment("XMaxYMin", 3);
-            XMinYMid = new Alignment("XMinYMid", 4);
-            XMidYMid = new Alignment("XMidYMid", 5);
-            XMaxYMid = new Alignment("XMaxYMid", 6);
-            XMinYMax = new Alignment("XMinYMax", 7);
-            XMidYMax = new Alignment("XMidYMax", 8);
-            Alignment alignment = new Alignment("XMaxYMax", 9);
-            XMaxYMax = alignment;
-            $VALUES = new Alignment[]{None, XMinYMin, XMidYMin, XMaxYMin, XMinYMid, XMidYMid, XMaxYMid, XMinYMax, XMidYMax, alignment};
+            none = new Alignment("none", 0);
+            xMinYMin = new Alignment("xMinYMin", 1);
+            xMidYMin = new Alignment("xMidYMin", 2);
+            xMaxYMin = new Alignment("xMaxYMin", 3);
+            xMinYMid = new Alignment("xMinYMid", 4);
+            xMidYMid = new Alignment("xMidYMid", 5);
+            xMaxYMid = new Alignment("xMaxYMid", 6);
+            xMinYMax = new Alignment("xMinYMax", 7);
+            xMidYMax = new Alignment("xMidYMax", 8);
+            Alignment alignment = new Alignment("xMaxYMax", 9);
+            xMaxYMax = alignment;
+            $VALUES = new Alignment[]{none, xMinYMin, xMidYMin, xMaxYMin, xMinYMid, xMidYMid, xMaxYMid, xMinYMax, xMidYMax, alignment};
         }
 
         public Alignment(String str, int i) {
@@ -98,8 +98,8 @@ public class PreserveAspectRatio {
     public static final class Scale {
         public static final /* synthetic */ Scale[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
-        public static final Scale Meet;
-        public static final Scale Slice;
+        public static final Scale meet;
+        public static final Scale slice;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -115,10 +115,10 @@ public class PreserveAspectRatio {
                     return;
                 }
             }
-            Meet = new Scale("Meet", 0);
-            Scale scale = new Scale("Slice", 1);
-            Slice = scale;
-            $VALUES = new Scale[]{Meet, scale};
+            meet = new Scale("meet", 0);
+            Scale scale = new Scale("slice", 1);
+            slice = scale;
+            $VALUES = new Scale[]{meet, scale};
         }
 
         public Scale(String str, int i) {
@@ -166,20 +166,20 @@ public class PreserveAspectRatio {
                 return;
             }
         }
-        c = new PreserveAspectRatio(Alignment.None, null);
-        d = new PreserveAspectRatio(Alignment.XMidYMid, Scale.Meet);
-        Alignment alignment = Alignment.XMinYMin;
-        Scale scale = Scale.Meet;
-        Alignment alignment2 = Alignment.XMaxYMax;
-        Scale scale2 = Scale.Meet;
-        Alignment alignment3 = Alignment.XMidYMin;
-        Scale scale3 = Scale.Meet;
-        Alignment alignment4 = Alignment.XMidYMax;
-        Scale scale4 = Scale.Meet;
-        Alignment alignment5 = Alignment.XMidYMid;
-        Scale scale5 = Scale.Slice;
-        Alignment alignment6 = Alignment.XMinYMin;
-        Scale scale6 = Scale.Slice;
+        c = new PreserveAspectRatio(Alignment.none, null);
+        d = new PreserveAspectRatio(Alignment.xMidYMid, Scale.meet);
+        Alignment alignment = Alignment.xMinYMin;
+        Scale scale = Scale.meet;
+        Alignment alignment2 = Alignment.xMaxYMax;
+        Scale scale2 = Scale.meet;
+        Alignment alignment3 = Alignment.xMidYMin;
+        Scale scale3 = Scale.meet;
+        Alignment alignment4 = Alignment.xMidYMax;
+        Scale scale4 = Scale.meet;
+        Alignment alignment5 = Alignment.xMidYMid;
+        Scale scale5 = Scale.slice;
+        Alignment alignment6 = Alignment.xMinYMin;
+        Scale scale6 = Scale.slice;
     }
 
     public PreserveAspectRatio(Alignment alignment, Scale scale) {
@@ -227,5 +227,14 @@ public class PreserveAspectRatio {
             return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a + " " + this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

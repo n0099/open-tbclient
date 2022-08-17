@@ -16,10 +16,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bw7;
-import com.repackage.t08;
+import com.repackage.aw7;
+import com.repackage.s08;
 /* loaded from: classes3.dex */
-public class PbReplyLoadMoreAdapter extends bw7<PostData, ReplyLoadMoreViewHolder> {
+public class PbReplyLoadMoreAdapter extends aw7<PostData, ReplyLoadMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener g;
@@ -76,19 +76,19 @@ public class PbReplyLoadMoreAdapter extends bw7<PostData, ReplyLoadMoreViewHolde
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbReplyLoadMoreAdapter(t08 t08Var, BdUniqueId bdUniqueId) {
-        super(t08Var, bdUniqueId);
+    public PbReplyLoadMoreAdapter(s08 s08Var, BdUniqueId bdUniqueId) {
+        super(s08Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t08Var, bdUniqueId};
+            Object[] objArr = {s08Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((t08) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((s08) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -113,7 +113,7 @@ public class PbReplyLoadMoreAdapter extends bw7<PostData, ReplyLoadMoreViewHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bw7, com.repackage.bn
+    @Override // com.repackage.aw7, com.repackage.bn
     /* renamed from: v */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, PostData postData, ReplyLoadMoreViewHolder replyLoadMoreViewHolder) {
         InterceptResult invokeCommon;

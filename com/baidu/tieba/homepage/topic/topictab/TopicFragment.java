@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.av4;
-import com.repackage.m37;
+import com.repackage.l37;
 import com.repackage.oi;
 import com.repackage.on;
 import com.repackage.yf6;
@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ValidFragment"})
 /* loaded from: classes3.dex */
-public class TopicFragment extends BaseFragment implements yf6, av4.g, m37 {
+public class TopicFragment extends BaseFragment implements yf6, av4.g, l37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicModel a;
@@ -59,7 +59,7 @@ public class TopicFragment extends BaseFragment implements yf6, av4.g, m37 {
         }
     }
 
-    @Override // com.repackage.m37
+    @Override // com.repackage.l37
     public void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && oi.z()) {
@@ -111,7 +111,7 @@ public class TopicFragment extends BaseFragment implements yf6, av4.g, m37 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.m37
+    @Override // com.repackage.l37
     public void j(int i, List<on> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i, list) == null) {

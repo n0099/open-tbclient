@@ -43,12 +43,12 @@ public class iz5 extends cz5<l06> {
     public CustomMessageListener F;
     public CustomMessageListener G;
     public HListView t;
-    public m47 u;
+    public l47 u;
     public CardExtendForumItemHolder v;
     public View w;
     public View.OnClickListener x;
     public LikeModel y;
-    public List<n47> z;
+    public List<m47> z;
 
     /* loaded from: classes6.dex */
     public class a extends c9 {
@@ -78,7 +78,7 @@ public class iz5 extends cz5<l06> {
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if ((obj instanceof ck8) && this.a.y.getErrorCode() == 0) {
+                if ((obj instanceof bk8) && this.a.y.getErrorCode() == 0) {
                     return;
                 }
                 if (AntiHelper.m(this.a.y.getErrorCode(), this.a.y.getErrorString())) {
@@ -253,7 +253,7 @@ public class iz5 extends cz5<l06> {
         }
         this.v = new CardExtendForumItemHolder(this.w);
         this.q.addView(this.t);
-        this.t.setSelector(R.drawable.obfuscated_res_0x7f080cc2);
+        this.t.setSelector(R.drawable.obfuscated_res_0x7f080cc3);
         this.t.setPadding(tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224), 0);
         C();
         if (this.u == null) {
@@ -261,9 +261,9 @@ public class iz5 extends cz5<l06> {
             for (int i3 = 0; i3 < 10; i3++) {
                 arrayList.add(String.valueOf(i3));
             }
-            m47 m47Var = new m47(getContext(), R.layout.obfuscated_res_0x7f0d0278, this.v);
-            this.u = m47Var;
-            m47Var.d(this.x);
+            l47 l47Var = new l47(getContext(), R.layout.obfuscated_res_0x7f0d0278, this.v);
+            this.u = l47Var;
+            l47Var.d(this.x);
             this.t.setAdapter((ListAdapter) this.u);
         }
         this.i.setOnClickListener(this);
@@ -278,9 +278,9 @@ public class iz5 extends cz5<l06> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (ListUtils.getCount(this.z) > 0) {
-                for (n47 n47Var : this.z) {
-                    if (n47Var != null && (n47Var instanceof k06)) {
-                        k06 k06Var = (k06) n47Var;
+                for (m47 m47Var : this.z) {
+                    if (m47Var != null && (m47Var instanceof k06)) {
+                        k06 k06Var = (k06) m47Var;
                         if (String.valueOf(k06Var.d).equals(str)) {
                             return k06Var;
                         }
@@ -300,7 +300,7 @@ public class iz5 extends cz5<l06> {
         }
     }
 
-    public final boolean D(List<n47> list, List<n47> list2) {
+    public final boolean D(List<m47> list, List<m47> list2) {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
@@ -310,11 +310,11 @@ public class iz5 extends cz5<l06> {
             }
             boolean z = true;
             while (i < ListUtils.getCount(list)) {
-                n47 n47Var = (n47) ListUtils.getItem(list, i);
-                n47 n47Var2 = (n47) ListUtils.getItem(list2, i);
-                if (n47Var != null && (n47Var instanceof k06) && n47Var2 != null && (n47Var2 instanceof k06)) {
-                    k06 k06Var = (k06) n47Var;
-                    k06 k06Var2 = (k06) n47Var2;
+                m47 m47Var = (m47) ListUtils.getItem(list, i);
+                m47 m47Var2 = (m47) ListUtils.getItem(list2, i);
+                if (m47Var != null && (m47Var instanceof k06) && m47Var2 != null && (m47Var2 instanceof k06)) {
+                    k06 k06Var = (k06) m47Var;
+                    k06 k06Var2 = (k06) m47Var2;
                     if (k06Var.d != k06Var2.d) {
                         z = false;
                     }
@@ -356,22 +356,22 @@ public class iz5 extends cz5<l06> {
                     return;
                 }
                 h().setVisibility(0);
-                m47 m47Var = this.u;
-                if (m47Var != null) {
+                l47 l47Var = this.u;
+                if (l47Var != null) {
                     if (z) {
                         ArrayList arrayList2 = new ArrayList();
                         for (int i = 0; i < this.z.size(); i++) {
                             arrayList2.add(String.valueOf(i));
                         }
-                        m47 m47Var2 = new m47(getContext(), R.layout.obfuscated_res_0x7f0d0278, this.v);
-                        this.u = m47Var2;
-                        m47Var2.c(this.z);
+                        l47 l47Var2 = new l47(getContext(), R.layout.obfuscated_res_0x7f0d0278, this.v);
+                        this.u = l47Var2;
+                        l47Var2.c(this.z);
                         this.u.d(this.x);
                         this.t.setAdapter((ListAdapter) this.u);
                         j(g(), TbadkCoreApplication.getInst().getSkinType());
                         return;
                     }
-                    m47Var.c(this.z);
+                    l47Var.c(this.z);
                     this.u.notifyDataSetChanged();
                     return;
                 }
@@ -409,9 +409,9 @@ public class iz5 extends cz5<l06> {
             if (B != null) {
                 B.e = z;
             }
-            m47 m47Var = this.u;
-            if (m47Var != null) {
-                m47Var.c(this.z);
+            l47 l47Var = this.u;
+            if (l47Var != null) {
+                l47Var.c(this.z);
                 this.u.notifyDataSetChanged();
             }
         }
@@ -419,14 +419,14 @@ public class iz5 extends cz5<l06> {
 
     @Override // com.repackage.cz5, com.repackage.bz5
     public void j(TbPageContext<?> tbPageContext, int i) {
-        m47 m47Var;
+        l47 l47Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext, i) == null) {
             super.j(tbPageContext, i);
-            if (this.t == null || (m47Var = this.u) == null) {
+            if (this.t == null || (l47Var = this.u) == null) {
                 return;
             }
-            m47Var.b(i);
+            l47Var.b(i);
         }
     }
 

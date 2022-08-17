@@ -29,13 +29,13 @@ public class cs1 extends yr1 {
 
         /* renamed from: com.repackage.cs1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0460a implements sf3<c63<e63.e>> {
+        public class C0461a implements sf3<c63<e63.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ bp1.b a;
             public final /* synthetic */ a b;
 
-            public C0460a(a aVar, bp1.b bVar) {
+            public C0461a(a aVar, bp1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public class cs1 extends yr1 {
                 if (b0 == null) {
                     return new zs1(1001, "null swan runtime");
                 }
-                b0.e0().g(y03.K(), "mapp_i_get_common_sys_info", new C0460a(this, bVar));
+                b0.e0().g(y03.K(), "mapp_i_get_common_sys_info", new C0461a(this, bVar));
                 return new zs1(0);
             }
             return (zs1) invokeLL.objValue;

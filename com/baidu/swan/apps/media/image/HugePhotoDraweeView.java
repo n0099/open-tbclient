@@ -908,7 +908,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         setGestureDetector(context);
         this.g0 = new Handler(new a(this));
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04009d, R.attr.obfuscated_res_0x7f040521, R.attr.obfuscated_res_0x7f04059d, R.attr.obfuscated_res_0x7f040649, R.attr.obfuscated_res_0x7f040710, R.attr.obfuscated_res_0x7f040785});
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04009d, R.attr.obfuscated_res_0x7f040522, R.attr.obfuscated_res_0x7f04059e, R.attr.obfuscated_res_0x7f04064a, R.attr.obfuscated_res_0x7f040710, R.attr.obfuscated_res_0x7f040785});
             if (obtainStyledAttributes.hasValue(0) && (string = obtainStyledAttributes.getString(0)) != null && string.length() > 0 && (a2 = cp2.a(string)) != null) {
                 a2.n();
                 setImage(a2);

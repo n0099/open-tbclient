@@ -648,7 +648,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
             SkinManager.setLottieAnimation(this.j, R.raw.icon_refresh2);
-            setText(R.string.obfuscated_res_0x7f0f0fb6);
+            setText(R.string.obfuscated_res_0x7f0f0fb7);
             this.j.loop(true);
             u();
         }
@@ -685,7 +685,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
             SkinManager.setLottieAnimation(this.j, R.raw.icon_refresh1);
-            setText(R.string.obfuscated_res_0x7f0f0fb6);
+            setText(R.string.obfuscated_res_0x7f0f0fb7);
             this.j.loop(false);
             u();
         }

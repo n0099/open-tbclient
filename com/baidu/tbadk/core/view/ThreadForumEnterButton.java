@@ -193,7 +193,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
             d2.l(R.dimen.L_X02);
             d2.k(R.color.CAM_X0304);
         }
-        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080906, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL_PRESS);
+        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080907, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL_PRESS);
         this.g = pureDrawable;
         if (pureDrawable != null) {
             int f = qi.f(this.b, R.dimen.T_X09);
@@ -215,9 +215,9 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             if (this.a.getType() == ThreadData.TYPE_FAKE_VIDEO) {
                 Context context = this.b;
-                BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f1511));
+                BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f1514));
                 b.f(BdToast.ToastIcon.FAILURE);
-                b.h();
+                b.i();
             } else if (StringUtils.isNull(this.a.getForum_name())) {
             } else {
                 view2.setTag(this.a);

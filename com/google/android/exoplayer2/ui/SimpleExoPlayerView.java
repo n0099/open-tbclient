@@ -744,7 +744,7 @@ public final class SimpleExoPlayerView extends FrameLayout {
         int i8 = R.layout.obfuscated_res_0x7f0d0277;
         int i9 = 5000;
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400ae, R.attr.obfuscated_res_0x7f04019c, R.attr.obfuscated_res_0x7f040207, R.attr.obfuscated_res_0x7f0402b1, R.attr.obfuscated_res_0x7f040307, R.attr.obfuscated_res_0x7f04055b, R.attr.obfuscated_res_0x7f0405ba, R.attr.obfuscated_res_0x7f0405bd, R.attr.obfuscated_res_0x7f040624, R.attr.obfuscated_res_0x7f040627, R.attr.obfuscated_res_0x7f04066b, R.attr.obfuscated_res_0x7f04074f, R.attr.obfuscated_res_0x7f040750}, 0, 0);
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400ae, R.attr.obfuscated_res_0x7f04019c, R.attr.obfuscated_res_0x7f040208, R.attr.obfuscated_res_0x7f0402b2, R.attr.obfuscated_res_0x7f040308, R.attr.obfuscated_res_0x7f04055c, R.attr.obfuscated_res_0x7f0405bb, R.attr.obfuscated_res_0x7f0405be, R.attr.obfuscated_res_0x7f040625, R.attr.obfuscated_res_0x7f040628, R.attr.obfuscated_res_0x7f04066c, R.attr.obfuscated_res_0x7f04074f, R.attr.obfuscated_res_0x7f040750}, 0, 0);
             try {
                 z3 = obtainStyledAttributes.hasValue(9);
                 i3 = obtainStyledAttributes.getColor(9, 0);

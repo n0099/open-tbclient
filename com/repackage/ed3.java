@@ -42,8 +42,8 @@ public class ed3 {
         AbsoluteLayout webView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, bdSailorWebView) == null) {
-            Drawable d = af4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081116);
-            Drawable d2 = af4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081115);
+            Drawable d = af4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081117);
+            Drawable d2 = af4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081116);
             if (BdZeusUtil.isWebkitLoaded()) {
                 webView = bdSailorWebView.getCurrentWebView();
             } else {

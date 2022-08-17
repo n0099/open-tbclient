@@ -1,68 +1,20 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.util.LongSparseArray;
-import android.view.View;
+import android.content.SharedPreferences;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Set;
 /* loaded from: classes7.dex */
 public class yq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zq6 a;
-    public LongSparseArray<Integer> b;
-    public em6 c;
-    public xq6 d;
-
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rr6 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-
-        public a(yq6 yq6Var, rr6 rr6Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yq6Var, rr6Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rr6Var;
-            this.b = str;
-            this.c = str2;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                rr6 rr6Var = this.a;
-                if (rr6Var != null) {
-                    rr6Var.o(this.b, this.c);
-                }
-                TiebaStatic.log(new StatisticItem("c13982").param("fid", this.c).param("uid", TbadkCoreApplication.getCurrentAccount()));
-            }
-        }
-    }
+    public final SharedPreferences a;
 
     public yq6() {
         Interceptable interceptable = $ic;
@@ -77,127 +29,103 @@ public class yq6 {
                 return;
             }
         }
-        this.a = null;
-        this.a = new zq6();
-        this.b = new LongSparseArray<>();
+        this.a = TbadkCoreApplication.getInst().getSharedPreferences("frs_guide_sp", 0);
     }
 
-    public int a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            if (j == 0) {
-                return 0;
-            }
-            Integer num = this.b.get(j);
-            if (num == null) {
-                this.b.put(j, 1);
-                return 1;
-            }
-            this.b.put(j, Integer.valueOf(num.intValue() + 1));
-            return num.intValue() + 1;
-        }
-        return invokeJ.intValue;
-    }
-
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || j == 0) {
-            return;
-        }
-        this.b.remove(j);
-    }
-
-    public void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            this.a.b(str, str2);
-        }
-    }
-
-    public void d() {
-        em6 em6Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (em6Var = this.c) == null) {
-            return;
-        }
-        em6Var.m();
-    }
-
-    public zq6 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (zq6) invokeV.objValue;
-    }
-
-    public void f(Activity activity, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048581, this, activity, str, str2) == null) && activity != null && this.d.c()) {
-            if (this.c == null) {
-                this.c = new em6(activity, R.id.obfuscated_res_0x7f090b2b);
-            }
-            this.c.p(str);
-            this.c.q(str2);
-            this.c.r();
-        }
-    }
-
-    public boolean g(String str, String str2) {
+    public final boolean a(String str, String str2) {
         InterceptResult invokeLL;
-        zq6 zq6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            if (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2) || (zq6Var = this.a) == null) {
-                return false;
-            }
-            long currentTimeMillis = System.currentTimeMillis() - zq6Var.f(str, str2);
-            if (currentTimeMillis < 3600000) {
-                return false;
-            }
-            if (this.a.e(str, str2) <= 3 || currentTimeMillis >= 2592000000L) {
-                long c = this.a.c(str, str2);
-                if (c == 0 || System.currentTimeMillis() - c > 604800000) {
-                    return this.a.d(str, str2);
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2)) ? false : true : invokeLL.booleanValue;
+    }
+
+    public void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && a(str, str2)) {
+            String str3 = str + '_' + str2;
+            Set<String> keySet = this.a.getAll().keySet();
+            SharedPreferences.Editor edit = this.a.edit();
+            for (String str4 : keySet) {
+                if (str4.startsWith(str3)) {
+                    edit.remove(str4);
                 }
-                return true;
+            }
+            edit.apply();
+        }
+    }
+
+    public long c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (a(str, str2)) {
+                return this.a.getLong(str + '_' + str2 + "_visit_time", 0L);
+            }
+            return 0L;
+        }
+        return invokeLL.longValue;
+    }
+
+    public boolean d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            if (a(str, str2)) {
+                return this.a.getBoolean(str + '_' + str2 + "_show", false);
             }
             return false;
         }
         return invokeLL.booleanValue;
     }
 
-    public void h(Activity activity, String str, String str2, String str3, rr6 rr6Var) {
+    public int e(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(1048583, this, activity, str, str2, str3, rr6Var) == null) || activity == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            if (a(str, str2)) {
+                return this.a.getInt(str + '_' + str2 + "_show_cnt", 0);
+            }
+            return 0;
         }
-        if (this.c == null) {
-            this.c = new em6(activity, R.id.obfuscated_res_0x7f090b2f);
-        }
-        if (!StringUtils.isNull(str3)) {
-            this.c.n(str3);
-        }
-        this.c.o(new a(this, rr6Var, str, str2));
-        this.c.s();
-        TiebaStatic.log(new StatisticItem("c13894").param("fid", str2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        return invokeLL.intValue;
     }
 
-    public yq6(String str, String str2) {
+    public long f(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            if (a(str, str2)) {
+                return this.a.getLong(str + '_' + str2 + "_show_time", 0L);
             }
+            return 0L;
         }
-        this.a = null;
-        this.d = new xq6(str, str2);
+        return invokeLL.longValue;
+    }
+
+    public void g(String str, String str2, long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) == null) && a(str, str2)) {
+            String str3 = str + '_' + str2 + "_show_time";
+            String str4 = str + '_' + str2 + "_show_cnt";
+            int i = this.a.getInt(str4, 0);
+            SharedPreferences.Editor edit = this.a.edit();
+            if (i > 3) {
+                edit.putInt(str4, i + 1);
+            }
+            edit.putLong(str3, j);
+            if (z) {
+                edit.putBoolean(str + '_' + str2 + "_show", true);
+            }
+            edit.apply();
+        }
+    }
+
+    public void h(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && a(str, str2)) {
+            String str3 = str + '_' + str2 + "_visit_time";
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.putLong(str3, j);
+            edit.apply();
+        }
     }
 }

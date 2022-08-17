@@ -185,9 +185,9 @@ public class mx extends tw implements ix, hx<ThreadData> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
             if (!this.l.isMarkToDel() && !this.l.isMarkToMove()) {
-                WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080937, R.color.CAM_X0107, null);
+                WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080938, R.color.CAM_X0107, null);
             } else {
-                WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080934, R.color.CAM_X0304, null);
+                WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080935, R.color.CAM_X0304, null);
             }
             ms4 d = ms4.d(this.h);
             d.n(R.string.J_X06);
@@ -245,9 +245,9 @@ public class mx extends tw implements ix, hx<ThreadData> {
                 boolean isMarkToDel = this.l.isMarkToDel();
                 int i2 = R.color.CAM_X0304;
                 if (!isMarkToDel && !this.l.isMarkToMove()) {
-                    WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080937, R.color.CAM_X0107, null);
+                    WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080938, R.color.CAM_X0107, null);
                 } else {
-                    WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080934, R.color.CAM_X0304, null);
+                    WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080935, R.color.CAM_X0304, null);
                 }
                 TextView textView = this.k;
                 if (!this.l.isMarkToDel() && !this.l.isMarkToMove()) {

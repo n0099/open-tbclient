@@ -48,7 +48,7 @@ import com.repackage.p65;
 import com.repackage.qi;
 import com.repackage.rg;
 import com.repackage.ur4;
-import com.repackage.wm8;
+import com.repackage.vm8;
 import com.repackage.yf6;
 import java.util.ArrayList;
 import java.util.List;
@@ -107,16 +107,10 @@ public class ConcernFragment extends BaseFragment implements yf6 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage)) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() == null || updateAttentionMessage.getData().c == null || (message = updateAttentionMessage.getmOrginalMessage()) == null || message.getTag() == null || !message.getTag().equals(this.a.getUniqueId())) {
+                if (updateAttentionMessage.getData() == null || updateAttentionMessage.getData().c == null || (message = updateAttentionMessage.getmOrginalMessage()) == null || message.getTag() == null || !message.getTag().equals(this.a.getUniqueId()) || updateAttentionMessage.getData().l == null || AntiHelper.t(this.a.getActivity(), updateAttentionMessage.getData().l, this.a.g) == null) {
                     return;
                 }
-                if (updateAttentionMessage.getData().l != null) {
-                    if (AntiHelper.t(this.a.getActivity(), updateAttentionMessage.getData().l, this.a.g) != null) {
-                        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
-                    }
-                } else if (updateAttentionMessage.getData().a && updateAttentionMessage.getData().d) {
-                    qi.N(this.a.getActivity(), R.string.obfuscated_res_0x7f0f02ba);
-                }
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
             }
         }
     }
@@ -285,7 +279,7 @@ public class ConcernFragment extends BaseFragment implements yf6 {
             }
             long g = og.g(postWriteCallBackData.getPostId(), 0L);
             long g2 = og.g(postWriteCallBackData.getThreadId(), 0L);
-            long g3 = og.g(wm8.k().l(), 0L);
+            long g3 = og.g(vm8.k().l(), 0L);
             if (g != 0 && g2 != 0 && g3 != 0) {
                 rg.a().postDelayed(new a(this, postWriteCallBackData, g2, g, g3), 1000L);
             } else if (StringUtils.isNull(postWriteCallBackData.getVideoid())) {
@@ -387,7 +381,7 @@ public class ConcernFragment extends BaseFragment implements yf6 {
             }
             long g = og.g(postWriteCallBackData.getPostId(), 0L);
             long g2 = og.g(postWriteCallBackData.getThreadId(), 0L);
-            long g3 = og.g(wm8.k().l(), 0L);
+            long g3 = og.g(vm8.k().l(), 0L);
             if (g != 0 && g2 != 0 && g3 != 0) {
                 rg.a().postDelayed(new a(this, postWriteCallBackData, g2, g, g3), 1000L);
             } else if (StringUtils.isNull(postWriteCallBackData.getVideoid())) {
@@ -452,7 +446,7 @@ public class ConcernFragment extends BaseFragment implements yf6 {
                     if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
                         GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                         if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                            errorString2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3c);
+                            errorString2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3d);
                         } else {
                             errorString2 = getMyPostHttpResponseMessage.getErrorString();
                         }
@@ -464,7 +458,7 @@ public class ConcernFragment extends BaseFragment implements yf6 {
                     } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                         GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                         if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3c);
+                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3d);
                         } else {
                             errorString = getMyPostSocketResponseMessage.getErrorString();
                         }
@@ -783,8 +777,8 @@ public class ConcernFragment extends BaseFragment implements yf6 {
             if (user2 != null && (user_Info = getMyPostResIdl.data.user_info) != null && user2.name.equals(user_Info.name)) {
                 builder.author = builder2.build(true);
             }
-            builder.fname = wm8.k().m();
-            builder.fid = Long.valueOf(og.g(wm8.k().m(), 0L));
+            builder.fname = vm8.k().m();
+            builder.fid = Long.valueOf(og.g(vm8.k().m(), 0L));
             dq4Var.parserProtobuf(builder.build(true));
             this.a.B(dq4Var, true);
         }

@@ -160,7 +160,7 @@ public class SelectBarView extends LinearLayout {
             d.l(R.dimen.L_X02);
             d.k(R.color.CAM_X0204);
             d.f(R.color.CAM_X0204);
-            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080906, SkinManager.getColor(R.color.CAM_X0110), WebPManager.ResourceStateType.NORMAL_PRESS);
+            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080907, SkinManager.getColor(R.color.CAM_X0110), WebPManager.ResourceStateType.NORMAL_PRESS);
             Intrinsics.checkNotNullExpressionValue(pureDrawable, "getPureDrawable(R.drawab…ceStateType.NORMAL_PRESS)");
             setMIconDrawable(pureDrawable);
             int f = qi.f(getContext(), R.dimen.tbds32);

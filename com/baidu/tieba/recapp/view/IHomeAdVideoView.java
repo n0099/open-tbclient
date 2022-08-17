@@ -5,19 +5,19 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.repackage.ad8;
 import com.repackage.bd8;
-import com.repackage.cd8;
-import com.repackage.pb8;
+import com.repackage.ob8;
 import tbclient.VideoInfo;
 /* loaded from: classes4.dex */
-public interface IHomeAdVideoView extends pb8 {
-    @Override // com.repackage.pb8
+public interface IHomeAdVideoView extends ob8 {
+    @Override // com.repackage.ob8
     /* synthetic */ void autoPlay(int i);
 
-    @Override // com.repackage.pb8
+    @Override // com.repackage.ob8
     /* synthetic */ boolean canPlay();
 
-    @Override // com.repackage.pb8
+    @Override // com.repackage.ob8
     /* synthetic */ long getCurrentPosition();
 
     /* synthetic */ int getHeight();
@@ -26,29 +26,29 @@ public interface IHomeAdVideoView extends pb8 {
 
     /* synthetic */ void getLocationInWindow(int[] iArr);
 
-    @Override // com.repackage.pb8
+    @Override // com.repackage.ob8
     /* synthetic */ int getPlayStatus();
 
-    @Override // com.repackage.pb8
+    @Override // com.repackage.ob8
     /* synthetic */ String getPlayUrl();
 
-    @Override // com.repackage.pb8
+    @Override // com.repackage.ob8
     /* synthetic */ View getVideoContainer();
 
-    @Override // com.repackage.pb8
+    @Override // com.repackage.ob8
     /* synthetic */ boolean isPlayStarted();
 
-    @Override // com.repackage.pb8
+    @Override // com.repackage.ob8
     /* synthetic */ boolean isPlaying();
 
     int jump2DownloadDetailPage();
 
-    @Override // com.repackage.pb8
+    @Override // com.repackage.ob8
     /* synthetic */ void release();
 
     void setAdInfo(AdCard adCard);
 
-    void setData(VideoInfo videoInfo, bd8 bd8Var, int i, int i2, int i3, int i4);
+    void setData(VideoInfo videoInfo, ad8 ad8Var, int i, int i2, int i3, int i4);
 
     void setOnClickListener(View.OnClickListener onClickListener);
 
@@ -60,12 +60,12 @@ public interface IHomeAdVideoView extends pb8 {
 
     void setVideoScalingMode(int i);
 
-    void setVideoTailFrameData(cd8 cd8Var);
+    void setVideoTailFrameData(bd8 bd8Var);
 
-    @Override // com.repackage.pb8
+    @Override // com.repackage.ob8
     /* synthetic */ void startPlay();
 
-    @Override // com.repackage.pb8
+    @Override // com.repackage.ob8
     /* synthetic */ void stopPlay();
 
     void updateTailFrameView(AdvertAppInfo advertAppInfo);

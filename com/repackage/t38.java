@@ -10,13 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.DuxiaomanEntry;
 /* loaded from: classes7.dex */
 public class t38 extends BaseCardInfo implements on {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public DuxiaomanEntry a;
+    public t15 a;
 
     static {
         InterceptResult invokeClinit;
@@ -48,16 +47,16 @@ public class t38 extends BaseCardInfo implements on {
         }
     }
 
-    public DuxiaomanEntry c() {
+    public t15 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (DuxiaomanEntry) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (t15) invokeV.objValue;
     }
 
-    public void f(DuxiaomanEntry duxiaomanEntry) {
+    public void f(t15 t15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, duxiaomanEntry) == null) {
-            this.a = duxiaomanEntry;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t15Var) == null) {
+            this.a = t15Var;
         }
     }
 

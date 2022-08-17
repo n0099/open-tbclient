@@ -35,12 +35,12 @@ public class an6 extends bn<ln6, a> {
 
         /* renamed from: com.repackage.an6$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0438a implements View.OnClickListener {
+        public class View$OnClickListenerC0439a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0438a(a aVar, an6 an6Var) {
+            public View$OnClickListenerC0439a(a aVar, an6 an6Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +92,7 @@ public class an6 extends bn<ln6, a> {
             view2.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b54);
             this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b53);
-            this.a.setOnClickListener(new View$OnClickListenerC0438a(this, an6Var));
+            this.a.setOnClickListener(new View$OnClickListenerC0439a(this, an6Var));
         }
 
         public void d() {

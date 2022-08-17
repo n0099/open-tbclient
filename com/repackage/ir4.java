@@ -184,8 +184,8 @@ public class ir4 extends fo4 implements on {
                     if (this.t.isTopicThread()) {
                         return this.t.getHotTopicInfo() != null ? ThreadData.TYPE_FRS_HOTTOPIC_VIDEO : ThreadData.TYPE_FRS_HOTTOPIC;
                     }
-                    al8 al8Var = this.t.funAdData;
-                    if (al8Var != null && al8Var.h()) {
+                    zk8 zk8Var = this.t.funAdData;
+                    if (zk8Var != null && zk8Var.h()) {
                         return this.t.funAdData.i() ? AdvertAppInfo.G : AdvertAppInfo.H;
                     } else if (this.r) {
                         return ThreadData.TYPE_FORUM_HEADER;

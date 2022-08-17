@@ -20,6 +20,7 @@ public class yp4 {
     public UserData a;
     public AntiData b;
     public ArrayList<String> c;
+    public String d;
 
     public yp4() {
         Interceptable interceptable = $ic;
@@ -38,7 +39,7 @@ public class yp4 {
         this.a = new UserData();
         this.b = new AntiData();
         this.c = new ArrayList<>();
-        e(0);
+        f(0);
     }
 
     public AntiData a() {
@@ -47,26 +48,32 @@ public class yp4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (AntiData) invokeV.objValue;
     }
 
-    public UserData b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (UserData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
-    public void c(String str) {
+    public UserData c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (UserData) invokeV.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             try {
-                d(new JSONObject(str));
+                e(new JSONObject(str));
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    public void d(JSONObject jSONObject) {
+    public void e(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
             try {
                 this.a.parserJson(jSONObject.optJSONObject("user"));
                 this.b.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
@@ -76,16 +83,17 @@ public class yp4 {
                         this.c.add(optJSONArray.optString(i, null));
                     }
                 }
-                e(jSONObject.optInt("retrytime"));
+                f(jSONObject.optInt("retrytime"));
+                this.d = jSONObject.optString("growth_switch");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    public void e(int i) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
         }
     }
 }

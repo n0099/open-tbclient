@@ -52,6 +52,9 @@ public abstract class RenderScriptBlurFilter {
                 create.setInput(createFromBitmap);
                 create.forEach(createFromBitmap2);
                 createFromBitmap2.copyTo(bitmap);
+                create.destroy();
+                createFromBitmap.destroy();
+                createFromBitmap2.destroy();
             } finally {
                 if (renderScript != null) {
                     renderScript.destroy();

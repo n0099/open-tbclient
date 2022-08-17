@@ -1,14 +1,13 @@
 package com.repackage;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.InstallActivity;
 /* loaded from: classes6.dex */
-public final class fp9 extends AnimatorListenerAdapter {
+public final class fp9 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ InstallActivity a;
@@ -31,11 +30,12 @@ public final class fp9 extends AnimatorListenerAdapter {
         this.a = installActivity;
     }
 
-    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-    public final void onAnimationEnd(Animator animator) {
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            this.a.m();
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            this.a.h();
+            this.a.n();
         }
     }
 }

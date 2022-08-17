@@ -16,7 +16,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -48,12 +47,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.badge.BadgeDrawable;
+import com.repackage.fj8;
 import com.repackage.fz4;
 import com.repackage.g15;
-import com.repackage.gj8;
 import com.repackage.h9;
+import com.repackage.l17;
 import com.repackage.ln4;
-import com.repackage.m17;
 import com.repackage.ms4;
 import com.repackage.p15;
 import com.repackage.qi;
@@ -318,7 +317,7 @@ public class NestedScrollHeader extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (Build.VERSION.SDK_INT <= 21) {
-                qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f00ea);
+                qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f00ea);
                 return;
             }
             try {
@@ -340,13 +339,15 @@ public class NestedScrollHeader extends RelativeLayout {
             this.e = findViewById(R.id.obfuscated_res_0x7f090c53);
             this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c46);
             this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09075b);
-            AlaLiveTipView alaLiveTipView = (AlaLiveTipView) findViewById(R.id.obfuscated_res_0x7f091391);
-            this.g = alaLiveTipView;
-            alaLiveTipView.setViewLocate(1);
-            this.g.setHasBubble(false);
+            if (!UbsABTestHelper.isHomeTabModifyABTestA()) {
+                AlaLiveTipView alaLiveTipView = (AlaLiveTipView) findViewById(R.id.obfuscated_res_0x7f091391);
+                this.g = alaLiveTipView;
+                alaLiveTipView.setViewLocate(1);
+                this.g.setHasBubble(false);
+            }
             yd5 c2 = yd5.c(this.h);
             c2.h(BadgeDrawable.TOP_END);
-            c2.g(SupportMenu.CATEGORY_MASK);
+            c2.g(-65536);
             c2.m(R.dimen.tbds15, false);
             c2.k(R.dimen.tbds9, false);
             c2.i(R.dimen.tbds9);
@@ -383,9 +384,9 @@ public class NestedScrollHeader extends RelativeLayout {
     public final void j(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
-            g15 f3 = m17.f(TbadkApplication.getInst().getHomeBarShowTabName());
+            g15 f3 = l17.f(TbadkApplication.getInst().getHomeBarShowTabName());
             if (f3 != null) {
-                setBackgroundColor(gj8.a(gj8.f(m17.d(f3)), 1.0f - f2));
+                setBackgroundColor(fj8.a(fj8.f(l17.d(f3)), 1.0f - f2));
             } else {
                 SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, 1.0f - f2, TbadkCoreApplication.getInst().getSkinType());
             }
@@ -402,7 +403,7 @@ public class NestedScrollHeader extends RelativeLayout {
                 d2.n(R.string.J_X01);
                 d2.f(R.color.CAM_X0613);
                 WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080747, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
-                pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a4e, SkinManager.getColor(R.color.CAM_X0619), WebPManager.ResourceStateType.NORMAL);
+                pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a4f, SkinManager.getColor(R.color.CAM_X0619), WebPManager.ResourceStateType.NORMAL);
                 j(this.d);
             } else {
                 ms4 d3 = ms4.d(this.c);
@@ -410,7 +411,7 @@ public class NestedScrollHeader extends RelativeLayout {
                 d3.n(R.string.J_X01);
                 d3.f(R.color.CAM_X0210);
                 WebPManager.setMaskDrawable(this.f, R.drawable.icon_home_new_games, WebPManager.ResourceStateType.NORMAL);
-                pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a4e, SkinManager.getColor(R.color.CAM_X0109), WebPManager.ResourceStateType.NORMAL);
+                pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a4f, SkinManager.getColor(R.color.CAM_X0109), WebPManager.ResourceStateType.NORMAL);
                 SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, 1.0f - this.d, TbadkCoreApplication.getInst().getSkinType());
             }
             this.a.r();
@@ -422,14 +423,16 @@ public class NestedScrollHeader extends RelativeLayout {
     }
 
     public final void l() {
+        AlaLiveTipView alaLiveTipView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.g.getVisibility() != 0) {
-                fz4.d();
-            }
-            this.g.setVisibility(0);
-            m(this.g.getVisibility() == 0);
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (alaLiveTipView = this.g) == null) {
+            return;
         }
+        if (alaLiveTipView.getVisibility() != 0) {
+            fz4.d();
+        }
+        this.g.setVisibility(0);
+        m(this.g.getVisibility() == 0);
     }
 
     public final void m(boolean z) {
@@ -472,7 +475,8 @@ public class NestedScrollHeader extends RelativeLayout {
             this.a.setAlpha(f2);
             this.a.setScrollAlpha(f2);
         }
-        if (this.g.getVisibility() != 0 || this.g.getAlpha() == f2) {
+        AlaLiveTipView alaLiveTipView = this.g;
+        if (alaLiveTipView == null || alaLiveTipView.getVisibility() != 0 || this.g.getAlpha() == f2) {
             return;
         }
         this.g.setAlpha(f2);

@@ -21,9 +21,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.em9;
 import com.repackage.fc1;
 import com.repackage.gc1;
+import com.repackage.gm9;
 import com.repackage.hc1;
 import com.repackage.ic1;
 /* loaded from: classes2.dex */
@@ -114,13 +114,13 @@ public class LooperRuntime {
         return (LooperRuntime) invokeV.objValue;
     }
 
-    public void dispatchBlock(Context context, em9 em9Var) {
+    public void dispatchBlock(Context context, gm9 gm9Var) {
         ic1<ILooperRegister> ic1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, em9Var) == null) || (ic1Var = this.mLooperMonitordList) == null || ic1Var.getList() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, gm9Var) == null) || (ic1Var = this.mLooperMonitordList) == null || ic1Var.getList() == null) {
             return;
         }
-        LooperBlock looperBlock = new LooperBlock(em9Var.r, em9Var.q, em9Var.n, em9Var.o, em9Var.w);
+        LooperBlock looperBlock = new LooperBlock(gm9Var.r, gm9Var.q, gm9Var.n, gm9Var.o, gm9Var.w);
         TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
         if (lastTrackUI != null) {
             if (!TextUtils.isEmpty(lastTrackUI.getFragmentPage())) {

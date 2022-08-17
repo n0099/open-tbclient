@@ -43,14 +43,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gi5;
 import com.repackage.jf;
-import com.repackage.l77;
+import com.repackage.k77;
 import com.repackage.ms4;
-import com.repackage.q87;
+import com.repackage.p87;
 import com.repackage.qi;
 import com.repackage.rw8;
-import com.repackage.ua7;
+import com.repackage.ta7;
+import com.repackage.v97;
 import com.repackage.vu4;
-import com.repackage.w97;
 import java.net.URISyntaxException;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -115,11 +115,11 @@ public class SingleImageTextView extends RelativeLayout {
     public class b extends gi5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q87.a h;
+        public final /* synthetic */ p87.a h;
         public final /* synthetic */ SingleImageTextView i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(SingleImageTextView singleImageTextView, int i, String str, q87.a aVar) {
+        public b(SingleImageTextView singleImageTextView, int i, String str, p87.a aVar) {
             super(i, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -163,12 +163,12 @@ public class SingleImageTextView extends RelativeLayout {
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q87.a a;
+        public final /* synthetic */ p87.a a;
         public final /* synthetic */ TbPageContext b;
         public final /* synthetic */ int c;
         public final /* synthetic */ SingleImageTextView d;
 
-        public c(SingleImageTextView singleImageTextView, q87.a aVar, TbPageContext tbPageContext, int i) {
+        public c(SingleImageTextView singleImageTextView, p87.a aVar, TbPageContext tbPageContext, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -196,13 +196,13 @@ public class SingleImageTextView extends RelativeLayout {
         */
         public void onClick(View view2) {
             String str;
-            q87.a aVar;
+            p87.a aVar;
             String str2;
             int i;
             String str3;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                q87.a aVar2 = this.a;
+                p87.a aVar2 = this.a;
                 if (aVar2 != null && (str3 = aVar2.d) != null && str3.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
                     try {
                         this.d.a.startActivity(Intent.parseUri(this.a.d, 1));
@@ -237,12 +237,12 @@ public class SingleImageTextView extends RelativeLayout {
                 }
                 if (this.c == 1) {
                     TiebaStatic.eventStat(this.d.a, "official_msg_ck", "click", 1, "fid", this.a.e);
-                    l77 m = ua7.m(this.a.f);
+                    k77 m = ta7.m(this.a.f);
                     if (m != null) {
                         TiebaStatic.eventStat(this.d.a, "message_open_detail", "click", 1, "task_type", m.a, "task_id", m.b, "loc", "0");
                         int i2 = this.a.g;
                         if ((i2 == 1 || i2 == 3) && !"0".equals(m.b)) {
-                            w97.c().a(m.b);
+                            v97.c().a(m.b);
                         }
                     }
                     StatisticItem statisticItem = new StatisticItem("official_message_open_detail");
@@ -357,7 +357,7 @@ public class SingleImageTextView extends RelativeLayout {
         }
     }
 
-    public void f(q87.a aVar) {
+    public void f(p87.a aVar) {
         String str;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
@@ -426,7 +426,7 @@ public class SingleImageTextView extends RelativeLayout {
             int f5 = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds2);
             int f6 = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
             int f7 = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds42);
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0dc0);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0dc1);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             spannableStringBuilder.append((CharSequence) string);
             vu4 vu4Var = new vu4(f, -1, R.color.CAM_X0302, f3, R.color.CAM_X0101, f4, f7);
@@ -524,16 +524,16 @@ public class SingleImageTextView extends RelativeLayout {
         }
     }
 
-    public void setData(TbPageContext<?> tbPageContext, q87.a aVar, View view2, int i) {
+    public void setData(TbPageContext<?> tbPageContext, p87.a aVar, View view2, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLLI(1048583, this, tbPageContext, aVar, view2, i) == null) || aVar == null) {
             return;
         }
         this.b.setText(!TextUtils.isEmpty(aVar.a) ? aVar.a : "");
         String str = TextUtils.isEmpty(aVar.b) ? "" : aVar.b;
-        if (!TextUtils.isEmpty(aVar.b) && aVar.b.contains(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08e2))) {
+        if (!TextUtils.isEmpty(aVar.b) && aVar.b.contains(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08e3))) {
             b bVar = new b(this, 2, aVar.d, aVar);
-            int indexOf = aVar.b.indexOf(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08e2));
+            int indexOf = aVar.b.indexOf(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08e3));
             SpannableString spannableString = new SpannableString(aVar.b);
             spannableString.setSpan(bVar, indexOf - 1, indexOf + 6, 33);
             this.c.setOnTouchListener(new rw8(spannableString));

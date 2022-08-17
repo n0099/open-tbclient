@@ -30,7 +30,7 @@ public class th6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public mj8 b;
+    public lj8 b;
     public ForumData c;
     public RoundAdapterLinearLayout d;
     public TextView e;
@@ -71,7 +71,7 @@ public class th6 {
                 return;
             }
             if (!wh5.a(this.a.a, this.a.b.h())) {
-                cr6.b((TbPageContext) h9.a(this.a.a), this.a.b.j(), this.a.b.o(), this.a.b.i());
+                br6.b((TbPageContext) h9.a(this.a.a), this.a.b.j(), this.a.b.o(), this.a.b.i());
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_BUSSINESS_PROMOT_CLICK);
             httpMessage.addParam("id", this.a.b.c());
@@ -165,26 +165,26 @@ public class th6 {
         g(context);
     }
 
-    public void e(ForumData forumData, mj8 mj8Var, boolean z) {
+    public void e(ForumData forumData, lj8 lj8Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, forumData, mj8Var, z) == null) || mj8Var == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, forumData, lj8Var, z) == null) || lj8Var == null) {
             return;
         }
         this.c = forumData;
-        this.b = mj8Var;
-        this.e.setText(mj8Var.n());
-        if (mj8Var.getType() == 3) {
+        this.b = lj8Var;
+        this.e.setText(lj8Var.n());
+        if (lj8Var.getType() == 3) {
             this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0756, Integer.valueOf(this.b.g())));
-        } else if (mj8Var.getType() == 1) {
+        } else if (lj8Var.getType() == 1) {
             this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0758, Integer.valueOf(this.b.g())));
-        } else if (mj8Var.getType() == 2) {
+        } else if (lj8Var.getType() == 2) {
             this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0754, Integer.valueOf(this.b.g())));
-        } else if (mj8Var.getType() == 4) {
+        } else if (lj8Var.getType() == 4) {
             this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0755, Integer.valueOf(this.b.g())));
         }
         this.f.K(this.b.d(), 10, false);
-        mj8 mj8Var2 = this.b;
-        if (mj8Var2 != null && mj8Var2.f()) {
+        lj8 lj8Var2 = this.b;
+        if (lj8Var2 != null && lj8Var2.f()) {
             this.i.setVisibility(0);
         } else {
             this.i.setVisibility(8);
@@ -193,7 +193,7 @@ public class th6 {
         if (frsAdCommentScrollView != null) {
             frsAdCommentScrollView.m(this.b.a());
         }
-        if (!z && forumData != null && ar6.j(this.b, forumData.getId())) {
+        if (!z && forumData != null && zq6.j(this.b, forumData.getId())) {
             this.j.s(this.b, forumData, Long.parseLong(forumData.getId()));
             this.h.post(new b(this));
         }

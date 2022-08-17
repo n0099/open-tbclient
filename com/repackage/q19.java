@@ -82,7 +82,7 @@ public class q19 {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a == null || this.a.k == null) {
                 return;
             }
-            qi.M(this.a.a, this.a.k);
+            qi.L(this.a.a, this.a.k);
         }
     }
 
@@ -442,7 +442,7 @@ public class q19 {
             if (textView != null) {
                 textView.setTextColor(SkinManager.getColorStateListWithClickAndDisableState(R.color.CAM_X0302, TbadkCoreApplication.getInst().getSkinType()));
             }
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f0809c0, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f0809c1, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
             EditText editText = this.k;
             if (editText != null) {
@@ -521,10 +521,9 @@ public class q19 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             if (this.d == null) {
-                BdTopToast bdTopToast = new BdTopToast(this.a);
-                bdTopToast.g(str);
-                this.d = bdTopToast;
+                this.d = new BdTopToast(this.a);
             }
+            this.d.g(str);
             this.d.i(this.e);
         }
     }

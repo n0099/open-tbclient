@@ -725,7 +725,7 @@ public abstract class f02 extends Fragment implements SlideInterceptor {
                     }
                     if (this.b) {
                         this.d.s0 = new AtomicBoolean(false);
-                        this.d.r0.setText(R.string.obfuscated_res_0x7f0f12fa);
+                        this.d.r0.setText(R.string.obfuscated_res_0x7f0f12fc);
                         this.d.r0.setOnClickListener(new b(this));
                     }
                 }
@@ -1294,7 +1294,7 @@ public abstract class f02 extends Fragment implements SlideInterceptor {
         AtomicBoolean atomicBoolean = this.s0;
         atomicBoolean.set(!atomicBoolean.get());
         boolean z = this.s0.get();
-        this.r0.setText(z ? R.string.obfuscated_res_0x7f0f12fb : R.string.obfuscated_res_0x7f0f12fa);
+        this.r0.setText(z ? R.string.obfuscated_res_0x7f0f12fd : R.string.obfuscated_res_0x7f0f12fc);
         x63.j(z);
     }
 

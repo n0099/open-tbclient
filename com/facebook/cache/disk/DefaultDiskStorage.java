@@ -505,7 +505,7 @@ public class DefaultDiskStorage implements DiskStorage {
             EntryImpl entryImpl = (EntryImpl) entry;
             byte[] read = entryImpl.getResource().read();
             String typeOfBytes = typeOfBytes(read);
-            return new DiskStorage.DiskDumpInfoEntry(entryImpl.getResource().getFile().getPath(), typeOfBytes, (float) entryImpl.getSize(), (!typeOfBytes.equals(SessionMonitorEngine.PUBLIC_DATA_UNDIFNED) || read.length < 4) ? "" : String.format(null, "0x%02X 0x%02X 0x%02X 0x%02X", Byte.valueOf(read[0]), Byte.valueOf(read[1]), Byte.valueOf(read[2]), Byte.valueOf(read[3])));
+            return new DiskStorage.DiskDumpInfoEntry(entryImpl.getId(), entryImpl.getResource().getFile().getPath(), typeOfBytes, (float) entryImpl.getSize(), (!typeOfBytes.equals(SessionMonitorEngine.PUBLIC_DATA_UNDIFNED) || read.length < 4) ? "" : String.format(null, "0x%02X 0x%02X 0x%02X 0x%02X", Byte.valueOf(read[0]), Byte.valueOf(read[1]), Byte.valueOf(read[2]), Byte.valueOf(read[3])));
         }
         return (DiskStorage.DiskDumpInfoEntry) invokeL.objValue;
     }

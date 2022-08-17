@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.go7;
 import com.repackage.ho7;
-import com.repackage.io7;
 import com.repackage.l35;
 import com.repackage.m35;
 /* loaded from: classes3.dex */
 public class NearbyFriendsActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ho7 a;
+    public go7 a;
     public NearbyFriendsModel b;
     public CustomMessageListener c;
     public CustomMessageListener d;
@@ -145,9 +145,9 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0043);
             E0();
-            io7 io7Var = new io7(this);
-            this.a = io7Var;
-            NearbyFriendsModel nearbyFriendsModel = new NearbyFriendsModel(io7Var, getUniqueId());
+            ho7 ho7Var = new ho7(this);
+            this.a = ho7Var;
+            NearbyFriendsModel nearbyFriendsModel = new NearbyFriendsModel(ho7Var, getUniqueId());
             this.b = nearbyFriendsModel;
             nearbyFriendsModel.H(getIntent());
             this.a.o(this.b);

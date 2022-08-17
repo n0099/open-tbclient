@@ -36,12 +36,12 @@ public class na6 extends w25 {
 
         /* renamed from: com.repackage.na6$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0531a implements Runnable {
+        public class RunnableC0534a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0531a(a aVar) {
+            public RunnableC0534a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public class na6 extends w25 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 this.a.d();
-                new Thread(new RunnableC0531a(this)).start();
+                new Thread(new RunnableC0534a(this)).start();
             }
         }
     }

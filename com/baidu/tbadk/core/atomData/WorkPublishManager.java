@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.jz8;
-import com.repackage.wm8;
+import com.repackage.vm8;
 /* loaded from: classes3.dex */
 public class WorkPublishManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -62,12 +62,12 @@ public class WorkPublishManager {
         }
         objLocate = str;
         if (str != null && str.equals("7")) {
-            wm8.k().z(true);
-            wm8.k().x(str2);
+            vm8.k().z(true);
+            vm8.k().x(str2);
             i = 7;
         } else if (TextUtils.equals(str, "8")) {
-            wm8.k().y(8);
-            wm8.k().x(str2);
+            vm8.k().y(8);
+            vm8.k().x(str2);
             i = 8;
         } else {
             i = 6;

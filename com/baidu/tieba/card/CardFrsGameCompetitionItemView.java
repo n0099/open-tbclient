@@ -139,7 +139,7 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
             layoutParams2.height = dimensionPixelSize;
             layoutParams2.width = i;
             this.a.setLayoutParams(layoutParams2);
-            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080870);
+            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080873);
             this.d.setDrawBorder(true);
             this.d.setDrawerType(1);
             this.d.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds5));

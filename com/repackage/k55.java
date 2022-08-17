@@ -198,7 +198,7 @@ public class k55<T> {
                     if (imageUploadResult == null) {
                         imageUploadResult = new ImageUploadResult();
                         imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
-                        imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1103);
+                        imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1104);
                     }
                     this.c.b.a(this.c.c, imageUploadResult);
                 }
@@ -261,7 +261,7 @@ public class k55<T> {
                 if (this.c.b != null) {
                     ImageUploadResult imageUploadResult = new ImageUploadResult();
                     imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
-                    imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1103);
+                    imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1104);
                     this.c.b.a(this.c.c, imageUploadResult);
                 }
             }

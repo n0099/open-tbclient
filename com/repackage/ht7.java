@@ -1,7 +1,6 @@
 package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,19 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Item;
 /* loaded from: classes6.dex */
 public class ht7 implements on {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId i;
+    public static BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public Item a;
     public String b;
-    public int c;
-    public int d;
-    public boolean e;
-    public String f;
-    public String g;
-    public boolean h;
 
     static {
         InterceptResult invokeClinit;
@@ -36,67 +30,31 @@ public class ht7 implements on {
                 return;
             }
         }
-        i = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
-    public ht7(ForumData forumData) {
+    public ht7(Item item) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {forumData};
+            Object[] objArr = {item};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = false;
-        if (forumData == null) {
-            return;
-        }
-        this.a = forumData.getName();
-        this.b = forumData.getImage_url();
-        this.c = forumData.getPost_num();
-        this.d = forumData.getMember_num();
-        this.f = forumData.getId();
-        this.h = forumData.isLike() == 1;
+        this.a = item;
     }
 
     @Override // com.repackage.on
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? i : (BdUniqueId) invokeV.objValue;
-    }
-
-    public ht7(er4 er4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {er4Var};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.e = false;
-        if (er4Var == null) {
-            return;
-        }
-        this.a = er4Var.b;
-        this.b = er4Var.c;
-        this.c = er4Var.h;
-        this.d = er4Var.i;
-        this.f = er4Var.a;
-        this.h = er4Var.getIsLike();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
     }
 }

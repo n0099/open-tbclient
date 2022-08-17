@@ -230,7 +230,7 @@ public class k23 extends w23 {
                 c.a("invoke", optString3, null, optString2);
                 if (optString2.startsWith(BaseWebViewActivity.SHOUBAI_SCHEME)) {
                     if (!gk2.a().c()) {
-                        r03.f(context, R.string.obfuscated_res_0x7f0f122b).G();
+                        r03.f(context, R.string.obfuscated_res_0x7f0f122d).G();
                         return false;
                     }
                     l(context, a2, callbackHandler, optString, optString3);

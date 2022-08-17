@@ -1,7 +1,6 @@
 package com.baidu.tieba.danmu.render;
 
 import android.graphics.Paint;
-import androidx.core.internal.view.SupportMenu;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -61,7 +60,7 @@ public final class SimpleRenderer$debugPaint$2 extends Lambda implements Functio
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Paint paint = new Paint();
-            paint.setColor(SupportMenu.CATEGORY_MASK);
+            paint.setColor(-65536);
             paint.setStyle(Paint.Style.STROKE);
             paint.setAntiAlias(true);
             paint.setStrokeWidth(6.0f);

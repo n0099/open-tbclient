@@ -89,7 +89,7 @@ public class ij6 extends ue6<ir4, ThreadCardViewHolder<ir4>> implements zz5, zp6
             if (view2.getId() != R.id.obfuscated_res_0x7f092450 && view2.getId() != R.id.obfuscated_res_0x7f092422) {
                 if (view2.getId() == R.id.obfuscated_res_0x7f09213e) {
                     wp6.e(ir4Var.t, 5, this.b.mPageId, this.b.r, this.b.t());
-                    ir6.g(ir4Var.t, this.b.b, 1);
+                    hr6.g(ir4Var.t, this.b.b, 1);
                 } else if (view2.getId() == R.id.obfuscated_res_0x7f091e43) {
                     wp6.e(ir4Var.t, 14, this.b.mPageId, this.b.r, this.b.t());
                 } else if (view2.getId() == R.id.obfuscated_res_0x7f090eaa) {
@@ -104,13 +104,13 @@ public class ij6 extends ue6<ir4, ThreadCardViewHolder<ir4>> implements zz5, zp6
                             wp6.e(ir4Var.t, 3, this.b.mPageId, this.b.r, this.b.t());
                         }
                     }
-                    ir6.g(ir4Var.t, this.b.b, 2);
+                    hr6.g(ir4Var.t, this.b.b, 2);
                 } else if (view2 instanceof ThreadGodReplyLayout) {
                     wp6.e(ir4Var.t, 15, this.b.mPageId, this.b.r, this.b.t());
-                    ir6.g(ir4Var.t, this.b.b, 1);
+                    hr6.g(ir4Var.t, this.b.b, 1);
                 } else {
                     wp6.e(ir4Var.t, 1, this.b.mPageId, this.b.r, this.b.t());
-                    ir6.g(ir4Var.t, this.b.b, 1);
+                    hr6.g(ir4Var.t, this.b.b, 1);
                 }
             } else {
                 wp6.e(ir4Var.t, 2, this.b.mPageId, this.b.r, this.b.t());
@@ -118,7 +118,7 @@ public class ij6 extends ue6<ir4, ThreadCardViewHolder<ir4>> implements zz5, zp6
             if (view2.getId() == R.id.obfuscated_res_0x7f092450 || view2.getId() == R.id.obfuscated_res_0x7f092422) {
                 yp6.k().h(this.b.r, ir4Var.t, 2);
             } else if (view2.getId() == R.id.obfuscated_res_0x7f0904f3) {
-                ir6.a(this.b.r, ir4Var.getRecomReason());
+                hr6.a(this.b.r, ir4Var.getRecomReason());
             } else if (view2 instanceof TbImageView) {
                 if (this.b.t.a instanceof Boolean) {
                     if (((Boolean) this.b.t.a).booleanValue()) {

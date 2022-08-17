@@ -1,6 +1,7 @@
 package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,17 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Hottopic.CommonInteraction;
+import tbclient.TopicList.TopicList;
+import tbclient.TopicList.TopicListModule;
 /* loaded from: classes7.dex */
 public class s47 implements on {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId f;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
-    public long c;
-    public long d;
-    public int e;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +31,7 @@ public class s47 implements on {
                 return;
             }
         }
-        f = BdUniqueId.gen();
+        a = BdUniqueId.gen();
     }
 
     public s47() {
@@ -51,25 +48,36 @@ public class s47 implements on {
         }
     }
 
-    public void a(CommonInteraction commonInteraction) {
+    public void a(TopicList topicList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, commonInteraction) == null) || commonInteraction == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, topicList) == null) || topicList == null) {
             return;
         }
-        String str = commonInteraction.module_name;
-        String str2 = commonInteraction.ques_desc;
-        this.a = commonInteraction.total_num.longValue();
-        this.b = commonInteraction.has_clicked.intValue();
-        String str3 = commonInteraction.before_click_pic;
-        String str4 = commonInteraction.after_click_pic;
-        this.c = commonInteraction.pk_id.longValue();
-        this.d = commonInteraction.user_pk_id.longValue();
+        topicList.topic_id.longValue();
+        String str = topicList.topic_name;
+        topicList.tag.intValue();
+        topicList.discuss_num.longValue();
+        String str2 = topicList.topic_desc;
+        String str3 = topicList.topic_pic;
+    }
+
+    public void b(TopicListModule topicListModule) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicListModule) == null) {
+            try {
+                String str = topicListModule.module_title;
+                String str2 = topicListModule.tips;
+                String str3 = topicListModule.rule_jump_url;
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
     }
 
     @Override // com.repackage.on
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
     }
 }

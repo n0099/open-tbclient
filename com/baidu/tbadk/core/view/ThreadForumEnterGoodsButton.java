@@ -136,7 +136,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
         this.h = skinType;
         int color = SkinManager.getColor(R.color.CAM_X0305);
         SkinManager.setViewTextColorWithClickState(this.e, color);
-        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08093d, color, WebPManager.ResourceStateType.NORMAL_PRESS);
+        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08093e, color, WebPManager.ResourceStateType.NORMAL_PRESS);
         this.f = pureDrawable;
         if (pureDrawable != null) {
             this.f.setBounds(0, 0, qi.f(this.b, R.dimen.T_X09), qi.f(this.b, R.dimen.T_X09));

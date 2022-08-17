@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c37;
+import com.repackage.b37;
 import com.repackage.on;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -63,9 +63,9 @@ public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage 
                 this.mDataList = new ArrayList();
                 for (TopicThread topicThread : newTopicThreadResIdl.data.thread_list) {
                     if (topicThread != null) {
-                        c37 c37Var = new c37();
-                        c37Var.f(topicThread);
-                        this.mDataList.add(c37Var);
+                        b37 b37Var = new b37();
+                        b37Var.f(topicThread);
+                        this.mDataList.add(b37Var);
                     }
                 }
             }

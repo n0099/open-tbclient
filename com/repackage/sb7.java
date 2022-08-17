@@ -6,8 +6,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sb7 extends dc7 {
+public class sb7 extends bc7 implements q85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,27 +26,36 @@ public class sb7 extends dc7 {
         }
     }
 
-    @Override // com.repackage.dc7, com.repackage.o85
+    @Override // com.repackage.o85
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "atme_cache" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.dc7, com.repackage.p85
-    public boolean o() {
+    @Override // com.repackage.q85
+    public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
+            return null;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.dc7, com.repackage.p85
-    public String y() {
-        InterceptResult invokeV;
+    @Override // com.repackage.q85
+    public boolean q(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "tb_user_atme" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                initByJson(new JSONObject(str));
+                return true;
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
     }
 }

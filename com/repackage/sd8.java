@@ -1,36 +1,34 @@
 package com.repackage;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.recapp.widget.CountDownTextView;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.tieba.recapp.constants.PlaceId;
+import com.baidu.tieba.recapp.view.AdVideoFlowView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class sd8 {
+public class sd8 implements mc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final View b;
-    public AdvertAppInfo c;
-    public ve7 d;
-    public TbPageContext e;
-    public AdCard f;
-    public View.OnClickListener g;
+    public dm5 a;
+    public TbPageContext<BaseFragmentActivity> b;
+    public Map<AdvertAppInfo, AdVideoFlowView> c;
 
-    public sd8(View view2, String str) {
+    public sd8(IAdBaseAsyncController.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, str};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,81 +38,70 @@ public class sd8 {
                 return;
             }
         }
-        this.b = view2;
-        this.a = str;
+        dm5 dm5Var = new dm5(PlaceId.VIDEO_FLOW, "VIDEO_FLOW", aVar);
+        this.a = dm5Var;
+        dm5Var.e(false);
+        this.c = new HashMap();
     }
 
-    public final <T> T a(int i) {
-        InterceptResult invokeI;
+    @Override // com.repackage.mc8
+    public void a(TbPageContext<BaseFragmentActivity> tbPageContext) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (T) this.b.findViewById(i) : (T) invokeI.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
+            this.b = tbPageContext;
         }
     }
 
-    public void c(cd8 cd8Var) {
+    @Override // com.repackage.mc8
+    public void c(AdvertAppInfo advertAppInfo, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cd8Var) == null) {
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, advertAppInfo, z) == null) {
+            AdVideoFlowView adVideoFlowView = this.c.get(advertAppInfo);
+            if (adVideoFlowView != null) {
+                adVideoFlowView.onPageSelected(z);
+            }
+            for (AdVideoFlowView adVideoFlowView2 : this.c.values()) {
+                if (adVideoFlowView2 != adVideoFlowView) {
+                    adVideoFlowView2.onPageSelected(false);
+                }
+            }
         }
     }
 
-    public void d() {
+    @Override // com.repackage.mc8
+    @Nullable
+    public nb8 i(AdvertAppInfo advertAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, advertAppInfo)) == null) {
+            if (this.b == null) {
+                return null;
+            }
+            AdVideoFlowView adVideoFlowView = this.c.get(advertAppInfo);
+            if (adVideoFlowView == null) {
+                adVideoFlowView = new AdVideoFlowView(this.b.getPageActivity());
+                this.c.put(advertAppInfo, adVideoFlowView);
+            }
+            adVideoFlowView.setPageContext(this.b);
+            adVideoFlowView.setData(advertAppInfo);
+            return adVideoFlowView;
+        }
+        return (nb8) invokeL.objValue;
+    }
+
+    @Override // com.repackage.mc8
+    public void loadAd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.setVisibility(0);
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.v(this.c.j).q(String.valueOf(this.c.position + 1)).p(this.c.g).z(String.valueOf(303));
-            hy0.b(clogBuilder);
+            this.a.d(1, null);
         }
     }
 
-    public void e() {
+    @Override // com.repackage.mc8
+    public void m(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.setVisibility(8);
-        }
-    }
-
-    public void f(AdvertAppInfo advertAppInfo) {
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, advertAppInfo) == null) {
-            this.c = advertAppInfo;
-            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.h) == null || !(iLegoAdvert instanceof AdCard)) {
-                return;
-            }
-            this.f = (AdCard) iLegoAdvert;
-        }
-    }
-
-    public void g(ve7 ve7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ve7Var) == null) {
-            this.d = ve7Var;
-        }
-    }
-
-    public void h(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, tbPageContext) == null) {
-            this.e = tbPageContext;
-        }
-    }
-
-    public void i(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
-            this.g = onClickListener;
-        }
-    }
-
-    public void j(CountDownTextView.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, advertAppInfo) == null) {
+            this.c.remove(advertAppInfo);
         }
     }
 }

@@ -57,12 +57,12 @@ public class wy3 extends UnitedSchemeBaseInterceptor {
 
         /* renamed from: com.repackage.wy3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0611a implements Runnable {
+        public class RunnableC0614a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0611a(a aVar) {
+            public RunnableC0614a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -187,7 +187,7 @@ public class wy3 extends UnitedSchemeBaseInterceptor {
                 if (wy3.a) {
                     Log.d("SwanGameLaunchAction", "onSuccess");
                 }
-                te3.e0(new RunnableC0611a(this));
+                te3.e0(new RunnableC0614a(this));
                 this.b.a1("1.6.0");
                 this.b.A0(true);
                 wl2 d = this.e.d(this.b);

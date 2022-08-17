@@ -273,11 +273,13 @@ public class kd6 implements nd6 {
     /* JADX WARN: Code restructure failed: missing block: B:17:0x002f, code lost:
         if (r5.equals(r1) == false) goto L11;
      */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x003c  */
     @Override // com.repackage.nd6
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onSucc(String str, List<String> list, List<on> list2) {
+        boolean isEmpty;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(1048590, this, str, list, list2) == null) || this.c == null || this.d == null) {
             return;
@@ -287,14 +289,22 @@ public class kd6 implements nd6 {
             String f = this.d.f();
             if (!TextUtils.isEmpty(str)) {
             }
+            isEmpty = TextUtils.isEmpty(this.f);
             this.f = str;
+            if (isEmpty) {
+                this.d.G();
+                this.c.R(this.f);
+            }
             this.d.K();
             this.d.s(str, list, z);
             this.d.u(list2, this.c.U(list2, 300));
             c(str, list2);
         }
         z = true;
+        isEmpty = TextUtils.isEmpty(this.f);
         this.f = str;
+        if (isEmpty) {
+        }
         this.d.K();
         this.d.s(str, list, z);
         this.d.u(list2, this.c.U(list2, 300));

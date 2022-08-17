@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e98;
+import com.repackage.d98;
 import com.repackage.fo4;
 import com.repackage.qi;
 /* loaded from: classes3.dex */
@@ -212,10 +212,10 @@ public final class HomeGroupUbsUIHelper {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean handleVerticalVideoSize(ViewGroup.LayoutParams layoutParams, boolean z, e98 e98Var, int i, int i2) {
+    public static boolean handleVerticalVideoSize(ViewGroup.LayoutParams layoutParams, boolean z, d98 d98Var, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{layoutParams, Boolean.valueOf(z), e98Var, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{layoutParams, Boolean.valueOf(z), d98Var, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             if (layoutParams == null || !UbsABTestHelper.showNewUI()) {
                 return z;
             }
@@ -226,8 +226,8 @@ public final class HomeGroupUbsUIHelper {
             int i3 = (wantWidthNumber * 4) / 3;
             layoutParams.height = i3;
             boolean z2 = (wantWidthNumber == i && i3 == i2) ? false : true;
-            if (e98Var != null) {
-                e98Var.changeRenderViewMode(0);
+            if (d98Var != null) {
+                d98Var.changeRenderViewMode(0);
             }
             return z2;
         }

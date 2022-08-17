@@ -1,9 +1,6 @@
 package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,16 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.AlaLiveInfo;
-import tbclient.Userlike.UserFollowLive;
 /* loaded from: classes7.dex */
-public class tv6 extends fo4 {
+public class tv6 implements on {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId f;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<AlaLiveInfo> a;
+    public int a;
+    public String b;
+    public boolean c;
+    public boolean d;
+    public BdUniqueId e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +33,8 @@ public class tv6 extends fo4 {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        f = BdUniqueId.gen();
+        g = BdUniqueId.gen();
     }
 
     public tv6() {
@@ -51,50 +50,13 @@ public class tv6 extends fo4 {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.e = g;
     }
 
-    public List<AlaLiveInfo> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public void f(UserFollowLive userFollowLive) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, userFollowLive) == null) {
-            this.a.clear();
-            if (userFollowLive == null || ListUtils.isEmpty(userFollowLive.user_follow_live)) {
-                return;
-            }
-            this.a.addAll(userFollowLive.user_follow_live);
-        }
-    }
-
-    @Override // com.repackage.fo4
-    public cq4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (cq4) invokeV.objValue;
-    }
-
-    @Override // com.repackage.fo4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
+    @Override // com.repackage.on
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (BdUniqueId) invokeV.objValue;
     }
 }

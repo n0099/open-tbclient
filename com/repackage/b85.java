@@ -64,8 +64,8 @@ public class b85 implements i75<LocationEvent> {
             }
             if (socketResponsedMessage.getError() == 0 && (locationData = locationEvent.locationData) != null) {
                 LocationModel.D(locationData);
-                zl8.a().g(System.currentTimeMillis());
-                zl8.a().e(locationEvent.locationData);
+                yl8.a().g(System.currentTimeMillis());
+                yl8.a().e(locationEvent.locationData);
             }
             o75.i(locationEvent);
         }
@@ -111,7 +111,7 @@ public class b85 implements i75<LocationEvent> {
                 locationSocketResponsedMessage.setLocationData(locationEvent.locationData);
                 MessageManager.getInstance().dispatchResponsedMessage(locationSocketResponsedMessage);
             } else if (locationEvent.locationData != null && locationEvent.needRefresh) {
-                zl8.a().e(locationEvent.locationData);
+                yl8.a().e(locationEvent.locationData);
             } else {
                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(locationEvent.isShowLocation, locationEvent.locName, locationEvent.locAddr, locationEvent.locSn));
             }

@@ -222,7 +222,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             if (interceptable == null || interceptable.invokeL(1048576, this, e09Var) == null) {
                 if (e09Var == null) {
                     SelectForumActivity selectForumActivity = this.a;
-                    selectForumActivity.showToast(selectForumActivity.getString(R.string.obfuscated_res_0x7f0f1155));
+                    selectForumActivity.showToast(selectForumActivity.getString(R.string.obfuscated_res_0x7f0f1156));
                     Intent intent = new Intent();
                     intent.putExtra(PmsConstant.Statistic.STATISTIC_ERRCODE, -2113);
                     this.a.setResult(1008, intent);
@@ -488,7 +488,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                 layoutParams.leftMargin = qi.f(getActivity(), R.dimen.obfuscated_res_0x7f070230);
                 this.c.setLayoutParams(layoutParams);
             }
-            this.d = this.b.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f10f3));
+            this.d = this.b.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f10f4));
             this.c.setOnClickListener(this.E);
             this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091288);
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e16);

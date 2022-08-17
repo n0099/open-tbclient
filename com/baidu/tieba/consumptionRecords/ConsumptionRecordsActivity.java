@@ -99,14 +99,14 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
             sigleRecordsFragment2.J1(2);
             n65 n65Var2 = new n65();
             n65Var2.a = this.d;
-            n65Var2.b = R.string.obfuscated_res_0x7f0f08e1;
+            n65Var2.b = R.string.obfuscated_res_0x7f0f08e2;
             D0(n65Var2, F0(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment3 = new SigleRecordsFragment();
             this.e = sigleRecordsFragment3;
             sigleRecordsFragment3.J1(3);
             n65 n65Var3 = new n65();
             n65Var3.a = this.e;
-            n65Var3.b = R.string.obfuscated_res_0x7f0f0f8b;
+            n65Var3.b = R.string.obfuscated_res_0x7f0f0f8c;
             D0(n65Var3, F0(getPageContext().getPageActivity()), null);
             this.b.n(3);
             this.b.setCurrentTab(E0(getIntent().getIntExtra(ConsumptionRecordsActivityConfig.JUMP_FRAGMENT_TYPE, 1)));

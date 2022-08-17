@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.h9;
 import com.repackage.jr4;
-import com.repackage.lk8;
+import com.repackage.kk8;
 import com.repackage.lr4;
 import com.repackage.qi;
 /* loaded from: classes3.dex */
@@ -134,16 +134,16 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         h();
     }
 
-    public void f(lk8 lk8Var) {
+    public void f(kk8 kk8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, lk8Var) == null) || lk8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, kk8Var) == null) || kk8Var == null) {
             return;
         }
-        jr4 c = lk8Var.c();
-        lr4 f = lk8Var.f();
+        jr4 c = kk8Var.c();
+        lr4 f = kk8Var.f();
         this.k = c;
         this.l = f;
-        if (lk8Var.h()) {
+        if (kk8Var.h()) {
             this.n.setVisibility(0);
         } else {
             this.n.setVisibility(8);
@@ -175,7 +175,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
                 if (StringUtils.isNull(this.k.h())) {
                     this.f.setVisibility(8);
                 } else {
-                    String str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f148f) + this.k.h();
+                    String str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1491) + this.k.h();
                     SpannableString spannableString = new SpannableString(str);
                     UtilHelper.setSpan(spannableString, str, this.k.h(), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
                     this.f.setText(spannableString);
@@ -184,7 +184,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
                 if (c.d() <= 0) {
                     this.g.setVisibility(8);
                 } else {
-                    String str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1490) + this.k.d();
+                    String str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1492) + this.k.d();
                     SpannableString spannableString2 = new SpannableString(str2);
                     UtilHelper.setSpan(spannableString2, str2, String.valueOf(this.k.d()), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
                     this.g.setText(spannableString2);

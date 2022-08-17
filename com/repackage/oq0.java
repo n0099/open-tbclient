@@ -5,7 +5,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.internal.view.SupportMenu;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.player.constants.PlayerStatus;
 import com.baidu.tieba.R;
@@ -16,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 /* loaded from: classes7.dex */
 public class oq0 extends hu0 {
     public static /* synthetic */ Interceptable $ic;
@@ -94,14 +94,14 @@ public class oq0 extends hu0 {
     public final void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.h.setBackgroundColor(SupportMenu.CATEGORY_MASK);
+            this.h.setBackgroundColor(-65536);
         }
     }
 
     public final void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.h.setBackgroundColor(K() ? -16711936 : SupportMenu.CATEGORY_MASK);
+            this.h.setBackgroundColor(K() ? DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK : -65536);
         }
     }
 

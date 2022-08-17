@@ -427,7 +427,7 @@ public abstract class AbstractImageLoaderProc implements lg<zm> {
                     webClient2 = webClient3;
                 }
                 try {
-                    InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080bc2, new TypedValue());
+                    InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080bc3, new TypedValue());
                     byte[] d2 = dg.d(openRawResource);
                     Bitmap Bytes2NineBitmap = BitmapHelper.Bytes2NineBitmap(d2, rect);
                     WebClient webClient4 = webClient2;

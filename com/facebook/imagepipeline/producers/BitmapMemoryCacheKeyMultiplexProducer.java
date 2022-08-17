@@ -11,6 +11,7 @@ import com.facebook.cache.common.CacheKey;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.image.CloseableImage;
+import com.facebook.imagepipeline.producers.ProducerContext;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes4.dex */
 public class BitmapMemoryCacheKeyMultiplexProducer extends MultiplexProducer<Pair<CacheKey, ImageRequest.RequestLevel>, CloseableReference<CloseableImage>> {
@@ -20,7 +21,7 @@ public class BitmapMemoryCacheKeyMultiplexProducer extends MultiplexProducer<Pai
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BitmapMemoryCacheKeyMultiplexProducer(CacheKeyFactory cacheKeyFactory, Producer producer) {
-        super(producer);
+        super(producer, "BitmapMemoryCacheKeyMultiplexProducer", ProducerContext.ExtraKeys.MULTIPLEX_BITMAP_COUNT);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -30,7 +31,8 @@ public class BitmapMemoryCacheKeyMultiplexProducer extends MultiplexProducer<Pai
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Producer) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Producer) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

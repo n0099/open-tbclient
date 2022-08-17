@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.sn4;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class o05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class o05 {
     public View y;
     public boolean z;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +99,7 @@ public class o05 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -132,7 +132,7 @@ public class o05 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements CompoundButton.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,7 +190,7 @@ public class o05 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d extends FillUsernameCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -241,7 +241,7 @@ public class o05 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fillUsernameResult) == null) {
                 this.a.p();
-                qi.N(this.a.k, R.string.obfuscated_res_0x7f0f1009);
+                qi.M(this.a.k, R.string.obfuscated_res_0x7f0f100a);
                 SapiAccount session = SapiAccountManager.getInstance().getSession();
                 sn4.b().a(session.username, session.bduss, "", null, this.a.A);
             }
@@ -273,18 +273,18 @@ public class o05 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface e {
         void a(AccountData accountData);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class f extends BdAsyncTask<String, Integer, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -395,7 +395,7 @@ public class o05 {
             String obj = this.c.getText().toString();
             if (obj != null && obj.length() > 0) {
                 if (UtilHelper.getFixedTextSize(obj) > 14) {
-                    A(this.k.getString(R.string.obfuscated_res_0x7f0f08f1));
+                    A(this.k.getString(R.string.obfuscated_res_0x7f0f08f2));
                     return;
                 }
                 f fVar = this.l;
@@ -561,7 +561,7 @@ public class o05 {
                 r();
             }
             if (i == 1) {
-                this.p.setText(R.string.obfuscated_res_0x7f0f1406);
+                this.p.setText(R.string.obfuscated_res_0x7f0f1408);
             } else {
                 this.p.setText(R.string.obfuscated_res_0x7f0f02df);
             }

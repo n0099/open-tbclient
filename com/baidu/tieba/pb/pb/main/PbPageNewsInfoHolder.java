@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.h9;
 import com.repackage.jq4;
 import com.repackage.qi;
-import com.repackage.yw7;
+import com.repackage.xw7;
 /* loaded from: classes3.dex */
 public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -48,7 +48,7 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
     public jq4 q;
     public TbPageContext r;
     public int s;
-    public yw7 t;
+    public xw7 t;
     public b u;
     public View.OnClickListener v;
 
@@ -108,7 +108,7 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(yw7 yw7Var);
+        void a(xw7 xw7Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -150,23 +150,23 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         i(this.v);
     }
 
-    public void g(yw7 yw7Var) {
+    public void g(xw7 xw7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, yw7Var) == null) || yw7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, xw7Var) == null) || xw7Var == null) {
             return;
         }
-        this.t = yw7Var;
-        jq4 jq4Var = yw7Var.T0;
+        this.t = xw7Var;
+        jq4 jq4Var = xw7Var.T0;
         this.o = jq4Var;
-        this.p = yw7Var.U0;
-        this.q = yw7Var.V0;
+        this.p = xw7Var.U0;
+        this.q = xw7Var.V0;
         if (jq4Var != null) {
             this.d.K(jq4Var.d, 10, false);
             this.f.setText(this.o.b);
             this.g.setText(this.o.e);
             this.e.setText(this.o.f);
-            SkinManager.setBackgroundResource(this.e, R.drawable.obfuscated_res_0x7f0810a2);
-            SkinManager.setViewTextColor(this.e, (int) R.drawable.obfuscated_res_0x7f080e2f);
+            SkinManager.setBackgroundResource(this.e, R.drawable.obfuscated_res_0x7f0810a3);
+            SkinManager.setViewTextColor(this.e, (int) R.drawable.obfuscated_res_0x7f080e30);
         } else {
             this.c.setVisibility(8);
         }
@@ -188,7 +188,7 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
             this.m.setVisibility(8);
             this.m.setVisibility(8);
         }
-        this.a.setTag(yw7Var);
+        this.a.setTag(xw7Var);
     }
 
     public void h(int i) {

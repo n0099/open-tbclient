@@ -78,14 +78,14 @@ public class wj5 implements vc1<y65> {
         }
 
         @Override // com.baidu.tieba.newdetail.HotTopicDetailModel.d
-        public void p(int i, @Nullable v47 v47Var) {
+        public void p(int i, @Nullable u47 u47Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, v47Var) == null) || this.c == null) {
+            if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, u47Var) == null) || this.c == null) {
                 return;
             }
-            if (v47Var != null) {
+            if (u47Var != null) {
                 ArrayList arrayList = new ArrayList();
-                for (f06 f06Var : v47Var.a) {
+                for (f06 f06Var : u47Var.a) {
                     if (f06Var instanceof f06) {
                         ThreadData threadData = f06Var.getThreadData();
                         if (!TextUtils.equals(threadData.getTid(), "0")) {
@@ -93,7 +93,7 @@ public class wj5 implements vc1<y65> {
                         }
                     }
                 }
-                this.c.b(arrayList, v47Var.h());
+                this.c.b(arrayList, u47Var.h());
             }
             this.c.a();
         }

@@ -27,10 +27,10 @@ import com.repackage.o55;
 import com.repackage.p55;
 import com.repackage.q55;
 import com.repackage.rn4;
-import com.repackage.vm8;
+import com.repackage.um8;
 import com.repackage.w65;
 import com.repackage.wi;
-import com.repackage.xm8;
+import com.repackage.wm8;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -274,7 +274,7 @@ public class ImageUploader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048602, this, writeImagesInfo, z)) == null) {
             ImageUploader imageUploader = this;
-            xm8.a("发帖： 上传批量图片到server");
+            wm8.a("发帖： 上传批量图片到server");
             ErrorData errorData = new ErrorData();
             if (writeImagesInfo != null && writeImagesInfo.size() != 0) {
                 LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
@@ -338,15 +338,15 @@ public class ImageUploader {
                     LinkedList linkedList3 = linkedList2;
                     ImageFileInfo imageFileInfo2 = (ImageFileInfo) linkedList3.get(i3);
                     imageFileInfo2.setTempUploadFileName(null);
-                    xm8.a("发帖：发送图片 上传图片 = " + i3 + " = " + imageFileInfo2.toJson().toString());
+                    wm8.a("发帖：发送图片 上传图片 = " + i3 + " = " + imageFileInfo2.toJson().toString());
                     if (this.isCancelled) {
                         break;
                     }
                     boolean isOriginalImg = imageFileInfo2.getImageType() == 1 ? false : writeImagesInfo.isOriginalImg();
-                    vm8.m(this.writeData, imageFileInfo2);
+                    um8.m(this.writeData, imageFileInfo2);
                     int i4 = i3 + 1;
                     ImageUploadResult uploadInBackground = uploadInBackground(imageFileInfo2, isOriginalImg, z, i4, linkedList3.size());
-                    vm8.d(this.writeData, imageFileInfo2, uploadInBackground);
+                    um8.d(this.writeData, imageFileInfo2, uploadInBackground);
                     if (uploadInBackground != null) {
                         UploadedImageInfo uploadedPicInfo = uploadInBackground.getUploadedPicInfo();
                         if (uploadedPicInfo != null && !TextUtils.isEmpty(uploadedPicInfo.toPostString())) {
@@ -358,22 +358,22 @@ public class ImageUploader {
                         } else {
                             errorData.setError_code(uploadInBackground.error_code);
                             errorData.setError_msg(uploadInBackground.error_msg);
-                            xm8.a("发帖：发送图片 上传图片 错误 1= " + i3 + " = " + imageFileInfo2.toJson().toString());
+                            wm8.a("发帖：发送图片 上传图片 错误 1= " + i3 + " = " + imageFileInfo2.toJson().toString());
                             return errorData;
                         }
                     } else {
                         errorData.setError_code(-52);
-                        errorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14cb));
-                        xm8.a("发帖：发送图片 上传图片 错误 2= " + i3 + " = " + imageFileInfo2.toJson().toString());
+                        errorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14cd));
+                        wm8.a("发帖：发送图片 上传图片 错误 2= " + i3 + " = " + imageFileInfo2.toJson().toString());
                         return errorData;
                     }
                 }
-                xm8.a("发帖：发送图片 上传图片 成功返回");
+                wm8.a("发帖：发送图片 上传图片 成功返回");
                 return null;
             }
             errorData.setError_code(-1002);
-            errorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14cb));
-            xm8.a("发帖：发送图片 上传图片 错误 无图");
+            errorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14cd));
+            wm8.a("发帖：发送图片 上传图片 错误 无图");
             return errorData;
         }
         return (ErrorData) invokeLZ.objValue;
@@ -430,7 +430,7 @@ public class ImageUploader {
     /* JADX WARN: Code restructure failed: missing block: B:159:0x0399, code lost:
         r3.append("|startChunk=");
         r3.append(r7);
-        com.repackage.xm8.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = pic = null    p = " + r11);
+        com.repackage.wm8.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = pic = null    p = " + r11);
      */
     /* JADX WARN: Code restructure failed: missing block: B:160:0x03b3, code lost:
         r15 = r4;
@@ -585,7 +585,7 @@ public class ImageUploader {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             String str5 = str;
             String str6 = "    p = ";
-            xm8.a("发帖：正在上传图片 = " + str5);
+            wm8.a("发帖：正在上传图片 = " + str5);
             BitmapFactory.Options options2 = new BitmapFactory.Options();
             boolean z3 = true;
             options2.inJustDecodeBounds = true;
@@ -628,7 +628,7 @@ public class ImageUploader {
                     try {
                         imageUploadResult7.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
                         imageUploadResult7.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0615);
-                        xm8.a("发帖：正在上传图片 失败 限制大小 = " + length + "    p = " + str5);
+                        wm8.a("发帖：正在上传图片 失败 限制大小 = " + length + "    p = " + str5);
                         ng.b(null);
                         this.mNetwork = null;
                         return imageUploadResult7;
@@ -642,7 +642,7 @@ public class ImageUploader {
                         netWork = null;
                     }
                 } else {
-                    xm8.a("发帖：正在上传图片 进行中 限制大小 = " + length + "    p = " + str5);
+                    wm8.a("发帖：正在上传图片 进行中 限制大小 = " + length + "    p = " + str5);
                     String b2 = wi.b(FileHelper.GetStreamFromFile(file));
                     sb3.append("path=");
                     sb3.append(str5);
@@ -727,11 +727,11 @@ public class ImageUploader {
                                                                 sb4.append(str2);
                                                                 str3 = str;
                                                                 sb4.append(str3);
-                                                                xm8.a(sb4.toString());
+                                                                wm8.a(sb4.toString());
                                                                 ng.b(randomAccessFile);
                                                                 this.mNetwork = netWork;
                                                                 imageUploadResult = imageUploadResult2;
-                                                                xm8.a("发帖：上传图片 结束      p = " + str3);
+                                                                wm8.a("发帖：上传图片 结束      p = " + str3);
                                                                 return imageUploadResult;
                                                             }
                                                         } catch (Throwable th4) {
@@ -784,11 +784,11 @@ public class ImageUploader {
                                                             sb42.append(str2);
                                                             str3 = str;
                                                             sb42.append(str3);
-                                                            xm8.a(sb42.toString());
+                                                            wm8.a(sb42.toString());
                                                             ng.b(randomAccessFile);
                                                             this.mNetwork = netWork;
                                                             imageUploadResult = imageUploadResult2;
-                                                            xm8.a("发帖：上传图片 结束      p = " + str3);
+                                                            wm8.a("发帖：上传图片 结束      p = " + str3);
                                                             return imageUploadResult;
                                                         }
                                                     }
@@ -826,11 +826,11 @@ public class ImageUploader {
                                                         sb422.append(str2);
                                                         str3 = str;
                                                         sb422.append(str3);
-                                                        xm8.a(sb422.toString());
+                                                        wm8.a(sb422.toString());
                                                         ng.b(randomAccessFile);
                                                         this.mNetwork = netWork;
                                                         imageUploadResult = imageUploadResult2;
-                                                        xm8.a("发帖：上传图片 结束      p = " + str3);
+                                                        wm8.a("发帖：上传图片 结束      p = " + str3);
                                                         return imageUploadResult;
                                                     }
                                                 }
@@ -875,11 +875,11 @@ public class ImageUploader {
                                                                 sb4222.append(str2);
                                                                 str3 = str;
                                                                 sb4222.append(str3);
-                                                                xm8.a(sb4222.toString());
+                                                                wm8.a(sb4222.toString());
                                                                 ng.b(randomAccessFile);
                                                                 this.mNetwork = netWork;
                                                                 imageUploadResult = imageUploadResult2;
-                                                                xm8.a("发帖：上传图片 结束      p = " + str3);
+                                                                wm8.a("发帖：上传图片 结束      p = " + str3);
                                                                 return imageUploadResult;
                                                             }
                                                         } catch (Throwable th5) {
@@ -997,18 +997,18 @@ public class ImageUploader {
                                                                             sb42222.append(str2);
                                                                             str3 = str;
                                                                             sb42222.append(str3);
-                                                                            xm8.a(sb42222.toString());
+                                                                            wm8.a(sb42222.toString());
                                                                             ng.b(randomAccessFile);
                                                                             this.mNetwork = netWork;
                                                                             imageUploadResult = imageUploadResult2;
-                                                                            xm8.a("发帖：上传图片 结束      p = " + str3);
+                                                                            wm8.a("发帖：上传图片 结束      p = " + str3);
                                                                             return imageUploadResult;
                                                                         }
                                                                     }
                                                                     try {
                                                                         try {
                                                                             if (parser.error_code != ImageUploadResult.CHUNK_ERROR) {
-                                                                                xm8.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = " + parser.error_code + str6 + str5);
+                                                                                wm8.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = " + parser.error_code + str6 + str5);
                                                                                 if (i6 == parser.chunkNo || parser.chunkNo <= 0) {
                                                                                     break;
                                                                                 }
@@ -1038,7 +1038,7 @@ public class ImageUploader {
                                                                                         if (this.imagesInfo != null) {
                                                                                             this.imagesInfo.hasUploadFileSize += i3;
                                                                                         }
-                                                                                        xm8.a("发帖：正在上传图片 已上传 = " + j7 + str6 + str5);
+                                                                                        wm8.a("发帖：正在上传图片 已上传 = " + j7 + str6 + str5);
                                                                                         if (this.progressCallback != null) {
                                                                                             try {
                                                                                                 RandomAccessFile randomAccessFile8 = randomAccessFile3;
@@ -1161,11 +1161,11 @@ public class ImageUploader {
                                                                                             sb422222.append(str2);
                                                                                             str3 = str;
                                                                                             sb422222.append(str3);
-                                                                                            xm8.a(sb422222.toString());
+                                                                                            wm8.a(sb422222.toString());
                                                                                             ng.b(randomAccessFile);
                                                                                             this.mNetwork = netWork;
                                                                                             imageUploadResult = imageUploadResult2;
-                                                                                            xm8.a("发帖：上传图片 结束      p = " + str3);
+                                                                                            wm8.a("发帖：上传图片 结束      p = " + str3);
                                                                                             return imageUploadResult;
                                                                                         } catch (Throwable th9) {
                                                                                             th = th9;
@@ -1207,11 +1207,11 @@ public class ImageUploader {
                                                                                     sb4222222.append(str2);
                                                                                     str3 = str;
                                                                                     sb4222222.append(str3);
-                                                                                    xm8.a(sb4222222.toString());
+                                                                                    wm8.a(sb4222222.toString());
                                                                                     ng.b(randomAccessFile);
                                                                                     this.mNetwork = netWork;
                                                                                     imageUploadResult = imageUploadResult2;
-                                                                                    xm8.a("发帖：上传图片 结束      p = " + str3);
+                                                                                    wm8.a("发帖：上传图片 结束      p = " + str3);
                                                                                     return imageUploadResult;
                                                                                 }
                                                                             }
@@ -1241,11 +1241,11 @@ public class ImageUploader {
                                                                             sb42222222.append(str2);
                                                                             str3 = str;
                                                                             sb42222222.append(str3);
-                                                                            xm8.a(sb42222222.toString());
+                                                                            wm8.a(sb42222222.toString());
                                                                             ng.b(randomAccessFile);
                                                                             this.mNetwork = netWork;
                                                                             imageUploadResult = imageUploadResult2;
-                                                                            xm8.a("发帖：上传图片 结束      p = " + str3);
+                                                                            wm8.a("发帖：上传图片 结束      p = " + str3);
                                                                             return imageUploadResult;
                                                                         }
                                                                     } catch (Throwable th10) {
@@ -1331,11 +1331,11 @@ public class ImageUploader {
                                                     sb422222222.append(str2);
                                                     str3 = str;
                                                     sb422222222.append(str3);
-                                                    xm8.a(sb422222222.toString());
+                                                    wm8.a(sb422222222.toString());
                                                     ng.b(randomAccessFile);
                                                     this.mNetwork = netWork;
                                                     imageUploadResult = imageUploadResult2;
-                                                    xm8.a("发帖：上传图片 结束      p = " + str3);
+                                                    wm8.a("发帖：上传图片 结束      p = " + str3);
                                                     return imageUploadResult;
                                                 }
                                             } catch (Exception e17) {
@@ -1393,11 +1393,11 @@ public class ImageUploader {
                                 sb4222222222.append(str2);
                                 str3 = str;
                                 sb4222222222.append(str3);
-                                xm8.a(sb4222222222.toString());
+                                wm8.a(sb4222222222.toString());
                                 ng.b(randomAccessFile);
                                 this.mNetwork = netWork;
                                 imageUploadResult = imageUploadResult2;
-                                xm8.a("发帖：上传图片 结束      p = " + str3);
+                                wm8.a("发帖：上传图片 结束      p = " + str3);
                                 return imageUploadResult;
                             } catch (Throwable th13) {
                                 th = th13;
@@ -1408,7 +1408,7 @@ public class ImageUploader {
                                 this.mNetwork = netWork;
                                 throw th;
                             }
-                            xm8.a("发帖：上传图片 结束      p = " + str3);
+                            wm8.a("发帖：上传图片 结束      p = " + str3);
                             return imageUploadResult;
                         }
                         ImageUploadResult imageUploadResult9 = new ImageUploadResult();
@@ -1419,7 +1419,7 @@ public class ImageUploader {
                         ng.b(randomAccessFile2);
                         this.mNetwork = netWork;
                         str3 = str;
-                        xm8.a("发帖：上传图片 结束      p = " + str3);
+                        wm8.a("发帖：上传图片 结束      p = " + str3);
                         return imageUploadResult;
                     } catch (Throwable th14) {
                         th = th14;
@@ -1462,14 +1462,14 @@ public class ImageUploader {
                 sb42222222222.append(str2);
                 str3 = str;
                 sb42222222222.append(str3);
-                xm8.a(sb42222222222.toString());
+                wm8.a(sb42222222222.toString());
                 ng.b(randomAccessFile);
                 this.mNetwork = netWork;
                 imageUploadResult = imageUploadResult2;
-                xm8.a("发帖：上传图片 结束      p = " + str3);
+                wm8.a("发帖：上传图片 结束      p = " + str3);
                 return imageUploadResult;
             }
-            xm8.a("发帖：正在上传图片 失败 = " + str5);
+            wm8.a("发帖：正在上传图片 失败 = " + str5);
             ImageUploadResult imageUploadResult10 = new ImageUploadResult();
             imageUploadResult10.error_code = -1007;
             imageUploadResult10.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0615);

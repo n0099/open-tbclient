@@ -39,13 +39,13 @@ public class ad2 {
 
         /* renamed from: com.repackage.ad2$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0436a implements Runnable {
+        public class RunnableC0438a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ yc2 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0436a(a aVar, yc2 yc2Var) {
+            public RunnableC0438a(a aVar, yc2 yc2Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,7 +109,7 @@ public class ad2 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.b.runOnJSThread(new RunnableC0436a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
+                this.f.b.runOnJSThread(new RunnableC0438a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
             }
         }
     }

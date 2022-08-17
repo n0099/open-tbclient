@@ -99,7 +99,7 @@ public class AdProgressButton extends View implements hj0<AdProgressButton> {
     public final void d(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404e7, R.attr.obfuscated_res_0x7f0404e8, R.attr.obfuscated_res_0x7f0404e9, R.attr.obfuscated_res_0x7f0404ea, R.attr.obfuscated_res_0x7f0404eb, R.attr.obfuscated_res_0x7f0404ec, R.attr.obfuscated_res_0x7f0404ed, R.attr.obfuscated_res_0x7f0404ee, R.attr.obfuscated_res_0x7f0404ef, R.attr.obfuscated_res_0x7f0404f0, R.attr.obfuscated_res_0x7f0404f1, R.attr.obfuscated_res_0x7f0404f2, R.attr.obfuscated_res_0x7f0404f3});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404e8, R.attr.obfuscated_res_0x7f0404e9, R.attr.obfuscated_res_0x7f0404ea, R.attr.obfuscated_res_0x7f0404eb, R.attr.obfuscated_res_0x7f0404ec, R.attr.obfuscated_res_0x7f0404ed, R.attr.obfuscated_res_0x7f0404ee, R.attr.obfuscated_res_0x7f0404ef, R.attr.obfuscated_res_0x7f0404f0, R.attr.obfuscated_res_0x7f0404f1, R.attr.obfuscated_res_0x7f0404f2, R.attr.obfuscated_res_0x7f0404f3, R.attr.obfuscated_res_0x7f0404f4});
             int color = getResources().getColor(R.color.obfuscated_res_0x7f060852);
             int color2 = getResources().getColor(R.color.obfuscated_res_0x7f060851);
             int a = p01.c.a(getContext(), 11.0f);
@@ -114,7 +114,7 @@ public class AdProgressButton extends View implements hj0<AdProgressButton> {
             this.i = obtainStyledAttributes.getDimensionPixelSize(5, a2);
             obtainStyledAttributes.recycle();
             this.k = Typeface.defaultFromStyle(1);
-            setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080da7));
+            setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080da8));
             e();
         }
     }

@@ -1,35 +1,35 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yd8;
-import java.net.URLDecoder;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.HashMap;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class xd8 {
     public static /* synthetic */ Interceptable $ic;
+    public static xd8 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, String> a;
 
     /* loaded from: classes7.dex */
-    public static class a implements yd8.c {
+    public class a extends cf5<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ TbPageContext b;
+        public final /* synthetic */ xd8 a;
 
-        public a(String str, TbPageContext tbPageContext) {
+        public a(xd8 xd8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, tbPageContext};
+                Object[] objArr = {xd8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -39,82 +39,151 @@ public class xd8 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = tbPageContext;
+            this.a = xd8Var;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:26:0x0053  */
-        /* JADX WARN: Removed duplicated region for block: B:42:? A[RETURN, SYNTHETIC] */
-        @Override // com.repackage.yd8.c
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void a(HashMap<String, String> hashMap) {
-            String str;
-            JSONObject jSONObject;
+        @Override // com.repackage.cf5
+        public Object doInBackground() {
+            InterceptResult invokeV;
+            Reader reader;
+            Throwable th;
+            InputStream inputStream;
+            BufferedReader bufferedReader;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) || hashMap == null) {
-                return;
-            }
-            Class<?> cls = null;
-            try {
-                JSONObject jSONObject2 = new JSONObject(URLDecoder.decode(this.a, "UTF-8"));
-                str = jSONObject2.optString("page");
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
-                    String optString = jSONObject2.optString("refre");
-                    jSONObject = jSONObject2.optJSONObject("pageParams");
-                    if (jSONObject == null) {
-                        try {
-                            jSONObject = new JSONObject();
-                        } catch (Exception e) {
-                            e = e;
-                            e.printStackTrace();
-                            cls = Class.forName(hashMap.get(str));
-                            if (cls == null) {
+                    try {
+                        inputStream = TbadkCoreApplication.getInst().getAssets().open("schema_map.txt");
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                    try {
+                        bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                String[] split = readLine.split(",");
+                                if (split.length == 2 && split[0] != null && split[1] != null) {
+                                    this.a.a.put(split[0], split[1]);
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                e.printStackTrace();
+                                ng.c(inputStream);
+                                ng.e(bufferedReader);
+                                return null;
                             }
                         }
+                    } catch (Exception e2) {
+                        e = e2;
+                        bufferedReader = null;
+                    } catch (Throwable th3) {
+                        reader = null;
+                        th = th3;
+                        ng.c(inputStream);
+                        ng.e(reader);
+                        throw th;
                     }
-                    jSONObject.put("page", str);
-                    jSONObject.put("refre", optString);
-                } catch (Exception e2) {
-                    e = e2;
-                    jSONObject = null;
+                } catch (Exception e3) {
+                    e = e3;
+                    inputStream = null;
+                    bufferedReader = null;
+                } catch (Throwable th4) {
+                    reader = null;
+                    th = th4;
+                    inputStream = null;
                 }
-            } catch (Exception e3) {
-                e = e3;
-                str = null;
-                jSONObject = null;
+                ng.c(inputStream);
+                ng.e(bufferedReader);
+                return null;
             }
-            try {
-                cls = Class.forName(hashMap.get(str));
-            } catch (Exception e4) {
-                e4.printStackTrace();
-            }
-            if (cls == null) {
-                Intent intent = new Intent(this.b.getPageActivity(), cls);
-                if (jSONObject != null) {
-                    intent.putExtra("key_schema_params", jSONObject.toString());
+            return invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements je5<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+        public final /* synthetic */ xd8 b;
+
+        public b(xd8 xd8Var, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xd8Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                this.b.getPageActivity().startActivity(intent);
+            }
+            this.b = xd8Var;
+            this.a = cVar;
+        }
+
+        @Override // com.repackage.je5
+        public void onReturnDataInUI(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                this.a.a(this.b.a);
             }
         }
     }
 
-    public static int a(TbPageContext<?> tbPageContext, String[] strArr) {
-        InterceptResult invokeLL;
-        String str;
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(HashMap<String, String> hashMap);
+    }
+
+    public xd8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, strArr)) == null) {
-            if (tbPageContext == null || strArr == null || strArr.length == 0 || (str = strArr[0]) == null || !str.startsWith("tiebaapp://router/portal")) {
-                return 3;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            try {
-                yd8.c().b(new a(Uri.parse(str).getQueryParameter("params"), tbPageContext));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return 0;
         }
-        return invokeLL.intValue;
+        this.a = new HashMap<>();
+    }
+
+    public static xd8 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (xd8.class) {
+                    if (b == null) {
+                        b = new xd8();
+                    }
+                }
+            }
+            return b;
+        }
+        return (xd8) invokeV.objValue;
+    }
+
+    public void b(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            if (!this.a.isEmpty()) {
+                cVar.a(this.a);
+            } else {
+                gf5.b(new a(this), new b(this, cVar));
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.facebook.common.references;
 
+import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -9,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.Objects;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.logging.FLog;
@@ -92,6 +94,9 @@ public class SharedReference<T> {
     public static void addLiveReference(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, obj) == null) {
+            if (CloseableReference.useGc() && ((obj instanceof Bitmap) || (obj instanceof HasBitmap))) {
+                return;
+            }
             synchronized (sLiveObjects) {
                 Integer num = sLiveObjects.get(obj);
                 if (num == null) {
@@ -142,6 +147,12 @@ public class SharedReference<T> {
         }
     }
 
+    public static String reportData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Objects.toStringHelper("SharedReference").add("live_objects_count", sLiveObjects.size()).toString() : (String) invokeV.objValue;
+    }
+
     public synchronized void addReference() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -180,11 +191,26 @@ public class SharedReference<T> {
         }
     }
 
+    public synchronized boolean deleteReferenceIfValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                if (isValid()) {
+                    deleteReference();
+                    return true;
+                }
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
     public synchronized T get() {
         InterceptResult invokeV;
         T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
                 t = this.mValue;
             }
@@ -197,7 +223,7 @@ public class SharedReference<T> {
         InterceptResult invokeV;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
                 i = this.mRefCount;
             }
@@ -210,7 +236,7 @@ public class SharedReference<T> {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
                 z = this.mRefCount > 0;
             }

@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.fi;
-import com.repackage.lg7;
+import com.repackage.kg7;
 import com.repackage.og;
 import com.repackage.qi;
 /* loaded from: classes3.dex */
@@ -48,7 +48,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     public long j;
     public String k;
     public ShareItem l;
-    public lg7 m;
+    public kg7 m;
 
     /* loaded from: classes3.dex */
     public class a implements DialogInterface.OnDismissListener {
@@ -217,14 +217,14 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
             return;
         }
         fi.a(shareItem.w);
-        qi.O(getApplicationContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0450));
+        qi.N(getApplicationContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0450));
     }
 
     public final void F1() {
-        lg7 lg7Var;
+        kg7 kg7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (lg7Var = this.m) != null) {
-            if (ListUtils.isEmpty(lg7Var.b())) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (kg7Var = this.m) != null) {
+            if (ListUtils.isEmpty(kg7Var.b())) {
                 this.m.c();
             }
             this.m.e(og.g(this.g, 0L), this.i, this.l);
@@ -245,19 +245,19 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         shareDialogConfig.setOnDismissListener(new a(this));
         if (TextUtils.isEmpty(this.g) && TextUtils.isEmpty(this.i)) {
             if (this.j > 0) {
-                shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f112e, R.drawable.obfuscated_res_0x7f0809c6, new c(this));
+                shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f112f, R.drawable.obfuscated_res_0x7f0809c7, new c(this));
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_VOICE_ROOM_SHARE_PANEL);
                 statisticItem.addParam("room_id", this.j);
                 statisticItem.addParam("obj_type", this.k);
                 statisticItem.eventStat();
             }
         } else {
-            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0249, R.drawable.obfuscated_res_0x7f0808ff, new b(this));
+            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0249, R.drawable.obfuscated_res_0x7f080900, new b(this));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
-        lg7 lg7Var = this.m;
-        if (lg7Var != null) {
-            lg7Var.c();
+        kg7 kg7Var = this.m;
+        if (kg7Var != null) {
+            kg7Var.c();
         }
     }
 
@@ -279,7 +279,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            this.m = new lg7(getPageContext());
+            this.m = new kg7(getPageContext());
             if (bundle != null) {
                 this.a = bundle.getString("title");
                 this.b = bundle.getString("content");
@@ -325,9 +325,9 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            lg7 lg7Var = this.m;
-            if (lg7Var != null) {
-                lg7Var.d();
+            kg7 kg7Var = this.m;
+            if (kg7Var != null) {
+                kg7Var.d();
             }
         }
     }

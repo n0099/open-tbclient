@@ -116,7 +116,7 @@ public class TbLinkSpanGroup extends kw4<TbLinkSpanGroup> {
                 return;
             }
         }
-        r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1593);
+        r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1596);
     }
 
     public TbLinkSpanGroup() {
@@ -196,7 +196,7 @@ public class TbLinkSpanGroup extends kw4<TbLinkSpanGroup> {
         if (f() < 0 || f() > this.c.length() || f() + 3 < 0 || f() + 3 > this.c.length() || c() < 0 || c() > this.c.length()) {
             return;
         }
-        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809a1, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809a2, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
         eMRichTextAnyIconSpan.c(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
         n(eMRichTextAnyIconSpan, f(), f() + 3, 33);
         n(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f() + 3, c(), 33);
@@ -212,7 +212,7 @@ public class TbLinkSpanGroup extends kw4<TbLinkSpanGroup> {
         String str = "[p]" + this.p + ((Object) this.m);
         this.q = str.length();
         k(str);
-        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809a1, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809a2, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
         eMRichTextAnyIconSpan.c(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
         n(eMRichTextAnyIconSpan, f(), f() + 3, 33);
         n(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f() + 3, c(), 33);

@@ -61,8 +61,8 @@ public class vc4 {
             }
         }
         this.a = new a();
-        this.b = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f126b);
-        this.c = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f126c);
+        this.b = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f126d);
+        this.c = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f126e);
     }
 
     public static vc4 b() {

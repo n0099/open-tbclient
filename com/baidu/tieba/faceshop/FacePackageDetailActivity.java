@@ -139,13 +139,13 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                             this.a.showToast(str);
                             return;
                         } else {
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                             return;
                         }
                     }
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
             }
         }
     }
@@ -264,11 +264,11 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                         this.a.showToast(str3);
                         return;
                     } else {
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                         return;
                     }
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
             }
         }
     }
@@ -438,7 +438,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
             DownloadData downloadData = new DownloadData(this.a.getPid());
             downloadData.setType(11);
             downloadData.setStatus(2);
-            downloadData.setStatusMsg(getResources().getString(R.string.obfuscated_res_0x7f0f0c3c));
+            downloadData.setStatusMsg(getResources().getString(R.string.obfuscated_res_0x7f0f0c3d));
             this.c.setLoadDataCallBack(new c(this, downloadData));
         }
     }

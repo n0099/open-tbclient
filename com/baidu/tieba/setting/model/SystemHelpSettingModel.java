@@ -151,7 +151,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
                 long longValue = directorySize + directorySize3 + fileSize + directorySize2 + ((runTask == null || !(runTask.getData() instanceof Long)) ? 0L : ((Long) runTask.getData()).longValue());
                 float f = ((float) longValue) + 0.0f;
                 if (longValue >= 10485.76d) {
-                    return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + this.a.c.getString(R.string.obfuscated_res_0x7f0f0aaa);
+                    return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + this.a.c.getString(R.string.obfuscated_res_0x7f0f0aab);
                 }
                 return "";
             }

@@ -1367,7 +1367,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
             }
         };
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f04026d, R.attr.obfuscated_res_0x7f04029e, R.attr.obfuscated_res_0x7f04029f, R.attr.obfuscated_res_0x7f0402a0, R.attr.obfuscated_res_0x7f0402a1, R.attr.obfuscated_res_0x7f0402a2, R.attr.obfuscated_res_0x7f040306, R.attr.obfuscated_res_0x7f040518, R.attr.obfuscated_res_0x7f04051b, R.attr.obfuscated_res_0x7f04051d}, i, obfuscated_res_0x7f100346, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f04026e, R.attr.obfuscated_res_0x7f04029f, R.attr.obfuscated_res_0x7f0402a0, R.attr.obfuscated_res_0x7f0402a1, R.attr.obfuscated_res_0x7f0402a2, R.attr.obfuscated_res_0x7f0402a3, R.attr.obfuscated_res_0x7f040307, R.attr.obfuscated_res_0x7f040519, R.attr.obfuscated_res_0x7f04051c, R.attr.obfuscated_res_0x7f04051e}, i, obfuscated_res_0x7f100346, new int[0]);
         ColorStateList colorStateList = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 0);
         int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(1, 0);
         this.fabAlignmentMode = obtainStyledAttributes.getInt(2, 0);

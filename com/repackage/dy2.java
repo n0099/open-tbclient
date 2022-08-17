@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.media.chooser.model.MediaModel;
@@ -101,7 +100,7 @@ public class dy2 extends f02 implements View.OnClickListener, uo2<MediaModel>, y
                 } else {
                     this.a.M0.setText("超999+");
                 }
-                this.a.M0.setTextColor(SupportMenu.CATEGORY_MASK);
+                this.a.M0.setTextColor(-65536);
                 this.a.p3();
             }
         }
@@ -618,7 +617,7 @@ public class dy2 extends f02 implements View.OnClickListener, uo2<MediaModel>, y
                 this.a.V0 = i;
                 this.a.G0.setText(this.a.G0.getText().toString().substring(0, 20));
                 this.a.G0.setSelection(20);
-                az2.h(this.a.getContext(), R.string.obfuscated_res_0x7f0f12e5);
+                az2.h(this.a.getContext(), R.string.obfuscated_res_0x7f0f12e7);
                 this.a.p3();
             }
         }
@@ -832,8 +831,8 @@ public class dy2 extends f02 implements View.OnClickListener, uo2<MediaModel>, y
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             d03.a aVar = new d03.a(getContext());
             aVar.m(false);
-            aVar.U(R.string.obfuscated_res_0x7f0f12dc);
-            aVar.v(R.string.obfuscated_res_0x7f0f12e0);
+            aVar.U(R.string.obfuscated_res_0x7f0f12de);
+            aVar.v(R.string.obfuscated_res_0x7f0f12e2);
             aVar.O(R.string.obfuscated_res_0x7f0f0118, new b(this));
             aVar.X();
         }
@@ -843,10 +842,10 @@ public class dy2 extends f02 implements View.OnClickListener, uo2<MediaModel>, y
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             d03.a aVar = new d03.a(getActivity());
-            aVar.U(R.string.obfuscated_res_0x7f0f12f0);
-            aVar.B(R.string.obfuscated_res_0x7f0f12ed, new d(this));
-            aVar.v(R.string.obfuscated_res_0x7f0f12ef);
-            aVar.O(R.string.obfuscated_res_0x7f0f12ee, new c(this));
+            aVar.U(R.string.obfuscated_res_0x7f0f12f2);
+            aVar.B(R.string.obfuscated_res_0x7f0f12ef, new d(this));
+            aVar.v(R.string.obfuscated_res_0x7f0f12f1);
+            aVar.O(R.string.obfuscated_res_0x7f0f12f0, new c(this));
             aVar.X();
         }
     }
@@ -958,9 +957,9 @@ public class dy2 extends f02 implements View.OnClickListener, uo2<MediaModel>, y
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             if (z) {
-                this.J0.setImageResource(R.drawable.obfuscated_res_0x7f081199);
+                this.J0.setImageResource(R.drawable.obfuscated_res_0x7f08119a);
             } else {
-                this.J0.setImageResource(R.drawable.obfuscated_res_0x7f08119c);
+                this.J0.setImageResource(R.drawable.obfuscated_res_0x7f08119d);
             }
         }
     }
@@ -971,7 +970,7 @@ public class dy2 extends f02 implements View.OnClickListener, uo2<MediaModel>, y
             vy2.d(this.F0, this.H0);
             ImageView imageView = this.J0;
             if (imageView != null) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f08119c);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f08119d);
             }
         }
     }
@@ -1037,7 +1036,7 @@ public class dy2 extends f02 implements View.OnClickListener, uo2<MediaModel>, y
     public final void r3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.J0.setImageResource(R.drawable.obfuscated_res_0x7f08119b);
+            this.J0.setImageResource(R.drawable.obfuscated_res_0x7f08119c);
             this.J0.setClickable(false);
         }
     }
@@ -1045,7 +1044,7 @@ public class dy2 extends f02 implements View.OnClickListener, uo2<MediaModel>, y
     public final void s3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.L0.setImageResource(R.drawable.obfuscated_res_0x7f081195);
+            this.L0.setImageResource(R.drawable.obfuscated_res_0x7f081196);
             this.L0.setClickable(false);
         }
     }
@@ -1053,7 +1052,7 @@ public class dy2 extends f02 implements View.OnClickListener, uo2<MediaModel>, y
     public final void t3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.J0.setImageResource(R.drawable.obfuscated_res_0x7f08119c);
+            this.J0.setImageResource(R.drawable.obfuscated_res_0x7f08119d);
             this.J0.setClickable(true);
         }
     }
@@ -1080,7 +1079,7 @@ public class dy2 extends f02 implements View.OnClickListener, uo2<MediaModel>, y
     public final void u3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            this.L0.setImageResource(R.drawable.obfuscated_res_0x7f081180);
+            this.L0.setImageResource(R.drawable.obfuscated_res_0x7f081181);
             this.L0.setClickable(true);
         }
     }
@@ -1125,19 +1124,19 @@ public class dy2 extends f02 implements View.OnClickListener, uo2<MediaModel>, y
                 Log.d("SwanAppPublisher", "go publish");
             }
             if (!SwanAppNetworkUtils.i(getContext())) {
-                az2.h(getContext(), R.string.obfuscated_res_0x7f0f12de);
+                az2.h(getContext(), R.string.obfuscated_res_0x7f0f12e0);
             } else if (this.T0 == null) {
             } else {
                 String obj = this.G0.getText().toString();
                 String obj2 = this.H0.getText().toString();
                 List<String> w3 = w3();
                 if (this.Q0.supportTitle().booleanValue() && TextUtils.isEmpty(obj.trim())) {
-                    az2.h(getContext(), R.string.obfuscated_res_0x7f0f12db);
+                    az2.h(getContext(), R.string.obfuscated_res_0x7f0f12dd);
                 } else if (TextUtils.isEmpty(obj2.trim()) && (w3 == null || w3.size() == 0)) {
-                    az2.h(getContext(), R.string.obfuscated_res_0x7f0f12db);
+                    az2.h(getContext(), R.string.obfuscated_res_0x7f0f12dd);
                 } else if (w3 != null && w3.size() > 0) {
                     ViewGroup viewGroup = (ViewGroup) getActivity().findViewById(16908290);
-                    h03.h(getContext(), viewGroup, getResources().getString(R.string.obfuscated_res_0x7f0f12dd));
+                    h03.h(getContext(), viewGroup, getResources().getString(R.string.obfuscated_res_0x7f0f12df));
                     this.N0.setClickable(false);
                     this.N0.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a9a));
                     td3.f().execute(new l(this, w3, obj, obj2, viewGroup));

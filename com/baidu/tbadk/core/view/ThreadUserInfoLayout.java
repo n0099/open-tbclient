@@ -42,7 +42,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gs7;
+import com.repackage.fs7;
 import com.repackage.h9;
 import com.repackage.jm4;
 import com.repackage.ll4;
@@ -200,7 +200,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.p == null || this.a.p.getAuthor() == null) {
                 return;
             }
-            jm4.s(this.a.q.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14e3), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.p.getAuthor().getUserId() + "&opacity=0", true, true, true);
+            jm4.s(this.a.q.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14e6), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.p.getAuthor().getUserId() + "&opacity=0", true, true, true);
             if (this.a.s == 1) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 3));
             }
@@ -357,7 +357,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
                     if (!ListUtils.isEmpty(this.p.getAuthor().getTShowInfoNew())) {
                         this.p.getAuthor().getTShowInfoNew().clear();
                     }
-                    this.p.getAuthor().setName_show(getContext().getString(R.string.obfuscated_res_0x7f0f0e0b));
+                    this.p.getAuthor().setName_show(getContext().getString(R.string.obfuscated_res_0x7f0f0e0c));
                 }
                 this.b.setOnClickListener(null);
                 this.c.setOnClickListener(null);
@@ -464,7 +464,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
             }
             ThreadData threadData2 = this.p;
             if (threadData2.middle_page_num > 0 && threadData2.middle_page_pass_flag == 0) {
-                str = getContext().getString(R.string.obfuscated_res_0x7f0f10fb);
+                str = getContext().getString(R.string.obfuscated_res_0x7f0f10fc);
             } else {
                 str = StringHelper.cutChineseAndEnglishWithSuffix(str2, 12, StringHelper.STRING_MORE) + getResources().getString(R.string.obfuscated_res_0x7f0f065a);
             }
@@ -688,9 +688,9 @@ public class ThreadUserInfoLayout extends LinearLayout {
             if (!NickNameActivitySwitch.isOn() || name_show == null || name_show.equals(userName)) {
                 return;
             }
-            this.c.setText(gs7.b(this.q, this.c.getText().toString()));
+            this.c.setText(fs7.b(this.q, this.c.getText().toString()));
             this.c.setGravity(16);
-            this.c.setTag(R.id.obfuscated_res_0x7f092012, gs7.a());
+            this.c.setTag(R.id.obfuscated_res_0x7f092012, fs7.a());
             SkinManager.setViewTextColor(this.c, R.color.CAM_X0312, 1);
         }
     }

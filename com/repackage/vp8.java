@@ -174,7 +174,7 @@ public class vp8 extends PriorityOrganizer.Task {
                 layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(R.dimen.tbds149), 0, 0);
                 relativeLayout.addView(view2, layoutParams);
                 ImageView imageView = new ImageView(this.m.getPageActivity());
-                imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080822, WebPManager.ResourceStateType.NORMAL));
+                imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080824, WebPManager.ResourceStateType.NORMAL));
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
                 layoutParams2.addRule(14);
                 relativeLayout.addView(imageView, layoutParams2);

@@ -209,8 +209,8 @@ public class dj5 extends cj5 implements View.OnClickListener {
                 button2.setTag("cancel");
                 button.setOnClickListener(this);
                 button2.setOnClickListener(this);
-                button.setText(TextUtils.isEmpty(this.e.B) ? context.getResources().getString(R.string.obfuscated_res_0x7f0f0e81) : this.e.B);
-                button2.setText(TextUtils.isEmpty(this.e.C) ? context.getResources().getString(R.string.obfuscated_res_0x7f0f0e7b) : this.e.C);
+                button.setText(TextUtils.isEmpty(this.e.B) ? context.getResources().getString(R.string.obfuscated_res_0x7f0f0e82) : this.e.B);
+                button2.setText(TextUtils.isEmpty(this.e.C) ? context.getResources().getString(R.string.obfuscated_res_0x7f0f0e7c) : this.e.C);
                 textView.setText(TextUtils.isEmpty(this.e.D) ? "" : this.e.D);
                 button.setTextColor(this.e.E);
                 button2.setTextColor(this.e.F);

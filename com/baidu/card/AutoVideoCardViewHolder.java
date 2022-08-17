@@ -10,11 +10,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dy;
 import com.repackage.fo4;
-import com.repackage.j88;
+import com.repackage.i88;
 import com.repackage.ly;
-import com.repackage.z88;
+import com.repackage.y88;
 /* loaded from: classes.dex */
-public class AutoVideoCardViewHolder<T extends fo4> extends ThreadCardViewHolder<T> implements j88 {
+public class AutoVideoCardViewHolder<T extends fo4> extends ThreadCardViewHolder<T> implements i88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ly j;
@@ -43,7 +43,7 @@ public class AutoVideoCardViewHolder<T extends fo4> extends ThreadCardViewHolder
         }
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class AutoVideoCardViewHolder<T extends fo4> extends ThreadCardViewHolder
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class AutoVideoCardViewHolder<T extends fo4> extends ThreadCardViewHolder
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public class AutoVideoCardViewHolder<T extends fo4> extends ThreadCardViewHolder
         return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class AutoVideoCardViewHolder<T extends fo4> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class AutoVideoCardViewHolder<T extends fo4> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class AutoVideoCardViewHolder<T extends fo4> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public void startPlay() {
         ly lyVar;
         Interceptable interceptable = $ic;
@@ -137,7 +137,7 @@ public class AutoVideoCardViewHolder<T extends fo4> extends ThreadCardViewHolder
         lyVar.startPlay();
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public void stopPlay() {
         ly lyVar;
         Interceptable interceptable = $ic;
@@ -153,12 +153,12 @@ public class AutoVideoCardViewHolder<T extends fo4> extends ThreadCardViewHolder
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.j : (ly) invokeV.objValue;
     }
 
-    public void u(z88 z88Var) {
+    public void u(y88 y88Var) {
         ly lyVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, z88Var) == null) || (lyVar = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, y88Var) == null) || (lyVar = this.j) == null) {
             return;
         }
-        lyVar.z(z88Var);
+        lyVar.z(y88Var);
     }
 }

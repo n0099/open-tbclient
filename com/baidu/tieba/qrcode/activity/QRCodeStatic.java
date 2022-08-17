@@ -21,9 +21,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dl8;
+import com.repackage.cl8;
+import com.repackage.ta8;
 import com.repackage.ua8;
-import com.repackage.va8;
 import java.net.URISyntaxException;
 /* loaded from: classes4.dex */
 public class QRCodeStatic {
@@ -53,12 +53,12 @@ public class QRCodeStatic {
         public CustomResponsedMessage<Bitmap> run(CustomMessage<String> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921388, va8.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247))) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921388, ua8.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247))) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<dl8> {
+    public static class b implements CustomMessageTask.CustomRunnable<cl8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,20 +77,20 @@ public class QRCodeStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<dl8> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<cl8> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 String str = null;
-                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof dl8)) {
+                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof cl8)) {
                     return null;
                 }
-                dl8 data = customMessage.getData();
+                cl8 data = customMessage.getData();
                 int i = data.a;
                 if (i == 0) {
-                    str = ua8.b(data.c);
+                    str = ta8.b(data.c);
                 } else if (i == 1) {
-                    str = ua8.c(data.d);
+                    str = ta8.c(data.d);
                 }
                 if (TextUtils.isEmpty(str)) {
                     data.e = "qr_none";

@@ -57,7 +57,7 @@ public class ae6 {
         this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091d8e);
         this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f090d6e);
         this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090d5e);
-        this.d.setHint(R.string.obfuscated_res_0x7f0f10b6);
+        this.d.setHint(R.string.obfuscated_res_0x7f0f10b7);
         TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d5d);
         this.f = textView;
         textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0370));
@@ -89,7 +89,7 @@ public class ae6 {
         }
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
         SkinManager.setViewTextColor(this.f, R.color.CAM_X0302, 1);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f0809c0, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f0809c1, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         if (i == 2) {
             this.d.setHintTextColor(SkinManager.getColor(R.color.s_navbar_title_color));
         } else {

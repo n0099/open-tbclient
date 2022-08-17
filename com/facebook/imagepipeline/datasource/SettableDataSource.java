@@ -44,7 +44,7 @@ public final class SettableDataSource<T> extends AbstractDataSource<CloseableRef
     public boolean set(@Nullable CloseableReference<T> closeableReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, closeableReference)) == null) ? super.setResult(CloseableReference.cloneOrNull(closeableReference), true) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, closeableReference)) == null) ? super.setResult(CloseableReference.cloneOrNull(closeableReference), true, null) : invokeL.booleanValue;
     }
 
     public boolean setException(Throwable th) {

@@ -14,10 +14,10 @@ public class v68 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
 
     static {
         InterceptResult invokeClinit;

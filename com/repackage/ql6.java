@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ql6 extends ue6<jt6, GameRankListViewHolder> implements zp6 {
+public class ql6 extends ue6<it6, GameRankListViewHolder> implements zp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public xp6 l;
@@ -52,18 +52,18 @@ public class ql6 extends ue6<jt6, GameRankListViewHolder> implements zp6 {
         }
 
         @Override // com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout.b
-        public void a(it6 it6Var, int i) {
+        public void a(ht6 ht6Var, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, it6Var, i) == null) || it6Var == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, ht6Var, i) == null) || ht6Var == null) {
                 return;
             }
             if (this.a.l != null) {
                 TiebaStatic.log(new StatisticItem("c12105").param("fid", this.a.l.c).param("obj_locate", i + 1));
             }
-            if (StringUtils.isNull(it6Var.c())) {
+            if (StringUtils.isNull(ht6Var.c())) {
                 return;
             }
-            jm4.o(this.a.c.getPageActivity(), it6Var.c());
+            jm4.o(this.a.c.getPageActivity(), ht6Var.c());
         }
     }
 
@@ -134,12 +134,12 @@ public class ql6 extends ue6<jt6, GameRankListViewHolder> implements zp6 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ue6, com.repackage.bn
     /* renamed from: H */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jt6 jt6Var, GameRankListViewHolder gameRankListViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, it6 it6Var, GameRankListViewHolder gameRankListViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jt6Var, gameRankListViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, jt6Var, gameRankListViewHolder);
-            if (jt6Var == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, it6Var, gameRankListViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, it6Var, gameRankListViewHolder);
+            if (it6Var == null) {
                 return null;
             }
             SkinManager.setBackgroundColor(view2, R.color.CAM_X0201);
@@ -148,7 +148,7 @@ public class ql6 extends ue6<jt6, GameRankListViewHolder> implements zp6 {
             }
             GameRankHorizontalLayout gameRankHorizontalLayout = gameRankListViewHolder.a;
             if (gameRankHorizontalLayout != null) {
-                gameRankHorizontalLayout.setData(jt6Var);
+                gameRankHorizontalLayout.setData(it6Var);
                 gameRankListViewHolder.a.setOnCardClickListener(new a(this));
             }
             TextView textView = gameRankListViewHolder.b;

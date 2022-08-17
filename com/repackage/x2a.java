@@ -1,15 +1,15 @@
 package com.repackage;
 
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import android.view.View;
+import android.view.Window;
+import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes7.dex */
-public interface x2a extends v2a {
+public interface x2a {
+    void attachWindow(Window window);
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a();
-    }
+    View getContentView();
 
-    void setCallback(a aVar);
+    void refreshView();
 
-    void setGiftBagsInfo(GiftBagsInfo giftBagsInfo);
+    void refreshWindow(WindowParams windowParams);
 }

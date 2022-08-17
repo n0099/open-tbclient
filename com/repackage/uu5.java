@@ -326,7 +326,7 @@ public class uu5 {
                 this.l.setWidth(-2);
                 this.l.setHeight(-2);
                 this.l.setAnimationStyle(16973826);
-                this.l.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f96));
+                this.l.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f97));
                 this.l.setOutsideTouchable(true);
                 this.l.setFocusable(true);
                 this.l.setTouchable(true);
@@ -489,7 +489,7 @@ public class uu5 {
         if (pbListView.b().getParent() == null) {
             this.k.setNextPage(this.r);
         }
-        this.r.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a39));
+        this.r.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a3a));
         this.r.f();
     }
 
@@ -515,7 +515,7 @@ public class uu5 {
         if (pbListView.b().getParent() == null) {
             this.k.setNextPage(this.r);
         }
-        this.r.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09ea));
+        this.r.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09eb));
         this.r.f();
     }
 

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.og;
 import com.repackage.r06;
-import com.repackage.zb8;
+import com.repackage.yb8;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -137,7 +137,7 @@ public class BannerListData implements Serializable {
     public void parserProtobuf(BannerList bannerList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bannerList) == null) {
-            List<AdvertAppInfo> f = zb8.l().f();
+            List<AdvertAppInfo> f = yb8.l().f();
             if (f != null) {
                 f.clear();
             }
@@ -157,7 +157,7 @@ public class BannerListData implements Serializable {
                     }
                 }
             }
-            zb8.l().e();
+            yb8.l().e();
             Collections.sort(this.advertAppList, new a(this));
             List<FeedForumInfo> list2 = bannerList.feed_forum;
             if (list2 != null && list2.size() > 0) {

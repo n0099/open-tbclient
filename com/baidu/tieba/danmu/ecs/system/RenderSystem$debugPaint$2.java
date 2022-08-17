@@ -1,7 +1,6 @@
 package com.baidu.tieba.danmu.ecs.system;
 
 import android.graphics.Paint;
-import androidx.core.internal.view.SupportMenu;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,7 +63,7 @@ public final class RenderSystem$debugPaint$2 extends Lambda implements Function0
             if (c26.a()) {
                 Paint paint = new Paint();
                 paint.setStyle(Paint.Style.STROKE);
-                paint.setColor(SupportMenu.CATEGORY_MASK);
+                paint.setColor(-65536);
                 paint.setStrokeWidth(2.0f);
                 return paint;
             }

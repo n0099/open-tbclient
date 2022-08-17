@@ -30,7 +30,7 @@ public class cu2 implements sf3<HybridUbcFlow> {
 
         /* renamed from: com.repackage.cu2$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0461a {
+        public static class C0462a {
             public static /* synthetic */ Interceptable $ic;
             public static a a;
             public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class cu2 implements sf3<HybridUbcFlow> {
         public static a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0461a.a : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0462a.a : (a) invokeV.objValue;
         }
     }
 

@@ -154,7 +154,7 @@ public class kz4 {
                 if (imMessageCenterPojo.getCustomGroupType() != -4 && imMessageCenterPojo.getCustomGroupType() != -7) {
                     if (imMessageCenterPojo.getCustomGroupType() == 1) {
                         if (lz4.d().s()) {
-                            GroupSettingItemData a2 = k97.k().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                            GroupSettingItemData a2 = j97.k().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                             if (a2 != null) {
                                 if (a2.isAcceptNotify()) {
                                     unread_count = imMessageCenterPojo.getUnread_count();
@@ -166,7 +166,7 @@ public class kz4 {
                         }
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
                         if (lz4.d().u()) {
-                            PersonalSettingItemData a3 = n97.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                            PersonalSettingItemData a3 = m97.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                             if (a3 != null) {
                                 if (a3.isAcceptNotify()) {
                                     unread_count = imMessageCenterPojo.getUnread_count();
@@ -179,7 +179,7 @@ public class kz4 {
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
                         if (imMessageCenterPojo.getUserType() == 4) {
                             if (lz4.d().u()) {
-                                OfficialSettingItemData a4 = m97.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                                OfficialSettingItemData a4 = l97.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                                 if (a4 != null) {
                                     if (a4.isAcceptNotify()) {
                                         unread_count = imMessageCenterPojo.getUnread_count();

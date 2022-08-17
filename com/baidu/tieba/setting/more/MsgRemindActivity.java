@@ -25,7 +25,7 @@ import com.repackage.g05;
 import com.repackage.lz4;
 import com.repackage.oz4;
 import com.repackage.qi;
-import com.repackage.ve8;
+import com.repackage.ue8;
 import com.repackage.ya5;
 import com.repackage.yi5;
 import java.util.Date;
@@ -33,7 +33,7 @@ import java.util.Date;
 public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implements BdSwitchView.b, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ve8 a;
+    public ue8 a;
     public MsgRemindModel b;
     public final yi5 c;
     public MsgRemindModel.f d;
@@ -280,9 +280,9 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            ve8 ve8Var = new ve8(this);
-            this.a = ve8Var;
-            ve8Var.B(this);
+            ue8 ue8Var = new ue8(this);
+            this.a = ue8Var;
+            ue8Var.B(this);
             this.b = new MsgRemindModel(getPageContext());
         }
     }
@@ -312,7 +312,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             super.onResume();
             if (!ya5.a(this)) {
                 this.a.M(false);
-                showNetRefreshView(this.a.z(), getString(R.string.obfuscated_res_0x7f0f1602), getString(R.string.obfuscated_res_0x7f0f07d8), getString(R.string.obfuscated_res_0x7f0f07d7), true, getNetRefreshListener());
+                showNetRefreshView(this.a.z(), getString(R.string.obfuscated_res_0x7f0f1605), getString(R.string.obfuscated_res_0x7f0f07d8), getString(R.string.obfuscated_res_0x7f0f07d7), true, getNetRefreshListener());
                 setNetRefreshViewPicResId(R.drawable.new_pic_emotion_03);
                 setNetRefreshViewEmotionMarginTop(qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds530));
                 return;

@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.j97;
 import com.repackage.je5;
-import com.repackage.k97;
-import com.repackage.m87;
+import com.repackage.l87;
 /* loaded from: classes3.dex */
 public final class Invite2GroupView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -270,7 +270,7 @@ public final class Invite2GroupView extends LinearLayout {
             this.b.K(this.e.getPortrait(), 10, false);
             this.c.setText(this.e.getNotice());
             setOnClickListener(new b(this, tbPageContext));
-            if (m87.o().i(String.valueOf(this.e.getGroupId()), 1) != null) {
+            if (l87.o().i(String.valueOf(this.e.getGroupId()), 1) != null) {
                 if (String.valueOf(this.e.getGroupId()).equals(this.d.getTag())) {
                     this.d.setText(R.string.obfuscated_res_0x7f0f08a9);
                     this.d.setOnClickListener(new c(this));
@@ -278,7 +278,7 @@ public final class Invite2GroupView extends LinearLayout {
                 }
                 return;
             }
-            k97.k().m(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.e.getGroupId()), 60000L, new d(this, tbPageContext));
+            j97.k().m(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.e.getGroupId()), 60000L, new d(this, tbPageContext));
         }
     }
 

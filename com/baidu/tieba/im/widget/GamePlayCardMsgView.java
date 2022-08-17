@@ -13,6 +13,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.TBAlertBuilder;
 import com.baidu.tbadk.core.dialog.TBAlertConfig;
@@ -36,7 +37,7 @@ import com.repackage.ms4;
 import com.repackage.pv4;
 import com.repackage.qi;
 import com.repackage.qv4;
-import com.repackage.z77;
+import com.repackage.x77;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public final class GamePlayCardMsgView extends LinearLayout {
@@ -68,12 +69,12 @@ public final class GamePlayCardMsgView extends LinearLayout {
 
         /* renamed from: com.baidu.tieba.im.widget.GamePlayCardMsgView$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class View$OnClickListenerC0221a implements View.OnClickListener {
+        public class View$OnClickListenerC0222a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0221a(a aVar) {
+            public View$OnClickListenerC0222a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -126,7 +127,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
                 TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
                 tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0793);
                 tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f079e);
-                tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04e9, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04ee, TBAlertConfig.OperateBtnStyle.MAIN, new View$OnClickListenerC0221a(this)));
+                tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04e9, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04ee, TBAlertConfig.OperateBtnStyle.MAIN, new View$OnClickListenerC0222a(this)));
                 tBAlertBuilder.g();
                 tBAlertBuilder.h(false);
                 tBAlertBuilder.w();
@@ -849,7 +850,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.n == null) {
             return;
         }
-        UrlSchemaJumpHelper.jumpGameGodsPage(getContext(), "com.baidu.tieba://unidispatch/GameGodsDetailPage?god_id=" + this.n.getGod_id());
+        UrlSchemaJumpHelper.jumpGameGodsPage(getContext(), "com.baidu.tieba://unidispatch/GameGodsDetailPage?god_id=" + this.n.getGod_id() + "&" + BdUniDispatchSchemeController.PARAM_FROM_NATIVE + "=1");
     }
 
     public void n() {
@@ -1125,7 +1126,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
             if (this.n == null) {
                 return false;
             }
-            return z77.w().y(this.n.getGid(), this.n.getMid(), OrmObject.jsonStrWithObject(this.n));
+            return x77.w().y(this.n.getGid(), this.n.getMid(), OrmObject.jsonStrWithObject(this.n));
         }
         return invokeV.booleanValue;
     }

@@ -487,7 +487,7 @@ public class f76 extends b9 implements NoNetworkView.b {
             this.e = (PullLeftViewPager) this.h.findViewById(R.id.obfuscated_res_0x7f0908f1);
             EnterForumTabPagerAdapter.a aVar = new EnterForumTabPagerAdapter.a();
             aVar.a = new EnterForumFragment();
-            aVar.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b42);
+            aVar.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b43);
             ((EnterForumFragment) aVar.a).B1(this);
             EnterForumTabPagerAdapter.a aVar2 = new EnterForumTabPagerAdapter.a();
             aVar2.a = new ForumSquareFragment();
@@ -957,7 +957,7 @@ public class f76 extends b9 implements NoNetworkView.b {
                     i = i2;
                 }
             }
-            if (i == -1 && this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b42).equals(str)) {
+            if (i == -1 && this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b43).equals(str)) {
                 return 0;
             }
             return i;

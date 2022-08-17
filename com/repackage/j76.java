@@ -59,7 +59,7 @@ public class j76 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (TextUtils.isEmpty(this.a.f)) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0a37);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0a38);
                     return;
                 }
                 UrlManager.getInstance().dealOneLink(this.a.a, new String[]{this.a.f});

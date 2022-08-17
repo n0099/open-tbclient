@@ -283,13 +283,13 @@ public class gx5 extends BaseAdapter {
         SkinManager.setViewTextColor(eVar.j, R.color.CAM_X0305, 1, TbadkApplication.getInst().getSkinType());
         SkinManager.setViewTextColor(eVar.o, R.color.CAM_X0305, 1, TbadkApplication.getInst().getSkinType());
         if (TbadkApplication.getInst().getSkinType() == 1) {
+            eVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080f36);
+            eVar.g.setDefaultResource(R.drawable.obfuscated_res_0x7f080f36);
+            eVar.l.setDefaultResource(R.drawable.obfuscated_res_0x7f080f36);
+        } else {
             eVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080f35);
             eVar.g.setDefaultResource(R.drawable.obfuscated_res_0x7f080f35);
             eVar.l.setDefaultResource(R.drawable.obfuscated_res_0x7f080f35);
-        } else {
-            eVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080f34);
-            eVar.g.setDefaultResource(R.drawable.obfuscated_res_0x7f080f34);
-            eVar.l.setDefaultResource(R.drawable.obfuscated_res_0x7f080f34);
         }
         SkinManager.setBackgroundColor(eVar.p, R.color.CAM_X0204);
     }

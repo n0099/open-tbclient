@@ -26,16 +26,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gn4;
 import com.repackage.n65;
+import com.repackage.qn7;
 import com.repackage.rn7;
 import com.repackage.sn7;
-import com.repackage.tn7;
 import com.repackage.wj4;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rn7 a;
+    public qn7 a;
     public CustomMessageListener b;
 
     /* loaded from: classes3.dex */
@@ -175,7 +175,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && view2 == this.a.e()) {
             boolean z = !this.a.j();
             if (z) {
-                tn7.a("c14067");
+                sn7.a("c14067");
             }
             this.a.c(z);
             setSwipeBackEnabled(!z);
@@ -188,7 +188,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d01e0);
-            this.a = new rn7(this);
+            this.a = new qn7(this);
             registerListener(this.b);
             F0();
             E0(getIntent());
@@ -210,7 +210,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onPause();
-            sn7.b().f(false);
+            rn7.b().f(false);
         }
     }
 
@@ -219,9 +219,9 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onResume();
-            tn7.a("c14061");
-            sn7.b().f(true);
-            sn7.b().e(false);
+            sn7.a("c14061");
+            rn7.b().f(true);
+            rn7.b().e(false);
             NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
         }
     }

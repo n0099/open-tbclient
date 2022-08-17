@@ -41,13 +41,13 @@ public class c51 extends b51 {
 
         /* renamed from: com.repackage.c51$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0457a implements View.OnClickListener {
+        public class View$OnClickListenerC0459a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0457a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0459a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -370,7 +370,7 @@ public class c51 extends b51 {
                     this.a.i.setVisibility(0);
                 }
                 this.a.e.setText(charSequence);
-                this.a.e.setOnClickListener(new View$OnClickListenerC0457a(this, onClickListener));
+                this.a.e.setOnClickListener(new View$OnClickListenerC0459a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -439,7 +439,7 @@ public class c51 extends b51 {
                 int color3 = b().getColor(R.color.obfuscated_res_0x7f06081c);
                 int color4 = b().getColor(R.color.obfuscated_res_0x7f06080e);
                 int color5 = b().getColor(R.color.obfuscated_res_0x7f06081e);
-                this.a.s.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080d97));
+                this.a.s.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080d98));
                 this.a.b.setTextColor(color);
                 this.a.c.setTextColor(color4);
                 b bVar = this.a;
@@ -460,12 +460,12 @@ public class c51 extends b51 {
                 this.a.h.setBackgroundColor(color5);
                 this.a.i.setBackgroundColor(color5);
                 this.a.j.setBackgroundColor(color5);
-                this.a.e.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080d96));
-                this.a.f.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080d94));
+                this.a.e.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080d97));
+                this.a.f.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080d95));
                 this.a.g.setBackgroundColor(b().getColor(R.color.obfuscated_res_0x7f06081a));
                 TextView e = e();
                 if (e != null) {
-                    e.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080d92));
+                    e.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080d93));
                 }
             }
         }

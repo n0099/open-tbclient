@@ -148,7 +148,7 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
         this.e = true;
         this.f = SkinManager.getDrawable(R.color.common_color_10220);
         this.g = SkinManager.getDrawable(R.drawable.icon_click);
-        SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080bc1);
+        SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080bc2);
         new Rect();
         this.k = new a(this);
         this.l = new b(this);
@@ -390,7 +390,7 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
         this.e = true;
         this.f = SkinManager.getDrawable(R.color.common_color_10220);
         this.g = SkinManager.getDrawable(R.drawable.icon_click);
-        SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080bc1);
+        SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080bc2);
         new Rect();
         this.k = new a(this);
         this.l = new b(this);
@@ -419,7 +419,7 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
         this.e = true;
         this.f = SkinManager.getDrawable(R.color.common_color_10220);
         this.g = SkinManager.getDrawable(R.drawable.icon_click);
-        SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080bc1);
+        SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080bc2);
         new Rect();
         this.k = new a(this);
         this.l = new b(this);

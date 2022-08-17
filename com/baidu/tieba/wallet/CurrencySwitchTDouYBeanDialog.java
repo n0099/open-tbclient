@@ -84,9 +84,9 @@ public class CurrencySwitchTDouYBeanDialog {
             if (!z) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_CURRENCY_SWITCH_DIALOG_CLICK_FAIL_REASON).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_param1", 2));
                 if (pi.isEmpty(str)) {
-                    qi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f049c);
+                    qi.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f049c);
                 } else {
-                    qi.O(TbadkCoreApplication.getInst().getContext(), str);
+                    qi.N(TbadkCoreApplication.getInst().getContext(), str);
                 }
                 showDialog();
             } else if (i == 0) {
@@ -100,9 +100,9 @@ public class CurrencySwitchTDouYBeanDialog {
             } else {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_CURRENCY_SWITCH_DIALOG_CLICK_FAIL_REASON).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_param1", 1));
                 if (pi.isEmpty(str)) {
-                    qi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f049c);
+                    qi.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f049c);
                 } else {
-                    qi.O(TbadkCoreApplication.getInst().getContext(), str);
+                    qi.N(TbadkCoreApplication.getInst().getContext(), str);
                 }
                 showDialog();
             }
@@ -143,8 +143,8 @@ public class CurrencySwitchTDouYBeanDialog {
             this.dialog = ur4Var2;
             ur4Var2.setCanceledOnTouchOutside(false);
             this.dialog.setMessageShowCenter(true);
-            this.dialog.setMessage(this.mPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f1590));
-            this.dialog.setPositiveButton(R.string.obfuscated_res_0x7f0f158f, new ur4.e(this) { // from class: com.baidu.tieba.wallet.CurrencySwitchTDouYBeanDialog.2
+            this.dialog.setMessage(this.mPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f1593));
+            this.dialog.setPositiveButton(R.string.obfuscated_res_0x7f0f1592, new ur4.e(this) { // from class: com.baidu.tieba.wallet.CurrencySwitchTDouYBeanDialog.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ CurrencySwitchTDouYBeanDialog this$0;

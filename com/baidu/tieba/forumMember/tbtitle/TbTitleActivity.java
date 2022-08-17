@@ -26,14 +26,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bk8;
 import com.repackage.c9;
-import com.repackage.ck8;
 import com.repackage.gd6;
+import com.repackage.hj8;
 import com.repackage.id6;
-import com.repackage.ij8;
 import com.repackage.jd6;
-import com.repackage.kk8;
-import com.repackage.m97;
+import com.repackage.jk8;
+import com.repackage.l97;
 import com.repackage.og;
 import com.repackage.oi;
 import tbclient.GetLevelInfo.DataRes;
@@ -132,7 +132,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
                 if (oi.z()) {
                     this.a.e.Q(this.a.b, this.a.a);
                 } else {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                 }
             }
         }
@@ -175,7 +175,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
                 if (TextUtils.isEmpty(this.a)) {
                     return null;
                 }
-                m97.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), this.b);
+                l97.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), this.b);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -248,36 +248,32 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 boolean z = false;
-                if (obj != null && (obj instanceof ck8)) {
-                    ij8.i().n(this.a.b, false);
+                if (obj != null && (obj instanceof bk8)) {
+                    hj8.i().n(this.a.b, false);
                     z = true;
                 }
-                if (!z) {
-                    if (this.a.e.getErrorCode() != 22) {
-                        if (AntiHelper.m(this.a.e.getErrorCode(), this.a.e.getErrorString())) {
-                            AntiHelper.u(this.a.getPageContext().getPageActivity(), this.a.e.getErrorString());
-                            return;
-                        } else {
-                            this.a.getPageContext().showToast(this.a.e.getErrorString());
-                            return;
-                        }
+                if (z) {
+                    TbadkCoreApplication.getInst().addLikeForum(this.a.b);
+                    TbTitleActivity tbTitleActivity = this.a;
+                    tbTitleActivity.H1(true, tbTitleActivity.a);
+                    bk8 bk8Var = (bk8) obj;
+                    if (bk8Var != null) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, bk8Var));
                     }
+                    if (this.a.c.k != null) {
+                        this.a.c.k.setVisibility(8);
+                    }
+                    bk8Var.x(1);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, bk8Var));
+                } else if (this.a.e.getErrorCode() != 22) {
+                    if (AntiHelper.m(this.a.e.getErrorCode(), this.a.e.getErrorString())) {
+                        AntiHelper.u(this.a.getPageContext().getPageActivity(), this.a.e.getErrorString());
+                    } else {
+                        this.a.getPageContext().showToast(this.a.e.getErrorString());
+                    }
+                } else {
                     this.a.getPageContext().showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0827));
-                    return;
                 }
-                this.a.getPageContext().showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02ba));
-                TbadkCoreApplication.getInst().addLikeForum(this.a.b);
-                TbTitleActivity tbTitleActivity = this.a;
-                tbTitleActivity.H1(true, tbTitleActivity.a);
-                ck8 ck8Var = (ck8) obj;
-                if (ck8Var != null) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, ck8Var));
-                }
-                if (this.a.c.k != null) {
-                    this.a.c.k.setVisibility(8);
-                }
-                ck8Var.y(1);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, ck8Var));
             }
         }
     }
@@ -313,9 +309,9 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     public final void G1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            kk8.c(301005, CmdConfigHttp.CMD_GET_LEVLE_INFO, TbConfig.GET_LEVEL_INFO_URL, GetLevelInfoHttpResponsedMessage.class, false, false, true, false);
-            kk8.f(301005, GetLevelInfoSocketResponsedMessage.class, false);
-            kk8.b(2003007, id6.class);
+            jk8.c(301005, CmdConfigHttp.CMD_GET_LEVLE_INFO, TbConfig.GET_LEVEL_INFO_URL, GetLevelInfoHttpResponsedMessage.class, false, false, true, false);
+            jk8.f(301005, GetLevelInfoSocketResponsedMessage.class, false);
+            jk8.b(2003007, id6.class);
         }
     }
 

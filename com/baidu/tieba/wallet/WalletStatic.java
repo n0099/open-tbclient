@@ -44,7 +44,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ca5;
 import com.repackage.ea5;
 import com.repackage.fa5;
-import com.repackage.kk8;
+import com.repackage.jk8;
 import com.repackage.kl4;
 import com.repackage.pi;
 import com.repackage.qi;
@@ -353,8 +353,8 @@ public class WalletStatic {
     public static void registerHttpAndSocketTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            kk8.f(303043, ResponsedGetOrderSocketMessage.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_ORDER, kk8.a(TbConfig.GET_ORDER, 303043));
+            jk8.f(303043, ResponsedGetOrderSocketMessage.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_ORDER, jk8.a(TbConfig.GET_ORDER, 303043));
             tbHttpMessageTask.setResponsedClass(ResponsedGetOrderHttpMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }

@@ -17,14 +17,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.iq7;
 import com.repackage.jq7;
-import com.repackage.kq7;
 import com.repackage.ms4;
 import com.repackage.ov4;
+import com.repackage.pq7;
 import com.repackage.qi;
-import com.repackage.qq7;
 /* loaded from: classes3.dex */
-public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragment implements jq7.a {
+public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragment implements iq7.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View g;
@@ -33,7 +33,7 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
     public TextView j;
     public TextView k;
     public NoScrollGridView l;
-    public qq7 m;
+    public pq7 m;
 
     public InterestSelectionStyleAFragment() {
         Interceptable interceptable = $ic;
@@ -89,9 +89,9 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            kq7 kq7Var = new kq7(null, getContext());
-            this.c = kq7Var;
-            this.m = new qq7(this, kq7Var);
+            jq7 jq7Var = new jq7(null, getContext());
+            this.c = jq7Var;
+            this.m = new pq7(this, jq7Var);
         }
     }
 
@@ -150,7 +150,7 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
             ov4 ov4Var = new ov4();
             this.b.setTextSize(R.dimen.T_X06);
             this.b.setConfig(ov4Var);
-            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f10ef));
+            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f10f0));
             this.b.setEnabled(false);
             this.b.setOnClickListener(this);
             this.l.setColumnWidth(qi.k(getContext()) / 5);

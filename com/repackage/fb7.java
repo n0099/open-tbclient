@@ -1,9 +1,6 @@
 package com.repackage;
 
-import android.os.Build;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,41 +9,21 @@ public class fb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(BaseFragmentActivity baseFragmentActivity, int i) {
-        InterceptResult invokeLI;
+    public static boolean a(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, baseFragmentActivity, i)) == null) {
-            if (TbadkCoreApplication.getInst().appResponseToCmd(i)) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imMessageCenterShowItemData)) == null) {
+            if (imMessageCenterShowItemData == null) {
+                return false;
             }
-            c(baseFragmentActivity);
-            return false;
+            return String.valueOf(1).equals(imMessageCenterShowItemData.getOwnerName()) || String.valueOf(4).equals(imMessageCenterShowItemData.getOwnerName()) || "".equals(imMessageCenterShowItemData.getOwnerName());
         }
-        return invokeLI.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public static boolean b(BaseFragmentActivity baseFragmentActivity, Class<?> cls) {
-        InterceptResult invokeLL;
+    public static boolean b(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, baseFragmentActivity, cls)) == null) {
-            if (TbadkCoreApplication.getInst().appResponseToIntentClass(cls)) {
-                return true;
-            }
-            c(baseFragmentActivity);
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void c(BaseFragmentActivity baseFragmentActivity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, baseFragmentActivity) == null) || baseFragmentActivity == null) {
-            return;
-        }
-        if (Build.VERSION.SDK_INT <= 10) {
-            baseFragmentActivity.showToast(R.string.obfuscated_res_0x7f0f0eac);
-        } else {
-            baseFragmentActivity.showToast(R.string.obfuscated_res_0x7f0f0eab);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imMessageCenterShowItemData)) == null) ? (imMessageCenterShowItemData == null || !String.valueOf(8).equals(imMessageCenterShowItemData.getOwnerName()) || "3222425470".equals(imMessageCenterShowItemData.getFriendId()) || "801001117".equals(imMessageCenterShowItemData.getFriendId()) || "5044059141".equals(imMessageCenterShowItemData.getFriendId())) ? false : true : invokeL.booleanValue;
     }
 }

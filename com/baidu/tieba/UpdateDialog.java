@@ -363,7 +363,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                 } else if (intent.getBooleanExtra("action_update_progress_interrupted", false)) {
                     this.this$0.j.dismiss();
                     UpdateDialog updateDialog = this.this$0;
-                    updateDialog.showToast(updateDialog.getPageContext().getString(R.string.obfuscated_res_0x7f0f14bf));
+                    updateDialog.showToast(updateDialog.getPageContext().getString(R.string.obfuscated_res_0x7f0f14c1));
                     this.this$0.finish();
                     this.this$0.R1();
                 } else {

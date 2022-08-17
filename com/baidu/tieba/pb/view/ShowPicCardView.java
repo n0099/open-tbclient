@@ -20,14 +20,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.jm4;
-import com.repackage.ok8;
+import com.repackage.nk8;
 import com.repackage.qi;
 /* loaded from: classes4.dex */
 public class ShowPicCardView extends FrameLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public ok8 b;
+    public nk8 b;
     public TbImageView c;
     public LinearLayout d;
     public ImageView e;
@@ -69,10 +69,10 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
         }
     }
 
-    public ok8 getData() {
+    public nk8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (ok8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (nk8) invokeV.objValue;
     }
 
     public ImageView getIcon() {
@@ -83,37 +83,37 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        ok8 ok8Var;
+        nk8 nk8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || (ok8Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || (nk8Var = this.b) == null) {
             return;
         }
-        jm4.o(this.a, ok8Var.e());
+        jm4.o(this.a, nk8Var.e());
     }
 
-    public void setData(ok8 ok8Var) {
+    public void setData(nk8 nk8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, ok8Var) == null) || ok8Var == null || this.b == ok8Var) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, nk8Var) == null) || nk8Var == null || this.b == nk8Var) {
             return;
         }
-        this.b = ok8Var;
-        if (!StringUtils.isNULL(ok8Var.f())) {
+        this.b = nk8Var;
+        if (!StringUtils.isNULL(nk8Var.f())) {
             this.f.setVisibility(0);
-            this.f.setText(ok8Var.f());
+            this.f.setText(nk8Var.f());
         } else {
             this.f.setVisibility(8);
         }
-        if (!StringUtils.isNULL(ok8Var.a())) {
+        if (!StringUtils.isNULL(nk8Var.a())) {
             this.g.setVisibility(0);
-            this.g.setText(ok8Var.a());
+            this.g.setText(nk8Var.a());
         } else {
             this.g.setVisibility(8);
         }
         if (this.i) {
             this.c.setSupportNoImage(true);
         }
-        int d = ok8Var.d();
-        int b = ok8Var.b();
+        int d = nk8Var.d();
+        int b = nk8Var.b();
         if (d <= 0 || b <= 0) {
             return;
         }
@@ -121,7 +121,7 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
         this.c.setOnClickListener(this);
         this.c.setInterceptOnClick(true);
         this.c.setDefaultResource(R.drawable.icon_click);
-        this.c.K(ok8Var.c(), 18, false);
+        this.c.K(nk8Var.c(), 18, false);
         int k = qi.k(this.a) - (qi.f(this.a, R.dimen.obfuscated_res_0x7f070201) * 2);
         float f = b / d;
         this.c.setLayoutParams(new FrameLayout.LayoutParams(k, (int) (f > 1.7777778f ? k * 1.7777778f : f < 0.75f ? k * 0.75f : k * f)));

@@ -1,11 +1,36 @@
 package com.repackage;
+
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.widget.DragImageView;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
 /* loaded from: classes6.dex */
-public interface lc8<T> {
-    void a(int i, int i2);
+public interface lc8 extends IAdBaseAsyncController {
+    View b(@NonNull String str, boolean z);
 
-    void c(int i, int i2, kc8 kc8Var, T t);
+    AdvertAppInfo d(@NonNull String str);
 
-    void d(int i, int i2, int i3, kc8 kc8Var, T t);
+    void e(@NonNull String str, @NonNull AdvertAppInfo advertAppInfo);
 
-    void e(int i, int i2, T t, kc8 kc8Var, T t2);
+    boolean f(@NonNull String str);
+
+    void g(@NonNull vd5 vd5Var);
+
+    int getAdCount();
+
+    void h(@NonNull TbPageContext tbPageContext, @NonNull DragImageView.h hVar, boolean z);
+
+    void j(@NonNull String str);
+
+    void k(@NonNull AdvertAppInfo advertAppInfo);
+
+    void l();
+
+    boolean n();
+
+    void o(String str);
+
+    void onDestroy();
 }

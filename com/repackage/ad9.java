@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qp9;
+import com.repackage.sp9;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
 public class ad9 extends zc9 {
@@ -15,7 +15,7 @@ public class ad9 extends zc9 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements qp9.c {
+    public class a implements sp9.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AtomicBoolean a;
@@ -42,7 +42,7 @@ public class ad9 extends zc9 {
             this.b = obj;
         }
 
-        @Override // com.repackage.qp9.c
+        @Override // com.repackage.sp9.c
         public void a(int i, Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, exc) == null) {
@@ -54,7 +54,7 @@ public class ad9 extends zc9 {
             }
         }
 
-        @Override // com.repackage.qp9.c
+        @Override // com.repackage.sp9.c
         public void b(String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
@@ -111,7 +111,7 @@ public class ad9 extends zc9 {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Object obj = new Object();
             AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            qp9.d(this.a, new a(this, atomicBoolean, obj));
+            sp9.d(this.a, new a(this, atomicBoolean, obj));
             synchronized (obj) {
                 if (!atomicBoolean.get()) {
                     try {

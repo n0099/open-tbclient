@@ -31,7 +31,7 @@ public class u25 extends s25 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f080994;
+        this.d = R.drawable.obfuscated_res_0x7f080995;
         this.h = R.drawable.icon_pure_post_more_at64;
         this.i = false;
         this.j = true;

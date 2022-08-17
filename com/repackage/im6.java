@@ -19,7 +19,7 @@ public class im6 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public d9 a;
-    public ql8 b;
+    public pl8 b;
 
     public im6(d9 d9Var) {
         Interceptable interceptable = $ic;
@@ -39,10 +39,10 @@ public class im6 extends WebChromeClient {
         this.a = d9Var;
     }
 
-    public void a(ql8 ql8Var) {
+    public void a(pl8 pl8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ql8Var) == null) {
-            this.b = ql8Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, pl8Var) == null) {
+            this.b = pl8Var;
         }
     }
 
@@ -115,8 +115,8 @@ public class im6 extends WebChromeClient {
         d9 d9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            ql8 ql8Var = this.b;
-            if ((ql8Var == null || !ql8Var.onJsPrompt(str2, jsPromptResult)) && (d9Var = this.a) != null && tg.f(d9Var)) {
+            pl8 pl8Var = this.b;
+            if ((pl8Var == null || !pl8Var.onJsPrompt(str2, jsPromptResult)) && (d9Var = this.a) != null && tg.f(d9Var)) {
                 return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
             }
             return true;

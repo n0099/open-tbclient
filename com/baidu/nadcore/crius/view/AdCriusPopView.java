@@ -245,7 +245,7 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
             View viewByComponent = this.d.getViewByComponent(NativeConstants.COMPONENT_CLOSEAD);
             if (viewByComponent instanceof ImageView) {
                 ImageView imageView = (ImageView) viewByComponent;
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080dcf);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080dd0);
                 imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
                 imageView.setOnClickListener(this);
             }

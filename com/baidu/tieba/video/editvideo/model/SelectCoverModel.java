@@ -27,11 +27,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.fn7;
+import com.repackage.en7;
 import com.repackage.ng;
 import com.repackage.oi;
 import com.repackage.vs8;
-import com.repackage.zm7;
+import com.repackage.ym7;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -47,7 +47,7 @@ public class SelectCoverModel extends BdBaseModel {
     public vs8 a;
     public d b;
     public TbPageContext c;
-    public fn7 d;
+    public en7 d;
     public final HttpMessageListener e;
     public final HttpMessageListener f;
 
@@ -220,13 +220,13 @@ public class SelectCoverModel extends BdBaseModel {
                 } else if (VideoCheckUegResponseMessage.STATUS_FAIL.equals(status)) {
                     String msg = videoCheckUegResponseMessage.getMsg();
                     if (TextUtils.isEmpty(msg)) {
-                        msg = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1539);
+                        msg = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f153c);
                     }
                     this.a.a.k0(msg);
                 } else {
                     String errorString = httpResponsedMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f150c);
+                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f150f);
                     }
                     this.a.a.k0(errorString);
                     if (this.a.d != null) {
@@ -378,7 +378,7 @@ public class SelectCoverModel extends BdBaseModel {
                 } catch (Exception e) {
                     e.printStackTrace();
                     if (this.c.d != null) {
-                        this.c.d.a(203, zm7.a(e));
+                        this.c.d.a(203, ym7.a(e));
                         return bitmap;
                     }
                     return bitmap;
@@ -399,13 +399,13 @@ public class SelectCoverModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectCoverModel(TbPageContext tbPageContext, vs8 vs8Var, fn7 fn7Var) {
+    public SelectCoverModel(TbPageContext tbPageContext, vs8 vs8Var, en7 en7Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, vs8Var, fn7Var};
+            Object[] objArr = {tbPageContext, vs8Var, en7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -420,7 +420,7 @@ public class SelectCoverModel extends BdBaseModel {
         this.f = new b(this, CmdConfigHttp.CMD_VIDEO_COVER_PENDANT);
         this.c = tbPageContext;
         this.a = vs8Var;
-        this.d = fn7Var;
+        this.d = en7Var;
         registerTask();
         this.e.setTag(getUniqueId());
         this.e.setSelfListener(true);
@@ -443,7 +443,7 @@ public class SelectCoverModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (!oi.z()) {
-                this.c.showToast(R.string.obfuscated_res_0x7f0f0c74);
+                this.c.showToast(R.string.obfuscated_res_0x7f0f0c75);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_COVER_PENDANT));
             }
@@ -506,7 +506,7 @@ public class SelectCoverModel extends BdBaseModel {
                     try {
                         e.printStackTrace();
                         if (this.d != null) {
-                            this.d.a(202, zm7.a(e));
+                            this.d.a(202, ym7.a(e));
                         }
                         ng.d(r2);
                         ng.d(bufferedOutputStream2);

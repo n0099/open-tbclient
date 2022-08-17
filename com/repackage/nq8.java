@@ -67,7 +67,7 @@ public class nq8 {
         NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f09255c);
         this.d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e6e);
+        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e6f);
         MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f09255b);
         this.e = memberRecommendView;
         memberRecommendView.setFromType(5);
@@ -182,7 +182,7 @@ public class nq8 {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.c.setVisibility(8);
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
-            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c56);
+            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c57);
             this.a.setNetRefreshViewTopMargin(this.j);
             this.a.showNetRefreshView(this.b, string, false);
         }

@@ -71,7 +71,7 @@ public class ViewUtilsLollipop {
             int integer = view2.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0005);
             StateListAnimator stateListAnimator = new StateListAnimator();
             long j = integer;
-            stateListAnimator.addState(new int[]{16842766, R.attr.obfuscated_res_0x7f040658, -2130970201}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(j));
+            stateListAnimator.addState(new int[]{16842766, R.attr.obfuscated_res_0x7f040659, -2130970202}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(j));
             stateListAnimator.addState(new int[]{16842766}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, f).setDuration(j));
             stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(0L));
             view2.setStateListAnimator(stateListAnimator);

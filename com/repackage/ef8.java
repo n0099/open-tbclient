@@ -1,36 +1,30 @@
 package com.repackage;
 
 import android.content.Context;
-import android.location.Location;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.R;
+import com.baidu.tieba.sharesdk.ShareHandlerActivity;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 /* loaded from: classes6.dex */
-public class ef8 {
+public class ef8 implements c05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
-    public ef8(Context context) {
+    public ef8(Context context, b05 b05Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, b05Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,127 +34,60 @@ public class ef8 {
                 return;
             }
         }
+        this.a = null;
         this.a = context;
     }
 
-    public final String a(ShareItem shareItem) {
-        InterceptResult invokeL;
+    @Override // com.repackage.c05
+    public void a(ShareItem shareItem, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, shareItem)) == null) {
-            String str = "【" + shareItem.u + "】 " + shareItem.v;
-            shareItem.v = str;
-            return str;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            b(shareItem, i);
         }
-        return (String) invokeL.objValue;
     }
 
-    public final Location b() {
-        InterceptResult invokeV;
+    public final void b(ShareItem shareItem, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? p16.b() : (Location) invokeV.objValue;
-    }
-
-    public void c(int i, ShareItem shareItem, boolean z) {
-        Location b;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), shareItem, Boolean.valueOf(z)}) == null) || shareItem == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem, i) == null) || this.a == null || shareItem == null) {
             return;
         }
-        if (!oi.z()) {
-            qi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f113c);
-            return;
+        IntentConfig intentConfig = new IntentConfig(this.a);
+        ShareEntity shareEntity = new ShareEntity();
+        shareEntity.setTitle(shareItem.u);
+        shareEntity.setContent(shareItem.v);
+        shareEntity.setReadCount(shareItem.U);
+        int i2 = shareItem.P;
+        shareEntity.setIsVideoThread(i2 == 2 || i2 == 6 || i2 == 8);
+        shareEntity.setImageUri(shareItem.y);
+        shareEntity.canShareBySmartApp = shareItem.r0;
+        String str = shareItem.w;
+        if (i == 6 && !StringUtils.isNull(shareItem.x)) {
+            str = shareItem.x;
         }
-        if (z && (b = b()) != null) {
-            shareItem.E = b;
+        shareEntity.setLinkUrl(str);
+        shareEntity.setLocalFile(shareItem.A);
+        shareEntity.setLocation(shareItem.E);
+        shareEntity.setShareTo(i);
+        shareEntity.setStats(shareItem.e());
+        shareEntity.setPreferImageToLink(shareItem.g0);
+        shareEntity.setTid(shareItem.N);
+        shareEntity.setfName(shareItem.s);
+        shareEntity.setTypeShareToSmallApp(shareItem.B);
+        shareEntity.topic = shareItem.R;
+        if (i == 6 && !StringUtils.isNull(shareItem.T)) {
+            shareEntity.topic = shareItem.S + shareItem.T;
+            shareEntity.setContent("");
         }
-        f05 f05Var = new f05(this.a, null);
-        if (i == 3) {
-            IWXAPI createWXAPI = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID);
-            if (createWXAPI != null && !createWXAPI.isWXAppInstalled()) {
-                BdToast.b(this.a, TbadkCoreApplication.getInst().getText(R.string.obfuscated_res_0x7f0f116e)).h();
-                return;
-            }
-            e(shareItem, 4);
-            f05Var.s(shareItem);
-        } else if (i == 2) {
-            IWXAPI createWXAPI2 = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID);
-            if (createWXAPI2 != null && !createWXAPI2.isWXAppInstalled()) {
-                BdToast.b(this.a, TbadkCoreApplication.getInst().getText(R.string.obfuscated_res_0x7f0f116e)).h();
-                return;
-            }
-            e(shareItem, 3);
-            if (shareItem.b) {
-                shareItem.v = a(shareItem);
-            }
-            f05Var.t(shareItem);
-        } else if (i == 4) {
-            if (gk8.b(this.a, "com.tencent.mobileqq")) {
-                e(shareItem, 5);
-                f05Var.o(shareItem);
-                return;
-            }
-            Context context = this.a;
-            BdToast.b(context, context.getText(R.string.obfuscated_res_0x7f0f1148)).h();
-        } else if (i == 5) {
-            if (!shareItem.a) {
-                shareItem.v = a(shareItem);
-            }
-            f05Var.r(shareItem);
-        } else if (i == 6) {
-            e(shareItem, 7);
-            if (!shareItem.a) {
-                shareItem.v = a(shareItem);
-            }
-            f05Var.q(shareItem);
-        } else if (i == 7) {
-            if (!shareItem.a) {
-                shareItem.v = a(shareItem);
-            }
-            f05Var.p(shareItem);
-        } else if (i == 8) {
-            if (gk8.b(this.a, "com.tencent.mobileqq")) {
-                e(shareItem, 9);
-                f05Var.n(shareItem);
-                return;
-            }
-            Context context2 = this.a;
-            BdToast.b(context2, context2.getText(R.string.obfuscated_res_0x7f0f1148)).h();
-        }
-    }
-
-    public final void d(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
-            TiebaStatic.eventStat(this.a, "pb_new_share", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
-        }
-    }
-
-    public final void e(ShareItem shareItem, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048580, this, shareItem, i) == null) || shareItem == null || shareItem.t == null) {
-            return;
-        }
-        if (shareItem.b) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("fid", shareItem.t).param("obj_type", i));
-        } else if (!shareItem.c && !shareItem.f) {
-            if (shareItem.d) {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_PHOTO_LIVE).param("tid", shareItem.t).param("obj_type", i));
-            } else if (shareItem.a) {
-                d(i, shareItem.F);
-            } else if (shareItem.e) {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_param1", 7).param("obj_type", i).param("fid", shareItem.t));
-            } else if (shareItem.g) {
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_type", i);
-                param.param("obj_source", shareItem.H);
-                if (!pi.isEmpty(shareItem.w) && shareItem.w.contains("worldcup")) {
-                    param.param("obj_param1", 9);
-                }
-                TiebaStatic.log(param);
-            } else if (shareItem.h) {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("tid", shareItem.t).param("fid", shareItem.M).param("obj_type", i).param("obj_source", shareItem.H).param("obj_param1", shareItem.I).param(TiebaStatic.Params.OBJ_PARAM2, shareItem.J).param(TiebaStatic.Params.OBJ_PARAM3, shareItem.K).param("obj_locate", shareItem.L));
-            }
-        } else {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("tid", shareItem.t).param("obj_type", i).param("obj_source", shareItem.H).param("obj_param1", shareItem.I).param("fid", shareItem.M).param(TiebaStatic.Params.OBJ_PARAM2, shareItem.J));
-        }
+        shareEntity.taskCompleteId = shareItem.V;
+        shareEntity.diskPicOperate = shareItem.D;
+        shareEntity.setExtLiveInfo(shareItem.w0);
+        shareEntity.setFromDuXiaoMan(shareItem.m);
+        shareEntity.setUserGrowthWeight(shareItem.x0);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("extra_share_data", shareEntity);
+        bundle.putInt("extra_skin", TbadkCoreApplication.getInst().getSkinType());
+        intentConfig.getIntent().putExtras(bundle);
+        shareItem.j(true);
+        intentConfig.startActivityForResult(24007, ShareHandlerActivity.class);
     }
 }

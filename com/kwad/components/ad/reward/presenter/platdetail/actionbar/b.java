@@ -59,7 +59,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     public RewardActionBarControl.b rw;
 
     /* renamed from: rx  reason: collision with root package name */
-    public com.kwad.components.ad.reward.d.e f1082rx;
+    public com.kwad.components.ad.reward.d.e f1083rx;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -107,7 +107,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
                 }
             }
         };
-        this.f1082rx = new com.kwad.components.ad.reward.d.e(this) { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.b.3
+        this.f1083rx = new com.kwad.components.ad.reward.d.e(this) { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.b.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b ry;
@@ -396,7 +396,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
             RewardActionBarControl rewardActionBarControl = kVar.ml;
             this.ml = rewardActionBarControl;
             rewardActionBarControl.a(this.rw);
-            this.nM.a(this.f1082rx);
+            this.nM.a(this.f1083rx);
         }
     }
 
@@ -692,7 +692,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
                 rewardActionBarControl.a((RewardActionBarControl.b) null);
             }
             com.kwad.components.core.webview.b.c.a.pR().b(this);
-            this.nM.b(this.f1082rx);
+            this.nM.b(this.f1083rx);
             aL();
         }
     }

@@ -1,20 +1,21 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.NewHottopic.TimeLine;
 import tbclient.NewHottopic.TimeLineInfo;
 /* loaded from: classes6.dex */
 public class e37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
+    public String a;
+    public List<d37> b;
 
     public e37() {
         Interceptable interceptable = $ic;
@@ -30,14 +31,24 @@ public class e37 {
         }
     }
 
-    public void a(TimeLineInfo timeLineInfo) {
+    public void a(long j, TimeLine timeLine) {
+        Long l;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, timeLineInfo) == null) || timeLineInfo == null) {
+        if (!(interceptable == null || interceptable.invokeJL(1048576, this, j, timeLine) == null) || timeLine == null || ListUtils.isEmpty(timeLine.timeline_info)) {
             return;
         }
-        this.b = timeLineInfo.tid.longValue();
-        this.c = timeLineInfo.title;
-        this.d = pi.isEmpty(timeLineInfo.small_title) ? timeLineInfo.show_time : timeLineInfo.small_title;
-        this.e = timeLineInfo.bg_color;
+        this.a = timeLine.title;
+        this.b = new ArrayList();
+        int i = 0;
+        for (TimeLineInfo timeLineInfo : timeLine.timeline_info) {
+            if (timeLineInfo != null && (((l = timeLineInfo.tid) != null && l.longValue() != 0) || !TextUtils.isEmpty(timeLineInfo.title) || !TextUtils.isEmpty(timeLineInfo.bg_color) || !TextUtils.isEmpty(timeLineInfo.show_time) || !TextUtils.isEmpty(timeLineInfo.small_title))) {
+                d37 d37Var = new d37();
+                d37Var.a = j;
+                d37Var.f = i;
+                d37Var.a(timeLineInfo);
+                this.b.add(d37Var);
+                i++;
+            }
+        }
     }
 }

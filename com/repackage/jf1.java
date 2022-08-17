@@ -26,13 +26,13 @@ public class jf1 {
 
         /* renamed from: com.repackage.jf1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0511a extends fg1 {
+        public class C0514a extends fg1 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ xe1.a b;
             public final /* synthetic */ a c;
 
-            public C0511a(a aVar, xe1.a aVar2) {
+            public C0514a(a aVar, xe1.a aVar2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public class jf1 {
                 for (int i = 0; i < this.d.size(); i++) {
                     xe1.a aVar2 = (xe1.a) this.d.get(i);
                     if (aVar2 != null) {
-                        hg1.c().b(new C0511a(this, aVar2));
+                        hg1.c().b(new C0514a(this, aVar2));
                     }
                 }
             }

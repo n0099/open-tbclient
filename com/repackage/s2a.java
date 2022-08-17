@@ -1,21 +1,18 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import android.content.Context;
+import android.graphics.Point;
+import android.os.Build;
+import android.view.WindowManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.model.ThemeColorConfig;
 /* loaded from: classes7.dex */
-public final class s2a {
+public class s2a {
     public static /* synthetic */ Interceptable $ic;
-    public static final s2a a;
+    public static Point a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,51 +28,48 @@ public final class s2a {
                 return;
             }
         }
-        a = new s2a();
+        a = new Point();
     }
 
-    public s2a() {
+    public static Point a(Context context, Point point) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, point)) == null) {
+            Point point2 = a;
+            if (point2 != null && point2.x > 0 && point2.y > 0) {
+                if (point == null) {
+                    point = new Point();
+                }
+                Point point3 = a;
+                point.x = point3.x;
+                point.y = point3.y;
+                return point;
             }
+            WindowManager windowManager = (WindowManager) context.getSystemService("window");
+            if (point == null) {
+                point = new Point();
+            }
+            if (Build.VERSION.SDK_INT >= 17) {
+                windowManager.getDefaultDisplay().getRealSize(point);
+            } else {
+                windowManager.getDefaultDisplay().getSize(point);
+            }
+            if (point.x > 0 && point.y > 0) {
+                if (a == null) {
+                    a = new Point();
+                }
+                Point point4 = a;
+                point4.x = point.x;
+                point4.y = point.y;
+            }
+            return point;
         }
+        return (Point) invokeLL.objValue;
     }
 
-    public final int a(PayUIKitConfig payUIKitConfig) {
+    public static int b(Context context) {
         InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null || (themeColorConfig = payUIKitConfig.themeColorConfig) == null || themeColorConfig.getThemeResId() == null) {
-                return R.style.obfuscated_res_0x7f10014e;
-            }
-            Integer themeResId = payUIKitConfig.themeColorConfig.getThemeResId();
-            if (themeResId == null) {
-                Intrinsics.throwNpe();
-            }
-            return themeResId.intValue();
-        }
-        return invokeL.intValue;
-    }
-
-    public final boolean b(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null || (themeColorConfig = payUIKitConfig.themeColorConfig) == null) {
-                return true;
-            }
-            Integer themeResId = themeColorConfig != null ? themeColorConfig.getThemeResId() : null;
-            return themeResId != null && themeResId.intValue() == R.style.obfuscated_res_0x7f10014e;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? a(context, null).x : invokeL.intValue;
     }
 }

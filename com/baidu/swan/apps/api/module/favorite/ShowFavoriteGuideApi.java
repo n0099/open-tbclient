@@ -143,14 +143,14 @@ public class ShowFavoriteGuideApi extends cp1 implements mp1.j {
 
         /* renamed from: com.baidu.swan.apps.api.module.favorite.ShowFavoriteGuideApi$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0174a implements Runnable {
+        public class RunnableC0175a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ GuideType a;
             public final /* synthetic */ String b;
             public final /* synthetic */ a c;
 
-            public RunnableC0174a(a aVar, GuideType guideType, String str) {
+            public RunnableC0175a(a aVar, GuideType guideType, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -243,7 +243,7 @@ public class ShowFavoriteGuideApi extends cp1 implements mp1.j {
             zx1.i("ShowFavoriteGuideApi", "duration=" + this.e.g + ", mIntervalDays=" + this.e.h + ", mMaxTimes=" + this.e.i + " ,storageValue=" + string2);
             if (i2 < this.e.i && currentTimeMillis - j > this.e.h * 86400000) {
                 n93.a().putString(str2, (i2 + 1) + "#" + currentTimeMillis);
-                te3.e0(new RunnableC0174a(this, parse, string));
+                te3.e0(new RunnableC0175a(this, parse, string));
                 return;
             }
             zx1.i("ShowFavoriteGuideApi", "Not satisfying display conditions");

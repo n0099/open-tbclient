@@ -2,6 +2,7 @@ package com.repackage;
 
 import android.app.Activity;
 import android.content.Context;
+import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,32 +12,34 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
 import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.win.opensdk.PBDrawVideo;
+import com.win.opensdk.PBDrawVideoListener;
 import com.win.opensdk.PBError;
-import com.win.opensdk.PBInterstitial;
-import com.win.opensdk.PBInterstitialListener;
 /* loaded from: classes7.dex */
-public class rj9 extends ReporterPidLoader<PBInterstitial> {
+public class rj9 extends ReporterPidLoader<PBDrawVideo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final FunNativeAdListenerHelper<PBDrawVideo, PBDrawVideoListener> e;
 
     /* loaded from: classes7.dex */
-    public class a implements PBInterstitialListener {
+    public class a implements PBDrawVideoListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public final /* synthetic */ PBInterstitial c;
-        public final /* synthetic */ rj9 d;
+        public final /* synthetic */ PBDrawVideo a;
+        public final /* synthetic */ rj9 b;
 
-        public a(rj9 rj9Var, PBInterstitial pBInterstitial) {
+        public a(rj9 rj9Var, PBDrawVideo pBDrawVideo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rj9Var, pBInterstitial};
+                Object[] objArr = {rj9Var, pBDrawVideo};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,8 +49,8 @@ public class rj9 extends ReporterPidLoader<PBInterstitial> {
                     return;
                 }
             }
-            this.d = rj9Var;
-            this.c = pBInterstitial;
+            this.b = rj9Var;
+            this.a = pBDrawVideo;
         }
 
         @Override // com.win.opensdk.PBListener
@@ -55,61 +58,41 @@ public class rj9 extends ReporterPidLoader<PBInterstitial> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 LogPrinter.d();
-                this.d.onAdClicked(this.c, this.b, new String[0]);
-                this.b = true;
+                this.b.e.onAdClick(this.a);
+            }
+        }
+
+        @Override // com.win.opensdk.PBDrawVideoListener
+        public void onDisplayed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                this.b.e.onAdShow(this.a);
             }
         }
 
         @Override // com.win.opensdk.PBListener
         public void onFail(PBError pBError) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) {
-                LogPrinter.e("onFail code: " + pBError.getCode() + ", message: " + pBError.getMsg(), new Object[0]);
-                this.d.onError(pBError.getCode(), pBError.getMsg());
-            }
-        }
-
-        @Override // com.win.opensdk.PBInterstitialListener
-        public void onInterstitialDismissed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-                this.d.onAdClose(this.c);
-            }
-        }
-
-        @Override // com.win.opensdk.PBInterstitialListener
-        public void onInterstitialDisplayed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-                this.d.onAdShow(this.c, this.a, new String[0]);
-                this.a = true;
-            }
-        }
-
-        @Override // com.win.opensdk.PBInterstitialListener
-        public void onInterstitialShowFail(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                LogPrinter.d();
-                this.d.onAdError(this.c, 0, str);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) {
+                LogPrinter.e("onError code: " + pBError.getCode() + ", message: " + pBError.getMsg(), new Object[0]);
+                this.b.onError(pBError.getCode(), pBError.getMsg());
             }
         }
 
         @Override // com.win.opensdk.PBListener
         public void onLoaded() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 LogPrinter.d();
-                this.d.onAdLoaded((rj9) this.c);
+                this.b.onAdLoaded((rj9) this.a);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public rj9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.INTERSTITIAL), pid);
+        super(FunAdType.obtainType(pid, FunAdType.AdType.DRAW), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -126,27 +109,25 @@ public class rj9 extends ReporterPidLoader<PBInterstitial> {
                 return;
             }
         }
+        this.e = new FunNativeAdListenerHelper<>(this);
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
     public void destroyInternal(Object obj) {
-        PBInterstitial pBInterstitial;
+        PBDrawVideo pBDrawVideo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || (pBInterstitial = (PBInterstitial) obj) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || (pBDrawVideo = (PBDrawVideo) obj) == null) {
             return;
         }
-        pBInterstitial.destroy();
+        this.e.destroy(pBDrawVideo);
+        pBDrawVideo.destroy();
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean isAdAvailable(Object obj) {
-        InterceptResult invokeL;
+    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            PBInterstitial pBInterstitial = (PBInterstitial) obj;
-            return pBInterstitial != null && pBInterstitial.isReady();
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, obj)) == null) ? new BaseNativeAd2(FunNativeAd2.NativeType.EXPRESS, (PBDrawVideo) obj, new sj9(this, this)) : (FunNativeAd2) invokeLLL.objValue;
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
@@ -154,9 +135,9 @@ public class rj9 extends ReporterPidLoader<PBInterstitial> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
             onLoadStart(funAdSlot);
-            PBInterstitial pBInterstitial = new PBInterstitial(context.getApplicationContext(), this.mPid.pid);
-            pBInterstitial.setInterstitialListener(new a(this, pBInterstitial));
-            pBInterstitial.load();
+            PBDrawVideo pBDrawVideo = new PBDrawVideo(context.getApplicationContext(), this.mPid.pid);
+            pBDrawVideo.setDrawVideoListener(new a(this, pBDrawVideo));
+            pBDrawVideo.load();
         }
     }
 
@@ -165,14 +146,15 @@ public class rj9 extends ReporterPidLoader<PBInterstitial> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            PBInterstitial pBInterstitial = (PBInterstitial) obj;
-            onShowStart(pBInterstitial);
-            if (pBInterstitial.isReady()) {
-                pBInterstitial.show();
-                return true;
+            PBDrawVideo pBDrawVideo = (PBDrawVideo) obj;
+            this.e.startShow(pBDrawVideo, str, this.mPid, null, null);
+            View drawVideoView = pBDrawVideo.getDrawVideoView();
+            if (drawVideoView.getParent() != null) {
+                ((ViewGroup) drawVideoView.getParent()).removeView(drawVideoView);
             }
-            LogPrinter.e("Ad isn't ready now", new Object[0]);
-            return false;
+            viewGroup.removeAllViews();
+            viewGroup.addView(drawVideoView);
+            return true;
         }
         return invokeLLLL.booleanValue;
     }

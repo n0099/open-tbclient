@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sq7;
+import com.repackage.rq7;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class GetInterestClassListResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<sq7> interestSelectionInfoList;
+    public List<rq7> interestSelectionInfoList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetInterestClassListResponseMessage(int i) {
@@ -51,18 +51,18 @@ public class GetInterestClassListResponseMessage extends JsonHttpResponsedMessag
                 return;
             }
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                sq7 sq7Var = new sq7();
-                sq7Var.i(jSONArray.getJSONObject(i2).optInt("class_id"));
-                sq7Var.g(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
-                sq7Var.k(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
-                sq7Var.f(jSONArray.getJSONObject(i2).optString("class_icon"));
-                sq7Var.h(jSONArray.getJSONObject(i2).optString("class_pic"));
-                this.interestSelectionInfoList.add(sq7Var);
+                rq7 rq7Var = new rq7();
+                rq7Var.i(jSONArray.getJSONObject(i2).optInt("class_id"));
+                rq7Var.g(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
+                rq7Var.k(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
+                rq7Var.f(jSONArray.getJSONObject(i2).optString("class_icon"));
+                rq7Var.h(jSONArray.getJSONObject(i2).optString("class_pic"));
+                this.interestSelectionInfoList.add(rq7Var);
             }
         }
     }
 
-    public List<sq7> getInterestSelectionInfoList() {
+    public List<rq7> getInterestSelectionInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.interestSelectionInfoList : (List) invokeV.objValue;

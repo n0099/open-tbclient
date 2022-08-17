@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d45;
-import com.repackage.fk8;
+import com.repackage.ek8;
 /* loaded from: classes6.dex */
 public class l35 {
     public static /* synthetic */ Interceptable $ic;
@@ -173,11 +173,11 @@ public class l35 {
         if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (o35Var = this.e) == null) {
             return;
         }
-        o35Var.d(new fk8.h() { // from class: com.repackage.h35
+        o35Var.d(new ek8.h() { // from class: com.repackage.h35
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.repackage.fk8.h
+            @Override // com.repackage.ek8.h
             public final void a(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {

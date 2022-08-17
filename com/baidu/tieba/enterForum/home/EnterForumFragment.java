@@ -24,8 +24,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cj8;
 import com.repackage.d76;
-import com.repackage.dj8;
 import com.repackage.f76;
 import com.repackage.fb5;
 import com.repackage.r66;
@@ -212,7 +212,7 @@ public class EnterForumFragment extends BaseFragment {
             super.onCreate(bundle);
             registerListener(this.f);
             registerListener(this.g);
-            dj8.g().i(getUniqueId());
+            cj8.g().i(getUniqueId());
         }
     }
 
@@ -224,7 +224,7 @@ public class EnterForumFragment extends BaseFragment {
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02d1, viewGroup, false);
             w1(inflate);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            dj8.g().i(getUniqueId());
+            cj8.g().i(getUniqueId());
             return inflate;
         }
         return (View) invokeLLL.objValue;
@@ -241,7 +241,7 @@ public class EnterForumFragment extends BaseFragment {
             this.b = null;
             MessageManager.getInstance().unRegisterListener(this.f);
             MessageManager.getInstance().unRegisterListener(this.g);
-            dj8.g().k(getUniqueId());
+            cj8.g().k(getUniqueId());
             super.onDestroy();
         }
     }
@@ -250,7 +250,7 @@ public class EnterForumFragment extends BaseFragment {
     public void onDestroyView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            dj8.g().k(getUniqueId());
+            cj8.g().k(getUniqueId());
             super.onDestroyView();
         }
     }
@@ -278,7 +278,7 @@ public class EnterForumFragment extends BaseFragment {
                 if (d76Var != null) {
                     refreshImage(d76Var.B());
                 }
-                dj8.g().h(getUniqueId(), false);
+                cj8.g().h(getUniqueId(), false);
             }
             d76 d76Var2 = this.a;
             if (d76Var2 != null) {

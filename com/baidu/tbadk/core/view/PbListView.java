@@ -32,7 +32,7 @@ public class PbListView extends cn {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: D */
-    public static final int new_pic_emotion_03 = 2131234343;
+    public static final int new_pic_emotion_03 = 2131234344;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
     public int B;
@@ -331,7 +331,7 @@ public class PbListView extends cn {
                 return;
             }
             this.f.setVisibility(0);
-            this.f.setText(this.e.getText(R.string.obfuscated_res_0x7f0f0a3c));
+            this.f.setText(this.e.getText(R.string.obfuscated_res_0x7f0f0a3d));
         }
     }
 
@@ -363,7 +363,7 @@ public class PbListView extends cn {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             this.g.setVisibility(0);
-            this.f.setText(this.e.getText(R.string.obfuscated_res_0x7f0f0a3c));
+            this.f.setText(this.e.getText(R.string.obfuscated_res_0x7f0f0a3d));
             d(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -422,15 +422,15 @@ public class PbListView extends cn {
             }
             String charSequence = this.f.getText().toString();
             boolean z = false;
-            if (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0dd6))) {
+            if (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0dd7))) {
                 color = SkinManager.getColor(i, (int) R.color.CAM_X0109);
-            } else if (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0a3c))) {
+            } else if (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0a3d))) {
                 color = SkinManager.getColor(i, (int) R.color.CAM_X0109);
-            } else if (!charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f09ea)) && !charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f09e8)) && !charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f1209)) && !this.w) {
-                if (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f09eb))) {
+            } else if (!charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f09eb)) && !charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f09e9)) && !charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f120b)) && !this.w) {
+                if (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f09ec))) {
                     color = SkinManager.getColor(i, (int) R.color.CAM_X0110);
                 } else {
-                    color = (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f09e7)) || charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0f7f))) ? SkinManager.getColor(i, (int) R.color.CAM_X0109) : 0;
+                    color = (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f09e8)) || charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0f80))) ? SkinManager.getColor(i, (int) R.color.CAM_X0109) : 0;
                 }
             } else {
                 color = SkinManager.getColor(i, (int) R.color.CAM_X0109);
@@ -491,7 +491,7 @@ public class PbListView extends cn {
                     this.f.setText(this.o);
                 }
             } else {
-                this.f.setText(this.e.getText(R.string.obfuscated_res_0x7f0f0dd6));
+                this.f.setText(this.e.getText(R.string.obfuscated_res_0x7f0f0dd7));
             }
             d(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -500,7 +500,7 @@ public class PbListView extends cn {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            C(this.e.getResources().getString(R.string.obfuscated_res_0x7f0f09ea));
+            C(this.e.getResources().getString(R.string.obfuscated_res_0x7f0f09eb));
             f();
         }
     }

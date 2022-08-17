@@ -100,11 +100,11 @@ public class VideoNetworkStateTipView extends RelativeLayout {
         }
         this.a = i;
         SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0101);
-        SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f080fb5);
+        SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f080fb6);
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
         SkinManager.setBackgroundResource(this.c, R.drawable.obfuscated_res_0x7f08031d);
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-        SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f080fb5);
+        SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f080fb6);
     }
 
     public void setHasAgreeToPlay(boolean z) {

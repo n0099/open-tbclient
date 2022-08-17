@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ac8;
 import com.repackage.hp4;
 import com.repackage.qi;
 import com.repackage.qs4;
 import com.repackage.re6;
 import com.repackage.rs4;
+import com.repackage.zb8;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -136,7 +136,7 @@ public class CoverFlowAdapter<T extends rs4> extends PagerAdapter {
                 tbImageView.setOnClickListener(this.d);
                 if ((this.b.get(i) instanceof hp4) && !((hp4) this.b.get(i)).p()) {
                     hp4 hp4Var = (hp4) this.b.get(i);
-                    ac8.k(hp4Var.l(), tbImageView2, hp4Var.m(), qi.f(this.c, R.dimen.obfuscated_res_0x7f0701e8));
+                    zb8.k(hp4Var.l(), tbImageView2, hp4Var.m(), qi.f(this.c, R.dimen.obfuscated_res_0x7f0701e8));
                 }
             }
         }

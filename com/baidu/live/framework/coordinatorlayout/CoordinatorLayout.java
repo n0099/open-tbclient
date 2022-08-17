@@ -2046,7 +2046,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CoordinatorLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040446);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040447);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2201,15 +2201,15 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         this.g = new int[2];
         this.t = new NestedScrollingParentHelper(this);
         if (i == 0) {
-            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040482, R.attr.obfuscated_res_0x7f040492}, 0, R.style.obfuscated_res_0x7f100121);
+            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040483, R.attr.obfuscated_res_0x7f040493}, 0, R.style.obfuscated_res_0x7f100121);
         } else {
-            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040482, R.attr.obfuscated_res_0x7f040492}, i, 0);
+            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040483, R.attr.obfuscated_res_0x7f040493}, i, 0);
         }
         if (Build.VERSION.SDK_INT >= 29) {
             if (i == 0) {
-                saveAttributeDataForStyleable(context, new int[]{R.attr.obfuscated_res_0x7f040482, R.attr.obfuscated_res_0x7f040492}, attributeSet, obtainStyledAttributes, 0, R.style.obfuscated_res_0x7f100121);
+                saveAttributeDataForStyleable(context, new int[]{R.attr.obfuscated_res_0x7f040483, R.attr.obfuscated_res_0x7f040493}, attributeSet, obtainStyledAttributes, 0, R.style.obfuscated_res_0x7f100121);
             } else {
-                saveAttributeDataForStyleable(context, new int[]{R.attr.obfuscated_res_0x7f040482, R.attr.obfuscated_res_0x7f040492}, attributeSet, obtainStyledAttributes, i, 0);
+                saveAttributeDataForStyleable(context, new int[]{R.attr.obfuscated_res_0x7f040483, R.attr.obfuscated_res_0x7f040493}, attributeSet, obtainStyledAttributes, i, 0);
             }
         }
         int resourceId = obtainStyledAttributes.getResourceId(0, 0);
@@ -2712,7 +2712,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             this.g = 0;
             this.h = 0;
             this.q = new Rect();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842931, R.attr.obfuscated_res_0x7f040483, R.attr.obfuscated_res_0x7f040484, R.attr.obfuscated_res_0x7f040485, R.attr.obfuscated_res_0x7f040486, R.attr.obfuscated_res_0x7f040487, R.attr.obfuscated_res_0x7f040488});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842931, R.attr.obfuscated_res_0x7f040484, R.attr.obfuscated_res_0x7f040485, R.attr.obfuscated_res_0x7f040486, R.attr.obfuscated_res_0x7f040487, R.attr.obfuscated_res_0x7f040488, R.attr.obfuscated_res_0x7f04048a});
             this.c = obtainStyledAttributes.getInteger(0, 0);
             this.f = obtainStyledAttributes.getResourceId(1, -1);
             this.d = obtainStyledAttributes.getInteger(2, 0);

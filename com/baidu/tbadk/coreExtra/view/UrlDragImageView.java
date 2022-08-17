@@ -317,7 +317,7 @@ public class UrlDragImageView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
                 this.a.b0.setVisibility(8);
                 this.a.L = false;
-                BdToast.b(this.a.b, str).h();
+                BdToast.b(this.a.b, str).i();
                 this.a.J.originalProcess = -1;
                 this.a.c0();
             }
@@ -922,7 +922,7 @@ public class UrlDragImageView extends RelativeLayout {
                 return;
             }
         }
-        h0 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d10);
+        h0 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d11);
         i0 = 52428800L;
         j0 = qi.i(TbadkCoreApplication.getInst()) / 5;
         q0 = ViewConfiguration.get(TbadkCoreApplication.getInst()).getScaledTouchSlop();
@@ -1182,7 +1182,7 @@ public class UrlDragImageView extends RelativeLayout {
             } else if (oi.z() && !oi.H() && !ru4.k().h("original_img_down_tip", false)) {
                 ru4.k().u("original_img_down_tip", true);
                 ur4 ur4Var = new ur4(a2.getPageActivity());
-                ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0d0f);
+                ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0d10);
                 ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0265, new c(this, ur4Var, nameMd5FromUrl));
                 ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new d(this, ur4Var));
                 ur4Var.create(a2);
@@ -1351,7 +1351,7 @@ public class UrlDragImageView extends RelativeLayout {
             addView(this.f, layoutParams);
             ProgressBar progressBar = new ProgressBar(this.b, null, 16843399);
             this.c = progressBar;
-            progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f9f));
+            progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fa0));
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams2.addRule(13);
             this.c.setLayoutParams(layoutParams2);

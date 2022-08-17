@@ -448,8 +448,8 @@ public class jk4 implements Handler.Callback {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            kk8.h(309627, CompleteTaskSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMPLETE_TASK, kk8.a(TbConfig.COMPLETE_TASK_URL, 309627));
+            jk8.h(309627, CompleteTaskSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMPLETE_TASK, jk8.a(TbConfig.COMPLETE_TASK_URL, 309627));
             tbHttpMessageTask.setResponsedClass(CompleteTaskHTTPResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

@@ -40,7 +40,7 @@ public class ex5 {
                 return;
             }
             if (j2 > 200000000) {
-                qi.O(TbadkCoreApplication.getInst(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f024c, 20L));
+                qi.N(TbadkCoreApplication.getInst(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f024c, 20L));
                 return;
             }
             if (j2 % 1000 != 0) {

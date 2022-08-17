@@ -1,62 +1,37 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class tz7 extends PbListView {
+public class tz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> E;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tz7(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity());
+    public static void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.E = tbPageContext;
-        b().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702fc));
-        z();
-        y();
-        v();
-        G(R.dimen.tbfontsize33);
-    }
-
-    public void R() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.f();
-            C(this.E.getResources().getString(R.string.obfuscated_res_0x7f0f0a39));
-            b().setVisibility(0);
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, str3) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14349");
+            statisticItem.param("tid", str);
+            statisticItem.param("uid", str2);
+            statisticItem.param("post_id", str3);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.PbListView
-    public void f() {
+    public static void b(String str, String str2, String str3, String str4, long j, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.f();
-            C(this.E.getResources().getString(R.string.obfuscated_res_0x7f0f1209));
-            b().setVisibility(0);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, str4, Long.valueOf(j), str5}) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14348");
+            statisticItem.param("tid", str2);
+            statisticItem.param("uid", str3);
+            statisticItem.param("post_id", str4);
+            statisticItem.param("pid", str4);
+            statisticItem.param("fname", str5);
+            statisticItem.param("fid", j);
+            statisticItem.param("obj_locate", str);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

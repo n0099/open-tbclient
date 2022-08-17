@@ -48,7 +48,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b67;
+import com.repackage.a67;
 import com.repackage.b9;
 import com.repackage.d9;
 import com.repackage.ds4;
@@ -57,14 +57,14 @@ import com.repackage.fj;
 import com.repackage.gy4;
 import com.repackage.h25;
 import com.repackage.i25;
-import com.repackage.j87;
+import com.repackage.i87;
 import com.repackage.ms4;
 import com.repackage.qi;
 import com.repackage.r45;
 import com.repackage.s25;
 import com.repackage.t25;
-import com.repackage.ua7;
-import com.repackage.wa7;
+import com.repackage.ta7;
+import com.repackage.va7;
 import com.repackage.x25;
 import com.repackage.xz4;
 import java.io.Serializable;
@@ -80,7 +80,7 @@ public abstract class AbsMsglistView extends b9<MsglistActivity<?>> implements f
     public transient /* synthetic */ FieldHolder $fh;
     public PersonalFollowTipLayout followTipLayout;
     public i25 mActionListener;
-    public b67 mAdapter;
+    public a67 mAdapter;
     public View mBtnGroupInfo;
     public i mCallback;
     public MsglistActivity mContext;
@@ -493,7 +493,7 @@ public abstract class AbsMsglistView extends b9<MsglistActivity<?>> implements f
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                j87.a(view2.getContext());
+                i87.a(view2.getContext());
             }
         }
     }
@@ -717,10 +717,10 @@ public abstract class AbsMsglistView extends b9<MsglistActivity<?>> implements f
         }
     }
 
-    public b67 getAdapter() {
+    public a67 getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mAdapter : (b67) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mAdapter : (a67) invokeV.objValue;
     }
 
     public View getBtnBack() {
@@ -751,7 +751,7 @@ public abstract class AbsMsglistView extends b9<MsglistActivity<?>> implements f
     public final String getContent(ChatMessage chatMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, chatMessage)) == null) ? ua7.f(chatMessage) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, chatMessage)) == null) ? ta7.f(chatMessage) : (String) invokeL.objValue;
     }
 
     public String getDraft() {
@@ -971,7 +971,7 @@ public abstract class AbsMsglistView extends b9<MsglistActivity<?>> implements f
         if (TbadkCoreApplication.getInst().isFaceShopNew()) {
             this.mTool.A(new h25(2, 5, "N"));
         }
-        if (j87.c()) {
+        if (i87.c()) {
             showInputControlTouchInterceptView();
         }
     }
@@ -987,7 +987,7 @@ public abstract class AbsMsglistView extends b9<MsglistActivity<?>> implements f
             ProgressBar progressBar = (ProgressBar) msglistActivity.findViewById(R.id.obfuscated_res_0x7f09155f);
             this.mPrgLisMsg = progressBar;
             progressBar.setVisibility(8);
-            this.mAdapter = new b67(msglistActivity.getPageContext(), this.mLisMsg);
+            this.mAdapter = new a67(msglistActivity.getPageContext(), this.mLisMsg);
             setNeedShowName();
             this.mAdapter.o(this.mNeedShowName);
             this.mAdapter.l(isFromReport());
@@ -1112,9 +1112,9 @@ public abstract class AbsMsglistView extends b9<MsglistActivity<?>> implements f
             if (textView4 != null) {
                 SkinManager.setViewTextColor(textView4, R.color.CAM_X0105, 1);
             }
-            b67 b67Var = this.mAdapter;
-            if (b67Var != null) {
-                b67Var.i(i2);
+            a67 a67Var = this.mAdapter;
+            if (a67Var != null) {
+                a67Var.i(i2);
             }
             this.mNetworkView.d(getPageContext(), i2);
             EditorTools editorTools = this.mTool;
@@ -1159,9 +1159,9 @@ public abstract class AbsMsglistView extends b9<MsglistActivity<?>> implements f
             if (handler != null) {
                 handler.removeMessages(1);
             }
-            b67 b67Var = this.mAdapter;
-            if (b67Var != null) {
-                b67Var.j();
+            a67 a67Var = this.mAdapter;
+            if (a67Var != null) {
+                a67Var.j();
             }
             ISendVoiceView iSendVoiceView = this.mSendVoiceView;
             if (iSendVoiceView != null) {
@@ -1438,13 +1438,13 @@ public abstract class AbsMsglistView extends b9<MsglistActivity<?>> implements f
         }
     }
 
-    public void setVoiceTouchCallback(wa7 wa7Var) {
+    public void setVoiceTouchCallback(va7 va7Var) {
         ISendVoiceView iSendVoiceView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048647, this, wa7Var) == null) || (iSendVoiceView = this.mSendVoiceView) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048647, this, va7Var) == null) || (iSendVoiceView = this.mSendVoiceView) == null) {
             return;
         }
-        iSendVoiceView.setTouchCallBack(wa7Var);
+        iSendVoiceView.setTouchCallBack(va7Var);
     }
 
     public void showDiaItemContentOperate(int i2, String[] strArr) {
@@ -1475,7 +1475,7 @@ public abstract class AbsMsglistView extends b9<MsglistActivity<?>> implements f
 
     public final void showNewMsg(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048650, this, chatMessage) == null) || chatMessage == null || ua7.v(chatMessage)) {
+        if (!(interceptable == null || interceptable.invokeL(1048650, this, chatMessage) == null) || chatMessage == null || ta7.v(chatMessage)) {
             return;
         }
         String content = getContent(chatMessage);

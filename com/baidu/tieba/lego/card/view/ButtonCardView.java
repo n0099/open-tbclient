@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cf7;
+import com.repackage.bf7;
 import com.repackage.qi;
 import com.repackage.ur4;
 /* loaded from: classes3.dex */
@@ -198,7 +198,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         this.n.setDefaultBgResource(R.color.transparent);
         if (!TextUtils.isEmpty(buttonCard.getPicUrl())) {
             this.n.K(buttonCard.getPicUrl(), 17, false);
-        } else if (!cf7.a(bgColor)) {
+        } else if (!bf7.a(bgColor)) {
             this.n.setBackgroundColor(bgColor);
         } else {
             this.n.setDefaultBgResource(R.color.transparent);
@@ -210,7 +210,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         this.o.setText(buttonCard.getText());
         this.o.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5));
         int textColor = buttonCard.getTextColor();
-        if (!cf7.a(textColor)) {
+        if (!bf7.a(textColor)) {
             this.o.setTextColor(textColor);
         }
         this.o.setOnClickListener(new a(this, buttonCard));
@@ -220,14 +220,14 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         if (i == 1) {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
-            if (!cf7.a(buttonColor)) {
+            if (!bf7.a(buttonColor)) {
                 gradientDrawable.setStroke(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070298), buttonColor);
             }
             gradientDrawable.setColor(0);
             this.o.setBackgroundDrawable(gradientDrawable);
         } else if (i != 2) {
             this.o.setBackgroundColor(0);
-        } else if (!cf7.a(buttonColor)) {
+        } else if (!bf7.a(buttonColor)) {
             this.o.setBackgroundColor(buttonColor);
         } else {
             this.o.setBackgroundColor(0);

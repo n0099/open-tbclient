@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m57;
+import com.repackage.l57;
 import com.repackage.tr4;
 import com.squareup.wire.Wire;
 import tbclient.Error;
@@ -19,10 +19,10 @@ import tbclient.GetSugTopic.GetSugTopicResIdl;
 public class HotSelectSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m57 mBangTopic;
-    public m57 mSugTopic;
-    public m57 mUserHisTopic;
-    public m57 mVideoTopic;
+    public l57 mBangTopic;
+    public l57 mSugTopic;
+    public l57 mUserHisTopic;
+    public l57 mVideoTopic;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotSelectSocketResponseMessage() {
@@ -62,60 +62,60 @@ public class HotSelectSocketResponseMessage extends SocketResponsedMessage {
                 return getSugTopicResIdl;
             }
             if (dataRes.user_his_topic != null) {
-                m57 m57Var = new m57();
-                m57Var.f(0);
-                m57Var.d(getSugTopicResIdl.data.user_his_topic);
-                this.mUserHisTopic = m57Var;
+                l57 l57Var = new l57();
+                l57Var.f(0);
+                l57Var.d(getSugTopicResIdl.data.user_his_topic);
+                this.mUserHisTopic = l57Var;
             }
             if (getSugTopicResIdl.data.bang_topic != null) {
-                m57 m57Var2 = new m57();
-                m57Var2.f(1);
-                m57Var2.d(getSugTopicResIdl.data.bang_topic);
-                this.mBangTopic = m57Var2;
+                l57 l57Var2 = new l57();
+                l57Var2.f(1);
+                l57Var2.d(getSugTopicResIdl.data.bang_topic);
+                this.mBangTopic = l57Var2;
             }
             if (getSugTopicResIdl.data.sug_topic != null) {
-                m57 m57Var3 = new m57();
-                m57Var3.d(getSugTopicResIdl.data.sug_topic);
-                this.mSugTopic = m57Var3;
+                l57 l57Var3 = new l57();
+                l57Var3.d(getSugTopicResIdl.data.sug_topic);
+                this.mSugTopic = l57Var3;
             }
             if (getSugTopicResIdl.data.video_topic != null) {
-                m57 m57Var4 = new m57();
-                m57Var4.d(getSugTopicResIdl.data.video_topic);
-                this.mVideoTopic = m57Var4;
+                l57 l57Var4 = new l57();
+                l57Var4.d(getSugTopicResIdl.data.video_topic);
+                this.mVideoTopic = l57Var4;
             }
             return getSugTopicResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public m57 getBangTopic() {
+    public l57 getBangTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mBangTopic : (m57) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mBangTopic : (l57) invokeV.objValue;
     }
 
-    public m57 getSugTopic() {
+    public l57 getSugTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mSugTopic : (m57) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mSugTopic : (l57) invokeV.objValue;
     }
 
-    public m57 getUserHisTopic() {
+    public l57 getUserHisTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mUserHisTopic : (m57) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mUserHisTopic : (l57) invokeV.objValue;
     }
 
-    public m57 getVideoTopic() {
+    public l57 getVideoTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mVideoTopic : (m57) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mVideoTopic : (l57) invokeV.objValue;
     }
 
-    public void setVideoTopic(m57 m57Var) {
+    public void setVideoTopic(l57 l57Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, m57Var) == null) {
-            this.mVideoTopic = m57Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, l57Var) == null) {
+            this.mVideoTopic = l57Var;
         }
     }
 

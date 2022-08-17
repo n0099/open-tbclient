@@ -242,7 +242,7 @@ public class ao6 extends jo6 {
         }
         this.j = new a(this, 2001383);
         this.k = new b(this, 2921662);
-        this.h = this.b.s3();
+        this.h = this.b.t3();
         this.j.setTag(this.b.getPageContext().getUniqueId());
         this.j.setSelfListener(true);
         this.b.registerListener(this.j);
@@ -283,7 +283,7 @@ public class ao6 extends jo6 {
     public final void f() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.h == null) {
-            this.h = this.b.s3();
+            this.h = this.b.t3();
         }
     }
 
@@ -340,29 +340,29 @@ public class ao6 extends jo6 {
     public final void j(int i, Intent intent) {
         ThreadData threadDataById;
         ShareItem shareItem;
-        tr6 tr6Var;
-        pr6 Z;
+        sr6 sr6Var;
+        or6 Z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i, intent) == null) {
             FrsViewData P0 = this.b.P0();
             switch (i) {
                 case 11001:
-                    this.b.h5(0);
+                    this.b.i5(0);
                     return;
                 case 11002:
                     this.d.B0(true);
                     return;
                 case 11011:
                     FrsFragment frsFragment = this.b;
-                    String G3 = frsFragment.G3();
+                    String H3 = frsFragment.H3();
                     FrsFragment frsFragment2 = this.b;
-                    jr6.g(frsFragment, G3, frsFragment2.x, frsFragment2.Q3());
+                    ir6.g(frsFragment, H3, frsFragment2.x, frsFragment2.R3());
                     return;
                 case 11012:
                     FrsFragment frsFragment3 = this.b;
-                    String G32 = frsFragment3.G3();
+                    String H32 = frsFragment3.H3();
                     FrsFragment frsFragment4 = this.b;
-                    jr6.h(frsFragment3, G32, frsFragment4.x, frsFragment4.Q3());
+                    ir6.h(frsFragment3, H32, frsFragment4.x, frsFragment4.R3());
                     return;
                 case 11014:
                     this.d.C0();
@@ -376,13 +376,13 @@ public class ao6 extends jo6 {
                 case 18003:
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921462, 0));
                     this.a.X().notifyDataSetChanged();
-                    tr6 tr6Var2 = this.d;
-                    if (tr6Var2 != null) {
-                        tr6Var2.b0();
+                    sr6 sr6Var2 = this.d;
+                    if (sr6Var2 != null) {
+                        sr6Var2.b0();
                     }
                     int intExtra = intent.getIntExtra("type", -1);
                     if (intExtra == 4) {
-                        this.b.i4(6);
+                        this.b.j4(6);
                         return;
                     }
                     String stringExtra = intent.getStringExtra("tid");
@@ -396,13 +396,13 @@ public class ao6 extends jo6 {
                     h(P0, intent, stringExtra);
                     return;
                 case 18004:
-                    jr6.e(this.b.getPageContext(), P0);
+                    ir6.e(this.b.getPageContext(), P0);
                     return;
                 case 23003:
                     if (intent == null || P0 == null) {
                         return;
                     }
-                    fr6.e(this.b, P0, intent.getLongExtra("group_id", 0L), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L));
+                    er6.e(this.b, P0, intent.getLongExtra("group_id", 0L), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L));
                     return;
                 case 23007:
                     k(intent);
@@ -430,7 +430,7 @@ public class ao6 extends jo6 {
                         TiebaStatic.log(statisticItem);
                     }
                     if (intExtra6 == 1) {
-                        this.b.f4(intent.getStringExtra("tid"));
+                        this.b.g4(intent.getStringExtra("tid"));
                         return;
                     }
                     return;
@@ -443,11 +443,11 @@ public class ao6 extends jo6 {
                 case 25052:
                     String stringExtra2 = intent.getStringExtra("group_name");
                     boolean booleanExtra = intent.getBooleanExtra("from", true);
-                    this.b.b5(stringExtra2);
-                    if (booleanExtra || (tr6Var = this.d) == null) {
+                    this.b.c5(stringExtra2);
+                    if (booleanExtra || (sr6Var = this.d) == null) {
                         return;
                     }
-                    tr6Var.U();
+                    sr6Var.U();
                     return;
                 case 25054:
                     af6 k1 = this.b.k1();
@@ -481,11 +481,11 @@ public class ao6 extends jo6 {
     public void m(int i) {
         FrsFragment frsFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (frsFragment = this.b) == null || frsFragment.E3() == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (frsFragment = this.b) == null || frsFragment.F3() == null) {
             return;
         }
         if (i > 0) {
-            FrsTabViewController.p J = this.b.E3().J(i);
+            FrsTabViewController.p J = this.b.F3().J(i);
             if (J != null) {
                 Fragment fragment = J.b;
                 if ((fragment instanceof FrsCommonTabFragment) || (fragment instanceof FrsTabWebFragment)) {
@@ -496,8 +496,8 @@ public class ao6 extends jo6 {
             }
             return;
         }
-        int F = this.b.E3().F();
-        if (this.b.E3().J(F) != null) {
+        int F = this.b.F3().F();
+        if (this.b.F3().J(F) != null) {
             this.c.b(F);
         }
     }
@@ -543,7 +543,7 @@ public class ao6 extends jo6 {
         thread2GroupShareView.setData(shareFromPBMsgData);
         ur4Var.setContentViewSize(1);
         ur4Var.setContentView(thread2GroupShareView);
-        ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1125, new c(this, thread2GroupShareView, j, str, str2, str3, shareFromPBMsgData));
+        ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1126, new c(this, thread2GroupShareView, j, str, str2, str3, shareFromPBMsgData));
         ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new d(this, thread2GroupShareView));
         ur4Var.setCanceledOnTouchOutside(true);
         ur4Var.create(this.b.getPageContext()).show();

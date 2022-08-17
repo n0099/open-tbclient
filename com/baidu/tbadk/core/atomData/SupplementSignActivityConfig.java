@@ -58,7 +58,7 @@ public class SupplementSignActivityConfig extends TbWebViewActivityConfig {
                 return;
             }
         }
-        String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f100a);
+        String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f100b);
         getIntent().putExtra(FORUM_ID, i);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);

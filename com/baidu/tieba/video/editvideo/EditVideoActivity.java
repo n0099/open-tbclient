@@ -47,9 +47,9 @@ import com.baidubce.auth.NTLMEngineImpl;
 import com.google.protobuf.CodedInputStream;
 import com.repackage.at8;
 import com.repackage.ct8;
-import com.repackage.fn7;
+import com.repackage.en7;
+import com.repackage.in7;
 import com.repackage.it8;
-import com.repackage.jn7;
 import com.repackage.jt8;
 import com.repackage.kt8;
 import com.repackage.nt8;
@@ -87,7 +87,7 @@ public class EditVideoActivity extends BaseActivity implements vs8, ws8, MaskVid
     public int q;
     public String r;
     public String s;
-    public fn7 t;
+    public en7 t;
     public ot8 u;
     public os8 v;
     public HttpMessageListener w;
@@ -275,10 +275,10 @@ public class EditVideoActivity extends BaseActivity implements vs8, ws8, MaskVid
                 return;
             }
         }
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, jn7.class);
-        jn7 jn7Var = runTask != null ? (jn7) runTask.getData() : null;
-        if (jn7Var != null) {
-            this.t = jn7Var.get();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, in7.class);
+        in7 in7Var = runTask != null ? (in7) runTask.getData() : null;
+        if (in7Var != null) {
+            this.t = in7Var.get();
         }
         this.w = new a(this, CmdConfigHttp.CMD_GET_VIDEO_ACTIVITY);
         this.x = new c(this, 2001374);
@@ -576,7 +576,7 @@ public class EditVideoActivity extends BaseActivity implements vs8, ws8, MaskVid
             this.j.A();
             uu4 uu4Var = new uu4(getPageContext());
             this.n = uu4Var;
-            uu4Var.i(R.string.obfuscated_res_0x7f0f0ade);
+            uu4Var.i(R.string.obfuscated_res_0x7f0f0adf);
             registerListener(this.x);
             K1();
             registerListener(this.w);
@@ -635,7 +635,7 @@ public class EditVideoActivity extends BaseActivity implements vs8, ws8, MaskVid
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             if (this.h != null && this.i != null && this.j != null) {
                 if (!oi.z()) {
-                    getPageContext().showToast(R.string.obfuscated_res_0x7f0f0c74);
+                    getPageContext().showToast(R.string.obfuscated_res_0x7f0f0c75);
                     return;
                 } else if (this.l) {
                     return;
@@ -784,8 +784,8 @@ public class EditVideoActivity extends BaseActivity implements vs8, ws8, MaskVid
             if (list == null) {
                 list = new ArrayList<>();
             }
-            list.add(0, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getPageContext().getString(R.string.obfuscated_res_0x7f0f0b2a)));
-            list.add(1, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_CLOUD_ID, 2, getPageContext().getString(R.string.obfuscated_res_0x7f0f0b28)));
+            list.add(0, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getPageContext().getString(R.string.obfuscated_res_0x7f0f0b2b)));
+            list.add(1, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_CLOUD_ID, 2, getPageContext().getString(R.string.obfuscated_res_0x7f0f0b29)));
             this.h.X(list);
         }
     }

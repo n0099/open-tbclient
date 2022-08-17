@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ae7;
-import com.repackage.bk8;
-import com.repackage.ee7;
+import com.repackage.ak8;
+import com.repackage.de7;
 import com.repackage.fb5;
 import com.repackage.qi;
 import com.repackage.uz5;
+import com.repackage.zd7;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -74,12 +74,12 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
                 return;
             }
             uz5.b().d(true);
-            ae7 e = ee7.e(this.a);
+            zd7 e = de7.e(this.a);
             e.b("obj_locate", this.b + 1);
             e.d(TiebaStatic.Params.OBJ_URL, this.a.getFocusItemList().get(this.b).f);
             e.c("obj_id", this.a.getFocusItemList().get(this.b).g);
             e.a(this.a);
-            bk8.c(this.c.i, this.a.getFocusItemList().get(this.b).f);
+            ak8.c(this.c.i, this.a.getFocusItemList().get(this.b).f);
         }
     }
 

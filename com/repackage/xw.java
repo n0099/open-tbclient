@@ -34,10 +34,10 @@ public class xw extends ly {
     }
 
     @Override // com.repackage.ly
-    public e98 q() {
+    public d98 q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new f98(this.b, this.i, this.y) : (e98) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new e98(this.b, this.i, this.y) : (d98) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

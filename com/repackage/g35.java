@@ -37,7 +37,7 @@ public class g35 extends s25 {
         }
         this.t = true;
         this.u = true;
-        this.d = R.drawable.obfuscated_res_0x7f0809a2;
+        this.d = R.drawable.obfuscated_res_0x7f0809a3;
         this.i = false;
         this.j = true;
         this.k = false;

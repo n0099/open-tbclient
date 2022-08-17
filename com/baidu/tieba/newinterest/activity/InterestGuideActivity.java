@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dr7;
+import com.repackage.cr7;
 import com.repackage.ru4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dr7 a;
+    public cr7 a;
     public int b;
     public boolean c;
     public ArrayList<Integer> d;
@@ -91,9 +91,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             D0();
-            dr7 dr7Var = new dr7(this, this.b, this.c, this.d, this.e);
-            this.a = dr7Var;
-            setContentView(dr7Var.d());
+            cr7 cr7Var = new cr7(this, this.b, this.c, this.d, this.e);
+            this.a = cr7Var;
+            setContentView(cr7Var.d());
             E0();
         }
     }

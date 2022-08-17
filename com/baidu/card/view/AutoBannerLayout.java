@@ -71,8 +71,8 @@ public class AutoBannerLayout extends RelativeLayout implements ix, hx<to4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 ts4 ts4Var = new ts4();
-                ts4Var.c(R.drawable.obfuscated_res_0x7f0810c5);
-                ts4Var.g(R.drawable.obfuscated_res_0x7f0810c6);
+                ts4Var.c(R.drawable.obfuscated_res_0x7f0810c6);
+                ts4Var.g(R.drawable.obfuscated_res_0x7f0810c7);
                 ts4Var.d(81);
                 ts4Var.e(R.dimen.M_H_X003);
                 ts4Var.h(R.dimen.M_W_X003);

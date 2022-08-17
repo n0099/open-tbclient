@@ -270,9 +270,9 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
             if (this.g == null) {
                 ur4 ur4Var = new ur4(getPageContext().getPageActivity());
                 this.g = ur4Var;
-                ur4Var.setTitle(R.string.obfuscated_res_0x7f0f08f0);
+                ur4Var.setTitle(R.string.obfuscated_res_0x7f0f08f1);
                 this.g.setCancelable(false);
-                this.g.setMessageId(R.string.obfuscated_res_0x7f0f0f76);
+                this.g.setMessageId(R.string.obfuscated_res_0x7f0f0f77);
                 this.g.setPositiveButton(R.string.obfuscated_res_0x7f0f0265, new c(this));
                 this.g.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new d(this));
                 this.g.create(getPageContext());

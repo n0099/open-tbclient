@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.hb5;
 import com.repackage.qi;
-import com.repackage.wt7;
+import com.repackage.vt7;
 /* loaded from: classes4.dex */
 public class CommentFloatSusPendedView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -167,16 +167,16 @@ public class CommentFloatSusPendedView extends LinearLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            wt7 wt7Var;
+            vt7 vt7Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof wt7) || (wt7Var = (wt7) customResponsedMessage.getData()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof vt7) || (vt7Var = (vt7) customResponsedMessage.getData()) == null) {
                 return;
             }
-            this.a.m = wt7Var.d;
-            this.a.e = wt7Var.b;
-            this.a.f = wt7Var.a;
-            this.a.k = wt7Var.c;
-            this.a.h = wt7Var.e;
+            this.a.m = vt7Var.d;
+            this.a.e = vt7Var.b;
+            this.a.f = vt7Var.a;
+            this.a.k = vt7Var.c;
+            this.a.h = vt7Var.e;
             CommentFloatSusPendedView commentFloatSusPendedView = this.a;
             commentFloatSusPendedView.t((commentFloatSusPendedView.f - this.a.e) / qi.i(this.a.getContext()));
             boolean z = this.a.f > this.a.e;

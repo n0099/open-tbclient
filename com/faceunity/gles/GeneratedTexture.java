@@ -1,6 +1,5 @@
 package com.faceunity.gles;
 
-import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
 public class GeneratedTexture {
@@ -139,7 +139,7 @@ public class GeneratedTexture {
                 return;
             }
         }
-        GRID = new int[]{-16776961, -16711681, -16711936, -65281, -1, 1073742079, 1073807104, -16711681, -65281, 65280, -2147483393, -16777216, -256, -65281, -256, SupportMenu.CATEGORY_MASK};
+        GRID = new int[]{-16776961, -16711681, DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK, -65281, -1, 1073742079, 1073807104, -16711681, -65281, 65280, -2147483393, -16777216, -256, -65281, -256, -65536};
         sCoarseImageData = generateCoarseData();
         sFineImageData = generateFineData();
     }
@@ -228,9 +228,9 @@ public class GeneratedTexture {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             byte[] bArr = new byte[16384];
-            checkerPattern(bArr, 0, 0, 32, 32, -16776961, SupportMenu.CATEGORY_MASK, 1);
-            checkerPattern(bArr, 32, 32, 64, 64, -16776961, -16711936, 2);
-            checkerPattern(bArr, 0, 32, 32, 64, SupportMenu.CATEGORY_MASK, -16711936, 4);
+            checkerPattern(bArr, 0, 0, 32, 32, -16776961, -65536, 1);
+            checkerPattern(bArr, 32, 32, 64, 64, -16776961, DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK, 2);
+            checkerPattern(bArr, 0, 32, 32, 64, -65536, DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK, 4);
             checkerPattern(bArr, 32, 0, 64, 32, -1, -16777216, 8);
             ByteBuffer allocateDirect = ByteBuffer.allocateDirect(16384);
             allocateDirect.put(bArr);

@@ -29,7 +29,7 @@ import com.repackage.d9;
 import com.repackage.eu4;
 import com.repackage.fu4;
 import com.repackage.hz4;
-import com.repackage.kk8;
+import com.repackage.jk8;
 import com.repackage.lb5;
 import com.repackage.o75;
 import com.repackage.ru4;
@@ -138,7 +138,7 @@ public class PollingModel extends BdBaseModel {
         this.b = tbPageContext;
         setUniqueId(bdUniqueId);
         this.c = bdUniqueId;
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_POLLING_INTERFACE, kk8.a(TbConfig.GET_POLLING_DATA, 309732));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_POLLING_INTERFACE, jk8.a(TbConfig.GET_POLLING_DATA, 309732));
         lb5 lb5Var = new lb5(309732);
         tbHttpMessageTask.setResponsedClass(PollingHttpResMessage.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);

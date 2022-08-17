@@ -40,7 +40,6 @@ import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.constraintlayout.widget.Constraints;
 import androidx.constraintlayout.widget.R$styleable;
 import androidx.constraintlayout.widget.StateSet;
-import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.NestedScrollingParent3;
 import com.baidu.android.imsdk.internal.Constants;
@@ -497,7 +496,7 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
                 canvas.translate(2.0f, 2.0f);
                 canvas.drawPath(this.mPath, this.mPaint);
                 canvas.translate(-2.0f, -2.0f);
-                this.mPaint.setColor(SupportMenu.CATEGORY_MASK);
+                this.mPaint.setColor(-65536);
                 canvas.drawPath(this.mPath, this.mPaint);
             }
         }

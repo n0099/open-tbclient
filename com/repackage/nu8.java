@@ -37,7 +37,7 @@ public class nu8 {
 
         /* renamed from: com.repackage.nu8$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0536a implements TextureMovieEncoder.OnEncoderStatusUpdateListener {
+        public class C0541a implements TextureMovieEncoder.OnEncoderStatusUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ lu8 a;
@@ -45,17 +45,17 @@ public class nu8 {
 
             /* renamed from: com.repackage.nu8$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class RunnableC0537a implements Runnable {
+            public class RunnableC0542a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0536a a;
+                public final /* synthetic */ C0541a a;
 
-                public RunnableC0537a(C0536a c0536a) {
+                public RunnableC0542a(C0541a c0541a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0536a};
+                        Object[] objArr = {c0541a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -65,7 +65,7 @@ public class nu8 {
                             return;
                         }
                     }
-                    this.a = c0536a;
+                    this.a = c0541a;
                 }
 
                 @Override // java.lang.Runnable
@@ -78,7 +78,7 @@ public class nu8 {
                 }
             }
 
-            public C0536a(a aVar, lu8 lu8Var) {
+            public C0541a(a aVar, lu8 lu8Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,7 +108,7 @@ public class nu8 {
             public void onStopSuccess() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    rg.a().post(new RunnableC0537a(this));
+                    rg.a().post(new RunnableC0542a(this));
                     this.a.setOnEncoderStatusUpdateListener(null);
                 }
             }
@@ -143,7 +143,7 @@ public class nu8 {
                     return;
                 }
                 if (q instanceof GLVideoPreviewView) {
-                    q.setOnEncoderStatusUpdateListener(new C0536a(this, q));
+                    q.setOnEncoderStatusUpdateListener(new C0541a(this, q));
                     this.a.o();
                     return;
                 }

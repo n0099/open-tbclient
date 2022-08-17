@@ -100,8 +100,8 @@ public class w09 {
             this.b.v0(-dimensionPixelSize5);
             this.b.S(3000);
         }
-        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f15bf);
-        this.b.i0(R.drawable.obfuscated_res_0x7f08093e);
+        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f15c2);
+        this.b.i0(R.drawable.obfuscated_res_0x7f08093f);
         this.b.Z(true);
         this.b.x0(string, "commodity_tip_show_controller");
     }

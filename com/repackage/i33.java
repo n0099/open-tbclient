@@ -41,14 +41,14 @@ public class i33 extends w23 implements mp1.j {
 
         /* renamed from: com.repackage.i33$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0498a implements Runnable {
+        public class RunnableC0504a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ShowFavoriteGuideApi.GuideType a;
             public final /* synthetic */ String b;
             public final /* synthetic */ a c;
 
-            public RunnableC0498a(a aVar, ShowFavoriteGuideApi.GuideType guideType, String str) {
+            public RunnableC0504a(a aVar, ShowFavoriteGuideApi.GuideType guideType, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,7 +137,7 @@ public class i33 extends w23 implements mp1.j {
                 zx1.i("ShowFavoriteGuideAction", "duration=" + this.e.e + ", mIntervalDays=" + this.e.f + ", mMaxTimes=" + this.e.g + " ,storageValue=" + string2);
                 if (i2 < this.e.g && currentTimeMillis - j > this.e.f * 86400000) {
                     n93.a().putString(str2, (i2 + 1) + "#" + currentTimeMillis);
-                    te3.e0(new RunnableC0498a(this, parse, string));
+                    te3.e0(new RunnableC0504a(this, parse, string));
                     return;
                 }
                 zx1.i("ShowFavoriteGuideAction", "Not satisfying display conditions");

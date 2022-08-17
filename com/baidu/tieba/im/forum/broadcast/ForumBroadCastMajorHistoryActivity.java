@@ -18,16 +18,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d87;
+import com.repackage.b87;
+import com.repackage.c87;
 import com.repackage.e87;
-import com.repackage.g87;
 import com.repackage.oi;
 /* loaded from: classes3.dex */
-public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadCastMajorHistoryActivity> implements d87 {
+public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadCastMajorHistoryActivity> implements b87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForumBroadCastMajorHistoryModel a;
-    public g87 b;
+    public e87 b;
     public View c;
     public String d;
     public String e;
@@ -47,7 +47,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // com.repackage.d87
+    @Override // com.repackage.b87
     public void A0(ForumBroadcastMajorResidueData forumBroadcastMajorResidueData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, forumBroadcastMajorResidueData) == null) {
@@ -55,7 +55,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // com.repackage.d87
+    @Override // com.repackage.b87
     public void b() {
         ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel;
         Interceptable interceptable = $ic;
@@ -65,18 +65,18 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         forumBroadCastMajorHistoryModel.b();
     }
 
-    @Override // com.repackage.d87
-    public void c0(e87 e87Var) {
+    @Override // com.repackage.b87
+    public void c0(c87 c87Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e87Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c87Var) == null) {
             ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.a;
             if (forumBroadCastMajorHistoryModel != null && !forumBroadCastMajorHistoryModel.a()) {
                 this.b.r(getString(R.string.obfuscated_res_0x7f0f08ba), false);
                 return;
             }
-            g87 g87Var = this.b;
-            if (g87Var != null) {
-                g87Var.o(e87Var);
+            e87 e87Var = this.b;
+            if (e87Var != null) {
+                e87Var.o(c87Var);
             }
         }
     }
@@ -89,7 +89,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // com.repackage.d87
+    @Override // com.repackage.b87
     public void f(ErrorData errorData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, errorData) == null) {
@@ -104,7 +104,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
             if (forumBroadCastMajorHistoryModel == null || forumBroadCastMajorHistoryModel.a()) {
                 return;
             }
-            this.b.r(errorData != null ? getString(R.string.obfuscated_res_0x7f0f0c3b, new Object[]{errorData.error_msg, Integer.valueOf(errorData.error_code)}) : null, false);
+            this.b.r(errorData != null ? getString(R.string.obfuscated_res_0x7f0f0c3c, new Object[]{errorData.error_msg, Integer.valueOf(errorData.error_code)}) : null, false);
         }
     }
 
@@ -133,7 +133,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
             z1(bundle);
             this.a = new ForumBroadCastMajorHistoryModel(getPageContext(), this, this.d);
             this.c = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d029e, (ViewGroup) null);
-            this.b = new g87(getPageContext(), this, this.c, this.d, this.e, this.f, bundle);
+            this.b = new e87(getPageContext(), this, this.c, this.d, this.e, this.f, bundle);
             setContentView(this.c);
             this.a.I();
             refresh();
@@ -145,9 +145,9 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            g87 g87Var = this.b;
-            if (g87Var != null) {
-                g87Var.n();
+            e87 e87Var = this.b;
+            if (e87Var != null) {
+                e87Var.n();
             }
             ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.a;
             if (forumBroadCastMajorHistoryModel != null) {
@@ -167,15 +167,15 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
 
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
-        g87 g87Var;
+        e87 e87Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, intent) == null) {
             super.onNewIntent(intent);
             refresh();
-            if (!ForumBroadcastHelper.VALUE_INTENT_BCAST_FROM_EDIT_SUCCESS.equals(intent.getStringExtra("from")) || (g87Var = this.b) == null) {
+            if (!ForumBroadcastHelper.VALUE_INTENT_BCAST_FROM_EDIT_SUCCESS.equals(intent.getStringExtra("from")) || (e87Var = this.b) == null) {
                 return;
             }
-            g87Var.s();
+            e87Var.s();
         }
     }
 
@@ -187,7 +187,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // com.repackage.d87
+    @Override // com.repackage.b87
     public void refresh() {
         ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel;
         Interceptable interceptable = $ic;

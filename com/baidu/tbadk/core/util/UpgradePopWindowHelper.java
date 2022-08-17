@@ -152,7 +152,7 @@ public class UpgradePopWindowHelper {
             layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(R.dimen.tbds120), 0, 0);
             relativeLayout.addView(view2, layoutParams);
             ImageView imageView = new ImageView(pageActivity);
-            WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f0807f8, null);
+            WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f0807f9, null);
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams2.addRule(14);

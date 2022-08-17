@@ -1,125 +1,85 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Message;
-import android.view.MotionEvent;
-import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fu7 implements View.OnTouchListener {
+public class fu7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public b d;
-    public long e;
-    public Handler f;
 
-    /* loaded from: classes6.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fu7 a;
-
-        public a(fu7 fu7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fu7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fu7Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i = message.what;
-                if (i == 2) {
-                    this.a.a = 0;
-                    this.a.b = 0L;
-                    this.a.c = 0L;
-                } else if (i == 1 && this.a.a == 1) {
-                    if (this.a.d != null) {
-                        this.a.d.a();
-                    }
-                    this.a.a = 0;
-                    this.a.b = 0L;
-                    this.a.c = 0L;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a();
-
-        void b();
-    }
-
-    public fu7(b bVar) {
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeI(65536, null, i) == null) || TbadkCoreApplication.getInst().getFontSize() == i) {
+            return;
         }
-        this.a = 0;
-        this.b = 0L;
-        this.c = 0L;
-        this.e = 500L;
-        this.f = new a(this);
-        this.d = bVar;
+        TbadkCoreApplication.getInst().setFontSize(i);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-            if (motionEvent.getAction() == 0) {
-                if (this.d == null) {
-                    return false;
-                }
-                int i = this.a + 1;
-                this.a = i;
-                if (i == 1) {
-                    this.b = System.currentTimeMillis();
-                    this.f.sendEmptyMessageDelayed(1, this.e);
-                } else if (i == 2) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    this.c = currentTimeMillis;
-                    if (currentTimeMillis - this.b < this.e) {
-                        this.d.b();
-                    }
-                    this.f.sendEmptyMessage(2);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            int fontSize = TbadkCoreApplication.getInst().getFontSize();
+            if (fontSize == 0) {
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f142e);
             }
-            return true;
+            if (fontSize == 1) {
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f142b);
+            }
+            if (fontSize == 2) {
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f142c);
+            }
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f142d);
         }
-        return invokeLL.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            int fontSize = TbadkCoreApplication.getInst().getFontSize();
+            int i = 3;
+            if (fontSize == 0) {
+                i = 1;
+            } else if (fontSize == 1) {
+                i = 2;
+            }
+            if (fontSize != i) {
+                TbadkCoreApplication.getInst().setFontSize(i);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
+            }
+            BdToast b = BdToast.b(TbadkCoreApplication.getInst(), b());
+            b.e(R.drawable.icon_word_t_size);
+            b.c(0);
+            b.i();
+        }
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            int fontSize = TbadkCoreApplication.getInst().getFontSize();
+            int i = 2;
+            if (fontSize == 0 || fontSize == 1) {
+                i = 0;
+            } else if (fontSize == 2) {
+                i = 1;
+            }
+            if (fontSize != i) {
+                TbadkCoreApplication.getInst().setFontSize(i);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
+            }
+            BdToast b = BdToast.b(TbadkCoreApplication.getInst(), b());
+            b.e(R.drawable.icon_word_t_size);
+            b.c(0);
+            b.i();
+        }
     }
 }

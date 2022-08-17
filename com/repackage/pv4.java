@@ -131,7 +131,7 @@ public class pv4 extends TBSpecificationButtonConfig {
         if (interceptable == null || (invokeF = interceptable.invokeF(1048583, this, f)) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
             if (this.u) {
-                gradientDrawable.setColor(gj8.a(this.q ? SkinManager.getColor(this.r, this.b) : this.b, 0.08f));
+                gradientDrawable.setColor(fj8.a(this.q ? SkinManager.getColor(this.r, this.b) : this.b, 0.08f));
             } else {
                 gradientDrawable.setColor(SkinManager.getColor(this.r, this.d));
             }

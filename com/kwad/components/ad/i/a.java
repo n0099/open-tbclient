@@ -35,7 +35,7 @@ public final class a {
     public boolean BR;
     public boolean BS;
     public View BT;
-    public InterfaceC0313a BU;
+    public InterfaceC0315a BU;
     public boolean BV;
     public boolean BW;
     public boolean BX;
@@ -53,7 +53,7 @@ public final class a {
 
     /* renamed from: com.kwad.components.ad.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0313a {
+    public interface InterfaceC0315a {
         void V(boolean z);
     }
 
@@ -325,10 +325,10 @@ public final class a {
         }
     }
 
-    public final void a(InterfaceC0313a interfaceC0313a) {
+    public final void a(InterfaceC0315a interfaceC0315a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0313a) == null) {
-            this.BU = interfaceC0313a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0315a) == null) {
+            this.BU = interfaceC0315a;
         }
     }
 

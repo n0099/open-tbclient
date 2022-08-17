@@ -400,7 +400,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements hx<fo4> {
                     return;
                 }
                 this.i.setVisibility(8);
-                HomeGroupUbsUIHelper.handleImgMask(this.h, R.drawable.obfuscated_res_0x7f0811de);
+                HomeGroupUbsUIHelper.handleImgMask(this.h, R.drawable.obfuscated_res_0x7f0811df);
                 if (linkedList.size() > 3) {
                     this.h.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f043e, new Object[]{Integer.valueOf(linkedList.size() - 3)}));
                     this.h.setVisibility(0);

@@ -125,7 +125,7 @@ public class GodHeadImageView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04029c, R.attr.obfuscated_res_0x7f04029d, R.attr.obfuscated_res_0x7f040619, R.attr.obfuscated_res_0x7f040625});
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04029d, R.attr.obfuscated_res_0x7f04029e, R.attr.obfuscated_res_0x7f04061a, R.attr.obfuscated_res_0x7f040626});
                 this.g = obtainStyledAttributes.getDimensionPixelSize(0, i);
                 this.f = obtainStyledAttributes.getInteger(2, this.e);
                 this.d = obtainStyledAttributes.getInteger(3, this.c);

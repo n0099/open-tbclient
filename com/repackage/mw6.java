@@ -1,164 +1,192 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class mw6 {
+public class mw6 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeRecyclerView b;
-    public LinkedList<bn> c;
-    public rw6 d;
-    public ow6 e;
-    public pw6 f;
-    public qw6 g;
+    public List<uw6> a;
+    public TbPageContext b;
+    public int c;
+    public int d;
+    public BdUniqueId e;
+    public boolean f;
 
-    public mw6(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public BarImageView b;
+        public ImageView c;
+
+        public b(mw6 mw6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mw6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(mw6 mw6Var, a aVar) {
+            this(mw6Var);
+        }
+    }
+
+    public mw6(TbPageContext tbPageContext, int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
+            Object[] objArr = {tbPageContext, Integer.valueOf(i), bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = bdTypeRecyclerView;
-        this.c = new LinkedList<>();
-        b();
+        this.c = -1;
+        this.f = false;
+        this.b = tbPageContext;
+        this.e = bdUniqueId;
+        this.d = i;
+        this.c = ru4.k().l("key_game_video_tab_has_choosed_sub_class_id", -1);
     }
 
-    public List<on> a() {
+    public final void a(b bVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null) {
+            return;
+        }
+        SkinManager.setViewTextColor(bVar.a, (int) R.color.CAM_X0107);
+        SkinManager.setImageResource(bVar.c, R.drawable.icon_game_video_tab_choose_select);
+    }
+
+    public void b(List<uw6> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
+            if (this.f || ListUtils.isEmpty(list)) {
+                return;
+            }
+            for (uw6 uw6Var : list) {
+                if (!StringUtils.isNull(uw6Var.c)) {
+                    kg.h().m(uw6Var.c, 10, null, this.e);
+                }
+            }
+            this.f = true;
+        }
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.b;
-            if (bdTypeRecyclerView != null) {
-                return bdTypeRecyclerView.getData();
-            }
-            return null;
-        }
-        return (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ListUtils.getCount(this.a) : invokeV.intValue;
     }
 
-    public final void b() {
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d = new rw6(this.a, n06.z0);
-            this.e = new ow6(this.a, o06.U);
-            this.f = new pw6(this.a, n06.I0);
-            this.g = new qw6(this.a, n06.G0);
-            this.d.y(this.b);
-            this.e.A(this.b);
-            this.f.x(this.b);
-            this.g.z(this.b);
-            this.c.add(this.d);
-            this.c.add(this.e);
-            this.c.add(this.f);
-            this.c.add(this.g);
-            this.b.a(this.c);
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? ListUtils.getItem(this.a, i) : invokeI.objValue;
     }
 
-    public void c() {
-        BdTypeRecyclerView bdTypeRecyclerView;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bdTypeRecyclerView = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
         }
-        bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
+        return invokeI.longValue;
     }
 
-    public void d() {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        View view3;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                bVar = new b(this, null);
+                view3 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0375, (ViewGroup) null);
+                bVar.a = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090e25);
+                bVar.b = (BarImageView) view3.findViewById(R.id.obfuscated_res_0x7f090e23);
+                bVar.c = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f090e24);
+                bVar.b.setShowOval(true);
+                bVar.b.setAutoChangeStyle(true);
+                bVar.b.setBorderColor(this.b.getResources().getColor(R.color.black_alpha8));
+                bVar.b.setBorderWidth(this.b.getResources().getDimensionPixelOffset(R.dimen.tbds3));
+                view3.setTag(bVar);
+            } else {
+                view3 = view2;
+                bVar = (b) view2.getTag();
+            }
+            a(bVar);
+            uw6 uw6Var = (uw6) ListUtils.getItem(this.a, i);
+            if (uw6Var != null) {
+                bVar.a.setText(StringUtils.isNull(uw6Var.b) ? "" : uw6Var.b);
+                bVar.b.K(uw6Var.c, 10, false);
+                if (uw6Var.d == 1) {
+                    bVar.b.setAlpha(1);
+                    bVar.a.setAlpha(1.0f);
+                } else {
+                    bVar.b.setAlpha(0.5f);
+                    bVar.a.setAlpha(0.5f);
+                }
+                if (uw6Var.a == this.c && this.d != 101) {
+                    bVar.c.setVisibility(0);
+                } else {
+                    bVar.c.setVisibility(8);
+                }
+            }
+            return view3;
         }
-    }
-
-    public void e() {
-        ow6 ow6Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (ow6Var = this.e) == null) {
-            return;
-        }
-        ow6Var.onPause();
-    }
-
-    public void f(List<on> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.b.setData(list);
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            rw6 rw6Var = this.d;
-            if (rw6Var != null) {
-                rw6Var.w(i);
-            }
-            ow6 ow6Var = this.e;
-            if (ow6Var != null) {
-                ow6Var.y(i);
-            }
-            pw6 pw6Var = this.f;
-            if (pw6Var != null) {
-                pw6Var.v(i);
-            }
-            qw6 qw6Var = this.g;
-            if (qw6Var != null) {
-                qw6Var.x(i);
-            }
-        }
-    }
-
-    public void h(NEGFeedBackView.b bVar) {
-        qw6 qw6Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) || (qw6Var = this.g) == null) {
-            return;
-        }
-        qw6Var.w(bVar);
-    }
-
-    public void i(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-            rw6 rw6Var = this.d;
-            if (rw6Var != null) {
-                rw6Var.x(bdUniqueId);
-            }
-            ow6 ow6Var = this.e;
-            if (ow6Var != null) {
-                ow6Var.z(bdUniqueId);
-            }
-            pw6 pw6Var = this.f;
-            if (pw6Var != null) {
-                pw6Var.w(bdUniqueId);
-            }
-            qw6 qw6Var = this.g;
-            if (qw6Var != null) {
-                qw6Var.y(bdUniqueId);
-            }
-        }
+        return (View) invokeILL.objValue;
     }
 }

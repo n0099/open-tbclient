@@ -139,12 +139,12 @@ public class cd6 extends ue6<dd6, PrivateMgrApplyViewHolder> {
                     SkinManager.setBackgroundResource(privateMgrApplyViewHolder.c, R.drawable.frs_member_manito_bg);
                 }
                 int a2 = dd6Var.a();
-                String string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f139f);
+                String string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f13a1);
                 if (a2 == -1) {
                     int c = dd6Var.c();
                     String numberUniformFormat = StringHelper.numberUniformFormat(c);
                     if (c > 0) {
-                        string = String.format(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1399), numberUniformFormat);
+                        string = String.format(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f139b), numberUniformFormat);
                         privateMgrApplyViewHolder.c.setOnClickListener(this.m);
                         privateMgrApplyViewHolder.b.setText(string);
                         privateMgrApplyViewHolder.c.setTag(obfuscated, dd6Var.b());
@@ -163,12 +163,12 @@ public class cd6 extends ue6<dd6, PrivateMgrApplyViewHolder> {
                     privateMgrApplyViewHolder.f = this.f;
                 } else {
                     if (a2 == 0) {
-                        string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f139d);
+                        string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f139f);
                     } else if (a2 == 1) {
-                        string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f139b);
+                        string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f139d);
                     } else {
                         if (a2 == 2) {
-                            string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f139a);
+                            string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f139c);
                         }
                         z = false;
                     }

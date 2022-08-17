@@ -1,16 +1,14 @@
 package com.repackage;
 
-import android.app.Activity;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ak7 implements ThirdPartAliRechargeService {
+public class ak7 extends uc1<ThirdPartWxRechargeService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,18 +26,12 @@ public class ak7 implements ThirdPartAliRechargeService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService
-    public String aliRecharge(Activity activity, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.uc1
+    /* renamed from: a */
+    public ThirdPartWxRechargeService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, activity, str, z)) == null) {
-            kl4 kl4Var = new kl4();
-            kl4Var.a = activity;
-            kl4Var.b = str;
-            kl4Var.c = z;
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921539, String.class, kl4Var);
-            return runTask == null ? "" : (String) runTask.getData();
-        }
-        return (String) invokeLLZ.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new bk7() : (ThirdPartWxRechargeService) invokeV.objValue;
     }
 }

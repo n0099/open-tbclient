@@ -147,7 +147,7 @@ public class rk5 {
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             if (!PermissionUtil.isAgreePrivacyPolicy()) {
                 this.b.j();
-            } else if (!gh8.a(this.a.getIntent()) && !gh8.b(this.a.getIntent()) && !this.a.isTaskRoot()) {
+            } else if (!fh8.a(this.a.getIntent()) && !fh8.b(this.a.getIntent()) && !this.a.isTaskRoot()) {
                 this.a.finish();
             } else {
                 h();

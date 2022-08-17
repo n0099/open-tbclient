@@ -31,7 +31,7 @@ public class KsPrivacySwitch extends bf {
         }
     }
 
-    @Modify(description = "快手sdk是否允许调用敏感隐私权限", type = 100)
+    @Modify(description = "广告-小熊-快手sdk是否允许调用敏感隐私权限")
     public static boolean isOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

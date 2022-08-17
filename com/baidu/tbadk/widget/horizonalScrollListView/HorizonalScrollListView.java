@@ -35,8 +35,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bk8;
 import com.repackage.c9;
-import com.repackage.ck8;
 import com.repackage.pg5;
 import com.repackage.pi;
 import java.util.ArrayList;
@@ -213,10 +213,10 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
             public void c(Object obj) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                    if ((obj instanceof ck8) && this.a.getErrorCode() == 0) {
-                        ck8 ck8Var = (ck8) obj;
-                        ck8Var.y(1);
-                        this.c.a.o(this.b, ck8Var.n() == 1);
+                    if ((obj instanceof bk8) && this.a.getErrorCode() == 0) {
+                        bk8 bk8Var = (bk8) obj;
+                        bk8Var.x(1);
+                        this.c.a.o(this.b, bk8Var.m() == 1);
                     } else if (AntiHelper.m(this.a.getErrorCode(), this.a.getErrorString())) {
                         AntiHelper.u(this.c.a.d.getPageActivity(), this.a.getErrorString());
                     } else {
@@ -357,7 +357,7 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
         }
         this.f = itemViewHolder.getView();
         itemViewHolder.d.setVisibility(8);
-        itemViewHolder.b.setText(this.d.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0f9f));
+        itemViewHolder.b.setText(this.d.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0fa0));
         itemViewHolder.c.setVisibility(8);
         itemViewHolder.a.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         SkinManager.setImageResource(itemViewHolder.a, R.drawable.icon_pic_more);

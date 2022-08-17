@@ -26,7 +26,7 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
     public int ku;
     public int kv;
     public c kw;
-    public InterfaceC0307b kx;
+    public InterfaceC0309b kx;
     @Nullable
     public Runnable ky;
 
@@ -55,7 +55,7 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
 
     /* renamed from: com.kwad.components.ad.f.kwai.kwai.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0307b {
+    public interface InterfaceC0309b {
         void C(int i);
     }
 
@@ -167,9 +167,9 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
         if (interceptable == null || interceptable.invokeI(65538, this, i) == null) {
             com.kwad.sdk.core.e.b.d("RegisterTimer", "updateTimer: " + i + ", mCallBackFunction: " + this.kr);
             if (i >= 0 && this.kr != null) {
-                InterfaceC0307b interfaceC0307b = this.kx;
-                if (interfaceC0307b != null && i == 0) {
-                    interfaceC0307b.C(this.ku);
+                InterfaceC0309b interfaceC0309b = this.kx;
+                if (interfaceC0309b != null && i == 0) {
+                    interfaceC0309b.C(this.ku);
                 }
                 a aVar = new a();
                 aVar.kB = i;
@@ -203,10 +203,10 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
         return (b) invokeL.objValue;
     }
 
-    public final void a(InterfaceC0307b interfaceC0307b) {
+    public final void a(InterfaceC0309b interfaceC0309b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0307b) == null) {
-            this.kx = interfaceC0307b;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0309b) == null) {
+            this.kx = interfaceC0309b;
         }
     }
 

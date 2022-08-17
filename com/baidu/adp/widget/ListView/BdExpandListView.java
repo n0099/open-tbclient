@@ -134,7 +134,7 @@ public class BdExpandListView extends BdListView {
         this.G = context;
         this.H = new Scroller(this.G);
         this.Q = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400d1, R.attr.obfuscated_res_0x7f040291});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400d1, R.attr.obfuscated_res_0x7f040292});
         this.R = obtainStyledAttributes.getDimensionPixelSize(1, 0);
         obtainStyledAttributes.recycle();
     }

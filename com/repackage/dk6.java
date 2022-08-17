@@ -160,9 +160,9 @@ public class dk6 extends ck6 {
         go4 go4Var = (go4) ListUtils.getItem(threadData.getActDatas(), 0);
         if (go4Var != null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd");
-            this.L.setText(StringUtils.string(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a78), GlideException.IndentedAppendable.INDENT, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(go4Var.b()))), "-", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(go4Var.c())))));
-            this.M.setText(String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a73), String.valueOf(go4Var.f())));
-            this.N.setText(R.string.obfuscated_res_0x7f0f0a72);
+            this.L.setText(StringUtils.string(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a79), GlideException.IndentedAppendable.INDENT, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(go4Var.b()))), "-", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(go4Var.c())))));
+            this.M.setText(String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a74), String.valueOf(go4Var.f())));
+            this.N.setText(R.string.obfuscated_res_0x7f0f0a73);
             this.k.setCommentNumEnable(false);
         }
     }

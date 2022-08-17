@@ -35,7 +35,7 @@ import com.repackage.dr4;
 import com.repackage.jg;
 import com.repackage.kg;
 import com.repackage.ms4;
-import com.repackage.vi8;
+import com.repackage.ui8;
 import com.repackage.zm;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -55,7 +55,7 @@ public class SignStampIconsView extends LinearLayout {
     public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public vi8 b;
+    public ui8 b;
     public List<ImageView> c;
 
     /* loaded from: classes4.dex */
@@ -195,7 +195,7 @@ public class SignStampIconsView extends LinearLayout {
             ViewGroup.MarginLayoutParams marginLayoutParams2 = new ViewGroup.MarginLayoutParams(-2, -2);
             marginLayoutParams2.topMargin = i;
             textView.setLayoutParams(marginLayoutParams2);
-            textView.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f11de), Integer.valueOf(aVar.a())));
+            textView.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f11e0), Integer.valueOf(aVar.a())));
             if (aVar.e() == 1) {
                 ms4.d(textView).v(j);
             } else {
@@ -207,7 +207,7 @@ public class SignStampIconsView extends LinearLayout {
             linearLayout.setGravity(1);
             linearLayout.addView(tbImageView);
             linearLayout.addView(textView);
-            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.repackage.aj8
+            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.repackage.zi8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -243,9 +243,9 @@ public class SignStampIconsView extends LinearLayout {
                 h(linearLayout.getChildAt(0), 1.44f, 1.44f, 70L);
             }
         }
-        vi8 vi8Var = this.b;
-        if (vi8Var != null) {
-            vi8Var.a(aVar);
+        ui8 ui8Var = this.b;
+        if (ui8Var != null) {
+            ui8Var.a(aVar);
         }
     }
 
@@ -339,10 +339,10 @@ public class SignStampIconsView extends LinearLayout {
         }
     }
 
-    public void setSignStampIconClickListener(vi8 vi8Var) {
+    public void setSignStampIconClickListener(ui8 ui8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, vi8Var) == null) {
-            this.b = vi8Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, ui8Var) == null) {
+            this.b = ui8Var;
         }
     }
 

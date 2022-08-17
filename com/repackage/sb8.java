@@ -1,11 +1,5 @@
 package com.repackage;
 /* loaded from: classes7.dex */
 public interface sb8 {
-    int d(String str, boolean z);
-
-    int e(String str, boolean z);
-
-    void f();
-
-    void g(String str, int i, boolean z);
+    ob8 getVideoOrVrView();
 }

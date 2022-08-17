@@ -56,10 +56,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.gm7;
 import com.repackage.hm7;
-import com.repackage.im7;
-import com.repackage.jk7;
-import com.repackage.kk8;
+import com.repackage.ik7;
+import com.repackage.jk8;
 import com.repackage.og;
 import com.repackage.qi;
 import com.repackage.rf5;
@@ -97,7 +97,7 @@ public class MemberCenterStatic {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2001342, new im7(customMessage.getData(), 1));
+                return new CustomResponsedMessage<>(2001342, new hm7(customMessage.getData(), 1));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -130,7 +130,7 @@ public class MemberCenterStatic {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2001343, new hm7(customMessage.getData()));
+                return new CustomResponsedMessage<>(2001343, new gm7(customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -244,7 +244,7 @@ public class MemberCenterStatic {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2001339, new jk7(customMessage.getData()));
+                return new CustomResponsedMessage<>(2001339, new ik7(customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -565,7 +565,7 @@ public class MemberCenterStatic {
                 UrlManager.getInstance().dealOneLink(tbPageContext, strArr);
                 return;
             } else {
-                qi.N(tbPageContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0ec6);
+                qi.M(tbPageContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0ec7);
                 return;
             }
         }
@@ -584,8 +584,8 @@ public class MemberCenterStatic {
     public static void c(int i2, int i3, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, cls, cls2}) == null) {
-            kk8.h(i3, cls2, false, false);
-            kk8.c(i3, i2, str, cls, false, false, false, false);
+            jk8.h(i3, cls2, false, false);
+            jk8.c(i3, i2, str, cls, false, false, false, false);
         }
     }
 

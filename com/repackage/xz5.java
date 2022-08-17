@@ -61,7 +61,7 @@ public class xz5 extends bz5<ThreadData> implements ol5 {
         HeadImageView headImageView = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f092277);
         this.k = headImageView;
         headImageView.setIsRound(true);
-        this.k.setDefaultResource(R.drawable.obfuscated_res_0x7f080f23);
+        this.k.setDefaultResource(R.drawable.obfuscated_res_0x7f080f24);
         this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090582);
         this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090571);
         this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09056c);

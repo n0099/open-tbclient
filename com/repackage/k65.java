@@ -53,13 +53,13 @@ public class k65 extends a65 {
         this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091415);
         EMTextView eMTextView = (EMTextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091416);
         this.b = eMTextView;
-        eMTextView.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0a57));
+        eMTextView.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0a58));
         EMTextView eMTextView2 = (EMTextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091414);
         this.c = eMTextView2;
-        eMTextView2.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0a56));
+        eMTextView2.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0a57));
         TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09140b);
         this.d = tBSpecificationBtn;
-        tBSpecificationBtn.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0980));
+        tBSpecificationBtn.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0981));
         this.d.setTextSize(R.dimen.T_X05);
         this.d.setConfig(new ov4());
     }
@@ -82,7 +82,7 @@ public class k65 extends a65 {
             ms4 d2 = ms4.d(this.c);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0108);
-            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f080e2e, null);
+            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f080e2f, null);
             TBSpecificationBtn tBSpecificationBtn = this.d;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.k();

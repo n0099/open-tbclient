@@ -63,6 +63,7 @@ import com.repackage.jm5;
 import com.repackage.lm5;
 import com.repackage.mm5;
 import com.repackage.mt4;
+import com.repackage.nl8;
 import com.repackage.oi0;
 import com.repackage.ol8;
 import com.repackage.om5;
@@ -71,7 +72,6 @@ import com.repackage.pl8;
 import com.repackage.pt4;
 import com.repackage.qa5;
 import com.repackage.qi;
-import com.repackage.ql8;
 import com.repackage.rg;
 import com.repackage.rt4;
 import com.repackage.si0;
@@ -98,8 +98,8 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
     public lm5 A;
     public oi0 B;
     public TBAdWebView t;
-    public ol8 u;
-    public ql8 v;
+    public nl8 u;
+    public pl8 v;
     public rt4 w;
     public boolean x;
     public boolean y;
@@ -175,7 +175,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
     }
 
     /* loaded from: classes3.dex */
-    public class c implements ql8 {
+    public class c implements pl8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdWebViewActivity a;
@@ -198,7 +198,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
             this.a = adWebViewActivity;
         }
 
-        @Override // com.repackage.ql8
+        @Override // com.repackage.pl8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -918,7 +918,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
     public final void U1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            qi.O(this, "第三方应用未经百度审核");
+            qi.N(this, "第三方应用未经百度审核");
         }
     }
 
@@ -967,17 +967,17 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         }
     }
 
-    public final pl8 buildGameDownloadJSPrompt() {
+    public final ol8 buildGameDownloadJSPrompt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, pl8.class, getPageContext());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, ol8.class, getPageContext());
             if (runTask == null || runTask.getData() == null) {
                 return null;
             }
-            return (pl8) runTask.getData();
+            return (ol8) runTask.getData();
         }
-        return (pl8) invokeV.objValue;
+        return (ol8) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity
@@ -1113,9 +1113,9 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         if (interceptable == null || interceptable.invokeL(1048600, this, bundle) == null) {
             super.onCreate(bundle);
             MessageManager.getInstance().runTask(2001308, (Class) null);
-            ol8 ol8Var = new ol8();
-            this.u = ol8Var;
-            ol8Var.a(new XiubaTbJsBridge(getPageContext()));
+            nl8 nl8Var = new nl8();
+            this.u = nl8Var;
+            nl8Var.a(new XiubaTbJsBridge(getPageContext()));
             this.u.a(new CommonTbJsBridge(getPageContext()));
             this.u.a(buildGameDownloadJSPrompt());
             if (this.e) {
@@ -1204,9 +1204,9 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
     public void webViewDestory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            ol8 ol8Var = this.u;
-            if (ol8Var != null) {
-                ol8Var.g();
+            nl8 nl8Var = this.u;
+            if (nl8Var != null) {
+                nl8Var.g();
             }
             TBAdWebView tBAdWebView = this.t;
             if (tBAdWebView != null) {

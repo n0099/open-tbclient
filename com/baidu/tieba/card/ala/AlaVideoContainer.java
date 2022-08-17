@@ -28,12 +28,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d06;
-import com.repackage.e98;
-import com.repackage.l88;
+import com.repackage.d98;
+import com.repackage.k88;
 import com.repackage.oi;
 import com.repackage.qi;
 import com.repackage.rg;
-import com.repackage.z88;
+import com.repackage.y88;
 /* loaded from: classes3.dex */
 public class AlaVideoContainer extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -42,7 +42,7 @@ public class AlaVideoContainer extends LinearLayout {
     public View a;
     public d06 b;
     public TbVideoViewContainer c;
-    public l88 d;
+    public k88 d;
     public TbImageView e;
     public View f;
     public TextView g;
@@ -61,7 +61,7 @@ public class AlaVideoContainer extends LinearLayout {
     public int t;
     public TbImageView.g u;
     public View.OnClickListener v;
-    public e98 w;
+    public d98 w;
     public Runnable x;
     public TbVideoViewContainer.a y;
     public Runnable z;
@@ -141,13 +141,13 @@ public class AlaVideoContainer extends LinearLayout {
                     }
                     return;
                 }
-                qi.L(this.a.getContext(), this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0c75));
+                qi.K(this.a.getContext(), this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0c76));
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c implements e98 {
+    public class c implements d98 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaVideoContainer a;
@@ -170,14 +170,14 @@ public class AlaVideoContainer extends LinearLayout {
             this.a = alaVideoContainer;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void changeRenderViewMode(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public int getCurrentPosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -187,7 +187,7 @@ public class AlaVideoContainer extends LinearLayout {
             return invokeV.intValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public View getMainView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -197,7 +197,7 @@ public class AlaVideoContainer extends LinearLayout {
             return (View) invokeV.objValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public boolean isFullScreen() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -207,7 +207,7 @@ public class AlaVideoContainer extends LinearLayout {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public boolean isPlaying() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -217,7 +217,7 @@ public class AlaVideoContainer extends LinearLayout {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public boolean onBackPress() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -227,7 +227,7 @@ public class AlaVideoContainer extends LinearLayout {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public boolean onBackground(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -288,7 +288,7 @@ public class AlaVideoContainer extends LinearLayout {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void onScroll() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -309,7 +309,7 @@ public class AlaVideoContainer extends LinearLayout {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public boolean onVolumeUp() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -319,63 +319,63 @@ public class AlaVideoContainer extends LinearLayout {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setAfterClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setData(ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setFrom(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setJumpToPbClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048595, this, onClickListener) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setStageType(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             }
         }
 
-        @Override // com.repackage.e98
-        public void setStatistic(z88 z88Var) {
+        @Override // com.repackage.d98
+        public void setStatistic(y88 y88Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048597, this, z88Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048597, this, y88Var) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setUniqueId(BdUniqueId bdUniqueId) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048598, this, bdUniqueId) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void startPlay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void stopPlay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
@@ -553,10 +553,10 @@ public class AlaVideoContainer extends LinearLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (d06) invokeV.objValue;
     }
 
-    public l88 getVideoView() {
+    public k88 getVideoView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (l88) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (k88) invokeV.objValue;
     }
 
     public View getView() {
@@ -737,10 +737,10 @@ public class AlaVideoContainer extends LinearLayout {
         textView.setText(str);
     }
 
-    public void setVideoStatsData(z88 z88Var) {
+    public void setVideoStatsData(y88 y88Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, z88Var) == null) {
-            this.d.setVideoStatData(z88Var);
+        if (interceptable == null || interceptable.invokeL(1048592, this, y88Var) == null) {
+            this.d.setVideoStatData(y88Var);
         }
     }
 

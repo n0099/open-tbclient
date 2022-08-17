@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class R$string {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int status_bar_notification_info_overflow = 2131694062;
+    public static final int status_bar_notification_info_overflow = 2131694064;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$string() {

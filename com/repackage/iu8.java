@@ -109,7 +109,7 @@ public class iu8 extends BaseAdapter implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getItem(0) != null && getItem(0).getType() == 3) {
             this.c = 0;
-            this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b2a);
+            this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b2b);
         }
     }
 
@@ -117,7 +117,7 @@ public class iu8 extends BaseAdapter implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && getItem(0) != null && getItem(0).getType() == 3) {
             this.c = 1;
-            this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b28);
+            this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b29);
             notifyDataSetChanged();
         }
     }
@@ -278,7 +278,7 @@ public class iu8 extends BaseAdapter implements View.OnClickListener {
                 statisticItem.param("obj_locate", this.a.indexOf(ju8Var) + 1);
                 statisticItem.param("obj_source", 1);
                 TiebaStatic.log(statisticItem);
-                if (view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b28).equals(ju8Var.b()) && (hVar = this.d) != null) {
+                if (view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b29).equals(ju8Var.b()) && (hVar = this.d) != null) {
                     hVar.i1(ju8Var, view2.getTag(R.id.obfuscated_res_0x7f091b6d));
                     this.c = this.a.indexOf(ju8Var);
                     this.b = ju8Var.b();
@@ -286,7 +286,7 @@ public class iu8 extends BaseAdapter implements View.OnClickListener {
                 if (!TextUtils.isEmpty(ju8Var.b()) && ju8Var.b().equals(this.b)) {
                     return;
                 }
-                if (!ju8Var.b().equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b28))) {
+                if (!ju8Var.b().equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b29))) {
                     this.c = this.a.indexOf(ju8Var);
                 }
             } else {

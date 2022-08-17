@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pl8;
-import com.repackage.tl8;
+import com.repackage.ol8;
+import com.repackage.sl8;
 import com.repackage.wi;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class CommonTbJsBridge implements pl8 {
+public class CommonTbJsBridge implements ol8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
     public static final String INTERFACE_NAME = "CommonJSBridge";
@@ -63,7 +63,7 @@ public class CommonTbJsBridge implements pl8 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.pl8
+    @Override // com.repackage.ol8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -90,11 +90,11 @@ public class CommonTbJsBridge implements pl8 {
         return invokeLLLL.booleanValue;
     }
 
-    public tl8 getSupplementInfo() {
+    public sl8 getSupplementInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            tl8 tl8Var = new tl8();
+            sl8 sl8Var = new sl8();
             StringBuilder sb = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb.append("imei=");
@@ -128,14 +128,14 @@ public class CommonTbJsBridge implements pl8 {
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
                 jSONObject.put("sign", c);
-                tl8Var.o(jSONObject.toString());
-                return tl8Var;
+                sl8Var.o(jSONObject.toString());
+                return sl8Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                tl8Var.o("");
-                return tl8Var;
+                sl8Var.o("");
+                return sl8Var;
             }
         }
-        return (tl8) invokeV.objValue;
+        return (sl8) invokeV.objValue;
     }
 }

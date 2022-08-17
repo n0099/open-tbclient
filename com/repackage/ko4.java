@@ -71,7 +71,7 @@ public class ko4 {
         ClogBuilder clogBuilder = new ClogBuilder();
         clogBuilder.y(ClogBuilder.LogType.SHOW).v(advertAppInfo.j).q(String.valueOf(advertAppInfo.position + 1)).r(ko4Var.d).s(ko4Var.e).t(ko4Var.c).w(String.valueOf(ko4Var.b)).p(advertAppInfo.g);
         hy0.b(clogBuilder);
-        we7.b(we7.a(advertAppInfo));
+        ve7.b(ve7.a(advertAppInfo));
         ko4Var.h = true;
         i.add(ko4Var.g);
     }
@@ -97,7 +97,7 @@ public class ko4 {
         ClogBuilder clogBuilder = new ClogBuilder();
         clogBuilder.y(ClogBuilder.LogType.SHOW).v(h06Var.c().j).q(String.valueOf(h06Var.c().position + 1)).w(String.valueOf(h06Var.c().i.b)).p(h06Var.c().i.g);
         hy0.b(clogBuilder);
-        we7.b(we7.a(h06Var.c()));
+        ve7.b(ve7.a(h06Var.c()));
         h06Var.c().i.h = true;
         i.add(h06Var.c().i.g);
     }
@@ -114,17 +114,17 @@ public class ko4 {
         i.add(ko4Var.g);
     }
 
-    public static void f(bl8 bl8Var) {
+    public static void f(al8 al8Var) {
         ko4 ko4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, bl8Var) == null) || bl8Var == null || bl8Var.getAdvertAppInfo() == null || (ko4Var = bl8Var.getAdvertAppInfo().i) == null || ko4Var.h || a(ko4Var.g)) {
+        if (!(interceptable == null || interceptable.invokeL(65543, null, al8Var) == null) || al8Var == null || al8Var.getAdvertAppInfo() == null || (ko4Var = al8Var.getAdvertAppInfo().i) == null || ko4Var.h || a(ko4Var.g)) {
             return;
         }
-        bl8Var.W0 = ko4Var.d;
-        bl8Var.X0 = ko4Var.e;
-        bl8Var.V0 = ko4Var.c;
+        al8Var.W0 = ko4Var.d;
+        al8Var.X0 = ko4Var.e;
+        al8Var.V0 = ko4Var.c;
         ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.y(ClogBuilder.LogType.SHOW).q(String.valueOf(bl8Var.b1 + 1)).w(String.valueOf(bl8Var.Z0)).v(ko4Var.a).r(ko4Var.d).s(ko4Var.e).t(ko4Var.c).p(ko4Var.g);
+        clogBuilder.y(ClogBuilder.LogType.SHOW).q(String.valueOf(al8Var.b1 + 1)).w(String.valueOf(al8Var.Z0)).v(ko4Var.a).r(ko4Var.d).s(ko4Var.e).t(ko4Var.c).p(ko4Var.g);
         hy0.b(clogBuilder);
         ko4Var.h = true;
         i.add(ko4Var.g);

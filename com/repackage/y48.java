@@ -1,92 +1,76 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.MetaData;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d75;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes7.dex */
-public class y48 implements d75, PersonPostModel.d, PersonPostModel.c {
+public class y48 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public PersonPostModel a;
-    @Nullable
-    public d75.a b;
 
-    public y48(@NonNull TbPageContext tbPageContext) {
+    public static void a(View view2, fo4 fo4Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new PersonPostModel(tbPageContext, tbPageContext.getUniqueId(), this, false, PersonPostModel.FROM_PERSON_POLYMERIC);
-    }
-
-    @Override // com.repackage.d75
-    public void a(@Nullable d75.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
-    @Override // com.repackage.d75
-    public void b(@NonNull String str, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, metaData, num, num2, num3, num4, l, num5}) == null) {
-            this.a.fetchPostByBeginThreadId(str, this, metaData, num, num2, num3, num4, l, num5);
-        }
-    }
-
-    @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
-    public void j0(PersonPostModel personPostModel, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, personPostModel, z) == null) || this.b == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(65536, null, view2, fo4Var, i) == null) || view2 == null || fo4Var == null || fo4Var.getThreadData() == null || StringUtils.isNull(fo4Var.getThreadData().getTid())) {
             return;
         }
-        ArrayList arrayList = new ArrayList();
-        Iterator<on> it = personPostModel.threadList.iterator();
-        while (it.hasNext()) {
-            on next = it.next();
-            if (next instanceof CardPersonDynamicThreadData) {
-                ThreadData threadData = ((CardPersonDynamicThreadData) next).getThreadData();
-                if (!TextUtils.equals(threadData.getTid(), "0")) {
-                    arrayList.add(threadData);
-                }
-            }
+        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_CLICK);
+        statisticItem.param("obj_source", 3);
+        ThreadData threadData = fo4Var.getThreadData();
+        if (threadData.isBJHArticleThreadType()) {
+            statisticItem.param("obj_type", 1);
+        } else if (threadData.isBJHVideoThreadType()) {
+            statisticItem.param("obj_type", 2);
+        } else if (threadData.isBJHNormalThreadType()) {
+            statisticItem.param("obj_type", 3);
+        } else if (threadData.isBJHVideoDynamicThreadType()) {
+            statisticItem.param("obj_type", 4);
+        } else if (threadData.threadType == 0) {
+            statisticItem.param("obj_type", 5);
+        } else if (threadData.isVideoThreadType()) {
+            statisticItem.param("obj_type", 6);
         }
-        this.b.b(arrayList, personPostModel.getDataResMap());
-        this.b.a();
+        if (fo4Var.getThreadData().getAuthor() != null) {
+            statisticItem.param("uid", fo4Var.getThreadData().getAuthor().getUserId());
+        }
+        if (threadData.getBaijiahaoData() != null) {
+            statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
+        } else {
+            statisticItem.param("obj_id", threadData.getTid());
+        }
+        statisticItem.param("obj_locate", i);
+        TiebaStatic.log(statisticItem);
     }
 
-    @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.d
-    public void r0(PersonPostModel personPostModel, boolean z) {
-        d75.a aVar;
+    public static void b(fo4 fo4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048579, this, personPostModel, z) == null) || (aVar = this.b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(65537, null, fo4Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_SHOW);
+            ThreadData threadData = fo4Var.getThreadData();
+            if (threadData.isBJHArticleThreadType()) {
+                statisticItem.param("obj_type", 1);
+            } else if (threadData.isBJHVideoThreadType()) {
+                statisticItem.param("obj_type", 2);
+            } else if (threadData.isBJHNormalThreadType()) {
+                statisticItem.param("obj_type", 3);
+            } else if (threadData.isBJHVideoDynamicThreadType()) {
+                statisticItem.param("obj_type", 4);
+            } else if (threadData.threadType == 0) {
+                statisticItem.param("obj_type", 5);
+            } else if (threadData.isVideoThreadType()) {
+                statisticItem.param("obj_type", 6);
+            }
+            if (threadData.getBaijiahaoData() != null) {
+                statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
+            } else {
+                statisticItem.param("obj_id", threadData.getTid());
+            }
+            statisticItem.param("uid", threadData.getAuthor().getUserId());
+            TiebaStatic.log(statisticItem);
         }
-        aVar.a();
     }
 }

@@ -326,7 +326,7 @@ public class InputView extends EditText implements t25 {
             if (!this.c || gy4Var.getType() == EmotionGroupType.LOCAL) {
                 String obj = getText().toString();
                 if (this.d && da6.a(obj) >= 10 && getContext() != null) {
-                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1431);
+                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1433);
                 } else {
                     ea6.b(getContext(), gy4Var, this);
                 }
@@ -349,7 +349,7 @@ public class InputView extends EditText implements t25 {
         }
         String obj = getText().toString();
         if (this.d && da6.a(obj) >= 10 && getContext() != null) {
-            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1431);
+            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1433);
         } else {
             ea6.c(getContext(), gy4Var, this);
         }

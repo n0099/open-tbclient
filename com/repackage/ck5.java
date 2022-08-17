@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface ck5 extends fk5<hk5> {
     void a(int i);
 

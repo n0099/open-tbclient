@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd7;
+import com.repackage.id7;
 /* loaded from: classes7.dex */
 public class xp8 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
@@ -19,7 +19,7 @@ public class xp8 extends PriorityOrganizer.Task {
     public boolean n;
 
     /* loaded from: classes7.dex */
-    public class a implements jd7.f {
+    public class a implements id7.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xp8 a;
@@ -42,7 +42,7 @@ public class xp8 extends PriorityOrganizer.Task {
             this.a = xp8Var;
         }
 
-        @Override // com.repackage.jd7.f
+        @Override // com.repackage.id7.f
         public void dismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -78,7 +78,7 @@ public class xp8 extends PriorityOrganizer.Task {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || jd7.m(this.a.m).I(this.a.m.D.intValue(), 0)) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || id7.m(this.a.m).I(this.a.m.D.intValue(), 0)) {
                 return;
             }
             this.a.u();
@@ -108,7 +108,7 @@ public class xp8 extends PriorityOrganizer.Task {
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            jd7.m(this.m).F(new a(this));
+            id7.m(this.m).F(new a(this));
             rg.a().postDelayed(new b(this), 400L);
         }
     }
@@ -117,6 +117,6 @@ public class xp8 extends PriorityOrganizer.Task {
     public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !(TbSingleton.getInstance().isCanShowHotSplash || jd7.n || TbSingleton.getInstance().mIsSplashClick) || this.n : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !(TbSingleton.getInstance().isCanShowHotSplash || id7.n || TbSingleton.getInstance().mIsSplashClick) || this.n : invokeV.booleanValue;
     }
 }

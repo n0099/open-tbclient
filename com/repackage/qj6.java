@@ -100,7 +100,7 @@ public class qj6 extends ue6<ir4, AutoVideoCardViewHolder<ThreadData>> implement
                     String valueOf = String.valueOf(threadData.getFid());
                     String forum_name = threadData.getForum_name();
                     String g = threadData.getTaskInfoData().g();
-                    hl8.c("frs", "CLICK", valueOf, forum_name, g, "tieba.baidu.com/p/" + threadData.getTaskInfoData().g(), str);
+                    gl8.c("frs", "CLICK", valueOf, forum_name, g, "tieba.baidu.com/p/" + threadData.getTaskInfoData().g(), str);
                     String f = threadData.getTaskInfoData().f();
                     StatisticItem statisticItem = new StatisticItem("c13329");
                     statisticItem.param("fid", threadData.getFid());
@@ -178,31 +178,31 @@ public class qj6 extends ue6<ir4, AutoVideoCardViewHolder<ThreadData>> implement
         this.l = new HashSet();
     }
 
-    public final z88 Q(ThreadData threadData) {
+    public final y88 Q(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, threadData)) == null) {
             if (threadData == null) {
                 return null;
             }
-            z88 z88Var = new z88();
+            y88 y88Var = new y88();
             if (100 == t().tabType) {
-                z88Var.a = threadData.isFloor5Video() ? "3" : "25";
+                y88Var.a = threadData.isFloor5Video() ? "3" : "25";
             } else {
-                z88Var.a = threadData.isFloor5Video() ? "3" : "2";
+                y88Var.a = threadData.isFloor5Video() ? "3" : "2";
             }
-            z88Var.d = this.n.c;
-            z88Var.c = threadData.getTid();
-            z88Var.f = threadData.mRecomSource;
-            z88Var.g = threadData.mRecomReason;
-            z88Var.h = threadData.mRecomWeight;
-            z88Var.l = threadData.mRecomAbTag;
+            y88Var.d = this.n.c;
+            y88Var.c = threadData.getTid();
+            y88Var.f = threadData.mRecomSource;
+            y88Var.g = threadData.mRecomReason;
+            y88Var.h = threadData.mRecomWeight;
+            y88Var.l = threadData.mRecomAbTag;
             if (threadData.getThreadVideoInfo() != null) {
-                z88Var.m = threadData.getThreadVideoInfo().video_md5;
+                y88Var.m = threadData.getThreadVideoInfo().video_md5;
             }
-            return z88Var;
+            return y88Var;
         }
-        return (z88) invokeL.objValue;
+        return (y88) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -282,7 +282,7 @@ public class qj6 extends ue6<ir4, AutoVideoCardViewHolder<ThreadData>> implement
                         String d2 = eg6Var.d();
                         String c = eg6Var.c();
                         String g = taskInfoData.g();
-                        hl8.c("frs", "VIEW_TRUE", d2, c, g, "tieba.baidu.com/p/" + ir4Var.t.getTid(), str);
+                        gl8.c("frs", "VIEW_TRUE", d2, c, g, "tieba.baidu.com/p/" + ir4Var.t.getTid(), str);
                     }
                 }
                 StatisticItem statisticItem = new StatisticItem("c13324");

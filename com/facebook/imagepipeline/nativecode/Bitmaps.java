@@ -46,6 +46,7 @@ public class Bitmaps {
         }
     }
 
+    @DoNotStrip
     public static void copyBitmap(Bitmap bitmap, Bitmap bitmap2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, bitmap, bitmap2) == null) {

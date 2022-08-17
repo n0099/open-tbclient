@@ -247,7 +247,7 @@ public class cu8 {
                 return new zt8(j, 0, "");
             } catch (Exception e) {
                 e.printStackTrace();
-                return new zt8(-1L, 3, zm7.a(e));
+                return new zt8(-1L, 3, ym7.a(e));
             }
         }
         return (zt8) invokeLLL.objValue;
@@ -387,7 +387,7 @@ public class cu8 {
                     return new du8(0, "");
                 } catch (Exception e) {
                     e.printStackTrace();
-                    return new du8(221, zm7.a(e));
+                    return new du8(221, ym7.a(e));
                 } finally {
                     BdLog.e("mixingVideoByAudio cost = " + (System.currentTimeMillis() - currentTimeMillis));
                 }
@@ -475,7 +475,7 @@ public class cu8 {
                             str4 = "mixingVideoByAudio cost = ";
                             try {
                                 e.printStackTrace();
-                                du8 du8Var3 = new du8(JfifUtil.MARKER_SOI, zm7.a(e));
+                                du8 du8Var3 = new du8(JfifUtil.MARKER_SOI, ym7.a(e));
                                 FileHelper.deleteFileOrDir(new File(str5));
                                 BdLog.e(str4 + (System.currentTimeMillis() - currentTimeMillis));
                                 return du8Var3;
@@ -531,7 +531,7 @@ public class cu8 {
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
-                        return new du8(11, zm7.a(e));
+                        return new du8(11, ym7.a(e));
                     }
                 }
                 j(str, linkedList, linkedList2);

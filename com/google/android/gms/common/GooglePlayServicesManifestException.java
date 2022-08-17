@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.annotation.KeepName;
-import com.repackage.om9;
+import com.repackage.qm9;
 @KeepName
 /* loaded from: classes5.dex */
 public class GooglePlayServicesManifestException extends IllegalStateException {
@@ -46,6 +46,6 @@ public class GooglePlayServicesManifestException extends IllegalStateException {
     public int getExpectedVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? om9.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? qm9.a : invokeV.intValue;
     }
 }

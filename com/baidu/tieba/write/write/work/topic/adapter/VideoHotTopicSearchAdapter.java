@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p57;
+import com.repackage.o57;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -27,7 +27,7 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String b;
-    public List<p57> c;
+    public List<o57> c;
     public LayoutInflater d;
     public TbPageContext e;
     public a f;
@@ -35,7 +35,7 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void a(p57 p57Var);
+        void a(o57 o57Var);
     }
 
     static {
@@ -76,7 +76,7 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
         this.d = LayoutInflater.from(tbPageContext.getPageActivity());
     }
 
-    public void d(String str, List<p57> list) {
+    public void d(String str, List<o57> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) {
             this.b = str;
@@ -132,17 +132,17 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        p57 p57Var;
+        o57 o57Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048583, this, viewHolder, i) == null) || (p57Var = (p57) ListUtils.getItem(this.c, i)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048583, this, viewHolder, i) == null) || (o57Var = (o57) ListUtils.getItem(this.c, i)) == null) {
             return;
         }
         if (viewHolder instanceof HotNormalViewHolder) {
             HotNormalViewHolder hotNormalViewHolder = (HotNormalViewHolder) viewHolder;
-            hotNormalViewHolder.b(hotNormalViewHolder, i, p57Var, this.e, this.b, this.f);
+            hotNormalViewHolder.b(hotNormalViewHolder, i, o57Var, this.e, this.b, this.f);
         } else if (viewHolder instanceof HotVideoViewHolder) {
             HotVideoViewHolder hotVideoViewHolder = (HotVideoViewHolder) viewHolder;
-            hotVideoViewHolder.a(hotVideoViewHolder, i, p57Var, this.e, this.g, this.f, this);
+            hotVideoViewHolder.a(hotVideoViewHolder, i, o57Var, this.e, this.g, this.f, this);
         }
     }
 

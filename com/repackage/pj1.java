@@ -27,7 +27,7 @@ public class pj1 implements xl1 {
 
         /* renamed from: com.repackage.pj1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0555a implements sf3<String> {
+        public class C0557a implements sf3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ File a;
@@ -36,18 +36,18 @@ public class pj1 implements xl1 {
 
             /* renamed from: com.repackage.pj1$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class RunnableC0556a implements Runnable {
+            public class RunnableC0558a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ File a;
-                public final /* synthetic */ C0555a b;
+                public final /* synthetic */ C0557a b;
 
-                public RunnableC0556a(C0555a c0555a, File file) {
+                public RunnableC0558a(C0557a c0557a, File file) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0555a, file};
+                        Object[] objArr = {c0557a, file};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -57,7 +57,7 @@ public class pj1 implements xl1 {
                             return;
                         }
                     }
-                    this.b = c0555a;
+                    this.b = c0557a;
                     this.a = file;
                 }
 
@@ -70,7 +70,7 @@ public class pj1 implements xl1 {
                 }
             }
 
-            public C0555a(a aVar, File file, String str) {
+            public C0557a(a aVar, File file, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,10 +105,10 @@ public class pj1 implements xl1 {
                         bh4.j(file2);
                         bh4.X(file.getAbsolutePath(), file2.getAbsolutePath());
                         bh4.L(file);
-                        te3.a0(new RunnableC0556a(this, file2));
+                        te3.a0(new RunnableC0558a(this, file2));
                     } catch (Exception e) {
                         zx1.b("DefaultSwanAppLogManager", Log.getStackTraceString(e));
-                        r03.g(AppRuntime.getAppContext(), this.c.a.getString(R.string.obfuscated_res_0x7f0f125e)).G();
+                        r03.g(AppRuntime.getAppContext(), this.c.a.getString(R.string.obfuscated_res_0x7f0f1260)).G();
                     }
                 }
             }
@@ -142,7 +142,7 @@ public class pj1 implements xl1 {
                 } else if (!X2.exists() && !X2.mkdirs()) {
                     zx1.k("DefaultSwanAppLogManager", "cacheDir 为不存在且创建目录失败：" + X2.getAbsolutePath());
                 } else {
-                    sd3.i(this.a, new C0555a(this, X2, sd3.l(this.a) + "===== 启动信息 =====\n"));
+                    sd3.i(this.a, new C0557a(this, X2, sd3.l(this.a) + "===== 启动信息 =====\n"));
                 }
             }
         }

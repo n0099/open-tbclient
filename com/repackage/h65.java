@@ -83,7 +83,7 @@ public class h65 extends a65 {
         this.e = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091648);
         this.d = (TBSpecificationBtn) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091645);
         ov4 ov4Var = new ov4();
-        this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0fb8));
+        this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0fb9));
         this.d.setTextSize(R.dimen.T_X05);
         this.d.setConfig(ov4Var);
         this.f = R.drawable.new_pic_emotion_08;

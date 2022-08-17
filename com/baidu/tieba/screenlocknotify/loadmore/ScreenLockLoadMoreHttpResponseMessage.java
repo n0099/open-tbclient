@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.de8;
+import com.repackage.ce8;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetMoreMsg.DataRes;
@@ -17,7 +17,7 @@ import tbclient.GetMoreMsg.GetMoreMsgResIdl;
 public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public de8 loadMoreData;
+    public ce8 loadMoreData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScreenLockLoadMoreHttpResponseMessage() {
@@ -37,10 +37,10 @@ public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessag
         }
     }
 
-    public de8 getData() {
+    public ce8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.loadMoreData : (de8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.loadMoreData : (ce8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -60,8 +60,8 @@ public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessag
         if (dataRes == null || dataRes == null) {
             return;
         }
-        de8 de8Var = new de8();
-        this.loadMoreData = de8Var;
-        de8Var.c(getMoreMsgResIdl.data);
+        ce8 ce8Var = new ce8();
+        this.loadMoreData = ce8Var;
+        ce8Var.c(getMoreMsgResIdl.data);
     }
 }

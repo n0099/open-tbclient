@@ -1,9 +1,12 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +36,7 @@ public class ke7 implements fl4 {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.FOLLOW_ADDRESS : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.LIKE_ADDRESS : (String) invokeV.objValue;
     }
 
     @Override // com.repackage.fl4
@@ -42,11 +45,15 @@ public class ke7 implements fl4 {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, gl4Var) == null) || gl4Var == null || hashMap == null || hashMap.isEmpty()) {
             return;
         }
-        UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-        aVar.a = gl4Var.a;
-        aVar.b = gl4Var.c;
-        aVar.d = true;
-        aVar.c = hashMap.get("touid") == null ? "" : hashMap.get("touid");
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new UpdateAttentionMessage(aVar));
+        String str = hashMap.get("fid");
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        String str2 = hashMap.get(TiebaStatic.Params.H5_FORUM_NAME);
+        if (TextUtils.isEmpty(str2)) {
+            return;
+        }
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(og.g(str, 0L))));
+        TbadkCoreApplication.getInst().addLikeForum(str2);
     }
 }

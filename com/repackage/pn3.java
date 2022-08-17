@@ -46,12 +46,12 @@ public class pn3 {
 
         /* renamed from: com.repackage.pn3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0557a extends RequestBody {
+        public class C0559a extends RequestBody {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ RequestBody a;
 
-            public C0557a(a aVar, RequestBody requestBody) {
+            public C0559a(a aVar, RequestBody requestBody) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +119,7 @@ public class pn3 {
         public final RequestBody a(RequestBody requestBody) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) ? new C0557a(this, requestBody) : (RequestBody) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) ? new C0559a(this, requestBody) : (RequestBody) invokeL.objValue;
         }
 
         @Override // okhttp3.Interceptor

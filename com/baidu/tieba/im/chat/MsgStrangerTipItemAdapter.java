@@ -108,7 +108,7 @@ public class MsgStrangerTipItemAdapter extends MsgCommonItemAdapter<TextView> {
             d.v(R.color.CAM_X0101);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0603);
-            a2.setText(R.string.obfuscated_res_0x7f0f0e73);
+            a2.setText(R.string.obfuscated_res_0x7f0f0e74);
             return view2;
         }
         return (View) invokeCommon.objValue;

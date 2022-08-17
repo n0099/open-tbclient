@@ -47,8 +47,8 @@ import com.repackage.g9;
 import com.repackage.hj;
 import com.repackage.jg;
 import com.repackage.kg;
+import com.repackage.rm8;
 import com.repackage.ru4;
-import com.repackage.sm8;
 import com.repackage.tg;
 import com.repackage.zw4;
 import java.io.File;
@@ -86,7 +86,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public PermissionJudgePolicy mPermissionJudgePolicy;
     public boolean mPhoneSpeaker;
     public k mPlayCall;
-    public CustomResponsedMessage<sm8> mRecorderManagerRespMsg;
+    public CustomResponsedMessage<rm8> mRecorderManagerRespMsg;
     public jg<ax4> mResourceCall;
     public final BroadcastReceiver mVoicePlayerReceiver;
     public Sensor proximitySensor;
@@ -291,9 +291,9 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     }
                     return;
                 }
-                TiebaStatic.voiceError(1, this.a.context.getString(R.string.obfuscated_res_0x7f0f1557), str2);
+                TiebaStatic.voiceError(1, this.a.context.getString(R.string.obfuscated_res_0x7f0f155a), str2);
                 if (i2 <= 0 || StringUtils.isNull(str4) || (i2 != 2 && i2 != 4 && i2 != 3 && i2 != 7)) {
-                    this.a.sPlayView.onShowErr(5, hj.a(R.string.obfuscated_res_0x7f0f1561));
+                    this.a.sPlayView.onShowErr(5, hj.a(R.string.obfuscated_res_0x7f0f1564));
                 } else {
                     this.a.sPlayView.onShowErr(5, str4);
                 }
@@ -501,9 +501,9 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     i playView4 = this.this$0.getPlayView();
                     if (playView4 != null) {
                         if (intExtra2 == 2) {
-                            a = hj.a(R.string.obfuscated_res_0x7f0f1560);
+                            a = hj.a(R.string.obfuscated_res_0x7f0f1563);
                         } else {
-                            a = hj.a(R.string.obfuscated_res_0x7f0f1565);
+                            a = hj.a(R.string.obfuscated_res_0x7f0f1568);
                         }
                         playView4.onShowErr(5, a);
                     }
@@ -794,7 +794,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         this.mVoicePlayerReceiver = new g(this);
         initConfig();
         bUseMedaiPlayer = true ^ isVoiceUseSoftDecoder();
-        this.mRecorderManagerRespMsg = MessageManager.getInstance().runTask(2001271, sm8.class);
+        this.mRecorderManagerRespMsg = MessageManager.getInstance().runTask(2001271, rm8.class);
     }
 
     private void acquireWakeLock() {
@@ -1114,7 +1114,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     if (this.mPlayCall == null) {
                         this.mPlayCall = new k(this, null);
                     }
-                    this.mPlayCall.error(5, hj.a(R.string.obfuscated_res_0x7f0f1563));
+                    this.mPlayCall.error(5, hj.a(R.string.obfuscated_res_0x7f0f1566));
                     FieldBuilder fieldBuilder = new FieldBuilder();
                     if (voiceModel != null) {
                         fieldBuilder.append("id", voiceModel.getId());
@@ -1185,7 +1185,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     this.mPlayCall = new k(this, null);
                 }
                 if (!new File(str).exists()) {
-                    this.mPlayCall.error(5, hj.a(R.string.obfuscated_res_0x7f0f1563));
+                    this.mPlayCall.error(5, hj.a(R.string.obfuscated_res_0x7f0f1566));
                     return;
                 }
                 registSensor();
@@ -1405,19 +1405,19 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         stopPlay();
     }
 
-    public sm8 getRecorderManager() {
+    public rm8 getRecorderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            CustomResponsedMessage<sm8> customResponsedMessage = this.mRecorderManagerRespMsg;
+            CustomResponsedMessage<rm8> customResponsedMessage = this.mRecorderManagerRespMsg;
             if (customResponsedMessage == null || customResponsedMessage.getData() == null) {
                 return null;
             }
-            sm8 data = this.mRecorderManagerRespMsg.getData();
+            rm8 data = this.mRecorderManagerRespMsg.getData();
             data.a(this.context);
             return data;
         }
-        return (sm8) invokeV.objValue;
+        return (rm8) invokeV.objValue;
     }
 
     public boolean isPlayDoing(VoiceData.VoiceModel voiceModel) {

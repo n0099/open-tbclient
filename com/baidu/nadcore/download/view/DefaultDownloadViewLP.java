@@ -115,7 +115,7 @@ public class DefaultDownloadViewLP extends FrameLayout implements hj0<DefaultDow
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, oi0Var) == null) {
             if (oi0Var.c == AdDownloadStatus.DOWNLOADING) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f0ba0) + str;
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f0ba1) + str;
                 setProgress(oi0Var.i);
             } else {
                 setProgress(0.0f);

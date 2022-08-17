@@ -134,8 +134,8 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             StateListDrawable stateListDrawable = new StateListDrawable();
-            stateListDrawable.addState(new int[]{16842912}, AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080d31));
-            stateListDrawable.addState(new int[0], AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080d33));
+            stateListDrawable.addState(new int[]{16842912}, AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080d32));
+            stateListDrawable.addState(new int[0], AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080d34));
             return stateListDrawable;
         }
         return (Drawable) invokeL.objValue;
@@ -223,7 +223,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f0404b4, MaterialCalendar.class.getCanonicalName()), new int[]{16843277});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f0404b5, MaterialCalendar.class.getCanonicalName()), new int[]{16843277});
             boolean z = obtainStyledAttributes.getBoolean(0, false);
             obtainStyledAttributes.recycle();
             return z;
@@ -320,7 +320,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
             String headerText = getHeaderText();
-            this.headerSelectionText.setContentDescription(String.format(getString(R.string.obfuscated_res_0x7f0f0b05), headerText));
+            this.headerSelectionText.setContentDescription(String.format(getString(R.string.obfuscated_res_0x7f0f0b06), headerText));
             this.headerSelectionText.setText(headerText);
         }
     }
@@ -331,9 +331,9 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65557, this, checkableImageButton) == null) {
             if (this.headerToggleButton.isChecked()) {
-                string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0b1e);
+                string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0b1f);
             } else {
-                string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0b20);
+                string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0b21);
             }
             this.headerToggleButton.setContentDescription(string);
         }
@@ -443,7 +443,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
             Context context = dialog.getContext();
             this.fullscreen = isFullscreen(context);
             int resolveOrThrow = MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f04017e, MaterialDatePicker.class.getCanonicalName());
-            MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context, null, R.attr.obfuscated_res_0x7f0404b4, R.style.obfuscated_res_0x7f100369);
+            MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context, null, R.attr.obfuscated_res_0x7f0404b5, R.style.obfuscated_res_0x7f100369);
             this.background = materialShapeDrawable;
             materialShapeDrawable.initializeElevationOverlay(context);
             this.background.setFillColor(ColorStateList.valueOf(resolveOrThrow));

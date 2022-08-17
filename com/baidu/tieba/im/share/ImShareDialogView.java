@@ -16,7 +16,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.MediaData;
@@ -24,7 +23,6 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.message.UserGrowthTaskRequestMessage;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -44,7 +42,7 @@ import com.repackage.fi5;
 import com.repackage.jz8;
 import com.repackage.ms4;
 import com.repackage.qi;
-import com.repackage.t97;
+import com.repackage.s97;
 /* loaded from: classes3.dex */
 public class ImShareDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -64,7 +62,7 @@ public class ImShareDialogView extends LinearLayout {
     public SpanGroupEditText m;
     public TextView n;
     public TextView o;
-    public t97 p;
+    public s97 p;
     public CustomMessageListener q;
 
     /* loaded from: classes3.dex */
@@ -133,7 +131,7 @@ public class ImShareDialogView extends LinearLayout {
             if (threadData.getThreadType() == 40 && threadData.getThreadVideoInfo() != null) {
                 picUrl = threadData.getThreadVideoInfo().thumbnail_url;
                 this.e.setVisibility(0);
-                this.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808ac, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
+                this.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808ae, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
             } else {
                 new MediaData();
                 if (threadData.isImShareFromPb()) {
@@ -206,7 +204,7 @@ public class ImShareDialogView extends LinearLayout {
     public final void c(ThreadData threadData, CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData, charSequence) == null) && threadData.isVoiceThreadType()) {
-            String str = ((Object) charSequence) + getContext().getString(R.string.obfuscated_res_0x7f0f08ca);
+            String str = ((Object) charSequence) + getContext().getString(R.string.obfuscated_res_0x7f0f08cb);
         }
     }
 
@@ -215,7 +213,7 @@ public class ImShareDialogView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, threadData, charSequence) == null) || threadData.getPollData() == null) {
             return;
         }
-        String str = ((Object) charSequence) + getContext().getString(R.string.obfuscated_res_0x7f0f08cb);
+        String str = ((Object) charSequence) + getContext().getString(R.string.obfuscated_res_0x7f0f08cc);
     }
 
     public final void e(MetaData metaData) {
@@ -223,7 +221,7 @@ public class ImShareDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048579, this, metaData) == null) {
             String name_show = metaData.getName_show();
             EMTextView eMTextView = this.a;
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f08c9);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f08ca);
             Object[] objArr = new Object[1];
             if (name_show == null) {
                 name_show = "";
@@ -272,7 +270,7 @@ public class ImShareDialogView extends LinearLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.n.setOnClickListener(new View.OnClickListener() { // from class: com.repackage.r97
+            this.n.setOnClickListener(new View.OnClickListener() { // from class: com.repackage.q97
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -284,7 +282,7 @@ public class ImShareDialogView extends LinearLayout {
                     }
                 }
             });
-            this.o.setOnClickListener(new View.OnClickListener() { // from class: com.repackage.q97
+            this.o.setOnClickListener(new View.OnClickListener() { // from class: com.repackage.p97
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -355,19 +353,15 @@ public class ImShareDialogView extends LinearLayout {
     }
 
     public /* synthetic */ void i(View view2) {
-        t97 t97Var = this.p;
-        if (t97Var != null) {
-            t97Var.a();
+        s97 s97Var = this.p;
+        if (s97Var != null) {
+            s97Var.a();
         }
     }
 
     public /* synthetic */ void j(View view2) {
         if (this.p != null) {
             this.p.b(this.m.getText() != null ? this.m.getText().toString() : "");
-            if (TbSingleton.getInstance().isUserGrowthTaskCompleted(UserGrowthTaskRequestMessage.SHARE_THREAD)) {
-                return;
-            }
-            MessageManager.getInstance().sendMessage(new UserGrowthTaskRequestMessage(UserGrowthTaskRequestMessage.SHARE_THREAD));
         }
     }
 
@@ -432,10 +426,10 @@ public class ImShareDialogView extends LinearLayout {
         }
     }
 
-    public void setShareClickCallBack(t97 t97Var) {
+    public void setShareClickCallBack(s97 s97Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, t97Var) == null) {
-            this.p = t97Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, s97Var) == null) {
+            this.p = s97Var;
         }
     }
 

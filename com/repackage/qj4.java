@@ -57,7 +57,7 @@ public class qj4 {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if ((data instanceof an8) && ((an8) data).b) {
+            if ((data instanceof zm8) && ((zm8) data).b) {
                 this.a.e();
             }
         }

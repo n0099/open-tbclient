@@ -180,17 +180,17 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                             SearchFriendResult.UserInfo userInfo2 = userInfo.get(0);
                             if (userInfo2 == null) {
                                 SearchFriendActivity searchFriendActivity = this.a;
-                                searchFriendActivity.showToast(searchFriendActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c3c));
+                                searchFriendActivity.showToast(searchFriendActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c3d));
                                 return;
                             }
                             this.a.sendMessage(new CustomMessage(2001265, userInfo2));
                             return;
                         }
                         SearchFriendActivity searchFriendActivity2 = this.a;
-                        searchFriendActivity2.showToast(searchFriendActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c3c));
+                        searchFriendActivity2.showToast(searchFriendActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c3d));
                     } else if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                         SearchFriendActivity searchFriendActivity3 = this.a;
-                        searchFriendActivity3.showToast(searchFriendActivity3.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c3c));
+                        searchFriendActivity3.showToast(searchFriendActivity3.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c3d));
                     } else {
                         this.a.showToast(httpResponsedMessage.getErrorString());
                     }

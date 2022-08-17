@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class qv5 extends bz5<kj8> implements zz5 {
+public class qv5 extends bz5<jj8> implements zz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadSkinView i;
@@ -49,7 +49,7 @@ public class qv5 extends bz5<kj8> implements zz5 {
     public ParentDisallowInterceptHListView p;
     public gv5 q;
     public boolean r;
-    public kj8 s;
+    public jj8 s;
     public String t;
     public AdapterView.d u;
 
@@ -168,9 +168,9 @@ public class qv5 extends bz5<kj8> implements zz5 {
         this.m = (LinearLayout) h().findViewById(R.id.obfuscated_res_0x7f090aeb);
         this.n = h().findViewById(R.id.obfuscated_res_0x7f0907f6);
         this.p.setDividerWidth(this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b));
-        this.p.setBackgroundResource(R.drawable.obfuscated_res_0x7f08120f);
+        this.p.setBackgroundResource(R.drawable.obfuscated_res_0x7f081210);
         this.p.setOnItemClickListener(this.u);
-        this.p.setSelector(tbPageContext.getPageActivity().getResources().getDrawable(R.drawable.obfuscated_res_0x7f08120f));
+        this.p.setSelector(tbPageContext.getPageActivity().getResources().getDrawable(R.drawable.obfuscated_res_0x7f081210));
         gv5 gv5Var = new gv5(tbPageContext);
         this.q = gv5Var;
         this.p.setAdapter((ListAdapter) gv5Var);
@@ -273,8 +273,8 @@ public class qv5 extends bz5<kj8> implements zz5 {
         }
         AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
         alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-        kj8 kj8Var = this.s;
-        if (kj8Var != null && !ListUtils.isEmpty(kj8Var.a)) {
+        jj8 jj8Var = this.s;
+        if (jj8Var != null && !ListUtils.isEmpty(jj8Var.a)) {
             for (ThreadData threadData2 : this.s.a) {
                 alaLiveInfoListCoreData.mLiveInfoList.add(y(threadData2));
             }
@@ -285,14 +285,14 @@ public class qv5 extends bz5<kj8> implements zz5 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.bz5
     /* renamed from: x */
-    public void i(kj8 kj8Var) {
+    public void i(jj8 jj8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, kj8Var) == null) || kj8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, jj8Var) == null) || jj8Var == null) {
             return;
         }
-        this.s = kj8Var;
+        this.s = jj8Var;
         v();
-        this.q.b(kj8Var.a);
+        this.q.b(jj8Var.a);
         j(g(), TbadkCoreApplication.getInst().getSkinType());
     }
 

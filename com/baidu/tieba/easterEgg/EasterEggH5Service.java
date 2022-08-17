@@ -28,9 +28,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
 import com.repackage.gu4;
-import com.repackage.ol8;
+import com.repackage.nl8;
 import com.repackage.pi;
-import com.repackage.ql8;
+import com.repackage.pl8;
 import com.repackage.r56;
 import com.repackage.s56;
 import com.repackage.t56;
@@ -46,7 +46,7 @@ public class EasterEggH5Service extends Service {
     public transient /* synthetic */ FieldHolder $fh;
     public EasterEggBridge eggBridge;
     public Gson gson;
-    public ol8 jsBridge;
+    public nl8 jsBridge;
     public x56 mHttpRule;
     public y56 mSocketRule;
     public BdUniqueId mTag;
@@ -266,7 +266,7 @@ public class EasterEggH5Service extends Service {
     }
 
     /* loaded from: classes3.dex */
-    public class f implements ql8 {
+    public class f implements pl8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EasterEggH5Service a;
@@ -289,7 +289,7 @@ public class EasterEggH5Service extends Service {
             this.a = easterEggH5Service;
         }
 
-        @Override // com.repackage.ql8
+        @Override // com.repackage.pl8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -356,7 +356,7 @@ public class EasterEggH5Service extends Service {
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             try {
                 this.mWebView = new BaseWebView(this);
-                this.jsBridge = new ol8();
+                this.jsBridge = new nl8();
                 this.mWebView.initCommonJsBridge(this);
                 if (Build.VERSION.SDK_INT >= 21) {
                     this.mWebView.getSettings().setMixedContentMode(0);

@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ft7;
-import com.repackage.v08;
+import com.repackage.et7;
+import com.repackage.u08;
 /* loaded from: classes4.dex */
 public class VideoPbViewModel extends ViewModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v08 a;
+    public u08 a;
     public PbModel b;
     public int c;
 
@@ -38,7 +38,7 @@ public class VideoPbViewModel extends ViewModel {
                 return;
             }
         }
-        this.a = new v08();
+        this.a = new u08();
         this.c = 0;
     }
 
@@ -55,16 +55,16 @@ public class VideoPbViewModel extends ViewModel {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.a() : (MutableLiveData) invokeV.objValue;
     }
 
-    public ft7 c() {
+    public et7 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.b() : (ft7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.b() : (et7) invokeV.objValue;
     }
 
-    public ft7 d() {
+    public et7 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.c() : (ft7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.c() : (et7) invokeV.objValue;
     }
 
     public MutableLiveData<Boolean> e() {
@@ -150,20 +150,20 @@ public class VideoPbViewModel extends ViewModel {
         if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || this.a.g().getValue() == null) {
             return;
         }
-        ft7 a1 = this.b.a1(this.a.g().getValue());
-        if (a1 != null) {
+        et7 c1 = this.b.c1(this.a.g().getValue());
+        if (c1 != null) {
             this.a.k().addLast(this.a.b());
-            this.a.o(a1);
-            this.a.w(!ListUtils.isEmpty(a1.f()) ? a1.f().get(0) : null);
+            this.a.o(c1);
+            this.a.w(!ListUtils.isEmpty(c1.f()) ? c1.f().get(0) : null);
             this.a.y(this.a.k().getLast() != null ? this.a.k().getLast().O() : null);
-            this.b.u3(z ? 21 : 22);
-            this.b.K2(a1);
+            this.b.y3(z ? 21 : 22);
+            this.b.O2(c1);
             this.a.s(true);
         }
     }
 
     public void q() {
-        ft7 pollLast;
+        et7 pollLast;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (pollLast = this.a.k().pollLast()) == null) {
             return;
@@ -171,46 +171,46 @@ public class VideoPbViewModel extends ViewModel {
         this.a.o(pollLast);
         this.a.w(!ListUtils.isEmpty(pollLast.f()) ? pollLast.f().get(0) : null);
         this.a.y(this.a.k().peekLast() != null ? this.a.k().peekLast().O() : null);
-        this.b.K2(pollLast);
+        this.b.O2(pollLast);
         this.a.s(true);
     }
 
     public void r(ThreadData threadData) {
-        ft7 a1;
+        et7 c1;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) || threadData == null || (a1 = this.b.a1(threadData)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) || threadData == null || (c1 = this.b.c1(threadData)) == null) {
             return;
         }
         this.a.k().addLast(this.a.b());
-        this.a.o(a1);
-        this.a.w(!ListUtils.isEmpty(a1.f()) ? a1.f().get(0) : null);
+        this.a.o(c1);
+        this.a.w(!ListUtils.isEmpty(c1.f()) ? c1.f().get(0) : null);
         this.a.y(this.a.k().getLast() != null ? this.a.k().getLast().O() : null);
-        this.b.u3(20);
-        this.b.K2(a1);
+        this.b.y3(20);
+        this.b.O2(c1);
         this.a.s(true);
     }
 
-    public void s(ft7 ft7Var, int i) {
+    public void s(et7 et7Var, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048594, this, ft7Var, i) == null) || i < this.c) {
+        if (!(interceptable == null || interceptable.invokeLI(1048594, this, et7Var, i) == null) || i < this.c) {
             return;
         }
         this.c = i;
-        this.a.p(ft7Var);
-        if (ft7Var != null) {
-            v08 v08Var = this.a;
+        this.a.p(et7Var);
+        if (et7Var != null) {
+            u08 u08Var = this.a;
             boolean z = true;
-            if (ft7Var.s() != 1 && !ft7Var.i0()) {
+            if (et7Var.s() != 1 && !et7Var.i0()) {
                 z = false;
             }
-            v08Var.q(z);
+            u08Var.q(z);
         }
     }
 
-    public void t(ft7 ft7Var, int i) {
+    public void t(et7 et7Var, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048595, this, ft7Var, i) == null) && i == 3) {
-            this.a.o(ft7Var);
+        if ((interceptable == null || interceptable.invokeLI(1048595, this, et7Var, i) == null) && i == 3) {
+            this.a.o(et7Var);
         }
     }
 

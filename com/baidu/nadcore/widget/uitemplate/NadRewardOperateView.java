@@ -459,7 +459,7 @@ public class NadRewardOperateView extends FrameLayout {
             ((GradientDrawable) this.h.getBackground()).setColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0602ed));
             ((GradientDrawable) this.h.getBackground()).setStroke(2, getContext().getResources().getColor(R.color.obfuscated_res_0x7f0602ee));
         } else {
-            this.h.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd1));
+            this.h.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd2));
         }
         if (!TextUtils.isEmpty(adBaseModel.h.c)) {
             this.h.setText(adBaseModel.h.c);

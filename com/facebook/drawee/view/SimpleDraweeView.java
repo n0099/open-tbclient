@@ -56,44 +56,38 @@ public class SimpleDraweeView extends GenericDraweeView {
     private void init(Context context, @Nullable AttributeSet attributeSet) {
         int resourceId;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, this, context, attributeSet) == null) || isInEditMode()) {
-            return;
-        }
-        if (sDraweecontrollerbuildersupplier == null) {
-            sDraweecontrollerbuildersupplier = sSupplierFactory.get();
-        }
-        try {
-            if (FrescoSystrace.isTracing()) {
-                FrescoSystrace.beginSection("SimpleDraweeView#init");
+        if (interceptable == null || interceptable.invokeLL(65541, this, context, attributeSet) == null) {
+            if (sDraweecontrollerbuildersupplier == null) {
+                sDraweecontrollerbuildersupplier = sSupplierFactory.get();
             }
-            if (isInEditMode()) {
-                getTopLevelDrawable().setVisible(true, false);
-                getTopLevelDrawable().invalidateSelf();
-            } else {
-                Preconditions.checkNotNull(sDraweecontrollerbuildersupplier, "SimpleDraweeView was not initialized!");
-                this.mControllerBuilder = sDraweecontrollerbuildersupplier.get();
-            }
-            if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040024, R.attr.obfuscated_res_0x7f040025, R.attr.obfuscated_res_0x7f040026, R.attr.obfuscated_res_0x7f04005c, R.attr.obfuscated_res_0x7f04015b, R.attr.obfuscated_res_0x7f04015f, R.attr.obfuscated_res_0x7f040160, R.attr.obfuscated_res_0x7f0402a8, R.attr.obfuscated_res_0x7f0402c6, R.attr.obfuscated_res_0x7f0402c7, R.attr.obfuscated_res_0x7f0402cf, R.attr.obfuscated_res_0x7f0402d1, R.attr.obfuscated_res_0x7f0402d2, R.attr.obfuscated_res_0x7f0402d3, R.attr.obfuscated_res_0x7f040332, R.attr.obfuscated_res_0x7f040333, R.attr.obfuscated_res_0x7f04034b, R.attr.obfuscated_res_0x7f04034c, R.attr.obfuscated_res_0x7f04034d, R.attr.obfuscated_res_0x7f04034e, R.attr.obfuscated_res_0x7f04034f, R.attr.obfuscated_res_0x7f040357, R.attr.obfuscated_res_0x7f040358, R.attr.obfuscated_res_0x7f040359, R.attr.obfuscated_res_0x7f04035a, R.attr.obfuscated_res_0x7f04035c, R.attr.obfuscated_res_0x7f04035e, R.attr.obfuscated_res_0x7f04035f, R.attr.obfuscated_res_0x7f040360, R.attr.obfuscated_res_0x7f040361, R.attr.obfuscated_res_0x7f040489, R.attr.obfuscated_res_0x7f04066d});
-                if (obtainStyledAttributes.hasValue(2)) {
-                    setImageURI(Uri.parse(obtainStyledAttributes.getString(2)), (Object) null);
-                } else if (obtainStyledAttributes.hasValue(0)) {
-                    int resourceId2 = obtainStyledAttributes.getResourceId(0, -1);
-                    if (resourceId2 != -1) {
+            try {
+                if (FrescoSystrace.isTracing()) {
+                    FrescoSystrace.beginSection("SimpleDraweeView#init");
+                }
+                if (isInEditMode()) {
+                    getTopLevelDrawable().setVisible(true, false);
+                    getTopLevelDrawable().invalidateSelf();
+                } else {
+                    Preconditions.checkNotNull(sDraweecontrollerbuildersupplier, "SimpleDraweeView was not initialized!");
+                    this.mControllerBuilder = sDraweecontrollerbuildersupplier.get();
+                }
+                if (attributeSet != null) {
+                    TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040024, R.attr.obfuscated_res_0x7f040025, R.attr.obfuscated_res_0x7f040026, R.attr.obfuscated_res_0x7f04005c, R.attr.obfuscated_res_0x7f04015b, R.attr.obfuscated_res_0x7f04015f, R.attr.obfuscated_res_0x7f040160, R.attr.obfuscated_res_0x7f0402a8, R.attr.obfuscated_res_0x7f0402c6, R.attr.obfuscated_res_0x7f0402c7, R.attr.obfuscated_res_0x7f0402cf, R.attr.obfuscated_res_0x7f0402d1, R.attr.obfuscated_res_0x7f0402d2, R.attr.obfuscated_res_0x7f0402d3, R.attr.obfuscated_res_0x7f040332, R.attr.obfuscated_res_0x7f040333, R.attr.obfuscated_res_0x7f04034b, R.attr.obfuscated_res_0x7f04034c, R.attr.obfuscated_res_0x7f04034d, R.attr.obfuscated_res_0x7f04034e, R.attr.obfuscated_res_0x7f04034f, R.attr.obfuscated_res_0x7f040357, R.attr.obfuscated_res_0x7f040358, R.attr.obfuscated_res_0x7f040359, R.attr.obfuscated_res_0x7f04035a, R.attr.obfuscated_res_0x7f04035c, R.attr.obfuscated_res_0x7f04035e, R.attr.obfuscated_res_0x7f04035f, R.attr.obfuscated_res_0x7f040360, R.attr.obfuscated_res_0x7f040361, R.attr.obfuscated_res_0x7f040489});
+                    if (obtainStyledAttributes.hasValue(2)) {
+                        setImageURI(Uri.parse(obtainStyledAttributes.getString(2)), (Object) null);
+                    } else if (obtainStyledAttributes.hasValue(0) && (resourceId = obtainStyledAttributes.getResourceId(0, -1)) != -1) {
                         if (isInEditMode()) {
-                            setImageResource(resourceId2);
+                            setImageResource(resourceId);
                         } else {
-                            setActualImageResource(resourceId2);
+                            setActualImageResource(resourceId);
                         }
                     }
-                } else if (obtainStyledAttributes.hasValue(31) && (resourceId = obtainStyledAttributes.getResourceId(31, -1)) != -1) {
-                    setImageURI(UriUtil.getUriForResourceId(resourceId), (Object) null);
+                    obtainStyledAttributes.recycle();
                 }
-                obtainStyledAttributes.recycle();
-            }
-        } finally {
-            if (FrescoSystrace.isTracing()) {
-                FrescoSystrace.endSection();
+            } finally {
+                if (FrescoSystrace.isTracing()) {
+                    FrescoSystrace.endSection();
+                }
             }
         }
     }

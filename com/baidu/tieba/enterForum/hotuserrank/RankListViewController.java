@@ -488,7 +488,7 @@ public class RankListViewController {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.d.J();
             this.d.Q();
-            this.d.C(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f09e9));
+            this.d.C(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f09ea));
             this.d.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
     }

@@ -369,14 +369,14 @@ public class h93 extends m93 {
 
         /* renamed from: com.repackage.h93$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0487b implements Runnable {
+        public class RunnableC0494b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ Set b;
             public final /* synthetic */ b c;
 
-            public RunnableC0487b(b bVar, String str, Set set) {
+            public RunnableC0494b(b bVar, String str, Set set) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -749,7 +749,7 @@ public class h93 extends m93 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, set)) == null) {
-                d(new RunnableC0487b(this, str, set));
+                d(new RunnableC0494b(this, str, set));
                 return this;
             }
             return (SharedPreferences.Editor) invokeLL.objValue;

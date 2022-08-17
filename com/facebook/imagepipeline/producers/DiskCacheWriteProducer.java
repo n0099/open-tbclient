@@ -15,7 +15,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 public class DiskCacheWriteProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
-    public static final String PRODUCER_NAME = "DiskCacheProducer";
+    public static final String PRODUCER_NAME = "DiskCacheWriteProducer";
     public transient /* synthetic */ FieldHolder $fh;
     public final CacheKeyFactory mCacheKeyFactory;
     public final BufferedDiskCache mDefaultBufferedDiskCache;
@@ -71,6 +71,7 @@ public class DiskCacheWriteProducer implements Producer<EncodedImage> {
         public void onNewResultImpl(EncodedImage encodedImage, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, encodedImage, i) == null) {
+                this.mProducerContext.getProducerListener().onProducerStart(this.mProducerContext, DiskCacheWriteProducer.PRODUCER_NAME);
                 if (!BaseConsumer.isNotLast(i) && encodedImage != null && !BaseConsumer.statusHasAnyFlag(i, 10) && encodedImage.getImageFormat() != ImageFormat.UNKNOWN) {
                     ImageRequest imageRequest = this.mProducerContext.getImageRequest();
                     CacheKey encodedCacheKey = this.mCacheKeyFactory.getEncodedCacheKey(imageRequest, this.mProducerContext.getCallerContext());
@@ -79,9 +80,11 @@ public class DiskCacheWriteProducer implements Producer<EncodedImage> {
                     } else {
                         this.mDefaultBufferedDiskCache.put(encodedCacheKey, encodedImage);
                     }
+                    this.mProducerContext.getProducerListener().onProducerFinishWithSuccess(this.mProducerContext, DiskCacheWriteProducer.PRODUCER_NAME, null);
                     getConsumer().onNewResult(encodedImage, i);
                     return;
                 }
+                this.mProducerContext.getProducerListener().onProducerFinishWithSuccess(this.mProducerContext, DiskCacheWriteProducer.PRODUCER_NAME, null);
                 getConsumer().onNewResult(encodedImage, i);
             }
         }
@@ -112,6 +115,7 @@ public class DiskCacheWriteProducer implements Producer<EncodedImage> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, consumer, producerContext) == null) {
             if (producerContext.getLowestPermittedRequestLevel().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
+                producerContext.putOriginExtra("disk", "nil-result_write");
                 consumer.onNewResult(null, 1);
                 return;
             }

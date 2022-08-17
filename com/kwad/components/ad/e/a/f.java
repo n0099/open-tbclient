@@ -110,7 +110,7 @@ public final class f extends com.kwad.components.ad.e.kwai.a implements View.OnC
     private void G(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65537, this, i) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0352a(this.jY.getContext()).L(this.mAdTemplate).ae(i).b(this.mApkDownloadHelper).a(new a.b(this) { // from class: com.kwad.components.ad.e.a.f.3
+            com.kwad.components.core.c.a.a.a(new a.C0354a(this.jY.getContext()).L(this.mAdTemplate).ae(i).b(this.mApkDownloadHelper).a(new a.b(this) { // from class: com.kwad.components.ad.e.a.f.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ f kb;

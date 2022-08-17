@@ -18,14 +18,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dy;
 import com.repackage.oy;
 /* loaded from: classes7.dex */
-public class to7 extends oo7<ir4, ThreadCardViewHolder<ThreadData>> {
+public class to7 extends no7<ir4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId c;
     public TbPageContext<?> d;
-    public boolean e;
-    public un f;
-    public b06<ThreadData> g;
+    public un e;
+    public b06<ThreadData> f;
 
     /* loaded from: classes7.dex */
     public class a extends b06<ThreadData> {
@@ -94,8 +93,8 @@ public class to7 extends oo7<ir4, ThreadCardViewHolder<ThreadData>> {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
                 ThreadData threadData = ((ir4) onVar).t;
                 threadData.objType = 1;
-                if (this.a.g != null) {
-                    this.a.g.a(threadCardViewHolder.getView(), threadData);
+                if (this.a.f != null) {
+                    this.a.f.a(threadCardViewHolder.getView(), threadData);
                 }
                 ThreadCardUtils.jumpToPB(threadData, view2.getContext(), 17, false, this.a.b.getOrignalPage().B1(), this.a.s() ? "3" : "2");
                 threadCardViewHolder.a().o(new oy.a(1));
@@ -122,8 +121,7 @@ public class to7 extends oo7<ir4, ThreadCardViewHolder<ThreadData>> {
                 return;
             }
         }
-        this.e = true;
-        this.g = new a(this);
+        this.f = new a(this);
         this.d = tbPageContext;
         this.c = bdUniqueId2;
     }
@@ -131,7 +129,7 @@ public class to7 extends oo7<ir4, ThreadCardViewHolder<ThreadData>> {
     public void A(un unVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, unVar) == null) {
-            this.f = unVar;
+            this.e = unVar;
         }
     }
 
@@ -143,11 +141,8 @@ public class to7 extends oo7<ir4, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             dy.b bVar = new dy.b(this.d.getPageActivity(), false);
-            rx rxVar = new rx(this.d.getPageActivity());
-            rxVar.s("index");
-            rxVar.t(this.e);
-            bVar.n(rxVar);
-            dy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.f);
+            bVar.h(new bx(this.d.getPageActivity()));
+            dy k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.e);
             k.r(17);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.i(this.c);
@@ -172,8 +167,8 @@ public class to7 extends oo7<ir4, ThreadCardViewHolder<ThreadData>> {
             threadCardViewHolder.a().q(i);
             threadCardViewHolder.e(ir4Var.t);
             threadCardViewHolder.a().onChangeSkinType(this.d, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.a().p(this.g);
-            lo7.c(this, ir4Var);
+            threadCardViewHolder.a().p(this.f);
+            ko7.c(this, ir4Var);
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
@@ -182,7 +177,7 @@ public class to7 extends oo7<ir4, ThreadCardViewHolder<ThreadData>> {
     public final void z(View view2, ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, threadData) == null) {
-            lo7.b(this, threadData);
+            ko7.b(this, threadData);
         }
     }
 }

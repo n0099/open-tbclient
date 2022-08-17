@@ -81,7 +81,7 @@ public class dz5 extends bz5<q46> {
             if (this.a != i) {
                 SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
                 SkinManager.setBackgroundResource(this.t, R.color.CAM_X0204);
-                dm8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+                cm8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
                 if (readThreadHistory != null && readThreadHistory.d(this.u.getThreadData().getId())) {
                     SkinManager.setViewTextColor(this.j, R.color.CAM_X0108, 1);
                 } else {
@@ -124,7 +124,7 @@ public class dz5 extends bz5<q46> {
             this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09051b);
             this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09051a);
             this.t = view2.findViewById(R.id.obfuscated_res_0x7f0904f9);
-            this.l.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080870);
+            this.l.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080873);
             int dimensionPixelSize = qi.q(this.c)[0] - (this.c.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.k.getLayoutParams();
             layoutParams.width = dimensionPixelSize;
@@ -167,7 +167,7 @@ public class dz5 extends bz5<q46> {
         }
         this.l.K(str, 10, false);
         this.j.setText(q46Var.getThreadData().getTitle());
-        dm8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+        cm8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
         if (readThreadHistory != null && readThreadHistory.d(q46Var.getThreadData().getId())) {
             SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
         } else {

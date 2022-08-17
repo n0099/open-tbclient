@@ -42,10 +42,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fk8;
+import com.repackage.ek8;
 import com.repackage.ur4;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class o45 extends l25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class o45 extends l25 {
     public String o;
     public l45 p;
     public ThreadData q;
-    public fk8.g r;
+    public ek8.g r;
     public boolean s;
     public int t;
     public int u;
@@ -73,7 +73,7 @@ public class o45 extends l25 {
     public AntiHelper.k w;
     public View.OnClickListener x;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements NewWriteModel.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -229,7 +229,7 @@ public class o45 extends l25 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements AntiHelper.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -267,8 +267,8 @@ public class o45 extends l25 {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class c implements fk8.g {
+    /* loaded from: classes7.dex */
+    public class c implements ek8.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ o45 a;
@@ -291,7 +291,7 @@ public class o45 extends l25 {
             this.a = o45Var;
         }
 
-        @Override // com.repackage.fk8.g
+        @Override // com.repackage.ek8.g
         public void h0(WriteData writeData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) {
@@ -313,7 +313,7 @@ public class o45 extends l25 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -343,11 +343,11 @@ public class o45 extends l25 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || TextUtils.isEmpty(this.a.o)) {
                 return;
             }
-            qi.O(this.a.getContext().getPageActivity(), this.a.o);
+            qi.N(this.a.getContext().getPageActivity(), this.a.o);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class e implements ur4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -526,7 +526,7 @@ public class o45 extends l25 {
                 this.h.U().setVoiceDuringTime(-1);
             }
             if (!this.h.S()) {
-                getContext().showToast((int) R.string.obfuscated_res_0x7f0f15cd);
+                getContext().showToast((int) R.string.obfuscated_res_0x7f0f15d0);
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 12).param("obj_type", 2).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
                 return;
             }
@@ -582,7 +582,7 @@ public class o45 extends l25 {
             }
             writeData.setReplyId(this.d);
             writeData.setThreadId(this.e);
-            fk8.A(this.e, writeData);
+            ek8.A(this.e, writeData);
         }
     }
 
@@ -645,7 +645,7 @@ public class o45 extends l25 {
         }
     }
 
-    public void R(fk8.g gVar) {
+    public void R(ek8.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, gVar) == null) {
             this.r = gVar;
@@ -681,7 +681,7 @@ public class o45 extends l25 {
         if (!(interceptable == null || interceptable.invokeLL(1048597, this, str, str2) == null) || str == null) {
             return;
         }
-        String replace = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0feb).replace("%s", str);
+        String replace = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0fec).replace("%s", str);
         q45 q45Var = this.c;
         if (q45Var != null) {
             if (TextUtils.isEmpty(q45Var.b) && TextUtils.isEmpty(this.c.a)) {
@@ -816,7 +816,7 @@ public class o45 extends l25 {
         if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
             ur4 ur4Var = new ur4(getContext().getPageActivity());
             ur4Var.setMessage(str);
-            ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f09a0, new e(this));
+            ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f09a1, new e(this));
             ur4Var.create(getContext()).show();
         }
     }
@@ -835,7 +835,7 @@ public class o45 extends l25 {
             X(true);
             a().j();
             if (str != null && str.length() != 0) {
-                String replace = getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0feb).replace("%s", str);
+                String replace = getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0fec).replace("%s", str);
                 q45 q45Var = new q45();
                 q45Var.b = replace;
                 q45Var.d = str2;
@@ -861,7 +861,7 @@ public class o45 extends l25 {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            fk8.A(this.e, null);
+            ek8.A(this.e, null);
         }
     }
 
@@ -1000,6 +1000,6 @@ public class o45 extends l25 {
         NewWriteModel newWriteModel = new NewWriteModel(tbPageContext);
         this.h = newWriteModel;
         newWriteModel.d0(this.v);
-        fk8.q(this.j.B(), new c(this));
+        ek8.q(this.j.B(), new c(this));
     }
 }

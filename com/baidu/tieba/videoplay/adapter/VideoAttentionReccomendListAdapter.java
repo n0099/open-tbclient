@@ -270,7 +270,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         } else if (!pi.isEmpty(videoItemData.abstext)) {
             forumViewHolder.f.setText(videoItemData.abstext);
         } else {
-            forumViewHolder.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d14));
+            forumViewHolder.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d15));
         }
     }
 

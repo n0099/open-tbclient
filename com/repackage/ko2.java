@@ -475,7 +475,7 @@ public class ko2 extends BaseAdapter {
             view2.setBackgroundColor(-1);
             jVar.a.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060a77));
             jVar.c.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a82));
-            jVar.h.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081153));
+            jVar.h.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081154));
             jVar.g.setTextColor(-1);
             jVar.b.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060a85));
             jVar.a.setLayoutParams(this.f);
@@ -485,7 +485,7 @@ public class ko2 extends BaseAdapter {
             jVar.f.setVisibility(8);
             jVar.h.setVisibility(8);
             jVar.f.setVisibility(0);
-            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081161);
+            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081162);
             jVar.h.setVisibility(0);
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) jVar.h.getLayoutParams();
             layoutParams.width = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706b6);
@@ -595,7 +595,7 @@ public class ko2 extends BaseAdapter {
             if (qo2.d() >= po2.c) {
                 po2.j(po2.d);
             } else if (ne3.c() < 52428800) {
-                r03.g(AppRuntime.getAppContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1287)).G();
+                r03.g(AppRuntime.getAppContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1289)).G();
             } else {
                 p(this.a);
             }
@@ -611,10 +611,10 @@ public class ko2 extends BaseAdapter {
                     po2.j(po2.d);
                     return;
                 } else if (d2 > 0 && TextUtils.equals(po2.d, "single") && !TextUtils.equals(qo2.b(), mediaModel.getType())) {
-                    r03.f(this.a, R.string.obfuscated_res_0x7f0f128f).G();
+                    r03.f(this.a, R.string.obfuscated_res_0x7f0f1291).G();
                     return;
                 } else if (mediaModel.getSize() <= 52428800 || !TextUtils.equals(mediaModel.getType(), "image")) {
-                    jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f08115f);
+                    jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081160);
                     jVar.c.setVisibility(0);
                     jVar.c.setText(String.valueOf(qo2.c(mediaModel) + 1));
                     qo2.i(mediaModel);
@@ -626,12 +626,12 @@ public class ko2 extends BaseAdapter {
                     notifyDataSetChanged();
                     return;
                 } else {
-                    r03.f(this.a, R.string.obfuscated_res_0x7f0f128e).G();
+                    r03.f(this.a, R.string.obfuscated_res_0x7f0f1290).G();
                     return;
                 }
             }
             qo2.h(mediaModel);
-            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081161);
+            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081162);
             jVar.c.setVisibility(8);
             wo2 wo2Var2 = this.c;
             if (wo2Var2 != null) {
@@ -657,10 +657,10 @@ public class ko2 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
             if (j2 < 3000) {
-                r03.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1295)).G();
+                r03.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1297)).G();
                 return true;
             } else if (j2 > 300000) {
-                r03.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1294)).G();
+                r03.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1296)).G();
                 return true;
             } else {
                 return false;
@@ -678,7 +678,7 @@ public class ko2 extends BaseAdapter {
             long j5 = j3 % 3600;
             String format = String.format(Locale.getDefault(), "%02d", Long.valueOf(j5 / 60));
             String format2 = String.format(Locale.getDefault(), "%02d", Long.valueOf(j5 % 60));
-            return j4 == 0 ? this.a.getString(R.string.obfuscated_res_0x7f0f1315, new Object[]{format, format2}) : this.a.getString(R.string.obfuscated_res_0x7f0f1316, new Object[]{String.format(Locale.getDefault(), "%02d", Long.valueOf(j4)), format, format2});
+            return j4 == 0 ? this.a.getString(R.string.obfuscated_res_0x7f0f1317, new Object[]{format, format2}) : this.a.getString(R.string.obfuscated_res_0x7f0f1318, new Object[]{String.format(Locale.getDefault(), "%02d", Long.valueOf(j4)), format, format2});
         }
         return (String) invokeJ.objValue;
     }
@@ -705,11 +705,11 @@ public class ko2 extends BaseAdapter {
             view2.setClickable(true);
             ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090233);
             if (TextUtils.equals(po2.b, "Image")) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f081149);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f08114a);
                 view2.setOnClickListener(new a(this));
                 return;
             }
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f08114d);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f08114e);
             view2.setOnClickListener(new b(this));
         }
     }
@@ -745,7 +745,7 @@ public class ko2 extends BaseAdapter {
                 }
                 if (TextUtils.isEmpty(str2)) {
                 }
-                r03.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1296)).G();
+                r03.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1298)).G();
                 return false;
             }
             if (mediaMetadataRetriever != null) {
@@ -760,7 +760,7 @@ public class ko2 extends BaseAdapter {
             if (TextUtils.isEmpty(str2) && str2.startsWith(FileUtils.VIDEO_FILE_START)) {
                 return TextUtils.equals(MimeTypes.VIDEO_MP4, str2) || TextUtils.equals("video/3gp", str2) || TextUtils.equals(MimeTypes.VIDEO_WEBM, str2) || TextUtils.equals("video/mkv", str2);
             }
-            r03.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1296)).G();
+            r03.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1298)).G();
             return false;
         }
         return invokeL.booleanValue;
@@ -784,7 +784,7 @@ public class ko2 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048595, this, mediaModel, jVar, i2) == null) {
             if (qo2.f(mediaModel)) {
-                jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f08115f);
+                jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081160);
                 jVar.c.setVisibility(0);
                 jVar.c.setText(String.valueOf(qo2.c(mediaModel) + 1));
             }
@@ -796,9 +796,9 @@ public class ko2 extends BaseAdapter {
             if (!oo2.d) {
                 jVar.h.setVisibility(8);
             } else if (po2.d(mediaModel.getPath())) {
-                jVar.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f128b));
+                jVar.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f128d));
             } else if (po2.e(mediaModel.getPath())) {
-                jVar.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f128c));
+                jVar.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f128e));
             } else {
                 jVar.h.setVisibility(8);
             }

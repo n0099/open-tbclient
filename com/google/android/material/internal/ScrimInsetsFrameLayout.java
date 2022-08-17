@@ -184,7 +184,7 @@ public class ScrimInsetsFrameLayout extends FrameLayout {
         this.tempRect = new Rect();
         this.drawTopInsetForeground = true;
         this.drawBottomInsetForeground = true;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{R.attr.obfuscated_res_0x7f040342}, i, R.style.obfuscated_res_0x7f100335, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{R.attr.obfuscated_res_0x7f040343}, i, R.style.obfuscated_res_0x7f100335, new int[0]);
         this.insetForeground = obtainStyledAttributes.getDrawable(0);
         obtainStyledAttributes.recycle();
         setWillNotDraw(true);

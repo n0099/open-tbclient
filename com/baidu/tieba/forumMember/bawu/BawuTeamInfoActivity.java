@@ -14,7 +14,7 @@ import com.repackage.bd6;
 import com.repackage.hc6;
 import com.repackage.ic6;
 import com.repackage.jc6;
-import com.repackage.kk8;
+import com.repackage.jk8;
 import com.repackage.lc6;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -147,9 +147,9 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     public void F1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            kk8.h(301007, BawuTeamSocketResponseMessage.class, false, false);
-            kk8.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, false, false);
-            kk8.b(2003005, ic6.class);
+            jk8.h(301007, BawuTeamSocketResponseMessage.class, false, false);
+            jk8.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, false, false);
+            jk8.b(2003005, ic6.class);
         }
     }
 

@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ap6;
 import com.repackage.bp6;
+import com.repackage.gk8;
 import com.repackage.hk8;
-import com.repackage.ik8;
 import com.repackage.qi;
 import com.repackage.zo6;
 import java.util.ArrayList;
@@ -67,31 +67,31 @@ public class ServiceAreaView extends FrameLayout {
         ap6Var.onChangeSkinType(i);
     }
 
-    public void setData(hk8 hk8Var, FrsViewData frsViewData) {
-        ik8 ik8Var;
+    public void setData(gk8 gk8Var, FrsViewData frsViewData) {
+        hk8 hk8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hk8Var, frsViewData) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, gk8Var, frsViewData) == null) {
             if (this.c) {
-                if (hk8Var == null) {
-                    hk8Var = new hk8();
-                    hk8Var.b = new ArrayList();
+                if (gk8Var == null) {
+                    gk8Var = new gk8();
+                    gk8Var.b = new ArrayList();
                 }
-                if (!ListUtils.isEmpty(hk8Var.b) && (ik8Var = hk8Var.b.get(0)) != null && getResources().getString(R.string.obfuscated_res_0x7f0f089b).equals(ik8Var.c) && getResources().getString(R.string.obfuscated_res_0x7f0f089b).equals(ik8Var.b)) {
-                    hk8Var.a--;
-                    hk8Var.b.remove(0);
+                if (!ListUtils.isEmpty(gk8Var.b) && (hk8Var = gk8Var.b.get(0)) != null && getResources().getString(R.string.obfuscated_res_0x7f0f089b).equals(hk8Var.c) && getResources().getString(R.string.obfuscated_res_0x7f0f089b).equals(hk8Var.b)) {
+                    gk8Var.a--;
+                    gk8Var.b.remove(0);
                 }
-                hk8Var.a++;
-                ik8 ik8Var2 = new ik8();
-                ik8Var2.c = getResources().getString(R.string.obfuscated_res_0x7f0f089b);
-                ik8Var2.b = getResources().getString(R.string.obfuscated_res_0x7f0f089b);
-                hk8Var.b.add(0, ik8Var2);
+                gk8Var.a++;
+                hk8 hk8Var2 = new hk8();
+                hk8Var2.c = getResources().getString(R.string.obfuscated_res_0x7f0f089b);
+                hk8Var2.b = getResources().getString(R.string.obfuscated_res_0x7f0f089b);
+                gk8Var.b.add(0, hk8Var2);
             }
-            if (hk8Var == null) {
+            if (gk8Var == null) {
                 return;
             }
             int f = qi.f(getContext(), R.dimen.M_H_X001);
             int f2 = qi.f(getContext(), R.dimen.M_H_X001);
-            int i = hk8Var.a;
+            int i = gk8Var.a;
             if (i >= 2) {
                 this.a = new MultiServiceViewController(getContext());
             } else if (i == 1) {
@@ -102,7 +102,7 @@ public class ServiceAreaView extends FrameLayout {
             setPadding(0, f, 0, f2);
             removeAllViews();
             addView(this.a.getView(), -1, -2);
-            this.a.a(hk8Var, frsViewData);
+            this.a.a(gk8Var, frsViewData);
             ap6 ap6Var = this.a;
             if (ap6Var instanceof zo6) {
                 ((zo6) ap6Var).b(this.b);

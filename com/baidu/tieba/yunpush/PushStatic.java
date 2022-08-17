@@ -46,11 +46,11 @@ public class PushStatic {
 
         /* renamed from: com.baidu.tieba.yunpush.PushStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0267a implements Runnable {
+        public class RunnableC0269a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0267a(a aVar) {
+            public RunnableC0269a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +100,7 @@ public class PushStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy()) {
-                new Thread(new RunnableC0267a(this)).start();
+                new Thread(new RunnableC0269a(this)).start();
             }
         }
     }

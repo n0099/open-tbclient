@@ -34,7 +34,7 @@ public class um5 extends BaseAdapter implements View.OnClickListener {
     public static HashMap<b, Integer> f;
     public transient /* synthetic */ FieldHolder $fh;
     public NewFriendsActivity a;
-    public List<h77> b;
+    public List<g77> b;
     public c c;
 
     /* loaded from: classes7.dex */
@@ -91,7 +91,7 @@ public class um5 extends BaseAdapter implements View.OnClickListener {
 
     /* loaded from: classes7.dex */
     public interface c {
-        void a(int i, int i2, View view2, h77 h77Var);
+        void a(int i, int i2, View view2, g77 g77Var);
     }
 
     /* loaded from: classes7.dex */
@@ -117,18 +117,18 @@ public class um5 extends BaseAdapter implements View.OnClickListener {
             }
         }
 
-        public void a(h77 h77Var) {
+        public void a(g77 g77Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, h77Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, g77Var) == null) {
                 boolean z = false;
-                this.a.K(h77Var.e(), 12, false);
-                this.b.setText(h77Var.d());
-                if (!TextUtils.isEmpty(h77Var.a())) {
-                    this.c.setText(h77Var.a());
+                this.a.K(g77Var.e(), 12, false);
+                this.b.setText(g77Var.d());
+                if (!TextUtils.isEmpty(g77Var.a())) {
+                    this.c.setText(g77Var.a());
                 } else {
                     this.c.setText("");
                 }
-                int f = h77Var.f();
+                int f = g77Var.f();
                 this.d.setText(((Integer) um5.d.get(f)).intValue());
                 this.d.setEnabled((f == 0 || f == 1) ? true : true);
             }
@@ -157,9 +157,9 @@ public class um5 extends BaseAdapter implements View.OnClickListener {
         f = new HashMap<>();
         d.put(0, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f00b8));
         d.put(4, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f00d7));
-        d.put(1, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0d32));
-        d.put(2, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0d60));
-        d.put(3, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f158e));
+        d.put(1, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0d33));
+        d.put(2, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0d61));
+        d.put(3, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f1591));
         e.put(new b(false), Integer.valueOf((int) R.drawable.btn_pass));
         e.put(new b(true), Integer.valueOf((int) R.drawable.btn_all_blue));
         f.put(new b(false), Integer.valueOf((int) R.color.btn_pass_text_color));
@@ -188,7 +188,7 @@ public class um5 extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            List<h77> list = this.b;
+            List<g77> list = this.b;
             if (list != null) {
                 int size = list.size();
                 for (int i = 0; i < size; i++) {
@@ -206,24 +206,24 @@ public class um5 extends BaseAdapter implements View.OnClickListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: c */
-    public h77 getItem(int i) {
+    public g77 getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.b.get(i) : (h77) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.b.get(i) : (g77) invokeI.objValue;
     }
 
-    public synchronized void d(h77 h77Var) {
+    public synchronized void d(g77 g77Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h77Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, g77Var) == null) {
             synchronized (this) {
                 if (this.b != null) {
-                    this.b.remove(h77Var);
+                    this.b.remove(g77Var);
                 }
             }
         }
     }
 
-    public void e(List<h77> list) {
+    public void e(List<g77> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.b = list;
@@ -237,22 +237,22 @@ public class um5 extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    public void g(h77 h77Var) {
+    public void g(g77 g77Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, h77Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, g77Var) == null) {
             if (this.b == null) {
                 this.b = new ArrayList();
             }
-            if (h77Var == null || h77Var.b() == 0) {
+            if (g77Var == null || g77Var.b() == 0) {
                 return;
             }
-            int b2 = b(h77Var.b());
+            int b2 = b(g77Var.b());
             if (b2 != -1) {
                 this.b.remove(b2);
-                this.b.add(0, h77Var);
+                this.b.add(0, g77Var);
                 return;
             }
-            this.b.add(0, h77Var);
+            this.b.add(0, g77Var);
         }
     }
 
@@ -261,7 +261,7 @@ public class um5 extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<h77> list = this.b;
+            List<g77> list = this.b;
             if (list == null) {
                 return 0;
             }
@@ -294,7 +294,7 @@ public class um5 extends BaseAdapter implements View.OnClickListener {
                 dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090abc);
                 view2.setTag(dVar);
             }
-            h77 item = getItem(i);
+            g77 item = getItem(i);
             dVar.a(item);
             dVar.d.setTag(Integer.valueOf(i));
             dVar.d.setOnClickListener(this);
@@ -313,15 +313,15 @@ public class um5 extends BaseAdapter implements View.OnClickListener {
         return (View) invokeILL.objValue;
     }
 
-    public void h(List<h77> list) {
+    public void h(List<g77> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             if (this.b == null) {
                 this.b = new ArrayList();
             }
             if (list != null) {
-                for (h77 h77Var : list) {
-                    g(h77Var);
+                for (g77 g77Var : list) {
+                    g(g77Var);
                 }
             }
         }

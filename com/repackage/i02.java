@@ -98,12 +98,12 @@ public final class i02 {
 
         /* renamed from: com.repackage.i02$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0497b implements Runnable {
+        public class RunnableC0503b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ f02 a;
 
-            public RunnableC0497b(b bVar, f02 f02Var) {
+            public RunnableC0503b(b bVar, f02 f02Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -461,7 +461,7 @@ public final class i02 {
         public final void r() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-                this.c.c.offer(new RunnableC0497b(this, this.c.m()));
+                this.c.c.offer(new RunnableC0503b(this, this.c.m()));
             }
         }
 

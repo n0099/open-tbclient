@@ -37,7 +37,7 @@ public class my5 {
         lb5 lb5Var = new lb5(309641);
         lb5Var.setResponsedClass(CandidateSearchSocketResMsg.class);
         MessageManager.getInstance().registerTask(lb5Var);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CANDIDATE_SEARCH, kk8.a(TbConfig.URL_CANDIDATE_SEARCH, 309641));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CANDIDATE_SEARCH, jk8.a(TbConfig.URL_CANDIDATE_SEARCH, 309641));
         tbHttpMessageTask.setResponsedClass(CandidateSearchHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }

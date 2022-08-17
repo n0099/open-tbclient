@@ -400,7 +400,7 @@ public class ft8 extends Thread {
         if (r0 == null) goto L42;
      */
     /* JADX WARN: Code restructure failed: missing block: B:60:0x010c, code lost:
-        r0.onGenFilterVideoRecordError(229, com.repackage.zm7.a(r1));
+        r0.onGenFilterVideoRecordError(229, com.repackage.ym7.a(r1));
      */
     /* JADX WARN: Removed duplicated region for block: B:144:0x020f A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:145:0x0210  */
@@ -487,7 +487,7 @@ public class ft8 extends Thread {
                                 exc2 = e3;
                                 bt8.c cVar2 = this.e;
                                 if (cVar2 != null) {
-                                    cVar2.onGenFilterVideoRecordError(225, zm7.a(exc2));
+                                    cVar2.onGenFilterVideoRecordError(225, ym7.a(exc2));
                                 }
                             }
                         }
@@ -501,7 +501,7 @@ public class ft8 extends Thread {
                                 }
                                 bt8.c cVar3 = this.e;
                                 if (cVar3 != null) {
-                                    cVar3.onGenFilterVideoRecordError(Constants.METHOD_MEDIA_NOTIFY, zm7.a(e4));
+                                    cVar3.onGenFilterVideoRecordError(Constants.METHOD_MEDIA_NOTIFY, ym7.a(e4));
                                 }
                             }
                         }
@@ -513,7 +513,7 @@ public class ft8 extends Thread {
                             }
                             bt8.c cVar4 = this.e;
                             if (cVar4 != null) {
-                                cVar4.onGenFilterVideoRecordError(227, zm7.a(e5));
+                                cVar4.onGenFilterVideoRecordError(227, ym7.a(e5));
                             }
                         }
                         if (mediaCodec != null) {
@@ -526,7 +526,7 @@ public class ft8 extends Thread {
                                 }
                                 bt8.c cVar5 = this.e;
                                 if (cVar5 != null) {
-                                    cVar5.onGenFilterVideoRecordError(228, zm7.a(e6));
+                                    cVar5.onGenFilterVideoRecordError(228, ym7.a(e6));
                                 }
                             }
                         }
@@ -546,7 +546,7 @@ public class ft8 extends Thread {
                         try {
                             e.printStackTrace();
                             if ((Build.VERSION.SDK_INT >= 21 || !(e instanceof MediaCodec.CodecException) || pi.isEmpty(e.getMessage()) || !e.getMessage().contains("0xfffffff3")) && this.e != null) {
-                                this.e.onGenFilterVideoRecordError(224, zm7.a(e));
+                                this.e.onGenFilterVideoRecordError(224, ym7.a(e));
                             }
                             if (mediaExtractor != null) {
                                 try {
@@ -555,7 +555,7 @@ public class ft8 extends Thread {
                                     exc2 = e9;
                                     bt8.c cVar6 = this.e;
                                     if (cVar6 != null) {
-                                        cVar6.onGenFilterVideoRecordError(225, zm7.a(exc2));
+                                        cVar6.onGenFilterVideoRecordError(225, ym7.a(exc2));
                                     }
                                 }
                             }
@@ -569,7 +569,7 @@ public class ft8 extends Thread {
                                     }
                                     bt8.c cVar7 = this.e;
                                     if (cVar7 != null) {
-                                        cVar7.onGenFilterVideoRecordError(Constants.METHOD_MEDIA_NOTIFY, zm7.a(e10));
+                                        cVar7.onGenFilterVideoRecordError(Constants.METHOD_MEDIA_NOTIFY, ym7.a(e10));
                                     }
                                 }
                             }
@@ -582,7 +582,7 @@ public class ft8 extends Thread {
                                     }
                                     bt8.c cVar8 = this.e;
                                     if (cVar8 != null) {
-                                        cVar8.onGenFilterVideoRecordError(227, zm7.a(e11));
+                                        cVar8.onGenFilterVideoRecordError(227, ym7.a(e11));
                                     }
                                 }
                             }
@@ -596,7 +596,7 @@ public class ft8 extends Thread {
                                     }
                                     bt8.c cVar9 = this.e;
                                     if (cVar9 != null) {
-                                        cVar9.onGenFilterVideoRecordError(228, zm7.a(e12));
+                                        cVar9.onGenFilterVideoRecordError(228, ym7.a(e12));
                                     }
                                 }
                             }
@@ -622,7 +622,7 @@ public class ft8 extends Thread {
                                     exc2 = e14;
                                     bt8.c cVar10 = this.e;
                                     if (cVar10 != null) {
-                                        cVar10.onGenFilterVideoRecordError(225, zm7.a(exc2));
+                                        cVar10.onGenFilterVideoRecordError(225, ym7.a(exc2));
                                     }
                                 }
                             }
@@ -636,7 +636,7 @@ public class ft8 extends Thread {
                                     }
                                     bt8.c cVar11 = this.e;
                                     if (cVar11 != null) {
-                                        cVar11.onGenFilterVideoRecordError(Constants.METHOD_MEDIA_NOTIFY, zm7.a(e15));
+                                        cVar11.onGenFilterVideoRecordError(Constants.METHOD_MEDIA_NOTIFY, ym7.a(e15));
                                     }
                                 }
                             }
@@ -649,7 +649,7 @@ public class ft8 extends Thread {
                                     }
                                     bt8.c cVar12 = this.e;
                                     if (cVar12 != null) {
-                                        cVar12.onGenFilterVideoRecordError(227, zm7.a(e16));
+                                        cVar12.onGenFilterVideoRecordError(227, ym7.a(e16));
                                     }
                                 }
                             }
@@ -662,7 +662,7 @@ public class ft8 extends Thread {
                                     }
                                     bt8.c cVar13 = this.e;
                                     if (cVar13 != null) {
-                                        cVar13.onGenFilterVideoRecordError(228, zm7.a(e17));
+                                        cVar13.onGenFilterVideoRecordError(228, ym7.a(e17));
                                     }
                                 }
                             }
@@ -672,7 +672,7 @@ public class ft8 extends Thread {
                                 } catch (Exception e18) {
                                     bt8.c cVar14 = this.e;
                                     if (cVar14 != null) {
-                                        cVar14.onGenFilterVideoRecordError(229, zm7.a(e18));
+                                        cVar14.onGenFilterVideoRecordError(229, ym7.a(e18));
                                     }
                                 }
                             }
@@ -723,7 +723,7 @@ public class ft8 extends Thread {
             e.printStackTrace();
             if (Build.VERSION.SDK_INT >= 21) {
             }
-            this.e.onGenFilterVideoRecordError(224, zm7.a(e));
+            this.e.onGenFilterVideoRecordError(224, ym7.a(e));
             if (mediaExtractor != null) {
             }
             if (mediaCodec2 != null) {

@@ -39,13 +39,13 @@ public class ze3 {
 
         /* renamed from: com.repackage.ze3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0636a implements Runnable {
+        public class RunnableC0642a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
             public final /* synthetic */ a b;
 
-            public RunnableC0636a(a aVar, Activity activity) {
+            public RunnableC0642a(a aVar, Activity activity) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,11 +124,11 @@ public class ze3 {
                 if (activity == null || activity.getIntent() == null) {
                     return;
                 }
-                RunnableC0636a runnableC0636a = new RunnableC0636a(this, activity);
+                RunnableC0642a runnableC0642a = new RunnableC0642a(this, activity);
                 if (gd3.a()) {
-                    runnableC0636a.run();
+                    runnableC0642a.run();
                 } else {
-                    td3.j(runnableC0636a, "moveTaskToFront");
+                    td3.j(runnableC0642a, "moveTaskToFront");
                 }
             }
         }

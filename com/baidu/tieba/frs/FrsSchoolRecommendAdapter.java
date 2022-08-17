@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ds6;
+import com.repackage.cs6;
 import com.repackage.hf6;
 import com.repackage.lg6;
 import com.repackage.ue6;
@@ -22,22 +22,22 @@ import java.util.ArrayList;
 public class FrsSchoolRecommendAdapter extends ue6<xq4, FrsSchoolRecommendViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ds6 l;
+    public cs6 l;
 
     /* loaded from: classes3.dex */
     public class FrsSchoolRecommendViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ds6 a;
+        public cs6 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public FrsSchoolRecommendViewHolder(FrsSchoolRecommendAdapter frsSchoolRecommendAdapter, ds6 ds6Var) {
-            super(ds6Var.h());
+        public FrsSchoolRecommendViewHolder(FrsSchoolRecommendAdapter frsSchoolRecommendAdapter, cs6 cs6Var) {
+            super(cs6Var.h());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {frsSchoolRecommendAdapter, ds6Var};
+                Object[] objArr = {frsSchoolRecommendAdapter, cs6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,7 +48,7 @@ public class FrsSchoolRecommendAdapter extends ue6<xq4, FrsSchoolRecommendViewHo
                     return;
                 }
             }
-            this.a = ds6Var;
+            this.a = cs6Var;
         }
     }
 
@@ -80,7 +80,7 @@ public class FrsSchoolRecommendAdapter extends ue6<xq4, FrsSchoolRecommendViewHo
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            this.l = new ds6(this.c, this.mPageId);
+            this.l = new cs6(this.c, this.mPageId);
             return new FrsSchoolRecommendViewHolder(this, this.l);
         }
         return (FrsSchoolRecommendViewHolder) invokeL.objValue;

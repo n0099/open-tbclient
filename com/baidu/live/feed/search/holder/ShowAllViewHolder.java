@@ -59,9 +59,9 @@ public class ShowAllViewHolder extends RecyclerView.ViewHolder {
             }
             String q = ab0.f().q();
             if ("day".equals(q)) {
-                this.e.setImageResource(R.drawable.obfuscated_res_0x7f080d09);
-            } else if ("night".equals(q)) {
                 this.e.setImageResource(R.drawable.obfuscated_res_0x7f080d0a);
+            } else if ("night".equals(q)) {
+                this.e.setImageResource(R.drawable.obfuscated_res_0x7f080d0b);
             }
         }
     }

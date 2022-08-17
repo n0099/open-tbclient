@@ -84,7 +84,7 @@ public class oj6 extends ue6<ir4, AutoVideoCardViewHolder<ThreadData>> implement
             } else if (view2.getId() == R.id.obfuscated_res_0x7f092450 || view2.getId() == R.id.obfuscated_res_0x7f092422) {
                 yp6.k().h(this.b.p, threadData, 2);
             } else if (view2.getId() == R.id.obfuscated_res_0x7f090d2e) {
-                ir6.a(this.b.p, threadData.getRecomReason());
+                hr6.a(this.b.p, threadData.getRecomReason());
             } else if (view2.getId() == R.id.obfuscated_res_0x7f09170f) {
                 yp6.k().h(this.b.p, threadData, 4);
                 this.b.d0(threadData);
@@ -93,19 +93,19 @@ public class oj6 extends ue6<ir4, AutoVideoCardViewHolder<ThreadData>> implement
             }
             if (view2.getId() == R.id.obfuscated_res_0x7f09170f) {
                 wp6.e(threadData, 4, this.b.mPageId, this.b.p, this.b.t());
-                ir6.g(threadData, this.b.b, 2);
+                hr6.g(threadData, this.b.b, 2);
             } else if (view2.getId() == R.id.obfuscated_res_0x7f0924ef) {
                 wp6.e(threadData, 4, this.b.mPageId, this.b.p, this.b.t());
-                ir6.g(threadData, this.b.b, 1);
+                hr6.g(threadData, this.b.b, 1);
             } else if (view2.getId() != R.id.obfuscated_res_0x7f092450 && view2.getId() != R.id.obfuscated_res_0x7f092422) {
                 if (view2.getId() == R.id.obfuscated_res_0x7f09213e) {
                     wp6.e(threadData, 5, this.b.mPageId, this.b.p, this.b.t());
-                    ir6.g(threadData, this.b.b, 1);
+                    hr6.g(threadData, this.b.b, 1);
                 } else if (view2 instanceof ThreadGodReplyLayout) {
                     wp6.e(threadData, 15, this.b.mPageId, this.b.p, this.b.t());
-                    ir6.g(threadData, this.b.b, 1);
+                    hr6.g(threadData, this.b.b, 1);
                 } else if (view2.getId() != R.id.obfuscated_res_0x7f091e43) {
-                    ir6.g(threadData, this.b.b, 1);
+                    hr6.g(threadData, this.b.b, 1);
                     wp6.e(threadData, 1, this.b.mPageId, this.b.p, this.b.t());
                 } else {
                     wp6.e(threadData, 14, this.b.mPageId, this.b.p, this.b.t());
@@ -230,34 +230,34 @@ public class oj6 extends ue6<ir4, AutoVideoCardViewHolder<ThreadData>> implement
         }
     }
 
-    public final z88 a0(ThreadData threadData) {
+    public final y88 a0(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData)) == null) {
             if (threadData == null) {
                 return null;
             }
-            z88 z88Var = new z88();
+            y88 y88Var = new y88();
             if (100 == t().tabType) {
-                z88Var.a = threadData.isFloor5Video() ? "3" : "25";
+                y88Var.a = threadData.isFloor5Video() ? "3" : "25";
             } else {
-                z88Var.a = threadData.isFloor5Video() ? "3" : "2";
+                y88Var.a = threadData.isFloor5Video() ? "3" : "2";
             }
             if (this.p.e == 501) {
-                z88Var.a = "frs_tab";
+                y88Var.a = "frs_tab";
             }
-            z88Var.d = this.p.c;
-            z88Var.c = threadData.getTid();
-            z88Var.f = threadData.mRecomSource;
-            z88Var.g = threadData.mRecomReason;
-            z88Var.h = threadData.mRecomWeight;
-            z88Var.l = threadData.mRecomAbTag;
+            y88Var.d = this.p.c;
+            y88Var.c = threadData.getTid();
+            y88Var.f = threadData.mRecomSource;
+            y88Var.g = threadData.mRecomReason;
+            y88Var.h = threadData.mRecomWeight;
+            y88Var.l = threadData.mRecomAbTag;
             if (threadData.getThreadVideoInfo() != null) {
-                z88Var.m = threadData.getThreadVideoInfo().video_md5;
+                y88Var.m = threadData.getThreadVideoInfo().video_md5;
             }
-            return z88Var;
+            return y88Var;
         }
-        return (z88) invokeL.objValue;
+        return (y88) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -39,12 +39,12 @@ public class ui3 {
 
         /* renamed from: com.repackage.ui3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0593a implements Runnable {
+        public class RunnableC0595a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0593a(a aVar) {
+            public RunnableC0595a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,7 +97,7 @@ public class ui3 {
             if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
                 ViewGroup viewGroup = this.a;
                 if (viewGroup != null) {
-                    viewGroup.post(new RunnableC0593a(this));
+                    viewGroup.post(new RunnableC0595a(this));
                 }
                 if (this.c.i(quickLoginInfo)) {
                     this.c.a.putParcelable("quick_login_info", quickLoginInfo);
@@ -225,7 +225,7 @@ public class ui3 {
                 viewGroup = null;
             } else {
                 viewGroup = (ViewGroup) w.findViewById(16908290);
-                h03.h(w, viewGroup, w.getResources().getString(R.string.obfuscated_res_0x7f0f12c5));
+                h03.h(w, viewGroup, w.getResources().getString(R.string.obfuscated_res_0x7f0f12c7));
             }
             hj3.b(new a(this, viewGroup, lh1Var));
         }

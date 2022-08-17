@@ -59,7 +59,7 @@ public class CommunityConventionView extends LinearLayout {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            WebPManager.setPureDrawable(this.mWarningImage, R.drawable.obfuscated_res_0x7f080a2c, R.color.CAM_X0107, null);
+            WebPManager.setPureDrawable(this.mWarningImage, R.drawable.obfuscated_res_0x7f080a2d, R.color.CAM_X0107, null);
             SkinManager.setViewTextColor(this.mConventionTitle, (int) R.color.CAM_X0107);
         }
     }

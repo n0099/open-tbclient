@@ -65,7 +65,7 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
                 return;
             }
             if (TextUtils.isEmpty(str)) {
-                str = getString(R.string.obfuscated_res_0x7f0f0c3a);
+                str = getString(R.string.obfuscated_res_0x7f0f0c3b);
             }
             F0().F(str);
         }

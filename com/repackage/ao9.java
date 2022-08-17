@@ -1,30 +1,55 @@
 package com.repackage;
 
+import android.content.Context;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.android.gms.common.zze;
+import com.google.android.gms.common.zzf;
+import com.google.android.gms.common.zzg;
+import com.google.android.gms.common.zzh;
+import com.google.android.gms.common.zzi;
+import com.google.android.gms.common.zzk;
 /* loaded from: classes5.dex */
 public final class ao9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final zzk a;
+    public static final zzk b;
+    public static Context c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755849914, "Lcom/repackage/ao9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755849914, "Lcom/repackage/ao9;");
+                return;
+            }
+        }
+        new zze(zzi.zze("0\u0082\u0005È0\u0082\u0003° \u0003\u0002\u0001\u0002\u0002\u0014\u0010\u008ae\bsù/\u008eQí"));
+        new zzf(zzi.zze("0\u0082\u0006\u00040\u0082\u0003ì \u0003\u0002\u0001\u0002\u0002\u0014\u0003£²\u00ad×árÊkì"));
+        a = new zzg(zzi.zze("0\u0082\u0004C0\u0082\u0003+ \u0003\u0002\u0001\u0002\u0002\t\u0000Âà\u0087FdJ0\u008d0"));
+        b = new zzh(zzi.zze("0\u0082\u0004¨0\u0082\u0003\u0090 \u0003\u0002\u0001\u0002\u0002\t\u0000Õ\u0085¸l}ÓNõ0"));
+    }
+
+    public static synchronized void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            int[] iArr = {1, 2, 3, 4, 5, 6};
-            for (int i2 = 0; i2 < 6; i2++) {
-                int i3 = iArr[i2];
-                int i4 = i3 - 1;
-                if (i3 == 0) {
-                    throw null;
-                }
-                if (i4 == i) {
-                    return i3;
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            synchronized (ao9.class) {
+                if (c != null) {
+                    Log.w("GoogleCertificates", "GoogleCertificates has been initialized already");
+                } else if (context != null) {
+                    c = context.getApplicationContext();
                 }
             }
-            return 1;
         }
-        return invokeI.intValue;
     }
 }

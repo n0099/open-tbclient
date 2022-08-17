@@ -53,7 +53,7 @@ public class ApkDownloadView extends FrameLayout implements km5 {
                 return;
             }
         }
-        getResources().getString(R.string.obfuscated_res_0x7f0f0900);
+        getResources().getString(R.string.obfuscated_res_0x7f0f0901);
         this.c = null;
         this.d = null;
         d(context);
@@ -276,7 +276,7 @@ public class ApkDownloadView extends FrameLayout implements km5 {
                 return;
             }
         }
-        getResources().getString(R.string.obfuscated_res_0x7f0f0900);
+        getResources().getString(R.string.obfuscated_res_0x7f0f0901);
         this.c = null;
         this.d = null;
         d(context);
@@ -300,7 +300,7 @@ public class ApkDownloadView extends FrameLayout implements km5 {
                 return;
             }
         }
-        getResources().getString(R.string.obfuscated_res_0x7f0f0900);
+        getResources().getString(R.string.obfuscated_res_0x7f0f0901);
         this.c = null;
         this.d = null;
         d(context);

@@ -28,7 +28,7 @@ public class dz1 implements az1.c {
     public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
     public final az1.b a;
-    public yr9 b;
+    public as9 b;
     public InspectorNativeClient c;
     public h82 d;
     public LinkedBlockingQueue<String> e;
@@ -97,7 +97,7 @@ public class dz1 implements az1.c {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends yr9 {
+    public class b extends as9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dz1 a;
@@ -143,12 +143,12 @@ public class dz1 implements az1.c {
 
         /* renamed from: com.repackage.dz1$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0466b implements Runnable {
+        public class RunnableC0468b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0466b(b bVar) {
+            public RunnableC0468b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -206,7 +206,7 @@ public class dz1 implements az1.c {
                     y03 K = y03.K();
                     SwanAppActivity w = K.w();
                     if (K.E() && w != null) {
-                        w.runOnUiThread(new RunnableC0466b(this));
+                        w.runOnUiThread(new RunnableC0468b(this));
                     }
                 }
             } catch (JSONException e) {
@@ -267,7 +267,7 @@ public class dz1 implements az1.c {
             }
         }
 
-        @Override // com.repackage.yr9
+        @Override // com.repackage.as9
         public void onClose(int i, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
@@ -275,7 +275,7 @@ public class dz1 implements az1.c {
             }
         }
 
-        @Override // com.repackage.yr9
+        @Override // com.repackage.as9
         public void onError(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
@@ -283,7 +283,7 @@ public class dz1 implements az1.c {
             }
         }
 
-        @Override // com.repackage.yr9
+        @Override // com.repackage.as9
         public void onMessage(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
@@ -292,10 +292,10 @@ public class dz1 implements az1.c {
             }
         }
 
-        @Override // com.repackage.yr9
-        public void onOpen(ss9 ss9Var) {
+        @Override // com.repackage.as9
+        public void onOpen(us9 us9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, ss9Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, us9Var) == null) {
                 zx1.i("V8InspectorClient", "V8 inspector opened");
                 v22 W = t72.U().W();
                 if (W instanceof z22) {
@@ -364,12 +364,12 @@ public class dz1 implements az1.c {
 
     @Override // com.repackage.az1.c
     public void stop() {
-        yr9 yr9Var;
+        as9 as9Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (yr9Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (as9Var = this.b) == null) {
             return;
         }
-        yr9Var.close();
+        as9Var.close();
         this.b = null;
     }
 }

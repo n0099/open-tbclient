@@ -31,7 +31,7 @@ public class t45 extends s25 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f08080c;
+        this.d = R.drawable.obfuscated_res_0x7f08080d;
         this.i = false;
         this.j = true;
         this.k = false;

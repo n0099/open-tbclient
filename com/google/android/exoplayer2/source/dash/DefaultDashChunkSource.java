@@ -40,7 +40,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class DefaultDashChunkSource implements DashChunkSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class DefaultDashChunkSource implements DashChunkSource {
     public final TrackSelection trackSelection;
     public final int trackType;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Factory implements DashChunkSource.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public class DefaultDashChunkSource implements DashChunkSource {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class RepresentationHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

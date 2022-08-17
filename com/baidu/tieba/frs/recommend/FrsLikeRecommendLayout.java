@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ix;
 import com.repackage.ms4;
 import com.repackage.on;
-import com.repackage.qj8;
+import com.repackage.pj8;
 import com.repackage.vo6;
 import com.repackage.wo6;
 import com.repackage.xo6;
@@ -239,15 +239,15 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements ix {
 
     public /* synthetic */ void h(View view2, on onVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, final int i, long j) {
         wo6 wo6Var;
-        if (onVar instanceof qj8) {
+        if (onVar instanceof pj8) {
             if (view2.getId() == R.id.obfuscated_res_0x7f090b68) {
                 wo6 wo6Var2 = this.g;
                 if (wo6Var2 != null) {
-                    wo6Var2.b((qj8) onVar);
+                    wo6Var2.b((pj8) onVar);
                 }
             } else if (view2.getId() != R.id.obfuscated_res_0x7f090a65 || (wo6Var = this.g) == null) {
             } else {
-                wo6Var.c((qj8) onVar, i, new yo6() { // from class: com.repackage.uo6
+                wo6Var.c((pj8) onVar, i, new yo6() { // from class: com.repackage.uo6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                 });

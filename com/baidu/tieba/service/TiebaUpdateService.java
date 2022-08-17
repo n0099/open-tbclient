@@ -351,7 +351,7 @@ public class TiebaUpdateService extends BdBaseService {
                 if (i != 0) {
                     if (i != 1) {
                         if (i == 3) {
-                            qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f14bf);
+                            qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f14c1);
                         }
                     } else if (this.a.mMainApkInstallEnable) {
                         if (this.a.mHasAs) {
@@ -547,7 +547,7 @@ public class TiebaUpdateService extends BdBaseService {
                     handler.sendMessageDelayed(handler.obtainMessage(1, null), 300L);
                     return;
                 }
-                qi.N(this, R.string.obfuscated_res_0x7f0f04fe);
+                qi.M(this, R.string.obfuscated_res_0x7f0f04fe);
                 if (GetFile != null) {
                     GetFile.delete();
                 }
@@ -732,7 +732,7 @@ public class TiebaUpdateService extends BdBaseService {
                 downloadOtherApk();
             } else {
                 if (this.mHasTieba) {
-                    string = getString(R.string.obfuscated_res_0x7f0f13e1);
+                    string = getString(R.string.obfuscated_res_0x7f0f13e3);
                 } else {
                     string = getString(R.string.obfuscated_res_0x7f0f02a4);
                 }

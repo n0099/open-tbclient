@@ -57,18 +57,18 @@ public class c {
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            com.fun.openid.sdk.a c0294a;
+            com.fun.openid.sdk.a c0296a;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 c cVar = this.a;
-                int i = a.AbstractBinderC0293a.a;
+                int i = a.AbstractBinderC0295a.a;
                 if (iBinder == null) {
-                    c0294a = null;
+                    c0296a = null;
                 } else {
                     IInterface queryLocalInterface = iBinder.queryLocalInterface(IOpenID.Stub.DESCRIPTOR);
-                    c0294a = (queryLocalInterface == null || !(queryLocalInterface instanceof com.fun.openid.sdk.a)) ? new a.AbstractBinderC0293a.C0294a(iBinder) : (com.fun.openid.sdk.a) queryLocalInterface;
+                    c0296a = (queryLocalInterface == null || !(queryLocalInterface instanceof com.fun.openid.sdk.a)) ? new a.AbstractBinderC0295a.C0296a(iBinder) : (com.fun.openid.sdk.a) queryLocalInterface;
                 }
-                cVar.a = c0294a;
+                cVar.a = c0296a;
                 synchronized (this.a.d) {
                     this.a.d.notify();
                 }
@@ -144,8 +144,8 @@ public class c {
             com.fun.openid.sdk.a aVar = this.a;
             String str3 = this.b;
             String str4 = this.c;
-            a.AbstractBinderC0293a.C0294a c0294a = (a.AbstractBinderC0293a.C0294a) aVar;
-            c0294a.getClass();
+            a.AbstractBinderC0295a.C0296a c0296a = (a.AbstractBinderC0295a.C0296a) aVar;
+            c0296a.getClass();
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
@@ -153,7 +153,7 @@ public class c {
                 obtain.writeString(str3);
                 obtain.writeString(str4);
                 obtain.writeString(str);
-                c0294a.a.transact(1, obtain, obtain2, 0);
+                c0296a.a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 String readString = obtain2.readString();
                 obtain2.recycle();

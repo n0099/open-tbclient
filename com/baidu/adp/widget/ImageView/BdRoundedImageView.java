@@ -395,7 +395,7 @@ public class BdRoundedImageView extends AppCompatImageView {
         this.c = ColorStateList.valueOf(0);
         this.d = false;
         this.e = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843037, R.attr.obfuscated_res_0x7f0400ee, R.attr.obfuscated_res_0x7f0400ef, R.attr.obfuscated_res_0x7f0401ab, R.attr.obfuscated_res_0x7f040356, R.attr.obfuscated_res_0x7f0405d7}, i2, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843037, R.attr.obfuscated_res_0x7f0400ee, R.attr.obfuscated_res_0x7f0400ef, R.attr.obfuscated_res_0x7f0401ab, R.attr.obfuscated_res_0x7f04035b, R.attr.obfuscated_res_0x7f0405d8}, i2, 0);
         int i5 = obtainStyledAttributes.getInt(0, -1);
         if (i5 >= 0) {
             setScaleType(i[i5]);

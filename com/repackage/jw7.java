@@ -1,105 +1,40 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.editortools.pb.PbEditorData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class jw7 extends j25 {
+public class jw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PbEditorData.ThreadData a;
-    public i25 b;
+    public final int a;
+    public BdTypeListView b;
     public boolean c;
-    public boolean d;
+    public int d;
+    public int e;
+    public a f;
 
     /* loaded from: classes6.dex */
-    public class a implements i25 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iw7 a;
-        public final /* synthetic */ jw7 b;
-
-        public a(jw7 jw7Var, iw7 iw7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jw7Var, iw7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = jw7Var;
-            this.a = iw7Var;
-        }
-
-        @Override // com.repackage.i25
-        public void A(h25 h25Var) {
-            iw7 iw7Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, h25Var) == null) || (iw7Var = this.a) == null || iw7Var.a() == null || h25Var == null) {
-                return;
-            }
-            if (this.b.b != null) {
-                this.b.b.A(h25Var);
-            }
-            int i = h25Var.a;
-            if (i == 18) {
-                if (h25Var.c != null) {
-                    this.a.l();
-                    return;
-                }
-                int f = this.a.f();
-                if (f == 0) {
-                    this.a.k();
-                } else if (f != 2) {
-                } else {
-                    this.a.h();
-                }
-            } else if (i == 20) {
-                zl8.a().f(true);
-                MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
-            } else if (i == 32) {
-                this.a.a().A(new h25(1, 11, null));
-            } else if (i == 36) {
-                if (this.b.h(this.a.getContext().getPageContext(), 11040)) {
-                    this.a.m();
-                }
-            } else if (i == 43 && !ie5.c(this.a.getContext().getPageContext(), true, false)) {
-                HotSelectActivityConfig hotSelectActivityConfig = new HotSelectActivityConfig(this.a.getContext().getActivity(), 25004, HotSelectActivityConfig.FROM_PB);
-                if (this.b.a != null) {
-                    hotSelectActivityConfig.setForumExtra(og.g(this.b.a.getForumId(), 0L), this.b.a.getFirstDir(), this.b.a.getSecondDir());
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotSelectActivityConfig));
-            }
-        }
+    public interface a {
+        void a();
     }
 
-    public jw7() {
+    public jw7(BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -109,155 +44,65 @@ public class jw7 extends j25 {
                 return;
             }
         }
-        this.c = false;
-        this.d = false;
+        this.a = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
+        this.d = -1;
+        this.e = -1;
+        this.b = bdTypeListView;
     }
 
-    @Override // com.repackage.j25
-    public l25 b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EditorTools editorTools = new EditorTools(context);
-            editorTools.setIsFromPb(true);
-            editorTools.setBarMaxLauCount(5);
-            if (this.c) {
-                editorTools.setBarLauncherType(2);
-            } else if (this.d) {
-                editorTools.setBarLauncherType(5);
-            } else {
-                editorTools.setBarLauncherType(3);
-            }
-            editorTools.setBackgroundColorId(0);
-            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
-            editorTools.D(true);
-            editorTools.setMoreButtonAtEnd(true);
-            editorTools.C(true);
-            return new iw7(editorTools);
-        }
-        return (l25) invokeL.objValue;
-    }
-
-    @Override // com.repackage.j25
-    public void c(l25 l25Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l25Var) == null) && (l25Var instanceof iw7)) {
-            EditorTools a2 = l25Var.a();
-            a aVar = new a(this, (iw7) l25Var);
-            a2.setActionListener(16, aVar);
-            a2.setActionListener(14, aVar);
-            a2.setActionListener(15, aVar);
-            a2.setActionListener(24, aVar);
-            a2.setActionListener(3, aVar);
-            a2.setActionListener(18, aVar);
-            a2.setActionListener(20, aVar);
-            a2.setActionListener(10, aVar);
-            a2.setActionListener(11, aVar);
-            a2.setActionListener(36, aVar);
-            a2.setActionListener(32, aVar);
-            a2.setActionListener(43, aVar);
-            a2.setActionListener(45, aVar);
-        }
-    }
-
-    @Override // com.repackage.j25
-    public void d(l25 l25Var) {
-        CustomResponsedMessage runTask;
-        s25 s25Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l25Var) == null) {
-            EditorTools a2 = l25Var.a();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(5);
-            if (!this.c) {
-                arrayList.add(10);
-                a2.d(new d35(a2.getContext(), 1));
-            }
-            if (!this.d) {
-                arrayList.add(6);
-                arrayList.add(9);
-                PbEditorData.ThreadData threadData = this.a;
-                String forumName = threadData != null ? threadData.getForumName() : "";
-                if (um8.a() && ak8.a(forumName, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), s25.class)) != null && (s25Var = (s25) runTask.getData()) != null) {
-                    s25Var.l = 2;
-                    a2.d(s25Var);
-                }
-                a2.d(new u25(a2.getContext(), 4));
-                if (!this.c) {
-                    CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, a2.getContext()), s25.class);
-                    if (runTask2 != null && runTask2.getData() != null) {
-                        s25 s25Var2 = (s25) runTask2.getData();
-                        s25Var2.l = 6;
-                        a2.d(s25Var2);
-                    }
-                    CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, a2.getContext()), s25.class);
-                    if (runTask3 != null && runTask3.getData() != null) {
-                        s25 s25Var3 = (s25) runTask3.getData();
-                        s25Var3.l = 7;
-                        a2.d(s25Var3);
-                    }
-                }
-                if (!"PbChosenActivity".equals(a2.getContext().getClass().getSimpleName()) && !this.c) {
-                    a2.d(new b35(a2.getContext(), 5));
-                }
-            }
-            if (!this.c && !this.d) {
-                arrayList.add(8);
-            }
-            a2.h(arrayList);
-            s25 n = a2.n(5);
-            if (n != null) {
-                n.l = 3;
-                if (this.c || this.d) {
-                    n.e(false);
-                }
-            }
-            a2.f();
-            if (this.c || this.d) {
-                a2.A(new h25(35, 5, Boolean.FALSE));
-            }
-        }
-    }
-
-    public final boolean h(TbPageContext<?> tbPageContext, int i) {
+    public final int a(List<on> list, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, tbPageContext, i)) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null || currentAccount.length() <= 0) {
-                TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
-                return false;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, list, i)) == null) {
+            if (!ListUtils.isEmpty(list) && i != -1) {
+                int i2 = 0;
+                for (int i3 = 0; i3 < list.size(); i3++) {
+                    if ((list.get(i3) instanceof PostData) && ((PostData) list.get(i3)).getType() == PostData.K0 && (i2 = i2 + 1) == i) {
+                        return i3;
+                    }
+                }
             }
-            return true;
+            return -1;
         }
-        return invokeLI.booleanValue;
+        return invokeLI.intValue;
     }
 
-    public void i(boolean z) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e = a(this.b.getData(), is7.b().c());
         }
     }
 
-    public void k(i25 i25Var) {
+    public void c(int i, int i2) {
+        View childAt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, i25Var) == null) {
-            this.b = i25Var;
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) || this.b == null || this.c || !is7.b().e() || is7.b().c() == -1 || this.e < 0 || (childAt = this.b.getChildAt(i2 - 1)) == null) {
+            return;
+        }
+        if (this.d <= 0) {
+            this.d = this.b.getHeight() - this.a;
+        }
+        if (this.d <= 0) {
+            return;
+        }
+        int headerViewsCount = this.e + this.b.getHeaderViewsCount();
+        int i3 = (i + i2) - 1;
+        if (i3 > headerViewsCount) {
+            if (i3 - 1 != headerViewsCount || childAt.getTop() <= this.d) {
+                a aVar = this.f;
+                if (aVar != null) {
+                    aVar.a();
+                }
+                this.c = true;
+            }
         }
     }
 
-    public void l(PbEditorData.ThreadData threadData) {
+    public void d(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, threadData) == null) {
-            this.a = threadData;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.f = aVar;
         }
     }
 }

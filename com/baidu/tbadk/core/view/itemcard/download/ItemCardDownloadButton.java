@@ -300,7 +300,7 @@ public class ItemCardDownloadButton extends View {
                     ru4.k().u("key_download_manager_first_toast", false);
                     ItemCardHelper.g(1, simpleName, this.a.w.itemId);
                     ScreenTopToast screenTopToast = new ScreenTopToast(this.a.getContext());
-                    screenTopToast.m(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0990));
+                    screenTopToast.m(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0991));
                     screenTopToast.k(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f04eb));
                     screenTopToast.j(new a(this, simpleName));
                     screenTopToast.n((ViewGroup) ((Activity) this.a.getContext()).findViewById(16908290));
@@ -832,19 +832,19 @@ public class ItemCardDownloadButton extends View {
             if (i == 0) {
                 this.b = TextUtils.isEmpty(this.z) ? this.w.buttonName : this.z;
             } else if (i == 2) {
-                this.b = getResources().getString(R.string.obfuscated_res_0x7f0f098d);
+                this.b = getResources().getString(R.string.obfuscated_res_0x7f0f098e);
             } else if (i == 3) {
-                this.b = getResources().getString(R.string.obfuscated_res_0x7f0f0986);
+                this.b = getResources().getString(R.string.obfuscated_res_0x7f0f0987);
             } else if (i == 4) {
-                this.b = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f098b), Integer.valueOf(this.c));
+                this.b = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f098c), Integer.valueOf(this.c));
             } else if (i != 5) {
                 if (i != 6) {
                     this.b = this.w.buttonName;
                 } else {
-                    this.b = getResources().getString(R.string.obfuscated_res_0x7f0f0988);
+                    this.b = getResources().getString(R.string.obfuscated_res_0x7f0f0989);
                 }
             } else if (!this.u) {
-                this.b = getResources().getString(R.string.obfuscated_res_0x7f0f0989);
+                this.b = getResources().getString(R.string.obfuscated_res_0x7f0f098a);
             } else {
                 this.b = getResources().getString(R.string.obfuscated_res_0x7f0f07cf);
             }

@@ -18,7 +18,7 @@ import com.google.android.exoplayer2.upstream.ParsingLoadable;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class SsDownloader extends SegmentDownloader<SsManifest, TrackKey> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

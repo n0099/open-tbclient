@@ -35,7 +35,7 @@ public class wd5 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements dv9<String> {
+    public static class a implements fv9<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -59,7 +59,7 @@ public class wd5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.dv9
+        @Override // com.repackage.fv9
         public void call(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -81,7 +81,7 @@ public class wd5 {
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements dv9<String> {
+    public static class b implements fv9<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -105,7 +105,7 @@ public class wd5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.dv9
+        @Override // com.repackage.fv9
         public void call(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -220,7 +220,7 @@ public class wd5 {
     public static void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            pu9.f("").k(Schedulers.io()).w(new a(str));
+            ru9.f("").k(Schedulers.io()).w(new a(str));
         }
     }
 
@@ -336,7 +336,7 @@ public class wd5 {
     public static void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65553, null, z) == null) {
-            pu9.f("").k(Schedulers.io()).w(new b(z));
+            ru9.f("").k(Schedulers.io()).w(new b(z));
         }
     }
 

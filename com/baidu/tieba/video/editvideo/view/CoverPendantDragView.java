@@ -267,7 +267,7 @@ public class CoverPendantDragView extends FrameLayout {
                     String E = this.a.E(this.a.d.getPaint(), obj);
                     if (!E.equals(obj)) {
                         editable.delete(E.length(), obj.length());
-                        qi.N(this.a.getContext(), R.string.obfuscated_res_0x7f0f0466);
+                        qi.M(this.a.getContext(), R.string.obfuscated_res_0x7f0f0466);
                     }
                 } else if (if5.c(obj) < 20) {
                     if (obj.length() > this.a.d.getText().length()) {
@@ -279,7 +279,7 @@ public class CoverPendantDragView extends FrameLayout {
                     String m = if5.m(obj, 20);
                     editable.delete(m.length(), obj.length());
                     this.a.M(m);
-                    qi.N(this.a.getContext(), R.string.obfuscated_res_0x7f0f0465);
+                    qi.M(this.a.getContext(), R.string.obfuscated_res_0x7f0f0465);
                 }
                 this.a.d.setText(editable.toString());
             }
@@ -378,7 +378,7 @@ public class CoverPendantDragView extends FrameLayout {
                 if (weakReference2 == null || weakReference2.get() == null) {
                     return;
                 }
-                qi.O(this.b.get().getContext(), str);
+                qi.N(this.b.get().getContext(), str);
             }
         }
 

@@ -14,17 +14,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gf7;
+import com.repackage.ff7;
+import com.repackage.h88;
 import com.repackage.i88;
-import com.repackage.j88;
-import com.repackage.of7;
+import com.repackage.nf7;
 /* loaded from: classes3.dex */
-public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx> implements j88, i88 {
+public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx> implements i88, h88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup m;
-    public of7 n;
-    public gf7 o;
+    public nf7 n;
+    public ff7 o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ImmersiveVideoCardViewEx(TbPageContext tbPageContext) {
@@ -47,12 +47,12 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
     }
 
     public void C() {
-        gf7 gf7Var;
+        ff7 ff7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gf7Var = this.o) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ff7Var = this.o) == null) {
             return;
         }
-        gf7Var.n();
+        ff7Var.n();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -82,79 +82,79 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         C();
     }
 
-    @Override // com.repackage.i88
+    @Override // com.repackage.h88
     public void a() {
-        gf7 gf7Var;
+        ff7 ff7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (gf7Var = this.o) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (ff7Var = this.o) == null) {
             return;
         }
-        gf7Var.j();
+        ff7Var.j();
     }
 
-    @Override // com.repackage.i88
+    @Override // com.repackage.h88
     public void b() {
-        gf7 gf7Var;
+        ff7 ff7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (gf7Var = this.o) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (ff7Var = this.o) == null) {
             return;
         }
-        gf7Var.k();
+        ff7Var.k();
+    }
+
+    @Override // com.repackage.h88
+    public void e() {
+        ff7 ff7Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (ff7Var = this.o) == null) {
+            return;
+        }
+        ff7Var.m();
     }
 
     @Override // com.repackage.i88
-    public void e() {
-        gf7 gf7Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (gf7Var = this.o) == null) {
-            return;
-        }
-        gf7Var.m();
-    }
-
-    @Override // com.repackage.j88
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            of7 of7Var = this.n;
-            if (of7Var != null) {
-                return of7Var.k();
+            nf7 nf7Var = this.n;
+            if (nf7Var != null) {
+                return nf7Var.k();
             }
             return 0;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            of7 of7Var = this.n;
-            if (of7Var != null) {
-                return of7Var.m();
+            nf7 nf7Var = this.n;
+            if (nf7Var != null) {
+                return nf7Var.m();
             }
             return null;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            of7 of7Var = this.n;
-            if (of7Var != null) {
-                return of7Var.n();
+            nf7 nf7Var = this.n;
+            if (nf7Var != null) {
+                return nf7Var.n();
             }
             return null;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -164,24 +164,24 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            of7 of7Var = this.n;
-            return of7Var != null && of7Var.p();
+            nf7 nf7Var = this.n;
+            return nf7Var != null && nf7Var.p();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            of7 of7Var = this.n;
-            return of7Var != null && of7Var.q();
+            nf7 nf7Var = this.n;
+            return nf7Var != null && nf7Var.q();
         }
         return invokeV.booleanValue;
     }
@@ -193,32 +193,32 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01a0, (ViewGroup) null);
             this.m = viewGroup;
-            this.n = new of7(this.i, viewGroup.findViewById(R.id.obfuscated_res_0x7f09128f));
-            gf7 gf7Var = new gf7(this.i, this.m);
-            this.o = gf7Var;
-            this.n.s(gf7Var);
+            this.n = new nf7(this.i, viewGroup.findViewById(R.id.obfuscated_res_0x7f09128f));
+            ff7 ff7Var = new ff7(this.i, this.m);
+            this.o = ff7Var;
+            this.n.s(ff7Var);
             return this.m;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public void startPlay() {
-        of7 of7Var;
+        nf7 nf7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (of7Var = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (nf7Var = this.n) == null) {
             return;
         }
-        of7Var.v();
+        nf7Var.v();
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public void stopPlay() {
-        of7 of7Var;
+        nf7 nf7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (of7Var = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (nf7Var = this.n) == null) {
             return;
         }
-        of7Var.w();
+        nf7Var.w();
     }
 }

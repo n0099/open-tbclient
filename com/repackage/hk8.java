@@ -9,8 +9,15 @@ import java.util.List;
 public class hk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<ik8> b;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public ik8 f;
+    public String g;
+    public int h;
+    public List<String> i;
 
     public hk8() {
         Interceptable interceptable = $ic;

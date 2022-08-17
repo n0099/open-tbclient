@@ -22,12 +22,12 @@ public class ho8 {
 
         /* renamed from: com.repackage.ho8$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0490a implements Runnable {
+        public class RunnableC0498a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0490a(a aVar) {
+            public RunnableC0498a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,7 +76,7 @@ public class ho8 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                rg.a().post(new RunnableC0490a(this));
+                rg.a().post(new RunnableC0498a(this));
             }
         }
     }

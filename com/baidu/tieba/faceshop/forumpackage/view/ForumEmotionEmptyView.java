@@ -58,7 +58,7 @@ public class ForumEmotionEmptyView extends RelativeLayout {
             this.e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090a43);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090a3e);
             this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a47);
-            NoDataView b = NoDataViewFactory.b(this.a.getPageActivity(), this.c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, 0), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0954), null, true);
+            NoDataView b = NoDataViewFactory.b(this.a.getPageActivity(), this.c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, 0), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0955), null, true);
             this.b = b;
             b.setVisibility(0);
         }

@@ -55,8 +55,8 @@ public class qo extends s25 {
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f133a);
-        this.d = R.drawable.obfuscated_res_0x7f0809b5;
+        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f133c);
+        this.d = R.drawable.obfuscated_res_0x7f0809b6;
         this.f = R.color.CAM_X0105;
         this.i = false;
         this.j = true;

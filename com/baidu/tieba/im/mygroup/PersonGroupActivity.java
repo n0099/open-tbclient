@@ -52,7 +52,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a55;
 import com.repackage.cb;
-import com.repackage.m87;
+import com.repackage.l87;
 import com.repackage.og;
 import com.repackage.oi;
 import com.repackage.pi;
@@ -122,14 +122,14 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         public void onClick(ur4 ur4Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, ur4Var) == null) {
-                long t = m87.o().t(String.valueOf(this.a), 1);
+                long t = l87.o().t(String.valueOf(this.a), 1);
                 MessageUtils.createGroupChatMessage(t, 9, this.b.toChatMessageContent(), this.a);
                 MessageUtils.createGroupChatMessage(t + 1, 1, this.c.getLeaveMsg(), this.a);
                 ur4Var.dismiss();
                 this.d.setResult(-1);
                 if (!oi.z()) {
                     PersonGroupActivity personGroupActivity = this.d;
-                    personGroupActivity.showToast(personGroupActivity.getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0c75));
+                    personGroupActivity.showToast(personGroupActivity.getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0c76));
                 }
                 this.d.finish();
             }
@@ -209,15 +209,15 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
                         xn4.c(3, PersonGroupActivity.v[this.a.c]);
                         SkinManager.setNavbarIconSrc(this.a.j, PersonGroupActivity.t[this.a.c], PersonGroupActivity.s[this.a.c]);
                         PersonGroupActivity personGroupActivity = this.a;
-                        personGroupActivity.showToastWithIcon(personGroupActivity.getPageContext().getContext().getString(PersonGroupActivity.u[this.a.c]), R.drawable.obfuscated_res_0x7f080aab);
+                        personGroupActivity.showToastWithIcon(personGroupActivity.getPageContext().getContext().getString(PersonGroupActivity.u[this.a.c]), R.drawable.obfuscated_res_0x7f080aac);
                         this.a.j.setContentDescription(this.a.getPageContext().getString(PersonGroupActivity.u[xn4.a(3) % 3]));
                         return;
                     }
-                    this.a.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3c) : httpResponsedMessage.getErrorString());
+                    this.a.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3d) : httpResponsedMessage.getErrorString());
                     return;
                 }
                 PersonGroupActivity personGroupActivity2 = this.a;
-                personGroupActivity2.showToast(personGroupActivity2.getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0c3c));
+                personGroupActivity2.showToast(personGroupActivity2.getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0c3d));
             }
         }
     }
@@ -263,7 +263,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
                     throw th;
                 }
                 if (responseUserPermissionMessage.getError() > 0) {
-                    this.a.showToast(StringUtils.isNull(responseUserPermissionMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3c) : responseUserPermissionMessage.getErrorString());
+                    this.a.showToast(StringUtils.isNull(responseUserPermissionMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3d) : responseUserPermissionMessage.getErrorString());
                     this.a.hideProgressBar();
                     return;
                 }
@@ -397,8 +397,8 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
             }
         }
         s = new int[]{R.drawable.icon_pop_key_all_bg, R.drawable.icon_pop_key_f_bg, R.drawable.icon_pop_key_d_bg};
-        t = new int[]{R.drawable.obfuscated_res_0x7f0808e1, R.drawable.obfuscated_res_0x7f0808e5, R.drawable.obfuscated_res_0x7f0808e3};
-        u = new int[]{R.string.obfuscated_res_0x7f0f08ec, R.string.obfuscated_res_0x7f0f08ed, R.string.obfuscated_res_0x7f0f08ee};
+        t = new int[]{R.drawable.obfuscated_res_0x7f0808e2, R.drawable.obfuscated_res_0x7f0808e6, R.drawable.obfuscated_res_0x7f0808e4};
+        u = new int[]{R.string.obfuscated_res_0x7f0f08ed, R.string.obfuscated_res_0x7f0f08ee, R.string.obfuscated_res_0x7f0f08ef};
         v = new int[]{1, 2, 3};
     }
 
@@ -467,7 +467,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091906);
             this.h = navigationBar;
-            navigationBar.setCenterTextTitle(String.format(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0e46), this.e));
+            navigationBar.setCenterTextTitle(String.format(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0e47), this.e));
             this.h.showBottomLine();
             View view2 = (View) this.h.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).getParent();
             this.i = view2;
@@ -581,7 +581,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
             Game2GroupShareDialogView game2GroupShareDialogView = new Game2GroupShareDialogView(getPageContext().getContext());
             game2GroupShareDialogView.setData(shareFromGameCenterMsgData);
             ur4Var.setContentView(game2GroupShareDialogView);
-            ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1125, new a(this, j, shareFromGameCenterMsgData, game2GroupShareDialogView));
+            ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1126, new a(this, j, shareFromGameCenterMsgData, game2GroupShareDialogView));
             ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new b(this, game2GroupShareDialogView));
             ur4Var.create(getPageContext()).show();
         }
@@ -594,15 +594,15 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
         FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.o.j(0).b;
         if (i <= 0) {
-            fragmentTabIndicator.setText(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0e4a));
+            fragmentTabIndicator.setText(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0e4b));
         } else {
-            fragmentTabIndicator.setText(String.format(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0e4b), Integer.valueOf(i)));
+            fragmentTabIndicator.setText(String.format(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0e4c), Integer.valueOf(i)));
         }
         FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.o.j(1).b;
         if (i2 <= 0) {
             fragmentTabIndicator2.setText(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f041b));
         } else {
-            fragmentTabIndicator2.setText(String.format(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0e47), Integer.valueOf(i2)));
+            fragmentTabIndicator2.setText(String.format(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0e48), Integer.valueOf(i2)));
         }
     }
 
@@ -615,7 +615,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         Fragment item = this.p.getItem(0);
         int b2 = this.p.b(0);
         if (item != null) {
-            N0(item, b2, getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0e4a));
+            N0(item, b2, getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0e4b));
         }
         if (c2 == 2) {
             Fragment item2 = this.p.getItem(1);
@@ -632,7 +632,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             this.h.onChangeSkinType(getPageContext(), i);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f0809f8, R.color.CAM_X0105, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f0809f9, R.color.CAM_X0105, null);
             this.o.s(i);
             SkinManager.setBackgroundResource(this.o, R.color.common_color_10173);
             if (this.p != null) {
@@ -674,7 +674,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
             }
             this.d = str;
             if (TextUtils.equals(str, TbadkCoreApplication.getCurrentAccount())) {
-                this.e = getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0aa9);
+                this.e = getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0aaa);
                 this.g = true;
             } else {
                 this.g = false;
@@ -682,9 +682,9 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
                 if (i == 1) {
                     this.e = getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f083d);
                 } else if (i != 2) {
-                    this.e = getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f1342);
+                    this.e = getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f1344);
                 } else {
-                    this.e = getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f1170);
+                    this.e = getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f1172);
                 }
             }
             if (this.q == null) {

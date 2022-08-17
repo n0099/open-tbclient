@@ -17,7 +17,7 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class zu3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean e;
@@ -27,7 +27,7 @@ public class zu3 {
     public String c;
     public xu3 d;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

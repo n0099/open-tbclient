@@ -58,10 +58,10 @@ public class uv4 implements View.OnClickListener {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof an8)) {
-                an8 an8Var = (an8) customResponsedMessage.getData();
-                String l = Long.toString(an8Var.a);
-                if (this.a.d != null && l.equals(this.a.d.d()) && an8Var.b) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof zm8)) {
+                zm8 zm8Var = (zm8) customResponsedMessage.getData();
+                String l = Long.toString(zm8Var.a);
+                if (this.a.d != null && l.equals(this.a.d.d()) && zm8Var.b) {
                     this.a.d.setIsLike(true);
                     this.a.d.e(true);
                     this.a.c.c(true);
@@ -101,10 +101,10 @@ public class uv4 implements View.OnClickListener {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof an8)) {
-                an8 an8Var = (an8) customResponsedMessage.getData();
-                String l = Long.toString(an8Var.a);
-                if (this.a.d != null && l.equals(this.a.d.d()) && an8Var.b) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof zm8)) {
+                zm8 zm8Var = (zm8) customResponsedMessage.getData();
+                String l = Long.toString(zm8Var.a);
+                if (this.a.d != null && l.equals(this.a.d.d()) && zm8Var.b) {
                     this.a.d.setIsLike(false);
                     this.a.d.e(false);
                     this.a.c.c(false);
@@ -140,7 +140,7 @@ public class uv4 implements View.OnClickListener {
         @Override // com.repackage.c9
         public void c(Object obj) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof ck8) && ((ck8) obj).d() != 0) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof bk8) && ((bk8) obj).d() != 0) {
                 if (AntiHelper.m(this.a.b.getErrorCode(), this.a.b.getErrorString())) {
                     AntiHelper.u(this.a.a.getPageActivity(), this.a.b.getErrorString());
                 } else {
@@ -211,7 +211,7 @@ public class uv4 implements View.OnClickListener {
                 tv4Var.a(view2);
             }
             if (!oi.z()) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                 return;
             }
             if (ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {

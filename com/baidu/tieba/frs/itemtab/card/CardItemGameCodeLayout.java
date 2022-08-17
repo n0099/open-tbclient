@@ -172,7 +172,7 @@ public class CardItemGameCodeLayout extends RelativeLayout implements ix {
         if (this.f != 0) {
             this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02c3), Integer.valueOf(this.f)));
         } else {
-            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f149a));
+            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f149c));
         }
     }
 

@@ -397,7 +397,7 @@ public class ey2 extends pe4 implements View.OnClickListener, uo2<MediaModel> {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 this.b.F0 = z;
                 if (z) {
-                    this.b.D0.setImageResource(R.drawable.obfuscated_res_0x7f081182);
+                    this.b.D0.setImageResource(R.drawable.obfuscated_res_0x7f081183);
                     this.a.post(new a(this));
                 }
             }
@@ -434,9 +434,9 @@ public class ey2 extends pe4 implements View.OnClickListener, uo2<MediaModel> {
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) {
                 this.a.E0 = z;
                 if (z) {
-                    this.a.D0.setImageResource(R.drawable.obfuscated_res_0x7f081184);
+                    this.a.D0.setImageResource(R.drawable.obfuscated_res_0x7f081185);
                 } else {
-                    this.a.D0.setImageResource(R.drawable.obfuscated_res_0x7f081182);
+                    this.a.D0.setImageResource(R.drawable.obfuscated_res_0x7f081183);
                 }
                 xy2.onEvent("emoji_clk");
             }
@@ -647,7 +647,7 @@ public class ey2 extends pe4 implements View.OnClickListener, uo2<MediaModel> {
             return;
         }
         if (!SwanAppNetworkUtils.i(getContext())) {
-            az2.h(getContext(), R.string.obfuscated_res_0x7f0f12df);
+            az2.h(getContext(), R.string.obfuscated_res_0x7f0f12e1);
             return;
         }
         try {
@@ -724,7 +724,7 @@ public class ey2 extends pe4 implements View.OnClickListener, uo2<MediaModel> {
             layoutParams.rightMargin = qe3.g(9.0f);
             this.t0.addView(this.w0, layoutParams);
             FrameLayout frameLayout = new FrameLayout(this.r0);
-            frameLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081186);
+            frameLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081187);
             frameLayout.setPadding(1, 1, 1, 1);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -1, 17);
             SimpleDraweeView simpleDraweeView = new SimpleDraweeView(this.r0);
@@ -744,7 +744,7 @@ public class ey2 extends pe4 implements View.OnClickListener, uo2<MediaModel> {
             FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(qe3.g(20.0f), qe3.g(20.0f));
             layoutParams3.gravity = 8388613;
             this.w0.addView(this.y0, layoutParams3);
-            this.y0.setImageResource(R.drawable.obfuscated_res_0x7f081187);
+            this.y0.setImageResource(R.drawable.obfuscated_res_0x7f081188);
             this.x0.setOnClickListener(this);
             this.y0.setOnTouchListener(new pe3());
             this.y0.setOnClickListener(this);
@@ -824,16 +824,16 @@ public class ey2 extends pe4 implements View.OnClickListener, uo2<MediaModel> {
                     return;
                 }
                 this.u0.setVisibility(0);
-                this.u0.setText(String.format(this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f12ec), Integer.valueOf(200 - a2)));
+                this.u0.setText(String.format(this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f12ee), Integer.valueOf(200 - a2)));
                 this.u0.setTextColor(ContextCompat.getColor(this.r0, R.color.obfuscated_res_0x7f060a95));
             } else {
                 this.v0.setEnabled(false);
                 this.u0.setVisibility(0);
                 this.u0.setTextColor(ContextCompat.getColor(this.r0, R.color.obfuscated_res_0x7f060a96));
                 if (a2 < 1200) {
-                    this.u0.setText(String.format(this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f12eb), Integer.valueOf(a2 - 200)));
+                    this.u0.setText(String.format(this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f12ed), Integer.valueOf(a2 - 200)));
                 } else {
-                    this.u0.setText(this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f12ea));
+                    this.u0.setText(this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f12ec));
                 }
             }
         }
@@ -851,8 +851,8 @@ public class ey2 extends pe4 implements View.OnClickListener, uo2<MediaModel> {
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             d03.a aVar = new d03.a(getContext());
             aVar.m(false);
-            aVar.U(R.string.obfuscated_res_0x7f0f12dc);
-            aVar.v(R.string.obfuscated_res_0x7f0f12e0);
+            aVar.U(R.string.obfuscated_res_0x7f0f12de);
+            aVar.v(R.string.obfuscated_res_0x7f0f12e2);
             aVar.O(R.string.obfuscated_res_0x7f0f0118, new a(this));
             aVar.X();
         }

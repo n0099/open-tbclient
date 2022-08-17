@@ -230,8 +230,8 @@ public class FullBrowseHelper {
             textView2.setHighlightColor(0);
             TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a4f);
             TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a4a);
-            textView.setText(R.string.obfuscated_res_0x7f0f10cc);
-            String string = d9Var.getResources().getString(R.string.obfuscated_res_0x7f0f10cd);
+            textView.setText(R.string.obfuscated_res_0x7f0f10cd);
+            String string = d9Var.getResources().getString(R.string.obfuscated_res_0x7f0f10ce);
             SpannableString spannableString = new SpannableString(string);
             spannableString.setSpan(new NoLineClickableSpan(d9Var, d9Var) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.1
                 public static /* synthetic */ Interceptable $ic;

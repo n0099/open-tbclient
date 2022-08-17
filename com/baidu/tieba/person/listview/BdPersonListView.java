@@ -128,7 +128,7 @@ public class BdPersonListView extends BdTypeListView {
         this.K = new Scroller(this.J);
         this.L = new Scroller(this.J);
         this.V = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400d1, R.attr.obfuscated_res_0x7f040291});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400d1, R.attr.obfuscated_res_0x7f040292});
         this.W = obtainStyledAttributes.getDimensionPixelSize(e0, 0);
         obtainStyledAttributes.recycle();
     }

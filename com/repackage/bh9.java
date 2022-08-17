@@ -1,77 +1,66 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.tieba.R;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.FunAdSdk;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTAdDislike;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bh9 {
+public class bh9 implements TTAdDislike.DislikeInteractionCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ View a;
+    public final /* synthetic */ oh9 b;
+    public final /* synthetic */ wg9 c;
 
-    public static com.fun.module.csj.g0 a(TTNativeAd tTNativeAd) {
-        InterceptResult invokeL;
-        int i;
+    public bh9(wg9 wg9Var, View view2, oh9 oh9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tTNativeAd)) == null) {
-            int imageMode = tTNativeAd.getImageMode();
-            if (imageMode == 15) {
-                i = R.layout.obfuscated_res_0x7f0d0361;
-            } else if (imageMode != 16) {
-                if (imageMode != 166) {
-                    if (imageMode == 2) {
-                        i = R.layout.obfuscated_res_0x7f0d035f;
-                    } else if (imageMode == 3) {
-                        i = R.layout.obfuscated_res_0x7f0d035d;
-                    } else if (imageMode == 4) {
-                        i = R.layout.obfuscated_res_0x7f0d035c;
-                    } else if (imageMode != 5) {
-                        return null;
-                    }
-                }
-                i = R.layout.obfuscated_res_0x7f0d035e;
-            } else {
-                i = R.layout.obfuscated_res_0x7f0d0360;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wg9Var, view2, oh9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            com.fun.module.csj.g0 g0Var = (com.fun.module.csj.g0) LayoutInflater.from(FunAdSdk.getAppContext()).inflate(i, (ViewGroup) null);
-            g0Var.a(tTNativeAd);
-            return g0Var;
         }
-        return (com.fun.module.csj.g0) invokeL.objValue;
+        this.c = wg9Var;
+        this.a = view2;
+        this.b = oh9Var;
     }
 
-    public static String b(boolean z) {
-        InterceptResult invokeZ;
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onCancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("personal_ads_type", z ? "1" : "0");
-            if (hashMap.isEmpty()) {
-                return "";
-            }
-            try {
-                JSONArray jSONArray = new JSONArray();
-                for (Map.Entry entry : hashMap.entrySet()) {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("name", entry.getKey());
-                    jSONObject.put("value", entry.getValue());
-                    jSONArray.put(jSONObject);
-                }
-                return jSONArray.toString();
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return "";
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d("CSJBannerExpressAd dislike callback onCancel", new Object[0]);
         }
-        return (String) invokeZ.objValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onSelected(int i, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
+            LogPrinter.d("dislike callback onSelected position: " + i + ", message: " + str, new Object[0]);
+            if (this.a.getParent() != null) {
+                ((ViewGroup) this.a.getParent()).removeView(this.a);
+            }
+            this.c.onAdClose(this.b);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
     }
 }

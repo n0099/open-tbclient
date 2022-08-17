@@ -80,7 +80,7 @@ public class VoteAreaLayout extends CardBasicLayout {
                     MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                     return;
                 }
-                qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f082d);
+                qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f082d);
             }
         }
     }

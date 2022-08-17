@@ -138,10 +138,10 @@ public class AlaLiveUserNotifyDialog extends Dialog {
                 this.overUserPortraitBg.setVisibility(0);
                 return;
             }
-            this.alaNotifyContentPanel.setBackgroundResource(R.drawable.obfuscated_res_0x7f081261);
+            this.alaNotifyContentPanel.setBackgroundResource(R.drawable.obfuscated_res_0x7f081262);
             this.alaNotifyDescription.setTextColor(getContext().getResources().getColor(R.color.common_color_10037));
             this.btnKnow.setTextColor(getContext().getResources().getColor(R.color.CAM_X0302));
-            this.portraitLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081262);
+            this.portraitLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081263);
             this.overUserPortraitBg.setVisibility(8);
         }
     }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xh7;
+import com.repackage.wh7;
 /* loaded from: classes4.dex */
 public class NpsPluginLoadingDialogActivity extends BaseActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -115,10 +115,10 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
                 textView.setVisibility(8);
             }
             this.b.setOnClickListener(this);
-            if (!xh7.j().m()) {
+            if (!wh7.j().m()) {
                 finish();
             } else {
-                xh7.j().o(this);
+                wh7.j().o(this);
             }
         }
     }
@@ -126,7 +126,7 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
     public final void z1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            xh7.j().n();
+            wh7.j().n();
         }
     }
 }

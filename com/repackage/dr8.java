@@ -126,7 +126,7 @@ public class dr8 extends BaseAdapter {
                 aVar = new a();
                 HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090844);
                 aVar.a = headImageView;
-                headImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f080bc1);
+                headImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f080bc2);
                 aVar.a.setDefaultBgResource(R.color.CAM_X0204);
                 aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090843);
                 aVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0921b6);

@@ -63,12 +63,12 @@ import com.repackage.ab;
 import com.repackage.cb;
 import com.repackage.gu4;
 import com.repackage.ix4;
-import com.repackage.k97;
-import com.repackage.kk8;
+import com.repackage.j97;
+import com.repackage.jk8;
+import com.repackage.l97;
 import com.repackage.lz4;
 import com.repackage.m97;
-import com.repackage.n97;
-import com.repackage.oe8;
+import com.repackage.ne8;
 import com.repackage.ru4;
 import com.repackage.ug;
 import java.util.ArrayList;
@@ -463,23 +463,23 @@ public class SettingStatic {
         CustomMessageTask customMessageTask2 = new CustomMessageTask(2015007, new h());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
-        kk8.f(303016, ResponsedPrivacySocketMessage.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.GET_PRIVATE_INFO_CMD, kk8.a(TbConfig.GET_PRIVATE_INFO, 303016));
+        jk8.f(303016, ResponsedPrivacySocketMessage.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.GET_PRIVATE_INFO_CMD, jk8.a(TbConfig.GET_PRIVATE_INFO, 303016));
         tbHttpMessageTask.setResponsedClass(ResponsedPrivacyHttpMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         MessageManager.getInstance().registerListener(e);
         MessageManager.getInstance().registerListener(g);
         MessageManager.getInstance().registerListener(d);
         MessageManager.getInstance().registerListener(f);
-        kk8.f(104101, ResponseUpdateMaskMessage.class, false);
-        kk8.f(104106, ResponseUpdateForumMask.class, false);
+        jk8.f(104101, ResponseUpdateMaskMessage.class, false);
+        jk8.f(104106, ResponseUpdateForumMask.class, false);
         h();
         i();
         l();
         m();
         j();
         k();
-        SwitchManager.getInstance().registerSwitch(oe8.class);
+        SwitchManager.getInstance().registerSwitch(ne8.class);
         CustomMessageTask customMessageTask3 = new CustomMessageTask(2921695, new i());
         customMessageTask3.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask3);
@@ -518,7 +518,7 @@ public class SettingStatic {
             } else {
                 str2 = "0" + k;
             }
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1183, new Object[]{str, str2});
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1185, new Object[]{str, str2});
             StatisticItem param = new StatisticItem("c13889").param("obj_locate", 1).param("obj_type", areNotificationsEnabled ? 1 : 2);
             if (!lz4.d().D()) {
                 string = "";
@@ -589,8 +589,8 @@ public class SettingStatic {
     public static void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            kk8.f(309620, OfficialAccountPushSocketResponseMessage.class, false);
-            kk8.c(309620, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, TbConfig.CHECK_OFFICIAL_SWITCH_URL, OfficialAccountPushHttpResponseMessage.class, true, false, true, false);
+            jk8.f(309620, OfficialAccountPushSocketResponseMessage.class, false);
+            jk8.c(309620, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, TbConfig.CHECK_OFFICIAL_SWITCH_URL, OfficialAccountPushHttpResponseMessage.class, true, false, true, false);
         }
     }
 
@@ -715,17 +715,17 @@ public class SettingStatic {
                 lz4.d().b0(pushSignMask2 == null && pushSignMask2.signPushMask.intValue() == 1, a.signMask == null ? pushSignMask.signPushTimeStamp.intValue() * 1000 : 0L);
                 if (!TextUtils.isEmpty(a.maskFids) && (split3 = a.maskFids.split(",")) != null && split3.length > 0) {
                     for (String str : split3) {
-                        m97.j().g(currentAccount, str, false, null);
+                        l97.j().g(currentAccount, str, false, null);
                     }
                 }
                 if (!TextUtils.isEmpty(a.maskGids) && (split2 = a.maskGids.split(",")) != null && split2.length > 0) {
                     for (String str2 : split2) {
-                        k97.k().g(currentAccount, str2, false, null);
+                        j97.k().g(currentAccount, str2, false, null);
                     }
                 }
                 if (!TextUtils.isEmpty(a.maskUids) && (split = a.maskUids.split(",")) != null && split.length > 0) {
                     for (String str3 : split) {
-                        n97.j().g(currentAccount, str3, false, null);
+                        m97.j().g(currentAccount, str3, false, null);
                     }
                 }
                 e();

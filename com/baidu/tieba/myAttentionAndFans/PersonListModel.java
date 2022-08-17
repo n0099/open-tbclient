@@ -146,7 +146,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 if (statusCode != 200 || error != 0) {
                     if (this.a.d != null) {
                         if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                            errorString = this.a.f.getResources().getString(R.string.obfuscated_res_0x7f0f0c3c);
+                            errorString = this.a.f.getResources().getString(R.string.obfuscated_res_0x7f0f0c3d);
                         } else {
                             errorString = httpResponsedMessage.getErrorString();
                         }

@@ -120,7 +120,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             }
             view2.setVisibility(0);
             this.j.setVisibility(0);
-            this.j.setText(this.C.getString(R.string.obfuscated_res_0x7f0f116c));
+            this.j.setText(this.C.getString(R.string.obfuscated_res_0x7f0f116e));
         }
     }
 
@@ -151,7 +151,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             this.r0.setLayoutParams(layoutParams4);
             float f5 = f2;
             this.r0.setTextSize(0, f5);
-            this.r0.setText(this.C.getString(R.string.obfuscated_res_0x7f0f116c));
+            this.r0.setText(this.C.getString(R.string.obfuscated_res_0x7f0f116e));
             this.u0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ade);
             LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(0, -1);
             layoutParams5.weight = T() ? 0.2f : 0.25f;
@@ -167,7 +167,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             layoutParams7.topMargin = f4;
             this.s0.setLayoutParams(layoutParams7);
             this.s0.setTextSize(0, f5);
-            this.s0.setText(this.C.getString(R.string.obfuscated_res_0x7f0f1147));
+            this.s0.setText(this.C.getString(R.string.obfuscated_res_0x7f0f1148));
             if (T()) {
                 this.I = true;
                 setNeedAddReplyIcon(true);
@@ -181,7 +181,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
                 layoutParams9.topMargin = qi.f(getContext(), R.dimen.tbds25);
                 layoutParams9.addRule(13, -1);
                 imageView3.setLayoutParams(layoutParams9);
-                WebPManager.setPureDrawable(imageView3, R.drawable.obfuscated_res_0x7f080914, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+                WebPManager.setPureDrawable(imageView3, R.drawable.obfuscated_res_0x7f080915, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
                 this.q0 = (TextView) findViewById(R.id.obfuscated_res_0x7f092141);
                 this.q0.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
                 this.q0.setTextSize(0, f5);
@@ -228,7 +228,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         lo4Var.d = 2;
         lo4Var.j = str2;
         this.e.setStatisticData(lo4Var);
-        this.e.I();
+        this.e.J();
     }
 
     public void R() {
@@ -284,7 +284,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
                 WebPManager.setMaskDrawable(this.k, R.drawable.obfuscated_res_0x7f0807b7, null);
                 WebPManager.setMaskDrawable(this.t, R.drawable.obfuscated_res_0x7f0807b6, null);
             }
-            WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f080968, R.color.CAM_X0107, null);
+            WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f080969, R.color.CAM_X0107, null);
             EMTextView eMTextView = this.h;
             if (eMTextView != null) {
                 ms4 d = ms4.d(eMTextView);

@@ -35,11 +35,11 @@ public final class i79 implements w69.a {
 
         /* renamed from: com.repackage.i79$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0501a extends l79 {
+        public class C0508a extends l79 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0501a(a aVar) {
+            public C0508a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,7 +94,7 @@ public final class i79 implements w69.a {
                     this.a.m(currentTimeMillis);
                 }
                 if (i69.h().g()) {
-                    k79.a(new C0501a(this));
+                    k79.a(new C0508a(this));
                 }
             }
         }

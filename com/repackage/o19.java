@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class o19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class o19 {
     public int f;
     public final HttpMessageListener g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class o19 {
                 QuestionTagListData questionTagListData = ((QuestionTagListResponseMessage) httpResponsedMessage).data;
                 if (httpResponsedMessage.getError() != 0 || questionTagListData == null) {
                     if (this.a.b != null) {
-                        this.a.b.c(this.a.f != 1, TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c43));
+                        this.a.b.c(this.a.f != 1, TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c44));
                         return;
                     }
                     return;
@@ -87,7 +87,7 @@ public class o19 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(boolean z, List<on> list);
 

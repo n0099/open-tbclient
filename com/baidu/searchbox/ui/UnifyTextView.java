@@ -279,7 +279,7 @@ public class UnifyTextView extends TextView {
         Intrinsics.checkNotNullParameter(context, "context");
         this.TAG = "UnifyTextView";
         this.DEFAULT_TOP_BOTTOM_PADDING = getDimensionPixelSize(context, R.dimen.obfuscated_res_0x7f07064d);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040642, R.attr.obfuscated_res_0x7f040643});
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040643, R.attr.obfuscated_res_0x7f040644});
         Intrinsics.checkNotNullExpressionValue(obtainStyledAttributes, "getContext().obtainStyle…able.spannable_etextview)");
         this.mTopPadding = obtainStyledAttributes.getDimensionPixelSize(1, this.DEFAULT_TOP_BOTTOM_PADDING);
         this.mBottomPadding = obtainStyledAttributes.getDimensionPixelSize(0, this.DEFAULT_TOP_BOTTOM_PADDING);

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c38 extends bn<r38, CardViewHolder<f48>> {
+public class c38 extends bn<u38, CardViewHolder<k48>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -43,20 +43,20 @@ public class c38 extends bn<r38, CardViewHolder<f48>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.bn
     /* renamed from: s */
-    public CardViewHolder<f48> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<k48> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new f48(this.a)) : (CardViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new k48(this.a)) : (CardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.bn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, r38 r38Var, CardViewHolder<f48> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, u38 u38Var, CardViewHolder<k48> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, r38Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(r38Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, u38Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(u38Var);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

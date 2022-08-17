@@ -304,7 +304,7 @@ public class ExpandIconView extends View {
         this.k = new Point();
         this.l = new Point();
         this.m = new Path();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040093, R.attr.obfuscated_res_0x7f04016a, R.attr.obfuscated_res_0x7f040428, R.attr.obfuscated_res_0x7f0406fa}, 0, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040093, R.attr.obfuscated_res_0x7f04016a, R.attr.obfuscated_res_0x7f040429, R.attr.obfuscated_res_0x7f0406fa}, 0, 0);
         try {
             this.e = obtainStyledAttributes.getDimensionPixelSize(2, p01.c.a(getContext(), 40.0f));
             this.f = obtainStyledAttributes.getDimensionPixelSize(3, p01.c.a(getContext(), 2.0f));

@@ -17,10 +17,10 @@ public class mo6 implements MessageQueue.IdleHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrsModelController a;
-    public MvcHttpResponsedMessage<rj8> b;
-    public MvcHttpMessage<FrsRequestData, rj8> c;
-    public MvcNetMessage<FrsRequestData, rj8> d;
-    public yj8 e;
+    public MvcHttpResponsedMessage<qj8> b;
+    public MvcHttpMessage<FrsRequestData, qj8> c;
+    public MvcNetMessage<FrsRequestData, qj8> d;
+    public xj8 e;
 
     public mo6() {
         Interceptable interceptable = $ic;
@@ -43,28 +43,28 @@ public class mo6 implements MessageQueue.IdleHandler {
         }
     }
 
-    public void b(yj8 yj8Var) {
+    public void b(xj8 xj8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yj8Var) == null) {
-            this.e = yj8Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xj8Var) == null) {
+            this.e = xj8Var;
         }
     }
 
-    public void c(MvcHttpMessage<FrsRequestData, rj8> mvcHttpMessage) {
+    public void c(MvcHttpMessage<FrsRequestData, qj8> mvcHttpMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcHttpMessage) == null) {
             this.c = mvcHttpMessage;
         }
     }
 
-    public void d(MvcNetMessage<FrsRequestData, rj8> mvcNetMessage) {
+    public void d(MvcNetMessage<FrsRequestData, qj8> mvcNetMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, mvcNetMessage) == null) {
             this.d = mvcNetMessage;
         }
     }
 
-    public void e(MvcHttpResponsedMessage<rj8> mvcHttpResponsedMessage) {
+    public void e(MvcHttpResponsedMessage<qj8> mvcHttpResponsedMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, mvcHttpResponsedMessage) == null) {
             this.b = mvcHttpResponsedMessage;
@@ -81,9 +81,9 @@ public class mo6 implements MessageQueue.IdleHandler {
                 return false;
             }
             frsModelController.C0(this.b, this.c, this.d);
-            yj8 yj8Var = this.e;
-            if (yj8Var != null) {
-                yj8Var.b();
+            xj8 xj8Var = this.e;
+            if (xj8Var != null) {
+                xj8Var.b();
             }
             return false;
         }

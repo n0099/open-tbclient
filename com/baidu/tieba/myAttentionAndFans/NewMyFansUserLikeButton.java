@@ -42,13 +42,13 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
 
         /* renamed from: com.baidu.tieba.myAttentionAndFans.NewMyFansUserLikeButton$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0231a implements fs4.d {
+        public class C0232a implements fs4.d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ View a;
             public final /* synthetic */ a b;
 
-            public C0231a(a aVar, View view2) {
+            public C0232a(a aVar, View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -157,7 +157,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                             fs4Var.q(this.b.t.getString(R.string.obfuscated_res_0x7f0f043b));
                             ArrayList arrayList = new ArrayList();
                             bs4 bs4Var = new bs4(this.b.t.getString(R.string.obfuscated_res_0x7f0f0431), fs4Var);
-                            bs4Var.m(new C0231a(this, view2));
+                            bs4Var.m(new C0232a(this, view2));
                             arrayList.add(bs4Var);
                             fs4Var.m(new b(this));
                             fs4Var.j(arrayList);
@@ -199,7 +199,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                 return;
             }
         }
-        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc);
+        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbd);
         this.s = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ab);
         this.w = 1;
         this.x = false;
@@ -273,7 +273,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                 return;
             }
         }
-        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc);
+        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbd);
         this.s = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ab);
         this.w = 1;
         this.x = false;
@@ -298,7 +298,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                 return;
             }
         }
-        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc);
+        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbd);
         this.s = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ab);
         this.w = 1;
         this.x = false;

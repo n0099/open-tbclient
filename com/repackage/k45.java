@@ -68,13 +68,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fk8;
+import com.repackage.ek8;
 import com.repackage.ur4;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class k45 extends l25 implements fk8.g {
+public class k45 extends l25 implements ek8.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextWatcher A;
@@ -141,7 +141,7 @@ public class k45 extends l25 implements fk8.g {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.n.showToast(R.string.obfuscated_res_0x7f0f0c75);
+                this.a.n.showToast(R.string.obfuscated_res_0x7f0f0c76);
                 this.a.c0(0, false, null);
             }
         }
@@ -165,7 +165,7 @@ public class k45 extends l25 implements fk8.g {
                 if (this.a.E) {
                     TbPageContext tbPageContext = this.a.n;
                     if (StringUtils.isNull(str)) {
-                        str = this.a.a().getContext().getString(R.string.obfuscated_res_0x7f0f0a50);
+                        str = this.a.a().getContext().getString(R.string.obfuscated_res_0x7f0f0a51);
                     }
                     tbPageContext.showToast(str);
                 }
@@ -353,12 +353,12 @@ public class k45 extends l25 implements fk8.g {
                     this.a.Z(true);
                     WriteData U = this.a.h.U();
                     this.a.T();
-                    fk8.y(this.a.m, null);
+                    ek8.y(this.a.m, null);
                     if (U == null) {
                         return;
                     }
                     if (U.getType() == 2) {
-                        fk8.o(U.getThreadId(), this.a);
+                        ek8.o(U.getThreadId(), this.a);
                     }
                 } else if (writeData != null && az4Var != null && !TextUtils.isEmpty(az4Var.d())) {
                     writeData.setVcodeMD5(az4Var.b());
@@ -643,7 +643,7 @@ public class k45 extends l25 implements fk8.g {
                 this.e = null;
                 this.u = null;
                 if (!TextUtils.isEmpty(this.m)) {
-                    fk8.y(this.m, null);
+                    ek8.y(this.m, null);
                 }
                 Z(true);
                 NewWriteModel.e eVar2 = this.w;
@@ -849,7 +849,7 @@ public class k45 extends l25 implements fk8.g {
                 this.h.U().setVoiceDuringTime(-1);
             }
             if (!this.h.S()) {
-                this.n.showToast(R.string.obfuscated_res_0x7f0f15cd);
+                this.n.showToast(R.string.obfuscated_res_0x7f0f15d0);
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 12).param("obj_type", this.h.U() != null ? this.h.U().getType() : -1).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
                 return;
             }
@@ -900,7 +900,7 @@ public class k45 extends l25 implements fk8.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             boolean h2 = ru4.k().h("key_post_thread_has_request_location", false);
-            if (this.v || this.g == null || zl8.a().d() || !this.g.H(this.n.getPageActivity()) || !TbadkCoreApplication.getInst().getLocationShared() || !h2) {
+            if (this.v || this.g == null || yl8.a().d() || !this.g.H(this.n.getPageActivity()) || !TbadkCoreApplication.getInst().getLocationShared() || !h2) {
                 return;
             }
             this.g.L();
@@ -912,7 +912,7 @@ public class k45 extends l25 implements fk8.g {
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             if (this.g.C()) {
                 if (this.g.G()) {
-                    this.G.b(zl8.a().b());
+                    this.G.b(yl8.a().b());
                     return;
                 }
                 if (qi.D()) {
@@ -967,7 +967,7 @@ public class k45 extends l25 implements fk8.g {
             U.setContent(this.c);
             U.setVideoInfo(this.u);
             U.setVoiceModel(this.e);
-            fk8.y(str, U);
+            ek8.y(str, U);
         }
     }
 
@@ -1017,7 +1017,7 @@ public class k45 extends l25 implements fk8.g {
             return;
         }
         if (String.valueOf(j).equalsIgnoreCase(TbadkCoreApplication.getCurrentAccount())) {
-            qi.N(this.n.getPageActivity(), R.string.obfuscated_res_0x7f0f036d);
+            qi.M(this.n.getPageActivity(), R.string.obfuscated_res_0x7f0f036d);
             return;
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(this.n.getPageActivity(), this.r, this.p, this.q, GiftTabActivityConfig.FROM_PB, og.g(this.m, 0L), og.g(this.s, 0L))));
@@ -1091,7 +1091,7 @@ public class k45 extends l25 implements fk8.g {
         }
     }
 
-    @Override // com.repackage.fk8.g
+    @Override // com.repackage.ek8.g
     public void h0(WriteData writeData) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048611, this, writeData) == null) || writeData == null) {
@@ -1387,7 +1387,7 @@ public class k45 extends l25 implements fk8.g {
     public void s(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048632, this, str) == null) {
-            fk8.o(str, this);
+            ek8.o(str, this);
         }
     }
 
@@ -1496,7 +1496,7 @@ public class k45 extends l25 implements fk8.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048645, this) == null) {
             ur4 ur4Var = new ur4(this.n.getPageActivity());
-            ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0a4e).setPositiveButton(R.string.obfuscated_res_0x7f0f0980, new e(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new d(this)).create(this.n);
+            ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0a4f).setPositiveButton(R.string.obfuscated_res_0x7f0f0981, new e(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new d(this)).create(this.n);
             ur4Var.show();
         }
     }
@@ -1534,7 +1534,7 @@ public class k45 extends l25 implements fk8.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048647, this) == null) {
             if (!this.g.H(this.n.getPageActivity())) {
-                this.n.showToast(R.string.obfuscated_res_0x7f0f0a55);
+                this.n.showToast(R.string.obfuscated_res_0x7f0f0a56);
             } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
                 y0();
             } else if (this.g.G()) {

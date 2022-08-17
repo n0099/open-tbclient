@@ -1,395 +1,219 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.Lego.DataRes;
 /* loaded from: classes6.dex */
-public class de7 {
+public class de7 implements zd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-    public final List<ICardInfo> b;
-    public int c;
-    public boolean d;
-    public String e;
-    public boolean f;
-    public boolean g;
-    public final BdListView h;
-    public final ne7 i;
-    public long j;
-    public String k;
+    public final StatisticItem a;
 
     /* loaded from: classes6.dex */
-    public class a extends cf5<DataRes> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ue a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ String c;
+    }
 
-        public a(de7 de7Var, ue ueVar, long j, String str) {
+    /* loaded from: classes6.dex */
+    public static class b implements zd7 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {de7Var, ueVar, Long.valueOf(j), str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = ueVar;
-            this.b = j;
-            this.c = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.cf5
-        /* renamed from: a */
-        public DataRes doInBackground() {
-            InterceptResult invokeV;
+        @Override // com.repackage.zd7
+        public void a(ICardInfo iCardInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ue ueVar = this.a;
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.b);
-                sb.append("_");
-                sb.append(TextUtils.isEmpty(this.c) ? "" : this.c);
-                byte[] bArr = (byte[]) ueVar.get(sb.toString());
-                if (bArr != null && bArr.length != 0) {
-                    try {
-                        return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
-                    } catch (IOException e) {
-                        BdLog.e(e);
-                    }
-                }
-                return null;
+            if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
             }
-            return (DataRes) invokeV.objValue;
+        }
+
+        @Override // com.repackage.zd7
+        public zd7 b(String str, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) ? this : (zd7) invokeLI.objValue;
+        }
+
+        @Override // com.repackage.zd7
+        public zd7 c(String str, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) ? this : (zd7) invokeLJ.objValue;
+        }
+
+        @Override // com.repackage.zd7
+        public zd7 d(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) ? this : (zd7) invokeLL.objValue;
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements je5<DataRes> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ de7 a;
-
-        public b(de7 de7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {de7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = de7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.je5
-        /* renamed from: a */
-        public void onReturnDataInUI(DataRes dataRes) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) {
-                this.a.h(dataRes);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(List<sf7> list);
-
-        void b(long j, String str);
-
-        void c(int i, String str);
-
-        void d(String str, String str2, String str3, List<tf7> list);
-
-        void onError(int i, String str);
-
-        void onSuccess();
-    }
-
-    public de7(BdListView bdListView, ne7 ne7Var) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public de7(BaseLegoCardInfo baseLegoCardInfo) {
+        this(baseLegoCardInfo.getStatistics(), baseLegoCardInfo.getStatTab(), baseLegoCardInfo.getCardType(), baseLegoCardInfo.getItemId());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdListView, ne7Var};
+            Object[] objArr = {baseLegoCardInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = new LinkedList();
-        this.c = 1;
-        this.e = "";
-        this.f = false;
-        this.g = false;
-        this.h = bdListView;
-        this.i = ne7Var;
     }
 
-    public List<ICardInfo> b() {
-        InterceptResult invokeV;
+    public static zd7 e(BaseLegoCardInfo baseLegoCardInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseLegoCardInfo)) == null) {
+            return baseLegoCardInfo != null && !TextUtils.isEmpty(baseLegoCardInfo.getStatistics()) ? new de7(baseLegoCardInfo) : new b(null);
+        }
+        return (zd7) invokeL.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public static zd7 f(String str, int i, int i2, String str2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) ? !TextUtils.isEmpty(str) ? new de7(str, i, i2, str2) : new b(null) : (zd7) invokeCommon.objValue;
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
+    @Override // com.repackage.zd7
+    public void a(ICardInfo iCardInfo) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    public final void e(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048579, this, j, str) == null) {
-            tr4.f();
-            gf5.b(new a(this, tr4.d("tb.lego_update"), j, str), new b(this));
+        if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
+            g(iCardInfo);
+            TiebaStatic.log(this.a);
         }
     }
 
-    public final void f(long j, String str) {
-        c cVar;
+    @Override // com.repackage.zd7
+    public zd7 b(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(1048580, this, j, str) == null) || (cVar = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                this.a.param(str, i);
+            }
+            return this;
         }
-        cVar.b(j, str);
+        return (zd7) invokeLI.objValue;
     }
 
-    public void g() {
+    @Override // com.repackage.zd7
+    public zd7 c(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || d() || this.a == null) {
-            return;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                this.a.param(str, String.valueOf(j));
+            }
+            return this;
         }
-        this.c++;
-        k(true);
-        this.a.c(this.c, this.e);
+        return (zd7) invokeLJ.objValue;
     }
 
-    public final void h(DataRes dataRes) {
-        c cVar;
+    @Override // com.repackage.zd7
+    public zd7 d(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dataRes) == null) {
-            this.g = true;
-            if (dataRes != null) {
-                if (j(true, dataRes) && (cVar = this.a) != null) {
-                    cVar.onSuccess();
-                }
-                f(this.j, this.k);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                this.a.param(str, str2);
+            }
+            return this;
+        }
+        return (zd7) invokeLL.objValue;
+    }
+
+    public final void g(ICardInfo iCardInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iCardInfo) == null) {
+            BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) iCardInfo;
+            if (TextUtils.isEmpty(baseLegoCardInfo.getStatistics()) || TextUtils.isEmpty(baseLegoCardInfo.getsExtras())) {
                 return;
             }
-            f(this.j, this.k);
-        }
-    }
-
-    public void i(boolean z, DataRes dataRes, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), dataRes, Integer.valueOf(i), str}) == null) {
-            k(false);
-            if (z) {
-                this.h.z();
-            }
-            if (i == 0 && dataRes != null && j(z, dataRes)) {
-                c cVar = this.a;
-                if (cVar != null) {
-                    cVar.onSuccess();
-                }
-                if (z) {
-                    m(dataRes);
-                }
-            } else if (this.b.size() > 0) {
-                c cVar2 = this.a;
-                if (cVar2 != null) {
-                    cVar2.onError(1, str);
-                }
-            } else {
-                c cVar3 = this.a;
-                if (cVar3 != null) {
-                    cVar3.onError(2, str);
-                }
-            }
-        }
-    }
-
-    public final boolean j(boolean z, DataRes dataRes) {
-        InterceptResult invokeZL;
-        String str;
-        String str2;
-        String str3;
-        JSONObject jSONObject;
-        JSONObject jSONObject2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z, dataRes)) == null) {
-            if (dataRes == null) {
-                return false;
-            }
-            if (z) {
-                this.b.clear();
-            }
-            this.d = dataRes.has_more.intValue() == 1;
-            ArrayList arrayList = new ArrayList();
-            try {
-                JSONObject jSONObject3 = new JSONObject(dataRes.page_info);
-                JSONArray optJSONArray = jSONObject3.optJSONArray("tab");
-                JSONObject optJSONObject = jSONObject3.optJSONObject("title");
-                if (optJSONObject != null) {
-                    str2 = optJSONObject.optString("name");
-                    str3 = optJSONObject.optString("url");
-                    str = optJSONObject.optString("urlNight");
-                } else {
-                    str = "";
-                    str2 = str;
-                    str3 = str2;
-                }
-                if (optJSONArray != null) {
-                    int i = 0;
-                    while (i < optJSONArray.length()) {
-                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                        if (optJSONObject2 != null) {
-                            tf7 tf7Var = new tf7();
-                            tf7Var.c = optJSONObject2.optString("title");
-                            jSONObject2 = jSONObject3;
-                            tf7Var.a = optJSONObject2.optLong("page_id");
-                            optJSONObject2.optInt("page_type");
-                            tf7Var.d = optJSONObject2.optInt("rn");
-                            tf7Var.b = optJSONObject2.optString("item_id");
-                            tf7Var.e = optJSONObject2.optString("params");
-                            tf7Var.b();
-                            arrayList.add(tf7Var);
-                        } else {
-                            jSONObject2 = jSONObject3;
-                        }
-                        i++;
-                        jSONObject3 = jSONObject2;
-                    }
-                    jSONObject = jSONObject3;
-                    this.a.d(str2, str3, str, arrayList);
-                } else {
-                    jSONObject = jSONObject3;
-                }
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("buttons");
-                if (optJSONArray2 != null) {
-                    ArrayList arrayList2 = new ArrayList();
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i2);
-                        if (optJSONObject3 != null) {
-                            sf7 sf7Var = new sf7();
-                            sf7Var.b(optJSONObject3);
-                            if (sf7Var.a()) {
-                                arrayList2.add(sf7Var);
+            List<Object> params = this.a.getParams();
+            for (String str : baseLegoCardInfo.getsExtras().split("&")) {
+                String[] split = str.split("=");
+                if (split.length == 2) {
+                    String str2 = split[0];
+                    String str3 = split[1];
+                    boolean z = false;
+                    for (int i = 0; i < params.size() && !z; i += 2) {
+                        if (TextUtils.equals(str2, params.get(i).toString())) {
+                            int i2 = i + 1;
+                            if (i2 < params.size()) {
+                                params.set(i2, str3);
                             }
+                            z = true;
                         }
                     }
-                    this.a.a(arrayList2);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (dataRes.cards != null) {
-                for (int i3 = 0; i3 < dataRes.cards.size(); i3++) {
-                    ICardInfo i4 = pe7.i(dataRes.cards.get(i3));
-                    if (i4 != null && i4.isValid()) {
-                        this.b.add(i4);
+                    if (!z) {
+                        this.a.param(str2, str3);
                     }
                 }
             }
-            if (this.b.size() == 0) {
-                return false;
+            d(TiebaStatic.Params.OBJ_PARAM3, mz5.e());
+        }
+    }
+
+    public de7(String str, int i, int i2, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            try {
-                this.e = this.b.get(this.b.size() - 1).getFlipId();
-            } catch (Exception unused) {
-                this.e = "";
-            }
-            this.i.C(this.b);
-            return true;
         }
-        return invokeZL.booleanValue;
-    }
-
-    public final void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void l(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-            this.a = cVar;
-        }
-    }
-
-    public final void m(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, dataRes) == null) || dataRes == null) {
+        StatisticItem statisticItem = new StatisticItem(str);
+        this.a = statisticItem;
+        statisticItem.param("obj_source", i);
+        this.a.param("obj_type", i2);
+        if (TextUtils.isEmpty(str2)) {
             return;
         }
-        tr4.f();
-        ue<byte[]> d = tr4.d("tb.lego_update");
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.j);
-        sb.append("_");
-        sb.append(TextUtils.isEmpty(this.k) ? "" : this.k);
-        d.a(sb.toString(), dataRes.toByteArray());
-    }
-
-    public void update(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048588, this, j, str) == null) {
-            this.c = 1;
-            this.j = j;
-            this.k = str;
-            if (this.b.size() == 0 && !this.g) {
-                e(j, str);
-            } else {
-                f(j, str);
-            }
-        }
+        this.a.param("obj_card", str2);
     }
 }

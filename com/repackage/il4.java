@@ -32,8 +32,8 @@ public class il4 {
                 return;
             }
         }
-        kk8.f(309711, AdBillingLogSocketResMsg.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_BILLING_LOG, kk8.a(TbConfig.URL_AD_BILLING_LOG, 309711));
+        jk8.f(309711, AdBillingLogSocketResMsg.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_BILLING_LOG, jk8.a(TbConfig.URL_AD_BILLING_LOG, 309711));
         tbHttpMessageTask.setResponsedClass(AdBillingLogHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }

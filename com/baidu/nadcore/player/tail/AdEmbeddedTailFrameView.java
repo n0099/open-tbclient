@@ -50,8 +50,8 @@ public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
             this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0602a5));
             this.d.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060292));
             this.e.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060292));
-            this.d.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ddf));
-            this.e.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ddf));
+            this.d.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de0));
+            this.e.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de0));
             this.k.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06085d));
         }
     }

@@ -134,7 +134,6 @@ import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.protobuf.CodedInputStream;
 import com.kuaishou.weapon.p0.k1;
-import com.repackage.ac8;
 import com.repackage.am;
 import com.repackage.bm;
 import com.repackage.da5;
@@ -161,6 +160,7 @@ import com.repackage.u95;
 import com.repackage.ur4;
 import com.repackage.wi;
 import com.repackage.z8;
+import com.repackage.zb8;
 import com.repackage.zm;
 import java.io.BufferedReader;
 import java.io.File;
@@ -349,7 +349,7 @@ public class UtilHelper {
         if (!(interceptable == null || interceptable.invokeL(65539, null, tBSpecificationButtonConfig) == null) || tBSpecificationButtonConfig == null) {
             return;
         }
-        tBSpecificationButtonConfig.i(R.drawable.obfuscated_res_0x7f080932, 0, TBSpecificationButtonConfig.IconType.WEBP);
+        tBSpecificationButtonConfig.i(R.drawable.obfuscated_res_0x7f080933, 0, TBSpecificationButtonConfig.IconType.WEBP);
         tBSpecificationButtonConfig.h(R.color.CAM_X0304);
         tBSpecificationButtonConfig.g(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26));
         tBSpecificationButtonConfig.f(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
@@ -813,7 +813,7 @@ public class UtilHelper {
                     String string2 = intent.getExtras().getString(BigdayActivityConfig.JUMP_URL);
                     boolean z6 = intent.getExtras().getBoolean("is_ad", false);
                     if (intent.getExtras().getBoolean("gd_ad", false) && !StringUtils.isNull(string2)) {
-                        ac8.a(TbadkCoreApplication.getInst(), string2, wi.c(string2), intent.getExtras().getString("ext_info", ""), null);
+                        zb8.a(TbadkCoreApplication.getInst(), string2, wi.c(string2), intent.getExtras().getString("ext_info", ""), null);
                     } else {
                         g9 c = h9.c(context);
                         if (c instanceof BaseActivity) {
@@ -2962,7 +2962,7 @@ public class UtilHelper {
     public static void quitDialog(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65678, null, activity) == null) {
-            new ur4(activity).setTitle(R.string.obfuscated_res_0x7f0f08f0).setCancelable(false).setMessageId(R.string.obfuscated_res_0x7f0f0262).setPositiveButton(R.string.obfuscated_res_0x7f0f0265, new ur4.e(activity) { // from class: com.baidu.tbadk.core.util.UtilHelper.2
+            new ur4(activity).setTitle(R.string.obfuscated_res_0x7f0f08f1).setCancelable(false).setMessageId(R.string.obfuscated_res_0x7f0f0262).setPositiveButton(R.string.obfuscated_res_0x7f0f0265, new ur4.e(activity) { // from class: com.baidu.tbadk.core.util.UtilHelper.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Activity val$activity;
@@ -3176,7 +3176,7 @@ public class UtilHelper {
                 intent.putExtra("android.intent.extra.TEXT", str2);
                 intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                 intent.setType("text/plain");
-                context.startActivity(Intent.createChooser(intent, TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f115d)));
+                context.startActivity(Intent.createChooser(intent, TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f115f)));
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -3197,10 +3197,10 @@ public class UtilHelper {
                 TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), str, null, 1, "st_param", str2);
             }
             Intent intent = new Intent("android.intent.action.SEND", (Uri) null);
-            intent.putExtra("android.intent.extra.TEXT", MessageFormat.format(context.getResources().getString(R.string.obfuscated_res_0x7f0f1132), str3, str4, str5));
+            intent.putExtra("android.intent.extra.TEXT", MessageFormat.format(context.getResources().getString(R.string.obfuscated_res_0x7f0f1133), str3, str4, str5));
             intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             intent.setType("text/plain");
-            context.startActivity(Intent.createChooser(intent, context.getResources().getString(R.string.obfuscated_res_0x7f0f115d)));
+            context.startActivity(Intent.createChooser(intent, context.getResources().getString(R.string.obfuscated_res_0x7f0f115f)));
         } catch (Exception e) {
             BdLog.e(e.toString());
         }
@@ -3546,7 +3546,7 @@ public class UtilHelper {
                     return true;
                 } catch (Throwable th) {
                     th.printStackTrace();
-                    qi.N(context, R.string.obfuscated_res_0x7f0f07a6);
+                    qi.M(context, R.string.obfuscated_res_0x7f0f07a6);
                 }
             }
             return false;
@@ -3911,20 +3911,20 @@ public class UtilHelper {
                     return;
                 }
             } else if (metaData.getAuthType() == 2) {
-                if (metaData.getIsOriginalAuthor() == 1 && metaData.isOriginal()) {
+                if (metaData.isOriginal()) {
                     headImageView.setOriginatorResId(R.drawable.ic_icon_mask_videov14);
                     headImageView.setShowV(true);
                     return;
                 }
             } else if (metaData.getAuthType() == 3) {
-                if (metaData.getIsGodUser() == 1 && metaData.isNewGod()) {
+                if (metaData.isNewGod()) {
                     headImageView.setBjhAuthIconRes(0);
                     headImageView.setBazhuIconRes(0);
                     headImageView.setGodIconResId(R.drawable.icon_mask_shen_liang20_svg);
                     headImageView.setShowV(true);
                     return;
                 }
-            } else if (metaData.getAuthType() == 4 && metaData.getIsBaZhu() == 1 && metaData.getBazhuGradeData() != null && !pi.isEmpty(metaData.getBazhuGradeData().getLevel()) && metaData.showBazhuGrade()) {
+            } else if (metaData.getAuthType() == 4 && metaData.getBazhuGradeData() != null && !pi.isEmpty(metaData.getBazhuGradeData().getLevel()) && metaData.showBazhuGrade()) {
                 int bazhuIconId = getBazhuIconId(metaData.getBazhuGradeData().getLevel(), true);
                 headImageView.setBjhAuthIconRes(0);
                 headImageView.setBazhuIconRes(bazhuIconId);

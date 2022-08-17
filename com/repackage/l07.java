@@ -2,8 +2,7 @@ package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,16 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.AlaLiveInfo;
-import tbclient.Personalized.UserFollowLive;
+import tbclient.ActiveCenter;
 /* loaded from: classes6.dex */
-public class l07 extends fo4 {
+public class l07 extends f06 implements u06 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId T;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<AlaLiveInfo> a;
+    public int R;
+    public ActiveCenterData S;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +32,7 @@ public class l07 extends fo4 {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        T = BdUniqueId.gen();
     }
 
     public l07() {
@@ -48,53 +45,55 @@ public class l07 extends fo4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
     }
 
-    public List<AlaLiveInfo> c() {
-        InterceptResult invokeV;
+    public void N(ActiveCenter activeCenter) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, activeCenter) == null) || activeCenter == null) {
+            return;
+        }
+        ActiveCenterData activeCenterData = new ActiveCenterData();
+        this.S = activeCenterData;
+        activeCenterData.parseProto(activeCenter);
     }
 
-    public void f(UserFollowLive userFollowLive) {
+    @Override // com.repackage.u06
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, userFollowLive) == null) {
-            this.a.clear();
-            if (userFollowLive == null || userFollowLive._switch.intValue() == 0 || ListUtils.isEmpty(userFollowLive.user_follow_live)) {
-                return;
-            }
-            this.a.addAll(userFollowLive.user_follow_live);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
         }
     }
 
-    @Override // com.repackage.fo4
-    public cq4 getNegFeedBackData() {
+    @Override // com.repackage.u06
+    public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (cq4) invokeV.objValue;
-    }
-
-    @Override // com.repackage.fo4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.R : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? T : (BdUniqueId) invokeV.objValue;
+    }
+
+    @Override // com.repackage.u06
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.u06
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        }
     }
 }

@@ -289,7 +289,7 @@ public class k14 {
                 n14Var.a = this.a.y("clipMaxDuration", 30L);
                 n14Var.b = this.a.y("clipMinDuration", 3L);
                 n14Var.c = this.a.B("topicSource");
-                n14Var.d = this.a.C("publishTitle", gk2.c().getResources().getString(R.string.obfuscated_res_0x7f0f1334));
+                n14Var.d = this.a.C("publishTitle", gk2.c().getResources().getString(R.string.obfuscated_res_0x7f0f1336));
                 n14Var.e = this.a.C("publishURL", "/searchbox?action=ugc&cmd=177");
                 n14Var.i = this.a.r("sourceType", 1);
                 n14Var.j = this.a.C("sourceFrom", "tiny");

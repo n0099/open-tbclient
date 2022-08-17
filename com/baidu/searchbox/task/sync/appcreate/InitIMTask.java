@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q57;
+import com.repackage.p57;
 import com.repackage.ra5;
 /* loaded from: classes2.dex */
 public class InitIMTask extends LaunchTask {
@@ -32,7 +32,7 @@ public class InitIMTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            q57.a();
+            p57.a();
             ra5.b().p(System.currentTimeMillis() - currentTimeMillis);
         }
     }

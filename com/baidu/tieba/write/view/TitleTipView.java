@@ -155,9 +155,9 @@ public class TitleTipView extends RelativeLayout {
                 d.f(R.color.CAM_X0206);
                 ms4.d(this.f).f(R.color.CAM_X0203);
                 ms4.d(this.e).v(R.color.CAM_X0107);
-                this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080940, SkinManager.getColor(R.color.CAM_X0107), null));
+                this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080941, SkinManager.getColor(R.color.CAM_X0107), null));
                 if (this.c != null) {
-                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080f55, SkinManager.getColor(R.color.CAM_X0302), null));
+                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080f56, SkinManager.getColor(R.color.CAM_X0302), null));
                 }
             }
             this.a = i;

@@ -186,7 +186,7 @@ public class xr5 {
                     this.a.m.a(this.a.l);
                     return;
                 }
-                qi.L(this.a.b.getPageActivity(), this.a.b.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c75));
+                qi.K(this.a.b.getPageActivity(), this.a.b.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c76));
             }
         }
     }
@@ -319,7 +319,7 @@ public class xr5 {
                 this.d.K(this.k.getThreadAlaInfo().cover, 10, false);
                 this.h.setBackgroundDrawable(gradientDrawable);
                 this.d.setEvent(new b(this));
-                this.e.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a1a, StringHelper.numberUniformFormatExtraWithRound(this.k.getThreadAlaInfo().audience_count)));
+                this.e.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a1b, StringHelper.numberUniformFormatExtraWithRound(this.k.getThreadAlaInfo().audience_count)));
                 if (this.k.getAuthor() != null) {
                     String name_show = this.k.getAuthor().getName_show();
                     if (!StringUtils.isNull(name_show)) {

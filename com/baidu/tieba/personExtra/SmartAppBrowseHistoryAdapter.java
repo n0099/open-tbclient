@@ -76,7 +76,7 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
                 if (!pi.isEmpty(smartApp.name)) {
                     this.c.setText(smartApp.name);
                 } else {
-                    this.c.setText(R.string.obfuscated_res_0x7f0f0907);
+                    this.c.setText(R.string.obfuscated_res_0x7f0f0908);
                 }
             }
         }

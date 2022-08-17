@@ -387,7 +387,7 @@ public class HeadImageView extends TbClipImageView {
     public void setUserName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
-            setUserName(str, str + getResources().getString(R.string.obfuscated_res_0x7f0f11aa));
+            setUserName(str, str + getResources().getString(R.string.obfuscated_res_0x7f0f11ac));
         }
     }
 
@@ -448,7 +448,7 @@ public class HeadImageView extends TbClipImageView {
         this.C0 = null;
         this.D0 = null;
         this.E0 = null;
-        this.G0 = R.drawable.obfuscated_res_0x7f08120f;
+        this.G0 = R.drawable.obfuscated_res_0x7f081210;
         this.H0 = R.color.CAM_X0209;
         this.I0 = R.drawable.ic_icon_mask_shen20_n;
         this.J0 = 0;

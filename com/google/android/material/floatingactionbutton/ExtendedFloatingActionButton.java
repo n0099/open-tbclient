@@ -1083,7 +1083,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ExtendedFloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04029b);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04029c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1157,7 +1157,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         this.isExtended = true;
         Context context2 = getContext();
         this.behavior = new ExtendedFloatingActionButtonBehavior(context2, attributeSet);
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f04026d, R.attr.obfuscated_res_0x7f04029a, R.attr.obfuscated_res_0x7f040304, R.attr.obfuscated_res_0x7f04061f, R.attr.obfuscated_res_0x7f040626}, i, obfuscated_res_0x7f100365, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f04026e, R.attr.obfuscated_res_0x7f04029b, R.attr.obfuscated_res_0x7f040305, R.attr.obfuscated_res_0x7f040620, R.attr.obfuscated_res_0x7f040627}, i, obfuscated_res_0x7f100365, new int[0]);
         MotionSpec createFromAttribute = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 3);
         MotionSpec createFromAttribute2 = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 2);
         MotionSpec createFromAttribute3 = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 1);

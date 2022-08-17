@@ -27,8 +27,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.d9;
+import com.repackage.jk8;
 import com.repackage.kk6;
-import com.repackage.kk8;
 import com.repackage.mk6;
 import com.repackage.nk6;
 import com.repackage.ok6;
@@ -273,8 +273,8 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
     public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            kk8.h(309690, ForumRuleDetailScoketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FORUM_RULES_SHOW, kk8.a(TbConfig.FORUM_RULES_SHOW, 309690));
+            jk8.h(309690, ForumRuleDetailScoketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FORUM_RULES_SHOW, jk8.a(TbConfig.FORUM_RULES_SHOW, 309690));
             tbHttpMessageTask.setResponsedClass(ForumRuleDetailHttpResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

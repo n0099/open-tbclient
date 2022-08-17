@@ -86,7 +86,7 @@ import com.repackage.fs4;
 import com.repackage.gf5;
 import com.repackage.gi5;
 import com.repackage.gy4;
-import com.repackage.j87;
+import com.repackage.i87;
 import com.repackage.je5;
 import com.repackage.jf;
 import com.repackage.ji5;
@@ -94,12 +94,12 @@ import com.repackage.k55;
 import com.repackage.og;
 import com.repackage.oi;
 import com.repackage.rg;
-import com.repackage.sm8;
+import com.repackage.rm8;
+import com.repackage.ta7;
 import com.repackage.tf5;
-import com.repackage.ua7;
+import com.repackage.va7;
 import com.repackage.w65;
-import com.repackage.wa7;
-import com.repackage.ya7;
+import com.repackage.xa7;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -132,7 +132,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
     public CustomMessageListener q;
     public c9 r;
     public boolean s;
-    public wa7 t;
+    public va7 t;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -207,7 +207,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                     }
                     return;
                 }
-                this.a.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e78));
+                this.a.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e79));
             }
         }
     }
@@ -583,7 +583,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
     }
 
     /* loaded from: classes3.dex */
-    public class h implements wa7 {
+    public class h implements va7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TalkableActivity a;
@@ -606,7 +606,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
             this.a = talkableActivity;
         }
 
-        @Override // com.repackage.wa7
+        @Override // com.repackage.va7
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -617,7 +617,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.wa7
+        @Override // com.repackage.va7
         public void b() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.P0() == null) {
@@ -626,14 +626,14 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
             this.a.P0().cancelRecord();
         }
 
-        @Override // com.repackage.wa7
+        @Override // com.repackage.va7
         public boolean isForeground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.i : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.wa7
+        @Override // com.repackage.va7
         public void setRecoding(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
@@ -641,7 +641,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
             }
         }
 
-        @Override // com.repackage.wa7
+        @Override // com.repackage.va7
         public void startRecord() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.a.P0() == null) {
@@ -651,7 +651,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
             this.a.P0().d(dj.b);
         }
 
-        @Override // com.repackage.wa7
+        @Override // com.repackage.va7
         public void stopRecord() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.a.P0() == null) {
@@ -808,9 +808,9 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                 int saveImageFileByUser = FileHelper.saveImageFileByUser(this.a, this.b, this.c.getPageContext().getPageActivity());
                 if (saveImageFileByUser != -2) {
                     if (saveImageFileByUser != 0) {
-                        return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f1088);
+                        return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f1089);
                     }
-                    return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f1089);
+                    return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f108a);
                 }
                 return FileHelper.getSdErrorString();
             }
@@ -946,10 +946,10 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             ArrayList arrayList = new ArrayList();
             if (i2 == 1) {
-                arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af3));
+                arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af4));
             } else if (i2 == 15) {
                 if (!z) {
-                    arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af0));
+                    arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af1));
                 }
                 arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04ab));
             } else if (i2 == 17) {
@@ -957,20 +957,20 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
             } else if (i2 == 3) {
                 arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f044d));
                 if (!z) {
-                    arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af0));
+                    arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af1));
                 }
                 arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04ab));
             } else if (i2 == 4) {
                 if (!z) {
-                    arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af0));
+                    arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af1));
                 }
-                arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1081));
+                arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1082));
                 arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04ab));
             } else if (i2 != 5) {
                 switch (i2) {
                     case 7:
                         if (!z) {
-                            arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af0));
+                            arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af1));
                         }
                         arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04ab));
                         break;
@@ -980,13 +980,13 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                         break;
                     case 10:
                         if (!z) {
-                            arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af0));
+                            arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af1));
                         }
                         arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04ab));
                         break;
                     case 11:
                         if (!z) {
-                            arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af0));
+                            arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af1));
                         }
                         arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04ab));
                         break;
@@ -999,7 +999,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                 }
                 arrayList.add(string);
                 if (!z) {
-                    arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af0));
+                    arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af1));
                 }
                 arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04ab));
             }
@@ -1008,7 +1008,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         return (String[]) invokeCommon.objValue;
     }
 
-    public sm8 P0() {
+    public rm8 P0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -1018,7 +1018,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
             }
             return this.f.getRecorderManager();
         }
-        return (sm8) invokeV.objValue;
+        return (rm8) invokeV.objValue;
     }
 
     @Override // com.repackage.ji5
@@ -1076,7 +1076,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
             if (FileHelper.checkSD()) {
                 return true;
             }
-            showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1568));
+            showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f156b));
             return false;
         }
         return invokeV.booleanValue;
@@ -1136,8 +1136,8 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                     return;
                 }
                 fi.a(msg.getContent());
-                showToast((int) R.string.obfuscated_res_0x7f0f0ced);
-            } else if (str.equals(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af0))) {
+                showToast((int) R.string.obfuscated_res_0x7f0f0cee);
+            } else if (str.equals(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af1))) {
                 if (msg == null || msg.getUserInfo() == null || msg.getUserInfo().getUserName() == null) {
                     return;
                 }
@@ -1149,8 +1149,8 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                 }
                 this.c.markDeleteMsg(i2);
                 showToast((int) R.string.obfuscated_res_0x7f0f04b9);
-            } else if (str.equals(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1081))) {
-                String i3 = ua7.i(msg.getContent(), true);
+            } else if (str.equals(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1082))) {
+                String i3 = ta7.i(msg.getContent(), true);
                 if (i3 == null) {
                     return;
                 }
@@ -1170,7 +1170,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                     kVar.execute(new String[0]);
                 }
             } else if (!str.equals(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0807)) && !str.equals(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07fb))) {
-                if (str.equals(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af3))) {
+                if (str.equals(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af4))) {
                     c1(i2);
                 }
             } else if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
@@ -1378,7 +1378,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                 this.a.postDelayed(new f(this, beforeSendMsgText), 100L);
                 return;
             }
-            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0ecf));
+            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0ed0));
         }
     }
 
@@ -1410,13 +1410,13 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{view2, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
             if (i2 == 1) {
-                if (j87.a(this)) {
+                if (i87.a(this)) {
                     return;
                 }
                 this.b.showDiaItemContentOperate(i3, O0(i2, this.h));
             } else if (i2 == 8) {
                 ChatMessage msg3 = this.c.getMsg(i3);
-                if (msg3 == null || !ua7.x(msg3) || (msg = this.c.getMsg(i3)) == null || (content = msg.getContent()) == null) {
+                if (msg3 == null || !ta7.x(msg3) || (msg = this.c.getMsg(i3)) == null || (content = msg.getContent()) == null) {
                     return;
                 }
                 try {
@@ -1432,14 +1432,14 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                 if (msg4 == null || msg4.getContent() == null) {
                     return;
                 }
-                ya7 ya7Var = new ya7();
-                ya7Var.c(msg4.getContent(), getClass().getName());
-                if (ya7Var.b() != 4 || ya7Var.a() == null || StringUtils.isNull(((ShareFromFrsMsgData) ya7Var.a()).getName())) {
+                xa7 xa7Var = new xa7();
+                xa7Var.c(msg4.getContent(), getClass().getName());
+                if (xa7Var.b() != 4 || xa7Var.a() == null || StringUtils.isNull(((ShareFromFrsMsgData) xa7Var.a()).getName())) {
                     return;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getPageContext().getContext()).createNormalCfg(((ShareFromFrsMsgData) ya7Var.a()).getName(), null)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getPageContext().getContext()).createNormalCfg(((ShareFromFrsMsgData) xa7Var.a()).getName(), null)));
             } else if (i2 == 5) {
-                if (!V0() || (msg2 = this.c.getMsg(i3)) == null || ua7.z(msg2)) {
+                if (!V0() || (msg2 = this.c.getMsg(i3)) == null || ta7.z(msg2)) {
                 }
             } else if (i2 != 6) {
                 switch (i2) {
@@ -1457,60 +1457,60 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                         } catch (Exception e3) {
                             BdLog.e(e3.toString());
                         }
-                        ya7 ya7Var2 = new ya7();
-                        ya7Var2.c(msg5.getContent(), getClass().getName());
-                        if (ya7Var2.b() == 1 && ya7Var2.a() != null) {
-                            String theNewThemeId = ((ShareFromPBMsgData) ya7Var2.a()).getTheNewThemeId();
+                        xa7 xa7Var2 = new xa7();
+                        xa7Var2.c(msg5.getContent(), getClass().getName());
+                        if (xa7Var2.b() == 1 && xa7Var2.a() != null) {
+                            String theNewThemeId = ((ShareFromPBMsgData) xa7Var2.a()).getTheNewThemeId();
                             if (!StringUtils.isNull(theNewThemeId)) {
                                 long g2 = og.g(theNewThemeId, 0L);
                                 if (g2 <= 0) {
                                     return;
                                 }
-                                sendMessage(new CustomMessage(2002001, new PbChosenActivityConfig(getPageContext().getContext(), g2, ((ShareFromPBMsgData) ya7Var2.a()).getImageUrl())));
+                                sendMessage(new CustomMessage(2002001, new PbChosenActivityConfig(getPageContext().getContext(), g2, ((ShareFromPBMsgData) xa7Var2.a()).getImageUrl())));
                                 return;
-                            } else if (StringUtils.isNull(((ShareFromPBMsgData) ya7Var2.a()).getThreadId())) {
+                            } else if (StringUtils.isNull(((ShareFromPBMsgData) xa7Var2.a()).getThreadId())) {
                                 return;
                             } else {
-                                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getContext()).createNormalCfg(((ShareFromPBMsgData) ya7Var2.a()).getThreadId(), ((ShareFromPBMsgData) ya7Var2.a()).getPostId(), null)));
+                                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getContext()).createNormalCfg(((ShareFromPBMsgData) xa7Var2.a()).getThreadId(), ((ShareFromPBMsgData) xa7Var2.a()).getPostId(), null)));
                                 return;
                             }
                         }
                         return;
                     case 11:
                         if (!oi.z()) {
-                            showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f78));
+                            showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f79));
                             return;
                         }
                         ChatMessage msg6 = this.c.getMsg(i3);
                         if (msg6 == null || msg6.getContent() == null) {
                             return;
                         }
-                        ya7 ya7Var3 = new ya7();
-                        ya7Var3.c(msg6.getContent(), getClass().getName());
-                        if (ya7Var3.b() == 1 && ya7Var3.a() != null) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001255, ya7Var3));
+                        xa7 xa7Var3 = new xa7();
+                        xa7Var3.c(msg6.getContent(), getClass().getName());
+                        if (xa7Var3.b() == 1 && xa7Var3.a() != null) {
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001255, xa7Var3));
                             return;
                         }
                         return;
                     case 12:
                         if (!oi.z()) {
-                            showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f78));
+                            showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f79));
                             return;
                         }
                         ChatMessage msg7 = this.c.getMsg(i3);
                         if (msg7 == null || msg7.getContent() == null) {
                             return;
                         }
-                        ya7 ya7Var4 = new ya7();
-                        ya7Var4.c(msg7.getContent(), getClass().getName());
-                        if (ya7Var4.b() == 1 && ya7Var4.a() != null) {
-                            UrlManager.getInstance().dealOneLink((TbPageContext<?>) getPageContext(), new String[]{((ShareFromGameCenterMsgData) ya7Var4.a()).getShareSourceUrl()}, true);
+                        xa7 xa7Var4 = new xa7();
+                        xa7Var4.c(msg7.getContent(), getClass().getName());
+                        if (xa7Var4.b() == 1 && xa7Var4.a() != null) {
+                            UrlManager.getInstance().dealOneLink((TbPageContext<?>) getPageContext(), new String[]{((ShareFromGameCenterMsgData) xa7Var4.a()).getShareSourceUrl()}, true);
                             return;
                         }
                         return;
                     case 13:
                         if (!oi.z()) {
-                            showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f78));
+                            showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f79));
                             return;
                         }
                         ChatMessage msg8 = this.c.getMsg(i3);
@@ -1709,13 +1709,13 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
             if (PermissionUtil.checkCamera(getApplicationContext())) {
                 SelectImageHelper.takePhoto(getPageContext());
             } else {
-                showToast((int) R.string.obfuscated_res_0x7f0f133e);
+                showToast((int) R.string.obfuscated_res_0x7f0f1340);
             }
             ArrayMap<String, Boolean> transformPermissionResult = PermissionUtil.transformPermissionResult(strArr, iArr);
             if (!transformPermissionResult.containsKey("android.permission.WRITE_EXTERNAL_STORAGE") || transformPermissionResult.get("android.permission.WRITE_EXTERNAL_STORAGE").booleanValue()) {
                 return;
             }
-            showToast((int) R.string.obfuscated_res_0x7f0f109c);
+            showToast((int) R.string.obfuscated_res_0x7f0f109d);
         }
     }
 

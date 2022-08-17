@@ -280,7 +280,7 @@ public class AppBarLayout extends LinearLayout {
                     return;
                 }
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040447});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040448});
             if (obtainStyledAttributes.hasValue(0)) {
                 O(obtainStyledAttributes.getDimensionPixelSize(0, 0));
             }
@@ -663,10 +663,10 @@ public class AppBarLayout extends LinearLayout {
             }
             int[] iArr = this.l;
             int[] onCreateDrawableState = super.onCreateDrawableState(i + iArr.length);
-            iArr[0] = this.i ? R.attr.obfuscated_res_0x7f040490 : -2130969744;
-            iArr[1] = (this.i && this.j) ? R.attr.obfuscated_res_0x7f040491 : -2130969745;
-            iArr[2] = this.i ? R.attr.obfuscated_res_0x7f04048f : -2130969743;
-            iArr[3] = (this.i && this.j) ? R.attr.obfuscated_res_0x7f04048e : -2130969742;
+            iArr[0] = this.i ? R.attr.obfuscated_res_0x7f040491 : -2130969745;
+            iArr[1] = (this.i && this.j) ? R.attr.obfuscated_res_0x7f040492 : -2130969746;
+            iArr[2] = this.i ? R.attr.obfuscated_res_0x7f040490 : -2130969744;
+            iArr[3] = (this.i && this.j) ? R.attr.obfuscated_res_0x7f04048f : -2130969743;
             return LinearLayout.mergeDrawableStates(onCreateDrawableState, iArr);
         }
         return (int[]) invokeI.objValue;
@@ -1525,7 +1525,7 @@ public class AppBarLayout extends LinearLayout {
             t90.a(this);
             t90.c(this, attributeSet, 0, R.style.obfuscated_res_0x7f100120);
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842964, R.attr.obfuscated_res_0x7f040448, R.attr.obfuscated_res_0x7f040449, R.attr.obfuscated_res_0x7f040481, R.attr.obfuscated_res_0x7f04048c, R.attr.obfuscated_res_0x7f04048d, R.attr.obfuscated_res_0x7f040493, R.attr.obfuscated_res_0x7f040494}, 0, R.style.obfuscated_res_0x7f100120);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842964, R.attr.obfuscated_res_0x7f040449, R.attr.obfuscated_res_0x7f04044a, R.attr.obfuscated_res_0x7f040482, R.attr.obfuscated_res_0x7f04048d, R.attr.obfuscated_res_0x7f04048e, R.attr.obfuscated_res_0x7f040494, R.attr.obfuscated_res_0x7f040495}, 0, R.style.obfuscated_res_0x7f100120);
         if (obtainStyledAttributes.hasValue(2)) {
             l(obtainStyledAttributes.getBoolean(2, false), false, false);
         }
@@ -1574,7 +1574,7 @@ public class AppBarLayout extends LinearLayout {
                 }
             }
             this.a = 1;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04048a, R.attr.obfuscated_res_0x7f04048b});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04048b, R.attr.obfuscated_res_0x7f04048c});
             this.a = obtainStyledAttributes.getInt(0, 0);
             if (obtainStyledAttributes.hasValue(1)) {
                 this.b = AnimationUtils.loadInterpolator(context, obtainStyledAttributes.getResourceId(1, 0));

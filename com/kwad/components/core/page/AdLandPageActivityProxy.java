@@ -319,7 +319,7 @@ public class AdLandPageActivityProxy extends com.kwad.components.core.i.a {
             });
             com.kwad.components.core.kwai.a aVar = new com.kwad.components.core.kwai.a(this.mWebContainer);
             this.mTitleBarHelper = aVar;
-            aVar.a(new a.InterfaceC0358a(this) { // from class: com.kwad.components.core.page.AdLandPageActivityProxy.3
+            aVar.a(new a.InterfaceC0360a(this) { // from class: com.kwad.components.core.page.AdLandPageActivityProxy.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AdLandPageActivityProxy Ft;
@@ -342,7 +342,7 @@ public class AdLandPageActivityProxy extends com.kwad.components.core.i.a {
                     this.Ft = this;
                 }
 
-                @Override // com.kwad.components.core.kwai.a.InterfaceC0358a
+                @Override // com.kwad.components.core.kwai.a.InterfaceC0360a
                 public final void r(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
@@ -350,7 +350,7 @@ public class AdLandPageActivityProxy extends com.kwad.components.core.i.a {
                     }
                 }
 
-                @Override // com.kwad.components.core.kwai.a.InterfaceC0358a
+                @Override // com.kwad.components.core.kwai.a.InterfaceC0360a
                 public final void s(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
@@ -365,7 +365,7 @@ public class AdLandPageActivityProxy extends com.kwad.components.core.i.a {
                 com.kwad.components.core.c.a.c cVar = new com.kwad.components.core.c.a.c(this.mAdTemplate);
                 setupJsBridge(this.mAdWebView, cVar);
                 if (com.kwad.sdk.core.config.d.rT() && ae.isWifiConnected(getActivity())) {
-                    cVar.m(new a.C0352a(getActivity()).aj(false).ak(false).L(this.mAdTemplate).am(false));
+                    cVar.m(new a.C0354a(getActivity()).aj(false).ak(false).L(this.mAdTemplate).am(false));
                 }
                 ksAdWebView = this.mAdWebView;
                 ar = this.mDialogUrl;

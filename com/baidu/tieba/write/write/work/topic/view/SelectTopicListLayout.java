@@ -26,10 +26,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m57;
+import com.repackage.l57;
 import com.repackage.ms4;
 import com.repackage.n65;
-import com.repackage.p57;
+import com.repackage.o57;
 import com.repackage.qi;
 import java.util.ArrayList;
 import java.util.List;
@@ -144,12 +144,12 @@ public class SelectTopicListLayout extends LinearLayout {
         b();
     }
 
-    public void a(m57 m57Var, m57 m57Var2, m57 m57Var3) {
+    public void a(l57 l57Var, l57 l57Var2, l57 l57Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, m57Var, m57Var2, m57Var3) == null) {
-            if (m57Var != null && !ListUtils.isEmpty(m57Var.b())) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, l57Var, l57Var2, l57Var3) == null) {
+            if (l57Var != null && !ListUtils.isEmpty(l57Var.b())) {
                 this.a.setVisibility(0);
-                this.d.e(m57Var.c());
+                this.d.e(l57Var.c());
             } else {
                 this.a.setVisibility(8);
             }
@@ -160,14 +160,14 @@ public class SelectTopicListLayout extends LinearLayout {
                 int i = n65Var.e;
                 if (i == 1) {
                     VideoTopicListFragment videoTopicListFragment = (VideoTopicListFragment) n65Var.a;
-                    if (m57Var3 != null && m57Var3.c() != null) {
-                        p57 p57Var = new p57("", 0L, false);
-                        p57Var.n(true);
-                        m57Var3.c().add(0, p57Var);
+                    if (l57Var3 != null && l57Var3.c() != null) {
+                        o57 o57Var = new o57("", 0L, false);
+                        o57Var.n(true);
+                        l57Var3.c().add(0, o57Var);
                     }
-                    videoTopicListFragment.u1(m57Var3);
+                    videoTopicListFragment.u1(l57Var3);
                 } else if (i == 2) {
-                    ((VideoTopicListFragment) n65Var.a).u1(m57Var2);
+                    ((VideoTopicListFragment) n65Var.a).u1(l57Var2);
                 }
             }
         }
@@ -198,7 +198,7 @@ public class SelectTopicListLayout extends LinearLayout {
             VideoTopicListFragment r1 = VideoTopicListFragment.r1();
             n65Var.a = r1;
             r1.setArguments(bundle);
-            n65Var.c = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f10fd);
+            n65Var.c = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f10fe);
             n65Var.e = 1;
             this.f.add(n65Var);
             Bundle bundle2 = new Bundle();
@@ -207,7 +207,7 @@ public class SelectTopicListLayout extends LinearLayout {
             VideoTopicListFragment r12 = VideoTopicListFragment.r1();
             n65Var2.a = r12;
             r12.setArguments(bundle2);
-            n65Var2.c = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f10f7);
+            n65Var2.c = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f10f8);
             n65Var2.e = 2;
             this.f.add(n65Var2);
             this.c.setOffscreenPageLimit(this.f.size());

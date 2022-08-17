@@ -1,95 +1,219 @@
 package com.repackage;
 
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.tieba.R;
+import com.baidu.tieba.personPolymeric.mode.PersonPolymericModel;
+import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class j68 {
+public class j68 extends d68 implements tm7, a68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext b;
+    public long c;
+    public boolean d;
+    public BdUniqueId e;
+    public f68 f;
+    public d88 g;
+    public PersonPolymericModel h;
+    public e68 i;
+    public BaseFragmentActivity j;
+    public View k;
+    public PersonPostModel l;
+    public int m;
+    public List<w28> n;
 
-    public static void a(String str, List<on> list) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j68(BaseFragment baseFragment, f68 f68Var, BdUniqueId bdUniqueId, long j, boolean z) {
+        super(z);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, str, list) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        if (list == null) {
-            list = new ArrayList<>();
-        }
-        JSONArray jSONArray = new JSONArray();
-        int size = list.size();
-        for (int i = 0; i < size; i++) {
-            on onVar = list.get(i);
-            if (onVar instanceof u15) {
-                u15 u15Var = (u15) onVar;
-                if (!u15Var.c()) {
-                    jSONArray.put(u15Var.a());
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment, f68Var, bdUniqueId, Long.valueOf(j), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        jSONArray.put(str);
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
-        httpMessage.addParam("pic_list", jSONArray.toString());
-        MessageManager.getInstance().sendMessage(httpMessage);
+        this.d = true;
+        this.m = 3;
+        BaseFragmentActivity baseFragmentActivity = baseFragment.getBaseFragmentActivity();
+        this.j = baseFragmentActivity;
+        this.b = baseFragmentActivity.getPageContext();
+        this.c = j;
+        this.f = f68Var;
+        this.e = bdUniqueId;
+        this.k = f68Var.e;
+        this.l = new PersonPostModel(this.b, bdUniqueId, null, this.a, PersonPostModel.FROM_PERSON_POLYMERIC);
+        d88 d88Var = new d88(baseFragment, f68Var, bdUniqueId, z, this.c);
+        this.g = d88Var;
+        d88Var.W(this);
+        resetData();
+        this.h = this.f.p();
+        this.i = this.f.k();
+        ArrayList arrayList = new ArrayList(2);
+        this.n = arrayList;
+        arrayList.add(new w28());
+        this.n.add(new w28());
     }
 
-    public static void b(u15 u15Var, List<on> list) {
-        u15 u15Var2;
+    @Override // com.repackage.tm7
+    public void a() {
+        f68 f68Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, u15Var, list) == null) || u15Var == null || ListUtils.isEmpty(list) || StringUtils.isNull(u15Var.a())) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (f68Var = this.f) == null) {
             return;
         }
-        JSONArray jSONArray = new JSONArray();
-        int size = list.size();
-        for (int i = 0; i < size; i++) {
-            on onVar = list.get(i);
-            if ((onVar instanceof u15) && (u15Var2 = (u15) onVar) != u15Var && !u15Var2.c()) {
-                jSONArray.put(u15Var2.a());
-            }
-        }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
-        httpMessage.addParam("pic_list", jSONArray.toString());
-        if (jSONArray.length() <= 0) {
-            httpMessage.addParam("truncat", 1);
-        } else {
-            httpMessage.addParam("truncat", 0);
-        }
-        MessageManager.getInstance().sendMessage(httpMessage);
+        f68Var.a();
     }
 
-    public static String c(TbPageContext tbPageContext, String str) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.tm7
+    public void b() {
+        f68 f68Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbPageContext, str)) == null) {
-            if (tbPageContext == null || StringUtils.isNull(str)) {
-                return null;
-            }
-            if (tbPageContext.getResources().getDisplayMetrics().densityDpi > 240.0f) {
-                return "http://tb.himg.baidu.com/sys/portraith/item/" + str;
-            }
-            return "http://tb.himg.baidu.com/sys/portraitl/item/" + str;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void d(u15 u15Var, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, u15Var, bdUniqueId) == null) || u15Var == null || StringUtils.isNull(u15Var.a()) || !ListUtils.isEmpty(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (f68Var = this.f) == null) {
             return;
         }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
-        httpMessage.addParam("pic_url", u15Var.a());
-        httpMessage.setTag(bdUniqueId);
-        MessageManager.getInstance().sendMessage(httpMessage);
+        f68Var.b();
+    }
+
+    @Override // com.repackage.a68
+    public d88 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (d88) invokeV.objValue;
+    }
+
+    @Override // com.repackage.a68
+    public void e() {
+        d88 d88Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (d88Var = this.g) == null) {
+            return;
+        }
+        d88Var.M();
+    }
+
+    @Override // com.repackage.a68
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        }
+    }
+
+    public void i(ow8 ow8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ow8Var) == null) {
+            this.g.X(ow8Var);
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || this.m == i) {
+            return;
+        }
+        d88 d88Var = this.g;
+        if (d88Var != null) {
+            d88Var.T(i);
+        }
+        this.m = i;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.e);
+            d88 d88Var = this.g;
+            if (d88Var != null) {
+                d88Var.U();
+            }
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && z && this.d) {
+            a();
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && TbadkCoreApplication.isLogin() && !this.a && this.c == TbadkCoreApplication.getCurrentAccountId()) {
+            this.a = true;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.b.getPageActivity()).createNormalConfig(og.g(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() == null ? false : TbadkCoreApplication.getCurrentAccountInfo().isBigV())));
+            this.j.finish();
+        }
+    }
+
+    public void n(k68 k68Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, k68Var) == null) {
+            this.g.N();
+            this.j.hideLoadingView(this.k);
+            boolean z = true;
+            if (k68Var == null) {
+                this.i.w(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c3d), true);
+                this.i.l();
+                this.i.r(8);
+                return;
+            }
+            this.i.n();
+            if (k68Var.e() != null && ((k68Var.e().getHide_stat() == 1 && k68Var.e().getBlock_stat() == 1) || (k68Var.e().getHide_stat() == 1 && k68Var.e().getBlock_stat() == 2))) {
+                this.i.t(this.a);
+                this.i.r(8);
+                return;
+            }
+            this.i.r(0);
+            k68Var.b();
+            z = (k68Var.f() == null || k68Var.f().size() < 20) ? false : false;
+            if (k68Var.j() != null) {
+                k68Var.j().getSex();
+            }
+            this.d = false;
+            if (this.a && k68Var.j() != null) {
+                k68Var.j().setBimg_url(TbadkCoreApplication.getInst().getDefaultBubble());
+                c55.d().i(k68Var.j());
+            }
+            w28 w28Var = this.n.get(0);
+            w28Var.a(k68Var.f());
+            w28Var.b(z);
+            this.g.Z(k68Var, z, h(k68Var));
+        }
+    }
+
+    @Override // com.repackage.tm7
+    public void resetData() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.l.resetThreadPn();
+            PersonPolymericModel personPolymericModel = this.h;
+            if (personPolymericModel != null) {
+                personPolymericModel.N();
+            }
+        }
     }
 }

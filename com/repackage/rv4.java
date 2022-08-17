@@ -101,7 +101,7 @@ public class rv4 extends TBSpecificationButtonConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
             int color = SkinManager.getColor(this.r, this.d);
-            int[] iArr = {gj8.c(color), color};
+            int[] iArr = {fj8.c(color), color};
             if (Build.VERSION.SDK_INT >= 16) {
                 gradientDrawable = new GradientDrawable();
                 gradientDrawable.setOrientation(this.s);

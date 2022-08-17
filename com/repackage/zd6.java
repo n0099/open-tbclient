@@ -135,7 +135,7 @@ public class zd6 implements View.OnClickListener {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qi.M(this.a.a.getPageActivity(), this.a.b.d);
+                qi.L(this.a.a.getPageActivity(), this.a.b.d);
             }
         }
     }

@@ -317,7 +317,7 @@ public class f19 implements h19, MultiImagePagerAdapter.b {
         }
         if (!oi.z()) {
             if (this.a.getContext() != null) {
-                qi.N(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c3c);
+                qi.M(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c3d);
                 return;
             }
             return;
@@ -410,7 +410,7 @@ public class f19 implements h19, MultiImagePagerAdapter.b {
         if (this.f == null) {
             ur4 ur4Var = new ur4(this.a.getPageActivity());
             this.f = ur4Var;
-            ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0d0b);
+            ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0d0c);
             this.f.setPositiveButton(R.string.obfuscated_res_0x7f0f0265, new c(this, i, z));
             this.f.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new d(this));
             this.f.create(this.a);
@@ -429,7 +429,7 @@ public class f19 implements h19, MultiImagePagerAdapter.b {
             if (this.f == null) {
                 ur4 ur4Var = new ur4(this.a.getPageActivity());
                 this.f = ur4Var;
-                ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0d0b);
+                ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0d0c);
                 this.f.setPositiveButton(R.string.obfuscated_res_0x7f0f0265, new e(this, bitmap));
                 this.f.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new f(this));
                 this.f.create(this.a);

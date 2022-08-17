@@ -31,8 +31,8 @@ public class a35 extends s25 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f08099a;
-        this.h = R.drawable.obfuscated_res_0x7f08099a;
+        this.d = R.drawable.obfuscated_res_0x7f08099b;
+        this.h = R.drawable.obfuscated_res_0x7f08099b;
         this.i = false;
         this.j = true;
         this.k = false;

@@ -16,8 +16,8 @@ import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.google.android.gms.common.internal.zzy;
 import com.google.android.gms.dynamic.IObjectWrapper;
 import com.google.android.gms.dynamic.ObjectWrapper;
-import com.repackage.an9;
-import com.repackage.co9;
+import com.repackage.cn9;
+import com.repackage.eo9;
 import javax.annotation.Nullable;
 /* loaded from: classes5.dex */
 public final class zzs extends AbstractSafeParcelable {
@@ -43,7 +43,7 @@ public final class zzs extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new co9();
+        CREATOR = new eo9();
     }
 
     public zzs(String str, @Nullable IBinder iBinder, boolean z, boolean z2) {
@@ -106,17 +106,17 @@ public final class zzs extends AbstractSafeParcelable {
     public final void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
-            int a = an9.a(parcel);
-            an9.k(parcel, 1, this.zza, false);
+            int a = cn9.a(parcel);
+            cn9.k(parcel, 1, this.zza, false);
             zzi zziVar = this.zzb;
             if (zziVar == null) {
                 Log.w("GoogleCertificatesQuery", "certificate binder is null");
                 zziVar = null;
             }
-            an9.f(parcel, 2, zziVar, false);
-            an9.c(parcel, 3, this.zzc);
-            an9.c(parcel, 4, this.zzd);
-            an9.b(parcel, a);
+            cn9.f(parcel, 2, zziVar, false);
+            cn9.c(parcel, 3, this.zzc);
+            cn9.c(parcel, 4, this.zzd);
+            cn9.b(parcel, a);
         }
     }
 }

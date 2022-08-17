@@ -115,12 +115,12 @@ public abstract class nd1 implements yd1, AdView.a, SensorEventListener {
 
         /* renamed from: com.repackage.nd1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0532a implements View.OnClickListener {
+        public class View$OnClickListenerC0535a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0532a(a aVar) {
+            public View$OnClickListenerC0535a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -177,7 +177,7 @@ public abstract class nd1 implements yd1, AdView.a, SensorEventListener {
                         this.c.V.setComposition(lottieComposition);
                         this.c.V.playAnimation();
                         this.c.m(this.c.V, this.a, this.b, "click_float_lottie", this.c.K);
-                        this.c.V.setOnClickListener(new View$OnClickListenerC0532a(this));
+                        this.c.V.setOnClickListener(new View$OnClickListenerC0535a(this));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

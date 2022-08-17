@@ -155,7 +155,7 @@ public class ab0 {
     public int e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? "recommend".equals(str) ? R.drawable.obfuscated_res_0x7f080d1b : (LiveFeedPageSdk.IMMERSION.equals(str) || LiveFeedPageSdk.VIDEO_BAR.equals(str)) ? R.drawable.obfuscated_res_0x7f080d1c : "night".equals(this.b) ? R.drawable.obfuscated_res_0x7f080d1d : "dark".equals(this.b) ? R.drawable.obfuscated_res_0x7f080d1c : R.drawable.obfuscated_res_0x7f080d1b : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? "recommend".equals(str) ? R.drawable.obfuscated_res_0x7f080d1c : (LiveFeedPageSdk.IMMERSION.equals(str) || LiveFeedPageSdk.VIDEO_BAR.equals(str)) ? R.drawable.obfuscated_res_0x7f080d1d : "night".equals(this.b) ? R.drawable.obfuscated_res_0x7f080d1e : "dark".equals(this.b) ? R.drawable.obfuscated_res_0x7f080d1d : R.drawable.obfuscated_res_0x7f080d1c : invokeL.intValue;
     }
 
     public String g(String str) {
@@ -326,7 +326,7 @@ public class ab0 {
     public int o(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) ? ("recommend".equals(str) || LiveFeedPageSdk.IMMERSION.equals(str)) ? R.drawable.obfuscated_res_0x7f080cce : "night".equals(this.b) ? R.drawable.obfuscated_res_0x7f080ccf : "dark".equals(this.b) ? R.drawable.obfuscated_res_0x7f080cce : R.drawable.obfuscated_res_0x7f080ccd : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) ? ("recommend".equals(str) || LiveFeedPageSdk.IMMERSION.equals(str)) ? R.drawable.obfuscated_res_0x7f080ccf : "night".equals(this.b) ? R.drawable.obfuscated_res_0x7f080cd0 : "dark".equals(this.b) ? R.drawable.obfuscated_res_0x7f080ccf : R.drawable.obfuscated_res_0x7f080cce : invokeL.intValue;
     }
 
     public int p(String str) {
@@ -334,14 +334,14 @@ public class ab0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
             if ("recommend".equals(str) || LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return R.drawable.obfuscated_res_0x7f080cdf;
+                return R.drawable.obfuscated_res_0x7f080ce0;
             }
             if ("night".equals(this.b)) {
-                return R.drawable.obfuscated_res_0x7f080ce0;
+                return R.drawable.obfuscated_res_0x7f080ce1;
             }
             if ("dark".equals(this.b)) {
             }
-            return R.drawable.obfuscated_res_0x7f080cde;
+            return R.drawable.obfuscated_res_0x7f080cdf;
         }
         return invokeL.intValue;
     }

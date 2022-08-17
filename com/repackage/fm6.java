@@ -112,7 +112,7 @@ public class fm6 {
                         BdToast b2 = BdToast.b(tbPageContext.getPageActivity(), forbid_info);
                         b2.f(BdToast.ToastIcon.FAILURE);
                         b2.d(1.25f);
-                        b2.h();
+                        b2.i();
                     }
                 }
             }
@@ -133,7 +133,7 @@ public class fm6 {
                 BdToast b2 = BdToast.b(tbPageContext.getPageActivity(), string);
                 b2.f(BdToast.ToastIcon.FAILURE);
                 b2.d(1.25f);
-                b2.h();
+                b2.i();
                 return false;
             }
             ur4 ur4Var = new ur4(tbPageContext.getPageActivity());

@@ -1,100 +1,129 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.annotation.SuppressLint;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.payment.PayVcodeActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes7.dex */
-public class yr7 implements jx4 {
+public class yr7 extends b9<PayVcodeActivity> {
     public static /* synthetic */ Interceptable $ic;
-    public static yr7 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public PayVcodeActivity a;
+    public ViewGroup b;
+    public View c;
+    public ViewGroup d;
+    public TextView e;
+    public BaseWebView f;
+    public TextView g;
+    public ProgressBar h;
 
-    public yr7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yr7(PayVcodeActivity payVcodeActivity) {
+        super(payVcodeActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {payVcodeActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = payVcodeActivity;
+        payVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d069c);
+        o(payVcodeActivity);
     }
 
-    public static synchronized yr7 d() {
+    public View j() {
         InterceptResult invokeV;
-        yr7 yr7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (yr7.class) {
-                if (a == null) {
-                    a = new yr7();
-                }
-                yr7Var = a;
-            }
-            return yr7Var;
-        }
-        return (yr7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.jx4
-    public void a() {
+    public TextView k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                SapiAccountManager.getInstance().logout();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (TextView) invokeV.objValue;
+    }
+
+    public TextView l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (TextView) invokeV.objValue;
+    }
+
+    public ViewGroup m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (ViewGroup) invokeV.objValue;
+    }
+
+    public BaseWebView n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (BaseWebView) invokeV.objValue;
+    }
+
+    public final void o(PayVcodeActivity payVcodeActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, payVcodeActivity) == null) {
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091798);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091792);
+            this.e = textView;
+            SkinManager.setBackgroundResource(textView, R.drawable.s_navbar_button_bg);
+            SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
+            this.f = (BaseWebView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f092485);
+            this.g = (TextView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0925f7);
+            this.c = payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091796);
+            this.d = (ViewGroup) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091797);
+            this.h = (ProgressBar) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091799);
+            this.f.setHorizontalScrollBarEnabled(false);
+            this.f.setHorizontalScrollbarOverlay(false);
+            this.f.setScrollBarStyle(33554432);
+            this.f.getSettings().setJavaScriptEnabled(true);
         }
     }
 
-    @Override // com.repackage.jx4
-    public void b(AccountData accountData) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
-            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
-            if (TextUtils.isEmpty(accountData.getID()) || loginAccounts == null || loginAccounts.size() <= 0) {
-                return;
-            }
-            for (SapiAccount sapiAccount : loginAccounts) {
-                if (accountData.getID().equals(sapiAccount.uid)) {
-                    SapiAccountManager.getInstance().validate(sapiAccount);
-                    return;
-                }
-            }
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            fb5.a(this.a.getPageContext(), this.b);
+            SkinManager.setBgColor(this.g, i);
+            SkinManager.setBackgroundResource(this.e, R.drawable.s_navbar_button_bg);
+            SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
         }
     }
 
-    @Override // com.repackage.jx4
-    public void c(AccountData accountData) {
+    public void p(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-            if (accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) {
-                SapiAccountManager.getInstance().logout();
-                return;
-            }
-            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
-            if (loginAccounts == null || loginAccounts.size() <= 0) {
-                return;
-            }
-            for (SapiAccount sapiAccount : loginAccounts) {
-                if (accountData.getID().equals(sapiAccount.uid)) {
-                    SapiAccountManager.getInstance().removeLoginAccount(sapiAccount);
-                    return;
-                }
-            }
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.g.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.h.setVisibility(z ? 0 : 8);
         }
     }
 }

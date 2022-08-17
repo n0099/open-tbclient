@@ -3,6 +3,7 @@ package com.repackage;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
@@ -60,7 +61,7 @@ public class y17 extends bn<ir4, ThreadCardViewHolder<ThreadData>> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
                 uz5.b().d(true);
-                o17.m(view2, threadData, this.b.b);
+                n17.m(view2, threadData, this.b.b);
             }
         }
     }
@@ -139,10 +140,10 @@ public class y17 extends bn<ir4, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             dy.b bVar = new dy.b(this.c.getPageActivity(), false);
-            nx nxVar = new nx(this.c.getPageActivity());
-            nxVar.t("index");
-            nxVar.u(this.d);
-            bVar.n(nxVar);
+            qx qxVar = new qx(this.c.getPageActivity());
+            qxVar.r("index");
+            qxVar.s(this.d);
+            bVar.n(qxVar);
             dy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.e);
             k.r(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
@@ -169,7 +170,14 @@ public class y17 extends bn<ir4, ThreadCardViewHolder<ThreadData>> {
             threadCardViewHolder.e(ir4Var.t);
             threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
             threadCardViewHolder.a().p(this.f);
-            o17.t(ir4Var, this.b);
+            n17.t(ir4Var, this.b);
+            qx qxVar = (qx) threadCardViewHolder.a().g();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) qxVar.f.d.getLayoutParams();
+            layoutParams.width = ir4Var.u;
+            layoutParams.height = ir4Var.v;
+            if (qxVar.f.d.getVisibility() != 8) {
+                qxVar.f.d.setLayoutParams(layoutParams);
+            }
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

@@ -26,8 +26,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b06;
+import com.repackage.b17;
 import com.repackage.bn;
-import com.repackage.c17;
 import com.repackage.kz5;
 import com.repackage.m06;
 import com.repackage.o95;
@@ -177,11 +177,11 @@ public class HomePageAlaLiveThreadAdapter extends bn<m06, HomePageAlaLiveThreadV
                     }
                     TiebaStaticHelper.addYYParam(statisticItem2, m06Var.getThreadData().getThreadAlaInfo().mYyExtData);
                     TiebaStatic.log(statisticItem2);
-                    c17.c(m06Var.a, m06Var.r(), m06Var.n(), 1);
+                    b17.c(m06Var.a, m06Var.r(), m06Var.n(), 1);
                     i2 = 1;
                 }
                 if (i2 != 0) {
-                    c17.d(m06Var.a, this.b.a, m06Var.n(), i2);
+                    b17.d(m06Var.a, this.b.a, m06Var.n(), i2);
                 }
                 TbSingleton.getInstance().saveHomeRecommendItemClickTime();
             }
@@ -318,8 +318,8 @@ public class HomePageAlaLiveThreadAdapter extends bn<m06, HomePageAlaLiveThreadV
                 TiebaStaticHelper.addYYParam(statisticItem2, m06Var.getThreadData().getThreadAlaInfo().mYyExtData);
                 TiebaStatic.log(statisticItem2);
             }
-            c17.i(m06Var.a, this.a, m06Var.n());
-            c17.h(m06Var.a, m06Var.r(), m06Var.n());
+            b17.i(m06Var.a, this.a, m06Var.n());
+            b17.h(m06Var.a, m06Var.r(), m06Var.n());
             return homePageAlaLiveThreadViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

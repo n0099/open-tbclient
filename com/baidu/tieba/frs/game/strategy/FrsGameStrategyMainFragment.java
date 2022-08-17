@@ -92,7 +92,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
                     return;
                 }
                 FrsGameStrategyMainFragment frsGameStrategyMainFragment2 = this.a;
-                frsGameStrategyMainFragment2.showNetRefreshView(frsGameStrategyMainFragment2.d.f(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c56), false);
+                frsGameStrategyMainFragment2.showNetRefreshView(frsGameStrategyMainFragment2.d.f(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c57), false);
                 FrsGameStrategyMainFragment frsGameStrategyMainFragment3 = this.a;
                 frsGameStrategyMainFragment3.setNetRefreshViewTopMargin(frsGameStrategyMainFragment3.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070283));
             }
@@ -444,13 +444,13 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
             if (PermissionUtil.checkCamera(getActivity().getApplicationContext())) {
                 SelectImageHelper.takePhoto(getPageContext());
             } else {
-                showToast(R.string.obfuscated_res_0x7f0f133e);
+                showToast(R.string.obfuscated_res_0x7f0f1340);
             }
             ArrayMap<String, Boolean> transformPermissionResult = PermissionUtil.transformPermissionResult(strArr, iArr);
             if (!transformPermissionResult.containsKey("android.permission.WRITE_EXTERNAL_STORAGE") || transformPermissionResult.get("android.permission.WRITE_EXTERNAL_STORAGE").booleanValue()) {
                 return;
             }
-            showToast(R.string.obfuscated_res_0x7f0f109c);
+            showToast(R.string.obfuscated_res_0x7f0f109d);
         }
     }
 

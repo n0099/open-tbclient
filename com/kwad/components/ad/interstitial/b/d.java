@@ -662,7 +662,7 @@ public final class d extends b {
             com.kwad.components.ad.f.kwai.kwai.b j = com.kwad.components.ad.f.kwai.kwai.b.j(this.mAdTemplate);
             this.gY = j;
             if (j != null) {
-                j.a(new b.InterfaceC0307b(this) { // from class: com.kwad.components.ad.interstitial.b.d.2
+                j.a(new b.InterfaceC0309b(this) { // from class: com.kwad.components.ad.interstitial.b.d.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ d hc;
@@ -685,7 +685,7 @@ public final class d extends b {
                         this.hc = this;
                     }
 
-                    @Override // com.kwad.components.ad.f.kwai.kwai.b.InterfaceC0307b
+                    @Override // com.kwad.components.ad.f.kwai.kwai.b.InterfaceC0309b
                     public final void C(int i) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
@@ -708,7 +708,7 @@ public final class d extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) {
             com.kwad.components.ad.f.kwai.kwai.a aVar = new com.kwad.components.ad.f.kwai.kwai.a();
-            this.gh.gs.add(new c.InterfaceC0316c(this, aVar) { // from class: com.kwad.components.ad.interstitial.b.d.3
+            this.gh.gs.add(new c.InterfaceC0318c(this, aVar) { // from class: com.kwad.components.ad.interstitial.b.d.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ d hc;
@@ -733,7 +733,7 @@ public final class d extends b {
                     this.hd = aVar;
                 }
 
-                @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0316c
+                @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0318c
                 public final void cH() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -1457,7 +1457,7 @@ public final class d extends b {
             public final void a(com.kwad.components.core.webview.a.b bVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, bVar) == null) {
-                    AdWebViewActivityProxy.launch(this.hc.mContext, new AdWebViewActivityProxy.a.C0359a().ao(bVar.title).ap(bVar.url).N(this.hc.mAdTemplate).nx());
+                    AdWebViewActivityProxy.launch(this.hc.mContext, new AdWebViewActivityProxy.a.C0361a().ao(bVar.title).ap(bVar.url).N(this.hc.mAdTemplate).nx());
                 }
             }
         } : (w.a) invokeV.objValue;

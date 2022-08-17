@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ua7;
+import com.repackage.ta7;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -69,7 +69,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             super.o(view2, i, i2, j);
-            if (i == 7 && V0() && (msglistModel = this.c) != null && (msg = msglistModel.getMsg(i2)) != null && ua7.w(msg) && content != null) {
+            if (i == 7 && V0() && (msglistModel = this.c) != null && (msg = msglistModel.getMsg(i2)) != null && ta7.w(msg) && content != null) {
                 JSONObject jSONObject = null;
                 try {
                     try {

@@ -129,7 +129,7 @@ public class qy8 extends BaseAdapter implements View.OnClickListener {
             return;
         }
         this.c = 1;
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b28);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b29);
         notifyDataSetChanged();
     }
 
@@ -331,7 +331,7 @@ public class qy8 extends BaseAdapter implements View.OnClickListener {
         if ((interceptable == null || interceptable.invokeL(1048589, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090fe7 && (view2.getTag() instanceof ty8)) {
             ty8 ty8Var = (ty8) view2.getTag();
             if (ty8Var.getType() == 3 && (ty8Var.c() instanceof MusicData)) {
-                if (view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b28).equals(ty8Var.b()) && (iVar = this.d) != null) {
+                if (view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b29).equals(ty8Var.b()) && (iVar = this.d) != null) {
                     iVar.b(ty8Var, view2.getTag(R.id.obfuscated_res_0x7f091b6d));
                     this.c = this.a.indexOf(ty8Var);
                     this.b = ty8Var.b();
@@ -339,7 +339,7 @@ public class qy8 extends BaseAdapter implements View.OnClickListener {
                 if (!TextUtils.isEmpty(ty8Var.b()) && ty8Var.b().equals(this.b)) {
                     return;
                 }
-                if (!ty8Var.b().equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b28))) {
+                if (!ty8Var.b().equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b29))) {
                     this.c = this.a.indexOf(ty8Var);
                 }
             } else {

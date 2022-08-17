@@ -12,9 +12,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,16 +24,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dy;
 import com.repackage.oy;
+import com.repackage.rw;
 import com.repackage.uw;
 /* loaded from: classes7.dex */
-public class wz6 extends hu6<n06, ThreadCardViewHolder<n06>> implements pl5 {
+public class wz6 extends gu6<n06, ThreadCardViewHolder<n06>> implements pl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId b;
     public TbPageContext<?> c;
     public NEGFeedBackView.b d;
     public String e;
-    public boolean f;
+    public un f;
     public b06<n06> g;
 
     /* loaded from: classes7.dex */
@@ -74,7 +77,7 @@ public class wz6 extends hu6<n06, ThreadCardViewHolder<n06>> implements pl5 {
                 if (id == R.id.obfuscated_res_0x7f09212a || id == R.id.obfuscated_res_0x7f09213e) {
                     TiebaStatic.log(n06Var.Q("c12642"));
                     nl5.c().i("page_recommend", "clk_", n06Var.A());
-                    c17.c(n06Var.a, n06Var.r(), n06Var.n(), 1);
+                    b17.c(n06Var.a, n06Var.r(), n06Var.n(), 1);
                 } else {
                     if (id == R.id.obfuscated_res_0x7f09212c) {
                         TiebaStatic.log(n06Var.T());
@@ -83,11 +86,11 @@ public class wz6 extends hu6<n06, ThreadCardViewHolder<n06>> implements pl5 {
                         if (id == R.id.obfuscated_res_0x7f092422) {
                             TiebaStatic.log(n06Var.S());
                             nl5.c().i("page_recommend", "clk_", n06Var.S());
-                            c17.c(n06Var.a, n06Var.r(), n06Var.n(), 4);
+                            b17.c(n06Var.a, n06Var.r(), n06Var.n(), 4);
                         } else if (id == R.id.obfuscated_res_0x7f092450) {
                             TiebaStatic.log(n06Var.S());
                             nl5.c().i("page_recommend", "clk_", n06Var.S());
-                            c17.c(n06Var.a, n06Var.r(), n06Var.n(), 4);
+                            b17.c(n06Var.a, n06Var.r(), n06Var.n(), 4);
                         } else if (id == R.id.obfuscated_res_0x7f090a74) {
                             TiebaStatic.log(n06Var.j());
                             nl5.c().i("page_recommend", "clk_", n06Var.j());
@@ -99,7 +102,7 @@ public class wz6 extends hu6<n06, ThreadCardViewHolder<n06>> implements pl5 {
                             StatisticItem statisticItem2 = new StatisticItem("c10760");
                             statisticItem2.param("obj_locate", 2);
                             TiebaStatic.log(statisticItem2);
-                            c17.c(n06Var.a, n06Var.r(), n06Var.n(), 1);
+                            b17.c(n06Var.a, n06Var.r(), n06Var.n(), 1);
                         } else if (id != R.id.obfuscated_res_0x7f090cbc && id != R.id.obfuscated_res_0x7f090cbd) {
                             if (view2 instanceof TbImageView) {
                                 if (view2.getTag(R.id.obfuscated_res_0x7f090cba) instanceof Integer) {
@@ -109,7 +112,7 @@ public class wz6 extends hu6<n06, ThreadCardViewHolder<n06>> implements pl5 {
                                 }
                                 TiebaStatic.log(n06Var.P());
                                 nl5.c().i("page_recommend", "clk_", n06Var.P());
-                                c17.c(n06Var.a, n06Var.r(), n06Var.n(), 2);
+                                b17.c(n06Var.a, n06Var.r(), n06Var.n(), 2);
                             }
                         } else {
                             StatisticItem statisticItem4 = new StatisticItem("c10760");
@@ -121,7 +124,7 @@ public class wz6 extends hu6<n06, ThreadCardViewHolder<n06>> implements pl5 {
                     i = 0;
                 }
                 if (i != 0) {
-                    c17.d(n06Var.a, this.b.b, n06Var.n(), i);
+                    b17.d(n06Var.a, this.b.b, n06Var.n(), i);
                 }
             }
         }
@@ -165,12 +168,126 @@ public class wz6 extends hu6<n06, ThreadCardViewHolder<n06>> implements pl5 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements yn {
+    public class c implements rw.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ky a;
+        public final /* synthetic */ wz6 b;
+
+        public c(wz6 wz6Var, ky kyVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wz6Var, kyVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = wz6Var;
+            this.a = kyVar;
+        }
+
+        @Override // com.repackage.rw.a
+        public void a(fo4 fo4Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, fo4Var) == null) || fo4Var == null || fo4Var.getThreadData() == null || fo4Var.getThreadData().originalThreadData == null) {
+                return;
+            }
+            pe5.b(1, this.b.mContext, fo4Var.getThreadData(), 0, this.a.v(), "from_nani_video", "personalize_page", null, "index", "");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements rw.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ky a;
+        public final /* synthetic */ wz6 b;
+
+        public d(wz6 wz6Var, ky kyVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wz6Var, kyVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = wz6Var;
+            this.a = kyVar;
+        }
+
+        @Override // com.repackage.rw.a
+        public void a(fo4 fo4Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, fo4Var) == null) || fo4Var == null || fo4Var.getThreadData() == null || fo4Var.getThreadData().originalThreadData == null) {
+                return;
+            }
+            pe5.b(1, this.b.mContext, fo4Var.getThreadData(), 0, this.a.v(), "from_nani_video", "personalize_page", null, "index", "");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e implements py {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ky a;
+        public final /* synthetic */ wz6 b;
+
+        public e(wz6 wz6Var, ky kyVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wz6Var, kyVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = wz6Var;
+            this.a = kyVar;
+        }
+
+        @Override // com.repackage.py
+        public void a(fo4 fo4Var) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, fo4Var) == null) || fo4Var == null || fo4Var.getThreadData() == null || fo4Var.getThreadData().originalThreadData == null) {
+                return;
+            }
+            if (fo4Var.getThreadData().originalThreadData.r != null) {
+                z = fo4Var.getThreadData().originalThreadData.r.is_vertical.intValue() == 1;
+            } else {
+                z = false;
+            }
+            pe5.a(1, z, this.b.mContext, fo4Var.getThreadData(), 0, this.a.v(), "from_nani_video", "frs_page", null, "frs", "");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class f implements yn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ wz6 a;
 
-        public c(wz6 wz6Var) {
+        public f(wz6 wz6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -224,28 +341,27 @@ public class wz6 extends hu6<n06, ThreadCardViewHolder<n06>> implements pl5 {
             }
         }
         this.d = null;
-        this.f = true;
         this.g = new a(this);
         this.c = tbPageContext;
-        u();
+        x();
+    }
+
+    public void A(NEGFeedBackView.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.d = bVar;
+        }
     }
 
     @Override // com.repackage.pl5
     public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             this.e = str;
         }
     }
 
-    public void setFromCDN(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public final void u() {
+    public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             n06.R = "c10705";
@@ -264,26 +380,35 @@ public class wz6 extends hu6<n06, ThreadCardViewHolder<n06>> implements pl5 {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.bn
-    /* renamed from: v */
+    /* renamed from: y */
     public ThreadCardViewHolder<n06> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
             dy.b bVar = new dy.b(this.c.getPageActivity());
+            ky kyVar = new ky(this.c.getPageActivity());
             uw uwVar = new uw(this.c.getPageActivity());
             uwVar.u(this.b);
             uwVar.d(1024);
             uwVar.t(new b(this));
             bVar.o(uwVar);
-            iy iyVar = new iy(this.c.getPageActivity());
-            bVar.n(iyVar);
-            iyVar.v(2);
+            yx yxVar = new yx(this.c);
+            yxVar.o(Boolean.FALSE);
+            yxVar.w("index");
+            bVar.n(yxVar);
+            yx yxVar2 = new yx(this.c);
+            yxVar2.o(Boolean.TRUE);
+            yxVar2.w("index");
+            yxVar2.z(UtilHelper.getDimenPixelSize(R.dimen.M_W_X005), UtilHelper.getDimenPixelSize(R.dimen.M_H_X004), UtilHelper.getDimenPixelSize(R.dimen.M_W_X005), UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+            yxVar2.x(new c(this, kyVar));
+            bVar.h(yxVar2);
+            kyVar.o(Boolean.TRUE);
+            kyVar.x("index");
+            kyVar.y(new d(this, kyVar));
+            kyVar.z(new e(this, kyVar));
+            bVar.h(kyVar);
             bVar.h(new hy(this.c.getPageActivity()));
             bVar.h(new bx(this.c.getPageActivity()));
-            fx fxVar = new fx(this.c.getPageActivity());
-            fxVar.y(this.f);
-            fxVar.x("index");
-            bVar.h(fxVar);
             fy fyVar = new fy(this.c.getPageActivity());
             lo4 lo4Var = new lo4();
             lo4Var.b = 1;
@@ -294,11 +419,11 @@ public class wz6 extends hu6<n06, ThreadCardViewHolder<n06>> implements pl5 {
             fyVar.z(2);
             fyVar.x(false);
             bVar.m(fyVar);
-            dy i = bVar.i();
-            i.r(2);
-            ThreadCardViewHolder<n06> threadCardViewHolder = new ThreadCardViewHolder<>(i);
+            dy k = bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.f);
+            k.r(2);
+            ThreadCardViewHolder<n06> threadCardViewHolder = new ThreadCardViewHolder<>(k);
             threadCardViewHolder.i(this.b);
-            setOnAdapterItemClickListener(new c(this));
+            setOnAdapterItemClickListener(new f(this));
             return threadCardViewHolder;
         }
         return (ThreadCardViewHolder) invokeL.objValue;
@@ -306,7 +431,7 @@ public class wz6 extends hu6<n06, ThreadCardViewHolder<n06>> implements pl5 {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.bn
-    /* renamed from: w */
+    /* renamed from: z */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, n06 n06Var, ThreadCardViewHolder<n06> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -316,6 +441,7 @@ public class wz6 extends hu6<n06, ThreadCardViewHolder<n06>> implements pl5 {
             }
             n06Var.I(n06Var.position + 1);
             n06Var.a.statFloor = n06Var.n();
+            threadCardViewHolder.a().q(i);
             uz5.b().a(n06Var.R("c12641"));
             nl5.c().i("page_recommend", "show_", n06Var.B());
             threadCardViewHolder.a().b(this.e);
@@ -324,17 +450,10 @@ public class wz6 extends hu6<n06, ThreadCardViewHolder<n06>> implements pl5 {
             threadCardViewHolder.e(n06Var);
             threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
             threadCardViewHolder.a().p(this.g);
-            c17.i(n06Var.a, this.b, n06Var.n());
-            c17.h(n06Var.a, n06Var.r(), n06Var.n());
+            b17.i(n06Var.a, this.b, n06Var.n());
+            b17.h(n06Var.a, n06Var.r(), n06Var.n());
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
-    }
-
-    public void x(NEGFeedBackView.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.d = bVar;
-        }
     }
 }

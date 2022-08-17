@@ -2,14 +2,6 @@ package com.repackage;
 
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 /* loaded from: classes7.dex */
-public interface y2a extends v2a {
-
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a();
-    }
-
-    void setCallback(a aVar);
-
+public interface y2a extends x2a {
     void setGiftBagsInfo(GiftBagsInfo giftBagsInfo);
 }

@@ -201,7 +201,7 @@ public class IdentityReviewActivity extends BaseActivity {
                         if (this.a.q != null && this.a.q.isShowing()) {
                             tg.a(this.a.q, this.a);
                         }
-                        qi.L(TbadkCoreApplication.getInst(), responsedMessage.getErrorString());
+                        qi.K(TbadkCoreApplication.getInst(), responsedMessage.getErrorString());
                         this.a.r = 1;
                         this.a.s = 1;
                         return;
@@ -288,7 +288,7 @@ public class IdentityReviewActivity extends BaseActivity {
                 this.a.finish();
                 return;
             }
-            qi.L(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
+            qi.K(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
             this.a.r = 1;
             this.a.s = 1;
         }

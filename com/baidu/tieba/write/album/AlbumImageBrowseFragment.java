@@ -92,7 +92,7 @@ public class AlbumImageBrowseFragment extends BaseFragment {
             } else if (this.a.d.c(this.a.m)) {
                 ImageFileInfo b = this.a.d.b(this.a.m);
                 if (b != null && k09.a(b.getFilePath()) == PhotoType.APNG) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c94);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c95);
                 } else if (l09.a(b)) {
                     this.a.a.showToast(R.string.obfuscated_res_0x7f0f0254);
                 } else if (!l09.b(b)) {
@@ -279,15 +279,15 @@ public class AlbumImageBrowseFragment extends BaseFragment {
             return;
         }
         if (z) {
-            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809d9, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809da, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
         } else {
-            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809d8, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
+            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809d9, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
         }
         if (this.i != null) {
             oz8 oz8Var = this.b;
             int count = oz8Var != null ? ListUtils.getCount(oz8Var.g()) : 0;
             oz8 oz8Var2 = this.b;
-            this.i.setText(this.a.getString(R.string.obfuscated_res_0x7f0f08d5, new Object[]{Integer.valueOf(count), Integer.valueOf(oz8Var2 != null ? oz8Var2.l() : 1)}));
+            this.i.setText(this.a.getString(R.string.obfuscated_res_0x7f0f08d6, new Object[]{Integer.valueOf(count), Integer.valueOf(oz8Var2 != null ? oz8Var2.l() : 1)}));
             this.i.setEnabled(count > 0);
         }
     }
@@ -310,7 +310,7 @@ public class AlbumImageBrowseFragment extends BaseFragment {
         }
         AlbumImagePagerAdapter albumImagePagerAdapter = this.d;
         long fileSize = (albumImagePagerAdapter == null || (b2 = albumImagePagerAdapter.b(this.m)) == null) ? 0L : FileHelper.getFileSize(b2.getFilePath());
-        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d0e);
+        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d0f);
         if (z) {
             StringBuilder sb = new StringBuilder();
             sb.append(string);
@@ -322,12 +322,12 @@ public class AlbumImageBrowseFragment extends BaseFragment {
             String sb2 = sb.toString();
             SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0302);
             this.j.setText(sb2);
-            this.j.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080947, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.j.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080948, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL), (Drawable) null, (Drawable) null, (Drawable) null);
             return;
         }
         SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0106);
         this.j.setText(string);
-        this.j.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080948, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.j.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080949, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL), (Drawable) null, (Drawable) null, (Drawable) null);
     }
 
     public void L1(qz8 qz8Var) {

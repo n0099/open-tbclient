@@ -11,9 +11,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ak6;
 import com.repackage.bz5;
-import com.repackage.j88;
+import com.repackage.i88;
 /* loaded from: classes3.dex */
-public class FrsCardVideoViewHolder<T extends ak6> extends CardViewHolder<T> implements j88 {
+public class FrsCardVideoViewHolder<T extends ak6> extends CardViewHolder<T> implements i88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,7 +46,7 @@ public class FrsCardVideoViewHolder<T extends ak6> extends CardViewHolder<T> imp
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (T) this.a : (T) invokeV.objValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class FrsCardVideoViewHolder<T extends ak6> extends CardViewHolder<T> imp
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public class FrsCardVideoViewHolder<T extends ak6> extends CardViewHolder<T> imp
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class FrsCardVideoViewHolder<T extends ak6> extends CardViewHolder<T> imp
         return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class FrsCardVideoViewHolder<T extends ak6> extends CardViewHolder<T> imp
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class FrsCardVideoViewHolder<T extends ak6> extends CardViewHolder<T> imp
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -126,7 +126,7 @@ public class FrsCardVideoViewHolder<T extends ak6> extends CardViewHolder<T> imp
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public void startPlay() {
         T t;
         Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class FrsCardVideoViewHolder<T extends ak6> extends CardViewHolder<T> imp
         ((ak6) t).startPlay();
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public void stopPlay() {
         T t;
         Interceptable interceptable = $ic;

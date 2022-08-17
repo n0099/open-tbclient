@@ -404,7 +404,7 @@ public class hl5 extends Dialog {
             String newVersion = this.b.getNewVersion();
             String newVersionDesc = this.b.getNewVersionDesc();
             StringBuilder sb = new StringBuilder();
-            sb.append(this.a.getString(R.string.obfuscated_res_0x7f0f0c44));
+            sb.append(this.a.getString(R.string.obfuscated_res_0x7f0f0c45));
             if (!TextUtils.isEmpty(newVersion)) {
                 sb.append(newVersion);
             }
@@ -415,18 +415,18 @@ public class hl5 extends Dialog {
             this.j.setText(newVersionDesc);
             if (this.b.forceUpdate()) {
                 this.g = true;
-                this.n.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0f74));
+                this.n.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0f75));
                 this.o.setVisibility(8);
                 this.r.setVisibility(8);
             } else {
-                this.n.setText(this.a.getString(R.string.obfuscated_res_0x7f0f14be));
+                this.n.setText(this.a.getString(R.string.obfuscated_res_0x7f0f14c0));
                 this.o.setVisibility(8);
                 this.r.setVisibility(8);
             }
             CombineDownload combineDownload = this.c;
             if (combineDownload != null && combineDownload.showCombineDownload() && !TextUtils.isEmpty(this.c.getApkMD5RSA())) {
                 this.m.setText(this.c.getAppName());
-                if (!gk8.b(this.a, this.c.getAppProc()) && !TextUtils.isEmpty(this.c.getAppUrl())) {
+                if (!fk8.b(this.a, this.c.getAppProc()) && !TextUtils.isEmpty(this.c.getAppUrl())) {
                     this.m.setVisibility(0);
                     Drawable drawable = this.a.getResources().getDrawable(R.drawable.btn_dailog_choose_s);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
@@ -477,7 +477,7 @@ public class hl5 extends Dialog {
                 VersionData versionData = this.b;
                 if (versionData != null && !TextUtils.isEmpty(versionData.getPatch()) && this.b.getNewVersionCode() >= 0) {
                     this.u.setVisibility(0);
-                    this.s.setText(R.string.obfuscated_res_0x7f0f08e3);
+                    this.s.setText(R.string.obfuscated_res_0x7f0f08e4);
                     SkinManager.setBackgroundResource(this.s, R.drawable.dialog_single_button_bg_selector);
                     this.z.setVisibility(8);
                     this.A.setVisibility(8);
@@ -486,7 +486,7 @@ public class hl5 extends Dialog {
                     return;
                 }
                 this.u.setVisibility(0);
-                this.s.setText(R.string.obfuscated_res_0x7f0f1220);
+                this.s.setText(R.string.obfuscated_res_0x7f0f1222);
                 SkinManager.setBackgroundResource(this.s, R.drawable.dialog_middle_item_bg_selector);
                 this.A.setVisibility(0);
                 this.F = false;
@@ -498,7 +498,7 @@ public class hl5 extends Dialog {
             if (versionData2 != null && !TextUtils.isEmpty(versionData2.getPatch()) && this.b.getNewVersionCode() >= 0) {
                 this.u.setVisibility(0);
                 SkinManager.setBackgroundResource(this.s, R.drawable.dialog_middle_item_bg_selector);
-                this.s.setText(R.string.obfuscated_res_0x7f0f08e3);
+                this.s.setText(R.string.obfuscated_res_0x7f0f08e4);
                 this.A.setVisibility(0);
                 this.F = true;
                 TiebaStatic.log(TbadkCoreStatisticKey.UPDATE_INCREMENTAL_SHOW);

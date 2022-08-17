@@ -142,7 +142,7 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
         this.e = tBSpecificationBtn;
         if (tBSpecificationBtn != null) {
             tBSpecificationBtn.setTextSize(R.dimen.T_X06);
-            this.e.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f51));
+            this.e.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f52));
             this.e.setConfig(new ov4());
         }
         this.f = skinType;

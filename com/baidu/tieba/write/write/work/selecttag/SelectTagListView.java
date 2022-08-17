@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gj8;
+import com.repackage.fj8;
 import com.repackage.hb5;
 import com.repackage.l09;
 import com.repackage.ms4;
@@ -153,7 +153,7 @@ public class SelectTagListView extends LinearLayout implements hb5, View.OnClick
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, i, str)) == null) {
-                Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080949, R.color.CAM_X0304, null);
+                Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f08094a, R.color.CAM_X0304, null);
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
                 if (pureDrawable != null) {
                     pureDrawable.setBounds(0, 0, dimenPixelSize, dimenPixelSize);
@@ -270,7 +270,7 @@ public class SelectTagListView extends LinearLayout implements hb5, View.OnClick
                     return;
                 }
                 this.a.p.setInputType(1);
-                qi.M(this.a.a.getPageActivity(), this.a.p);
+                qi.L(this.a.a.getPageActivity(), this.a.p);
             }
         }
     }
@@ -305,7 +305,7 @@ public class SelectTagListView extends LinearLayout implements hb5, View.OnClick
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
                 if (i == 6) {
-                    qi.M(this.a.a.getPageActivity(), textView);
+                    qi.L(this.a.a.getPageActivity(), textView);
                     if (this.a.q != null && this.a.q.trim().length() > 0) {
                         if (this.a.n.size() < this.a.t) {
                             SelectTagListView selectTagListView = this.a;
@@ -770,7 +770,7 @@ public class SelectTagListView extends LinearLayout implements hb5, View.OnClick
             if (list != null && list.size() != 0) {
                 ms4.d(this.c).x(R.color.CAM_X0302);
             } else {
-                this.c.setTextColor(gj8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.c.setTextColor(fj8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
         }
     }

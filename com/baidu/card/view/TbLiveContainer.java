@@ -32,12 +32,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j88;
+import com.repackage.i88;
 import com.repackage.ks4;
 import com.repackage.ms4;
 import com.repackage.qi;
 /* loaded from: classes.dex */
-public class TbLiveContainer extends FrameLayout implements j88 {
+public class TbLiveContainer extends FrameLayout implements i88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbLiveCyberView a;
@@ -240,7 +240,7 @@ public class TbLiveContainer extends FrameLayout implements j88 {
         TiebaStatic.log(statisticItem);
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -261,21 +261,21 @@ public class TbLiveContainer extends FrameLayout implements j88 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.getOriginUrl() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -285,14 +285,14 @@ public class TbLiveContainer extends FrameLayout implements j88 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.isPlaying() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -306,7 +306,7 @@ public class TbLiveContainer extends FrameLayout implements j88 {
         }
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -317,7 +317,7 @@ public class TbLiveContainer extends FrameLayout implements j88 {
         }
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {

@@ -30,25 +30,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bk8;
-import com.repackage.fe7;
-import com.repackage.if7;
-import com.repackage.nf7;
+import com.repackage.ak8;
+import com.repackage.ee7;
+import com.repackage.hf7;
+import com.repackage.mf7;
+import com.repackage.oe7;
 import com.repackage.of5;
-import com.repackage.pe7;
-import com.repackage.tf7;
-import com.repackage.xd7;
+import com.repackage.sf7;
+import com.repackage.wd7;
 import java.lang.ref.WeakReference;
 import java.net.URLDecoder;
 import org.json.JSONObject;
 import tbclient.Lego.DataRes;
 /* loaded from: classes3.dex */
-public class LegoListActivity extends BaseFragmentActivity implements SwipeBackLayout.c, VoiceManager.j, xd7 {
+public class LegoListActivity extends BaseFragmentActivity implements SwipeBackLayout.c, VoiceManager.j, wd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LegoListFragment a;
     public LegoTabFragment b;
-    public fe7 c;
+    public ee7 c;
     public RelativeLayout d;
     public long e;
     public int f;
@@ -64,7 +64,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     public String p;
     public String q;
     public WeakReference<Context> r;
-    public if7 s;
+    public hf7 s;
     public LegoBottomView t;
     public CustomMessageListener u;
     public final View.OnClickListener v;
@@ -152,7 +152,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || TextUtils.isEmpty(this.a)) {
                 return;
             }
-            bk8.c(this.b.getPageContext(), this.a);
+            ak8.c(this.b.getPageContext(), this.a);
         }
     }
 
@@ -217,11 +217,11 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         this.v = new c(this);
     }
 
-    @Override // com.repackage.xd7
-    public if7 B() {
+    @Override // com.repackage.wd7
+    public hf7 B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.s : (if7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.s : (hf7) invokeV.objValue;
     }
 
     public final void F0(JSONObject jSONObject) {
@@ -232,10 +232,10 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
                 if (optJSONObject == null) {
                     return;
                 }
-                pe7.h();
-                ICardInfo j = pe7.j(optJSONObject);
+                oe7.h();
+                ICardInfo j = oe7.j(optJSONObject);
                 if (j != null && j.isValid()) {
-                    this.t.b((BaseCardView) pe7.h().a(getPageContext(), j, 5), j);
+                    this.t.b((BaseCardView) oe7.h().a(getPageContext(), j, 5), j);
                     this.t.setVisibility(0);
                     this.t.setIsShow(true);
                     if (this.a != null) {
@@ -280,7 +280,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         }
     }
 
-    @Override // com.repackage.xd7
+    @Override // com.repackage.wd7
     public LegoListFragment U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -405,22 +405,22 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0506);
             registerListener(this.u);
-            tf7 tf7Var = new tf7();
-            tf7Var.a = this.e;
-            tf7Var.b = this.g;
-            tf7Var.d = this.k;
-            tf7Var.e = this.l;
-            tf7Var.b();
+            sf7 sf7Var = new sf7();
+            sf7Var.a = this.e;
+            sf7Var.b = this.g;
+            sf7Var.d = this.k;
+            sf7Var.e = this.l;
+            sf7Var.b();
             VoiceManager t0 = t0();
             this.w = t0;
             t0.onCreate(getPageContext());
-            this.c = new fe7(this);
+            this.c = new ee7(this);
             this.m = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0909d7);
             this.t = (LegoBottomView) findViewById(R.id.obfuscated_res_0x7f0912bd);
             this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09160b);
-            if7 if7Var = new if7(getPageContext(), findViewById(R.id.obfuscated_res_0x7f09126d));
-            this.s = if7Var;
-            if7Var.C0(this);
+            hf7 hf7Var = new hf7(getPageContext(), findViewById(R.id.obfuscated_res_0x7f09126d));
+            this.s = hf7Var;
+            hf7Var.C0(this);
             this.s.h0();
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
             if (this.f == 1) {
@@ -460,9 +460,9 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            if7 if7Var = this.s;
-            if (if7Var != null) {
-                if7Var.T();
+            hf7 hf7Var = this.s;
+            if (hf7Var != null) {
+                hf7Var.T();
             }
             VoiceManager t0 = t0();
             this.w = t0;
@@ -480,10 +480,10 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
-        if7 if7Var;
+        hf7 hf7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048588, this, i, keyEvent)) == null) {
-            if (i == 4 && (if7Var = this.s) != null && if7Var.k0() && !this.s.c0()) {
+            if (i == 4 && (hf7Var = this.s) != null && hf7Var.k0() && !this.s.c0()) {
                 this.s.O0();
                 return true;
             }
@@ -577,8 +577,8 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         return (VoiceManager) invokeV.objValue;
     }
 
-    @Override // com.repackage.xd7
-    public nf7 v0() {
+    @Override // com.repackage.wd7
+    public mf7 v0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
@@ -588,6 +588,6 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             }
             return null;
         }
-        return (nf7) invokeV.objValue;
+        return (mf7) invokeV.objValue;
     }
 }

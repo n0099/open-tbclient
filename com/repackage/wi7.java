@@ -1,14 +1,13 @@
 package com.repackage;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.searchbox.live.interfaces.service.ext.ExtLiveLogService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class wi7 extends uc1<ExtLiveLogService> {
+public class wi7 implements ExtLiveLogService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,12 +25,11 @@ public class wi7 extends uc1<ExtLiveLogService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.uc1
-    /* renamed from: a */
-    public ExtLiveLogService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.ext.ExtLiveLogService
+    public void onLivePluginEvent(String str, Map<String, ?> map) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new xi7() : (ExtLiveLogService) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, map) == null) {
+            mg7.b(map);
+        }
     }
 }

@@ -1,48 +1,110 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.entelechy.view.EntelechyPullUpRefreshView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ur4;
+import java.net.URLEncoder;
+import tbclient.PopInfo;
 /* loaded from: classes6.dex */
-public class nr6 implements wj6, dq6 {
+public class nr6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
-    public NoPressedRelativeLayout b;
-    public TbImageView c;
-    public Animation d;
-    public Animation e;
-    public int f;
-    public boolean g;
-    public LinearLayout h;
-    public EntelechyPullUpRefreshView i;
-    public EntelechyPullUpRefreshView j;
-    public boolean k;
-    public View.OnClickListener l;
+    public final FrsFragment a;
+    public b b;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends BdAsyncTask<Void, Void, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nr6 a;
 
-        public a(nr6 nr6Var) {
+        /* loaded from: classes6.dex */
+        public class a implements ur4.e {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // com.repackage.ur4.e
+            public void onClick(ur4 ur4Var) {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, ur4Var) == null) || ur4Var == null) {
+                    return;
+                }
+                ur4Var.dismiss();
+            }
+        }
+
+        /* renamed from: com.repackage.nr6$b$b  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0539b implements ur4.e {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PopInfo a;
+            public final /* synthetic */ b b;
+
+            public C0539b(b bVar, PopInfo popInfo) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, popInfo};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = bVar;
+                this.a = popInfo;
+            }
+
+            @Override // com.repackage.ur4.e
+            public void onClick(ur4 ur4Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, ur4Var) == null) {
+                    UrlManager.getInstance().dealOneLink(this.b.a.a.getPageContext(), new String[]{this.a.ahead_url});
+                    if (ur4Var == null) {
+                        return;
+                    }
+                    ur4Var.dismiss();
+                }
+            }
+        }
+
+        public b(nr6 nr6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,134 +122,51 @@ public class nr6 implements wj6, dq6 {
             this.a = nr6Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        public /* synthetic */ b(nr6 nr6Var, a aVar) {
+            this(nr6Var);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Boolean doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.a == null) {
-                return;
-            }
-            if (view2 == this.a.i) {
-                TiebaStatic.eventStat(this.a.a.getPageContext().getPageActivity(), "frs_refresh", "frsclick", 1, new Object[0]);
-                if (this.a.a.w3() || this.a.a.k1() == null) {
-                    return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                tr4.f();
+                ue<String> g = tr4.g("tb.enter_frs_dialog_list");
+                String encode = URLEncoder.encode(this.a.a.P0().getForum().getName());
+                if (g.get(encode) == null) {
+                    g.g(encode, "1");
+                    return Boolean.TRUE;
                 }
-                TiebaStatic.log(new StatisticItem("c11752").param("fid", this.a.a.U()).param("obj_locate", "3"));
-                this.a.a.k1().V1();
-            } else if (view2 != this.a.j || this.a.a.k1() == null || this.a.a.k1().d0() == null) {
-            } else {
-                this.a.a.k1().d0().smoothScrollToPosition(0);
+                return Boolean.FALSE;
+            }
+            return (Boolean) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) && bool.booleanValue() && this.a.c() && this.a.a.isAdded()) {
+                PopInfo popInfo = this.a.a.P0().enterFrsDialogInfo;
+                ur4 ur4Var = new ur4(this.a.a.getActivity());
+                ur4Var.setTitle(popInfo.title);
+                ur4Var.setMessage(popInfo.v_title);
+                ur4Var.isShowTitleAndMessage();
+                ur4Var.setNegativeButton(popInfo.ok_info, new a(this));
+                ur4Var.setPositiveButton(popInfo.ahead_info, new C0539b(this, popInfo));
+                ur4Var.create(this.a.a.getPageContext()).show();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b implements Animation.AnimationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-
-        public b(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationEnd(Animation animation) {
-            View view2;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animation) == null) && (view2 = this.a) != null && view2.getAnimation() == animation) {
-                this.a.clearAnimation();
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            View view2;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) || (view2 = this.a) == null) {
-                return;
-            }
-            view2.setVisibility(8);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c implements Animation.AnimationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-
-        public c(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationEnd(Animation animation) {
-            View view2;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animation) == null) && (view2 = this.a) != null && view2.getAnimation() == animation) {
-                this.a.clearAnimation();
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            View view2;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) || (view2 = this.a) == null) {
-                return;
-            }
-            view2.setVisibility(0);
-        }
-    }
-
-    public nr6(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
+    public nr6(FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment, noPressedRelativeLayout};
+            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -197,175 +176,27 @@ public class nr6 implements wj6, dq6 {
                 return;
             }
         }
-        this.c = null;
-        this.f = 3;
-        this.g = false;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = true;
-        this.l = new a(this);
         this.a = frsFragment;
-        this.b = noPressedRelativeLayout;
-        i();
-        this.h = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090be8);
-        this.j = (EntelechyPullUpRefreshView) this.b.findViewById(R.id.obfuscated_res_0x7f090be7);
-        this.i = (EntelechyPullUpRefreshView) this.b.findViewById(R.id.obfuscated_res_0x7f090be9);
-        this.j.setOnClickListener(this.l);
-        this.i.setOnClickListener(this.l);
-        onChangeSkinType(this.f);
     }
 
-    @Override // com.repackage.wj6
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.g = z;
-            if (this.i != null) {
-                if (z) {
-                    LinearLayout linearLayout = this.h;
-                    if (linearLayout == null || linearLayout.getVisibility() != 0) {
-                        return;
-                    }
-                    l();
-                    return;
-                }
-                m();
-            }
-        }
-    }
-
-    @Override // com.repackage.wj6
-    public void b(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.g) {
-            return;
-        }
-        this.k = z;
-        if (z) {
-            if (z2) {
-                m();
-            } else {
-                this.h.setVisibility(0);
-            }
-        } else if (z2) {
-            l();
-        } else {
-            this.h.setVisibility(8);
-        }
-    }
-
-    @Override // com.repackage.wj6
-    public boolean c() {
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.i == null) {
-                return false;
-            }
-            return this.k;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            PopInfo popInfo = this.a.P0().enterFrsDialogInfo;
+            return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.a.P0().enterFrsDialogInfo.if_pop.intValue() == 0) ? false : true;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.dq6
     public void d() {
-        TbImageView tbImageView;
+        FrsFragment frsFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tbImageView = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || !TbadkCoreApplication.isLogin() || (frsFragment = this.a) == null || frsFragment.P0() == null || this.a.P0().getForum() == null || StringUtils.isNull(this.a.P0().getForum().getName()) || this.a.P0().enterFrsDialogInfo == null || !c() || this.b != null) {
             return;
         }
-        tbImageView.clearAnimation();
-        this.c.setImageDrawable(null);
-        this.c.setVisibility(8);
-    }
-
-    public final void h() {
-        LinearLayout linearLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (linearLayout = this.h) == null) {
-            return;
-        }
-        linearLayout.clearAnimation();
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c = new TbImageView(this.a.getPageContext().getPageActivity());
-            int f = qi.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070261);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(f, f);
-            layoutParams.addRule(10);
-            layoutParams.addRule(14);
-            layoutParams.topMargin = f;
-            this.c.setLayoutParams(layoutParams);
-            this.b.addView(this.c);
-            this.c.setVisibility(8);
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a.isAdded()) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.a.getPageContext().getPageActivity(), R.anim.obfuscated_res_0x7f010085);
-            this.d = loadAnimation;
-            loadAnimation.setAnimationListener(new b(this.h));
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.a.isAdded()) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.a.getPageContext().getPageActivity(), R.anim.obfuscated_res_0x7f010084);
-            this.e = loadAnimation;
-            loadAnimation.setAnimationListener(new c(this.h));
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            h();
-            if (this.d == null) {
-                j();
-            }
-            Animation animation = this.d;
-            if (animation == null) {
-                return;
-            }
-            this.h.startAnimation(animation);
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            h();
-            if (this.e == null) {
-                k();
-            }
-            if (this.e == null) {
-                return;
-            }
-            this.h.setVisibility(0);
-            this.h.startAnimation(this.e);
-        }
-    }
-
-    @Override // com.repackage.wj6
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || this.f == i) {
-            return;
-        }
-        EntelechyPullUpRefreshView entelechyPullUpRefreshView = this.i;
-        if (entelechyPullUpRefreshView != null) {
-            entelechyPullUpRefreshView.b(i);
-        }
-        EntelechyPullUpRefreshView entelechyPullUpRefreshView2 = this.j;
-        if (entelechyPullUpRefreshView2 != null) {
-            entelechyPullUpRefreshView2.b(i);
-        }
-        this.f = i;
+        b bVar = new b(this, null);
+        this.b = bVar;
+        bVar.execute(new Void[0]);
     }
 }

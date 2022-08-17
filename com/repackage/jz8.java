@@ -177,7 +177,7 @@ public class jz8 {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? !TextUtils.isEmpty(fk8.C()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? !TextUtils.isEmpty(ek8.C()) : invokeV.booleanValue;
     }
 
     public static boolean c(int i) {
@@ -215,16 +215,16 @@ public class jz8 {
         if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{d9Var, str, str2, str3, str4, Integer.valueOf(i), bool, str5, str6, str7}) == null) || d9Var == null || d9Var.getPageActivity() == null) {
             return;
         }
-        String string = d9Var.getString(R.string.obfuscated_res_0x7f0f15b7);
+        String string = d9Var.getString(R.string.obfuscated_res_0x7f0f15ba);
         ds4 ds4Var = new ds4(d9Var);
         fs4 fs4Var = new fs4(d9Var.getPageActivity());
         fs4Var.q(string);
         ArrayList arrayList = new ArrayList();
-        bs4 bs4Var = new bs4(0, d9Var.getString(R.string.obfuscated_res_0x7f0f15b6), fs4Var);
+        bs4 bs4Var = new bs4(0, d9Var.getString(R.string.obfuscated_res_0x7f0f15b9), fs4Var);
         bs4Var.q(R.color.CAM_X0105);
         bs4Var.o(R.color.CAM_X0204);
         arrayList.add(bs4Var);
-        bs4 bs4Var2 = new bs4(1, d9Var.getString(R.string.obfuscated_res_0x7f0f15b5), fs4Var);
+        bs4 bs4Var2 = new bs4(1, d9Var.getString(R.string.obfuscated_res_0x7f0f15b8), fs4Var);
         bs4Var2.q(R.color.CAM_X0105);
         bs4Var2.o(R.color.CAM_X0204);
         arrayList.add(bs4Var2);
@@ -291,7 +291,7 @@ public class jz8 {
             } else if (z2) {
                 i2 = 2;
             } else {
-                fk8.x("");
+                ek8.x("");
                 i2 = 1;
             }
             WorkPublishOpenHelper.Companion.c(i2, TbadkCoreApplication.getInst().getCurrentActivity(), str, str2, str3, str4, Integer.valueOf(i), bool.booleanValue(), str5, str6, str7);

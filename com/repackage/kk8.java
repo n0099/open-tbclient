@@ -1,135 +1,99 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kk8 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
+public class kk8 extends ThreadData {
+    public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
+    public jr4 a;
+    public lr4 b;
+    public boolean c;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755555879, "Lcom/repackage/kk8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755555879, "Lcom/repackage/kk8;");
-        }
-    }
-
-    public static String a(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            return TbConfig.SERVER_ADDRESS + str + "?cmd=" + i;
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public static kb5 b(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, cls)) == null) {
-            try {
-                kb5 kb5Var = new kb5(i, cls.newInstance());
-                MessageManager.getInstance().registerTask(kb5Var);
-                return kb5Var;
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return null;
-            } catch (InstantiationException e2) {
-                e2.printStackTrace();
-                return null;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755555879, "Lcom/repackage/kk8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755555879, "Lcom/repackage/kk8;");
+                return;
             }
         }
-        return (kb5) invokeIL.objValue;
+        d = BdUniqueId.gen();
     }
 
-    public static TbHttpMessageTask c(int i, int i2, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
-        InterceptResult invokeCommon;
+    public kk8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, cls, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i2, a(str, i));
-            tbHttpMessageTask.setIsNeedLogin(z);
-            tbHttpMessageTask.setIsNeedTbs(z2);
-            tbHttpMessageTask.setIsNeedAddCommenParam(z3);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(z4);
-            tbHttpMessageTask.setResponsedClass(cls);
-            MessageManager.getInstance().unRegisterTask(i2);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            return tbHttpMessageTask;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (TbHttpMessageTask) invokeCommon.objValue;
+        this.c = false;
     }
 
-    public static void d(int i, int i2, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
+    public jr4 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, cls, cls2}) == null) {
-            h(i2, cls2, false, false);
-            c(i2, i, str, cls, false, true, true, false);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (jr4) invokeV.objValue;
+    }
+
+    public lr4 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (lr4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
         }
     }
 
-    public static TbHttpMessageTask e(int i, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
-        InterceptResult invokeCommon;
+    public void l(jr4 jr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), str, cls, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, TbConfig.SERVER_ADDRESS + str);
-            tbHttpMessageTask.setIsNeedLogin(z);
-            tbHttpMessageTask.setIsNeedTbs(z2);
-            tbHttpMessageTask.setIsNeedAddCommenParam(z3);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(z4);
-            tbHttpMessageTask.setResponsedClass(cls);
-            MessageManager.getInstance().unRegisterTask(i);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            return tbHttpMessageTask;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jr4Var) == null) {
+            this.a = jr4Var;
         }
-        return (TbHttpMessageTask) invokeCommon.objValue;
     }
 
-    public static lb5 f(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
-        InterceptResult invokeCommon;
+    public void n(lr4 lr4Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) ? g(i, cls, z, SocketMessageTask.DupLicateMode.NONE, true) : (lb5) invokeCommon.objValue;
-    }
-
-    public static lb5 g(int i, Class<? extends SocketResponsedMessage> cls, boolean z, SocketMessageTask.DupLicateMode dupLicateMode, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z), dupLicateMode, Boolean.valueOf(z2)})) == null) {
-            lb5 lb5Var = new lb5(i);
-            lb5Var.setResponsedClass(cls);
-            lb5Var.h(z);
-            lb5Var.f(dupLicateMode);
-            lb5Var.setRetry(a);
-            MessageManager.getInstance().unRegisterTask(i);
-            MessageManager.getInstance().registerTask(lb5Var);
-            lb5Var.setNeedEncrypt(z2);
-            return lb5Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, lr4Var) == null) {
+            this.b = lr4Var;
         }
-        return (lb5) invokeCommon.objValue;
-    }
-
-    public static lb5 h(int i, Class<? extends SocketResponsedMessage> cls, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? g(i, cls, z, SocketMessageTask.DupLicateMode.NONE, z2) : (lb5) invokeCommon.objValue;
     }
 }

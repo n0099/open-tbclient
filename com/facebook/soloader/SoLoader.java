@@ -2,12 +2,10 @@ package com.facebook.soloader;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.os.StrictMode;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.soloader.nativeloader.NativeLoader;
 import dalvik.system.BaseDexClassLoader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,6 +26,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -36,6 +36,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
+import javax.annotation.concurrent.NotThreadSafe;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes4.dex */
@@ -44,12 +45,15 @@ public class SoLoader {
     public static final boolean DEBUG = false;
     public static final int SOLOADER_ALLOW_ASYNC_INIT = 2;
     public static final int SOLOADER_DISABLE_BACKUP_SOSOURCE = 8;
+    public static final int SOLOADER_DONT_TREAT_AS_SYSTEMAPP = 32;
     public static final int SOLOADER_ENABLE_EXOPACKAGE = 1;
     public static final int SOLOADER_LOOK_IN_ZIP = 4;
+    public static final int SOLOADER_SKIP_MERGED_JNI_ONLOAD = 16;
     public static final String SO_STORE_NAME_MAIN = "lib-main";
     public static final String SO_STORE_NAME_SPLIT = "lib-";
     public static final boolean SYSTRACE_LIBRARY_LOADING;
     public static final String TAG = "SoLoader";
+    public static boolean isSystemApp;
     @GuardedBy("sSoSourcesLock")
     @Nullable
     public static ApplicationSoSource sApplicationSoSource;
@@ -69,7 +73,8 @@ public class SoLoader {
     @Nullable
     public static SoSource[] sSoSources;
     public static final ReentrantReadWriteLock sSoSourcesLock;
-    public static int sSoSourcesVersion;
+    @GuardedBy("sSoSourcesLock")
+    public static volatile int sSoSourcesVersion;
     @Nullable
     public static SystemLoadLibraryWrapper sSystemLoadLibraryWrapper;
     public transient /* synthetic */ FieldHolder $fh;
@@ -100,16 +105,69 @@ public class SoLoader {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
                 ClassLoader classLoader = SoLoader.class.getClassLoader();
-                if (classLoader instanceof BaseDexClassLoader) {
-                    try {
-                        return (String) BaseDexClassLoader.class.getMethod("getLdLibraryPath", new Class[0]).invoke((BaseDexClassLoader) classLoader, new Object[0]);
-                    } catch (Exception e) {
-                        throw new RuntimeException("Cannot call getLdLibraryPath", e);
-                    }
+                if (classLoader != null && !(classLoader instanceof BaseDexClassLoader)) {
+                    throw new IllegalStateException("ClassLoader " + classLoader.getClass().getName() + " should be of type BaseDexClassLoader");
                 }
-                throw new IllegalStateException("ClassLoader " + classLoader.getClass().getName() + " should be of type BaseDexClassLoader");
+                try {
+                    return (String) BaseDexClassLoader.class.getMethod("getLdLibraryPath", new Class[0]).invoke((BaseDexClassLoader) classLoader, new Object[0]);
+                } catch (Exception e) {
+                    throw new RuntimeException("Cannot call getLdLibraryPath", e);
+                }
             }
             return (String) invokeV.objValue;
+        }
+    }
+
+    @NotThreadSafe
+    /* loaded from: classes4.dex */
+    public static class TestOnlyUtils {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public TestOnlyUtils() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static void resetStatus() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+                synchronized (SoLoader.class) {
+                    SoLoader.sLoadedLibraries.clear();
+                    SoLoader.sLoadingLibraries.clear();
+                    SoLoader.sSoFileLoader = null;
+                }
+                setSoSources(null);
+            }
+        }
+
+        public static void setSoFileLoader(SoFileLoader soFileLoader) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65538, null, soFileLoader) == null) {
+                SoLoader.sSoFileLoader = soFileLoader;
+            }
+        }
+
+        public static void setSoSources(SoSource[] soSourceArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65539, null, soSourceArr) == null) {
+                SoLoader.sSoSourcesLock.writeLock().lock();
+                try {
+                    SoSource[] unused = SoLoader.sSoSources = soSourceArr;
+                    SoLoader.access$208();
+                } finally {
+                    SoLoader.sSoSourcesLock.writeLock().unlock();
+                }
+            }
         }
     }
 
@@ -119,13 +177,13 @@ public class SoLoader {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WrongAbiError(Throwable th) {
-            super("APK was built for a different platform");
+        public WrongAbiError(Throwable th, String str) {
+            super("APK was built for a different platform. Supported ABIs: " + Arrays.toString(SysUtil.getSupportedAbis()) + " error: " + str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {th};
+                Object[] objArr = {th, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -184,23 +242,29 @@ public class SoLoader {
         }
     }
 
+    public static /* synthetic */ int access$208() {
+        int i = sSoSourcesVersion;
+        sSoSourcesVersion = i + 1;
+        return i;
+    }
+
     public static boolean areSoSourcesAbisSupported() {
         InterceptResult invokeV;
+        String[] soSourceAbis;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             sSoSourcesLock.readLock().lock();
             try {
                 if (sSoSources != null) {
                     String[] supportedAbis = SysUtil.getSupportedAbis();
-                    for (int i = 0; i < sSoSources.length; i++) {
-                        String[] soSourceAbis = sSoSources[i].getSoSourceAbis();
-                        for (int i2 = 0; i2 < soSourceAbis.length; i2++) {
+                    for (SoSource soSource : sSoSources) {
+                        for (String str : soSource.getSoSourceAbis()) {
                             boolean z = false;
-                            for (int i3 = 0; i3 < supportedAbis.length && !z; i3++) {
-                                z = soSourceAbis[i2].equals(supportedAbis[i3]);
+                            for (int i = 0; i < supportedAbis.length && !z; i++) {
+                                z = str.equals(supportedAbis[i]);
                             }
                             if (!z) {
-                                Log.e("SoLoader", "abi not supported: " + soSourceAbis[i2]);
+                                Log.e("SoLoader", "abi not supported: " + str);
                             }
                         }
                     }
@@ -217,124 +281,191 @@ public class SoLoader {
 
     public static void assertInitialized() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            sSoSourcesLock.readLock().lock();
-            try {
-                if (sSoSources != null) {
-                    return;
-                }
-                throw new RuntimeException("SoLoader.init() not yet called");
-            } finally {
-                sSoSourcesLock.readLock().unlock();
-            }
+        if ((interceptable == null || interceptable.invokeV(65544, null) == null) && !isInitialized()) {
+            throw new RuntimeException("SoLoader.init() not yet called");
         }
+    }
+
+    public static boolean checkIfSystemApp(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, context, i)) == null) ? ((i & 32) != 0 || context == null || (context.getApplicationInfo().flags & 129) == 0) ? false : true : invokeLI.booleanValue;
     }
 
     public static void deinitForTest() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            setSoSources(null);
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            TestOnlyUtils.setSoSources(null);
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[SGET]}, finally: {[SGET, RETURN, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, INVOKE, RETURN, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, IF, INVOKE, RETURN, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, INVOKE, RETURN, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, IF, IF] complete} */
-    public static void doLoadLibraryBySoName(String str, int i, StrictMode.ThreadPolicy threadPolicy) throws IOException {
+    public static void doLoadLibraryBySoName(String str, int i, @Nullable StrictMode.ThreadPolicy threadPolicy) throws UnsatisfiedLinkError {
         boolean z;
-        UnsatisfiedLinkError unsatisfiedLinkError;
-        boolean z2;
+        UnpackingSoSource[] unpackingSoSourceArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65541, null, str, i, threadPolicy) == null) {
-            sSoSourcesLock.readLock().lock();
-            try {
-                if (sSoSources != null) {
-                    sSoSourcesLock.readLock().unlock();
-                    if (threadPolicy == null) {
-                        threadPolicy = StrictMode.allowThreadDiskReads();
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (SYSTRACE_LIBRARY_LOADING) {
-                        Api18TraceUtils.beginTraceSection("SoLoader.loadLibrary[" + str + PreferencesUtil.RIGHT_MOUNT);
-                    }
-                    int i2 = 0;
-                    do {
-                        try {
-                            sSoSourcesLock.readLock().lock();
-                            int i3 = sSoSourcesVersion;
-                            int i4 = 0;
-                            while (true) {
-                                if (i2 != 0 || i4 >= sSoSources.length) {
+        if (interceptable != null && interceptable.invokeLIL(65547, null, str, i, threadPolicy) != null) {
+            return;
+        }
+        sSoSourcesLock.readLock().lock();
+        try {
+            if (sSoSources != null) {
+                sSoSourcesLock.readLock().unlock();
+                int i2 = 0;
+                if (threadPolicy == null) {
+                    threadPolicy = StrictMode.allowThreadDiskReads();
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (SYSTRACE_LIBRARY_LOADING) {
+                    Api18TraceUtils.beginTraceSection("SoLoader.loadLibrary[", str, PreferencesUtil.RIGHT_MOUNT);
+                }
+                try {
+                    sSoSourcesLock.readLock().lock();
+                    int i3 = 0;
+                    for (int i4 = 0; i3 == 0 && i4 < sSoSources.length; i4++) {
+                        i3 = sSoSources[i4].loadLibrary(str, i, threadPolicy);
+                        if (i3 == 3 && sBackupSoSources != null) {
+                            Log.d("SoLoader", "Trying backup SoSource for " + str);
+                            for (UnpackingSoSource unpackingSoSource : sBackupSoSources) {
+                                unpackingSoSource.prepare(str);
+                                int loadLibrary = unpackingSoSource.loadLibrary(str, i, threadPolicy);
+                                if (loadLibrary == 1) {
+                                    i3 = loadLibrary;
                                     break;
                                 }
-                                i2 = sSoSources[i4].loadLibrary(str, i, threadPolicy);
-                                if (i2 == 3 && sBackupSoSources != null) {
-                                    Log.d("SoLoader", "Trying backup SoSource for " + str);
-                                    UnpackingSoSource[] unpackingSoSourceArr = sBackupSoSources;
-                                    int length = unpackingSoSourceArr.length;
-                                    int i5 = 0;
-                                    while (true) {
-                                        if (i5 >= length) {
-                                            break;
-                                        }
-                                        UnpackingSoSource unpackingSoSource = unpackingSoSourceArr[i5];
-                                        unpackingSoSource.prepare(str);
-                                        int loadLibrary = unpackingSoSource.loadLibrary(str, i, threadPolicy);
-                                        if (loadLibrary == 1) {
-                                            i2 = loadLibrary;
-                                            break;
-                                        }
-                                        i5++;
-                                    }
-                                } else {
-                                    i4++;
-                                }
-                            }
-                            sSoSourcesLock.readLock().unlock();
-                            if ((i & 2) == 2 && i2 == 0) {
-                                sSoSourcesLock.writeLock().lock();
-                                if (sApplicationSoSource != null && sApplicationSoSource.checkAndMaybeUpdate()) {
-                                    sSoSourcesVersion++;
-                                }
-                                z2 = sSoSourcesVersion != i3;
-                                sSoSourcesLock.writeLock().unlock();
-                                continue;
-                            } else {
-                                z2 = false;
-                                continue;
-                            }
-                        } finally {
-                            if (i2 == 0 || i2 == r6) {
                             }
                         }
-                    } while (z2);
-                    if (SYSTRACE_LIBRARY_LOADING) {
-                        Api18TraceUtils.endSection();
                     }
-                    if (z) {
-                        StrictMode.setThreadPolicy(threadPolicy);
+                    try {
+                        if (SYSTRACE_LIBRARY_LOADING) {
+                            Api18TraceUtils.endSection();
+                        }
+                        if (z) {
+                            StrictMode.setThreadPolicy(threadPolicy);
+                        }
+                        if (i3 == 0 || i3 == 3) {
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("couldn't find DSO to load: ");
+                            sb.append(str);
+                            sSoSourcesLock.readLock().lock();
+                            while (i2 < sSoSources.length) {
+                                sb.append("\n\tSoSource ");
+                                sb.append(i2);
+                                sb.append(": ");
+                                sb.append(sSoSources[i2].toString());
+                                i2++;
+                            }
+                            ApplicationSoSource applicationSoSource = sApplicationSoSource;
+                            if (applicationSoSource != null) {
+                                File nativeLibDirFromContext = ApplicationSoSource.getNativeLibDirFromContext(applicationSoSource.getUpdatedContext());
+                                sb.append("\n\tNative lib dir: ");
+                                sb.append(nativeLibDirFromContext.getAbsolutePath());
+                                sb.append("\n");
+                            }
+                            sSoSourcesLock.readLock().unlock();
+                            sb.append(" result: ");
+                            sb.append(i3);
+                            String sb2 = sb.toString();
+                            Log.e("SoLoader", sb2);
+                            throw new UnsatisfiedLinkError(sb2);
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        i2 = i3;
+                        if (SYSTRACE_LIBRARY_LOADING) {
+                            Api18TraceUtils.endSection();
+                        }
+                        if (z) {
+                            StrictMode.setThreadPolicy(threadPolicy);
+                        }
+                        if (i2 == 0 || i2 == 3) {
+                            StringBuilder sb3 = new StringBuilder();
+                            sb3.append("couldn't find DSO to load: ");
+                            sb3.append(str);
+                            String message = th.getMessage();
+                            if (message == null) {
+                                message = th.toString();
+                            }
+                            sb3.append(" caused by: ");
+                            sb3.append(message);
+                            th.printStackTrace();
+                            sb3.append(" result: ");
+                            sb3.append(i2);
+                            String sb4 = sb3.toString();
+                            Log.e("SoLoader", sb4);
+                            throw new UnsatisfiedLinkError(sb4);
+                        }
                     }
-                    if (i2 == 0 || i2 == 3) {
-                        String str2 = "couldn't find DSO to load: " + str;
-                        Log.e("SoLoader", str2);
-                        throw new UnsatisfiedLinkError(str2);
-                    }
-                    return;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
+            } else {
                 Log.e("SoLoader", "Could not load: " + str + " because no SO source exists");
                 throw new UnsatisfiedLinkError("couldn't find DSO to load: " + str);
-            } catch (Throwable th) {
+            }
+        } finally {
+            sSoSourcesLock.readLock().unlock();
+        }
+    }
+
+    @Nullable
+    public static String[] getLibraryDependencies(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            sSoSourcesLock.readLock().lock();
+            try {
+                String[] strArr = null;
+                if (sSoSources != null) {
+                    int i = 0;
+                    while (strArr == null) {
+                        if (i >= sSoSources.length) {
+                            break;
+                        }
+                        strArr = sSoSources[i].getLibraryDependencies(str);
+                        i++;
+                    }
+                }
+                return strArr;
+            } finally {
                 sSoSourcesLock.readLock().unlock();
-                throw th;
             }
         }
+        return (String[]) invokeL.objValue;
+    }
+
+    @Nullable
+    public static String getLibraryPath(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            sSoSourcesLock.readLock().lock();
+            try {
+                String str2 = null;
+                if (sSoSources != null) {
+                    int i = 0;
+                    while (str2 == null) {
+                        if (i >= sSoSources.length) {
+                            break;
+                        }
+                        str2 = sSoSources[i].getLibraryPath(str);
+                        i++;
+                    }
+                }
+                return str2;
+            } finally {
+                sSoSourcesLock.readLock().unlock();
+            }
+        }
+        return (String) invokeL.objValue;
     }
 
     @Nullable
     public static Method getNativeLoadRuntimeMethod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
             int i = Build.VERSION.SDK_INT;
             if (i >= 23 && i <= 27) {
                 try {
@@ -350,16 +481,22 @@ public class SoLoader {
         return (Method) invokeV.objValue;
     }
 
+    public static int getSoSourcesVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? sSoSourcesVersion : invokeV.intValue;
+    }
+
     public static void init(Context context, int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65543, null, context, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65552, null, context, i) == null) {
             init(context, i, null);
         }
     }
 
     public static synchronized void initSoLoader(@Nullable SoFileLoader soFileLoader) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, soFileLoader) == null) {
+        if (interceptable == null || interceptable.invokeL(65555, null, soFileLoader) == null) {
             synchronized (SoLoader.class) {
                 if (soFileLoader != null) {
                     sSoFileLoader = soFileLoader;
@@ -539,10 +676,11 @@ public class SoLoader {
     }
 
     public static void initSoSources(Context context, int i, @Nullable SoFileLoader soFileLoader) throws IOException {
+        String[] split;
         int i2;
         ApkSoSource apkSoSource;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65547, null, context, i, soFileLoader) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65556, null, context, i, soFileLoader) == null) {
             sSoSourcesLock.writeLock().lock();
             try {
                 if (sSoSources == null) {
@@ -551,12 +689,11 @@ public class SoLoader {
                     ArrayList arrayList = new ArrayList();
                     String str = System.getenv("LD_LIBRARY_PATH");
                     if (str == null) {
-                        str = "/vendor/lib:/system/lib";
+                        str = SysUtil.is64Bit() ? "/vendor/lib64:/system/lib64" : "/vendor/lib:/system/lib";
                     }
-                    String[] split = str.split(":");
-                    for (int i3 = 0; i3 < split.length; i3++) {
-                        Log.d("SoLoader", "adding system library source: " + split[i3]);
-                        arrayList.add(new DirectorySoSource(new File(split[i3]), 2));
+                    for (String str2 : str.split(":")) {
+                        Log.d("SoLoader", "adding system library source: " + str2);
+                        arrayList.add(new DirectorySoSource(new File(str2), 2));
                     }
                     if (context != null) {
                         if ((i & 1) != 0) {
@@ -564,8 +701,7 @@ public class SoLoader {
                             Log.d("SoLoader", "adding exo package source: lib-main");
                             arrayList.add(0, new ExoSoSource(context, SO_STORE_NAME_MAIN));
                         } else {
-                            ApplicationInfo applicationInfo = context.getApplicationInfo();
-                            if ((applicationInfo.flags & 1) != 0 && (applicationInfo.flags & 128) == 0) {
+                            if (isSystemApp) {
                                 i2 = 0;
                             } else {
                                 sApplicationSoSource = new ApplicationSoSource(context, Build.VERSION.SDK_INT <= 17 ? 1 : 0);
@@ -584,18 +720,18 @@ public class SoLoader {
                                     Log.d("SoLoader", "adding backup sources from split apks");
                                     String[] strArr = context.getApplicationInfo().splitSourceDirs;
                                     int length = strArr.length;
+                                    int i3 = 0;
                                     int i4 = 0;
-                                    int i5 = 0;
-                                    while (i4 < length) {
-                                        File file2 = new File(strArr[i4]);
+                                    while (i3 < length) {
+                                        File file2 = new File(strArr[i3]);
                                         StringBuilder sb = new StringBuilder();
                                         sb.append(SO_STORE_NAME_SPLIT);
-                                        sb.append(i5);
+                                        sb.append(i4);
                                         ApkSoSource apkSoSource2 = new ApkSoSource(context, file2, sb.toString(), i2);
                                         Log.d("SoLoader", "adding backup source: " + apkSoSource2.toString());
                                         arrayList2.add(apkSoSource2);
+                                        i3++;
                                         i4++;
-                                        i5++;
                                     }
                                 }
                                 sBackupSoSources = (UnpackingSoSource[]) arrayList2.toArray(new UnpackingSoSource[arrayList2.size()]);
@@ -607,13 +743,13 @@ public class SoLoader {
                     int makePrepareFlags = makePrepareFlags();
                     int length2 = soSourceArr.length;
                     while (true) {
-                        int i6 = length2 - 1;
+                        int i5 = length2 - 1;
                         if (length2 <= 0) {
                             break;
                         }
-                        Log.d("SoLoader", "Preparing SO source: " + soSourceArr[i6]);
-                        soSourceArr[i6].prepare(makePrepareFlags);
-                        length2 = i6;
+                        Log.d("SoLoader", "Preparing SO source: " + soSourceArr[i5]);
+                        soSourceArr[i5].prepare(makePrepareFlags);
+                        length2 = i5;
                     }
                     sSoSources = soSourceArr;
                     sSoSourcesVersion++;
@@ -626,229 +762,39 @@ public class SoLoader {
         }
     }
 
+    public static boolean isInitialized() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+            sSoSourcesLock.readLock().lock();
+            try {
+                return sSoSources != null;
+            } finally {
+                sSoSourcesLock.readLock().unlock();
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
     public static boolean loadLibrary(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) ? loadLibrary(str, 0) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) ? loadLibrary(str, 0) : invokeL.booleanValue;
     }
 
     public static void loadLibraryBySoName(String str, int i, StrictMode.ThreadPolicy threadPolicy) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65550, null, str, i, threadPolicy) == null) {
-            loadLibraryBySoName(str, null, null, i, threadPolicy);
+        if (interceptable == null || interceptable.invokeLIL(65560, null, str, i, threadPolicy) == null) {
+            loadLibraryBySoNameImpl(str, null, null, i, threadPolicy);
         }
     }
 
-    public static String makeLdLibraryPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            sSoSourcesLock.readLock().lock();
-            try {
-                assertInitialized();
-                Log.d("SoLoader", "makeLdLibraryPath");
-                ArrayList arrayList = new ArrayList();
-                for (SoSource soSource : sSoSources) {
-                    soSource.addToLdLibraryPath(arrayList);
-                }
-                String join = TextUtils.join(":", arrayList);
-                Log.d("SoLoader", "makeLdLibraryPath final path: " + join);
-                return join;
-            } finally {
-                sSoSourcesLock.readLock().unlock();
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Nullable
-    public static String makeNonZipPath(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            String[] split = str.split(":");
-            ArrayList arrayList = new ArrayList(split.length);
-            for (String str2 : split) {
-                if (!str2.contains("!")) {
-                    arrayList.add(str2);
-                }
-            }
-            return TextUtils.join(":", arrayList);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static int makePrepareFlags() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-            sSoSourcesLock.writeLock().lock();
-            try {
-                return (sFlags & 2) != 0 ? 1 : 0;
-            } finally {
-                sSoSourcesLock.writeLock().unlock();
-            }
-        }
-        return invokeV.intValue;
-    }
-
-    public static void prependSoSource(SoSource soSource) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, null, soSource) == null) {
-            sSoSourcesLock.writeLock().lock();
-            try {
-                Log.d("SoLoader", "Prepending to SO sources: " + soSource);
-                assertInitialized();
-                soSource.prepare(makePrepareFlags());
-                SoSource[] soSourceArr = new SoSource[sSoSources.length + 1];
-                soSourceArr[0] = soSource;
-                System.arraycopy(sSoSources, 0, soSourceArr, 1, sSoSources.length);
-                sSoSources = soSourceArr;
-                sSoSourcesVersion++;
-                Log.d("SoLoader", "Prepended to SO sources: " + soSource);
-            } finally {
-                sSoSourcesLock.writeLock().unlock();
-            }
-        }
-    }
-
-    public static void resetStatus() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65556, null) == null) {
-            synchronized (SoLoader.class) {
-                sLoadedLibraries.clear();
-                sLoadingLibraries.clear();
-                sSoFileLoader = null;
-            }
-            setSoSources(null);
-        }
-    }
-
-    public static void setInTestMode() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65557, null) == null) {
-            setSoSources(new SoSource[]{new NoopSoSource()});
-        }
-    }
-
-    public static void setSoFileLoader(SoFileLoader soFileLoader) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65558, null, soFileLoader) == null) {
-            sSoFileLoader = soFileLoader;
-        }
-    }
-
-    public static void setSoSources(SoSource[] soSourceArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65559, null, soSourceArr) == null) {
-            sSoSourcesLock.writeLock().lock();
-            try {
-                sSoSources = soSourceArr;
-                sSoSourcesVersion++;
-            } finally {
-                sSoSourcesLock.writeLock().unlock();
-            }
-        }
-    }
-
-    public static void setSystemLoadLibraryWrapper(SystemLoadLibraryWrapper systemLoadLibraryWrapper) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65560, null, systemLoadLibraryWrapper) == null) {
-            sSystemLoadLibraryWrapper = systemLoadLibraryWrapper;
-        }
-    }
-
-    public static File unpackLibraryAndDependencies(String str) throws UnsatisfiedLinkError {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) {
-            assertInitialized();
-            try {
-                return unpackLibraryBySoName(System.mapLibraryName(str));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static File unpackLibraryBySoName(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, str)) == null) {
-            sSoSourcesLock.readLock().lock();
-            for (int i = 0; i < sSoSources.length; i++) {
-                try {
-                    File unpackLibrary = sSoSources[i].unpackLibrary(str);
-                    if (unpackLibrary != null) {
-                        return unpackLibrary;
-                    }
-                } finally {
-                    sSoSourcesLock.readLock().unlock();
-                }
-            }
-            sSoSourcesLock.readLock().unlock();
-            throw new FileNotFoundException(str);
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static void init(Context context, int i, @Nullable SoFileLoader soFileLoader) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65544, null, context, i, soFileLoader) == null) {
-            StrictMode.ThreadPolicy allowThreadDiskWrites = StrictMode.allowThreadDiskWrites();
-            try {
-                initSoLoader(soFileLoader);
-                initSoSources(context, i, soFileLoader);
-            } finally {
-                StrictMode.setThreadPolicy(allowThreadDiskWrites);
-            }
-        }
-    }
-
-    public static boolean loadLibrary(String str, int i) throws UnsatisfiedLinkError {
-        InterceptResult invokeLI;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, str, i)) == null) {
-            sSoSourcesLock.readLock().lock();
-            try {
-                if (sSoSources == null) {
-                    if ("http://www.android.com/".equals(System.getProperty("java.vendor.url"))) {
-                        assertInitialized();
-                    } else {
-                        synchronized (SoLoader.class) {
-                            z = !sLoadedLibraries.contains(str);
-                            if (z) {
-                                if (sSystemLoadLibraryWrapper != null) {
-                                    sSystemLoadLibraryWrapper.loadLibrary(str);
-                                } else {
-                                    System.loadLibrary(str);
-                                }
-                            }
-                        }
-                        return z;
-                    }
-                }
-                sSoSourcesLock.readLock().unlock();
-                String mapLibName = MergedSoMapping.mapLibName(str);
-                return loadLibraryBySoName(System.mapLibraryName(mapLibName != null ? mapLibName : str), str, mapLibName, i | 2, null);
-            } finally {
-                sSoSourcesLock.readLock().unlock();
-            }
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static boolean loadLibraryBySoName(String str, @Nullable String str2, @Nullable String str3, int i, @Nullable StrictMode.ThreadPolicy threadPolicy) {
+    public static boolean loadLibraryBySoNameImpl(String str, @Nullable String str2, @Nullable String str3, int i, @Nullable StrictMode.ThreadPolicy threadPolicy) {
         InterceptResult invokeCommon;
         boolean z;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{str, str2, str3, Integer.valueOf(i), threadPolicy})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65562, null, new Object[]{str, str2, str3, Integer.valueOf(i), threadPolicy})) == null) {
             boolean z2 = false;
             if (TextUtils.isEmpty(str2) || !sLoadedAndMergedLibraries.contains(str2)) {
                 synchronized (SoLoader.class) {
@@ -882,30 +828,34 @@ public class SoLoader {
                                             Log.d("SoLoader", "Loaded: " + str);
                                             sLoadedLibraries.add(str);
                                         }
-                                    } catch (IOException e) {
-                                        throw new RuntimeException(e);
-                                    } catch (UnsatisfiedLinkError e2) {
-                                        String message = e2.getMessage();
+                                    } catch (UnsatisfiedLinkError e) {
+                                        String message = e.getMessage();
                                         if (message != null && message.contains("unexpected e_machine:")) {
-                                            throw new WrongAbiError(e2);
+                                            throw new WrongAbiError(e, message.substring(message.lastIndexOf("unexpected e_machine:")));
                                         }
-                                        throw e2;
+                                        throw e;
                                     }
                                 }
                             }
                         }
-                        if (!TextUtils.isEmpty(str2) && sLoadedAndMergedLibraries.contains(str2)) {
-                            z2 = true;
-                        }
-                        if (str3 != null && !z2) {
-                            if (SYSTRACE_LIBRARY_LOADING) {
-                                Api18TraceUtils.beginTraceSection("MergedSoMapping.invokeJniOnload[" + str2 + PreferencesUtil.RIGHT_MOUNT);
+                        if ((i & 16) == 0) {
+                            if (!TextUtils.isEmpty(str2) && sLoadedAndMergedLibraries.contains(str2)) {
+                                z2 = true;
                             }
-                            Log.d("SoLoader", "About to merge: " + str2 + " / " + str);
-                            MergedSoMapping.invokeJniOnload(str2);
-                            sLoadedAndMergedLibraries.add(str2);
-                            if (SYSTRACE_LIBRARY_LOADING) {
-                                Api18TraceUtils.endSection();
+                            if (str3 != null && !z2) {
+                                if (SYSTRACE_LIBRARY_LOADING) {
+                                    Api18TraceUtils.beginTraceSection("MergedSoMapping.invokeJniOnload[", str2, PreferencesUtil.RIGHT_MOUNT);
+                                }
+                                try {
+                                    Log.d("SoLoader", "About to merge: " + str2 + " / " + str);
+                                    MergedSoMapping.invokeJniOnload(str2);
+                                    sLoadedAndMergedLibraries.add(str2);
+                                    if (SYSTRACE_LIBRARY_LOADING) {
+                                        Api18TraceUtils.endSection();
+                                    }
+                                } catch (UnsatisfiedLinkError e2) {
+                                    throw new RuntimeException("Failed to call JNI_OnLoad from '" + str2 + "', which has been merged into '" + str + "'.  See comment for details.", e2);
+                                }
                             }
                         }
                         return !z;
@@ -917,9 +867,234 @@ public class SoLoader {
         return invokeCommon.booleanValue;
     }
 
+    public static String makeLdLibraryPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
+            sSoSourcesLock.readLock().lock();
+            try {
+                assertInitialized();
+                Log.d("SoLoader", "makeLdLibraryPath");
+                ArrayList arrayList = new ArrayList();
+                SoSource[] soSourceArr = sSoSources;
+                if (soSourceArr != null) {
+                    for (SoSource soSource : soSourceArr) {
+                        soSource.addToLdLibraryPath(arrayList);
+                    }
+                }
+                String join = TextUtils.join(":", arrayList);
+                Log.d("SoLoader", "makeLdLibraryPath final path: " + join);
+                return join;
+            } finally {
+                sSoSourcesLock.readLock().unlock();
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Nullable
+    public static String makeNonZipPath(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            String[] split = str.split(":");
+            ArrayList arrayList = new ArrayList(split.length);
+            for (String str2 : split) {
+                if (!str2.contains("!")) {
+                    arrayList.add(str2);
+                }
+            }
+            return TextUtils.join(":", arrayList);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int makePrepareFlags() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) {
+            sSoSourcesLock.writeLock().lock();
+            try {
+                return (sFlags & 2) != 0 ? 1 : 0;
+            } finally {
+                sSoSourcesLock.writeLock().unlock();
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    public static void prependSoSource(SoSource soSource) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65566, null, soSource) == null) {
+            sSoSourcesLock.writeLock().lock();
+            try {
+                Log.d("SoLoader", "Prepending to SO sources: " + soSource);
+                assertInitialized();
+                soSource.prepare(makePrepareFlags());
+                SoSource[] soSourceArr = new SoSource[sSoSources.length + 1];
+                soSourceArr[0] = soSource;
+                System.arraycopy(sSoSources, 0, soSourceArr, 1, sSoSources.length);
+                sSoSources = soSourceArr;
+                sSoSourcesVersion++;
+                Log.d("SoLoader", "Prepended to SO sources: " + soSource);
+            } finally {
+                sSoSourcesLock.writeLock().unlock();
+            }
+        }
+    }
+
+    public static void setInTestMode() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65567, null) == null) {
+            TestOnlyUtils.setSoSources(new SoSource[]{new NoopSoSource()});
+        }
+    }
+
+    public static void setSystemLoadLibraryWrapper(SystemLoadLibraryWrapper systemLoadLibraryWrapper) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65568, null, systemLoadLibraryWrapper) == null) {
+            sSystemLoadLibraryWrapper = systemLoadLibraryWrapper;
+        }
+    }
+
+    public static File unpackLibraryAndDependencies(String str) throws UnsatisfiedLinkError {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, str)) == null) {
+            assertInitialized();
+            try {
+                return unpackLibraryBySoName(System.mapLibraryName(str));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public static File unpackLibraryBySoName(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, str)) == null) {
+            sSoSourcesLock.readLock().lock();
+            try {
+                for (SoSource soSource : sSoSources) {
+                    File unpackLibrary = soSource.unpackLibrary(str);
+                    if (unpackLibrary != null) {
+                        return unpackLibrary;
+                    }
+                }
+                sSoSourcesLock.readLock().unlock();
+                throw new FileNotFoundException(str);
+            } finally {
+                sSoSourcesLock.readLock().unlock();
+            }
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public static void init(Context context, int i, @Nullable SoFileLoader soFileLoader) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65553, null, context, i, soFileLoader) == null) {
+            StrictMode.ThreadPolicy allowThreadDiskWrites = StrictMode.allowThreadDiskWrites();
+            try {
+                isSystemApp = checkIfSystemApp(context, i);
+                initSoLoader(soFileLoader);
+                initSoSources(context, i, soFileLoader);
+                if (!NativeLoader.isInitialized()) {
+                    NativeLoader.init(new NativeLoaderToSoLoaderDelegate());
+                }
+            } finally {
+                StrictMode.setThreadPolicy(allowThreadDiskWrites);
+            }
+        }
+    }
+
+    public static boolean loadLibrary(String str, int i) throws UnsatisfiedLinkError {
+        InterceptResult invokeLI;
+        SystemLoadLibraryWrapper systemLoadLibraryWrapper;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65559, null, str, i)) == null) {
+            sSoSourcesLock.readLock().lock();
+            try {
+                if (sSoSources == null) {
+                    if ("http://www.android.com/".equals(System.getProperty("java.vendor.url"))) {
+                        assertInitialized();
+                    } else {
+                        synchronized (SoLoader.class) {
+                            z = !sLoadedLibraries.contains(str);
+                            if (z) {
+                                if (sSystemLoadLibraryWrapper != null) {
+                                    sSystemLoadLibraryWrapper.loadLibrary(str);
+                                } else {
+                                    System.loadLibrary(str);
+                                }
+                            }
+                        }
+                        return z;
+                    }
+                }
+                sSoSourcesLock.readLock().unlock();
+                if (isSystemApp && (systemLoadLibraryWrapper = sSystemLoadLibraryWrapper) != null) {
+                    systemLoadLibraryWrapper.loadLibrary(str);
+                    return true;
+                }
+                String mapLibName = MergedSoMapping.mapLibName(str);
+                return loadLibraryBySoName(System.mapLibraryName(mapLibName != null ? mapLibName : str), str, mapLibName, i, null);
+            } finally {
+                sSoSourcesLock.readLock().unlock();
+            }
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static boolean loadLibraryBySoName(String str, @Nullable String str2, @Nullable String str3, int i, @Nullable StrictMode.ThreadPolicy threadPolicy) {
+        InterceptResult invokeCommon;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65561, null, new Object[]{str, str2, str3, Integer.valueOf(i), threadPolicy})) == null) {
+            boolean z2 = false;
+            do {
+                try {
+                    z2 = loadLibraryBySoNameImpl(str, str2, str3, i, threadPolicy);
+                    z = false;
+                    continue;
+                } catch (UnsatisfiedLinkError e) {
+                    int i2 = sSoSourcesVersion;
+                    sSoSourcesLock.writeLock().lock();
+                    try {
+                        try {
+                            z = true;
+                            if (sApplicationSoSource == null || !sApplicationSoSource.checkAndMaybeUpdate()) {
+                                z = false;
+                            } else {
+                                Log.w("SoLoader", "sApplicationSoSource updated during load: " + str + ", attempting load again.");
+                                sSoSourcesVersion = sSoSourcesVersion + 1;
+                            }
+                            sSoSourcesLock.writeLock().unlock();
+                            if (sSoSourcesVersion == i2) {
+                                throw e;
+                            }
+                        } catch (IOException e2) {
+                            throw new RuntimeException(e2);
+                        }
+                    } catch (Throwable th) {
+                        sSoSourcesLock.writeLock().unlock();
+                        throw th;
+                    }
+                }
+            } while (z);
+            return z2;
+        }
+        return invokeCommon.booleanValue;
+    }
+
     public static void init(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65545, null, context, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65554, null, context, z) == null) {
             try {
                 init(context, z ? 1 : 0);
             } catch (IOException e) {

@@ -24,7 +24,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class e95<D, S extends y85, H extends d95<D, S>> extends BaseAdapter implements zj8 {
+public abstract class e95<D, S extends y85, H extends d95<D, S>> extends BaseAdapter implements yj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<D> a;
@@ -247,7 +247,7 @@ public abstract class e95<D, S extends y85, H extends d95<D, S>> extends BaseAda
         h.g(item, this.e);
     }
 
-    @Override // com.repackage.zj8
+    @Override // com.repackage.yj8
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

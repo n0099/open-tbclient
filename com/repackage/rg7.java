@@ -1,119 +1,72 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.widget.LinearLayout;
+import com.baidu.tbadk.editortools.RawLayout;
+import com.baidu.tieba.R;
+import com.baidu.tieba.location.editortool.PbLocationInfoContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetSuggestionByAddrName.DataRes;
-import tbclient.Lbs;
 /* loaded from: classes7.dex */
-public class rg7 {
+public class rg7 extends s25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<a> a;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-        }
-
-        public void c(Lbs lbs) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lbs) == null) || lbs == null) {
-                return;
-            }
-            this.a = lbs.name;
-            String str = lbs.lat;
-            String str2 = lbs.lng;
-            this.b = lbs.sn;
-        }
-
-        public void d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.a = str;
-            }
-        }
-
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.b = str;
-            }
-        }
-    }
-
-    public rg7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rg7(Context context) {
+        super(context, (String) null, 8);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
+        this.o = false;
+        this.n = 3;
+        this.m = new PbLocationInfoContainer(context);
+        this.p = new int[]{20, 19};
     }
 
-    public ArrayList<a> a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rg7(Context context, boolean z) {
+        super(context, (String) null, 8);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
-    }
-
-    public void b(DataRes dataRes) {
-        List<Lbs> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || (list = dataRes.poi_info) == null || list.isEmpty()) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        for (Lbs lbs : list) {
-            a aVar = new a();
-            aVar.c(lbs);
-            this.a.add(aVar);
-        }
-    }
-
-    public void c(ArrayList<a> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.a = arrayList;
-        }
+        this.o = false;
+        this.n = 3;
+        this.m = new PbLocationInfoContainer(context);
+        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, qi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cb));
+        ((LinearLayout.LayoutParams) layoutParams).leftMargin = qi.f(getContext(), R.dimen.obfuscated_res_0x7f070207);
+        ((LinearLayout.LayoutParams) layoutParams).rightMargin = qi.f(getContext(), R.dimen.obfuscated_res_0x7f070207);
+        ((LinearLayout.LayoutParams) layoutParams).bottomMargin = qi.f(getContext(), R.dimen.obfuscated_res_0x7f070272);
+        ((LinearLayout.LayoutParams) layoutParams).topMargin = qi.f(getContext(), R.dimen.obfuscated_res_0x7f070272);
+        ((PbLocationInfoContainer) this.m).setLayoutParams(layoutParams);
+        this.p = new int[]{20, 19};
     }
 }

@@ -137,7 +137,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
                     return;
                 }
                 MyForbiddenFansActivity myForbiddenFansActivity = this.a;
-                myForbiddenFansActivity.showToast(myForbiddenFansActivity.getString(R.string.obfuscated_res_0x7f0f0c3c));
+                myForbiddenFansActivity.showToast(myForbiddenFansActivity.getString(R.string.obfuscated_res_0x7f0f0c3d));
             }
         }
     }
@@ -172,7 +172,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!qi.D()) {
                     MyForbiddenFansActivity myForbiddenFansActivity = this.a;
-                    myForbiddenFansActivity.showToast(myForbiddenFansActivity.getString(R.string.obfuscated_res_0x7f0f0c3c));
+                    myForbiddenFansActivity.showToast(myForbiddenFansActivity.getString(R.string.obfuscated_res_0x7f0f0c3d));
                 } else if (view2.getTag() instanceof zb6) {
                     TiebaStatic.log(new StatisticItem("c13105"));
                     this.a.i.f(((zb6) view2.getTag()).a);
@@ -280,7 +280,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 MyForbiddenFansActivity myForbiddenFansActivity = this.a;
-                myForbiddenFansActivity.showLoadingDialog(myForbiddenFansActivity.getString(R.string.obfuscated_res_0x7f0f0fce));
+                myForbiddenFansActivity.showLoadingDialog(myForbiddenFansActivity.getString(R.string.obfuscated_res_0x7f0f0fcf));
             }
         }
 
@@ -341,7 +341,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
                         }
                         return;
                     }
-                    qi.O(this.a.getActivity(), str);
+                    qi.N(this.a.getActivity(), str);
                 }
             }
         }
@@ -373,11 +373,11 @@ public class MyForbiddenFansActivity extends BaseActivity {
         }
         this.e.setNextPage(this.j);
         if (this.h.f()) {
-            this.j.C(getString(R.string.obfuscated_res_0x7f0f0dd6));
+            this.j.C(getString(R.string.obfuscated_res_0x7f0f0dd7));
             this.j.f();
             return;
         }
-        this.j.C(getString(R.string.obfuscated_res_0x7f0f0c6d));
+        this.j.C(getString(R.string.obfuscated_res_0x7f0f0c6e));
         this.j.f();
     }
 
@@ -425,7 +425,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
             navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0651));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.b.showBottomLine();
-            this.d = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f0fc8));
+            this.d = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f0fc9));
             this.c = (NavigationBarCoverTip) findViewById(R.id.obfuscated_res_0x7f091607);
             BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f09131c);
             this.e = bdRecyclerView;
@@ -471,7 +471,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
             if (this.f == null) {
                 NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), this.a, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, qi.f(getActivity(), R.dimen.obfuscated_res_0x7f07023c)), null, null);
                 this.f = a2;
-                a2.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c5f));
+                a2.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c60));
                 this.f.setSubTitleTextColor(R.color.CAM_X0106);
                 this.f.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             }

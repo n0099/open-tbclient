@@ -317,7 +317,7 @@ public class kc6 extends BaseAdapter {
                                 } else if (ec6Var.d().equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f02fb))) {
                                     eVar.e.setVisibility(8);
                                     eVar.d.setVisibility(0);
-                                    eVar.d.a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13fb), this.c.b());
+                                    eVar.d.a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13fd), this.c.b());
                                     eVar.d.setOnClickListener(new a(this));
                                 }
                             } else if (ec6Var.d().equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f02fa))) {
@@ -328,7 +328,7 @@ public class kc6 extends BaseAdapter {
                                 eVar.c.setVisibility(8);
                                 eVar.e.setVisibility(0);
                                 eVar.d.setVisibility(8);
-                                eVar.e.a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13fb), this.c.b());
+                                eVar.e.a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13fd), this.c.b());
                                 eVar.e.setOnClickListener(new b(this));
                             }
                         }

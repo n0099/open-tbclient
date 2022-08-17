@@ -70,7 +70,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
                 }
             }
             if (!this.c.a()) {
-                showNetRefreshView(this.e, errorData != null ? getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c3b, errorData.error_msg, Integer.valueOf(errorData.error_code)) : null, true);
+                showNetRefreshView(this.e, errorData != null ? getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c3c, errorData.error_msg, Integer.valueOf(errorData.error_code)) : null, true);
             }
             s86 s86Var = this.d;
             if (s86Var != null) {
@@ -319,7 +319,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
             if (s86Var != null) {
                 s86Var.r(false);
             }
-            super.showNetRefreshView(view2, getString(R.string.obfuscated_res_0x7f0f0fb9), str, null, z, getNetRefreshListener());
+            super.showNetRefreshView(view2, getString(R.string.obfuscated_res_0x7f0f0fba), str, null, z, getNetRefreshListener());
             setNetRefreshViewTopMargin(qi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ab));
         }
     }

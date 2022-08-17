@@ -22,7 +22,6 @@ import androidx.constraintlayout.solver.widgets.ConstraintWidget;
 import androidx.constraintlayout.solver.widgets.ConstraintWidgetContainer;
 import androidx.constraintlayout.solver.widgets.Optimizer;
 import androidx.constraintlayout.solver.widgets.analyzer.BasicMeasure;
-import androidx.core.internal.view.SupportMenu;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -31,6 +30,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
@@ -889,7 +889,7 @@ public class ConstraintLayout extends ViewGroup {
                             int i3 = (int) ((parseInt / 1080.0f) * width);
                             int i4 = (int) ((parseInt2 / 1920.0f) * height);
                             Paint paint = new Paint();
-                            paint.setColor(SupportMenu.CATEGORY_MASK);
+                            paint.setColor(-65536);
                             float f = i3;
                             float f2 = i4;
                             float f3 = i3 + ((int) ((parseInt3 / 1080.0f) * width));
@@ -898,7 +898,7 @@ public class ConstraintLayout extends ViewGroup {
                             canvas.drawLine(f3, f2, f3, parseInt4, paint);
                             canvas.drawLine(f3, parseInt4, f, parseInt4, paint);
                             canvas.drawLine(f, parseInt4, f, f2, paint);
-                            paint.setColor(-16711936);
+                            paint.setColor(DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK);
                             canvas.drawLine(f, f2, f3, parseInt4, paint);
                             canvas.drawLine(f, parseInt4, f3, f2, paint);
                         }

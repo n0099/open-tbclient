@@ -44,7 +44,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     @Nullable
 
     /* renamed from: tv  reason: collision with root package name */
-    public ViewGroup f1081tv;
+    public ViewGroup f1082tv;
     public ViewGroup tw;
     public e tx;
     public c ty;
@@ -336,16 +336,16 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
                 com.kwad.components.ad.reward.i.a.a.a(iz, getContext(), this.nM.mAdTemplate);
                 AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911b6);
                 ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091025);
-                this.f1081tv = viewGroup;
+                this.f1082tv = viewGroup;
                 if (viewGroup != null) {
                     viewGroup.setVisibility(8);
-                    c cVar = new c(this.f1081tv);
+                    c cVar = new c(this.f1082tv);
                     this.tz = cVar;
                     cVar.a(this.nM.mApkDownloadHelper);
                     this.tz.a(this);
                     this.tz.c(this.nM.mAdTemplate, false);
                     ((KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911b3)).setWidthBasedRatio(false);
-                    t tVar = new t((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0911b2), this.f1081tv, this.nM.mApkDownloadHelper, this);
+                    t tVar = new t((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0911b2), this.f1082tv, this.nM.mApkDownloadHelper, this);
                     this.sV = tVar;
                     tVar.a(this.nM.mAdTemplate, adBaseFrameLayout);
                 }

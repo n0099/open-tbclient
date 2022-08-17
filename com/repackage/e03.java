@@ -35,13 +35,13 @@ public class e03 extends yz2 {
 
         /* renamed from: com.repackage.e03$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0467a implements View.OnClickListener {
+        public class View$OnClickListenerC0469a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0467a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0469a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -216,7 +216,7 @@ public class e03 extends yz2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence, onClickListener)) == null) {
                 this.a.a.setText(charSequence);
-                this.a.a.setOnClickListener(new View$OnClickListenerC0467a(this, onClickListener));
+                this.a.a.setOnClickListener(new View$OnClickListenerC0469a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;

@@ -23,9 +23,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ac8;
 import com.repackage.mp4;
 import com.repackage.qi;
+import com.repackage.zb8;
 /* loaded from: classes3.dex */
 public class BannerView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -194,7 +194,7 @@ public class BannerView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, mp4Var) == null) {
             this.l = mp4Var;
-            ac8.f(mp4Var.g, this.f, mp4Var.h, qi.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+            zb8.f(mp4Var.g, this.f, mp4Var.h, qi.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
         }
     }
 

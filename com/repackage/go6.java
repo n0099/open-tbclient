@@ -452,7 +452,7 @@ public class go6 {
             if (this.l) {
                 return false;
             }
-            this.e.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a3a));
+            this.e.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a3b));
             this.e.f();
             return true;
         }
@@ -506,7 +506,7 @@ public class go6 {
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             this.l = z;
             if (z) {
-                this.e.C(TbadkCoreApplication.getInst().getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a39));
+                this.e.C(TbadkCoreApplication.getInst().getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a3a));
                 BdTypeRecyclerView bdTypeRecyclerView = this.c;
                 if (bdTypeRecyclerView.getChildAt(bdTypeRecyclerView.getChildCount() - 1) == this.e.b()) {
                     this.e.Q();
@@ -516,7 +516,7 @@ public class go6 {
                 this.e.f();
                 return;
             }
-            this.e.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a3a));
+            this.e.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a3b));
             this.e.f();
         }
     }
@@ -574,7 +574,7 @@ public class go6 {
                     this.k.i(j);
                     this.k.j(frsViewData.getForum().getId());
                     if (UbsABTestHelper.isFrsNewAreaTabSortTestA() && FrsTabTestHelper.HAVE_NOT_RECORD_SORT != FrsTabTestHelper.getFrsNewAreaTabSort()) {
-                        this.k.g(hr6.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
+                        this.k.g(gr6.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
                     }
                 }
             }
@@ -604,7 +604,7 @@ public class go6 {
             this.c.setNextPage(this.e);
             this.e.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.e.f();
-            this.e.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e8));
+            this.e.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e9));
         }
     }
 

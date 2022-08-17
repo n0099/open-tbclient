@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
@@ -19,9 +20,13 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes4.dex */
 public abstract class AbstractDataSource<T> implements DataSource<T> {
     public static /* synthetic */ Interceptable $ic;
+    @Nullable
+    public static volatile DataSourceInstrumenter sDataSourceInstrumenter;
     public transient /* synthetic */ FieldHolder $fh;
     @GuardedBy("this")
     public DataSourceStatus mDataSourceStatus;
+    @Nullable
+    public Map<String, Object> mExtras;
     @GuardedBy("this")
     public Throwable mFailureThrowable;
     @GuardedBy("this")
@@ -32,6 +37,11 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
     @Nullable
     public T mResult;
     public final ConcurrentLinkedQueue<Pair<DataSubscriber<T>, Executor>> mSubscribers;
+
+    /* loaded from: classes4.dex */
+    public interface DataSourceInstrumenter {
+        Runnable decorateRunnable(Runnable runnable, String str);
+    }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
@@ -116,53 +126,11 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
         this.mSubscribers = new ConcurrentLinkedQueue<>();
     }
 
-    private void notifyDataSubscriber(DataSubscriber<T> dataSubscriber, Executor executor, boolean z, boolean z2) {
+    @Nullable
+    public static DataSourceInstrumenter getDataSourceInstrumenter() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{dataSubscriber, executor, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            executor.execute(new Runnable(this, z, dataSubscriber, z2) { // from class: com.facebook.datasource.AbstractDataSource.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AbstractDataSource this$0;
-                public final /* synthetic */ DataSubscriber val$dataSubscriber;
-                public final /* synthetic */ boolean val$isCancellation;
-                public final /* synthetic */ boolean val$isFailure;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Boolean.valueOf(z), dataSubscriber, Boolean.valueOf(z2)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$isFailure = z;
-                    this.val$dataSubscriber = dataSubscriber;
-                    this.val$isCancellation = z2;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.val$isFailure) {
-                            this.val$dataSubscriber.onFailure(this.this$0);
-                        } else if (this.val$isCancellation) {
-                            this.val$dataSubscriber.onCancellation(this.this$0);
-                        } else {
-                            this.val$dataSubscriber.onNewResult(this.this$0);
-                        }
-                    }
-                }
-            });
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? sDataSourceInstrumenter : (DataSourceInstrumenter) invokeV.objValue;
     }
 
     private void notifyDataSubscribers() {
@@ -178,26 +146,34 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
         }
     }
 
-    private synchronized boolean setFailureInternal(Throwable th) {
-        InterceptResult invokeL;
+    public static void provideInstrumenter(@Nullable DataSourceInstrumenter dataSourceInstrumenter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, th)) == null) {
+        if (interceptable == null || interceptable.invokeL(65539, null, dataSourceInstrumenter) == null) {
+            sDataSourceInstrumenter = dataSourceInstrumenter;
+        }
+    }
+
+    private synchronized boolean setFailureInternal(Throwable th, @Nullable Map<String, Object> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, th, map)) == null) {
             synchronized (this) {
                 if (!this.mIsClosed && this.mDataSourceStatus == DataSourceStatus.IN_PROGRESS) {
                     this.mDataSourceStatus = DataSourceStatus.FAILURE;
                     this.mFailureThrowable = th;
+                    this.mExtras = map;
                     return true;
                 }
                 return false;
             }
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
     private synchronized boolean setProgressInternal(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, this, f)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65541, this, f)) == null) {
             synchronized (this) {
                 if (!this.mIsClosed && this.mDataSourceStatus == DataSourceStatus.IN_PROGRESS) {
                     if (f < this.mProgress) {
@@ -217,7 +193,7 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
         InterceptResult invokeLZ;
         T t2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLZ = interceptable.invokeLZ(65541, this, t, z)) != null) {
+        if (interceptable != null && (invokeLZ = interceptable.invokeLZ(65542, this, t, z)) != null) {
             return invokeLZ.booleanValue;
         }
         T t3 = null;
@@ -268,7 +244,7 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             synchronized (this) {
                 if (isClosed()) {
                     z = isFinished() ? false : true;
@@ -314,11 +290,19 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
 
     @Override // com.facebook.datasource.DataSource
     @Nullable
+    public Map<String, Object> getExtras() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mExtras : (Map) invokeV.objValue;
+    }
+
+    @Override // com.facebook.datasource.DataSource
+    @Nullable
     public synchronized Throwable getFailureCause() {
         InterceptResult invokeV;
         Throwable th;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
                 th = this.mFailureThrowable;
             }
@@ -332,7 +316,7 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
         InterceptResult invokeV;
         float f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
                 f = this.mProgress;
             }
@@ -347,7 +331,7 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
         InterceptResult invokeV;
         T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
                 t = this.mResult;
             }
@@ -361,7 +345,7 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
                 z = this.mDataSourceStatus == DataSourceStatus.FAILURE;
             }
@@ -374,7 +358,7 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
     public boolean hasMultipleResults() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -385,7 +369,7 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             synchronized (this) {
                 z = this.mResult != null;
             }
@@ -399,7 +383,7 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             synchronized (this) {
                 z = this.mIsClosed;
             }
@@ -413,7 +397,7 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             synchronized (this) {
                 z = this.mDataSourceStatus != DataSourceStatus.IN_PROGRESS;
             }
@@ -422,9 +406,63 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
         return invokeV.booleanValue;
     }
 
+    public void notifyDataSubscriber(DataSubscriber<T> dataSubscriber, Executor executor, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{dataSubscriber, executor, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            Runnable runnable = new Runnable(this, z, dataSubscriber, z2) { // from class: com.facebook.datasource.AbstractDataSource.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ AbstractDataSource this$0;
+                public final /* synthetic */ DataSubscriber val$dataSubscriber;
+                public final /* synthetic */ boolean val$isCancellation;
+                public final /* synthetic */ boolean val$isFailure;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Boolean.valueOf(z), dataSubscriber, Boolean.valueOf(z2)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$isFailure = z;
+                    this.val$dataSubscriber = dataSubscriber;
+                    this.val$isCancellation = z2;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        if (this.val$isFailure) {
+                            this.val$dataSubscriber.onFailure(this.this$0);
+                        } else if (this.val$isCancellation) {
+                            this.val$dataSubscriber.onCancellation(this.this$0);
+                        } else {
+                            this.val$dataSubscriber.onNewResult(this.this$0);
+                        }
+                    }
+                }
+            };
+            DataSourceInstrumenter dataSourceInstrumenter = getDataSourceInstrumenter();
+            if (dataSourceInstrumenter != null) {
+                runnable = dataSourceInstrumenter.decorateRunnable(runnable, "AbstractDataSource_notifyDataSubscriber");
+            }
+            executor.execute(runnable);
+        }
+    }
+
     public void notifyProgressUpdate() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             Iterator<Pair<DataSubscriber<T>, Executor>> it = this.mSubscribers.iterator();
             while (it.hasNext()) {
                 Pair<DataSubscriber<T>, Executor> next = it.next();
@@ -465,23 +503,23 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
         }
     }
 
+    public void setExtras(@Nullable Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, map) == null) {
+            this.mExtras = map;
+        }
+    }
+
     public boolean setFailure(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, th)) == null) {
-            boolean failureInternal = setFailureInternal(th);
-            if (failureInternal) {
-                notifyDataSubscribers();
-            }
-            return failureInternal;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, th)) == null) ? setFailure(th, null) : invokeL.booleanValue;
     }
 
     public boolean setProgress(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048588, this, f)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048592, this, f)) == null) {
             boolean progressInternal = setProgressInternal(f);
             if (progressInternal) {
                 notifyProgressUpdate();
@@ -491,17 +529,18 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
         return invokeF.booleanValue;
     }
 
-    public boolean setResult(@Nullable T t, boolean z) {
-        InterceptResult invokeLZ;
+    public boolean setResult(@Nullable T t, boolean z, @Nullable Map<String, Object> map) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048589, this, t, z)) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{t, Boolean.valueOf(z), map})) == null) {
+            setExtras(map);
             boolean resultInternal = setResultInternal(t, z);
             if (resultInternal) {
                 notifyDataSubscribers();
             }
             return resultInternal;
         }
-        return invokeLZ.booleanValue;
+        return invokeCommon.booleanValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:24:0x0039  */
@@ -513,7 +552,7 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
     public void subscribe(DataSubscriber<T> dataSubscriber, Executor executor) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(1048590, this, dataSubscriber, executor) != null) {
+        if (interceptable != null && interceptable.invokeLL(1048595, this, dataSubscriber, executor) != null) {
             return;
         }
         Preconditions.checkNotNull(dataSubscriber);
@@ -537,5 +576,24 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
             if (z) {
             }
         }
+    }
+
+    public boolean setFailure(Throwable th, @Nullable Map<String, Object> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, th, map)) == null) {
+            boolean failureInternal = setFailureInternal(th, map);
+            if (failureInternal) {
+                notifyDataSubscribers();
+            }
+            return failureInternal;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean setResult(@Nullable T t, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048593, this, t, z)) == null) ? setResult(t, z, null) : invokeLZ.booleanValue;
     }
 }

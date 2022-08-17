@@ -18,14 +18,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.Base64Encoder;
-import com.repackage.am8;
 import com.repackage.cf5;
 import com.repackage.gf5;
 import com.repackage.io;
 import com.repackage.je5;
 import com.repackage.oi;
-import com.repackage.pl8;
-import com.repackage.tl8;
+import com.repackage.ol8;
+import com.repackage.sl8;
+import com.repackage.zl8;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -33,7 +33,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @io
 /* loaded from: classes3.dex */
-public class SearchJsBridge implements pl8 {
+public class SearchJsBridge implements ol8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDUID = "baiduid";
     public static final String CLIENT_VERSION = "_client_version";
@@ -93,7 +93,7 @@ public class SearchJsBridge implements pl8 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                am8.h(this.a);
+                zl8.h(this.a);
                 return this.a;
             }
             return (String) invokeV.objValue;
@@ -158,7 +158,7 @@ public class SearchJsBridge implements pl8 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                am8.b();
+                zl8.b();
                 return null;
             }
             return invokeV.objValue;
@@ -261,7 +261,7 @@ public class SearchJsBridge implements pl8 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.pl8
+    @Override // com.repackage.ol8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -301,64 +301,64 @@ public class SearchJsBridge implements pl8 {
         return invokeLLLL.booleanValue;
     }
 
-    public tl8 deleteAllSearchHistory() {
+    public sl8 deleteAllSearchHistory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            tl8 tl8Var = new tl8();
+            sl8 sl8Var = new sl8();
             gf5.b(new c(this), new d(this));
-            return tl8Var;
+            return sl8Var;
         }
-        return (tl8) invokeV.objValue;
+        return (sl8) invokeV.objValue;
     }
 
-    public tl8 deleteSearchHistory(String str) {
+    public sl8 deleteSearchHistory(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            tl8 tl8Var = new tl8();
+            sl8 sl8Var = new sl8();
             gf5.b(new a(this, str), new b(this));
-            return tl8Var;
+            return sl8Var;
         }
-        return (tl8) invokeL.objValue;
+        return (sl8) invokeL.objValue;
     }
 
-    public tl8 getSearchAdCookie() {
+    public sl8 getSearchAdCookie() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            tl8 tl8Var = new tl8();
-            tl8Var.o(initCookies());
-            return tl8Var;
+            sl8 sl8Var = new sl8();
+            sl8Var.o(initCookies());
+            return sl8Var;
         }
-        return (tl8) invokeV.objValue;
+        return (sl8) invokeV.objValue;
     }
 
-    public tl8 getSearchHistoryJson() {
+    public sl8 getSearchHistoryJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            tl8 tl8Var = new tl8();
+            sl8 sl8Var = new sl8();
             int count = ListUtils.getCount(this.mHistoryDatas);
             if (count == 0) {
-                tl8Var.o("");
+                sl8Var.o("");
             }
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < count; i++) {
                 jSONArray.put(this.mHistoryDatas.get(i));
             }
-            tl8Var.o(jSONArray.toString());
+            sl8Var.o(jSONArray.toString());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
-            return tl8Var;
+            return sl8Var;
         }
-        return (tl8) invokeV.objValue;
+        return (sl8) invokeV.objValue;
     }
 
-    public tl8 openSearchPage(String str, int i) {
+    public sl8 openSearchPage(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
-            tl8 tl8Var = new tl8();
+            sl8 sl8Var = new sl8();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("query", str);
@@ -367,9 +367,9 @@ public class SearchJsBridge implements pl8 {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return tl8Var;
+            return sl8Var;
         }
-        return (tl8) invokeLI.objValue;
+        return (sl8) invokeLI.objValue;
     }
 
     public void setHistoryDatas(List<String> list) {

@@ -206,7 +206,7 @@ public class xe0 extends ng0 {
                     return true;
                 }
                 e41 e41Var = new e41(context);
-                e41Var.e(context.getString(R.string.obfuscated_res_0x7f0f0bcb));
+                e41Var.e(context.getString(R.string.obfuscated_res_0x7f0f0bcc));
                 e41Var.c(false);
                 e41Var.d(false);
                 j01.b(e41Var);

@@ -63,10 +63,10 @@ import com.repackage.ab6;
 import com.repackage.bb6;
 import com.repackage.c9;
 import com.repackage.fi;
-import com.repackage.hp7;
+import com.repackage.gp7;
 import com.repackage.ia6;
 import com.repackage.j55;
-import com.repackage.kp7;
+import com.repackage.jp7;
 import com.repackage.m55;
 import com.repackage.og;
 import com.repackage.oi;
@@ -122,7 +122,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
     public EmotionDetailData z;
 
     /* loaded from: classes3.dex */
-    public class a implements kp7 {
+    public class a implements jp7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionDetailActivity a;
@@ -145,26 +145,26 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             this.a = emotionDetailActivity;
         }
 
-        @Override // com.repackage.kp7
+        @Override // com.repackage.jp7
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                qi.O(this.a.getPageContext().getPageActivity(), str);
+                qi.N(this.a.getPageContext().getPageActivity(), str);
             }
         }
 
-        @Override // com.repackage.kp7
+        @Override // com.repackage.jp7
         public void onProgress(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             }
         }
 
-        @Override // com.repackage.kp7
+        @Override // com.repackage.jp7
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                qi.N(this.a.getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f108b);
+                qi.M(this.a.getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f108c);
             }
         }
     }
@@ -395,7 +395,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
                     SkinManager.setViewTextColor(this.a.o, (int) R.color.CAM_X0302);
                     return;
                 }
-                qi.O(this.a.getActivity(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d24));
+                qi.N(this.a.getActivity(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d25));
                 this.a.c.setVisibility(0);
                 this.a.s.setVisibility(8);
                 this.a.r.setVisibility(8);
@@ -435,13 +435,13 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 fi.a(this.a.w);
-                qi.O(this.b.getPageContext().getPageActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0450));
+                qi.N(this.b.getPageContext().getPageActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0450));
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class h implements kp7 {
+    public class h implements jp7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionDetailActivity a;
@@ -464,32 +464,32 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             this.a = emotionDetailActivity;
         }
 
-        @Override // com.repackage.kp7
+        @Override // com.repackage.jp7
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                qi.N(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0500);
+                qi.M(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0500);
                 this.a.l.setEnabled(true);
             }
         }
 
-        @Override // com.repackage.kp7
+        @Override // com.repackage.jp7
         public void onProgress(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 if (i > 0 && i < 100) {
-                    qi.L(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0d2b));
+                    qi.K(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0d2c));
                 } else if (i >= 100) {
-                    qi.K(this.a.getActivity(), R.string.obfuscated_res_0x7f0f04fb);
+                    qi.J(this.a.getActivity(), R.string.obfuscated_res_0x7f0f04fb);
                 }
             }
         }
 
-        @Override // com.repackage.kp7
+        @Override // com.repackage.jp7
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                qi.N(this.a.getActivity(), R.string.obfuscated_res_0x7f0f04fb);
+                qi.M(this.a.getActivity(), R.string.obfuscated_res_0x7f0f04fb);
                 this.a.l.setText(R.string.obfuscated_res_0x7f0f0279);
                 SkinManager.setViewTextColor(this.a.l, (int) R.color.CAM_X0109);
                 this.a.l.setEnabled(false);
@@ -539,10 +539,10 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
                     if (i2 > 0 && i == 1) {
                         SkinManager.setImageResource(this.a.a.m, R.drawable.icon_bar_collection_emotion);
                         this.a.a.o.setText(R.string.obfuscated_res_0x7f0f054c);
-                        qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f04b9);
+                        qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f04b9);
                         return;
                     }
-                    qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f04b0);
+                    qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f04b0);
                 }
             }
         }
@@ -644,10 +644,10 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
                 if (i2 == 1) {
                     SkinManager.setImageResource(this.a.m, R.drawable.icon_bar_collectioned);
                     this.a.o.setText(R.string.obfuscated_res_0x7f0f054d);
-                    qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f00d2);
+                    qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f00d2);
                     return;
                 }
-                qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1085);
+                qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1086);
             }
         }
     }
@@ -756,7 +756,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b = findViewById(R.id.obfuscated_res_0x7f090886);
-            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, qi.f(this, R.dimen.obfuscated_res_0x7f07026c)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c5d), null);
+            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, qi.f(this, R.dimen.obfuscated_res_0x7f07026c)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c5e), null);
             this.c = a2;
             a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091624);
@@ -833,7 +833,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            hp7.i().d(str, new a(this));
+            gp7.i().d(str, new a(this));
         }
     }
 
@@ -853,9 +853,9 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             if (pckInfo != null && !StringUtils.isNull(pckInfo.pck_name)) {
                 shareItem.u = this.z.pck_info.pck_name;
             } else {
-                shareItem.u = getString(R.string.obfuscated_res_0x7f0f13e2);
+                shareItem.u = getString(R.string.obfuscated_res_0x7f0f13e4);
             }
-            shareItem.v = getString(R.string.obfuscated_res_0x7f0f0d2c);
+            shareItem.v = getString(R.string.obfuscated_res_0x7f0f0d2d);
             shareItem.w = "https://tieba.baidu.com/n/interact/emoticon/" + this.v + "/" + this.z.pic_info.pic_id;
             shareItem.g0 = 2;
             shareItem.o = true;
@@ -887,7 +887,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             SkinManager.setViewTextColor(this.G, (int) R.color.cp_cont_r);
             SkinManager.setViewTextColor(this.H, (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor(this.F, (int) R.color.CAM_X0109);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.q, R.drawable.obfuscated_res_0x7f080a08, R.color.CAM_X0105, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.q, R.drawable.obfuscated_res_0x7f080a09, R.color.CAM_X0105, null);
             if (i2 != 1 && i2 != 4) {
                 SkinManager.setBackgroundColor(this.s, R.color.white_alpha100, i2);
             } else {

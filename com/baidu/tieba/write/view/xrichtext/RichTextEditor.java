@@ -369,7 +369,7 @@ public class RichTextEditor extends LinearLayout {
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            SpanGroupEditText l = l(getContext().getString(R.string.obfuscated_res_0x7f0f0e76));
+            SpanGroupEditText l = l(getContext().getString(R.string.obfuscated_res_0x7f0f0e77));
             addView(l, new LinearLayout.LayoutParams(-1, -2));
             this.b = l;
         }
@@ -607,7 +607,7 @@ public class RichTextEditor extends LinearLayout {
             if (childCount > 1) {
                 ((SpanGroupEditText) childAt).setHint("");
             } else {
-                ((SpanGroupEditText) childAt).setHint(getContext().getString(R.string.obfuscated_res_0x7f0f0e76));
+                ((SpanGroupEditText) childAt).setHint(getContext().getString(R.string.obfuscated_res_0x7f0f0e77));
             }
         }
     }
@@ -667,7 +667,7 @@ public class RichTextEditor extends LinearLayout {
         this.k = new c(this);
         setOrientation(1);
         setLayoutTransition(null);
-        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fbd));
+        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fbe));
         setShowDividers(2);
         this.a = new a(this);
     }

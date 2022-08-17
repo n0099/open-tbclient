@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ol8;
+import com.repackage.nl8;
 import com.repackage.qi;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,7 +35,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout m;
     public BaseWebView n;
-    public ol8 o;
+    public nl8 o;
     public XiubaTbJsBridge p;
 
     /* loaded from: classes3.dex */
@@ -125,9 +125,9 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
             }
         }
         this.i = tbPageContext;
-        ol8 ol8Var = new ol8();
-        this.o = ol8Var;
-        ol8Var.a(new XiubaTbJsBridge(this.i));
+        nl8 nl8Var = new nl8();
+        this.o = nl8Var;
+        nl8Var.a(new XiubaTbJsBridge(this.i));
         this.o.a(new CommonTbJsBridge(this.i.getPageActivity()));
     }
 

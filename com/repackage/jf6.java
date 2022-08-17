@@ -40,7 +40,7 @@ public class jf6 {
     public TextView f;
     public TextView g;
     public PermissionJudgePolicy h;
-    public sx7 i;
+    public rx7 i;
     public Bitmap j;
     public e k;
     public View l;
@@ -225,7 +225,7 @@ public class jf6 {
             shareItem.m0 = false;
             shareItem.g0 = 1;
             if (i == 6) {
-                shareItem.u = this.a.getString(R.string.obfuscated_res_0x7f0f0403) + PreferencesUtil.LEFT_MOUNT + this.n + this.a.getString(R.string.obfuscated_res_0x7f0f0454) + PreferencesUtil.RIGHT_MOUNT + "@" + this.a.getString(R.string.obfuscated_res_0x7f0f13ea) + TbConfig.HTTPS_FRS_PREFIX + pi.getUrlEncode(this.n) + "&fr=frsshare";
+                shareItem.u = this.a.getString(R.string.obfuscated_res_0x7f0f0403) + PreferencesUtil.LEFT_MOUNT + this.n + this.a.getString(R.string.obfuscated_res_0x7f0f0454) + PreferencesUtil.RIGHT_MOUNT + "@" + this.a.getString(R.string.obfuscated_res_0x7f0f13ec) + TbConfig.HTTPS_FRS_PREFIX + pi.getUrlEncode(this.n) + "&fr=frsshare";
             } else {
                 shareItem.u = this.a.getString(R.string.obfuscated_res_0x7f0f029e);
             }
@@ -286,23 +286,23 @@ public class jf6 {
         this.b.setOnClickListener(this.q);
         TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bca);
         this.c = textView2;
-        t(textView2, new SvgMaskType(R.drawable.obfuscated_res_0x7f080819));
+        t(textView2, new SvgMaskType(R.drawable.obfuscated_res_0x7f08081a));
         this.c.setOnClickListener(this.q);
         TextView textView3 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bc2);
         this.d = textView3;
-        t(textView3, new SvgMaskType(R.drawable.obfuscated_res_0x7f080815));
+        t(textView3, new SvgMaskType(R.drawable.obfuscated_res_0x7f080816));
         this.d.setOnClickListener(this.q);
         TextView textView4 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bc7);
         this.e = textView4;
-        t(textView4, new SvgMaskType(R.drawable.obfuscated_res_0x7f080817));
+        t(textView4, new SvgMaskType(R.drawable.obfuscated_res_0x7f080818));
         this.e.setOnClickListener(this.q);
         TextView textView5 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bc5);
         this.f = textView5;
-        t(textView5, new SvgMaskType(R.drawable.obfuscated_res_0x7f080816));
+        t(textView5, new SvgMaskType(R.drawable.obfuscated_res_0x7f080817));
         this.f.setOnClickListener(this.q);
         TextView textView6 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bcb);
         this.g = textView6;
-        t(textView6, new SvgMaskType(R.drawable.obfuscated_res_0x7f08081a));
+        t(textView6, new SvgMaskType(R.drawable.obfuscated_res_0x7f08081b));
         this.g.setOnClickListener(this.q);
         this.l = view3;
         this.o = dVar;
@@ -322,7 +322,7 @@ public class jf6 {
         statisticItem.param("obj_source", this.p);
         TiebaStatic.log(statisticItem);
         if (this.i == null) {
-            this.i = new sx7(this.a);
+            this.i = new rx7(this.a);
         }
         this.i.b(this.m, BitmapHelper.Bitmap2Bytes(bitmap, 100));
     }

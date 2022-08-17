@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ol8;
 import com.repackage.pi;
-import com.repackage.pl8;
 import com.repackage.q56;
 import com.repackage.u56;
 import com.repackage.v56;
@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class EasterEggBridge implements pl8 {
+public class EasterEggBridge implements ol8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ARGS = "args";
     public static final String KEY_ARGS_EXT = "native_exts";
@@ -65,7 +65,7 @@ public class EasterEggBridge implements pl8 {
         list.clear();
     }
 
-    @Override // com.repackage.pl8
+    @Override // com.repackage.ol8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

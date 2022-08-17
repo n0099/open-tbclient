@@ -332,6 +332,7 @@ public class TbConfig {
     public static int MAX_PHOTO_MEMORY_CACHE_REMOTE_PROCESS = 0;
     public static final int MAX_PRELOAD_PHOTO_NUM = 30;
     public static final int MAX_PRELOAD_PIC_NUM = 13;
+    public static final int MAX_QUESTION_PB_USER_NAME_BYTE_LENGTH = 20;
     public static final int MAX_SDRAM_PIC_NUM = 13;
     public static final int MAX_TSHOW_ICON_NUM = 2;
     public static final int MAX_USER_NAME_BYTE_LENGTH = 14;

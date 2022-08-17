@@ -1,30 +1,17 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public class kw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public String b;
-    public final List<my4> c;
-    public final List<my4> d;
-    public boolean e;
+    public boolean b;
+    public boolean c;
 
     public kw6() {
         Interceptable interceptable = $ic;
@@ -39,163 +26,30 @@ public class kw6 {
                 return;
             }
         }
-        this.a = 1;
-        this.b = "https://boxnovel.baidu.com/boxnovel/haokan";
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        j();
+        this.a = -1;
+        this.b = false;
+        this.c = false;
     }
 
-    public my4 a(int i, String str, String str2, String str3) {
-        InterceptResult invokeCommon;
+    public void a(hw6 hw6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3})) == null) {
-            my4 my4Var = new my4();
-            my4Var.a = i;
-            my4Var.b = str;
-            my4Var.c = str2;
-            my4Var.d = str3;
-            return my4Var;
-        }
-        return (my4) invokeCommon.objValue;
-    }
-
-    public my4 b(int i, String str, String str2) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2)) == null) {
-            my4 my4Var = new my4();
-            my4Var.a = i;
-            my4Var.b = str;
-            my4Var.c = str2;
-            return my4Var;
-        }
-        return (my4) invokeILL.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.e) {
-                return false;
-            }
-            List<my4> i = i();
-            int size = i.size();
-            if (size != this.c.size()) {
-                return true;
-            }
-            for (int i2 = 0; i2 < size; i2++) {
-                if (i.get(i2) != null && !i.get(i2).equals(this.c.get(i2))) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final List<my4> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(b(5, g(R.string.obfuscated_res_0x7f0f1351), ""));
-            arrayList.add(b(6, g(R.string.obfuscated_res_0x7f0f134d), ""));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f134c), "game"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1349), "digital"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f134a), "entertainment"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f134b), "films"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1347), "campus"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1346), "animes"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1350), "sports"));
-            arrayList.add(a(202, g(R.string.obfuscated_res_0x7f0f134e), AccountConstants.LOGIN_TYPE_NATIVE_SRC_NOVEL, this.b));
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    @NonNull
-    public List<my4> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (List) invokeV.objValue;
-    }
-
-    public final String g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? TbadkCoreApplication.getInst().getString(i) : (String) invokeI.objValue;
-    }
-
-    public List<my4> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : (List) invokeV.objValue;
-    }
-
-    public final List<my4> i() {
-        InterceptResult invokeV;
-        JSONArray jSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            try {
-                jSONArray = new JSONArray(ru4.k().q("key_index_tab_info_list", "[]"));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (jSONArray.length() == 0) {
-                this.e = true;
-                return d();
-            }
-            this.e = false;
-            boolean isHomeTabModifyABTestA = UbsABTestHelper.isHomeTabModifyABTestA();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                my4 my4Var = new my4();
-                my4Var.h(jSONArray.getJSONObject(i));
-                if (!my4Var.e()) {
-                    if (isHomeTabModifyABTestA) {
-                        if (my4Var.f() && arrayList.size() < 2) {
-                            arrayList.add(my4Var);
-                        } else {
-                            this.d.add(my4Var);
-                        }
-                    } else {
-                        arrayList.add(my4Var);
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            List<my4> i = i();
-            if (ListUtils.isEmpty(i)) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, hw6Var) == null) {
+            this.b = true;
+            int i = this.a;
+            if (i == -1 || !this.c) {
                 return;
             }
-            this.c.addAll(i);
+            hw6Var.a(i);
         }
     }
 
-    public void k() {
+    public void b(int i, hw6 hw6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            List<my4> list = this.c;
-            if (list != null) {
-                list.clear();
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, hw6Var) == null) {
+            this.a = i;
+            if (this.b && this.c) {
+                hw6Var.a(i);
             }
-            j();
         }
     }
 }

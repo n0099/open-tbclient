@@ -48,12 +48,12 @@ public class gu3 extends EventTargetImpl implements du3 {
 
         /* renamed from: com.repackage.gu3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0485a implements yf3 {
+        public class C0489a implements yf3 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0485a(a aVar) {
+            public C0489a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,7 +154,7 @@ public class gu3 extends EventTargetImpl implements du3 {
                         AppRuntime.getAppContext().registerReceiver(this.a.h, intentFilter);
                     }
                     if (this.a.k == null) {
-                        this.a.k = new C0485a(this);
+                        this.a.k = new C0489a(this);
                         gu3.L(this.a.k);
                     }
                 } else if (this.a.e != null) {

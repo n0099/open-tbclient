@@ -24,15 +24,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.el8;
-import com.repackage.nx7;
+import com.repackage.dl8;
+import com.repackage.mx7;
 import com.repackage.oi;
 import com.repackage.qi;
-import com.repackage.st7;
+import com.repackage.rt7;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.PbPage.PbSortType;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
     public List<TextLineView> n;
     public View.OnClickListener o;
     public SortSwitchButton.f p;
-    public st7 q;
+    public rt7 q;
     public BdUniqueId r;
     public boolean s;
     public BdUniqueId t;
@@ -130,7 +130,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -164,7 +164,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -213,7 +213,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -244,13 +244,13 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.q != null && this.a.q.b == st7.i && customResponsedMessage != null && getTag() == this.a.r && (customResponsedMessage.getData() instanceof nx7.w0)) {
-                ((nx7.w0) customResponsedMessage.getData()).c = this.a;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.q != null && this.a.q.b == rt7.i && customResponsedMessage != null && getTag() == this.a.r && (customResponsedMessage.getData() instanceof mx7.w0)) {
+                ((mx7.w0) customResponsedMessage.getData()).c = this.a;
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -281,7 +281,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.q == null || this.a.q.b != st7.j || customResponsedMessage == null || getTag() != this.a.t || !(customResponsedMessage.getData() instanceof nx7.w0)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.q == null || this.a.q.b != rt7.j || customResponsedMessage == null || getTag() != this.a.t || !(customResponsedMessage.getData() instanceof mx7.w0)) {
             }
         }
     }
@@ -346,17 +346,17 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         l(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void h(st7 st7Var) {
+    public void h(rt7 rt7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, st7Var) == null) {
-            this.q = st7Var;
-            if (st7Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, rt7Var) == null) {
+            this.q = rt7Var;
+            if (rt7Var == null) {
                 return;
             }
-            BdUniqueId bdUniqueId = st7Var.b;
-            if (bdUniqueId == st7.j) {
+            BdUniqueId bdUniqueId = rt7Var.b;
+            if (bdUniqueId == rt7.j) {
                 this.i.getContext();
-                if (TextUtils.isEmpty(st7Var.a)) {
+                if (TextUtils.isEmpty(rt7Var.a)) {
                     this.l.setVisibility(0);
                     this.i.setVisibility(8);
                     this.c.setVisibility(0);
@@ -372,7 +372,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
                 this.e.setVisibility(8);
                 this.d.setVisibility(8);
                 this.h.setVisibility(8);
-            } else if (bdUniqueId == st7.i) {
+            } else if (bdUniqueId == rt7.i) {
                 this.i.setVisibility(8);
                 this.l.setVisibility(0);
                 if (this.q.h) {
@@ -384,22 +384,22 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
                     this.d.setVisibility(0);
                     this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0272));
                     this.c.setClickable(true);
-                    i(st7Var.d);
+                    i(rt7Var.d);
                 }
-                if (st7Var.g != null) {
+                if (rt7Var.g != null) {
                     this.e.setVisibility(0);
                     int i = 0;
                     while (true) {
-                        if (i >= st7Var.g.size()) {
+                        if (i >= rt7Var.g.size()) {
                             i = 0;
                             break;
-                        } else if (st7Var.g.get(i) != null && st7Var.c == st7Var.g.get(i).sort_type.intValue()) {
+                        } else if (rt7Var.g.get(i) != null && rt7Var.c == rt7Var.g.get(i).sort_type.intValue()) {
                             break;
                         } else {
                             i++;
                         }
                     }
-                    k(st7Var.g, i);
+                    k(rt7Var.g, i);
                 }
                 this.h.setVisibility(0);
             }
@@ -410,7 +410,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
                 this.h.getLayoutParams().height = 0;
                 SkinManager.setBackgroundColor(this.l, R.color.CAM_X0205);
             }
-            if (st7Var.e) {
+            if (rt7Var.e) {
                 this.m.setVisibility(0);
                 this.k.setVisibility(8);
             } else {
@@ -449,10 +449,10 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
             }
             ArrayList arrayList = new ArrayList();
             for (PbSortType pbSortType : list) {
-                el8 el8Var = new el8();
-                el8Var.c(pbSortType.sort_type.intValue());
-                el8Var.d(pbSortType.sort_name);
-                arrayList.add(el8Var);
+                dl8 dl8Var = new dl8();
+                dl8Var.c(pbSortType.sort_type.intValue());
+                dl8Var.d(pbSortType.sort_name);
+                arrayList.add(dl8Var);
             }
             this.e.setVisibility(0);
             this.e.setData(arrayList, i);
@@ -468,8 +468,8 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
                 this.c.b(i);
                 this.d.b(i);
                 SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);
-                st7 st7Var = this.q;
-                if (st7Var != null && st7Var.b == st7.j) {
+                rt7 rt7Var = this.q;
+                if (rt7Var != null && rt7Var.b == rt7.j) {
                     SkinManager.setViewTextColor(this.c, R.color.CAM_X0107, 1);
                 }
                 SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);

@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.g65;
 import com.repackage.on;
+import com.repackage.qh8;
 import com.repackage.qi;
-import com.repackage.rh8;
 import com.repackage.xn;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +38,7 @@ public class RightLeftListView {
     public BdListView.p mOnRightScrollToBottomListener;
     public BdListView.p mOnScrollToBottomListener;
     public TbPageContext<?> mPageContext;
-    public rh8 mRightAdapterManager;
+    public qh8 mRightAdapterManager;
     public RelativeLayout mRightContainer;
     public LinearLayoutManager mRightLayoutManager;
     public final View mRoot;
@@ -114,7 +114,7 @@ public class RightLeftListView {
             LeftAdapter leftAdapter = new LeftAdapter(this.mPageContext.getPageActivity());
             this.mLeftAdapter = leftAdapter;
             this.mRvLeft.setAdapter(leftAdapter);
-            this.mRightAdapterManager = new rh8(this.mPageContext, this.mRvRight);
+            this.mRightAdapterManager = new qh8(this.mPageContext, this.mRvRight);
             LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(this.mPageContext.getPageActivity());
             this.mRightLayoutManager = linearLayoutManager2;
             this.mRvRight.setLayoutManager(linearLayoutManager2);
@@ -249,7 +249,7 @@ public class RightLeftListView {
             this.mRvRight.setNextPage(this.mLoadMoreView);
             this.mLoadMoreView.j();
             this.mLoadMoreView.b().setPadding(0, 0, 0, 0);
-            this.mLoadMoreView.C(this.mPageContext.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0dd6));
+            this.mLoadMoreView.C(this.mPageContext.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0dd7));
             this.mLoadMoreView.f();
         }
     }
@@ -257,9 +257,9 @@ public class RightLeftListView {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            rh8 rh8Var = this.mRightAdapterManager;
-            if (rh8Var != null) {
-                rh8Var.b();
+            qh8 qh8Var = this.mRightAdapterManager;
+            if (qh8Var != null) {
+                qh8Var.b();
             }
             LeftAdapter leftAdapter = this.mLeftAdapter;
             if (leftAdapter != null) {

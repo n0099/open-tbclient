@@ -192,15 +192,15 @@ public class wk6 {
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ck8 a;
+            public final /* synthetic */ bk8 a;
             public final /* synthetic */ d b;
 
-            public a(d dVar, ck8 ck8Var) {
+            public a(d dVar, bk8 bk8Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar, ck8Var};
+                    Object[] objArr = {dVar, bk8Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -211,7 +211,7 @@ public class wk6 {
                     }
                 }
                 this.b = dVar;
-                this.a = ck8Var;
+                this.a = bk8Var;
             }
 
             @Override // java.lang.Runnable
@@ -266,10 +266,10 @@ public class wk6 {
                     if (StringUtils.isNull(this.a.k.getErrorString())) {
                         return;
                     }
-                    qi.O(TbadkCoreApplication.getInst(), this.a.k.getErrorString());
+                    qi.N(TbadkCoreApplication.getInst(), this.a.k.getErrorString());
                 } else {
-                    ck8 ck8Var = (ck8) obj;
-                    if (ListUtils.getCount(this.a.j) <= 0 || ck8Var == null) {
+                    bk8 bk8Var = (bk8) obj;
+                    if (ListUtils.getCount(this.a.j) <= 0 || bk8Var == null) {
                         return;
                     }
                     Iterator it = this.a.i.iterator();
@@ -279,14 +279,14 @@ public class wk6 {
                         }
                         xk6 xk6Var = (xk6) it.next();
                         FeedForumData feedForumData = (FeedForumData) xk6Var.f.getTag();
-                        if (feedForumData != null && feedForumData.getForumId() != null && feedForumData.getForumId().equals(ck8Var.g())) {
+                        if (feedForumData != null && feedForumData.getForumId() != null && feedForumData.getForumId().equals(bk8Var.g())) {
                             feedForumData.setIsLike(1);
                             this.a.l(xk6Var);
                             break;
                         }
                     }
                     if (this.a.m == 1) {
-                        this.a.l.postDelayed(new a(this, ck8Var), 1000L);
+                        this.a.l.postDelayed(new a(this, bk8Var), 1000L);
                     }
                 }
             }
@@ -474,7 +474,7 @@ public class wk6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             ur4 ur4Var = new ur4(this.a.getPageActivity());
-            ur4Var.setMessage(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0ca0));
+            ur4Var.setMessage(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0ca1));
             ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0265, new b(this));
             ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new c(this));
             ur4Var.create(this.a).show();

@@ -306,7 +306,7 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
                         if (!TextUtils.isEmpty(ln0Var.e)) {
                             this.e.setText(ln0Var.e);
                         } else {
-                            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0b6e));
+                            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0b6f));
                         }
                         oi0 d2 = oi0.d(ln0Var.m, ln0Var.l, ln0Var.d);
                         d2.e = TextUtils.isEmpty(d2.d);
@@ -325,7 +325,7 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
                     if (!TextUtils.isEmpty(ln0Var.e)) {
                         this.d.setText(ln0Var.e);
                     } else {
-                        this.d.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0b5e));
+                        this.d.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0b5f));
                     }
                 }
                 b bVar = new b(this, h, ln0Var);

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gj8;
+import com.repackage.fj8;
 import com.repackage.iw4;
 import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
@@ -46,16 +46,16 @@ public class ThreadRecommendTagUtil {
             }
             if (TbadkApplication.getInst().getSkinType() == 1) {
                 if (isElementValid(themeColorInfo.night)) {
-                    return gj8.f(themeColorInfo.night.common_color);
+                    return fj8.f(themeColorInfo.night.common_color);
                 }
                 return -1;
             } else if (TbadkApplication.getInst().getSkinType() == 4) {
                 if (isElementValid(themeColorInfo.dark)) {
-                    return gj8.f(themeColorInfo.dark.common_color);
+                    return fj8.f(themeColorInfo.dark.common_color);
                 }
                 return -1;
             } else if (isElementValid(themeColorInfo.day)) {
-                return gj8.f(themeColorInfo.day.common_color);
+                return fj8.f(themeColorInfo.day.common_color);
             } else {
                 return -1;
             }

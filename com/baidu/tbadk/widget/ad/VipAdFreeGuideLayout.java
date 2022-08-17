@@ -204,7 +204,7 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
     public final void c(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040330, R.attr.obfuscated_res_0x7f04035b});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040331, R.attr.obfuscated_res_0x7f04035d});
             this.g = obtainStyledAttributes.getBoolean(1, false);
             this.h = obtainStyledAttributes.getDimensionPixelOffset(0, u);
             obtainStyledAttributes.recycle();
@@ -269,9 +269,9 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
             d.z(R.dimen.T_X07);
             d.v(R.color.CAM_X0311);
             if (this.g) {
-                WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a2a, R.color.CAM_X0626, null);
+                WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a2b, R.color.CAM_X0626, null);
             } else {
-                WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a29, R.color.CAM_X0311, null);
+                WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a2a, R.color.CAM_X0311, null);
             }
         }
     }

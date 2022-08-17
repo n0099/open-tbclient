@@ -291,7 +291,7 @@ public class KsLogoView extends LinearLayout {
             }
         };
         if (z) {
-            setBackgroundResource(R.drawable.obfuscated_res_0x7f080c64);
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f080c65);
         }
         init(context);
     }
@@ -307,11 +307,11 @@ public class KsLogoView extends LinearLayout {
             boolean z = getBackground() == null;
             this.Px = z;
             if (z) {
-                this.Pz.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c1b));
+                this.Pz.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c1c));
                 textView = this.Py;
                 i = -6513508;
             } else {
-                this.Pz.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c1c));
+                this.Pz.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c1d));
                 textView = this.Py;
                 i = -1711276033;
             }
@@ -323,7 +323,7 @@ public class KsLogoView extends LinearLayout {
     public void qg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.Pz.setImageDrawable(getContext().getResources().getDrawable(this.Px ? R.drawable.obfuscated_res_0x7f080c1b : R.drawable.obfuscated_res_0x7f080c1c));
+            this.Pz.setImageDrawable(getContext().getResources().getDrawable(this.Px ? R.drawable.obfuscated_res_0x7f080c1c : R.drawable.obfuscated_res_0x7f080c1d));
         }
     }
 

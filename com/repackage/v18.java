@@ -1,94 +1,109 @@
 package com.repackage;
 
-import android.graphics.drawable.Drawable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.util.SparseIntArray;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class v18 {
     public static /* synthetic */ Interceptable $ic;
-    public static SparseIntArray a;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinearLayout a;
+    public EMTextView b;
+    public BdTypeRecyclerView c;
+    public View d;
+    public uu7 e;
+    public gy7 f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755283916, "Lcom/repackage/v18;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755283916, "Lcom/repackage/v18;");
+    public v18(s08 s08Var, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {s08Var, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new SparseIntArray();
+        b(s08Var.P());
+        uu7 uu7Var = new uu7(s08Var, bdUniqueId, this.c);
+        this.e = uu7Var;
+        this.f = new gy7(this.c, uu7Var);
+        c();
     }
 
-    public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{smallTailInfo, textView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || smallTailInfo == null || textView == null) {
-            return;
-        }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-        int b = b(R.dimen.obfuscated_res_0x7f070207);
-        if (z2 && z3) {
-            layoutParams.setMargins(b, b(R.dimen.obfuscated_res_0x7f070302), b, b(R.dimen.obfuscated_res_0x7f07025f));
-        } else if (z) {
-            layoutParams.setMargins(0, b(R.dimen.obfuscated_res_0x7f070302), 0, 0);
-        } else if (!z2) {
-            layoutParams.setMargins(b(R.dimen.obfuscated_res_0x7f070231), b(R.dimen.obfuscated_res_0x7f070302), b(R.dimen.obfuscated_res_0x7f07020f), b(R.dimen.obfuscated_res_0x7f0701b2));
-        } else {
-            layoutParams.setMargins(b, b(R.dimen.obfuscated_res_0x7f070302), b, b(R.dimen.obfuscated_res_0x7f0701b2));
-        }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        spannableStringBuilder.append((CharSequence) "icon");
-        spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
-        Drawable drawable = SkinManager.getDrawable(R.drawable.icon_pb_tail);
-        drawable.setBounds(0, 0, b, b);
-        yf5 yf5Var = new yf5(drawable);
-        yf5Var.c(b(R.dimen.obfuscated_res_0x7f070224));
-        spannableStringBuilder.setSpan(yf5Var, 0, 4, 33);
-        textView.setLayoutParams(layoutParams);
-        textView.setText(spannableStringBuilder);
-        textView.setTextColor(smallTailInfo.showColorId);
-        textView.setVisibility(0);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (View) invokeV.objValue;
     }
 
-    public static int b(int i) {
-        InterceptResult invokeI;
+    public final void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            int i2 = a.get(i, -1);
-            if (i2 == -1) {
-                int f = qi.f(TbadkCoreApplication.getInst().getContext(), i);
-                a.put(i, f);
-                return f;
-            }
-            return i2;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d074e, (ViewGroup) null);
+            this.a = linearLayout;
+            this.b = (EMTextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0923b4);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f09183d);
+            this.c = bdTypeRecyclerView;
+            bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
+            this.c.setFadingEdgeLength(0);
+            this.c.setOverScrollMode(2);
+            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
+            this.c.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
+            this.c.setNestedScrollingEnabled(false);
+            this.d = new View(context);
         }
-        return invokeI.intValue;
     }
 
-    public static void c(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
-        SpannableString spannableString;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{smallTailInfo, textView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || smallTailInfo == null || (spannableString = smallTailInfo.tailSpannable) == null || spannableString.length() == 0 || textView == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+            this.e.e();
         }
-        smallTailInfo.updateShowInfo();
-        a(smallTailInfo, textView, z, z2, z3);
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.c.y(this.d);
+            this.d.setLayoutParams(new ViewGroup.LayoutParams(1, i));
+            this.c.r(this.d);
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c.setNestedScrollingEnabled(z);
+        }
+    }
+
+    public void f(et7 et7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, et7Var) == null) {
+            this.f.k(et7Var);
+        }
     }
 }

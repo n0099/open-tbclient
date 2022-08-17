@@ -124,7 +124,7 @@ public class c19 extends BaseAdapter {
                 z = false;
             }
             if (!z) {
-                qi.K(this.b.b, R.string.obfuscated_res_0x7f0f053b);
+                qi.J(this.b.b, R.string.obfuscated_res_0x7f0f053b);
                 return;
             }
             if (this.b.d != null) {
@@ -295,7 +295,7 @@ public class c19 extends BaseAdapter {
         imageFileInfo.clearPageActions();
         imageFileInfo.addPageAction(g);
         TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fce);
-        ((FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090fb3)).setForeground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080e24));
+        ((FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090fb3)).setForeground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080e25));
         if (imageFileInfo.getImageType() == 0) {
             zm c2 = this.c.c(imageFileInfo, true);
             tbImageView.setTag(imageFileInfo.toCachedKey(true));
@@ -395,12 +395,12 @@ public class c19 extends BaseAdapter {
             tbImageView.setConrers(15);
             tbImageView.setRadiusById(R.string.J_X05);
             LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090778);
-            ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090771)).setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080801, WebPManager.ResourceStateType.NORMAL));
+            ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090771)).setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080802, WebPManager.ResourceStateType.NORMAL));
             FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090fb3);
             if ("FLAG_ADD_ICON".equals(imageFileInfo.getFilePath())) {
                 tbImageView.setVisibility(8);
                 linearLayout.setVisibility(8);
-                view2.setBackgroundDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080993, WebPManager.ResourceStateType.NORMAL_PRESS));
+                view2.setBackgroundDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080994, WebPManager.ResourceStateType.NORMAL_PRESS));
                 view2.invalidate();
                 frameLayout.setForeground(null);
                 view2.setOnClickListener(new a(this));

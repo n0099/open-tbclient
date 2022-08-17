@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gj8;
+import com.repackage.fj8;
 import com.repackage.qi;
 /* loaded from: classes4.dex */
 public class AdCloseReasonCheckBox extends CheckBox {
@@ -73,7 +73,7 @@ public class AdCloseReasonCheckBox extends CheckBox {
             if (z) {
                 a = SkinManager.getColor(i3);
             } else {
-                a = gj8.a(SkinManager.getColor(i3), 0.5f);
+                a = fj8.a(SkinManager.getColor(i3), 0.5f);
             }
             this.b.setStroke(i2, a);
             GradientDrawable gradientDrawable2 = new GradientDrawable();
@@ -81,7 +81,7 @@ public class AdCloseReasonCheckBox extends CheckBox {
             gradientDrawable2.setShape(0);
             this.c.setCornerRadius(f);
             if (z) {
-                color = gj8.a(SkinManager.getColor(i4), 0.5f);
+                color = fj8.a(SkinManager.getColor(i4), 0.5f);
             } else {
                 color = SkinManager.getColor(i4);
             }

@@ -199,7 +199,7 @@ public class jm3 implements sm1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            int[] iArr = {R.string.obfuscated_res_0x7f0f123b, R.string.obfuscated_res_0x7f0f123d, R.string.obfuscated_res_0x7f0f1241};
+            int[] iArr = {R.string.obfuscated_res_0x7f0f123d, R.string.obfuscated_res_0x7f0f123f, R.string.obfuscated_res_0x7f0f1243};
             if (be3.a(context, "android.permission.SET_WALLPAPER")) {
                 return iArr;
             }

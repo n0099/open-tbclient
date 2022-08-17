@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class nz5 implements hx<p06>, ix {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
@@ -47,7 +47,7 @@ public class nz5 implements hx<p06>, ix {
     public List<String> l;
     public TbImageSwitch.b m;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements TbImageSwitch.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -196,8 +196,8 @@ public class nz5 implements hx<p06>, ix {
             return;
         }
         this.f.setText(p06Var.c0());
-        this.h.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1575), p06Var.d0()));
-        this.i.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1573), p06Var.Z()));
+        this.h.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1578), p06Var.d0()));
+        this.i.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1576), p06Var.Z()));
         if (!ListUtils.isEmpty(p06Var.a0())) {
             if (p06Var.a0().size() > 10) {
                 this.l = p06Var.a0().subList(0, 10);

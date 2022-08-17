@@ -407,8 +407,8 @@ public class PBSplash implements A {
             CircleProgressbar circleProgressbar = (CircleProgressbar) view2.findViewById(R.id.obfuscated_res_0x7f09262f);
             this.d = circleProgressbar;
             circleProgressbar.setOutLineColor(0);
-            this.d.setInCircleColor(Color.parseColor(this.a.getString(R.string.obfuscated_res_0x7f0f15a0)));
-            this.d.setProgressColor(Color.parseColor(this.a.getString(R.string.obfuscated_res_0x7f0f159f)));
+            this.d.setInCircleColor(Color.parseColor(this.a.getString(R.string.obfuscated_res_0x7f0f15a3)));
+            this.d.setProgressColor(Color.parseColor(this.a.getString(R.string.obfuscated_res_0x7f0f15a2)));
             this.d.setProgressLineWidth(this.h);
             this.d.setProgressType(s2.b);
             CircleProgressbar circleProgressbar2 = this.d;

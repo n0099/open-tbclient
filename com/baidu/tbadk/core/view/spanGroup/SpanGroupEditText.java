@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cp4;
 import com.repackage.g9;
 import com.repackage.kw4;
-import com.repackage.vt6;
+import com.repackage.ut6;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -283,18 +283,18 @@ public class SpanGroupEditText extends AppCompatEditText {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.a : (EDIT_TEXT_TYPE) invokeV.objValue;
     }
 
-    public void h(List<vt6> list, List<String> list2) {
+    public void h(List<ut6> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048590, this, list, list2) == null) || ListUtils.isEmpty(list)) {
             return;
         }
         for (int i = 0; i < list.size(); i++) {
-            vt6 vt6Var = list.get(i);
+            ut6 ut6Var = list.get(i);
             String str = list2.get(i);
-            if (!this.b.p(vt6Var.a())) {
+            if (!this.b.p(ut6Var.a())) {
                 TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
                 tbLinkSpanGroup.a(getText(), getSelectionEnd(), getSelectionEnd(), (int) getTextSize());
-                cp4 b = cp4.b(tbLinkSpanGroup, vt6Var);
+                cp4 b = cp4.b(tbLinkSpanGroup, ut6Var);
                 b.h = str;
                 tbLinkSpanGroup.B(b.d);
                 tbLinkSpanGroup.t();
@@ -383,7 +383,7 @@ public class SpanGroupEditText extends AppCompatEditText {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SpanGroupEditText(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04026c);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04026d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

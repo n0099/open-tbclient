@@ -56,7 +56,7 @@ public class ii6 implements NetModel.k {
     public int l;
     public String m;
     public String n;
-    public zs6 o;
+    public ys6 o;
 
     public ii6(FrsCommonTabFragment frsCommonTabFragment, int i, int i2, String str, int i3) {
         Interceptable interceptable = $ic;
@@ -133,26 +133,26 @@ public class ii6 implements NetModel.k {
     public final void b(List<on> list) {
         JSONObject b;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || bf7.e(list)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || af7.e(list)) {
             return;
         }
         ArrayList arrayList = new ArrayList();
         for (on onVar : list) {
-            if ((onVar instanceof ThreadData) && (b = ld8.b(((ThreadData) onVar).getRawThreadInfo())) != null) {
+            if ((onVar instanceof ThreadData) && (b = kd8.b(((ThreadData) onVar).getRawThreadInfo())) != null) {
                 arrayList.add(b);
             }
         }
-        ld8.f().h(this.n, arrayList);
+        kd8.f().h(this.n, arrayList);
     }
 
     public final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int b = this.h ? 0 : db8.b(this.b.c);
-            String d = this.h ? "" : ld8.f().d(this.n);
+            int b = this.h ? 0 : cb8.b(this.b.c);
+            String d = this.h ? "" : kd8.f().d(this.n);
             ji6 ji6Var = this.b;
-            String e = db8.e(ji6Var == null ? null : ji6Var.c, this.h);
+            String e = cb8.e(ji6Var == null ? null : ji6Var.c, this.h);
             AdExtParam.a b2 = AdExtParam.a.b();
             b2.g(b);
             b2.e(e);
@@ -192,8 +192,8 @@ public class ii6 implements NetModel.k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, list, list2) == null) {
             b(list2);
-            db8.i(db8.h(list, "FRS_GENERAL_TAB"), list2, 0);
-            db8.a(list2, this.j, "FRS_GENERAL_TAB");
+            cb8.i(cb8.h(list, "FRS_GENERAL_TAB"), list2, 0);
+            cb8.a(list2, this.j, "FRS_GENERAL_TAB");
         }
     }
 
@@ -250,24 +250,24 @@ public class ii6 implements NetModel.k {
                 }
                 this.g.loadData();
             }
-            us6.a();
+            ts6.a();
         }
     }
 
     public void l(String str) {
         ji6 ji6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || (ji6Var = this.b) == null || bf7.e(ji6Var.c)) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || (ji6Var = this.b) == null || af7.e(ji6Var.c)) {
             return;
         }
-        db8.d(str, this.b.c);
+        cb8.d(str, this.b.c);
         this.a.M1(this.b);
     }
 
     public final boolean m(ji6 ji6Var) {
         InterceptResult invokeL;
-        zs6 zs6Var;
-        zs6 zs6Var2;
+        ys6 ys6Var;
+        ys6 ys6Var2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, ji6Var)) == null) {
             if (ji6Var == null) {
@@ -301,15 +301,15 @@ public class ii6 implements NetModel.k {
                     if (i == 1) {
                         g(ji6Var.k, ji6Var.c);
                     } else if (i == 2) {
-                        zs6 zs6Var3 = this.o;
-                        if (zs6Var3 != null) {
-                            zs6Var3.b(ji6Var.c, this.h, this.a.U());
+                        ys6 ys6Var3 = this.o;
+                        if (ys6Var3 != null) {
+                            ys6Var3.b(ji6Var.c, this.h, this.a.U());
                         }
                     } else if (i != 3) {
-                        if (zs6.d()) {
-                            zs6 zs6Var4 = this.o;
-                            if (zs6Var4 != null) {
-                                zs6Var4.b(ji6Var.c, this.h, this.a.U());
+                        if (ys6.d()) {
+                            ys6 ys6Var4 = this.o;
+                            if (ys6Var4 != null) {
+                                ys6Var4.b(ji6Var.c, this.h, this.a.U());
                             }
                         } else {
                             g(ji6Var.k, ji6Var.c);
@@ -318,8 +318,8 @@ public class ii6 implements NetModel.k {
                         int intValue = ji6Var.m.get(0).ad_type.intValue();
                         if (intValue == 1) {
                             g(ji6Var.k, ji6Var.c);
-                        } else if (intValue == 2 && (zs6Var2 = this.o) != null) {
-                            zs6Var2.g(ji6Var.c, ji6Var.m, this.h, this.a.U());
+                        } else if (intValue == 2 && (ys6Var2 = this.o) != null) {
+                            ys6Var2.g(ji6Var.c, ji6Var.m, this.h, this.a.U());
                         }
                     }
                 }
@@ -356,15 +356,15 @@ public class ii6 implements NetModel.k {
                 if (i2 == 1) {
                     g(ji6Var.k, ji6Var.c);
                 } else if (i2 == 2) {
-                    zs6 zs6Var5 = this.o;
-                    if (zs6Var5 != null) {
-                        zs6Var5.b(ji6Var.c, this.h, this.a.U());
+                    ys6 ys6Var5 = this.o;
+                    if (ys6Var5 != null) {
+                        ys6Var5.b(ji6Var.c, this.h, this.a.U());
                     }
                 } else if (i2 != 3) {
-                    if (zs6.d()) {
-                        zs6 zs6Var6 = this.o;
-                        if (zs6Var6 != null) {
-                            zs6Var6.b(ji6Var.c, this.h, this.a.U());
+                    if (ys6.d()) {
+                        ys6 ys6Var6 = this.o;
+                        if (ys6Var6 != null) {
+                            ys6Var6.b(ji6Var.c, this.h, this.a.U());
                         }
                     } else {
                         g(ji6Var.k, ji6Var.c);
@@ -373,8 +373,8 @@ public class ii6 implements NetModel.k {
                     int intValue2 = ji6Var.m.get(0).ad_type.intValue();
                     if (intValue2 == 1) {
                         g(ji6Var.k, ji6Var.c);
-                    } else if (intValue2 == 2 && (zs6Var = this.o) != null) {
-                        zs6Var.g(ji6Var.c, ji6Var.m, this.h, this.a.U());
+                    } else if (intValue2 == 2 && (ys6Var = this.o) != null) {
+                        ys6Var.g(ji6Var.c, ji6Var.m, this.h, this.a.U());
                     }
                 }
                 this.b.c.addAll(t(arrayList2));
@@ -453,14 +453,14 @@ public class ii6 implements NetModel.k {
                 this.f.lastThreadId = 0L;
                 this.g.loadData();
             }
-            us6.a();
+            ts6.a();
         }
     }
 
-    public void p(zs6 zs6Var) {
+    public void p(ys6 ys6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, zs6Var) == null) {
-            this.o = zs6Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, ys6Var) == null) {
+            this.o = ys6Var;
         }
     }
 

@@ -41,12 +41,12 @@ public class he6 extends bz5<de6> {
 
         /* renamed from: com.repackage.he6$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnLongClickListenerC0489a implements View.OnLongClickListener {
+        public class View$OnLongClickListenerC0495a implements View.OnLongClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnLongClickListenerC0489a(a aVar, he6 he6Var) {
+            public View$OnLongClickListenerC0495a(a aVar, he6 he6Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -171,7 +171,7 @@ public class he6 extends bz5<de6> {
             this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0906cd);
             this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090771);
             c();
-            this.b.setOnLongClickListener(new View$OnLongClickListenerC0489a(this, he6Var));
+            this.b.setOnLongClickListener(new View$OnLongClickListenerC0495a(this, he6Var));
             this.b.setOnClickListener(new b(this, he6Var));
             this.c.setOnClickListener(new c(this, he6Var));
         }

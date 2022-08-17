@@ -18,7 +18,7 @@ public class so extends s25 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public so(Context context) {
-        super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0afc), 6);
+        super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0afd), 6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,8 +35,8 @@ public class so extends s25 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f0809b6;
-        this.e = R.drawable.obfuscated_res_0x7f08080f;
+        this.d = R.drawable.obfuscated_res_0x7f0809b7;
+        this.e = R.drawable.obfuscated_res_0x7f080810;
         this.i = true;
         this.n = 6;
         this.o = true;
@@ -52,7 +52,7 @@ public class so extends s25 {
             if (!TbadkCoreApplication.getInst().isAudioRecorderOpen()) {
                 String uegVoiceWarning = TbadkCoreApplication.getInst().getUegVoiceWarning();
                 if (StringUtils.isNull(uegVoiceWarning)) {
-                    uegVoiceWarning = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1491);
+                    uegVoiceWarning = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1493);
                 }
                 UtilHelper.showToast(TbadkCoreApplication.getInst(), uegVoiceWarning);
                 return false;

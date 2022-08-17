@@ -693,7 +693,7 @@ public final class te3 {
             if (c2 == null) {
                 return false;
             }
-            String str = c2.getString(R.string.obfuscated_res_0x7f0f1262) + "\n" + c2.getString(i);
+            String str = c2.getString(R.string.obfuscated_res_0x7f0f1264) + "\n" + c2.getString(i);
             if (gk2.y0().d()) {
                 r03 g2 = r03.g(c2, str);
                 g2.l(4);
@@ -817,9 +817,9 @@ public final class te3 {
                         if (TextUtils.isEmpty(charSequence)) {
                             str2 = "";
                         } else {
-                            str2 = context.getResources().getString(R.string.obfuscated_res_0x7f0f12d4) + charSequence;
+                            str2 = context.getResources().getString(R.string.obfuscated_res_0x7f0f12d6) + charSequence;
                         }
-                        String str3 = context.getResources().getString(R.string.obfuscated_res_0x7f0f12d3) + packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString() + str2;
+                        String str3 = context.getResources().getString(R.string.obfuscated_res_0x7f0f12d5) + packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString() + str2;
                         String string = context.getString(R.string.obfuscated_res_0x7f0f0118);
                         String string2 = context.getString(R.string.obfuscated_res_0x7f0f0110);
                         d03.a aVar = new d03.a(context);

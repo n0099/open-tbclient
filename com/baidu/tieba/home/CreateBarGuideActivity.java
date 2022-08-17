@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cu6;
+import com.repackage.bu6;
 import com.repackage.ur4;
 import tbclient.UserBfbInfo;
 /* loaded from: classes3.dex */
@@ -23,7 +23,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public cu6 b;
+    public bu6 b;
     public BfbInfoModel c;
     public BfbInfoModel.b d;
 
@@ -161,7 +161,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (StringUtils.isNull(str)) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f1417);
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f1419);
             }
             ur4 ur4Var = new ur4(getActivity());
             ur4Var.setTitle(str);
@@ -177,9 +177,9 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.changeSkinType(i);
-            cu6 cu6Var = this.b;
-            if (cu6Var != null) {
-                cu6Var.f();
+            bu6 bu6Var = this.b;
+            if (bu6Var != null) {
+                bu6Var.f();
             }
         }
     }
@@ -197,9 +197,9 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
             BfbInfoModel bfbInfoModel = new BfbInfoModel(this);
             this.c = bfbInfoModel;
             bfbInfoModel.D(this.d);
-            cu6 cu6Var = new cu6(this);
-            this.b = cu6Var;
-            cu6Var.e();
+            bu6 bu6Var = new bu6(this);
+            this.b = bu6Var;
+            bu6Var.e();
             showLoadingView(this.b.d());
             this.c.loadData();
             TiebaStatic.log("c11222");

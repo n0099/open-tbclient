@@ -34,11 +34,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dh5;
-import com.repackage.ey7;
+import com.repackage.dy7;
 import com.repackage.lo4;
 import com.repackage.ms4;
 import com.repackage.qi;
-import com.repackage.rv7;
+import com.repackage.qv7;
 /* loaded from: classes3.dex */
 public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -102,7 +102,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public TbRichTextView p;
     public MaskView p0;
     public ConstrainImageGroup q;
-    public ey7 q0;
+    public dy7 q0;
     public View r;
     public FrameLayout r0;
     public SubPbLayout s;
@@ -261,10 +261,9 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.q.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be));
         this.q.setSingleImageRatio(0.75d);
         this.q.setImageProcessor(new dh5(3));
-        rv7 rv7Var = new rv7(this.p.getLayoutStrategy());
-        rv7Var.j(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18));
-        rv7Var.o(TbConfig.getPostLineSpace(), 1.0f);
-        this.p.setLayoutStrategy(rv7Var);
+        qv7 qv7Var = new qv7(this.p.getLayoutStrategy());
+        qv7Var.o(TbConfig.getPostLineSpace(), 1.0f);
+        this.p.setLayoutStrategy(qv7Var);
         this.p.setIsNeedResizeEmotion(true);
         this.p.setTextSize(TbConfig.getContentSize());
         this.o.setIsRound(true);
@@ -308,9 +307,9 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.n0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09182d);
         FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923f8);
         this.o0 = frameLayout;
-        ey7 ey7Var = new ey7(tbPageContext, frameLayout);
-        this.q0 = ey7Var;
-        ey7Var.f = 3;
+        dy7 dy7Var = new dy7(tbPageContext, frameLayout);
+        this.q0 = dy7Var;
+        dy7Var.f = 3;
         this.p0 = (MaskView) view2.findViewById(R.id.obfuscated_res_0x7f0914a1);
         this.r0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092428);
         this.s0 = (VirtualImageStatusTip) view2.findViewById(R.id.obfuscated_res_0x7f0925a2);

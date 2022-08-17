@@ -28,17 +28,17 @@ public class pb1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
-        public ArrayList<C0553a> b;
+        public ArrayList<C0555a> b;
 
         /* renamed from: com.repackage.pb1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0553a {
+        public static class C0555a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public long a;
             public long b;
 
-            public C0553a(long j, long j2) {
+            public C0555a(long j, long j2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,7 +88,7 @@ public class pb1 {
             for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
                 if (optJSONObject != null) {
-                    this.b.add(new C0553a(optJSONObject.optLong("start", 0L), optJSONObject.optLong("end", 0L)));
+                    this.b.add(new C0555a(optJSONObject.optLong("start", 0L), optJSONObject.optLong("end", 0L)));
                 }
             }
         }
@@ -123,9 +123,9 @@ public class pb1 {
                 if (wx0.k(this.b) == 0) {
                     return false;
                 }
-                Iterator<C0553a> it = this.b.iterator();
+                Iterator<C0555a> it = this.b.iterator();
                 while (it.hasNext()) {
-                    C0553a next = it.next();
+                    C0555a next = it.next();
                     if (next != null && next.a(j)) {
                         return true;
                     }

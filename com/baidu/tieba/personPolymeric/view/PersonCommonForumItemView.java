@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.p68;
 import com.repackage.pi;
-import com.repackage.q68;
 /* loaded from: classes4.dex */
 public class PersonCommonForumItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +34,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
     public TextView e;
     public int f;
     public Context g;
-    public q68 h;
+    public p68 h;
     public View.OnClickListener i;
 
     /* loaded from: classes4.dex */
@@ -133,15 +133,15 @@ public class PersonCommonForumItemView extends RelativeLayout {
         }
     }
 
-    public void setData(q68 q68Var) {
+    public void setData(p68 p68Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, q68Var) == null) {
-            this.h = q68Var;
-            this.a.K(q68Var.c, 10, false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, p68Var) == null) {
+            this.h = p68Var;
+            this.a.K(p68Var.c, 10, false);
             TextView textView = this.b;
-            textView.setText(StringHelper.cutForumNameWithSuffix(q68Var.b, 7, StringHelper.STRING_MORE) + this.g.getString(R.string.obfuscated_res_0x7f0f065a));
-            this.d.setText(StringHelper.numberUniformFormat((long) q68Var.d));
-            this.c.setText(String.format(this.g.getString(R.string.obfuscated_res_0x7f0f0e4c), StringHelper.getUserDescByGender(q68Var.e)));
+            textView.setText(StringHelper.cutForumNameWithSuffix(p68Var.b, 7, StringHelper.STRING_MORE) + this.g.getString(R.string.obfuscated_res_0x7f0f065a));
+            this.d.setText(StringHelper.numberUniformFormat((long) p68Var.d));
+            this.c.setText(String.format(this.g.getString(R.string.obfuscated_res_0x7f0f0e4d), StringHelper.getUserDescByGender(p68Var.e)));
             if (getRootView() != null) {
                 getRootView().setOnClickListener(this.i);
             }

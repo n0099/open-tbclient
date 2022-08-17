@@ -3,10 +3,8 @@ package com.repackage;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
-import com.baidu.tieba.im.message.ResponseGroupsByUidLocalMessage;
-import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
+import com.baidu.tieba.im.message.RequestSearchGroupsLocalMessage;
+import com.baidu.tieba.im.message.ResponseSearchGroupLocalMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,21 +34,12 @@ public class ka7 implements CustomMessageTask.CustomRunnable<Object> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof GroupsByUidLocalMessage)) {
+            if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
                 return null;
             }
-            String str = ResponseGroupsByUidMessage.CACHE_KEY_PREFIX + (TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "");
             tr4.f();
-            byte[] bArr = tr4.d("tb.im_entergroup").get(str);
-            ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = new ResponseGroupsByUidLocalMessage();
-            if (bArr != null) {
-                try {
-                    responseGroupsByUidLocalMessage.decodeInBackGround(2001106, bArr);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return responseGroupsByUidLocalMessage;
+            tr4.b("tb.im_group_search_history");
+            return new ResponseSearchGroupLocalMessage(2001206);
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

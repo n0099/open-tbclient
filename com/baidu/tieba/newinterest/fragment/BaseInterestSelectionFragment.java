@@ -11,24 +11,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jq7;
-import com.repackage.sq7;
-import com.repackage.zq7;
+import com.repackage.iq7;
+import com.repackage.rq7;
+import com.repackage.yq7;
 import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class BaseInterestSelectionFragment extends BaseFragment implements jq7.a {
+public abstract class BaseInterestSelectionFragment extends BaseFragment implements iq7.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
     public TBSpecificationBtn b;
-    public jq7 c;
+    public iq7 c;
     public View d;
     public int e;
     public String[] f;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void a(List<sq7> list);
+        void a(List<rq7> list);
     }
 
     public BaseInterestSelectionFragment() {
@@ -65,21 +65,21 @@ public abstract class BaseInterestSelectionFragment extends BaseFragment impleme
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onResume();
             if (getFragmentManager().getFragments().size() == 1) {
-                zq7.c(1, this.e);
+                yq7.c(1, this.e);
             }
         }
     }
 
-    @Override // com.repackage.jq7.a
+    @Override // com.repackage.iq7.a
     public void p1(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             if (i > 0 && !this.b.isEnabled()) {
                 this.b.setEnabled(true);
-                this.b.setText(getString(R.string.obfuscated_res_0x7f0f0c47));
+                this.b.setText(getString(R.string.obfuscated_res_0x7f0f0c48));
             } else if (i == 0) {
                 this.b.setEnabled(false);
-                this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f10ef));
+                this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f10f0));
             }
         }
     }

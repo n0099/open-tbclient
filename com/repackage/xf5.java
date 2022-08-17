@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 /* loaded from: classes7.dex */
 public class xf5 {
     public static /* synthetic */ Interceptable $ic;
@@ -64,7 +65,7 @@ public class xf5 {
         this.e = 16;
         this.f = 16;
         this.g = -1;
-        this.h = 1711276032;
+        this.h = DebugControllerOverlayDrawable.TEXT_BACKGROUND_COLOR;
         this.i = 20;
         this.j = 20;
         this.k = 36;

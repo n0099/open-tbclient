@@ -29,8 +29,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ls7;
 import com.repackage.ms7;
-import com.repackage.ns7;
 import com.repackage.pi;
 import com.repackage.qi;
 import com.repackage.ur4;
@@ -91,7 +91,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements ns7.b {
+    public class b implements ms7.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForbidActivity a;
@@ -114,19 +114,19 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             this.a = forbidActivity;
         }
 
-        @Override // com.repackage.ns7.b
+        @Override // com.repackage.ms7.b
         public void a(ForbidTplData forbidTplData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, forbidTplData) == null) {
                 if (StringUtils.isNull(forbidTplData.error.errMsg)) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                 } else {
                     this.a.showToast(forbidTplData.error.errMsg);
                 }
             }
         }
 
-        @Override // com.repackage.ns7.b
+        @Override // com.repackage.ms7.b
         public void b(ForbidTplData forbidTplData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidTplData) == null) {
@@ -140,7 +140,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                 this.a.m.setAdapter((ListAdapter) this.a.n);
                 String[] strArr = forbidTplData.reason;
                 if (strArr == null || strArr.length == 0) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c56);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c57);
                 }
             }
         }
@@ -153,19 +153,19 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         public final /* synthetic */ ForbidActivity a;
 
         /* loaded from: classes3.dex */
-        public class a implements ms7.b {
+        public class a implements ls7.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
 
             /* renamed from: com.baidu.tieba.pb.account.forbid.ForbidActivity$c$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C0243a implements ur4.e {
+            public class C0244a implements ur4.e {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0243a(a aVar) {
+                public C0244a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -212,7 +212,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                 this.a = cVar;
             }
 
-            @Override // com.repackage.ms7.b
+            @Override // com.repackage.ls7.b
             public void a(ForbidResultData forbidResultData) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, forbidResultData) == null) {
@@ -222,7 +222,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                 }
             }
 
-            @Override // com.repackage.ms7.b
+            @Override // com.repackage.ls7.b
             public void b(ForbidResultData forbidResultData) {
                 Interceptable interceptable = $ic;
                 if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidResultData) == null) || forbidResultData == null) {
@@ -237,7 +237,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                             forbidActivity.o = new ur4(forbidActivity.getActivity());
                         }
                         this.a.a.o.setMessage(str);
-                        this.a.a.o.setPositiveButton(R.string.obfuscated_res_0x7f0f09a0, new C0243a(this));
+                        this.a.a.o.setPositiveButton(R.string.obfuscated_res_0x7f0f09a1, new C0244a(this));
                         this.a.a.o.setCanceledOnTouchOutside(false);
                         this.a.a.o.create(this.a.a.getPageContext());
                         this.a.a.o.show();
@@ -276,7 +276,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.b == null || this.a.n == null || pi.isEmpty(this.a.n.b()) || (findViewById = (forbidActivity = this.a).findViewById(forbidActivity.b.getCheckedRadioButtonId())) == null) {
                 return;
             }
-            ms7.b(this.a.c, this.a.d, this.a.e, this.a.g, this.a.j, (String) findViewById.getTag(), this.a.n.b(), this.a.h, this.a.i, new a(this));
+            ls7.b(this.a.c, this.a.d, this.a.e, this.a.g, this.a.j, (String) findViewById.getTag(), this.a.n.b(), this.a.h, this.a.i, new a(this));
         }
     }
 
@@ -494,7 +494,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             this.j = intent.getStringExtra("post_id");
             this.h = intent.getStringExtra("name_show");
             this.i = intent.getStringExtra("portrait");
-            ns7.b(this.c, this.f, new b(this));
+            ms7.b(this.c, this.f, new b(this));
         }
     }
 

@@ -61,7 +61,7 @@ public class l02 extends f02 implements View.OnClickListener {
             V1(view2);
             t2(-1);
             C2(-16777216);
-            v2(G(R.string.obfuscated_res_0x7f0f1247));
+            v2(G(R.string.obfuscated_res_0x7f0f1249));
             x2(true);
             J2(false);
         }

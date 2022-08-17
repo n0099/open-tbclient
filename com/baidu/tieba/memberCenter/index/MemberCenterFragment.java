@@ -374,7 +374,7 @@ public class MemberCenterFragment extends BaseFragment {
             NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f09255c);
             this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.b.setTitleText(R.string.obfuscated_res_0x7f0f0ab1);
+            this.b.setTitleText(R.string.obfuscated_res_0x7f0f0ab2);
             SkinManager.setNavbarTitleColor(this.b.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
             if (this.b.getBackImageView() != null) {
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.b.getBackImageView(), R.drawable.obfuscated_res_0x7f080612, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
@@ -411,7 +411,7 @@ public class MemberCenterFragment extends BaseFragment {
         }
         quickWebView.setVisibility(8);
         this.b.setVisibility(0);
-        showNetRefreshView(this.d, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c3c), true);
+        showNetRefreshView(this.d, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c3d), true);
     }
 
     public final void z1() {

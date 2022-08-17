@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xf8;
+import com.repackage.wf8;
 @Autowired
 /* loaded from: classes2.dex */
 public class AperfOverlayRuntime {
@@ -78,6 +78,6 @@ public class AperfOverlayRuntime {
     public static IAperfOverlayContext getAperfOverlayContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? xf8.a() : (IAperfOverlayContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? wf8.a() : (IAperfOverlayContext) invokeV.objValue;
     }
 }

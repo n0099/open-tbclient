@@ -5,20 +5,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 /* loaded from: classes7.dex */
 public class z1a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public PayType a;
     public String b;
     public String c;
 
-    public z1a(String str, String str2, String str3) {
+    public z1a(PayType payType, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
+            Object[] objArr = {payType, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,17 +29,15 @@ public class z1a {
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
+        this.b = "";
+        this.a = payType;
+        this.b = str;
+        this.c = str2;
     }
 
-    public String toString() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "TopUiParams{title='" + this.a + "', rightTitle='" + this.b + "', rightUrl='" + t2a.a(this.c) + "'}";
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 }

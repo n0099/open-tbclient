@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hu9;
+import com.repackage.ju9;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
@@ -335,7 +335,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
     }
 
     public /* synthetic */ void b() {
-        this.eglBase = hu9.c(this.sharedContext, EglBase.CONFIG_RECORDABLE);
+        this.eglBase = ju9.c(this.sharedContext, EglBase.CONFIG_RECORDABLE);
         Surface createInputSurface = this.videoEncoder.createInputSurface();
         this.surface = createInputSurface;
         this.eglBase.createSurface(createInputSurface);

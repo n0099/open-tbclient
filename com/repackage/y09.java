@@ -445,7 +445,7 @@ public class y09 extends BaseAdapter {
             ms4 d2 = ms4.d(eVar.b);
             d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0206);
-            eVar.f.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080801, WebPManager.ResourceStateType.NORMAL));
+            eVar.f.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080802, WebPManager.ResourceStateType.NORMAL));
             SkinManager.setViewTextColor(eVar.e, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(eVar.g, (int) R.color.CAM_X0305);
             SkinManager.setViewTextColor(eVar.h, (int) R.color.CAM_X0109);

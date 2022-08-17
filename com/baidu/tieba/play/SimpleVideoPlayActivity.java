@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i98;
+import com.repackage.h98;
 /* loaded from: classes4.dex */
 public class SimpleVideoPlayActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public i98 c;
+    public h98 c;
     public FrameLayout d;
     public NavigationBar e;
 
@@ -85,9 +85,9 @@ public class SimpleVideoPlayActivity extends BaseActivity {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             layoutParams.gravity = 17;
             this.d.addView(frameLayout2, layoutParams);
-            i98 i98Var = new i98(this, frameLayout2);
-            this.c = i98Var;
-            i98Var.setStageType("2006");
+            h98 h98Var = new h98(this, frameLayout2);
+            this.c = h98Var;
+            h98Var.setStageType("2006");
             NavigationBar navigationBar = new NavigationBar(this);
             this.e = navigationBar;
             navigationBar.hideBottomLine();

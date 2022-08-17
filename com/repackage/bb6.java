@@ -36,12 +36,12 @@ public class bb6 extends w25 {
 
         /* renamed from: com.repackage.bb6$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0451a implements Runnable {
+        public class RunnableC0449a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0451a(a aVar) {
+            public RunnableC0449a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public class bb6 extends w25 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 this.a.d();
-                new Thread(new RunnableC0451a(this)).start();
+                new Thread(new RunnableC0449a(this)).start();
             }
         }
     }

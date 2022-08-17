@@ -436,7 +436,6 @@ public class FlutterPluginManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, xa5Var) == null) {
             if (this.mIFlutterPlugin == null) {
-                UtilHelper.showToast(TbadkCoreApplication.getInst().getCurrentActivity(), "加载插件中...");
                 invokePlugin(new IInvokeCallback(this, xa5Var) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -489,9 +488,9 @@ public class FlutterPluginManager {
                         }
                     }
                 });
-                return;
+            } else {
+                xa5Var.onSuccess();
             }
-            xa5Var.onSuccess();
         }
     }
 }

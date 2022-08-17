@@ -354,7 +354,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255c);
             this.c = navigationBar;
             if (this.j == 0) {
-                navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0ae0));
+                navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0ae1));
             }
             this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
         }
@@ -427,8 +427,8 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
             if (this.i == null) {
                 ur4 ur4Var = new ur4(getActivity());
                 this.i = ur4Var;
-                ur4Var.setMessage(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0ae2));
-                this.i.setPositiveButton(R.string.obfuscated_res_0x7f0f1081, new c(this));
+                ur4Var.setMessage(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0ae3));
+                this.i.setPositiveButton(R.string.obfuscated_res_0x7f0f1082, new c(this));
                 this.i.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new d(this));
                 this.i.create(getPageContext());
             }
@@ -451,7 +451,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     public void S1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c3c);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c3d);
             if (this.g == null) {
                 h65 h65Var = new h65(this.e.getPageActivity(), new b(this));
                 this.g = h65Var;

@@ -51,7 +51,7 @@ import com.repackage.fs4;
 import com.repackage.gh6;
 import com.repackage.hh6;
 import com.repackage.jm4;
-import com.repackage.kr6;
+import com.repackage.jr6;
 import com.repackage.ln4;
 import com.repackage.ms4;
 import com.repackage.rg;
@@ -457,7 +457,7 @@ public class AcceleratorFragment extends BaseFragment {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && Tornado.INSTANCE.isRunning()) {
-                kr6.f(this.a.getActivity(), new a(this));
+                jr6.f(this.a.getActivity(), new a(this));
             }
         }
     }
@@ -776,7 +776,7 @@ public class AcceleratorFragment extends BaseFragment {
             a2();
             O1();
             if (z) {
-                kr6.g(getActivity(), new i(this));
+                jr6.g(getActivity(), new i(this));
             }
             if (this.z > 0) {
                 TbSingleton.getInstance().acceleratorItemId = this.z;
@@ -845,8 +845,8 @@ public class AcceleratorFragment extends BaseFragment {
             this.v = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903bc);
             this.w = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903bd);
             this.x = view2.findViewById(R.id.obfuscated_res_0x7f0903b2);
-            WebPManager.setPureDrawable(this.v, R.drawable.obfuscated_res_0x7f080952, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
-            WebPManager.setPureDrawable(this.w, R.drawable.obfuscated_res_0x7f080a0f, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.v, R.drawable.obfuscated_res_0x7f080953, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.w, R.drawable.obfuscated_res_0x7f080a10, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             ms4 d2 = ms4.d(this.t);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0302);
@@ -898,7 +898,7 @@ public class AcceleratorFragment extends BaseFragment {
 
     public /* synthetic */ void X1(View view2) {
         hh6.f(this.z);
-        kr6.i(getActivity(), new fh6(this));
+        jr6.i(getActivity(), new fh6(this));
     }
 
     public final void a2() {

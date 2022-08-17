@@ -41,10 +41,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.hb5;
+import com.repackage.k57;
 import com.repackage.l57;
 import com.repackage.m57;
 import com.repackage.n57;
-import com.repackage.o57;
 import com.repackage.oi;
 import com.repackage.qi;
 import java.util.ArrayList;
@@ -56,12 +56,12 @@ public class HotTopicSelectActivity extends SuspendedActivity implements hb5, Ho
     public final ExpandableListView.OnGroupClickListener A;
     public final ExpandableListView.OnChildClickListener B;
     public HotTopicSelectModel k;
-    public final List<n57> l;
+    public final List<m57> l;
     public View m;
     public BdListView n;
     public ExpandableListView o;
-    public o57 p;
-    public l57 q;
+    public n57 p;
+    public k57 q;
     public ViewGroup r;
     public EditText s;
     public TextView t;
@@ -135,12 +135,12 @@ public class HotTopicSelectActivity extends SuspendedActivity implements hb5, Ho
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            n57 n57Var;
+            m57 m57Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (n57Var = (n57) ListUtils.getItem(this.a.q.d(), i)) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (m57Var = (m57) ListUtils.getItem(this.a.q.d(), i)) == null) {
                 return;
             }
-            String b = n57Var.b();
+            String b = m57Var.b();
             this.a.q1(b);
             this.a.n1(b, 3);
         }
@@ -212,7 +212,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements hb5, Ho
         @Override // android.widget.ExpandableListView.OnChildClickListener
         public boolean onChildClick(ExpandableListView expandableListView, View view2, int i, int i2, long j) {
             InterceptResult invokeCommon;
-            n57 child;
+            m57 child;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{expandableListView, view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)})) == null) {
                 if (this.a.p == null || (child = this.a.p.getChild(i, i2)) == null) {
@@ -220,7 +220,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements hb5, Ho
                 }
                 String b = child.b();
                 this.a.q1(b);
-                m57 group = this.a.p.getGroup(i);
+                l57 group = this.a.p.getGroup(i);
                 if (group != null) {
                     this.a.n1(b, group.getType() == 0 ? 1 : 2);
                     return false;
@@ -295,7 +295,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements hb5, Ho
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
                 if (i == 6) {
-                    qi.M(this.a.getPageContext().getPageActivity(), textView);
+                    qi.L(this.a.getPageContext().getPageActivity(), textView);
                     if (TextUtils.isEmpty(this.a.s1())) {
                         return true;
                     }
@@ -424,9 +424,9 @@ public class HotTopicSelectActivity extends SuspendedActivity implements hb5, Ho
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.c
-    public void h0(m57 m57Var) {
+    public void h0(l57 l57Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, m57Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, l57Var) == null) {
             this.m.setVisibility(0);
             this.o.setVisibility(8);
             this.n.setVisibility(0);
@@ -434,8 +434,8 @@ public class HotTopicSelectActivity extends SuspendedActivity implements hb5, Ho
             this.l.clear();
             String s1 = s1();
             this.l.add(r1(s1));
-            if (m57Var != null && m57Var.b() != null) {
-                this.l.addAll(m57Var.b());
+            if (l57Var != null && l57Var.b() != null) {
+                this.l.addAll(l57Var.b());
                 this.q.e(s1, this.l);
                 return;
             }
@@ -444,16 +444,16 @@ public class HotTopicSelectActivity extends SuspendedActivity implements hb5, Ho
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.c
-    public void m0(m57 m57Var, m57 m57Var2, m57 m57Var3) {
+    public void m0(l57 l57Var, l57 l57Var2, l57 l57Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, m57Var, m57Var2, m57Var3) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, l57Var, l57Var2, l57Var3) == null) {
             this.m.setVisibility(0);
             this.o.setVisibility(0);
             this.n.setVisibility(8);
             hideLoadingView(this.r);
             this.p.c();
-            v1(m57Var, true);
-            v1(m57Var2, false);
+            v1(l57Var, true);
+            v1(l57Var2, false);
             this.p.notifyDataSetChanged();
             int count = this.o.getCount();
             for (int i = 0; i < count; i++) {
@@ -485,8 +485,8 @@ public class HotTopicSelectActivity extends SuspendedActivity implements hb5, Ho
             this.o.setVisibility(0);
             this.n.setVisibility(8);
             this.q.b();
-            o57 o57Var = this.p;
-            if (o57Var != null && !ListUtils.isEmpty(o57Var.f())) {
+            n57 n57Var = this.p;
+            if (n57Var != null && !ListUtils.isEmpty(n57Var.f())) {
                 this.m.setVisibility(0);
                 return;
             }
@@ -514,13 +514,13 @@ public class HotTopicSelectActivity extends SuspendedActivity implements hb5, Ho
             if (noDataView != null) {
                 noDataView.f(getPageContext(), i);
             }
-            l57 l57Var = this.q;
-            if (l57Var != null) {
-                l57Var.notifyDataSetChanged();
+            k57 k57Var = this.q;
+            if (k57Var != null) {
+                k57Var.notifyDataSetChanged();
             }
-            o57 o57Var = this.p;
-            if (o57Var != null) {
-                o57Var.notifyDataSetChanged();
+            n57 n57Var = this.p;
+            if (n57Var != null) {
+                n57Var.notifyDataSetChanged();
             }
             EditText editText = this.s;
             if (editText != null) {
@@ -601,15 +601,15 @@ public class HotTopicSelectActivity extends SuspendedActivity implements hb5, Ho
         }
     }
 
-    public final n57 r1(String str) {
+    public final m57 r1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            n57 n57Var = new n57();
-            n57Var.d(str);
-            return n57Var;
+            m57 m57Var = new m57();
+            m57Var.d(str);
+            return m57Var;
         }
-        return (n57) invokeL.objValue;
+        return (m57) invokeL.objValue;
     }
 
     @Override // com.repackage.hb5
@@ -638,7 +638,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements hb5, Ho
             this.n.setVisibility(0);
             hideLoadingView(this.r);
             String s1 = s1();
-            n57 r1 = r1(s1);
+            m57 r1 = r1(s1);
             this.l.clear();
             this.l.add(r1);
             this.q.e(s1, this.l);
@@ -683,13 +683,13 @@ public class HotTopicSelectActivity extends SuspendedActivity implements hb5, Ho
             layoutParams.gravity = 17;
             this.r.addView(this.u, layoutParams);
             this.u.setVisibility(8);
-            l57 l57Var = new l57(getPageContext());
-            this.q = l57Var;
-            this.n.setAdapter((ListAdapter) l57Var);
+            k57 k57Var = new k57(getPageContext());
+            this.q = k57Var;
+            this.n.setAdapter((ListAdapter) k57Var);
             this.o = (ExpandableListView) findViewById(R.id.obfuscated_res_0x7f090d79);
-            o57 o57Var = new o57(getPageContext());
-            this.p = o57Var;
-            this.o.setAdapter(o57Var);
+            n57 n57Var = new n57(getPageContext());
+            this.p = n57Var;
+            this.o.setAdapter(n57Var);
             this.n.setOnItemClickListener(this.z);
             this.o.setOnGroupClickListener(this.A);
             this.o.setOnChildClickListener(this.B);
@@ -700,15 +700,15 @@ public class HotTopicSelectActivity extends SuspendedActivity implements hb5, Ho
         }
     }
 
-    public final void v1(m57 m57Var, boolean z) {
+    public final void v1(l57 l57Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048598, this, m57Var, z) == null) || m57Var == null || ListUtils.isEmpty(m57Var.b())) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048598, this, l57Var, z) == null) || l57Var == null || ListUtils.isEmpty(l57Var.b())) {
             return;
         }
-        if (TextUtils.isEmpty(m57Var.a())) {
-            m57Var.e(getString(z ? R.string.obfuscated_res_0x7f0f0808 : R.string.obfuscated_res_0x7f0f0809));
+        if (TextUtils.isEmpty(l57Var.a())) {
+            l57Var.e(getString(z ? R.string.obfuscated_res_0x7f0f0808 : R.string.obfuscated_res_0x7f0f0809));
         }
-        this.p.g(m57Var);
+        this.p.g(l57Var);
     }
 
     public void w1(boolean z) {
@@ -738,11 +738,11 @@ public class HotTopicSelectActivity extends SuspendedActivity implements hb5, Ho
             hideLoadingView(this.r);
             this.m.setVisibility(8);
             if (!oi.z()) {
-                this.u.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c3c));
+                this.u.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c3d));
                 this.u.setVisibility(0);
             } else if (TextUtils.isEmpty(str)) {
             } else {
-                this.u.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0fb9));
+                this.u.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0fba));
                 this.u.setVisibility(0);
                 showToast(str);
             }

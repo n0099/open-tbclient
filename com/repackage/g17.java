@@ -1,33 +1,27 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tieba.homepage.personalize.view.HomePageAlaRecommendLayout;
+import android.text.TextUtils;
+import com.baidu.tbadk.switchs.VideoCardLazyInitSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class g17 extends rw<fo4> {
+public class g17 extends xw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HomePageAlaRecommendLayout f;
-    public int g;
+    public d98 z;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g17(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity());
+    public g17(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,57 +32,21 @@ public class g17 extends rw<fo4> {
                 return;
             }
         }
-        this.g = 3;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().b instanceof HomePageAlaRecommendLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().b.getParent() == null) {
-            this.f = (HomePageAlaRecommendLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().b;
-        } else {
-            this.f = new HomePageAlaRecommendLayout(tbPageContext.getPageActivity());
-        }
     }
 
-    @Override // com.repackage.rw
-    public View h() {
+    @Override // com.repackage.xw, com.repackage.ly
+    public d98 q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ix
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.g != i) {
-                this.f.c(i);
-                n(this.f, 3);
-            }
-            this.g = i;
-        }
-    }
-
-    public t06 p(fo4 fo4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fo4Var)) == null) {
-            if (fo4Var instanceof l07) {
-                l07 l07Var = (l07) fo4Var;
-                return new t06(l07Var.getType(), l07Var.c(), "recommend");
-            } else if (fo4Var instanceof tv6) {
-                tv6 tv6Var = (tv6) fo4Var;
-                return new t06(tv6Var.getType(), tv6Var.c(), ImageViewerConfig.FROM_CONCERN);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.k) && this.k.equals("index") && VideoCardLazyInitSwitch.getIsOn()) {
+                this.z = new i17(this.b, this.i);
             } else {
-                return new t06();
+                this.z = new h17(this.b, this.i);
             }
+            this.z.setStageType("2001");
+            return this.z;
         }
-        return (t06) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.hx
-    /* renamed from: q */
-    public void a(fo4 fo4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, fo4Var) == null) {
-            this.f.setData(p(fo4Var));
-        }
+        return (d98) invokeV.objValue;
     }
 }

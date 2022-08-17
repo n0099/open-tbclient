@@ -18,7 +18,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.MissionInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class cj4 {
     public static /* synthetic */ Interceptable $ic = null;
     public static String D = "activityid";

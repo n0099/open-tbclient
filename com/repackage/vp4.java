@@ -59,7 +59,7 @@ public class vp4 extends BaseCardInfo {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ICardInfo i = pe7.i(this.b);
+            ICardInfo i = oe7.i(this.b);
             this.c = i;
             this.a = i != null;
         }

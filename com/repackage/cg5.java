@@ -3,7 +3,7 @@ package com.repackage;
 import android.graphics.Canvas;
 import android.view.MotionEvent;
 import android.widget.ListAdapter;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface cg5 {
     void a();
 

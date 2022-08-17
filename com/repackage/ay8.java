@@ -130,13 +130,13 @@ public class ay8 {
 
         /* renamed from: com.repackage.ay8$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0446b implements Runnable {
+        public class RunnableC0444b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ iy8 a;
             public final /* synthetic */ b b;
 
-            public RunnableC0446b(b bVar, iy8 iy8Var) {
+            public RunnableC0444b(b bVar, iy8 iy8Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -465,7 +465,7 @@ public class ay8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iy8Var) == null) {
                 this.d = false;
-                jc9.a().post(new RunnableC0446b(this, iy8Var));
+                jc9.a().post(new RunnableC0444b(this, iy8Var));
             }
         }
 

@@ -62,7 +62,7 @@ public class ErrorView extends LinearLayout {
                     }
                     return;
                 }
-                Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f09f4, 1).show();
+                Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f09f5, 1).show();
             }
         }
     }
@@ -109,14 +109,14 @@ public class ErrorView extends LinearLayout {
                 layoutParams.height = m80.b(getContext(), EmotionStrategy.getInstance().errorHeight);
                 this.b.setLayoutParams(layoutParams);
                 setImageResource(ab0.f().c(str));
-                this.c.setText(R.string.obfuscated_res_0x7f0f09f3);
+                this.c.setText(R.string.obfuscated_res_0x7f0f09f4);
             } else {
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.b.getLayoutParams();
                 layoutParams2.width = m80.b(getContext(), EmotionStrategy.getInstance().networkWidth);
                 layoutParams2.height = m80.b(getContext(), EmotionStrategy.getInstance().networkHeight);
                 this.b.setLayoutParams(layoutParams2);
                 setImageResource(ab0.f().d(str));
-                this.c.setText(R.string.obfuscated_res_0x7f0f09f4);
+                this.c.setText(R.string.obfuscated_res_0x7f0f09f5);
             }
             this.c.setTextColor(ab0.f().a(getContext(), str, "color_8585852"));
             this.a.setTextColor(ab0.f().a(getContext(), str, "color_5252522"));

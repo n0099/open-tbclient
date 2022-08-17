@@ -29,13 +29,13 @@ public class av0 extends zu0 {
 
         /* renamed from: com.repackage.av0$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0442a implements Runnable {
+        public class RunnableC0441a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ur0 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0442a(a aVar, ur0 ur0Var) {
+            public RunnableC0441a(a aVar, ur0 ur0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +92,7 @@ public class av0 extends zu0 {
                 super.handleMessage(message);
                 Object obj = message.obj;
                 if (obj instanceof ur0) {
-                    qh0.b(new RunnableC0442a(this, (ur0) obj));
+                    qh0.b(new RunnableC0441a(this, (ur0) obj));
                 }
             }
         }

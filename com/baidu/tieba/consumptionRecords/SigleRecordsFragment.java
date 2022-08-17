@@ -86,9 +86,9 @@ public class SigleRecordsFragment extends BaseFragment {
                 SigleRecordsFragment sigleRecordsFragment = this.a;
                 sigleRecordsFragment.hideLoadingView(sigleRecordsFragment.f);
                 if (this.a.d) {
-                    this.a.k.setText(R.string.obfuscated_res_0x7f0f0a39);
+                    this.a.k.setText(R.string.obfuscated_res_0x7f0f0a3a);
                 } else {
-                    this.a.k.setText(R.string.obfuscated_res_0x7f0f0c6c);
+                    this.a.k.setText(R.string.obfuscated_res_0x7f0f0c6d);
                 }
             }
         }
@@ -114,9 +114,9 @@ public class SigleRecordsFragment extends BaseFragment {
                     }
                     this.a.K1();
                     if (z) {
-                        this.a.k.setText(R.string.obfuscated_res_0x7f0f0a40);
+                        this.a.k.setText(R.string.obfuscated_res_0x7f0f0a41);
                     } else {
-                        this.a.k.setText(R.string.obfuscated_res_0x7f0f0c6c);
+                        this.a.k.setText(R.string.obfuscated_res_0x7f0f0c6d);
                     }
                     this.a.i.h(arrayList);
                     this.a.i.notifyDataSetChanged();
@@ -126,9 +126,9 @@ public class SigleRecordsFragment extends BaseFragment {
                 if (!this.a.c) {
                     this.a.L1();
                 } else if (z) {
-                    this.a.k.setText(R.string.obfuscated_res_0x7f0f0a39);
+                    this.a.k.setText(R.string.obfuscated_res_0x7f0f0a3a);
                 } else {
-                    this.a.k.setText(R.string.obfuscated_res_0x7f0f0c6c);
+                    this.a.k.setText(R.string.obfuscated_res_0x7f0f0c6d);
                 }
                 this.a.c = true;
             }
@@ -304,7 +304,7 @@ public class SigleRecordsFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             int i = this.e;
-            int i2 = i != 1 ? i != 2 ? i != 3 ? R.string.obfuscated_res_0x7f0f0c82 : R.string.obfuscated_res_0x7f0f0c80 : R.string.obfuscated_res_0x7f0f0c67 : R.string.obfuscated_res_0x7f0f0c5c;
+            int i2 = i != 1 ? i != 2 ? i != 3 ? R.string.obfuscated_res_0x7f0f0c83 : R.string.obfuscated_res_0x7f0f0c81 : R.string.obfuscated_res_0x7f0f0c68 : R.string.obfuscated_res_0x7f0f0c5d;
             if (this.j == null) {
                 this.j = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.f, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, qi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.a(i2), null);
             }

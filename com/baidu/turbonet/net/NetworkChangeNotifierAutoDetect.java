@@ -946,13 +946,13 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
 
         /* renamed from: com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect$c$c  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0269c implements Runnable {
+        public class RunnableC0271c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ c b;
 
-            public RunnableC0269c(c cVar, int i) {
+            public RunnableC0271c(c cVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1158,7 +1158,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             if (!(interceptable == null || interceptable.invokeLI(1048582, this, network, i) == null) || b(network, null)) {
                 return;
             }
-            this.b.runOnThread(new RunnableC0269c(this, NetworkChangeNotifierAutoDetect.networkToNetId(network)));
+            this.b.runOnThread(new RunnableC0271c(this, NetworkChangeNotifierAutoDetect.networkToNetId(network)));
         }
 
         @Override // android.net.ConnectivityManager.NetworkCallback

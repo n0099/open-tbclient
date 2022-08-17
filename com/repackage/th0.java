@@ -55,7 +55,7 @@ public class th0 implements IComponentFactory {
             }
             ImageView imageView = new ImageView(context);
             imageView.setId(R.id.obfuscated_res_0x7f0915a8);
-            imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dcf));
+            imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd0));
             imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             imageView.setContentDescription("不感兴趣");
             return imageView;
@@ -97,7 +97,7 @@ public class th0 implements IComponentFactory {
                 }
             }
             ImageView imageView = (ImageView) view2;
-            imageView.setImageDrawable(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dcf));
+            imageView.setImageDrawable(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd0));
             imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             return true;
         }

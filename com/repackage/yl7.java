@@ -1,65 +1,43 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
+import com.baidu.tieba.memberCenter.tail.edit.color.TailEditColorToolHost;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class yl7 {
+public class yl7 extends s25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public String b;
 
-    public yl7(d9<?> d9Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yl7(TbPageContext<?> tbPageContext, int i, String str) {
+        super(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1368), 17, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d9Var};
+            Object[] objArr = {tbPageContext, Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = "7a7c80";
-        ArrayList arrayList = new ArrayList();
-        this.a = arrayList;
-        arrayList.add("7a7c80");
-        this.a.add("f55925");
-        this.a.add("ff5460");
-        this.a.add("cc3314");
-        this.a.add("26bf85");
-        this.a.add("33aaff");
-        this.a.add("3385ff");
-        this.a.add("3668b2");
-        this.a.add("673699");
-    }
-
-    public List<String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.b = str;
-        }
+        this.d = R.drawable.tail_edit_tool_color_selector;
+        this.h = R.drawable.icon_pure_post_more_bubble64;
+        this.m = new TailEditColorToolHost(tbPageContext, str);
+        this.o = true;
+        this.n = 6;
+        this.p = new int[]{1};
     }
 }

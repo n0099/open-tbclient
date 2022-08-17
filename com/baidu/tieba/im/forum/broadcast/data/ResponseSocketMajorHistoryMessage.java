@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e87;
+import com.repackage.c87;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetForumBroadcastList.GetForumBroadcastListResIdl;
@@ -16,7 +16,7 @@ import tbclient.GetForumBroadcastList.GetForumBroadcastListResIdl;
 public class ResponseSocketMajorHistoryMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e87 majorHistoryData;
+    public c87 majorHistoryData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketMajorHistoryMessage() {
@@ -34,7 +34,7 @@ public class ResponseSocketMajorHistoryMessage extends SocketResponsedMessage {
                 return;
             }
         }
-        this.majorHistoryData = new e87();
+        this.majorHistoryData = new c87();
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -63,9 +63,9 @@ public class ResponseSocketMajorHistoryMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public e87 getData() {
+    public c87 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.majorHistoryData : (e87) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.majorHistoryData : (c87) invokeV.objValue;
     }
 }

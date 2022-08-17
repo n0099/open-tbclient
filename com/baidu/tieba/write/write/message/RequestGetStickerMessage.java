@@ -46,7 +46,7 @@ public class RequestGetStickerMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1239common = this.f1060common;
+            builder.f1240common = this.f1060common;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
                 te5.a(builder, true);
             }

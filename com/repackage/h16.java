@@ -76,7 +76,7 @@ public class h16 extends BaseAdapter {
                 ClipboardManager clipboardManager = (ClipboardManager) this.b.b.getPageActivity().getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
                 clipboardManager.setText(h);
                 if (clipboardManager.getText() != null) {
-                    qi.N(this.b.b.getPageActivity(), R.string.obfuscated_res_0x7f0f0452);
+                    qi.M(this.b.b.getPageActivity(), R.string.obfuscated_res_0x7f0f0452);
                     return false;
                 }
                 return false;
@@ -232,14 +232,14 @@ public class h16 extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, cVar, f16Var) == null) || cVar == null || f16Var == null) {
             return;
         }
-        cVar.g.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0d06) + "    ");
+        cVar.g.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0d07) + "    ");
         cVar.a.setText(f16Var.h());
         cVar.a.setOnLongClickListener(new a(this, f16Var));
         if (f16Var.k() == 1) {
-            cVar.b.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f08089f), 24, false);
+            cVar.b.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f0808a1), 24, false);
             SkinManager.setViewTextColor(cVar.b, R.color.CAM_X0305, 1);
         } else {
-            cVar.b.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f08089e), 24, false);
+            cVar.b.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f0808a0), 24, false);
             SkinManager.setViewTextColor(cVar.b, R.color.CAM_X0109, 1);
         }
         ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109));
@@ -265,9 +265,9 @@ public class h16 extends BaseAdapter {
             spannableString2 = spannableString5;
             spannableString4 = d2;
         } else if (i3 == 3) {
-            String string = this.b.getString(R.string.obfuscated_res_0x7f0f0f8a);
+            String string = this.b.getString(R.string.obfuscated_res_0x7f0f0f8b);
             if (CurrencySwitchUtil.isYyIsConvert(f16Var.e())) {
-                l = String.format(this.b.getString(R.string.obfuscated_res_0x7f0f15ff), g(Double.valueOf(f16Var.i())));
+                l = String.format(this.b.getString(R.string.obfuscated_res_0x7f0f1602), g(Double.valueOf(f16Var.i())));
             } else {
                 l = f16Var.l();
             }
@@ -275,16 +275,16 @@ public class h16 extends BaseAdapter {
             spannableString4 = new SpannableString(str3);
             UtilHelper.setSpan(spannableString4, str3, str3, foregroundColorSpan);
             UtilHelper.setSpan(spannableString4, str3, l, foregroundColorSpan2);
-            String str4 = ("" + f16Var.g()) + this.b.getString(R.string.obfuscated_res_0x7f0f0f8f);
-            String str5 = this.b.getString(R.string.obfuscated_res_0x7f0f0f89) + "    " + str4;
+            String str4 = ("" + f16Var.g()) + this.b.getString(R.string.obfuscated_res_0x7f0f0f90);
+            String str5 = this.b.getString(R.string.obfuscated_res_0x7f0f0f8a) + "    " + str4;
             SpannableString spannableString6 = new SpannableString(str5);
             UtilHelper.setSpan(spannableString6, str5, str5, foregroundColorSpan);
             UtilHelper.setSpan(spannableString6, str5, str4, foregroundColorSpan2);
             UtilHelper.setSpan(spannableString6, str5, str4, absoluteSizeSpan);
             spannableString3 = spannableString6;
-            SpannableString c2 = c(R.string.obfuscated_res_0x7f0f0f8e, f16Var.f(), foregroundColorSpan, foregroundColorSpan2);
+            SpannableString c2 = c(R.string.obfuscated_res_0x7f0f0f8f, f16Var.f(), foregroundColorSpan, foregroundColorSpan2);
             String str6 = "" + f16Var.j();
-            String str7 = this.b.getString(R.string.obfuscated_res_0x7f0f0f88) + "    " + str6;
+            String str7 = this.b.getString(R.string.obfuscated_res_0x7f0f0f89) + "    " + str6;
             spannableString2 = new SpannableString(str7);
             UtilHelper.setSpan(spannableString2, str7, str7, foregroundColorSpan);
             UtilHelper.setSpan(spannableString2, str7, str6, foregroundColorSpan2);

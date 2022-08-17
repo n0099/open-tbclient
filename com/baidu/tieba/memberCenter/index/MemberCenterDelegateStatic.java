@@ -162,7 +162,7 @@ public class MemberCenterDelegateStatic extends m65 {
             n65 n65Var = new n65();
             n65Var.a = new MemberCenterFragment();
             n65Var.e = 14;
-            n65Var.b = R.string.obfuscated_res_0x7f0f0aac;
+            n65Var.b = R.string.obfuscated_res_0x7f0f0aad;
             return n65Var;
         }
         return (n65) invokeV.objValue;

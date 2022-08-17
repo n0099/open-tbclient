@@ -14,7 +14,6 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,11 +29,10 @@ public class gz6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
     public TbPageContext<?> b;
-    public v07 c;
+    public u07 c;
     public String d;
-    public boolean e;
-    public un f;
-    public b06<n06> g;
+    public un e;
+    public b06<n06> f;
 
     /* loaded from: classes6.dex */
     public class a extends b06<n06> {
@@ -71,12 +69,11 @@ public class gz6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
                 if (view2 == null || this.b.c == null || n06Var == null || n06Var.getThreadData() == null || StringUtils.isNull(n06Var.getThreadData().getTid())) {
                     return;
                 }
-                if ((view2.getTag() instanceof String) && !yy6.b(og.g(n06Var.getThreadData().getTid(), 0L))) {
-                    yy6.a(og.g(n06Var.getThreadData().getTid(), 0L));
+                if ((view2.getTag() instanceof String) && !xy6.b(og.g(n06Var.getThreadData().getTid(), 0L))) {
+                    xy6.a(og.g(n06Var.getThreadData().getTid(), 0L));
                     this.b.c.e(og.g(n06Var.getThreadData().getTid(), 0L), n06Var.D(), n06Var.r(), n06Var.n(), n06Var.c(), og.e((String) view2.getTag(), 1), "homepage", n06Var.getThreadData().getBaijiahaoData());
                 }
                 this.b.y(view2, n06Var);
-                TbSingleton.getInstance().saveHomeRecommendItemClickTime();
             }
         }
     }
@@ -112,8 +109,8 @@ public class gz6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
                 n06 n06Var = (n06) onVar;
                 n06Var.f = 1;
-                if (this.a.g != null) {
-                    this.a.g.a(threadCardViewHolder.getView(), n06Var);
+                if (this.a.f != null) {
+                    this.a.f.a(threadCardViewHolder.getView(), n06Var);
                 }
                 ThreadCardUtils.jumpToPB((fo4) n06Var, view2.getContext(), 2, false);
                 threadCardViewHolder.a().o(new oy.a(1));
@@ -140,8 +137,7 @@ public class gz6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
                 return;
             }
         }
-        this.e = true;
-        this.g = new a(this);
+        this.f = new a(this);
         this.b = tbPageContext;
         v();
     }
@@ -149,7 +145,7 @@ public class gz6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
     public void A(un unVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, unVar) == null) {
-            this.f = unVar;
+            this.e = unVar;
         }
     }
 
@@ -186,11 +182,10 @@ public class gz6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
             dy.b bVar = new dy.b(this.b.getPageActivity(), false);
-            rx rxVar = new rx(this.b.getPageActivity());
-            rxVar.s("index");
-            rxVar.t(this.e);
-            bVar.n(rxVar);
-            dy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.f);
+            bx bxVar = new bx(this.b.getPageActivity());
+            bxVar.u();
+            bVar.h(bxVar);
+            dy k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.e);
             k.r(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.i(this.a);
@@ -216,75 +211,51 @@ public class gz6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
             threadCardViewHolder.a().b(this.d);
             threadCardViewHolder.e(n06Var);
             threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.a().p(this.g);
+            threadCardViewHolder.a().p(this.f);
             uz5.b().a(n06Var.B());
             nl5.c().a(n06Var.B());
-            c17.i(n06Var.a, this.a, n06Var.n());
-            c17.h(n06Var.a, n06Var.r(), n06Var.n());
+            b17.i(n06Var.a, this.a, n06Var.n());
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }
 
     public final void y(View view2, n06 n06Var) {
+        StatisticItem A;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, view2, n06Var) == null) {
             int id = view2.getId();
-            int i = 3;
+            if (n06Var == null) {
+                return;
+            }
             if (view2.getId() == R.id.obfuscated_res_0x7f09212a || id == R.id.obfuscated_res_0x7f09213e) {
-                TiebaStatic.log(n06Var.A());
-                nl5.c().i("page_recommend", "clk_", n06Var.A());
-                c17.c(n06Var.a, n06Var.r(), n06Var.n(), 1);
-                i = 1;
-            } else {
-                if (id == R.id.obfuscated_res_0x7f092422) {
-                    TiebaStatic.log(n06Var.S());
-                    nl5.c().i("page_recommend", "clk_", n06Var.S());
-                } else if (id == R.id.obfuscated_res_0x7f092450) {
-                    TiebaStatic.log(n06Var.S());
-                    nl5.c().i("page_recommend", "clk_", n06Var.S());
-                } else if (id == R.id.obfuscated_res_0x7f090a74) {
-                    TiebaStatic.log(n06Var.j());
-                    nl5.c().i("page_recommend", "clk_", n06Var.j());
-                    i = 9;
+                if (n06Var.isVideoThreadType()) {
+                    A = n06Var.C();
                 } else {
-                    if (id == R.id.obfuscated_res_0x7f090cb9) {
-                        StatisticItem statisticItem = new StatisticItem("c10760");
-                        statisticItem.param("obj_locate", 2);
-                        TiebaStatic.log(statisticItem);
-                        c17.c(n06Var.a, n06Var.r(), n06Var.n(), 1);
-                    } else if (id != R.id.obfuscated_res_0x7f090cbc && id != R.id.obfuscated_res_0x7f090cbd) {
-                        if (view2 instanceof TbImageView) {
-                            if (view2.getTag(R.id.obfuscated_res_0x7f090cba) instanceof Integer) {
-                                StatisticItem statisticItem2 = new StatisticItem("c10760");
-                                statisticItem2.param("obj_locate", 3);
-                                TiebaStatic.log(statisticItem2);
-                            }
-                            TiebaStatic.log(n06Var.P());
-                            nl5.c().i("page_recommend", "clk_", n06Var.P());
-                            c17.c(n06Var.a, n06Var.r(), n06Var.n(), 2);
-                        } else {
-                            i = 0;
-                        }
-                    } else {
-                        StatisticItem statisticItem3 = new StatisticItem("c10760");
-                        statisticItem3.param("obj_locate", 1);
-                        TiebaStatic.log(statisticItem3);
-                    }
-                    i = 5;
+                    A = n06Var.A();
                 }
-                i = 2;
+                TbSingleton.getInstance().setCurrentClickTime(TiebaStatic.logWithBackTime(A));
+                nl5.c().i("page_recommend", "clk_", A);
+                i = 1;
+                b17.b(n06Var.a, n06Var.r(), n06Var.n());
+            } else if (id == R.id.obfuscated_res_0x7f090a74 || id == R.id.obfuscated_res_0x7f090a4c) {
+                TiebaStatic.log(n06Var.j());
+                nl5.c().i("page_recommend", "clk_", n06Var.j());
+                i = 9;
+            } else {
+                i = 0;
             }
             if (i != 0) {
-                c17.d(n06Var.a, this.a, n06Var.n(), i);
+                b17.d(n06Var.a, this.a, n06Var.n(), i);
             }
         }
     }
 
-    public void z(v07 v07Var) {
+    public void z(u07 u07Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v07Var) == null) {
-            this.c = v07Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, u07Var) == null) {
+            this.c = u07Var;
         }
     }
 }

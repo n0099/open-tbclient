@@ -53,12 +53,12 @@ public class cz1 implements Runnable {
 
         /* renamed from: com.repackage.cz1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0462a implements Runnable {
+        public class RunnableC0464a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0462a(a aVar) {
+            public RunnableC0464a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -148,7 +148,7 @@ public class cz1 implements Runnable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, webSocketFrame) == null) {
                 this.a.d.offer(webSocketFrame.g());
-                this.a.f.postOnJSThread(new RunnableC0462a(this));
+                this.a.f.postOnJSThread(new RunnableC0464a(this));
             }
         }
 

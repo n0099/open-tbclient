@@ -120,7 +120,7 @@ public class p33 {
         if (TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction())) {
             this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f01e1);
         } else if (TextUtils.equals(PackageChangedReceiver.ACTION_UNINSTALL, intent.getAction())) {
-            this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f123a);
+            this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f123c);
         }
         this.b.setFloatButtonText(this.c);
     }
@@ -153,7 +153,7 @@ public class p33 {
                     this.b = a(activity, (ViewGroup) activity.findViewById(16908290));
                 }
                 this.b.setFloatButtonText(this.c);
-                this.b.setFloatButtonDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08111e));
+                this.b.setFloatButtonDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08111f));
                 this.b.setFloatButtonDefaultPosition();
                 this.b.setFloatButtonStyle(this.d);
                 this.b.setVisibility(0);
@@ -179,7 +179,7 @@ public class p33 {
         if (te3.F(activity, optString)) {
             string = activity.getString(R.string.obfuscated_res_0x7f0f01e1);
         } else {
-            string = activity.getString(R.string.obfuscated_res_0x7f0f123a);
+            string = activity.getString(R.string.obfuscated_res_0x7f0f123c);
         }
         this.c = string;
         this.d = jSONObject.optJSONObject("style");

@@ -287,13 +287,13 @@ public class st2 {
             if (i2 != 0) {
                 if (i2 != 1) {
                     if (i2 != 2) {
-                        return context.getString(R.string.obfuscated_res_0x7f0f124a);
+                        return context.getString(R.string.obfuscated_res_0x7f0f124c);
                     }
-                    return context.getString(R.string.obfuscated_res_0x7f0f1249);
+                    return context.getString(R.string.obfuscated_res_0x7f0f124b);
                 }
-                return context.getString(R.string.obfuscated_res_0x7f0f124b);
+                return context.getString(R.string.obfuscated_res_0x7f0f124d);
             }
-            return context.getString(R.string.obfuscated_res_0x7f0f124c);
+            return context.getString(R.string.obfuscated_res_0x7f0f124e);
         }
         return (String) invokeIL.objValue;
     }

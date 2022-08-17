@@ -357,7 +357,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
     public void showToast(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            qi.O(getApplicationContext(), str);
+            qi.N(getApplicationContext(), str);
         }
     }
 

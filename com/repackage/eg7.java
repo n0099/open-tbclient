@@ -1,11 +1,17 @@
 package com.repackage;
 
+import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
 import com.baidu.tieba.legoBusiness.homeExtra.interviewLiveSquare.AlarmReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,27 +47,49 @@ public class eg7 extends bl4 {
         Map.Entry<String, String> next;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, hashMap, str)) == null) {
-            Context baseContext = TbadkCoreApplication.getInst().getBaseContext();
+            Context context = TbadkCoreApplication.getInst().getContext();
             gl4 gl4Var = new gl4();
-            if (obj instanceof ye7) {
-                ye7 ye7Var = (ye7) obj;
-                Intent intent = new Intent(baseContext, AlarmReceiver.class);
+            if (obj instanceof xe7) {
+                xe7 xe7Var = (xe7) obj;
+                boolean c = xe7Var.c();
+                AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+                Intent intent = new Intent(context, AlarmReceiver.class);
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (currentAccount == null) {
+                    currentAccount = "";
+                }
+                intent.putExtra("uid", TbadkCoreApplication.getCurrentAccount());
+                intent.setData(Uri.parse(currentAccount));
+                long j = 0;
                 Iterator<Map.Entry<String, String>> it = hashMap.entrySet().iterator();
                 int i = 0;
                 while (it.hasNext() && (next = it.next()) != null) {
                     intent.putExtra(next.getKey(), next.getValue());
                     if ("task_id".equals(next.getKey())) {
                         i = Integer.parseInt(next.getValue());
+                    } else if ("s_time".equals(next.getKey())) {
+                        j = Long.parseLong(next.getValue()) * 1000;
                     }
                 }
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
+                StatisticItem statisticItem = new StatisticItem(xe7Var.i());
+                statisticItem.param("obj_id", "");
+                if (c) {
+                    statisticItem.param("obj_type", "2");
+                    BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f0940)).i();
+                    PendingIntent broadcast = PendingIntent.getBroadcast(context, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
+                    if (broadcast != null) {
+                        alarmManager.cancel(broadcast);
+                        broadcast.cancel();
+                    }
+                    gl4Var.a = false;
+                } else {
+                    statisticItem.param("obj_type", "1");
+                    BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f094b)).i();
+                    alarmManager.set(0, j, PendingIntent.getBroadcast(context, i, intent, 134217728));
+                    gl4Var.a = true;
                 }
-                intent.setData(Uri.parse(currentAccount));
-                gl4Var.a = PendingIntent.getBroadcast(baseContext, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != null;
-                ye7Var.m(true);
-                ye7Var.l(gl4Var.a);
+                TiebaStatic.log(statisticItem);
+                xe7Var.l(gl4Var.a);
             }
             return gl4Var;
         }
@@ -72,6 +100,6 @@ public class eg7 extends bl4 {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interview/checkInterviewNoticeStatus" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interview/registerInterviewNotice" : (String) invokeV.objValue;
     }
 }

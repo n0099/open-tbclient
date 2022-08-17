@@ -90,12 +90,12 @@ public class er4 implements vv4 {
                 return null;
             }
             ArrayList<Integer> arrayList = new ArrayList<>();
-            arrayList.add(Integer.valueOf(cf7.b(this.k.day.light_color)));
-            arrayList.add(Integer.valueOf(cf7.b(this.k.day.dark_color)));
-            arrayList.add(Integer.valueOf(cf7.b(this.k.night.light_color)));
-            arrayList.add(Integer.valueOf(cf7.b(this.k.night.dark_color)));
-            arrayList.add(Integer.valueOf(cf7.b(this.k.dark.light_color)));
-            arrayList.add(Integer.valueOf(cf7.b(this.k.dark.dark_color)));
+            arrayList.add(Integer.valueOf(bf7.b(this.k.day.light_color)));
+            arrayList.add(Integer.valueOf(bf7.b(this.k.day.dark_color)));
+            arrayList.add(Integer.valueOf(bf7.b(this.k.night.light_color)));
+            arrayList.add(Integer.valueOf(bf7.b(this.k.night.dark_color)));
+            arrayList.add(Integer.valueOf(bf7.b(this.k.dark.light_color)));
+            arrayList.add(Integer.valueOf(bf7.b(this.k.dark.dark_color)));
             return arrayList;
         }
         return (ArrayList) invokeV.objValue;

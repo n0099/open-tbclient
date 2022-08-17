@@ -785,7 +785,7 @@ public class BdThumbSeekBarView extends View {
         this.m = 0.0f;
         this.n = 0;
         if (this.h == null) {
-            this.h = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080d7c);
+            this.h = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080d7d);
         }
         this.i = zw0.a(this, 0.0f);
         if (this.j == null) {

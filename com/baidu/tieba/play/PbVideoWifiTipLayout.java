@@ -137,13 +137,13 @@ public class PbVideoWifiTipLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             if (i > 0) {
-                this.a.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0df6), StringHelper.stringForVideoTime(i * 1000)));
+                this.a.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0df7), StringHelper.stringForVideoTime(i * 1000)));
             } else {
                 this.a.setVisibility(8);
                 this.d.setVisibility(8);
             }
             if (i2 > 0) {
-                this.b.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0df2), new DecimalFormat("0.0").format(i2 / 1048576.0f)));
+                this.b.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0df3), new DecimalFormat("0.0").format(i2 / 1048576.0f)));
             } else {
                 this.b.setVisibility(8);
                 this.d.setVisibility(8);

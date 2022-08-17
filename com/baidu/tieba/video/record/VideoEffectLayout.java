@@ -549,9 +549,9 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
             stickerItem.id = -1;
             stickerItem.name = "nosticker";
             this.o = stickerItem;
-            this.k = getResources().getString(R.string.obfuscated_res_0x7f0f0b2a);
-            getResources().getString(R.string.obfuscated_res_0x7f0f0b2a);
-            new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0b2a));
+            this.k = getResources().getString(R.string.obfuscated_res_0x7f0f0b2b);
+            getResources().getString(R.string.obfuscated_res_0x7f0f0b2b);
+            new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0b2b));
         }
     }
 
@@ -564,10 +564,10 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
             HListView hListView = (HListView) findViewById(R.id.obfuscated_res_0x7f090875);
             this.a = hListView;
             hListView.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9));
-            this.a.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08120f));
+            this.a.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081210));
             HListView hListView2 = (HListView) findViewById(R.id.obfuscated_res_0x7f091f36);
             this.b = hListView2;
-            hListView2.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08120f));
+            hListView2.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081210));
             iu8 iu8Var = new iu8();
             this.c = iu8Var;
             this.a.setAdapter((ListAdapter) iu8Var);
@@ -676,7 +676,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
             return;
         }
         iu8Var.c();
-        this.k = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b2a);
+        this.k = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b2b);
     }
 
     public void w() {

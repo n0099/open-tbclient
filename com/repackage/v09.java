@@ -201,7 +201,7 @@ public class v09 extends BaseAdapter {
             TbCheckBox tbCheckBox = (TbCheckBox) bVar.a.findViewById(R.id.obfuscated_res_0x7f09062e);
             bVar.e = tbCheckBox;
             tbCheckBox.setBackgroundDrawableIdIsWebP(true);
-            bVar.e.setBackgroundDrawableId(R.drawable.obfuscated_res_0x7f0809d9, R.drawable.obfuscated_res_0x7f0809d8);
+            bVar.e.setBackgroundDrawableId(R.drawable.obfuscated_res_0x7f0809da, R.drawable.obfuscated_res_0x7f0809d9);
             TbCheckBox.b bVar2 = this.d;
             if (bVar2 != null) {
                 bVar.e.setStatedChangedListener(bVar2);

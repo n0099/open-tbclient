@@ -223,7 +223,7 @@ public class ma6 extends z25 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
             if ("#(meme,diysetting)".equals(str)) {
-                return new zm(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f0808bf)), false);
+                return new zm(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f0808c0)), false);
             }
             File u = u(str);
             if (u == null || (image = FileHelper.getImage(u.getAbsolutePath())) == null) {
@@ -241,7 +241,7 @@ public class ma6 extends z25 {
             return;
         }
         this.g = i;
-        zm zmVar = new zm(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f080929)), false);
+        zm zmVar = new zm(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f08092a)), false);
         super.s(zmVar);
         super.r(zmVar);
         i55.k().h(kg.h().g("#(meme,diysetting)", 20));
@@ -303,7 +303,7 @@ public class ma6 extends z25 {
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             t(2);
             q(4);
-            zm zmVar = new zm(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f080929)), false);
+            zm zmVar = new zm(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f08092a)), false);
             super.s(zmVar);
             super.r(zmVar);
             y();

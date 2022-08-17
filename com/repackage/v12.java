@@ -154,9 +154,9 @@ public class v12 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatus) == null) {
             int i = b.a[networkStatus.ordinal()];
             if (i != 1 && i != 2) {
-                z02.f(R.string.obfuscated_res_0x7f0f1311);
+                z02.f(R.string.obfuscated_res_0x7f0f1313);
             } else {
-                z02.f(R.string.obfuscated_res_0x7f0f1307);
+                z02.f(R.string.obfuscated_res_0x7f0f1309);
             }
         }
     }

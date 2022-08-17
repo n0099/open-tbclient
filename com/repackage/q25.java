@@ -32,9 +32,9 @@ public class q25 extends s25 {
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ae8);
-        this.d = i == -1 ? R.drawable.obfuscated_res_0x7f0809a4 : i;
-        this.e = R.drawable.obfuscated_res_0x7f080802;
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ae9);
+        this.d = i == -1 ? R.drawable.obfuscated_res_0x7f0809a5 : i;
+        this.e = R.drawable.obfuscated_res_0x7f080803;
         this.i = false;
         this.j = true;
         this.m = new MoreDeskView(context);
@@ -62,9 +62,9 @@ public class q25 extends s25 {
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ae8);
-        this.d = R.drawable.obfuscated_res_0x7f0809a4;
-        this.e = R.drawable.obfuscated_res_0x7f080802;
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ae9);
+        this.d = R.drawable.obfuscated_res_0x7f0809a5;
+        this.e = R.drawable.obfuscated_res_0x7f080803;
         this.i = false;
         this.j = true;
         this.m = new MoreDeskView(context, !z);

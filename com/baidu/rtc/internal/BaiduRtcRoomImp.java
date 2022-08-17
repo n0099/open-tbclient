@@ -55,7 +55,7 @@ import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.repackage.c;
-import com.repackage.hu9;
+import com.repackage.ju9;
 import com.repackage.u00;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
@@ -806,7 +806,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         this.mWebSocketChannel.setSDK(Constraints.sdkVersion());
         this.mAppId = str;
         this.mWebSocketChannel.setDelegate(this);
-        this.rootEglBase = hu9.a();
+        this.rootEglBase = ju9.a();
         int i3 = 0;
         while (true) {
             boolean[] zArr = this.mHasVideoView;

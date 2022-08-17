@@ -2,6 +2,7 @@ package com.repackage;
 
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
@@ -18,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dy;
 import com.repackage.oy;
 /* loaded from: classes6.dex */
-public class gx6 extends ex6<ir4, ThreadCardViewHolder<ThreadData>> {
+public class gx6 extends dx6<ir4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b06<ThreadData> e;
@@ -100,7 +101,7 @@ public class gx6 extends ex6<ir4, ThreadCardViewHolder<ThreadData>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gx6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL);
+        super(tbPageContext, ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,10 +129,10 @@ public class gx6 extends ex6<ir4, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             dy.b bVar = new dy.b(this.b.getPageActivity(), false);
-            nx nxVar = new nx(this.b.getPageActivity());
-            nxVar.t("hot_topic");
-            nxVar.u(this.a);
-            bVar.n(nxVar);
+            qx qxVar = new qx(this.b.getPageActivity());
+            qxVar.r("hot_topic");
+            qxVar.s(t());
+            bVar.n(qxVar);
             dy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.c);
             k.r(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
@@ -143,7 +144,7 @@ public class gx6 extends ex6<ir4, ThreadCardViewHolder<ThreadData>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ex6, com.repackage.bn
+    @Override // com.repackage.dx6, com.repackage.bn
     /* renamed from: z */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ir4 ir4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
         InterceptResult invokeCommon;
@@ -158,6 +159,13 @@ public class gx6 extends ex6<ir4, ThreadCardViewHolder<ThreadData>> {
             threadCardViewHolder.e(ir4Var.t);
             threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
             threadCardViewHolder.a().p(this.e);
+            qx qxVar = (qx) threadCardViewHolder.a().g();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) qxVar.f.d.getLayoutParams();
+            layoutParams.width = ir4Var.u;
+            layoutParams.height = ir4Var.v;
+            if (qxVar.f.d.getVisibility() != 8) {
+                qxVar.f.d.setLayoutParams(layoutParams);
+            }
             w(threadCardViewHolder.getView(), ir4Var.t, i, i);
             return threadCardViewHolder.getView();
         }

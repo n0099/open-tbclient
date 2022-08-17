@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.memory;
 
+import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,20 +9,29 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.logging.FLog;
 import com.facebook.common.memory.ByteArrayPool;
+import com.facebook.common.memory.MemoryTrimmableRegistry;
 import com.facebook.common.memory.PooledByteBufferFactory;
 import com.facebook.common.memory.PooledByteStreams;
+import com.facebook.imagepipeline.core.NativeCodeSetup;
+import java.lang.reflect.InvocationTargetException;
+import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes4.dex */
 public class PoolFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public MemoryChunkPool mAshmemMemoryChunkPool;
     public BitmapPool mBitmapPool;
-    public BufferMemoryChunkPool mBufferMemoryChunkPool;
+    @Nullable
+    public MemoryChunkPool mBufferMemoryChunkPool;
     public final PoolConfig mConfig;
     public FlexByteArrayPool mFlexByteArrayPool;
-    public NativeMemoryChunkPool mNativeMemoryChunkPool;
+    @Nullable
+    public MemoryChunkPool mNativeMemoryChunkPool;
     public PooledByteBufferFactory mPooledByteBufferFactory;
     public PooledByteStreams mPooledByteStreams;
     public SharedByteArray mSharedByteArray;
@@ -45,15 +55,44 @@ public class PoolFactory {
         this.mConfig = (PoolConfig) Preconditions.checkNotNull(poolConfig);
     }
 
+    @Nullable
+    private MemoryChunkPool getAshmemMemoryChunkPool() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            if (this.mAshmemMemoryChunkPool == null) {
+                try {
+                    this.mAshmemMemoryChunkPool = (MemoryChunkPool) Class.forName("com.facebook.imagepipeline.memory.AshmemMemoryChunkPool").getConstructor(MemoryTrimmableRegistry.class, PoolParams.class, PoolStatsTracker.class).newInstance(this.mConfig.getMemoryTrimmableRegistry(), this.mConfig.getMemoryChunkPoolParams(), this.mConfig.getMemoryChunkPoolStatsTracker());
+                } catch (ClassNotFoundException unused) {
+                    this.mAshmemMemoryChunkPool = null;
+                } catch (IllegalAccessException unused2) {
+                    this.mAshmemMemoryChunkPool = null;
+                } catch (InstantiationException unused3) {
+                    this.mAshmemMemoryChunkPool = null;
+                } catch (NoSuchMethodException unused4) {
+                    this.mAshmemMemoryChunkPool = null;
+                } catch (InvocationTargetException unused5) {
+                    this.mAshmemMemoryChunkPool = null;
+                }
+            }
+            return this.mAshmemMemoryChunkPool;
+        }
+        return (MemoryChunkPool) invokeV.objValue;
+    }
+
+    @Nullable
     private MemoryChunkPool getMemoryChunkPool(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
             if (i != 0) {
-                if (i == 1) {
-                    return getBufferMemoryChunkPool();
+                if (i != 1) {
+                    if (i == 2) {
+                        return getAshmemMemoryChunkPool();
+                    }
+                    throw new IllegalArgumentException("Invalid MemoryChunkType");
                 }
-                throw new IllegalArgumentException("Invalid MemoryChunkType");
+                return getBufferMemoryChunkPool();
             }
             return getNativeMemoryChunkPool();
         }
@@ -70,18 +109,24 @@ public class PoolFactory {
                 switch (bitmapPoolType.hashCode()) {
                     case -1868884870:
                         if (bitmapPoolType.equals(BitmapPoolType.LEGACY_DEFAULT_PARAMS)) {
-                            c = 2;
+                            c = 3;
                             break;
                         }
                         break;
                     case -1106578487:
                         if (bitmapPoolType.equals("legacy")) {
-                            c = 3;
+                            c = 4;
                             break;
                         }
                         break;
                     case -404562712:
                         if (bitmapPoolType.equals(BitmapPoolType.EXPERIMENTAL)) {
+                            c = 2;
+                            break;
+                        }
+                        break;
+                    case -402149703:
+                        if (bitmapPoolType.equals(BitmapPoolType.DUMMY_WITH_TRACKING)) {
                             c = 1;
                             break;
                         }
@@ -96,11 +141,17 @@ public class PoolFactory {
                 if (c == 0) {
                     this.mBitmapPool = new DummyBitmapPool();
                 } else if (c == 1) {
+                    this.mBitmapPool = new DummyTrackingInUseBitmapPool();
+                } else if (c == 2) {
                     this.mBitmapPool = new LruBitmapPool(this.mConfig.getBitmapPoolMaxPoolSize(), this.mConfig.getBitmapPoolMaxBitmapSize(), NoOpPoolStatsTracker.getInstance(), this.mConfig.isRegisterLruBitmapPoolAsMemoryTrimmable() ? this.mConfig.getMemoryTrimmableRegistry() : null);
-                } else if (c != 2) {
-                    this.mBitmapPool = new BucketsBitmapPool(this.mConfig.getMemoryTrimmableRegistry(), this.mConfig.getBitmapPoolParams(), this.mConfig.getBitmapPoolStatsTracker());
+                } else if (c != 3) {
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        this.mBitmapPool = new BucketsBitmapPool(this.mConfig.getMemoryTrimmableRegistry(), this.mConfig.getBitmapPoolParams(), this.mConfig.getBitmapPoolStatsTracker(), this.mConfig.isIgnoreBitmapPoolHardCap());
+                    } else {
+                        this.mBitmapPool = new DummyBitmapPool();
+                    }
                 } else {
-                    this.mBitmapPool = new BucketsBitmapPool(this.mConfig.getMemoryTrimmableRegistry(), DefaultBitmapPoolParams.get(), this.mConfig.getBitmapPoolStatsTracker());
+                    this.mBitmapPool = new BucketsBitmapPool(this.mConfig.getMemoryTrimmableRegistry(), DefaultBitmapPoolParams.get(), this.mConfig.getBitmapPoolStatsTracker(), this.mConfig.isIgnoreBitmapPoolHardCap());
                 }
             }
             return this.mBitmapPool;
@@ -108,16 +159,29 @@ public class PoolFactory {
         return (BitmapPool) invokeV.objValue;
     }
 
-    public BufferMemoryChunkPool getBufferMemoryChunkPool() {
+    @Nullable
+    public MemoryChunkPool getBufferMemoryChunkPool() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.mBufferMemoryChunkPool == null) {
-                this.mBufferMemoryChunkPool = new BufferMemoryChunkPool(this.mConfig.getMemoryTrimmableRegistry(), this.mConfig.getMemoryChunkPoolParams(), this.mConfig.getMemoryChunkPoolStatsTracker());
+                try {
+                    this.mBufferMemoryChunkPool = (MemoryChunkPool) Class.forName("com.facebook.imagepipeline.memory.BufferMemoryChunkPool").getConstructor(MemoryTrimmableRegistry.class, PoolParams.class, PoolStatsTracker.class).newInstance(this.mConfig.getMemoryTrimmableRegistry(), this.mConfig.getMemoryChunkPoolParams(), this.mConfig.getMemoryChunkPoolStatsTracker());
+                } catch (ClassNotFoundException unused) {
+                    this.mBufferMemoryChunkPool = null;
+                } catch (IllegalAccessException unused2) {
+                    this.mBufferMemoryChunkPool = null;
+                } catch (InstantiationException unused3) {
+                    this.mBufferMemoryChunkPool = null;
+                } catch (NoSuchMethodException unused4) {
+                    this.mBufferMemoryChunkPool = null;
+                } catch (InvocationTargetException unused5) {
+                    this.mBufferMemoryChunkPool = null;
+                }
             }
             return this.mBufferMemoryChunkPool;
         }
-        return (BufferMemoryChunkPool) invokeV.objValue;
+        return (MemoryChunkPool) invokeV.objValue;
     }
 
     public FlexByteArrayPool getFlexByteArrayPool() {
@@ -138,22 +202,43 @@ public class PoolFactory {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mConfig.getFlexByteArrayPoolParams().maxNumThreads : invokeV.intValue;
     }
 
-    public NativeMemoryChunkPool getNativeMemoryChunkPool() {
+    @Nullable
+    public MemoryChunkPool getNativeMemoryChunkPool() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.mNativeMemoryChunkPool == null) {
-                this.mNativeMemoryChunkPool = new NativeMemoryChunkPool(this.mConfig.getMemoryTrimmableRegistry(), this.mConfig.getMemoryChunkPoolParams(), this.mConfig.getMemoryChunkPoolStatsTracker());
+                try {
+                    this.mNativeMemoryChunkPool = (MemoryChunkPool) Class.forName("com.facebook.imagepipeline.memory.NativeMemoryChunkPool").getConstructor(MemoryTrimmableRegistry.class, PoolParams.class, PoolStatsTracker.class).newInstance(this.mConfig.getMemoryTrimmableRegistry(), this.mConfig.getMemoryChunkPoolParams(), this.mConfig.getMemoryChunkPoolStatsTracker());
+                } catch (ClassNotFoundException e) {
+                    FLog.e("PoolFactory", "", e);
+                    this.mNativeMemoryChunkPool = null;
+                } catch (IllegalAccessException e2) {
+                    FLog.e("PoolFactory", "", e2);
+                    this.mNativeMemoryChunkPool = null;
+                } catch (InstantiationException e3) {
+                    FLog.e("PoolFactory", "", e3);
+                    this.mNativeMemoryChunkPool = null;
+                } catch (NoSuchMethodException e4) {
+                    FLog.e("PoolFactory", "", e4);
+                    this.mNativeMemoryChunkPool = null;
+                } catch (InvocationTargetException e5) {
+                    FLog.e("PoolFactory", "", e5);
+                    this.mNativeMemoryChunkPool = null;
+                }
             }
             return this.mNativeMemoryChunkPool;
         }
-        return (NativeMemoryChunkPool) invokeV.objValue;
+        return (MemoryChunkPool) invokeV.objValue;
     }
 
     public PooledByteBufferFactory getPooledByteBufferFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getPooledByteBufferFactory(0) : (PooledByteBufferFactory) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return getPooledByteBufferFactory(!NativeCodeSetup.getUseNativeCode() ? 1 : 0);
+        }
+        return (PooledByteBufferFactory) invokeV.objValue;
     }
 
     public PooledByteStreams getPooledByteStreams() {
@@ -197,6 +282,8 @@ public class PoolFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             if (this.mPooledByteBufferFactory == null) {
+                MemoryChunkPool memoryChunkPool = getMemoryChunkPool(i);
+                Preconditions.checkNotNull(memoryChunkPool, "failed to get pool for chunk type: " + i);
                 this.mPooledByteBufferFactory = new MemoryPooledByteBufferFactory(getMemoryChunkPool(i), getPooledByteStreams());
             }
             return this.mPooledByteBufferFactory;

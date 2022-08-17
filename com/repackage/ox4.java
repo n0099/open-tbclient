@@ -51,9 +51,9 @@ public class ox4 {
             int l = ru4.k().l("pref_key_fun_ad_first_floor_min", 2);
             int l2 = ru4.k().l("pref_key_fun_ad_first_floor_max", 3);
             if (l < l2) {
-                a = g47.a(l, l2);
+                a = f47.a(l, l2);
             } else {
-                a = g47.a(l2, l);
+                a = f47.a(l2, l);
             }
             if (a < 0) {
                 a = 2;

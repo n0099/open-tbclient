@@ -152,10 +152,10 @@ public class VoteStatusCard extends LinearLayout {
                 ur4 ur4Var = new ur4((Activity) this.a.a);
                 View inflate = LayoutInflater.from(this.a.a).inflate(R.layout.obfuscated_res_0x7f0d013b, (ViewGroup) null);
                 TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09035d);
-                textView.setText(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f1589) + "\n" + this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f158a));
+                textView.setText(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f158c) + "\n" + this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f158d));
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
                 ur4Var.setContentView(inflate);
-                ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f09a0, new a(this));
+                ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f09a1, new a(this));
                 ur4Var.create(((BaseActivity) this.a.a).getPageContext());
                 SkinManager.setBackgroundShapeDrawable(ur4Var.getRealView(), qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds30), R.color.CAM_X0201, R.color.CAM_X0201);
                 ur4Var.show();
@@ -351,7 +351,7 @@ public class VoteStatusCard extends LinearLayout {
                     g(f.public_notice + "占");
                     return;
                 }
-                g(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1588) + "占");
+                g(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f158b) + "占");
                 return;
             }
             setVisibility(8);

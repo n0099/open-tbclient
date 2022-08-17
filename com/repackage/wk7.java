@@ -1,93 +1,77 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.AutoPayInfo;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
 import tbclient.GetVipInfo.DataRes;
-import tbclient.GetVipInfo.VipInfo;
-import tbclient.GetVipInfo.VipUpgrade;
-import tbclient.GetVipInfo.VipUser;
+import tbclient.GetVipInfo.VipBasicList;
+import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes7.dex */
-public class wk7 implements on {
+public class wk7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755198418, "Lcom/repackage/wk7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755198418, "Lcom/repackage/wk7;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-    }
+    public ArrayList<String> a;
+    public jk7 b;
+    public LinkedHashMap<String, mk7> c;
 
     public wk7(DataRes dataRes) {
-        VipUser vipUser;
-        VipUpgrade vipUpgrade;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {dataRes};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (dataRes == null || (vipUser = dataRes.user) == null || (vipUpgrade = dataRes.upgrade) == null) {
+        if (dataRes == null) {
             return;
         }
-        String str = vipUser.card_id;
-        String str2 = vipUser.total_scores_link;
-        String str3 = vipUser.speed_link;
-        String str4 = vipUser.task_scores_link;
-        vipUser.task_scores.intValue();
-        String str5 = vipUser.name;
-        vipUser.id.longValue();
-        String str6 = vipUser.portrait;
-        String str7 = vipUser.name_show;
-        String str8 = vipUser.vip_link;
-        VipInfo vipInfo = vipUser.vipInfo;
-        if (vipInfo != null) {
-            String str9 = vipInfo.icon_url;
-            vipInfo.s_time.intValue();
-            vipUser.vipInfo.e_time.intValue();
-            vipUser.now_time.intValue();
-            vipUser.vipInfo.v_status.intValue();
-            vipUser.vipInfo.v_level.intValue();
-            vipUser.vipInfo.ext_score.intValue();
-            vipUser.vipInfo.a_score.intValue();
-            vipUser.vipInfo.n_score.intValue();
+        String str = dataRes.grade_intro_title;
+        String str2 = dataRes.grade_intro_link;
+        new vk7(dataRes);
+        new xk7(dataRes.special_list);
+        new ok7(dataRes.cooperate_list);
+        new sk7(dataRes.theme_list);
+        new kk7(dataRes.banner_list);
+        new al7(dataRes.task_list);
+        new zk7(dataRes.rank, dataRes.user);
+        new qk7(dataRes.daily_list);
+        jk7 jk7Var = new jk7();
+        this.b = jk7Var;
+        jk7Var.a(dataRes);
+        List<VipBasicList> list = dataRes.basic_list;
+        if (list != null && list.size() > 0) {
+            this.c = new LinkedHashMap<>();
+            for (VipBasicList vipBasicList : dataRes.basic_list) {
+                List<VipSpecialItem> list2 = vipBasicList.item;
+                if (list2 != null && list2.size() > 0) {
+                    mk7 mk7Var = new mk7(vipBasicList);
+                    if (mk7Var.c != 3 || mk7Var.a().size() >= 2) {
+                        this.c.put(mk7Var.d, mk7Var);
+                    }
+                }
+            }
         }
-        dataRes.today_get_score.intValue();
-        dataRes.today_unget_score.intValue();
-        vipUpgrade.normal.intValue();
-        vipUpgrade.pay.intValue();
-        AutoPayInfo autoPayInfo = dataRes.autopay_info;
-    }
-
-    @Override // com.repackage.on
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
+        List<String> list3 = dataRes.card_order;
+        if (list3 == null || list3.size() <= 0) {
+            return;
+        }
+        this.a = new ArrayList<>();
+        for (String str3 : dataRes.card_order) {
+            if (!StringUtils.isNull(str3)) {
+                this.a.add(str3);
+            }
+        }
     }
 }

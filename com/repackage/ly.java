@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oy;
 import com.repackage.rw;
 /* loaded from: classes6.dex */
-public abstract class ly extends rw<fo4> implements j88 {
+public abstract class ly extends rw<fo4> implements i88 {
     public static /* synthetic */ Interceptable $ic;
     public static final int t;
     public static int u;
@@ -41,7 +41,7 @@ public abstract class ly extends rw<fo4> implements j88 {
     public TextView g;
     public fo4 h;
     public RoundCornerFrameLayout i;
-    public e98 j;
+    public d98 j;
     public String k;
     public String l;
     public BdUniqueId m;
@@ -237,23 +237,23 @@ public abstract class ly extends rw<fo4> implements j88 {
                     mz5.l(lyVar.g, lyVar.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                     return false;
                 } else if (aVar.b() == 2) {
-                    e98 e98Var = this.a.j;
-                    if (e98Var != null) {
-                        e98Var.onScroll();
+                    d98 d98Var = this.a.j;
+                    if (d98Var != null) {
+                        d98Var.onScroll();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 3) {
-                    e98 e98Var2 = this.a.j;
-                    if (e98Var2 != null) {
-                        e98Var2.onVolumeUp();
+                    d98 d98Var2 = this.a.j;
+                    if (d98Var2 != null) {
+                        d98Var2.onVolumeUp();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 6) {
-                    e98 e98Var3 = this.a.j;
-                    if (e98Var3 != null) {
-                        return e98Var3.onBackPress();
+                    d98 d98Var3 = this.a.j;
+                    if (d98Var3 != null) {
+                        return d98Var3.onBackPress();
                     }
                     return false;
                 } else if (aVar.b() == 7) {
@@ -321,14 +321,14 @@ public abstract class ly extends rw<fo4> implements j88 {
         this.s = new e(this);
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j.getCurrentPosition() : invokeV.intValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -342,7 +342,7 @@ public abstract class ly extends rw<fo4> implements j88 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -362,7 +362,7 @@ public abstract class ly extends rw<fo4> implements j88 {
                 }
                 this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092502);
                 this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ab9);
-                e98 q = q();
+                d98 q = q();
                 this.j = q;
                 q.setUniqueId(this.m);
                 this.j.setFrom(this.k);
@@ -386,28 +386,28 @@ public abstract class ly extends rw<fo4> implements j88 {
         }
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            e98 e98Var = this.j;
-            if (e98Var == null) {
+            d98 d98Var = this.j;
+            if (d98Var == null) {
                 return false;
             }
-            return e98Var.isFullScreen();
+            return d98Var.isFullScreen();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.j.isPlaying() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -426,13 +426,13 @@ public abstract class ly extends rw<fo4> implements j88 {
         this.i.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
     }
 
-    public e98 p() {
+    public d98 p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.j : (e98) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.j : (d98) invokeV.objValue;
     }
 
-    public abstract e98 q();
+    public abstract d98 q();
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Code restructure failed: missing block: B:30:0x00b5, code lost:
@@ -539,7 +539,7 @@ public abstract class ly extends rw<fo4> implements j88 {
         }
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
@@ -550,7 +550,7 @@ public abstract class ly extends rw<fo4> implements j88 {
         }
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
@@ -568,9 +568,9 @@ public abstract class ly extends rw<fo4> implements j88 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
             this.k = str;
-            e98 e98Var = this.j;
-            if (e98Var != null) {
-                e98Var.setFrom(str);
+            d98 d98Var = this.j;
+            if (d98Var != null) {
+                d98Var.setFrom(str);
             }
         }
     }
@@ -600,19 +600,19 @@ public abstract class ly extends rw<fo4> implements j88 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
             this.l = str;
-            e98 e98Var = this.j;
-            if (e98Var != null) {
-                e98Var.setStageType(str);
+            d98 d98Var = this.j;
+            if (d98Var != null) {
+                d98Var.setStageType(str);
             }
         }
     }
 
-    public void z(z88 z88Var) {
-        e98 e98Var;
+    public void z(y88 y88Var) {
+        d98 d98Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, z88Var) == null) || (e98Var = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, y88Var) == null) || (d98Var = this.j) == null) {
             return;
         }
-        e98Var.setStatistic(z88Var);
+        d98Var.setStatistic(y88Var);
     }
 }

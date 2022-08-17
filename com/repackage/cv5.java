@@ -90,7 +90,7 @@ public class cv5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 fi.a(this.a.w);
-                qi.O(this.b.a.getActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0450));
+                qi.N(this.b.a.getActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0450));
             }
         }
     }
@@ -531,7 +531,7 @@ public class cv5 {
         BaseFragment baseFragment;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (baseFragment = this.a) != null && baseFragment.isAdded()) {
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c3c);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c3d);
             if (this.f == null) {
                 h65 h65Var = new h65(this.a.getActivity(), new e(this));
                 this.f = h65Var;
@@ -664,7 +664,7 @@ public class cv5 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
             if (str.contains("nohead:url") || str.contains("booktown")) {
                 if (!TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                    qi.N(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0ea3);
+                    qi.M(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0ea4);
                 } else {
                     UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{str});
                 }
@@ -683,7 +683,7 @@ public class cv5 {
                 return false;
             }
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(DressupCenterActivityConfig.class)) {
-                qi.N(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0ea3);
+                qi.M(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0ea4);
             } else {
                 UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{str});
             }
@@ -740,7 +740,7 @@ public class cv5 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
             if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_LEGO)) {
                 if (!(MessageManager.getInstance().findTask(2016447) != null)) {
-                    qi.N(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0ea3);
+                    qi.M(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0ea4);
                 } else {
                     UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{str});
                 }
@@ -759,7 +759,7 @@ public class cv5 {
                 return false;
             }
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MembercenterActivityConfig.class)) {
-                qi.N(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0ea3);
+                qi.M(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0ea4);
             } else {
                 UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{str});
             }
@@ -798,7 +798,7 @@ public class cv5 {
                         this.l.setForumName(optString5);
                         this.l.setThreadId(optString4);
                         this.l.setTitle(optString);
-                        String format = MessageFormat.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f112d), optString, optString2);
+                        String format = MessageFormat.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f112e), optString, optString2);
                         ShareItem shareItem = new ShareItem();
                         shareItem.u = optString;
                         shareItem.v = format;

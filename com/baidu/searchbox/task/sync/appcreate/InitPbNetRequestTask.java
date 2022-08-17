@@ -8,9 +8,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dt4;
+import com.repackage.ou7;
 import com.repackage.pu7;
 import com.repackage.qu7;
-import com.repackage.ru7;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class InitPbNetRequestTask extends LaunchTask {
@@ -35,15 +35,20 @@ public class InitPbNetRequestTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (pu7.a().c() && dt4.a().c == 1) {
-                new ru7().i(dt4.a().d);
+            try {
+                Class.forName("com.baidu.tieba.pb.pb.main.PbActivityStatic");
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
-            if (pu7.a().c() && dt4.a().c == 2) {
+            if (ou7.a().c() && dt4.a().c == 1) {
+                new qu7().i(dt4.a().d);
+            }
+            if (ou7.a().c() && dt4.a().c == 2) {
                 try {
                     String str = dt4.a().d;
-                    qu7.l(new String[]{new JSONObject(str.substring(str.indexOf("tbyunpushnotifybody=") + 20)).getString("jump_scheme")});
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    pu7.l(new String[]{new JSONObject(str.substring(str.indexOf("tbyunpushnotifybody=") + 20)).getString("jump_scheme")});
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
             }
         }

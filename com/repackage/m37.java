@@ -1,9 +1,17 @@
 package com.repackage;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.List;
 /* loaded from: classes6.dex */
-public interface m37 {
-    void a();
+public class m37 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void j(int i, List<on> list);
+    public abstract void a();
+
+    public abstract void b(List<on> list);
+
+    public abstract void c(BdUniqueId bdUniqueId);
 }

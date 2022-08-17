@@ -208,9 +208,9 @@ public class PersonHeaderAttentionView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             Context context = this.a;
-            BdToast b = BdToast.b(context, String.format(context.getString(R.string.obfuscated_res_0x7f0f0e63), StringHelper.getUserDescByGender(i)));
+            BdToast b = BdToast.b(context, String.format(context.getString(R.string.obfuscated_res_0x7f0f0e64), StringHelper.getUserDescByGender(i)));
             b.f(BdToast.ToastIcon.FAILURE);
-            b.h();
+            b.i();
         }
     }
 

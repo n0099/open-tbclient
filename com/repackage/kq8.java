@@ -105,7 +105,7 @@ public class kq8 {
         NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f09255c);
         this.d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e6d);
+        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e6e);
         MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f09255b);
         this.e = memberRecommendView;
         memberRecommendView.setFromType(4);
@@ -115,7 +115,7 @@ public class kq8 {
         textView.setHeight(qi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
         TextView textView2 = (TextView) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0552, (ViewGroup) null);
         this.h = textView2;
-        textView2.setText(R.string.obfuscated_res_0x7f0f0ae4);
+        textView2.setText(R.string.obfuscated_res_0x7f0f0ae5);
         this.h.setOnClickListener(new a(this));
         this.j = new iq8(this.a.getPageContext(), lq8Var);
         TextView textView3 = new TextView(this.a.getActivity());
@@ -235,7 +235,7 @@ public class kq8 {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.c.setVisibility(8);
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
-            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c56);
+            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c57);
             this.a.setNetRefreshViewTopMargin(this.i);
             this.a.showNetRefreshView(this.b, string, false);
         }

@@ -80,9 +80,9 @@ public class uf5 {
                 if (postWriteCallBackData == null) {
                     return false;
                 }
-                wm8.k().h(true, postWriteCallBackData, b, c, d);
+                vm8.k().h(true, postWriteCallBackData, b, c, d);
             } else {
-                wm8.k().h(false, a, null, c, d);
+                vm8.k().h(false, a, null, c, d);
             }
             a = null;
             b = null;

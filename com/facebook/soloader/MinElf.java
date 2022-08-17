@@ -1,6 +1,10 @@
 package com.facebook.soloader;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
+import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,6 +53,84 @@ public final class MinElf {
                     return;
                 }
             }
+        }
+    }
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes4.dex */
+    public static final class ISA {
+        public static final /* synthetic */ ISA[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final ISA AARCH64;
+        public static final ISA ARM;
+        public static final ISA NOT_SO;
+        public static final ISA OTHERS;
+        public static final ISA X86;
+        public static final ISA X86_64;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String value;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(870657066, "Lcom/facebook/soloader/MinElf$ISA;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(870657066, "Lcom/facebook/soloader/MinElf$ISA;");
+                    return;
+                }
+            }
+            NOT_SO = new ISA("NOT_SO", 0, "not_so");
+            X86 = new ISA("X86", 1, "x86");
+            ARM = new ISA("ARM", 2, PassBiometricUtil.CPU_TYPE_ARMEABI_V7A);
+            X86_64 = new ISA("X86_64", 3, "x86_64");
+            AARCH64 = new ISA("AARCH64", 4, "arm64-v8a");
+            ISA isa = new ISA("OTHERS", 5, AccountConstants.LOGOUT_TYPE_NATIVE_SRC_OTHERS);
+            OTHERS = isa;
+            $VALUES = new ISA[]{NOT_SO, X86, ARM, X86_64, AARCH64, isa};
+        }
+
+        public ISA(String str, int i, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i), str2};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str3 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.value = str2;
+        }
+
+        public static ISA valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ISA) Enum.valueOf(ISA.class, str) : (ISA) invokeL.objValue;
+        }
+
+        public static ISA[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ISA[]) $VALUES.clone() : (ISA[]) invokeV.objValue;
+        }
+
+        @Override // java.lang.Enum
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : (String) invokeV.objValue;
         }
     }
 
@@ -160,9 +242,7 @@ public final class MinElf {
         InterceptResult invokeL;
         long j;
         long j2;
-        int i;
         long j3;
-        boolean z;
         long j4;
         long j5;
         long j6;
@@ -170,13 +250,6 @@ public final class MinElf {
         long j8;
         long j9;
         long j10;
-        long j11;
-        long j12;
-        long j13;
-        long j14;
-        long j15;
-        long j16;
-        long j17;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, fileChannel)) != null) {
             return (String[]) invokeL.objValue;
@@ -184,171 +257,137 @@ public final class MinElf {
         ByteBuffer allocate = ByteBuffer.allocate(8);
         allocate.order(ByteOrder.LITTLE_ENDIAN);
         if (getu32(fileChannel, allocate, 0L) == 1179403647) {
-            boolean z2 = getu8(fileChannel, allocate, 4L) == 1;
+            boolean z = getu8(fileChannel, allocate, 4L) == 1;
             if (getu8(fileChannel, allocate, 5L) == 2) {
                 allocate.order(ByteOrder.BIG_ENDIAN);
             }
-            if (z2) {
-                j = getu32(fileChannel, allocate, 28L);
-            } else {
-                j = get64(fileChannel, allocate, 32L);
-            }
-            if (z2) {
-                j2 = getu16(fileChannel, allocate, 44L);
-            } else {
-                j2 = getu16(fileChannel, allocate, 56L);
-            }
-            if (z2) {
-                i = getu16(fileChannel, allocate, 42L);
-            } else {
-                i = getu16(fileChannel, allocate, 54L);
-            }
-            if (j2 == WebSocketProtocol.PAYLOAD_SHORT_MAX) {
-                if (z2) {
-                    j16 = getu32(fileChannel, allocate, 32L);
+            long j11 = z ? getu32(fileChannel, allocate, 28L) : get64(fileChannel, allocate, 32L);
+            long j12 = z ? getu16(fileChannel, allocate, 44L) : getu16(fileChannel, allocate, 56L);
+            int i = getu16(fileChannel, allocate, z ? 42L : 54L);
+            if (j12 == WebSocketProtocol.PAYLOAD_SHORT_MAX) {
+                long j13 = z ? getu32(fileChannel, allocate, 32L) : get64(fileChannel, allocate, 40L);
+                if (z) {
+                    j10 = getu32(fileChannel, allocate, j13 + 28);
                 } else {
-                    j16 = get64(fileChannel, allocate, 40L);
+                    j10 = getu32(fileChannel, allocate, j13 + 44);
                 }
-                if (z2) {
-                    j17 = getu32(fileChannel, allocate, j16 + 28);
-                } else {
-                    j17 = getu32(fileChannel, allocate, j16 + 44);
-                }
-                j2 = j17;
+                j12 = j10;
             }
-            long j18 = j;
-            long j19 = 0;
+            long j14 = j11;
+            long j15 = 0;
             while (true) {
-                if (j19 >= j2) {
-                    j3 = 0;
+                if (j15 >= j12) {
+                    j = 0;
                     break;
                 }
-                if (z2) {
-                    j15 = getu32(fileChannel, allocate, j18 + 0);
+                if (z) {
+                    j9 = getu32(fileChannel, allocate, j14 + 0);
                 } else {
-                    j15 = getu32(fileChannel, allocate, j18 + 0);
+                    j9 = getu32(fileChannel, allocate, j14 + 0);
                 }
-                if (j15 != 2) {
-                    j18 += i;
-                    j19++;
-                } else if (z2) {
-                    j3 = getu32(fileChannel, allocate, j18 + 4);
+                if (j9 != 2) {
+                    j14 += i;
+                    j15++;
+                } else if (z) {
+                    j = getu32(fileChannel, allocate, j14 + 4);
                 } else {
-                    j3 = get64(fileChannel, allocate, j18 + 8);
+                    j = get64(fileChannel, allocate, j14 + 8);
                 }
             }
-            long j20 = 0;
-            if (j3 == 0) {
+            long j16 = 0;
+            if (j == 0) {
                 throw new ElfError("ELF file does not contain dynamic linking information");
             }
-            long j21 = j3;
-            long j22 = 0;
+            long j17 = j;
+            long j18 = 0;
             int i2 = 0;
             while (true) {
-                if (z2) {
-                    z = z2;
-                    j4 = getu32(fileChannel, allocate, j21 + j20);
-                } else {
-                    z = z2;
-                    j4 = get64(fileChannel, allocate, j21 + j20);
-                }
-                if (j4 == 1) {
-                    j5 = j3;
+                boolean z2 = z;
+                long j19 = z ? getu32(fileChannel, allocate, j17 + j16) : get64(fileChannel, allocate, j17 + j16);
+                if (j19 == 1) {
+                    j2 = j;
                     if (i2 == Integer.MAX_VALUE) {
                         throw new ElfError("malformed DT_NEEDED section");
                     }
                     i2++;
                 } else {
-                    j5 = j3;
-                    if (j4 == 5) {
-                        if (z) {
-                            j6 = getu32(fileChannel, allocate, j21 + 4);
-                        } else {
-                            j6 = get64(fileChannel, allocate, j21 + 8);
-                        }
-                        j22 = j6;
+                    j2 = j;
+                    if (j19 == 5) {
+                        j18 = z2 ? getu32(fileChannel, allocate, j17 + 4) : get64(fileChannel, allocate, j17 + 8);
                     }
                 }
-                long j23 = 16;
-                j21 += z ? 8L : 16L;
-                j20 = 0;
-                if (j4 != 0) {
-                    z2 = z;
-                    j3 = j5;
-                } else if (j22 == 0) {
+                long j20 = 16;
+                j17 += z2 ? 8L : 16L;
+                j16 = 0;
+                if (j19 != 0) {
+                    z = z2;
+                    j = j2;
+                } else if (j18 == 0) {
                     throw new ElfError("Dynamic section string-table not found");
                 } else {
                     int i3 = 0;
                     while (true) {
-                        if (i3 >= j2) {
-                            j7 = 0;
+                        if (i3 >= j12) {
+                            j3 = 0;
                             break;
                         }
-                        if (z) {
-                            j10 = getu32(fileChannel, allocate, j + j20);
+                        if (z2) {
+                            j4 = getu32(fileChannel, allocate, j11 + j16);
                         } else {
-                            j10 = getu32(fileChannel, allocate, j + j20);
+                            j4 = getu32(fileChannel, allocate, j11 + j16);
                         }
-                        if (j10 == 1) {
-                            if (z) {
-                                j12 = getu32(fileChannel, allocate, j + 8);
+                        if (j4 == 1) {
+                            if (z2) {
+                                j6 = getu32(fileChannel, allocate, j11 + 8);
                             } else {
-                                j12 = get64(fileChannel, allocate, j + j23);
+                                j6 = get64(fileChannel, allocate, j11 + j20);
                             }
-                            if (z) {
-                                j11 = j2;
-                                j13 = getu32(fileChannel, allocate, j + 20);
+                            if (z2) {
+                                j5 = j12;
+                                j7 = getu32(fileChannel, allocate, j11 + 20);
                             } else {
-                                j11 = j2;
-                                j13 = get64(fileChannel, allocate, j + 40);
+                                j5 = j12;
+                                j7 = get64(fileChannel, allocate, j11 + 40);
                             }
-                            if (j12 <= j22 && j22 < j13 + j12) {
-                                if (z) {
-                                    j14 = getu32(fileChannel, allocate, j + 4);
+                            if (j6 <= j18 && j18 < j7 + j6) {
+                                if (z2) {
+                                    j8 = getu32(fileChannel, allocate, j11 + 4);
                                 } else {
-                                    j14 = get64(fileChannel, allocate, j + 8);
+                                    j8 = get64(fileChannel, allocate, j11 + 8);
                                 }
-                                j7 = j14 + (j22 - j12);
+                                j3 = j8 + (j18 - j6);
                             }
                         } else {
-                            j11 = j2;
+                            j5 = j12;
                         }
-                        j += i;
+                        j11 += i;
                         i3++;
-                        j2 = j11;
-                        j23 = 16;
-                        j20 = 0;
+                        j12 = j5;
+                        j20 = 16;
+                        j16 = 0;
                     }
-                    long j24 = 0;
-                    if (j7 != 0) {
+                    long j21 = 0;
+                    if (j3 != 0) {
                         String[] strArr = new String[i2];
                         int i4 = 0;
                         while (true) {
-                            if (z) {
-                                j8 = getu32(fileChannel, allocate, j5 + j24);
-                            } else {
-                                j8 = get64(fileChannel, allocate, j5 + j24);
-                            }
-                            if (j8 == 1) {
-                                if (z) {
-                                    j9 = getu32(fileChannel, allocate, j5 + 4);
-                                } else {
-                                    j9 = get64(fileChannel, allocate, j5 + 8);
-                                }
-                                strArr[i4] = getSz(fileChannel, allocate, j9 + j7);
+                            long j22 = j2 + j21;
+                            long j23 = z2 ? getu32(fileChannel, allocate, j22) : get64(fileChannel, allocate, j22);
+                            if (j23 == 1) {
+                                strArr[i4] = getSz(fileChannel, allocate, (z2 ? getu32(fileChannel, allocate, j2 + 4) : get64(fileChannel, allocate, j2 + 8)) + j3);
                                 if (i4 == Integer.MAX_VALUE) {
                                     throw new ElfError("malformed DT_NEEDED section");
                                 }
                                 i4++;
                             }
-                            j5 += z ? 8L : 16L;
-                            if (j8 == 0) {
+                            j2 += z2 ? 8L : 16L;
+                            if (j23 == 0) {
                                 if (i4 == i2) {
                                     return strArr;
                                 }
                                 throw new ElfError("malformed DT_NEEDED section");
                             }
-                            j24 = 0;
+                            j21 = 0;
                         }
                     } else {
                         throw new ElfError("did not find file offset of DT_STRTAB table");

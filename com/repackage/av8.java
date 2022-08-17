@@ -160,7 +160,7 @@ public class av8 {
                 TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09221d);
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
                 SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0101);
-                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092218)).setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e1, SkinManager.getColor(R.color.CAM_X0101), null));
+                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092218)).setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e2, SkinManager.getColor(R.color.CAM_X0101), null));
                 textView.setText(this.a.a);
                 if (!StringUtils.isNull(this.a.b)) {
                     textView2.setText(this.a.b);

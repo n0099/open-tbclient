@@ -53,9 +53,9 @@ public class EmptyView extends LinearLayout {
             this.a.setLayoutParams(layoutParams);
             setImageResource(ab0.f().b(str));
             if (LiveFeedPageSdk.HOST_QUANMIN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-                this.b.setText(R.string.obfuscated_res_0x7f0f09f6);
+                this.b.setText(R.string.obfuscated_res_0x7f0f09f7);
             } else {
-                this.b.setText(R.string.obfuscated_res_0x7f0f09f5);
+                this.b.setText(R.string.obfuscated_res_0x7f0f09f6);
             }
             this.b.setTextColor(ab0.f().a(getContext(), str, "color_8585852"));
         }

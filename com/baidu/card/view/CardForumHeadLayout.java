@@ -223,14 +223,14 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         ThreadData threadData2 = this.m;
         if (threadData2.isFromLowFlowsPage) {
             if ("agree_num".equals(threadData2.mTabCode)) {
-                mutate = SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0809de).mutate();
+                mutate = SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0809df).mutate();
             } else if ("comment_num".equals(this.m.mTabCode)) {
-                mutate = SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0809dd).mutate();
+                mutate = SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0809de).mutate();
             } else {
-                mutate = "share_num".equals(this.m.mTabCode) ? SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0809df).mutate() : null;
+                mutate = "share_num".equals(this.m.mTabCode) ? SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0809e0).mutate() : null;
             }
         } else {
-            mutate = SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a0c).mutate();
+            mutate = SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a0d).mutate();
         }
         int f = qi.f(getContext(), R.dimen.tbds42);
         if (mutate == null) {
@@ -405,7 +405,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
                     }
                     String numberUniformFormatExtraWithRoundInt = StringHelper.numberUniformFormatExtraWithRoundInt(i);
                     TextView textView = this.h;
-                    textView.setText(textView.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f13cd, numberUniformFormatExtraWithRoundInt));
+                    textView.setText(textView.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f13cf, numberUniformFormatExtraWithRoundInt));
                     int i2 = threadData.position + 1;
                     TextView textView2 = this.g;
                     if (i2 >= 10) {
@@ -434,15 +434,15 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
                         if ("agree_num".equals(threadData.mTabCode)) {
                             String numberUniformFormatExtraWithRoundInt2 = StringHelper.numberUniformFormatExtraWithRoundInt(threadData.getAgreeData() != null ? threadData.getAgreeData().agreeNum : 0L);
                             TextView textView3 = this.h;
-                            textView3.setText(textView3.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f13cb, numberUniformFormatExtraWithRoundInt2));
+                            textView3.setText(textView3.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f13cd, numberUniformFormatExtraWithRoundInt2));
                         } else if ("comment_num".equals(threadData.mTabCode)) {
                             String numberUniformFormatExtraWithRoundInt3 = StringHelper.numberUniformFormatExtraWithRoundInt(threadData.getReply_num());
                             TextView textView4 = this.h;
-                            textView4.setText(textView4.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f13c5, numberUniformFormatExtraWithRoundInt3));
+                            textView4.setText(textView4.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f13c7, numberUniformFormatExtraWithRoundInt3));
                         } else if ("share_num".equals(threadData.mTabCode)) {
                             String numberUniformFormatExtraWithRoundInt4 = StringHelper.numberUniformFormatExtraWithRoundInt(threadData.getShareNum());
                             TextView textView5 = this.h;
-                            textView5.setText(textView5.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f13d0, numberUniformFormatExtraWithRoundInt4));
+                            textView5.setText(textView5.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f13d2, numberUniformFormatExtraWithRoundInt4));
                         }
                         int i3 = threadData.position + 1;
                         TextView textView6 = this.g;
@@ -475,7 +475,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
                         if (threadData.getAuthor() != null && !StringUtils.isNull(threadData.getAuthor().getName_show())) {
                             this.c.setText(threadData.getAuthor().getName_show());
                         } else {
-                            this.c.setText(R.string.obfuscated_res_0x7f0f14eb);
+                            this.c.setText(R.string.obfuscated_res_0x7f0f14ee);
                         }
                         this.d.setText(threadData.getThreadExtendInfo());
                     }

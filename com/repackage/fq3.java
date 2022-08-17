@@ -1009,11 +1009,11 @@ public class fq3 implements kp3, lp3, ip3, mp3 {
                             i2 = 0;
                         }
                         i0();
-                        this.a.getResources().getString(R.string.obfuscated_res_0x7f0f132b);
+                        this.a.getResources().getString(R.string.obfuscated_res_0x7f0f132d);
                         if (this.x) {
-                            format = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f132c), Integer.valueOf(15 - (this.c.getCurrentPosition() / 1000)));
+                            format = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f132e), Integer.valueOf(15 - (this.c.getCurrentPosition() / 1000)));
                         } else {
-                            format = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f132e), Integer.valueOf(min2 - currentPosition));
+                            format = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1330), Integer.valueOf(min2 - currentPosition));
                         }
                         if (this.g != null) {
                             this.g.d(format);

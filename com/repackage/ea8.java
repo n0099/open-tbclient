@@ -1,299 +1,218 @@
 package com.repackage;
 
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.view.ViewStub;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.message.CustomMessage;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.postsearch.PostSearchActivity;
+import com.baidu.tieba.postsearch.PostSearchListFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ba8;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class ea8 extends BaseAdapter {
+public class ea8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public final List<ba8.a> b;
-    public int c;
-    public String d;
-    public String e;
+    public PostSearchActivity a;
+    public View b;
+    public FragmentTabHost c;
+    public ViewPager.OnPageChangeListener d;
+    public PostSearchListFragment e;
+    public PostSearchListFragment f;
+    public PostSearchListFragment g;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ba8.a a;
-        public final /* synthetic */ ea8 b;
-
-        public a(ea8 ea8Var, ba8.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ea8Var, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ea8Var;
-            this.a = aVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.b.a == null) {
-                return;
-            }
-            this.b.g(this.a);
-            if (this.a.g == 1) {
-                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(this.b.a.getPageActivity()).createSubPbActivityConfig(this.a.f + "", this.a.a + "", "search_post", true);
-                createSubPbActivityConfig.setKeyPageStartFrom(8);
-                this.b.a.sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
-                return;
-            }
-            PbActivityConfig createNormalCfg = new PbActivityConfig(this.b.a.getPageActivity()).createNormalCfg(this.a.f + "", this.a.a + "", "search_post");
-            createNormalCfg.setStartFrom(8);
-            createNormalCfg.setSortType(0);
-            this.b.a.sendMessage(new CustomMessage(2004001, createNormalCfg));
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public TextView c;
-        public TextView d;
-        public TextView e;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755744235, "Lcom/repackage/ea8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755744235, "Lcom/repackage/ea8;");
-                return;
-            }
-        }
-        TbadkCoreApplication.getInst().getListItemRule().c();
-    }
-
-    public ea8(TbPageContext<?> tbPageContext) {
+    public ea8(PostSearchActivity postSearchActivity, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {postSearchActivity, view2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = -1;
-        this.a = tbPageContext;
-        this.b = new ArrayList();
+        this.a = postSearchActivity;
+        this.b = view2;
     }
 
-    public void c(List<ba8.a> list) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.b.clear();
-            this.b.addAll(list);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e.r1();
+            this.f.r1();
+            this.g.r1();
         }
     }
 
-    public void d(String str) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.e = str;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            FragmentTabHost.b bVar = new FragmentTabHost.b();
+            PostSearchListFragment postSearchListFragment = new PostSearchListFragment(1);
+            this.e = postSearchListFragment;
+            bVar.c = postSearchListFragment;
+            bVar.b = c(R.string.obfuscated_res_0x7f0f10cb);
+            bVar.a = 1;
+            this.c.c(bVar);
+            FragmentTabHost.b bVar2 = new FragmentTabHost.b();
+            PostSearchListFragment postSearchListFragment2 = new PostSearchListFragment(2);
+            this.f = postSearchListFragment2;
+            bVar2.c = postSearchListFragment2;
+            bVar2.b = c(R.string.obfuscated_res_0x7f0f10ca);
+            bVar2.a = 2;
+            this.c.c(bVar2);
+            FragmentTabHost.b bVar3 = new FragmentTabHost.b();
+            PostSearchListFragment postSearchListFragment3 = new PostSearchListFragment(3);
+            this.g = postSearchListFragment3;
+            bVar3.c = postSearchListFragment3;
+            bVar3.b = c(R.string.obfuscated_res_0x7f0f10c9);
+            bVar3.a = 3;
+            this.c.c(bVar3);
         }
     }
 
-    public void e(String str) {
+    public final FragmentTabIndicator c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.d = str;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02e8, (ViewGroup) null);
+            fragmentTabIndicator.setText(i);
+            fragmentTabIndicator.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
+            fragmentTabIndicator.h = R.color.s_actionbar_text_color;
+            fragmentTabIndicator.setContentTvTopMargin(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
+            fragmentTabIndicator.setWidth((qi.k(this.a.getPageContext().getContext()) - (this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f) * 2)) / 3);
+            return fragmentTabIndicator;
         }
+        return (FragmentTabIndicator) invokeI.objValue;
     }
 
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public final void g(ba8.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            StatisticItem param = new StatisticItem("c12405").param("fname", aVar.e).param("uid", TbadkCoreApplication.getCurrentAccount());
-            int i = this.c;
-            if (i > 0) {
-                param.param("tab_id", i);
-            }
-            if (aVar != null) {
-                if (aVar.g != 1 && aVar.h != 1) {
-                    param.param("tid", aVar.f);
-                } else {
-                    param.param("pid", aVar.a);
-                }
-                param.param("fid", this.e);
-                param.param("query", this.d);
-            }
-            TiebaStatic.log(param);
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<ba8.a> list = this.b;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.getCurrentTabType() : invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final PostSearchListFragment e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            List<ba8.a> list = this.b;
-            if (list == null || list.isEmpty() || i < 0 || i >= this.b.size()) {
-                return null;
-            }
-            return this.b.get(i);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d072e, (ViewGroup) null);
-                b bVar = new b(null);
-                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921e5);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906db);
-                bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091230);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092450);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092193);
-                view2.setTag(bVar);
-            }
-            b bVar2 = (b) view2.getTag();
-            ba8.a aVar = this.b.get(i);
-            if (aVar == null) {
-                return view2;
-            }
-            String str = TbadkCoreApplication.getInst().getSkinType() == 1 ? "#99260f" : "#e53917";
-            bVar2.a.setText(Html.fromHtml(StringHelper.getHighLightString(aVar.b, str)));
-            bVar2.b.setText(Html.fromHtml(StringHelper.getHighLightString(aVar.d, str)));
-            bVar2.d.setText(aVar.i);
-            bVar2.e.setText(StringHelper.getFormatTime(aVar.c));
-            bVar2.c.setVisibility(0);
-            if (aVar.g == 1) {
-                bVar2.c.setText(R.string.obfuscated_res_0x7f0f063a);
-            } else if (aVar.h == 1) {
-                bVar2.c.setText(R.string.obfuscated_res_0x7f0f0fe6);
-            } else {
-                bVar2.c.setVisibility(8);
-            }
-            view2.setOnClickListener(new a(this, aVar));
-            SkinManager.setBackgroundColor(view2, R.color.CAM_X0201);
-            fb5.a(this.a, view2);
-            h(aVar);
-            return view2;
-        }
-        return (View) invokeILL.objValue;
-    }
-
-    public final void h(ba8.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            StatisticItem param = new StatisticItem("c14171").param("fname", aVar.e).param("uid", TbadkCoreApplication.getCurrentAccount());
-            int i = this.c;
-            if (i > 0) {
-                param.param("tab_id", i);
-            }
-            if (aVar != null) {
-                if (aVar.g != 1 && aVar.h != 1) {
-                    param.param("tid", aVar.f);
-                } else {
-                    param.param("pid", aVar.a);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return null;
+                    }
+                    return this.g;
                 }
-                param.param("fid", this.e);
-                param.param("query", this.d);
+                return this.f;
             }
-            TiebaStatic.log(param);
+            return this.e;
+        }
+        return (PostSearchListFragment) invokeI.objValue;
+    }
+
+    public final void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            View inflate = ((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f091dc0)).inflate();
+            inflate.setVisibility(0);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) inflate.findViewById(R.id.obfuscated_res_0x7f091a0b);
+            this.c = fragmentTabHost;
+            fragmentTabHost.setup(this.a.getSupportFragmentManager());
+            this.c.setTabWidgetViewHeight((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
+            this.c.setShouldDrawIndicatorLine(true);
+            b();
+            this.c.n(3);
+            this.c.setCurrentTabByType(i);
+            this.c.setNeedShowThemeStyle(false);
+            this.c.getFragmentTabWidget().setBackGroundDrawableResId(0);
+            this.c.s(TbadkCoreApplication.getInst().getSkinType());
+            SkinManager.setBackgroundColor(this.c.getFragmentTabWidget(), R.color.CAM_X0201);
+            this.c.setOnPageChangeListener(this.d);
+        }
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            FragmentTabHost fragmentTabHost = this.c;
+            if (fragmentTabHost != null) {
+                fragmentTabHost.s(i);
+            }
+            FragmentTabHost fragmentTabHost2 = this.c;
+            if (fragmentTabHost2 == null || fragmentTabHost2.getFragmentTabWidget() == null) {
+                return;
+            }
+            SkinManager.setBackgroundColor(this.c.getFragmentTabWidget(), R.color.CAM_X0201);
+        }
+    }
+
+    public void h(int i, aa8 aa8Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), aa8Var, Boolean.valueOf(z)}) == null) {
+            j(true);
+            PostSearchListFragment e = e(i);
+            if (e != null) {
+                e.v1(aa8Var, z);
+            }
+        }
+    }
+
+    public void i(ViewPager.OnPageChangeListener onPageChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onPageChangeListener) == null) {
+            this.d = onPageChangeListener;
+            FragmentTabHost fragmentTabHost = this.c;
+            if (fragmentTabHost != null) {
+                fragmentTabHost.setOnPageChangeListener(onPageChangeListener);
+            }
+        }
+    }
+
+    public void j(boolean z) {
+        FragmentTabHost fragmentTabHost;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (fragmentTabHost = this.c) == null) {
+            return;
+        }
+        if (z) {
+            fragmentTabHost.setVisibility(0);
+        } else {
+            fragmentTabHost.setVisibility(8);
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            if (this.c == null) {
+                f(1);
+                return;
+            }
+            a();
+            if (this.c.getCurrentTabType() == i) {
+                PostSearchListFragment e = e(i);
+                if (e != null) {
+                    e.w1(true);
+                    return;
+                }
+                return;
+            }
+            this.c.setCurrentTabByType(i);
         }
     }
 }

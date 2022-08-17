@@ -1,6 +1,5 @@
 package com.repackage;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.searchbox.live.interfaces.service.LiveCustomSettingService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class sj7 extends uc1<LiveCustomSettingService> {
+public class sj7 implements LiveCustomSettingService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,12 +25,10 @@ public class sj7 extends uc1<LiveCustomSettingService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.uc1
-    /* renamed from: a */
-    public LiveCustomSettingService createService() throws ServiceNotFoundException {
+    @Override // com.baidu.searchbox.live.interfaces.service.LiveCustomSettingService
+    public boolean isFreeTrafficMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new tj7() : (LiveCustomSettingService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? us8.c().d() : invokeV.booleanValue;
     }
 }

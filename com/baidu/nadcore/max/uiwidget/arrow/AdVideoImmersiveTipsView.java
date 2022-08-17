@@ -374,7 +374,7 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
                 StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
                 Context context = this.a.getContext();
                 Intrinsics.checkNotNullExpressionValue(context, "context");
-                String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f0bbc);
+                String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f0bbd);
                 Intrinsics.checkNotNullExpressionValue(string, "context.resources.getStr…_max_countdown_tips_text)");
                 String format = String.format(string, Arrays.copyOf(new Object[]{Long.valueOf(j / 1000)}, 1));
                 Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");

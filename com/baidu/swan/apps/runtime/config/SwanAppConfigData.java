@@ -687,11 +687,11 @@ public class SwanAppConfigData {
 
             /* renamed from: com.baidu.swan.apps.runtime.config.SwanAppConfigData$f$a$a  reason: collision with other inner class name */
             /* loaded from: classes2.dex */
-            public class C0182a extends n13<Map<String, String>> {
+            public class C0183a extends n13<Map<String, String>> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                public C0182a(a aVar) {
+                public C0183a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -738,7 +738,7 @@ public class SwanAppConfigData {
             public void a(@NonNull f fVar, @NonNull fk2 fk2Var) throws Exception {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar, fk2Var) == null) {
-                    fk2Var.e(fVar.a, new C0182a(this));
+                    fk2Var.e(fVar.a, new C0183a(this));
                 }
             }
         }

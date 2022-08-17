@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.je7;
-import com.repackage.qf7;
+import com.repackage.ie7;
+import com.repackage.pf7;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class BaseCardInfo extends BaseLegoCardInfo {
@@ -39,13 +39,13 @@ public class BaseCardInfo extends BaseLegoCardInfo {
     public String getFidFromPostUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(str) ? je7.b.a(str).d("fid") : "" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(str) ? ie7.b.a(str).d("fid") : "" : (String) invokeL.objValue;
     }
 
     public String getTouidFromPostUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) ? je7.b.a(str).d("touid") : "" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) ? ie7.b.a(str).d("touid") : "" : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
@@ -57,9 +57,9 @@ public class BaseCardInfo extends BaseLegoCardInfo {
                 if (obj instanceof UpdateAttentionMessage.a) {
                     UpdateAttentionMessage.a aVar = (UpdateAttentionMessage.a) obj;
                     return responseAttentionUser(aVar.c, aVar.d);
-                } else if (obj instanceof qf7) {
-                    qf7 qf7Var = (qf7) obj;
-                    return responseAttentionForum(qf7Var.a, qf7Var.b);
+                } else if (obj instanceof pf7) {
+                    pf7 pf7Var = (pf7) obj;
+                    return responseAttentionForum(pf7Var.a, pf7Var.b);
                 } else {
                     return false;
                 }

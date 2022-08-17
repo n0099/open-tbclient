@@ -15,7 +15,6 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -293,18 +292,12 @@ public class pz4 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext)) == null) {
-            boolean[] zArr = null;
             String localClassName = (tbPageContext == null || tbPageContext.getPageActivity() == null) ? null : tbPageContext.getPageActivity().getLocalClassName();
             if (("pb.pb.main.PbActivity".equals(localClassName) || "personPolymeric.PersonPolymericActivity".equals(localClassName) || "enterForum.hotuserrank.HotUserRankActivity".equals(localClassName)) && ru4.k().h("first_call_attention", true)) {
                 ru4.k().u("first_call_attention", false);
-                zArr = new boolean[]{!NotificationManagerCompat.from(this.a.getPageActivity()).areNotificationsEnabled(), !lz4.d().x()};
-                if (!zArr[0] && !zArr[1] && tbPageContext != null && !this.d) {
-                    tbPageContext.showToast(R.string.obfuscated_res_0x7f0f02ba);
-                }
-            } else if (tbPageContext != null && !this.d) {
-                tbPageContext.showToast(R.string.obfuscated_res_0x7f0f02ba);
+                return new boolean[]{!NotificationManagerCompat.from(this.a.getPageActivity()).areNotificationsEnabled(), !lz4.d().x()};
             }
-            return zArr;
+            return null;
         }
         return (boolean[]) invokeL.objValue;
     }

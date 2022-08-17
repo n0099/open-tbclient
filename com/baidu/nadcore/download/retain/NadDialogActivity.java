@@ -193,9 +193,9 @@ public abstract class NadDialogActivity extends BaseActivity {
             this.x = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913d1);
             this.y = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913d0);
             LayoutInflater.from(this).inflate(v1(), (ViewGroup) this.x, true);
-            this.w.setBackground(dh0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d9a));
-            this.w.setDividerDrawable(dh0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d9c));
-            this.y.setDividerDrawable(dh0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d9d));
+            this.w.setBackground(dh0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d9b));
+            this.w.setDividerDrawable(dh0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d9d));
+            this.y.setDividerDrawable(dh0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d9e));
             if (A1()) {
                 this.u.setText(C1());
                 this.u.setOnClickListener(new a(this));

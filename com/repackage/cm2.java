@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cm2;
 import kotlin.TypeCastException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class cm2<SelfT extends cm2<SelfT>> implements vf3<SelfT> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Bundle a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a extends cm2<a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

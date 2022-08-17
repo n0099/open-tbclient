@@ -1,138 +1,148 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class il8 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, kl8> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public wg a;
-    public String b;
-    public boolean c;
 
-    public il8(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public static class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
         }
-        this.b = null;
-        this.c = false;
-        e(str, false);
-    }
 
-    public void a() {
-        ll8 c;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null || (c = c()) == null || c.f == null) {
-            return;
-        }
-        long e = this.a.e();
-        if (e > 3000) {
-            kl8 kl8Var = c.f;
-            kl8Var.a += e;
-            kl8Var.b++;
-            jl8.b(c, 10);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+                il8.a(1);
+            }
         }
     }
 
-    public void b(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        ll8 c;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755614500, "Lcom/repackage/il8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755614500, "Lcom/repackage/il8;");
+                return;
+            }
+        }
+        MessageManager.getInstance().registerListener(new a(2001011));
+        a = new HashMap<>();
+    }
+
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.a == null || (c = c()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
+            for (String str : a.keySet()) {
+                b(a.get(str), i);
+            }
         }
-        if (z) {
-            kl8 kl8Var = c.d;
-            if (kl8Var == null) {
-                return;
-            }
-            kl8Var.b++;
-            if (z2) {
-                kl8Var.a += j2;
-                kl8Var.d += j;
-            } else {
-                kl8Var.c++;
-            }
-        } else {
-            kl8 kl8Var2 = c.e;
-            if (kl8Var2 == null) {
-                return;
-            }
-            kl8Var2.b++;
-            if (z2) {
-                kl8Var2.a += j3;
-                kl8Var2.d += j;
-            } else {
-                kl8Var2.c++;
-            }
-            j2 = j3;
-        }
-        this.a = null;
-        if (z2) {
-            jl8.b(c, 10);
-        }
-        if (this.b == "frsStat") {
-            if (!z2 || j2 > 3000) {
+    }
+
+    public static void b(kl8 kl8Var, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65538, null, kl8Var, i) == null) {
+            jl8 jl8Var = kl8Var.d;
+            jl8 jl8Var2 = kl8Var.e;
+            jl8 jl8Var3 = kl8Var.f;
+            if (jl8Var.b + jl8Var2.b + jl8Var3.b >= i) {
                 wg wgVar = new wg("dbg");
-                wgVar.b("act", "frs");
-                wgVar.b(TiebaStatic.LogFields.RESULT, z2 ? "0" : "1");
-                wgVar.b("isHttp", z ? "1" : "0");
-                wgVar.b("timeCost", String.valueOf(j2));
-                wgVar.b(StatConstants.KEY_EXT_ERR_CODE, String.valueOf(i));
-                wgVar.b(StatConstants.KEY_EXT_ERR_MSG, str);
-                wgVar.b("down", String.valueOf(j));
+                wgVar.b("act", kl8Var.c);
+                wgVar.b("httpTimeCost", String.valueOf(jl8Var.a));
+                wgVar.b("httpNum", String.valueOf(jl8Var.b));
+                wgVar.b("httpFailnum", String.valueOf(jl8Var.c));
+                wgVar.b("httpSize", String.valueOf(jl8Var.d));
+                wgVar.b("socketTimeCost", String.valueOf(jl8Var2.a));
+                wgVar.b("socketNum", String.valueOf(jl8Var2.b));
+                wgVar.b("socketFailnum", String.valueOf(jl8Var2.c));
+                wgVar.b("socketSize", String.valueOf(jl8Var2.d));
+                wgVar.b("abortTimeCost", String.valueOf(jl8Var3.a));
+                wgVar.b("abortNum", String.valueOf(jl8Var3.b));
+                wgVar.b("netType", kl8Var.b);
+                wgVar.b("isJson", kl8Var.a ? "1" : "0");
                 BdStatisticsManager.getInstance().debug("frs", wgVar);
+                jl8Var.a();
+                jl8Var2.a();
+                jl8Var3.a();
             }
         }
     }
 
-    public final ll8 c() {
-        InterceptResult invokeV;
+    public static void c(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? jl8.e(this.b, d(), this.c) : (ll8) invokeV.objValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int I = oi.I();
-            return I == 0 ? "N" : I == 1 ? "WIFI" : I == 3 ? "3G" : I == 2 ? "2G" : "N";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void e(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
-            this.b = str;
-            this.c = z;
-            this.a = new wg("dbg");
-            jl8.c(str, d(), z);
+        if (interceptable == null || interceptable.invokeLLZ(65539, null, str, str2, z) == null) {
+            if (str2 == null) {
+                str2 = "";
+            }
+            String str3 = str + str2;
+            if (a.containsKey(str3)) {
+                return;
+            }
+            a.put(str3, new kl8(str, str2, z));
         }
     }
 
-    public void f() {
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.g();
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
         }
+    }
+
+    public static kl8 e(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, str, str2, z)) == null) {
+            if (str2 == null) {
+                str2 = "";
+            }
+            String str3 = str + str2;
+            if (!a.containsKey(str3)) {
+                a.put(str3, new kl8(str, str2, z));
+            }
+            return a.get(str3);
+        }
+        return (kl8) invokeLLZ.objValue;
     }
 }

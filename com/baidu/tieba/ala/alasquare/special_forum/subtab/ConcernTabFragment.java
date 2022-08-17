@@ -289,7 +289,7 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
                         return;
                     }
                     if (!qi.D()) {
-                        this.b.e.getPageContext().showToast((int) R.string.obfuscated_res_0x7f0f0c3c);
+                        this.b.e.getPageContext().showToast((int) R.string.obfuscated_res_0x7f0f0c3d);
                         return;
                     }
                     if (ft5Var.c) {
@@ -445,7 +445,7 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
                 this.i.p();
                 this.i.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }
-            this.i.m(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f11d6));
+            this.i.m(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f11d8));
             this.i.onChangeSkinType();
             if (!this.m) {
                 this.e.t(this.i.b(), 0);
@@ -458,7 +458,7 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.e.setNextPage(this.g);
-            this.g.C(getResources().getString(R.string.obfuscated_res_0x7f0f0a15));
+            this.g.C(getResources().getString(R.string.obfuscated_res_0x7f0f0a16));
             this.g.f();
         }
     }

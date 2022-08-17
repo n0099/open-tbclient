@@ -218,7 +218,7 @@ public class pu8 extends BaseAdapter {
                 if (this.a.get(i2).id == -1) {
                     cVar.g.setVisibility(0);
                     cVar.c.setVisibility(8);
-                    cVar.g.setImageResource(R.drawable.obfuscated_res_0x7f080b0c);
+                    cVar.g.setImageResource(R.drawable.obfuscated_res_0x7f080b0d);
                 } else {
                     cVar.g.setVisibility(8);
                     cVar.c.setVisibility(0);

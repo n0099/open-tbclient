@@ -182,7 +182,7 @@ public class xq8 {
             this.e.setVisibility(8);
             this.b.setVisibility(8);
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
-            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c56);
+            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c57);
             this.a.setNetRefreshViewTopMargin(this.h);
             this.a.showNetRefreshView(this.b, string, false);
         }

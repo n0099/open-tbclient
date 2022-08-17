@@ -481,7 +481,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                 MessageManager.getInstance().sendMessage(new UserGrowthTaskRequestMessage(UserGrowthTaskRequestMessage.SET_USER_AVATAR));
             }
             if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                new wu4().c(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1009));
+                new wu4().d(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f100a));
                 Intent intent = new Intent();
                 intent.putExtra(ChangeSystemPhotoActivityConfig.NEW_PHOTO_URL, this.b.k);
                 intent.putExtra("upload_image_type", 1);
@@ -493,7 +493,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                 }
                 return;
             }
-            new wu4().b(this.a.getNetContext().getResponse().mErrorString);
+            new wu4().c(this.a.getNetContext().getResponse().mErrorString);
         }
 
         public /* synthetic */ h(ChangeSystemPhotoActivity changeSystemPhotoActivity, a aVar) {

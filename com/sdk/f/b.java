@@ -19,20 +19,20 @@ public class b {
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<C0645a> a;
+        public List<C0648a> a;
         public List<String> b;
         public List<String> c;
         public String d;
 
         /* renamed from: com.sdk.f.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0645a {
+        public static class C0648a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String a;
             public long b;
 
-            public C0645a() {
+            public C0648a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();

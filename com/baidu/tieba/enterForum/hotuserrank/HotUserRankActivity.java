@@ -163,7 +163,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
                     return;
                 }
                 HotUserRankActivity hotUserRankActivity2 = this.a;
-                hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.a.i(), this.a.getString(R.string.obfuscated_res_0x7f0f0c3c), true);
+                hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.a.i(), this.a.getString(R.string.obfuscated_res_0x7f0f0c3d), true);
             }
         }
 

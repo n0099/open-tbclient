@@ -235,7 +235,7 @@ public class kt5 {
                     this.a.o.a(this.a.l, this.a.m, this.a.n);
                     return;
                 }
-                qi.L(this.a.b.getPageActivity(), this.a.b.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c75));
+                qi.K(this.a.b.getPageActivity(), this.a.b.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c76));
             }
         }
     }
@@ -348,7 +348,7 @@ public class kt5 {
                 } else {
                     this.v.setVisibility(8);
                 }
-                this.f.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11d9, StringHelper.numberUniformFormatExtra(this.n.getThreadAlaInfo().audience_count)));
+                this.f.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11db, StringHelper.numberUniformFormatExtra(this.n.getThreadAlaInfo().audience_count)));
                 if (this.n.getAuthor() != null) {
                     String name_show = this.n.getAuthor().getName_show();
                     if (if5.d(name_show) > 10) {

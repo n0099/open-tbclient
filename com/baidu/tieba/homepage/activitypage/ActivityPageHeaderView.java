@@ -17,16 +17,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bn4;
 import com.repackage.h9;
+import com.repackage.iu6;
 import com.repackage.jd5;
-import com.repackage.ju6;
 import com.repackage.kc5;
-import com.repackage.o17;
+import com.repackage.n17;
 import com.repackage.qi;
 import com.repackage.so4;
 import com.repackage.us4;
 import com.repackage.ym4;
 /* loaded from: classes3.dex */
-public class ActivityPageHeaderView extends LinearLayout implements jd5<ju6> {
+public class ActivityPageHeaderView extends LinearLayout implements jd5<iu6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
@@ -75,7 +75,7 @@ public class ActivityPageHeaderView extends LinearLayout implements jd5<ju6> {
         public void c(View view2, so4 so4Var, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, so4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                o17.a("c13751", so4Var, i + 1, this.a.d);
+                n17.a("c13751", so4Var, i + 1, this.a.d);
             }
         }
     }
@@ -110,7 +110,7 @@ public class ActivityPageHeaderView extends LinearLayout implements jd5<ju6> {
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
                 so4 so4Var = new so4();
                 so4Var.g(str);
-                o17.a("c13750", so4Var, i, this.a.d);
+                n17.a("c13750", so4Var, i, this.a.d);
             }
         }
 
@@ -120,7 +120,7 @@ public class ActivityPageHeaderView extends LinearLayout implements jd5<ju6> {
         public void a(int i, so4 so4Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, so4Var) == null) {
-                o17.b("c13750", so4Var, i, this.a.d);
+                n17.b("c13750", so4Var, i, this.a.d);
             }
         }
     }
@@ -186,7 +186,7 @@ public class ActivityPageHeaderView extends LinearLayout implements jd5<ju6> {
         public void a(View view2, boolean z, Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), obj}) == null) && z) {
-                o17.c("c13751", this.a.d);
+                n17.c("c13751", this.a.d);
             }
         }
     }
@@ -227,11 +227,11 @@ public class ActivityPageHeaderView extends LinearLayout implements jd5<ju6> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.kd5
     /* renamed from: e */
-    public kc5 a(ju6 ju6Var) {
+    public kc5 a(iu6 iu6Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ju6Var)) == null) {
-            if (ju6Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iu6Var)) == null) {
+            if (iu6Var == null) {
                 return null;
             }
             setPadding(0, qi.f(getContext(), R.dimen.tbds44), 0, qi.f(getContext(), R.dimen.tbds60));
@@ -246,7 +246,7 @@ public class ActivityPageHeaderView extends LinearLayout implements jd5<ju6> {
                 addView(this.b);
                 this.b.setIWindowChangedListener(new c(this));
             }
-            this.b.a(ju6Var.f);
+            this.b.a(iu6Var.f);
             if (this.c == null) {
                 GridIconLayout gridIconLayout = new GridIconLayout(getContext());
                 this.c = gridIconLayout;
@@ -257,7 +257,7 @@ public class ActivityPageHeaderView extends LinearLayout implements jd5<ju6> {
                 this.c.setVerticalSpace(qi.f(getContext(), R.dimen.tbds61));
                 this.c.setMaxItem(10);
             }
-            this.c.a(ju6Var.g);
+            this.c.a(iu6Var.g);
             return new kc5();
         }
         return (kc5) invokeL.objValue;

@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.on;
+import com.repackage.uv6;
 import com.repackage.vv6;
-import com.repackage.wv6;
-import com.repackage.yv6;
+import com.repackage.xv6;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -29,7 +29,7 @@ public class RecommendBarPageAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<on> a;
-    public List<yv6> b;
+    public List<xv6> b;
     public TbPageContext<?> c;
     public int d;
     public byte e;
@@ -55,7 +55,7 @@ public class RecommendBarPageAdapter extends PagerAdapter {
         this.a = new ArrayList(6);
         this.b = new ArrayList(6);
         for (int i3 = 0; i3 < 6; i3++) {
-            this.b.add(new yv6(LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0750, (ViewGroup) null, false), this.c, b));
+            this.b.add(new xv6(LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0750, (ViewGroup) null, false), this.c, b));
         }
     }
 
@@ -77,38 +77,38 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             return;
         }
         this.d = i;
-        List<yv6> list = this.b;
+        List<xv6> list = this.b;
         if (list == null || list.size() <= 0) {
             return;
         }
-        for (yv6 yv6Var : this.b) {
-            yv6Var.l(i);
+        for (xv6 xv6Var : this.b) {
+            xv6Var.l(i);
         }
     }
 
-    public void d(vv6 vv6Var) {
+    public void d(uv6 uv6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vv6Var) == null) || vv6Var == null || ListUtils.isEmpty(vv6Var.f())) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uv6Var) == null) || uv6Var == null || ListUtils.isEmpty(uv6Var.f())) {
             return;
         }
         this.a.clear();
-        this.a.addAll(vv6Var.f());
+        this.a.addAll(uv6Var.f());
         for (int i = 0; i < this.a.size() && i < this.b.size(); i++) {
-            yv6 yv6Var = this.b.get(i);
-            yv6Var.m(!vv6Var.h());
-            yv6Var.c((on) ListUtils.getItem(this.a, i));
+            xv6 xv6Var = this.b.get(i);
+            xv6Var.m(!uv6Var.h());
+            xv6Var.c((on) ListUtils.getItem(this.a, i));
         }
         notifyDataSetChanged();
-        if (this.a.get(0) instanceof wv6) {
-            wv6 wv6Var = (wv6) this.a.get(0);
+        if (this.a.get(0) instanceof vv6) {
+            vv6 vv6Var = (vv6) this.a.get(0);
             StatisticItem param = new StatisticItem("c14004").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.e).param("obj_param1", 0);
-            if (!StringUtils.isNull(wv6Var.a)) {
-                param = param.param("obj_name", wv6Var.a);
+            if (!StringUtils.isNull(vv6Var.a)) {
+                param = param.param("obj_name", vv6Var.a);
             }
             TiebaStatic.log(param);
-            StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", wv6Var.a()).param("obj_locate", (int) this.e);
-            if (!StringUtils.isNull(wv6Var.a)) {
-                param2 = param2.param("obj_name", wv6Var.a);
+            StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", vv6Var.a()).param("obj_locate", (int) this.e);
+            if (!StringUtils.isNull(vv6Var.a)) {
+                param2 = param2.param("obj_name", vv6Var.a);
             }
             TiebaStatic.log(param2);
         }
@@ -128,15 +128,15 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             return;
         }
         for (int i = 0; i < this.b.size(); i++) {
-            yv6 yv6Var = this.b.get(i);
-            wv6 j2 = yv6Var.j();
+            xv6 xv6Var = this.b.get(i);
+            vv6 j2 = xv6Var.j();
             if (j2 != null) {
                 int i2 = 0;
                 while (true) {
-                    wv6.a[] aVarArr = j2.d;
+                    vv6.a[] aVarArr = j2.d;
                     if (i2 < aVarArr.length) {
                         if (aVarArr[i2].g() == j) {
-                            yv6Var.n(i2, z);
+                            xv6Var.n(i2, z);
                         }
                         i2++;
                     }
@@ -158,20 +158,20 @@ public class RecommendBarPageAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
-            List<yv6> list = this.b;
+            List<xv6> list = this.b;
             if (list == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            yv6 yv6Var = (yv6) ListUtils.getItem(list, i);
-            if (yv6Var == null) {
+            xv6 xv6Var = (xv6) ListUtils.getItem(list, i);
+            if (xv6Var == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            if (yv6Var.b().getParent() == null) {
-                viewGroup.addView(yv6Var.b(), new ViewGroup.LayoutParams(-2, -2));
+            if (xv6Var.b().getParent() == null) {
+                viewGroup.addView(xv6Var.b(), new ViewGroup.LayoutParams(-2, -2));
             }
-            yv6Var.b().setTag(Integer.valueOf(i));
-            yv6Var.c((on) ListUtils.getItem(this.a, i));
-            return yv6Var.b();
+            xv6Var.b().setTag(Integer.valueOf(i));
+            xv6Var.c((on) ListUtils.getItem(this.a, i));
+            return xv6Var.b();
         }
         return invokeLI.objValue;
     }

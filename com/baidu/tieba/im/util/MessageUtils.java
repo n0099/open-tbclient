@@ -39,15 +39,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import com.repackage.e97;
 import com.repackage.eq4;
-import com.repackage.f97;
-import com.repackage.m87;
+import com.repackage.l87;
 import com.repackage.og;
 import com.repackage.pi;
+import com.repackage.sa7;
 import com.repackage.ta7;
-import com.repackage.ua7;
-import com.repackage.x87;
-import com.repackage.z87;
+import com.repackage.w87;
+import com.repackage.y87;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -73,7 +73,7 @@ public class MessageUtils {
         if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{list, linkedList, hashMap, hashMap2, chatMessage, msgInfo, groupMsgData, l}) == null) || list == null || linkedList == null || hashMap == null || hashMap2 == null || chatMessage == null || msgInfo == null) {
             return;
         }
-        long a = ta7.a(msgInfo.msgId.longValue());
+        long a = sa7.a(msgInfo.msgId.longValue());
         chatMessage.setMsgId(a);
         chatMessage.setSid(msgInfo.sid.longValue());
         chatMessage.setGroupId(String.valueOf(msgInfo.groupId));
@@ -117,9 +117,9 @@ public class MessageUtils {
         chatMessage.setToUserId(msgInfo.toUid.longValue());
         chatMessage.setContent(msgInfo.content);
         if (msgInfo.msgType.intValue() == 3) {
-            VoiceMsgData q = ua7.q(chatMessage);
+            VoiceMsgData q = ta7.q(chatMessage);
             if (q != null) {
-                if (ua7.v(chatMessage)) {
+                if (ta7.v(chatMessage)) {
                     q.setHas_read(1);
                 } else {
                     q.setHas_read(0);
@@ -128,14 +128,14 @@ public class MessageUtils {
                 chatMessage.setContent(PreferencesUtil.LEFT_MOUNT + jsonStrWithObject + PreferencesUtil.RIGHT_MOUNT);
             }
         } else if (msgInfo.msgType.intValue() == 33) {
-            ShareForumMsgData c = ua7.c(chatMessage);
+            ShareForumMsgData c = ta7.c(chatMessage);
             if (c != null) {
-                c.setHasRead(ua7.v(chatMessage));
+                c.setHasRead(ta7.v(chatMessage));
                 chatMessage.setContent(OrmObject.jsonStrWithObject(c));
                 chatMessage.setEncodeContent(c.toEncodeContent());
             }
-        } else if (msgInfo.msgType.intValue() == 32 && (d = ua7.d(chatMessage)) != null) {
-            d.setHasRead(ua7.v(chatMessage));
+        } else if (msgInfo.msgType.intValue() == 32 && (d = ta7.d(chatMessage)) != null) {
+            d.setHasRead(ta7.v(chatMessage));
             chatMessage.setContent(OrmObject.jsonStrWithObject(d));
             chatMessage.setEncodeContent(d.toEncodeContent());
         }
@@ -180,23 +180,23 @@ public class MessageUtils {
                 if (groupMsgData != null && groupMsgData.getGroupInfo() != null && l != null) {
                     groupMsgData.getGroupInfo().setGroupId(l.longValue());
                 }
-                if (z87.e().c(chatMessage.getMsgId())) {
+                if (y87.e().c(chatMessage.getMsgId())) {
                     return;
                 }
-                long d2 = z87.e().d();
+                long d2 = y87.e().d();
                 Long l2 = msgInfo.groupId;
                 if (l2 == null) {
                     return;
                 }
-                if (d2 != 0 && l2.longValue() != z87.e().d()) {
+                if (d2 != 0 && l2.longValue() != y87.e().d()) {
                     return;
                 }
-                Long f = z87.e().f();
+                Long f = y87.e().f();
                 if (f != null && msgInfo.msgId != null && f.longValue() >= msgInfo.msgId.longValue()) {
                     return;
                 }
                 chatMessage.setIsPushForOperateAccount(true);
-                z87.e().a(msgInfo.groupId.longValue(), chatMessage.getMsgId());
+                y87.e().a(msgInfo.groupId.longValue(), chatMessage.getMsgId());
             }
             if (j != 0) {
                 if (linkedList.size() == 0) {
@@ -265,7 +265,7 @@ public class MessageUtils {
         createPersonalChatMessageByToUser.setObjContent(ofForumData);
         createPersonalChatMessageByToUser.setMsgType(33);
         createPersonalChatMessageByToUser.setEncodeContent(ofForumData.toEncodeContent());
-        f97.k().u(createPersonalChatMessageByToUser);
+        e97.k().u(createPersonalChatMessageByToUser);
     }
 
     public static void createAndSendPersonalTextChatMessage(@Nullable String str, long j, String str2, String str3, String str4, boolean z) {
@@ -276,7 +276,7 @@ public class MessageUtils {
         PersonalChatMessage createPersonalChatMessageByToUser = createPersonalChatMessageByToUser(j, str2, str3, str4, z);
         createPersonalChatMessageByToUser.setContent(str);
         createPersonalChatMessageByToUser.setMsgType(1);
-        f97.k().u(createPersonalChatMessageByToUser);
+        e97.k().u(createPersonalChatMessageByToUser);
     }
 
     public static void createAndSendPersonalThreadChatMessage(@Nullable ThreadData threadData, long j, String str, String str2, String str3, boolean z) {
@@ -290,20 +290,20 @@ public class MessageUtils {
         createPersonalChatMessageByToUser.setObjContent(ofThreadData);
         createPersonalChatMessageByToUser.setMsgType(32);
         createPersonalChatMessageByToUser.setEncodeContent(ofThreadData.toEncodeContent());
-        f97.k().u(createPersonalChatMessageByToUser);
+        e97.k().u(createPersonalChatMessageByToUser);
     }
 
     public static void createGroupChatMessage(int i, String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)}) == null) {
-            createGroupChatMessage(m87.o().t(String.valueOf(j), 1), i, str, j);
+            createGroupChatMessage(l87.o().t(String.valueOf(j), 1), i, str, j);
         }
     }
 
     public static void createPersonalChatMessage(int i, String str, long j, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2, str3, str4}) == null) {
-            createPersonalChatMessage(m87.o().t(String.valueOf(j), 2), i, str, j, str2, str3, str4);
+            createPersonalChatMessage(l87.o().t(String.valueOf(j), 2), i, str, j, str2, str3, str4);
         }
     }
 
@@ -312,7 +312,7 @@ public class MessageUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j), str, str2, str3, Boolean.valueOf(z)})) == null) {
             PersonalChatMessage personalChatMessage = new PersonalChatMessage();
-            long t = m87.o().t(String.valueOf(j), 2);
+            long t = l87.o().t(String.valueOf(j), 2);
             personalChatMessage.setRecordId(t);
             personalChatMessage.setMsgId(t);
             personalChatMessage.setBornTime(System.currentTimeMillis());
@@ -558,7 +558,7 @@ public class MessageUtils {
             if (longSparseArray != null && longSparseArray.size() != 0) {
                 NewpushRepair.Builder builder = new NewpushRepair.Builder();
                 for (int i = 0; i < longSparseArray.size(); i++) {
-                    NewpushGroupRepair j = x87.i().j(longSparseArray.keyAt(i));
+                    NewpushGroupRepair j = w87.i().j(longSparseArray.keyAt(i));
                     if (j != null) {
                         if (builder.groups == null) {
                             builder.groups = new ArrayList();
@@ -670,12 +670,12 @@ public class MessageUtils {
     public static void sendHasReadMessage(String str, int i) {
         ImMessageCenterPojo i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65555, null, str, i) == null) || StringUtils.isNull(str) || i != 2 || (i2 = m87.o().i(str, 2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65555, null, str, i) == null) || StringUtils.isNull(str) || i != 2 || (i2 = l87.o().i(str, 2)) == null) {
             return;
         }
         long pulled_msgId = i2.getPulled_msgId();
         if (pulled_msgId > i2.getSent_msgId()) {
-            RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(ta7.c(pulled_msgId), Long.parseLong(str));
+            RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(sa7.c(pulled_msgId), Long.parseLong(str));
             if (MessageManager.getInstance().getSocketClient().n(requestPersonalMsgReadMessage)) {
                 return;
             }
@@ -692,7 +692,7 @@ public class MessageUtils {
             imMessageCenterPojo.setCustomGroupType(i);
             imMessageCenterPojo.setGid(String.valueOf(j));
             if (bundle.containsKey("lastMid")) {
-                imMessageCenterPojo.setPulled_msgId(ta7.a(bundle.getLong("lastMid") - 1));
+                imMessageCenterPojo.setPulled_msgId(sa7.a(bundle.getLong("lastMid") - 1));
             }
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryNotifyUpdataGroupMessage(imMessageCenterPojo));
         }
@@ -730,7 +730,7 @@ public class MessageUtils {
         msgLocalData.setRetry(0L);
         msgLocalData.setUpload_offset(null);
         groupChatMessage.setLocalData(msgLocalData);
-        f97.k().u(groupChatMessage);
+        e97.k().u(groupChatMessage);
     }
 
     public static void createPersonalChatMessage(long j, int i, String str, long j2, String str2, String str3, String str4) {
@@ -772,7 +772,7 @@ public class MessageUtils {
         msgLocalData.setRetry(0L);
         msgLocalData.setUpload_offset(null);
         personalChatMessage.setLocalData(msgLocalData);
-        f97.k().u(personalChatMessage);
+        e97.k().u(personalChatMessage);
     }
 
     public static NewpushGroupRepair makeNewpushGroupRepair(long j, int i, long j2, long j3, long j4) {

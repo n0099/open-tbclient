@@ -60,8 +60,8 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
             this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091d32);
             if (SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) {
                 this.d.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c3));
-                this.b.setImageResource(R.drawable.obfuscated_res_0x7f08106d);
-                this.c.setImageResource(R.drawable.obfuscated_res_0x7f08106b);
+                this.b.setImageResource(R.drawable.obfuscated_res_0x7f08106e);
+                this.c.setImageResource(R.drawable.obfuscated_res_0x7f08106c);
                 this.a.findViewById(R.id.obfuscated_res_0x7f091d30).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a0b));
             }
         }

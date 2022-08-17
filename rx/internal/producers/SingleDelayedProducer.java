@@ -5,12 +5,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bv9;
-import com.repackage.ru9;
-import com.repackage.vu9;
+import com.repackage.dv9;
+import com.repackage.tu9;
+import com.repackage.xu9;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public final class SingleDelayedProducer<T> extends AtomicInteger implements ru9 {
+public final class SingleDelayedProducer<T> extends AtomicInteger implements tu9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HAS_REQUEST_HAS_VALUE = 3;
     public static final int HAS_REQUEST_NO_VALUE = 2;
@@ -18,15 +18,15 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements ru9
     public static final int NO_REQUEST_NO_VALUE = 0;
     public static final long serialVersionUID = -2873467947112093874L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vu9<? super T> child;
+    public final xu9<? super T> child;
     public T value;
 
-    public SingleDelayedProducer(vu9<? super T> vu9Var) {
+    public SingleDelayedProducer(xu9<? super T> xu9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vu9Var};
+            Object[] objArr = {xu9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,28 +36,28 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements ru9
                 return;
             }
         }
-        this.child = vu9Var;
+        this.child = xu9Var;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: T */
     /* JADX WARN: Multi-variable type inference failed */
-    public static <T> void emit(vu9<? super T> vu9Var, T t) {
+    public static <T> void emit(xu9<? super T> xu9Var, T t) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, vu9Var, t) == null) || vu9Var.isUnsubscribed()) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, xu9Var, t) == null) || xu9Var.isUnsubscribed()) {
             return;
         }
         try {
-            vu9Var.onNext(t);
-            if (vu9Var.isUnsubscribed()) {
+            xu9Var.onNext(t);
+            if (xu9Var.isUnsubscribed()) {
                 return;
             }
-            vu9Var.onCompleted();
+            xu9Var.onCompleted();
         } catch (Throwable th) {
-            bv9.g(th, vu9Var, t);
+            dv9.g(th, xu9Var, t);
         }
     }
 
-    @Override // com.repackage.ru9
+    @Override // com.repackage.tu9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {

@@ -694,20 +694,20 @@ public class RecordEffectLayout extends RelativeLayout {
             this.j = "-1";
             QmFilterItem qmFilterItem = new QmFilterItem();
             qmFilterItem.id = "-1";
-            qmFilterItem.bgurl = R.drawable.obfuscated_res_0x7f080a1b + "";
+            qmFilterItem.bgurl = R.drawable.obfuscated_res_0x7f080a1c + "";
             qmFilterItem.name = getResources().getString(R.string.obfuscated_res_0x7f0f0626);
             qmFilterItem.isSelect = true;
             qmFilterItem.localPath = "origin";
-            this.m = m(R.drawable.obfuscated_res_0x7f080a1b, 2, p(R.string.obfuscated_res_0x7f0f0626), qmFilterItem);
+            this.m = m(R.drawable.obfuscated_res_0x7f080a1c, 2, p(R.string.obfuscated_res_0x7f0f0626), qmFilterItem);
             this.f = new ArrayList();
             QmStickerItem qmStickerItem = new QmStickerItem();
             qmStickerItem.id = -1;
             qmStickerItem.isLocalSource = true;
             qmStickerItem.localPath = "nosticker";
             this.o = qmStickerItem;
-            this.k = getResources().getString(R.string.obfuscated_res_0x7f0f0b2a);
-            getResources().getString(R.string.obfuscated_res_0x7f0f0b2a);
-            new MusicData(MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0b2a));
+            this.k = getResources().getString(R.string.obfuscated_res_0x7f0f0b2b);
+            getResources().getString(R.string.obfuscated_res_0x7f0f0b2b);
+            new MusicData(MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0b2b));
         }
     }
 
@@ -719,15 +719,15 @@ public class RecordEffectLayout extends RelativeLayout {
             RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d048a, this);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09158e);
             this.a = textView;
-            textView.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0381) + getResources().getString(R.string.obfuscated_res_0x7f0f0b2a));
+            textView.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0381) + getResources().getString(R.string.obfuscated_res_0x7f0f0b2b));
             HListView hListView = (HListView) findViewById(R.id.obfuscated_res_0x7f090875);
             this.b = hListView;
             hListView.setDividerWidth(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006));
             this.b.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X007), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X007), 0);
-            this.b.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08120f));
+            this.b.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081210));
             HListView hListView2 = (HListView) findViewById(R.id.obfuscated_res_0x7f091f36);
             this.c = hListView2;
-            hListView2.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08120f));
+            hListView2.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081210));
             qy8 qy8Var = new qy8();
             this.d = qy8Var;
             this.b.setAdapter((ListAdapter) qy8Var);

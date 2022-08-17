@@ -6,15 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.TreeMap;
 /* loaded from: classes7.dex */
-public class rs9 implements ns9 {
+public class rs9 extends ts9 implements vs9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public TreeMap<String, String> b;
+    public String c;
 
     public rs9() {
         Interceptable interceptable = $ic;
@@ -26,49 +22,29 @@ public class rs9 implements ns9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
     }
 
-    @Override // com.repackage.qs9
-    public String d(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.us9
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = this.b.get(str);
-            return str2 == null ? "" : str2;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.vs9
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.c = str;
         }
-        return (String) invokeL.objValue;
     }
 
-    @Override // com.repackage.qs9
-    public boolean e(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.vs9
+    public void h(short s) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.b.containsKey(str) : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.qs9
-    public Iterator<String> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableSet(this.b.keySet()).iterator() : (Iterator) invokeV.objValue;
-    }
-
-    @Override // com.repackage.qs9
-    public byte[] getContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (byte[]) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ns9
-    public void put(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            this.b.put(str, str2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Short.valueOf(s)}) == null) {
         }
     }
 }

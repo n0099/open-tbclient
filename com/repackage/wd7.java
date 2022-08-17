@@ -1,30 +1,11 @@
 package com.repackage;
 
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tieba.lego.activity.LegoListFragment;
 /* loaded from: classes7.dex */
-public class wd7 {
-    public static /* synthetic */ Interceptable $ic;
-    public static int[] a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wd7 {
+    hf7 B();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755205145, "Lcom/repackage/wd7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755205145, "Lcom/repackage/wd7;");
-                return;
-            }
-        }
-        a = new int[]{R.color.CAM_X0313, R.color.CAM_X0308, R.color.CAM_X0314, R.color.CAM_X0204};
-    }
+    LegoListFragment U();
+
+    mf7 v0();
 }

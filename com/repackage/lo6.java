@@ -11,5 +11,5 @@ public interface lo6 {
 
     af6 k1();
 
-    tr6 o0();
+    sr6 o0();
 }

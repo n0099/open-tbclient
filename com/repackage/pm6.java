@@ -75,7 +75,7 @@ public class pm6 implements qm6 {
         if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, liveFuseForumData) == null) || liveFuseForumData == null) {
             return;
         }
-        UrlManager.getInstance().dealOneLink(this.b, new String[]{qi.Q(liveFuseForumData.schema, "from=key_from_frs_card")});
+        UrlManager.getInstance().dealOneLink(this.b, new String[]{qi.P(liveFuseForumData.schema, "from=key_from_frs_card")});
         TiebaStatic.log(new StatisticItem("c14702").param("obj_type", f(i, liveFuseForumData)).param("fid", this.d));
         String str = liveFuseForumData.schema;
         if (str == null || !str.startsWith("bdtiebalive")) {

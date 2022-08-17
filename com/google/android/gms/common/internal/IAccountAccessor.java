@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.internal.common.zzb;
-import com.repackage.po9;
+import com.repackage.ro9;
 /* loaded from: classes5.dex */
 public interface IAccountAccessor extends IInterface {
 
@@ -61,7 +61,7 @@ public interface IAccountAccessor extends IInterface {
                 if (i == 2) {
                     Account zzb = zzb();
                     parcel2.writeNoException();
-                    po9.d(parcel2, zzb);
+                    ro9.d(parcel2, zzb);
                     return true;
                 }
                 return false;

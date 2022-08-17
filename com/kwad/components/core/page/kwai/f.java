@@ -139,7 +139,7 @@ public final class f extends c {
             public final void a(com.kwad.components.core.webview.a.b bVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, bVar) == null) {
-                    AdWebViewActivityProxy.launch(this.Gn.Fv.getContext(), new AdWebViewActivityProxy.a.C0359a().ao(bVar.title).ap(bVar.url).N(this.Gn.mAdTemplate).nx());
+                    AdWebViewActivityProxy.launch(this.Gn.Fv.getContext(), new AdWebViewActivityProxy.a.C0361a().ao(bVar.title).ap(bVar.url).N(this.Gn.mAdTemplate).nx());
                 }
             }
         } : (w.a) invokeV.objValue;

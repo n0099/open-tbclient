@@ -187,7 +187,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, gy4Var) == null) {
             if (da6.a(getText().toString()) >= 10) {
-                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1431);
+                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1433);
             } else {
                 ea6.b(getContext(), gy4Var, this);
             }

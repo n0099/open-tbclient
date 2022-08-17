@@ -37,7 +37,6 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.graphics.drawable.TintAwareDrawable;
-import androidx.core.internal.view.SupportMenu;
 import androidx.core.text.BidiFormatter;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -49,6 +48,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import com.google.android.material.animation.MotionSpec;
 import com.google.android.material.canvas.CanvasCompat;
 import com.google.android.material.color.MaterialColors;
@@ -527,10 +527,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
             calculateCloseIconBounds(rect, this.rectF);
             canvas.drawRect(this.rectF, this.debugPaint);
         }
-        this.debugPaint.setColor(ColorUtils.setAlphaComponent(SupportMenu.CATEGORY_MASK, 127));
+        this.debugPaint.setColor(ColorUtils.setAlphaComponent(-65536, 127));
         calculateChipTouchBounds(rect, this.rectF);
         canvas.drawRect(this.rectF, this.debugPaint);
-        this.debugPaint.setColor(ColorUtils.setAlphaComponent(-16711936, 127));
+        this.debugPaint.setColor(ColorUtils.setAlphaComponent(DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK, 127));
         calculateCloseIconTouchBounds(rect, this.rectF);
         canvas.drawRect(this.rectF, this.debugPaint);
     }
@@ -597,7 +597,7 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
     private void loadFromAttributes(@Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65562, this, attributeSet, i, i2) == null) {
-            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.context, attributeSet, new int[]{16842804, 16842904, 16842923, 16843039, 16843087, 16843237, R.attr.obfuscated_res_0x7f040136, R.attr.obfuscated_res_0x7f040137, R.attr.obfuscated_res_0x7f040138, R.attr.obfuscated_res_0x7f040139, R.attr.obfuscated_res_0x7f04013b, R.attr.obfuscated_res_0x7f04013c, R.attr.obfuscated_res_0x7f04013d, R.attr.obfuscated_res_0x7f04013f, R.attr.obfuscated_res_0x7f040140, R.attr.obfuscated_res_0x7f040141, R.attr.obfuscated_res_0x7f040143, R.attr.obfuscated_res_0x7f040144, R.attr.obfuscated_res_0x7f040145, R.attr.obfuscated_res_0x7f040146, R.attr.obfuscated_res_0x7f04014b, R.attr.obfuscated_res_0x7f04014c, R.attr.obfuscated_res_0x7f04014d, R.attr.obfuscated_res_0x7f04014f, R.attr.obfuscated_res_0x7f04015a, R.attr.obfuscated_res_0x7f04015c, R.attr.obfuscated_res_0x7f04015d, R.attr.obfuscated_res_0x7f04015e, R.attr.obfuscated_res_0x7f040161, R.attr.obfuscated_res_0x7f040162, R.attr.obfuscated_res_0x7f040163, R.attr.obfuscated_res_0x7f040286, R.attr.obfuscated_res_0x7f040304, R.attr.obfuscated_res_0x7f040329, R.attr.obfuscated_res_0x7f04032d, R.attr.obfuscated_res_0x7f0405c7, R.attr.obfuscated_res_0x7f040614, R.attr.obfuscated_res_0x7f040617, R.attr.obfuscated_res_0x7f04061f, R.attr.obfuscated_res_0x7f0406ea, R.attr.obfuscated_res_0x7f0406f2}, i, i2, new int[0]);
+            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.context, attributeSet, new int[]{16842804, 16842904, 16842923, 16843039, 16843087, 16843237, R.attr.obfuscated_res_0x7f040136, R.attr.obfuscated_res_0x7f040137, R.attr.obfuscated_res_0x7f040138, R.attr.obfuscated_res_0x7f040139, R.attr.obfuscated_res_0x7f04013b, R.attr.obfuscated_res_0x7f04013c, R.attr.obfuscated_res_0x7f04013d, R.attr.obfuscated_res_0x7f04013f, R.attr.obfuscated_res_0x7f040140, R.attr.obfuscated_res_0x7f040141, R.attr.obfuscated_res_0x7f040143, R.attr.obfuscated_res_0x7f040144, R.attr.obfuscated_res_0x7f040145, R.attr.obfuscated_res_0x7f040146, R.attr.obfuscated_res_0x7f04014b, R.attr.obfuscated_res_0x7f04014c, R.attr.obfuscated_res_0x7f04014d, R.attr.obfuscated_res_0x7f04014f, R.attr.obfuscated_res_0x7f04015a, R.attr.obfuscated_res_0x7f04015c, R.attr.obfuscated_res_0x7f04015d, R.attr.obfuscated_res_0x7f04015e, R.attr.obfuscated_res_0x7f040161, R.attr.obfuscated_res_0x7f040162, R.attr.obfuscated_res_0x7f040163, R.attr.obfuscated_res_0x7f040287, R.attr.obfuscated_res_0x7f040305, R.attr.obfuscated_res_0x7f04032a, R.attr.obfuscated_res_0x7f04032e, R.attr.obfuscated_res_0x7f0405c8, R.attr.obfuscated_res_0x7f040615, R.attr.obfuscated_res_0x7f040618, R.attr.obfuscated_res_0x7f040620, R.attr.obfuscated_res_0x7f0406ea, R.attr.obfuscated_res_0x7f0406f2}, i, i2, new int[0]);
             this.isShapeThemingEnabled = obtainStyledAttributes.hasValue(36);
             setChipSurfaceColor(MaterialResources.getColorStateList(this.context, obtainStyledAttributes, 23));
             setChipBackgroundColor(MaterialResources.getColorStateList(this.context, obtainStyledAttributes, 10));

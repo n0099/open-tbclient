@@ -161,7 +161,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
                 AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity2 = this.a;
                 alaFrsStoryLiveGatherActivity2.setNetRefreshViewTopMargin(alaFrsStoryLiveGatherActivity2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070252));
                 AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity3 = this.a;
-                alaFrsStoryLiveGatherActivity3.showNetRefreshView(alaFrsStoryLiveGatherActivity3.d.g(), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c56), false);
+                alaFrsStoryLiveGatherActivity3.showNetRefreshView(alaFrsStoryLiveGatherActivity3.d.g(), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c57), false);
                 return;
             }
             AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity4 = this.a;

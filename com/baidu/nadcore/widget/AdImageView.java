@@ -94,7 +94,7 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040071, R.attr.obfuscated_res_0x7f0400e9, R.attr.obfuscated_res_0x7f0400ea, R.attr.obfuscated_res_0x7f040152, R.attr.obfuscated_res_0x7f04028a, R.attr.obfuscated_res_0x7f040321, R.attr.obfuscated_res_0x7f040337, R.attr.obfuscated_res_0x7f040420, R.attr.obfuscated_res_0x7f040426, R.attr.obfuscated_res_0x7f040495, R.attr.obfuscated_res_0x7f0405bf, R.attr.obfuscated_res_0x7f0405c4});
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040071, R.attr.obfuscated_res_0x7f0400e9, R.attr.obfuscated_res_0x7f0400ea, R.attr.obfuscated_res_0x7f040152, R.attr.obfuscated_res_0x7f04028b, R.attr.obfuscated_res_0x7f040322, R.attr.obfuscated_res_0x7f040338, R.attr.obfuscated_res_0x7f040421, R.attr.obfuscated_res_0x7f040427, R.attr.obfuscated_res_0x7f040496, R.attr.obfuscated_res_0x7f0405c0, R.attr.obfuscated_res_0x7f0405c5});
         int resourceId = obtainStyledAttributes.getResourceId(5, 0);
         if (resourceId != 0) {
             this.a.a = resourceId;

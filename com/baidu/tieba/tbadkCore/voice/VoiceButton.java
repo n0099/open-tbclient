@@ -16,7 +16,7 @@ import com.repackage.d9;
 import com.repackage.dj;
 import com.repackage.fj;
 import com.repackage.h9;
-import com.repackage.sm8;
+import com.repackage.rm8;
 /* loaded from: classes4.dex */
 public class VoiceButton extends ImageView {
     public static /* synthetic */ Interceptable $ic;
@@ -46,7 +46,7 @@ public class VoiceButton extends ImageView {
         this.b = false;
     }
 
-    public sm8 getRecorderManager() {
+    public rm8 getRecorderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -56,7 +56,7 @@ public class VoiceButton extends ImageView {
             }
             return voiceManager.getRecorderManager();
         }
-        return (sm8) invokeV.objValue;
+        return (rm8) invokeV.objValue;
     }
 
     public VoiceManager getVoiceManager() {
@@ -81,7 +81,7 @@ public class VoiceButton extends ImageView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            sm8 recorderManager = getRecorderManager();
+            rm8 recorderManager = getRecorderManager();
             if (motionEvent.getAction() == 0) {
                 if (recorderManager == null || !recorderManager.f()) {
                     return false;
@@ -107,7 +107,7 @@ public class VoiceButton extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fjVar) == null) {
             this.a = fjVar;
-            sm8 recorderManager = getRecorderManager();
+            rm8 recorderManager = getRecorderManager();
             if (recorderManager != null) {
                 recorderManager.e(fjVar);
                 recorderManager.d(dj.a);

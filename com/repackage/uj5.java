@@ -67,10 +67,10 @@ public class uj5 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016522 || zb8.l().i() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016522 || yb8.l().i() == null) {
                 return;
             }
-            zb8.l().i().b();
+            yb8.l().i().b();
         }
     }
 
@@ -262,8 +262,8 @@ public class uj5 {
         MessageManager.getInstance().registerListener(this.f);
         MessageManager.getInstance().registerListener(this.d);
         MessageManager.getInstance().registerListener(this.g);
-        if (zb8.l().i() != null) {
-            zb8.l().i().c();
+        if (yb8.l().i() != null) {
+            yb8.l().i().c();
         }
         vj5.b().c(new e(this));
     }
@@ -344,7 +344,7 @@ public class uj5 {
             }
             long j2 = this.a;
             if (currentTimeMillis - j2 > 2 && currentTimeMillis - j2 > i) {
-                ub8 i2 = zb8.l().i();
+                tb8 i2 = yb8.l().i();
                 int a2 = i2 != null ? i2.a() : j;
                 PrintStream printStream = System.out;
                 printStream.println("TestTest => hotSplashMaxTime: " + j + " currentTime: " + a2 + " interval: " + i);

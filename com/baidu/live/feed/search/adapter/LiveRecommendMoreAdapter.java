@@ -752,9 +752,9 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
                     Intrinsics.checkExpressionValueIsNotNull(f, "UIModeUtils.getInstance()");
                     String q = f.q();
                     if (Intrinsics.areEqual(q, "day")) {
-                        liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080cf0);
-                    } else if (Intrinsics.areEqual(q, "night")) {
                         liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080cf1);
+                    } else if (Intrinsics.areEqual(q, "night")) {
+                        liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080cf2);
                     }
                 }
             } else {
@@ -766,9 +766,9 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
                 Intrinsics.checkExpressionValueIsNotNull(f2, "UIModeUtils.getInstance()");
                 String q2 = f2.q();
                 if (Intrinsics.areEqual(q2, "day")) {
-                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080cee);
-                } else if (Intrinsics.areEqual(q2, "night")) {
                     liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080cef);
+                } else if (Intrinsics.areEqual(q2, "night")) {
+                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080cf0);
                 }
             }
             liveSearchResultViewHolder.f().setVisibility(8);

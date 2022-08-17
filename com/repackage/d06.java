@@ -14,20 +14,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m88;
+import com.repackage.l88;
 /* loaded from: classes6.dex */
-public class d06 implements j88 {
+public class d06 implements i88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AlaVideoContainer a;
     public ThreadData b;
     public AlaInfoData c;
     public boolean d;
-    public m88 e;
-    public m88.b f;
+    public l88 e;
+    public l88.b f;
 
     /* loaded from: classes6.dex */
-    public class a implements m88.b {
+    public class a implements l88.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d06 a;
@@ -50,7 +50,7 @@ public class d06 implements j88 {
             this.a = d06Var;
         }
 
-        @Override // com.repackage.m88.b
+        @Override // com.repackage.l88.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -78,9 +78,9 @@ public class d06 implements j88 {
         this.f = new a(this);
         this.a = alaVideoContainer;
         if (alaVideoContainer != null) {
-            m88 m88Var = new m88();
-            this.e = m88Var;
-            m88Var.l(this.a.getVideoView());
+            l88 l88Var = new l88();
+            this.e = l88Var;
+            l88Var.l(this.a.getVideoView());
             this.e.i(this.f);
         }
     }
@@ -121,7 +121,7 @@ public class d06 implements j88 {
         this.a.setPlayCount(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0200), StringHelper.numFormatOverWan(this.b.getThreadAlaInfo().audience_count)));
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class d06 implements j88 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -149,7 +149,7 @@ public class d06 implements j88 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -163,7 +163,7 @@ public class d06 implements j88 {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -173,14 +173,14 @@ public class d06 implements j88 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -190,14 +190,14 @@ public class d06 implements j88 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
         }
     }
 
-    @Override // com.repackage.j88
+    @Override // com.repackage.i88
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -205,9 +205,9 @@ public class d06 implements j88 {
             if (alaVideoContainer != null && alaVideoContainer.getVideoView() != null) {
                 this.a.getVideoView().stopPlayback();
                 this.a.p();
-                m88 m88Var = this.e;
-                if (m88Var != null) {
-                    m88Var.n();
+                l88 l88Var = this.e;
+                if (l88Var != null) {
+                    l88Var.n();
                 }
             }
             this.d = false;

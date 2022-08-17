@@ -2,22 +2,24 @@ package com.repackage;
 
 import android.text.TextUtils;
 import android.util.SparseArray;
+import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.DeleteThreadInfo;
-import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.pb.pb.sub.SubPbModel;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tieba.pb.videopb.fragment.DetailInfoAndReplyFragment;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
@@ -29,15 +31,15 @@ public class jz7 {
     public static class a implements hh5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qz7 a;
-        public final /* synthetic */ SubPbModel b;
+        public final /* synthetic */ PbModel a;
+        public final /* synthetic */ DetailInfoAndReplyFragment b;
 
-        public a(qz7 qz7Var, SubPbModel subPbModel) {
+        public a(PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qz7Var, subPbModel};
+                Object[] objArr = {pbModel, detailInfoAndReplyFragment};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,58 +49,46 @@ public class jz7 {
                     return;
                 }
             }
-            this.a = qz7Var;
-            this.b = subPbModel;
+            this.a = pbModel;
+            this.b = detailInfoAndReplyFragment;
         }
 
         @Override // com.repackage.hh5
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.E0(false);
+                this.b.m2(false);
             }
         }
 
         @Override // com.repackage.hh5
         public void b(List<String> list) {
-            int i;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && (this.a.B() instanceof BdTypeListView)) {
-                List<on> data = ((BdTypeListView) this.a.B()).getData();
-                if (ListUtils.isEmpty(data) || ListUtils.isEmpty(list)) {
-                    return;
-                }
-                Iterator<on> it = data.iterator();
-                while (true) {
-                    i = 0;
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    on next = it.next();
-                    if (next instanceof PostData) {
-                        while (true) {
-                            if (i >= list.size()) {
-                                break;
-                            } else if (TextUtils.equals(list.get(i), ((PostData) next).K())) {
-                                it.remove();
-                                if (this.b.m0() != null) {
-                                    this.b.m0().F(this.b.m0().m() - 1);
-                                }
-                            } else {
-                                i++;
-                            }
-                        }
-                    }
-                }
-                while (i < data.size()) {
-                    if (data.get(i) instanceof zz7) {
-                        ((zz7) data.get(i)).b(this.b.m0().m());
-                    }
-                    i++;
-                }
-                ((BdTypeListView) this.a.B()).setData(data);
-                this.a.T();
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.a.S1() == null) {
+                return;
             }
+            ArrayList<PostData> F = this.a.S1().F();
+            if (ListUtils.isEmpty(F) || ListUtils.isEmpty(list)) {
+                return;
+            }
+            Iterator<PostData> it = F.iterator();
+            while (it.hasNext()) {
+                PostData next = it.next();
+                int i = 0;
+                while (true) {
+                    if (i >= list.size()) {
+                        break;
+                    } else if (TextUtils.equals(list.get(i), next.K())) {
+                        it.remove();
+                        if (this.a.S1().O() != null) {
+                            this.a.S1().O().setReply_num(this.a.S1().O().getReply_num() - 1);
+                        }
+                    } else {
+                        i++;
+                    }
+                }
+            }
+            this.b.U1();
         }
     }
 
@@ -109,66 +99,74 @@ public class jz7 {
         }
     }
 
-    public static jh5 b(SubPbModel subPbModel, qz7 qz7Var) {
+    public static jh5 b(PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, subPbModel, qz7Var)) == null) {
-            if (subPbModel == null || qz7Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pbModel, detailInfoAndReplyFragment)) == null) {
+            if (detailInfoAndReplyFragment == null || pbModel == null) {
                 return null;
             }
             jh5 jh5Var = new jh5();
-            jh5Var.p(subPbModel.o0());
-            jh5Var.o(subPbModel.n0());
-            jh5Var.n(subPbModel.r0());
-            if (subPbModel.m0() != null && subPbModel.m0().d() != null) {
-                jh5Var.l(subPbModel.m0().d().getId());
-                jh5Var.m(subPbModel.m0().d().getName());
-                jh5Var.k(subPbModel.m0().d().getImage_url());
-                jh5Var.t(subPbModel.m0().d().getUser_level());
+            if (pbModel.S1() != null && pbModel.S1().l() != null) {
+                if (pbModel.S1().l().getDeletedReasonInfo() != null) {
+                    jh5Var.p(pbModel.S1().l().getDeletedReasonInfo().is_grays_cale_forum.intValue());
+                    jh5Var.o(pbModel.S1().l().getDeletedReasonInfo().is_boomgrow.intValue());
+                }
+                jh5Var.l(pbModel.S1().l().getId());
+                jh5Var.m(pbModel.S1().l().getName());
+                jh5Var.k(pbModel.S1().l().getImage_url());
+                jh5Var.t(pbModel.S1().l().getUser_level());
             }
-            UserData userData = new UserData();
-            userData.setIsManager(subPbModel.t0());
-            jh5Var.s(userData);
-            jh5Var.q(new a(qz7Var, subPbModel));
-            AntiData k0 = subPbModel.k0();
-            SparseArray<String> sparseArray = new SparseArray<>();
-            if (k0 != null && k0.getDelThreadInfoList() != null) {
-                List<DeleteThreadInfo> delThreadInfoList = k0.getDelThreadInfoList();
-                for (int i = 0; i < delThreadInfoList.size(); i++) {
-                    if (delThreadInfoList.get(i) != null && !TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
-                        sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
+            if (pbModel.S1() != null && pbModel.S1().o() != null) {
+                jh5Var.n(pbModel.S1().o().has_forum_rule.intValue());
+            }
+            if (pbModel.S1() != null && pbModel.S1().V() != null) {
+                jh5Var.s(pbModel.S1().V());
+            }
+            jh5Var.q(new a(pbModel, detailInfoAndReplyFragment));
+            if (pbModel.S1() != null) {
+                AntiData d = pbModel.S1().d();
+                SparseArray<String> sparseArray = new SparseArray<>();
+                if (d != null && d.getDelThreadInfoList() != null) {
+                    List<DeleteThreadInfo> delThreadInfoList = d.getDelThreadInfoList();
+                    for (int i = 0; i < delThreadInfoList.size(); i++) {
+                        if (delThreadInfoList.get(i) != null && !TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
+                            sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
+                        }
                     }
                 }
+                jh5Var.r(sparseArray);
             }
-            jh5Var.r(sparseArray);
             return jh5Var;
         }
         return (jh5) invokeLL.objValue;
     }
 
-    public static boolean c(vt7 vt7Var, PostData postData) {
+    public static boolean c(et7 et7Var, PostData postData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, vt7Var, postData)) == null) {
-            if (vt7Var == null || postData == null || vt7Var.d() == null || vt7Var.l() == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, et7Var, postData)) == null) {
+            if (et7Var == null || postData == null) {
                 return false;
             }
             lh5 lh5Var = new lh5();
-            lh5Var.d(vt7Var.d().getId());
-            lh5Var.f(vt7Var.l().getId());
+            lh5Var.d(postData.G() + "");
+            if (et7Var.O() != null) {
+                lh5Var.f(et7Var.O().getId());
+            }
             lh5Var.e(postData.K());
             return gh5.b().c(lh5Var);
         }
         return invokeLL.booleanValue;
     }
 
-    public static void d(TbPageContext tbPageContext, SubPbModel subPbModel, qz7 qz7Var) {
+    public static void d(TbPageContext<BaseFragmentActivity> tbPageContext, PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment, View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65539, null, tbPageContext, subPbModel, qz7Var) == null) || tbPageContext == null || qz7Var == null || qz7Var.u() == null || subPbModel == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(65539, null, tbPageContext, pbModel, detailInfoAndReplyFragment, view2) == null) || tbPageContext == null || pbModel == null || detailInfoAndReplyFragment == null || detailInfoAndReplyFragment.getView() == null) {
             return;
         }
-        gh5.b().e(tbPageContext, (ViewGroup) qz7Var.u(), b(subPbModel, qz7Var));
-        gh5.b().d(3);
+        gh5.b().e(tbPageContext, (ViewGroup) view2, b(pbModel, detailInfoAndReplyFragment));
+        gh5.b().d(2);
     }
 
     public static boolean e(PostData postData) {

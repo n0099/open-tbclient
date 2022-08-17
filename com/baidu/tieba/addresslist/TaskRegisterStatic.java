@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.qm5;
+import com.repackage.r57;
 import com.repackage.rm5;
-import com.repackage.s57;
 /* loaded from: classes3.dex */
 public class TaskRegisterStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -66,7 +66,7 @@ public class TaskRegisterStatic {
         }
         TbadkCoreApplication.getInst().RegisterIntent(AddressListActivityConfig.class, AddressListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(NewFriendsActivityConfig.class, NewFriendsActivity.class);
-        s57.b(304101, ResponsePassFriendMessage.class, false);
+        r57.b(304101, ResponsePassFriendMessage.class, false);
         MessageManager.getInstance().addResponsedMessageRule(new rm5());
         CustomMessageTask customMessageTask = new CustomMessageTask(2001322, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

@@ -46,8 +46,8 @@ public class dd5 {
             }
             this.b = true;
             this.c = R.drawable.new_pic_emotion_05;
-            this.d = dd5.c(R.string.obfuscated_res_0x7f0f0c55, new Object[0]);
-            this.e = dd5.c(R.string.obfuscated_res_0x7f0f0fb8, new Object[0]);
+            this.d = dd5.c(R.string.obfuscated_res_0x7f0f0c56, new Object[0]);
+            this.e = dd5.c(R.string.obfuscated_res_0x7f0f0fb9, new Object[0]);
             this.f = false;
             this.g = qi.f(dd5.getContext(), R.dimen.obfuscated_res_0x7f0702bf);
         }
@@ -82,8 +82,8 @@ public class dd5 {
             this.b = true;
             this.c = R.drawable.new_pic_emotion_08;
             this.d = qi.f(dd5.getContext(), R.dimen.obfuscated_res_0x7f070292);
-            this.e = dd5.c(R.string.obfuscated_res_0x7f0f0fb8, new Object[0]);
-            this.f = dd5.c(R.string.obfuscated_res_0x7f0f0fb9, new Object[0]);
+            this.e = dd5.c(R.string.obfuscated_res_0x7f0f0fb9, new Object[0]);
+            this.f = dd5.c(R.string.obfuscated_res_0x7f0f0fba, new Object[0]);
             this.g = dd5.c(R.string.obfuscated_res_0x7f0f0487, new Object[0]);
         }
     }
@@ -116,9 +116,9 @@ public class dd5 {
             }
             this.a = qi.f(dd5.getContext(), R.dimen.tbds182);
             this.b = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
-            this.c = dd5.c(R.string.obfuscated_res_0x7f0f0a3c, new Object[0]);
-            this.d = dd5.c(R.string.obfuscated_res_0x7f0f0dd6, new Object[0]);
-            this.e = dd5.c(R.string.obfuscated_res_0x7f0f09ea, new Object[0]);
+            this.c = dd5.c(R.string.obfuscated_res_0x7f0f0a3d, new Object[0]);
+            this.d = dd5.c(R.string.obfuscated_res_0x7f0f0dd7, new Object[0]);
+            this.e = dd5.c(R.string.obfuscated_res_0x7f0f09eb, new Object[0]);
             this.f = dd5.c(R.string.obfuscated_res_0x7f0f03ee, new Object[0]);
             this.g = false;
         }
@@ -144,7 +144,7 @@ public class dd5 {
                     return;
                 }
             }
-            this.a = dd5.c(R.string.obfuscated_res_0x7f0f0a42, new Object[0]);
+            this.a = dd5.c(R.string.obfuscated_res_0x7f0f0a43, new Object[0]);
         }
     }
 

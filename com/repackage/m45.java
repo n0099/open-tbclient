@@ -92,7 +92,7 @@ public class m45 extends j25 {
                 }
                 TiebaStatic.eventStat(this.b.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
             } else if (i == 7) {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0d19);
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0d1a);
                 this.c.d = true;
             } else if (i == 8) {
                 if (!this.c.k(this.a.getContext(), 11001)) {
@@ -126,7 +126,7 @@ public class m45 extends j25 {
                 }
             } else if (i == 20) {
                 this.a.a().A(new h25(2, 7, null));
-                zl8.a().f(true);
+                yl8.a().f(true);
                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
             } else if (i == 29) {
                 this.a.a().A(new h25(2, 19, null));
@@ -178,7 +178,7 @@ public class m45 extends j25 {
                         return;
                     case 16:
                         if (this.c.d) {
-                            this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0d19);
+                            this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0d1a);
                         }
                         if (this.c.k(this.a.getContext(), 11025)) {
                             AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.a.getContext().getPageActivity(), 12004, true);
@@ -290,7 +290,7 @@ public class m45 extends j25 {
             arrayList.add(6);
             arrayList.add(9);
             a2.d(new d35(a2.getContext(), 1));
-            if (um8.a() && ak8.a(this.b, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), s25.class)) != null && (s25Var = (s25) runTask.getData()) != null) {
+            if (tm8.a() && zj8.a(this.b, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), s25.class)) != null && (s25Var = (s25) runTask.getData()) != null) {
                 s25Var.l = 2;
                 a2.d(s25Var);
             }

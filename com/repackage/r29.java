@@ -194,16 +194,16 @@ public final class r29 {
             d().removeAllViews();
             String string = this.a.getString(R.string.obfuscated_res_0x7f0f0821);
             Intrinsics.checkNotNullExpressionValue(string, "mPageContext.getString(R…ng.guide_upgrde_item_one)");
-            b(R.drawable.obfuscated_res_0x7f080833, string);
+            b(R.drawable.obfuscated_res_0x7f080835, string);
             String string2 = this.a.getString(R.string.obfuscated_res_0x7f0f0823);
             Intrinsics.checkNotNullExpressionValue(string2, "mPageContext.getString(R…ng.guide_upgrde_item_two)");
-            b(R.drawable.obfuscated_res_0x7f08082f, string2);
+            b(R.drawable.obfuscated_res_0x7f080831, string2);
             String string3 = this.a.getString(R.string.obfuscated_res_0x7f0f0822);
             Intrinsics.checkNotNullExpressionValue(string3, "mPageContext.getString(R….guide_upgrde_item_three)");
-            b(R.drawable.obfuscated_res_0x7f0807fc, string3);
+            b(R.drawable.obfuscated_res_0x7f0807fd, string3);
             String string4 = this.a.getString(R.string.obfuscated_res_0x7f0f0820);
             Intrinsics.checkNotNullExpressionValue(string4, "mPageContext.getString(R…g.guide_upgrde_item_four)");
-            b(R.drawable.obfuscated_res_0x7f0807f9, string4);
+            b(R.drawable.obfuscated_res_0x7f0807fa, string4);
         }
     }
 
@@ -432,7 +432,7 @@ public final class r29 {
                     }
                 }
             });
-            g().getBackImageView().setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809f1, SkinManager.getColor(R.color.CAM_X0622), null));
+            g().getBackImageView().setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809f2, SkinManager.getColor(R.color.CAM_X0622), null));
             h().setTagData(new a());
             int i = qi.i(this.a.getPageActivity());
             if (qi.k(this.a.getPageActivity()) == 1080 && i == 1920) {
@@ -448,7 +448,7 @@ public final class r29 {
                     throw new NullPointerException("null cannot be cast to non-null type android.widget.RelativeLayout.LayoutParams");
                 }
             }
-            h().setBackgroundDrawableId(R.drawable.obfuscated_res_0x7f0809db, R.drawable.obfuscated_res_0x7f0809da);
+            h().setBackgroundDrawableId(R.drawable.obfuscated_res_0x7f0809dc, R.drawable.obfuscated_res_0x7f0809db);
             l().setOnClickListener(new View.OnClickListener() { // from class: com.repackage.o29
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -494,9 +494,9 @@ public final class r29 {
             while (it.hasNext()) {
                 it.next().a();
             }
-            k().setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0808d0, false));
-            c().setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0808cf, false));
-            e().setBackgroundResource(R.drawable.obfuscated_res_0x7f0808ce);
+            k().setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0808d1, false));
+            c().setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0808d0, false));
+            e().setBackgroundResource(R.drawable.obfuscated_res_0x7f0808cf);
         }
     }
 

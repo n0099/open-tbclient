@@ -74,25 +74,26 @@ public class ReloginManager {
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (statusCode == 200 && error == 0) {
                     yp4 yp4Var = new yp4();
-                    yp4Var.d(jSONObject);
-                    String userId = yp4Var.b().getUserId();
+                    yp4Var.e(jSONObject);
+                    String userId = yp4Var.c().getUserId();
                     if (userId != null && userId.length() > 0) {
                         AccountData accountData = new AccountData();
-                        String userName = yp4Var.b().getUserName();
-                        String password = yp4Var.b().getPassword();
+                        String userName = yp4Var.c().getUserName();
+                        String password = yp4Var.c().getPassword();
                         accountData.setAccount(userName);
                         if (password != null) {
                             accountData.setPassword(password);
                         } else {
                             accountData.setPassword(currentAccountObj.getPassword());
                         }
-                        accountData.setID(yp4Var.b().getUserId());
-                        accountData.setBDUSS(yp4Var.b().getBDUSS());
-                        accountData.setPortrait(yp4Var.b().getPortrait());
+                        accountData.setID(yp4Var.c().getUserId());
+                        accountData.setBDUSS(yp4Var.c().getBDUSS());
+                        accountData.setPortrait(yp4Var.c().getPortrait());
                         accountData.setIsActive(1);
                         if (yp4Var.a() != null) {
                             accountData.setTbs(yp4Var.a().getTbs());
                         }
+                        accountData.setGrowthSwitch(yp4Var.b());
                         gu4.a(DI.ACCOUNT, -1L, 0, "relogin_manager_save_account_to_db", 0, "", new Object[0]);
                         un4.g(accountData);
                         gu4.a(DI.ACCOUNT, -1L, 0, "relogin_manager_save_account_to_application", 0, "", new Object[0]);
@@ -100,7 +101,7 @@ public class ReloginManager {
                         TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
                         return;
                     }
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f0c3c));
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f0c3d));
                 }
             }
         }
@@ -149,7 +150,7 @@ public class ReloginManager {
                 }
                 this.a.f(TbadkCoreApplication.getCurrentAccountObj());
                 if (bgLoginHttpResponsedMessage.getErrorString() != null) {
-                    qi.O(TbadkCoreApplication.getInst().getContext(), bgLoginHttpResponsedMessage.getErrorString());
+                    qi.N(TbadkCoreApplication.getInst().getContext(), bgLoginHttpResponsedMessage.getErrorString());
                 }
                 this.a.b.clear();
             }
@@ -215,6 +216,7 @@ public class ReloginManager {
             httpMessage.addParam("isphone", "0");
             httpMessage.addParam("channel_id", TbadkCoreApplication.getInst().getPushChannelId());
             httpMessage.addParam("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
+            httpMessage.addParam("first_login", TbadkCoreApplication.getInst().getDeviceIsFirstLogin());
             messageManager.sendMessage(httpMessage);
         }
     }

@@ -1087,7 +1087,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
             this.mRefreshView.attachView(view2, z);
             this.mRefreshView.e();
             this.mRefreshView.i(R.drawable.new_pic_emotion_05);
-            this.mRefreshView.o(getString(R.string.obfuscated_res_0x7f0f0c43));
+            this.mRefreshView.o(getString(R.string.obfuscated_res_0x7f0f0c44));
         }
     }
 
@@ -1100,7 +1100,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
             this.mRefreshView.attachView(view2, z);
             this.mRefreshView.p();
             this.mRefreshView.i(R.drawable.new_pic_emotion_03);
-            this.mRefreshView.o(getString(R.string.obfuscated_res_0x7f0f0c55));
+            this.mRefreshView.o(getString(R.string.obfuscated_res_0x7f0f0c56));
         }
     }
 
@@ -1130,7 +1130,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         String name = getClass().getName();
         String str2 = getActivity().getApplicationContext().getPackageName() + ".chat";
         if (!name.startsWith(getActivity().getApplicationContext().getPackageName() + ".im") && !name.startsWith(str2)) {
-            qi.O(getActivity(), str);
+            qi.N(getActivity(), str);
         } else {
             this.customToast.showToast(str, 2000);
         }
@@ -1314,7 +1314,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         String name = getClass().getName();
         String str = getActivity().getApplicationContext().getPackageName() + ".chat";
         if (!name.startsWith(getActivity().getApplicationContext().getPackageName() + ".im") && !name.startsWith(str)) {
-            qi.N(getActivity(), i);
+            qi.M(getActivity(), i);
         } else {
             this.customToast.showToast(i, 2000);
         }
@@ -1363,7 +1363,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
             if (z) {
                 this.customToast.showToast(str, 2000);
             } else {
-                qi.O(TbadkCoreApplication.getInst().getApp(), str);
+                qi.N(TbadkCoreApplication.getInst().getApp(), str);
             }
         }
     }
@@ -1384,7 +1384,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
             if (z) {
                 this.customToast.showToast(i, 2000);
             } else {
-                qi.N(TbadkCoreApplication.getInst().getApp(), i);
+                qi.M(TbadkCoreApplication.getInst().getApp(), i);
             }
         }
     }

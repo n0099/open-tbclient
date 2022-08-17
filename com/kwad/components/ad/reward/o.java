@@ -188,7 +188,7 @@ public final class o extends com.kwad.components.core.i.e {
                 }
                 this.nA.setText(aVar.gF());
                 this.nB.setText(aVar.gG());
-                KSImageLoader.loadCircleIcon(this.nC, aVar.eL(), this.nC.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bf7));
+                KSImageLoader.loadCircleIcon(this.nC, aVar.eL(), this.nC.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bf8));
             }
         }
 

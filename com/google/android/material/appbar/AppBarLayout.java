@@ -1883,10 +1883,10 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             }
             int[] iArr = this.tmpStatesArray;
             int[] onCreateDrawableState = super.onCreateDrawableState(i + iArr.length);
-            iArr[0] = this.liftable ? R.attr.obfuscated_res_0x7f040658 : -2130970200;
-            iArr[1] = (this.liftable && this.lifted) ? R.attr.obfuscated_res_0x7f040659 : -2130970201;
-            iArr[2] = this.liftable ? R.attr.obfuscated_res_0x7f040656 : -2130970198;
-            iArr[3] = (this.liftable && this.lifted) ? R.attr.obfuscated_res_0x7f040655 : -2130970197;
+            iArr[0] = this.liftable ? R.attr.obfuscated_res_0x7f040659 : -2130970201;
+            iArr[1] = (this.liftable && this.lifted) ? R.attr.obfuscated_res_0x7f04065a : -2130970202;
+            iArr[2] = this.liftable ? R.attr.obfuscated_res_0x7f040657 : -2130970199;
+            iArr[3] = (this.liftable && this.lifted) ? R.attr.obfuscated_res_0x7f040656 : -2130970198;
             return LinearLayout.mergeDrawableStates(onCreateDrawableState, iArr);
         }
         return (int[]) invokeI.objValue;
@@ -2225,7 +2225,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             ViewUtilsLollipop.setBoundsViewOutlineProvider(this);
             ViewUtilsLollipop.setStateListAnimatorFromAttrs(this, attributeSet, i, obfuscated_res_0x7f10032b);
         }
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842964, 16843919, 16844096, R.attr.obfuscated_res_0x7f04026d, R.attr.obfuscated_res_0x7f040292, R.attr.obfuscated_res_0x7f040429, R.attr.obfuscated_res_0x7f04042b, R.attr.obfuscated_res_0x7f04065c}, i, obfuscated_res_0x7f10032b, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842964, 16843919, 16844096, R.attr.obfuscated_res_0x7f04026e, R.attr.obfuscated_res_0x7f040293, R.attr.obfuscated_res_0x7f04042b, R.attr.obfuscated_res_0x7f04042c, R.attr.obfuscated_res_0x7f04065d}, i, obfuscated_res_0x7f10032b, new int[0]);
         ViewCompat.setBackground(this, obtainStyledAttributes.getDrawable(0));
         if (getBackground() instanceof ColorDrawable) {
             MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable();
@@ -2381,7 +2381,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                 }
             }
             this.scrollFlags = 1;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04041c, R.attr.obfuscated_res_0x7f04041d});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04041d, R.attr.obfuscated_res_0x7f04041e});
             this.scrollFlags = obtainStyledAttributes.getInt(0, 0);
             if (obtainStyledAttributes.hasValue(1)) {
                 this.scrollInterpolator = android.view.animation.AnimationUtils.loadInterpolator(context, obtainStyledAttributes.getResourceId(1, 0));

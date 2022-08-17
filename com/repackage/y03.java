@@ -46,13 +46,13 @@ public abstract class y03 extends v03 {
 
         /* renamed from: com.repackage.y03$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0627a implements Runnable {
+        public class RunnableC0630a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ sf3 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0627a(a aVar, sf3 sf3Var) {
+            public RunnableC0630a(a aVar, sf3 sf3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,7 +108,7 @@ public abstract class y03 extends v03 {
                     if (z && !this.a.e("event_flag_force_post", false)) {
                         sf3Var.a(this.a);
                     } else {
-                        y03.M().post(new RunnableC0627a(this, sf3Var));
+                        y03.M().post(new RunnableC0630a(this, sf3Var));
                     }
                 }
             }

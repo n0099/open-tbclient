@@ -1,6 +1,6 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yt6 extends ra {
+public class yt6 extends ya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,21 +33,21 @@ public class yt6 extends ra {
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
     @Override // com.repackage.va
-    public /* bridge */ /* synthetic */ HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
-        HttpResponsedMessage httpResponsedMessage2 = httpResponsedMessage;
-        c(httpResponsedMessage2);
-        return httpResponsedMessage2;
+    public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+        c(socketResponsedMessage2);
+        return socketResponsedMessage2;
     }
 
-    public HttpResponsedMessage c(HttpResponsedMessage httpResponsedMessage) {
+    public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getError() == 1990055 && !xt6.c(httpResponsedMessage.getCmd())) {
-                xt6.d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+            if (socketResponsedMessage != null && socketResponsedMessage.getError() == 1990055 && !wt6.c(socketResponsedMessage.getCmd())) {
+                wt6.d();
             }
-            return httpResponsedMessage;
+            return socketResponsedMessage;
         }
-        return (HttpResponsedMessage) invokeL.objValue;
+        return (SocketResponsedMessage) invokeL.objValue;
     }
 }

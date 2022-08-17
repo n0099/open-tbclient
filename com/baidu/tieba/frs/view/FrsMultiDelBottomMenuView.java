@@ -284,11 +284,11 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
             if (z) {
                 TextView textView = this.c;
                 if (textView != null) {
-                    textView.setText(R.string.obfuscated_res_0x7f0f1172);
+                    textView.setText(R.string.obfuscated_res_0x7f0f1174);
                 }
                 TextView textView2 = this.d;
                 if (textView2 != null) {
-                    textView2.setText(R.string.obfuscated_res_0x7f0f1173);
+                    textView2.setText(R.string.obfuscated_res_0x7f0f1175);
                 }
             } else {
                 TextView textView3 = this.c;
@@ -319,7 +319,7 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             String string = getContext().getString(R.string.obfuscated_res_0x7f0f04ab);
             if (this.i) {
-                string = getContext().getString(R.string.obfuscated_res_0x7f0f1172);
+                string = getContext().getString(R.string.obfuscated_res_0x7f0f1174);
             }
             if (i > 0) {
                 string = string + String.format(Locale.CHINA, "(%d)", Integer.valueOf(i));

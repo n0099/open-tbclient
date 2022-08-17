@@ -52,7 +52,7 @@ public class RequestBlessMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1385common = this.f1057common;
+            builder.f1386common = this.f1057common;
             builder.pk_id = this.pk_id;
             builder.topic_id = this.topic_id;
             builder.pk_index = Integer.valueOf(this.pk_index);

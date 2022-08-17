@@ -206,7 +206,7 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
             return;
         }
         j(u66Var);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.obfuscated_res_0x7f080909, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.obfuscated_res_0x7f08090a, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
     }
 

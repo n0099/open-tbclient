@@ -312,7 +312,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
             }
         }
         this.a = ScalableType.NONE;
-        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405e6}, 0, 0)) == null) {
+        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405e7}, 0, 0)) == null) {
             return;
         }
         int i4 = obtainStyledAttributes.getInt(0, ScalableType.NONE.ordinal());

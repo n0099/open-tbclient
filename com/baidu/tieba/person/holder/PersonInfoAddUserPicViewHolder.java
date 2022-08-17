@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.on;
-import com.repackage.v28;
+import com.repackage.u28;
 /* loaded from: classes4.dex */
 public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -52,12 +52,12 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
 
     public void a(on onVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, onVar) == null) && (onVar instanceof v28)) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, onVar) == null) && (onVar instanceof u28)) {
             this.e = onVar;
-            v28 v28Var = (v28) onVar;
+            u28 u28Var = (u28) onVar;
             SkinManager.setImageResource(this.b, R.drawable.icon_mine_pic_add);
-            if (v28Var.a() > 0) {
-                this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0838), Integer.valueOf(v28Var.a())));
+            if (u28Var.a() > 0) {
+                this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0838), Integer.valueOf(u28Var.a())));
             }
             getView().setOnClickListener(this.f);
             c(TbadkCoreApplication.getInst().getSkinType());

@@ -86,7 +86,7 @@ public class ConcernTabLiveItemView extends bz5<ft5> {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090a10 && (view2.getTag() instanceof UserData)) {
                     if (!qi.D()) {
-                        this.a.k.j.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                        this.a.k.j.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                         return;
                     }
                     UserData userData = (UserData) view2.getTag();

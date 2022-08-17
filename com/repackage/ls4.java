@@ -73,14 +73,14 @@ public class ls4 extends Drawable implements Cloneable {
 
         /* renamed from: com.repackage.ls4$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0519a implements Runnable {
+        public class RunnableC0522a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ View a;
             public final /* synthetic */ ViewGroup.MarginLayoutParams b;
             public final /* synthetic */ a c;
 
-            public RunnableC0519a(a aVar, View view2, ViewGroup.MarginLayoutParams marginLayoutParams) {
+            public RunnableC0522a(a aVar, View view2, ViewGroup.MarginLayoutParams marginLayoutParams) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,7 +154,7 @@ public class ls4 extends Drawable implements Cloneable {
                     marginLayoutParams.bottomMargin -= (int) u[3];
                     marginLayoutParams.width = (i3 - i) + ((int) u[0]) + ((int) u[2]);
                     marginLayoutParams.height = (i4 - i2) + ((int) u[1]) + ((int) u[3]);
-                    view2.post(new RunnableC0519a(this, view2, marginLayoutParams));
+                    view2.post(new RunnableC0522a(this, view2, marginLayoutParams));
                 }
                 view2.removeOnLayoutChangeListener(this);
             }
@@ -746,7 +746,7 @@ public class ls4 extends Drawable implements Cloneable {
             int length = iArr.length;
             int[] iArr2 = new int[length];
             for (int i = 0; i < length; i++) {
-                iArr2[i] = gj8.a(this.q[i], this.f);
+                iArr2[i] = fj8.a(this.q[i], this.f);
             }
             return iArr2;
         }

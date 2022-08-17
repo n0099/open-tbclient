@@ -234,7 +234,7 @@ public class om6 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bdTypeRecyclerView)) == null) {
             if (this.a != null && bdTypeRecyclerView != null) {
                 this.c = new ArrayList();
-                ArrayList<BdUniqueId> g = bk8.g();
+                ArrayList<BdUniqueId> g = ak8.g();
                 if (g != null && g.size() > 0) {
                     int size = g.size();
                     for (int i = 0; i < size; i++) {
@@ -312,8 +312,8 @@ public class om6 {
             bf6 bf6Var = new bf6(frsGoodFragment.getPageContext(), cf6.b);
             bn<? extends ir4, ? extends TypeAdapter.ViewHolder> a2 = oe6.e().a(frsGoodFragment.getPageContext(), this.a.getUniqueId(), true);
             bn<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d = oe6.e().d(frsGoodFragment.getPageContext(), ThreadData.TYPE_LOTTERY, this.a.getUniqueId());
-            bn<?, ?> d2 = zb8.l().d(this.a, AdvertAppInfo.w);
-            bn<?, ?> d3 = zb8.l().d(this.a, AdvertAppInfo.z);
+            bn<?, ?> d2 = yb8.l().d(this.a, AdvertAppInfo.w);
+            bn<?, ?> d3 = yb8.l().d(this.a, AdvertAppInfo.z);
             mj6 mj6Var = new mj6(frsGoodFragment.getPageContext(), ThreadData.TYPE_SHARE_THREAD, this.a.getUniqueId());
             pi6 pi6Var = new pi6(frsGoodFragment.getPageContext(), ThreadData.TYPE_ARTICLE_SHARE_THREAD, this.a.getUniqueId());
             ui6 ui6Var = new ui6(frsGoodFragment.getPageContext(), ThreadData.TYPE_NEW_NORMAL_SHARE_THREAD, this.a.getUniqueId());
@@ -356,8 +356,8 @@ public class om6 {
             customResponsedMessage.setOrginalMessage(customMessage);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             h(bdTypeRecyclerView);
-            this.d.add(ts6.e().d(this.a.getBaseFragmentActivity(), AdvertAppInfo.H, null));
-            this.d.add(ts6.e().d(this.a.getBaseFragmentActivity(), AdvertAppInfo.G, null));
+            this.d.add(ss6.e().d(this.a.getBaseFragmentActivity(), AdvertAppInfo.H, null));
+            this.d.add(ss6.e().d(this.a.getBaseFragmentActivity(), AdvertAppInfo.G, null));
             ok5 ok5Var = new ok5(this.a, 1);
             ok5Var.u(this.d);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, ok5Var));
@@ -463,7 +463,7 @@ public class om6 {
             z(frsViewData);
             y();
             u(arrayList);
-            bk8.f(arrayList, 1);
+            ak8.f(arrayList, 1);
             k(arrayList);
             ArrayList<on> switchThreadDataToThreadCardInfo = frsViewData.switchThreadDataToThreadCardInfo();
             this.b.setData(switchThreadDataToThreadCardInfo);

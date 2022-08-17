@@ -82,7 +82,7 @@ public class su0 extends pu0 implements View.OnClickListener {
                 textView.setOnClickListener(this);
                 this.e.addView(this.i, new FrameLayout.LayoutParams(-1, -1));
             }
-            this.j.setText(R.string.obfuscated_res_0x7f0f0b69);
+            this.j.setText(R.string.obfuscated_res_0x7f0f0b6a);
             P(u().V0());
             this.i.setVisibility(0);
         }
@@ -243,7 +243,7 @@ public class su0 extends pu0 implements View.OnClickListener {
                 if (!BdNetUtils.f()) {
                     ViewGroup n = u().n();
                     if (n != null && u().n1().a()) {
-                        xz0.a().a(n.getContext(), R.string.obfuscated_res_0x7f0f0b6a);
+                        xz0.a().a(n.getContext(), R.string.obfuscated_res_0x7f0f0b6b);
                         return;
                     }
                     return;

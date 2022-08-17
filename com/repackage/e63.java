@@ -57,12 +57,12 @@ public class e63 extends k63<e> {
 
             /* renamed from: com.repackage.e63$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0468a implements u53 {
+            public class C0470a implements u53 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0468a(a aVar) {
+                public C0470a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +118,7 @@ public class e63 extends k63<e> {
                 if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.isFinishing()) {
                     return;
                 }
-                x53.u(this.a, this.c.c.M(), this.b, null, new C0468a(this));
+                x53.u(this.a, this.c.c.M(), this.b, null, new C0470a(this));
             }
         }
 

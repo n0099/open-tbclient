@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cf7;
+import com.repackage.bf7;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -140,12 +140,12 @@ public class VisitedForumData extends OrmObject implements Serializable {
                 return null;
             }
             ArrayList<Integer> arrayList = new ArrayList<>();
-            arrayList.add(Integer.valueOf(cf7.b(this.mThemeColorInfo.day.light_color)));
-            arrayList.add(Integer.valueOf(cf7.b(this.mThemeColorInfo.day.dark_color)));
-            arrayList.add(Integer.valueOf(cf7.b(this.mThemeColorInfo.night.light_color)));
-            arrayList.add(Integer.valueOf(cf7.b(this.mThemeColorInfo.night.dark_color)));
-            arrayList.add(Integer.valueOf(cf7.b(this.mThemeColorInfo.dark.light_color)));
-            arrayList.add(Integer.valueOf(cf7.b(this.mThemeColorInfo.dark.dark_color)));
+            arrayList.add(Integer.valueOf(bf7.b(this.mThemeColorInfo.day.light_color)));
+            arrayList.add(Integer.valueOf(bf7.b(this.mThemeColorInfo.day.dark_color)));
+            arrayList.add(Integer.valueOf(bf7.b(this.mThemeColorInfo.night.light_color)));
+            arrayList.add(Integer.valueOf(bf7.b(this.mThemeColorInfo.night.dark_color)));
+            arrayList.add(Integer.valueOf(bf7.b(this.mThemeColorInfo.dark.light_color)));
+            arrayList.add(Integer.valueOf(bf7.b(this.mThemeColorInfo.dark.dark_color)));
             return arrayList;
         }
         return (ArrayList) invokeV.objValue;

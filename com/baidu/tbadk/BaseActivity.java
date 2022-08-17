@@ -1218,9 +1218,9 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                     if (!ru4.k().h("key_is_window_permission_dialog_shown", false)) {
                         ur4 ur4Var = new ur4(this);
                         ur4Var.setCanceledOnTouchOutside(false);
-                        ur4Var.setTitle(R.string.obfuscated_res_0x7f0f0ffd);
-                        ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f1007);
-                        ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0980, new ur4.e(this) { // from class: com.baidu.tbadk.BaseActivity.8
+                        ur4Var.setTitle(R.string.obfuscated_res_0x7f0f0ffe);
+                        ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f1008);
+                        ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0981, new ur4.e(this) { // from class: com.baidu.tbadk.BaseActivity.8
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ BaseActivity this$0;
@@ -1253,7 +1253,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                                         intent.setData(Uri.parse("package:" + this.this$0.getPackageName()));
                                         this.this$0.startActivityForResult(intent, 12016);
                                     } catch (Exception unused) {
-                                        this.this$0.showToast(R.string.obfuscated_res_0x7f0f1008);
+                                        this.this$0.showToast(R.string.obfuscated_res_0x7f0f1009);
                                         if (this.this$0.mPermissionCallback != null) {
                                             this.this$0.mPermissionCallback.onPermissionResult(false);
                                         }
@@ -1431,7 +1431,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048643, this, strArr, cVar)) == null) {
             wr4 wr4Var = new wr4(getPageContext().getPageActivity());
             this.mListMenu = wr4Var;
-            wr4Var.l(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0d03));
+            wr4Var.l(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0d04));
             this.mListMenu.j(strArr, cVar);
             this.mListMenu.c(getPageContext());
             return this.mListMenu;
@@ -2172,7 +2172,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             String name = getClass().getName();
             String str2 = getApplicationContext().getPackageName() + ".chat";
             if (!name.startsWith(getApplicationContext().getPackageName() + ".im") && !name.startsWith(str2)) {
-                qi.O(getPageContext().getContext(), str);
+                qi.N(getPageContext().getContext(), str);
             } else {
                 this.customToast.showToast(str, 2000);
             }
@@ -2184,7 +2184,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (interceptable == null || interceptable.invokeLL(1048717, this, str, toastIcon) == null) {
             BdToast b = BdToast.b(getPageContext().getContext(), str);
             b.f(toastIcon);
-            b.h();
+            b.i();
         }
     }
 
@@ -2502,7 +2502,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void showToast(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048711, this, i) == null) {
-            qi.N(getPageContext().getContext(), i);
+            qi.M(getPageContext().getContext(), i);
         }
     }
 
@@ -2512,7 +2512,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             if (z) {
                 showToast(str);
             } else {
-                qi.O(getPageContext().getContext(), str);
+                qi.N(getPageContext().getContext(), str);
             }
         }
     }
@@ -2523,7 +2523,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             if (z) {
                 showToast(i);
             } else {
-                qi.N(getPageContext().getContext(), i);
+                qi.M(getPageContext().getContext(), i);
             }
         }
     }

@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bd8;
 import com.repackage.cd8;
-import com.repackage.dd8;
 import com.repackage.qi;
 import tbclient.VideoInfo;
 /* loaded from: classes4.dex */
@@ -42,7 +42,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     public int K;
     public int L;
     public int M;
-    public cd8 N;
+    public bd8 N;
     public WebViewContainer.OnScrollChangedCallback O;
 
     /* loaded from: classes4.dex */
@@ -171,7 +171,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 if (this.M == 14) {
                     Integer valueOf = Integer.valueOf(qi.k(getActivity()));
                     builder.video_height = valueOf;
-                    builder.video_width = Integer.valueOf(dd8.c(valueOf.intValue()));
+                    builder.video_width = Integer.valueOf(cd8.c(valueOf.intValue()));
                 } else {
                     Integer valueOf2 = Integer.valueOf(qi.k(getActivity()));
                     builder.video_width = valueOf2;
@@ -190,9 +190,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 int intValue2 = build.video_height.intValue();
                 this.J = intValue2;
                 this.L = intValue2 / 2;
-                cd8 cd8Var = this.N;
-                if (cd8Var != null) {
-                    this.D.setVideoTailFrameData(cd8Var);
+                bd8 bd8Var = this.N;
+                if (bd8Var != null) {
+                    this.D.setVideoTailFrameData(bd8Var);
                 }
                 this.D.setPageContext(getPageContext());
                 this.D.setData(build, 2, getPageContext());
@@ -236,9 +236,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 this.M = intent.getIntExtra(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 7);
                 String stringExtra = intent.getStringExtra(AdWebVideoActivityConfig.KEY_TAIL_FRAME);
                 if (!TextUtils.isEmpty(stringExtra)) {
-                    cd8 cd8Var = new cd8();
-                    this.N = cd8Var;
-                    cd8Var.c(stringExtra);
+                    bd8 bd8Var = new bd8();
+                    this.N = bd8Var;
+                    bd8Var.c(stringExtra);
                 }
             } else if (bundle != null) {
                 this.F = bundle.getString("video_url");

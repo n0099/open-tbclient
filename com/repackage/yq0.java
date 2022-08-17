@@ -126,7 +126,7 @@ public final class yq0 extends dr0 {
             Intrinsics.checkNotNullExpressionValue(context, "context");
             textView.setTextSize(0, context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0705cb));
             textView.setTextColor(-1);
-            textView.setBackground(ContextCompat.getDrawable(textView.getContext(), R.drawable.obfuscated_res_0x7f080e06));
+            textView.setBackground(ContextCompat.getDrawable(textView.getContext(), R.drawable.obfuscated_res_0x7f080e07));
             textView.setGravity(16);
             textView.setAlpha(0.0f);
             textView.setMaxEms(18);

@@ -117,7 +117,7 @@ public class q16 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!oi.A()) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c3e);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c3f);
                 }
                 if (ViewHelper.checkUpIsLogin(this.a.a.getPageActivity())) {
                     if (this.a.c == null) {

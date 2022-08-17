@@ -1,40 +1,70 @@
 package com.repackage;
 
-import java.net.InetSocketAddress;
-import java.nio.ByteBuffer;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.java_websocket.WebSocket;
 import org.java_websocket.drafts.Draft;
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes7.dex */
-public interface xr9 {
-    InetSocketAddress getLocalSocketAddress(WebSocket webSocket);
+public abstract class xr9 implements zr9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    InetSocketAddress getRemoteSocketAddress(WebSocket webSocket);
+    public xr9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void onWebsocketClose(WebSocket webSocket, int i, String str, boolean z);
+    @Override // com.repackage.zr9
+    public void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, ns9 ns9Var, us9 us9Var) throws InvalidDataException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, webSocket, ns9Var, us9Var) == null) {
+        }
+    }
 
-    void onWebsocketCloseInitiated(WebSocket webSocket, int i, String str);
+    @Override // com.repackage.zr9
+    public vs9 onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, ns9 ns9Var) throws InvalidDataException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webSocket, draft, ns9Var)) == null) ? new rs9() : (vs9) invokeLLL.objValue;
+    }
 
-    void onWebsocketClosing(WebSocket webSocket, int i, String str, boolean z);
+    @Override // com.repackage.zr9
+    public void onWebsocketHandshakeSentAsClient(WebSocket webSocket, ns9 ns9Var) throws InvalidDataException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webSocket, ns9Var) == null) {
+        }
+    }
 
-    void onWebsocketError(WebSocket webSocket, Exception exc);
+    @Deprecated
+    public abstract void onWebsocketMessageFragment(WebSocket webSocket, Framedata framedata);
 
-    void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, ls9 ls9Var, ss9 ss9Var) throws InvalidDataException;
+    @Override // com.repackage.zr9
+    public void onWebsocketPing(WebSocket webSocket, Framedata framedata) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, webSocket, framedata) == null) {
+            webSocket.sendFrame(new ls9((ks9) framedata));
+        }
+    }
 
-    ts9 onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, ls9 ls9Var) throws InvalidDataException;
-
-    void onWebsocketHandshakeSentAsClient(WebSocket webSocket, ls9 ls9Var) throws InvalidDataException;
-
-    void onWebsocketMessage(WebSocket webSocket, String str);
-
-    void onWebsocketMessage(WebSocket webSocket, ByteBuffer byteBuffer);
-
-    void onWebsocketOpen(WebSocket webSocket, qs9 qs9Var);
-
-    void onWebsocketPing(WebSocket webSocket, Framedata framedata);
-
-    void onWebsocketPong(WebSocket webSocket, Framedata framedata);
-
-    void onWriteDemand(WebSocket webSocket);
+    @Override // com.repackage.zr9
+    public void onWebsocketPong(WebSocket webSocket, Framedata framedata) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, webSocket, framedata) == null) {
+        }
+    }
 }

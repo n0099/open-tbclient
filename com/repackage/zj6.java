@@ -65,7 +65,7 @@ public class zj6 {
                 boolean z = false;
                 if (!le6.f().i() && !ke6.h().j()) {
                     if (!oi.A()) {
-                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                         return false;
                     } else if (this.a.b.K0() != null && this.a.b.k1() != null) {
                         z = true;
@@ -76,9 +76,9 @@ public class zj6 {
                         this.a.f = i;
                         if (this.a.f != 7) {
                             ze5.c();
-                            em8.a();
+                            dm8.a();
                         } else {
-                            em8.b();
+                            dm8.b();
                         }
                         this.a.b.K0().N0(this.a.d.w(this.a.f));
                         if (UbsABTestHelper.isFrsNewAreaTabSortTestA()) {

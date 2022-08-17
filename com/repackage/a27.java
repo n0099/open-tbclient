@@ -25,9 +25,8 @@ public class a27 extends bn<ir4, ThreadCardViewHolder<ThreadData>> {
     public BdUniqueId a;
     public String b;
     public TbPageContext<?> c;
-    public boolean d;
-    public un e;
-    public b06<ThreadData> f;
+    public un d;
+    public b06<ThreadData> e;
 
     /* loaded from: classes5.dex */
     public class a extends b06<ThreadData> {
@@ -60,7 +59,7 @@ public class a27 extends bn<ir4, ThreadCardViewHolder<ThreadData>> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
                 uz5.b().d(true);
-                o17.m(view2, threadData, this.b.b);
+                n17.m(view2, threadData, this.b.b);
             }
         }
     }
@@ -96,8 +95,8 @@ public class a27 extends bn<ir4, ThreadCardViewHolder<ThreadData>> {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
                 ThreadData threadData = ((ir4) onVar).t;
                 threadData.objType = 1;
-                if (this.a.f != null) {
-                    this.a.f.a(threadCardViewHolder.getView(), threadData);
+                if (this.a.e != null) {
+                    this.a.e.a(threadCardViewHolder.getView(), threadData);
                 }
                 ThreadCardUtils.jumpToPB((fo4) threadData, view2.getContext(), 0, false);
                 threadCardViewHolder.a().o(new oy.a(1));
@@ -124,8 +123,7 @@ public class a27 extends bn<ir4, ThreadCardViewHolder<ThreadData>> {
                 return;
             }
         }
-        this.d = true;
-        this.f = new a(this);
+        this.e = new a(this);
         this.c = tbPageContext;
         this.a = bdUniqueId2;
         this.b = str;
@@ -139,11 +137,8 @@ public class a27 extends bn<ir4, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             dy.b bVar = new dy.b(this.c.getPageActivity(), false);
-            rx rxVar = new rx(this.c.getPageActivity());
-            rxVar.s("index");
-            rxVar.t(this.d);
-            bVar.n(rxVar);
-            dy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.e);
+            bVar.h(new bx(this.c.getPageActivity()));
+            dy k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.d);
             k.r(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.i(this.a);
@@ -168,8 +163,8 @@ public class a27 extends bn<ir4, ThreadCardViewHolder<ThreadData>> {
             threadCardViewHolder.a().q(i);
             threadCardViewHolder.e(ir4Var.t);
             threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.a().p(this.f);
-            o17.t(ir4Var, this.b);
+            threadCardViewHolder.a().p(this.e);
+            n17.t(ir4Var, this.b);
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
@@ -178,7 +173,7 @@ public class a27 extends bn<ir4, ThreadCardViewHolder<ThreadData>> {
     public void w(un unVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, unVar) == null) {
-            this.e = unVar;
+            this.d = unVar;
         }
     }
 }

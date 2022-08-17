@@ -1,45 +1,82 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
-import com.baidu.tbadk.core.view.FollowUserButton;
+import android.content.Intent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ActivityPage.ActivityPageReqIdl;
+import tbclient.ActivityPage.DataReq;
 /* loaded from: classes6.dex */
-public abstract class hu6<T, V extends TypeAdapter.ViewHolder> extends bn<T, V> {
+public class hu6 implements oc5<ActivityPageReqIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FollowUserButton.a a;
+    public String a;
+    public final ic5 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hu6(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public hu6(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = new ic5(false);
+        this.a = str2;
     }
 
-    public void s(FollowUserButton.a aVar) {
+    @Override // com.repackage.oc5
+    public void a(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.a = aVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
         }
+    }
+
+    @Override // com.repackage.oc5
+    public ic5 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (ic5) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.oc5
+    /* renamed from: d */
+    public ActivityPageReqIdl b(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            try {
+                DataReq.Builder builder = new DataReq.Builder();
+                builder.activity_name = this.a;
+                builder.pn = Integer.valueOf(this.b.c);
+                builder.rn = 20;
+                builder.scr_h = Integer.valueOf(qi.i(TbadkCoreApplication.getInst()));
+                builder.scr_w = Integer.valueOf(qi.k(TbadkCoreApplication.getInst()));
+                builder.scr_dip = Integer.valueOf((int) qi.h(TbadkCoreApplication.getInst()));
+                builder.q_type = Integer.valueOf(rn4.c().e());
+                if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                    te5.a(builder, true);
+                }
+                ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
+                builder2.data = builder.build(false);
+                return builder2.build(false);
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (ActivityPageReqIdl) invokeZ.objValue;
     }
 }

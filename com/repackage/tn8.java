@@ -49,10 +49,10 @@ public class tn8 {
         public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && z) {
-                v88 v88Var = new v88();
-                v88Var.a = 1;
-                v88Var.b = i;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, v88Var));
+                u88 u88Var = new u88();
+                u88Var.a = 1;
+                u88Var.b = i;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, u88Var));
             }
         }
 
@@ -60,10 +60,10 @@ public class tn8 {
         public void onStartTrackingTouch(SeekBar seekBar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, seekBar) == null) {
-                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081244));
-                v88 v88Var = new v88();
-                v88Var.a = 2;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, v88Var));
+                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081245));
+                u88 u88Var = new u88();
+                u88Var.a = 2;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, u88Var));
             }
         }
 
@@ -71,10 +71,10 @@ public class tn8 {
         public void onStopTrackingTouch(SeekBar seekBar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, seekBar) == null) {
-                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081245));
-                v88 v88Var = new v88();
-                v88Var.a = 3;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, v88Var));
+                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081246));
+                u88 u88Var = new u88();
+                u88Var.a = 3;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, u88Var));
             }
         }
     }

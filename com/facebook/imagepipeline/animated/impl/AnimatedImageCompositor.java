@@ -16,6 +16,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableFrameInfo;
+import com.facebook.imagepipeline.animated.base.AnimatedImageResult;
+import com.facebook.imagepipeline.transformation.BitmapTransformation;
 /* loaded from: classes4.dex */
 public class AnimatedImageCompositor {
     public static /* synthetic */ Interceptable $ic;
@@ -215,10 +217,20 @@ public class AnimatedImageCompositor {
         return invokeI.booleanValue;
     }
 
+    private void maybeApplyTransformation(Bitmap bitmap) {
+        AnimatedImageResult animatedImageResult;
+        BitmapTransformation bitmapTransformation;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65541, this, bitmap) == null) || (animatedImageResult = this.mAnimatedDrawableBackend.getAnimatedImageResult()) == null || (bitmapTransformation = animatedImageResult.getBitmapTransformation()) == null) {
+            return;
+        }
+        bitmapTransformation.transform(bitmap);
+    }
+
     private int prepareCanvasWithClosestCachedFrame(int i, Canvas canvas) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, this, i, canvas)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, this, i, canvas)) == null) {
             while (i >= 0) {
                 int i2 = AnonymousClass1.$SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult[isFrameNeededForRendering(i).ordinal()];
                 if (i2 == 1) {
@@ -275,6 +287,7 @@ public class AnimatedImageCompositor {
                 disposeToBackground(canvas, frameInfo2);
             }
             this.mAnimatedDrawableBackend.renderFrame(i, canvas);
+            maybeApplyTransformation(bitmap);
         }
     }
 }

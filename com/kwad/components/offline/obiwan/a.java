@@ -24,7 +24,7 @@ public final class a extends com.kwad.components.core.offline.init.a {
 
     /* renamed from: com.kwad.components.offline.obiwan.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C0377a {
+    public static final class C0379a {
         public static /* synthetic */ Interceptable $ic;
         public static final a Qh;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public final class a extends com.kwad.components.core.offline.init.a {
     public static a qw() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0377a.Qh : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0379a.Qh : (a) invokeV.objValue;
     }
 
     @Override // com.kwad.components.core.offline.init.a

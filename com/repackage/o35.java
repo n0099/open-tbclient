@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fk8;
-/* loaded from: classes6.dex */
+import com.repackage.ek8;
+/* loaded from: classes7.dex */
 public class o35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public m35 a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends cf5<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class o35 {
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Long.valueOf(z77.w().j(this.a.a().a)) : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Long.valueOf(x77.w().j(this.a.a().a)) : invokeV.objValue;
         }
     }
 
@@ -80,7 +80,7 @@ public class o35 {
             b.setCustomGroupType(2);
             b.setMsgType(1);
             b.setContent(str);
-            long b2 = ta7.b(j);
+            long b2 = sa7.b(j);
             b.setMsgId(b2);
             b.setRecordId(b2);
             b.setTime(System.currentTimeMillis() / 1000);
@@ -131,19 +131,19 @@ public class o35 {
 
     public /* synthetic */ void c(String str, Object obj) {
         if (obj instanceof Long) {
-            f97.k().u(a(str, ((Long) obj).longValue()));
+            e97.k().u(a(str, ((Long) obj).longValue()));
             e("");
         }
     }
 
-    public void d(fk8.h hVar) {
+    public void d(ek8.h hVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, hVar) == null) || hVar == null) {
             return;
         }
         m35 m35Var = this.a;
         if (m35Var != null && m35Var.a() != null) {
-            fk8.m(this.a.a().a, hVar);
+            ek8.m(this.a.a().a, hVar);
         } else {
             hVar.a(null);
         }
@@ -155,7 +155,7 @@ public class o35 {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (m35Var = this.a) == null || m35Var.a() == null) {
             return;
         }
-        fk8.w(this.a.a().a, str);
+        ek8.w(this.a.a().a, str);
     }
 
     public void f(m35 m35Var, final String str) {

@@ -110,7 +110,7 @@ public class ub2 extends w23 {
     }
 
     /* JADX WARN: Type inference failed for: r1v14 */
-    /* JADX WARN: Type inference failed for: r1v15, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r1v15, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r1v51 */
     public static void l(@NonNull Context context, @NonNull JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;

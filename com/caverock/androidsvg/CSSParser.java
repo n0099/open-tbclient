@@ -5,6 +5,12 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
+import com.baidu.sapi2.SapiOptions;
+import com.baidu.sapi2.utils.enums.ShareDirectionType;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,16 +22,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.caverock.androidsvg.SVG;
 import com.caverock.androidsvg.SVGParser;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.repackage.we9;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-import org.xml.sax.SAXException;
+import java.util.Map;
+import org.aspectj.runtime.reflect.SignatureImpl;
 /* loaded from: classes4.dex */
 public class CSSParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MediaType a;
-    public boolean b;
+    public Source b;
+    public boolean c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
@@ -166,6 +177,7 @@ public class CSSParser {
         public static final MediaType print;
         public static final MediaType projection;
         public static final MediaType screen;
+        public static final MediaType speech;
         public static final MediaType tty;
 
         /* renamed from: tv  reason: collision with root package name */
@@ -193,10 +205,11 @@ public class CSSParser {
             print = new MediaType("print", 5);
             projection = new MediaType("projection", 6);
             screen = new MediaType("screen", 7);
-            tty = new MediaType("tty", 8);
-            MediaType mediaType = new MediaType(Config.TARGET_SDK_VERSION, 9);
+            speech = new MediaType("speech", 8);
+            tty = new MediaType("tty", 9);
+            MediaType mediaType = new MediaType(Config.TARGET_SDK_VERSION, 10);
             f1065tv = mediaType;
-            $VALUES = new MediaType[]{all, aural, braille, embossed, handheld, print, projection, screen, tty, mediaType};
+            $VALUES = new MediaType[]{all, aural, braille, embossed, handheld, print, projection, screen, speech, tty, mediaType};
         }
 
         public MediaType(String str, int i) {
@@ -231,10 +244,195 @@ public class CSSParser {
         }
     }
 
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes4.dex */
+    public static final class PseudoClassIdents {
+        public static final /* synthetic */ PseudoClassIdents[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final PseudoClassIdents UNSUPPORTED;
+        public static final PseudoClassIdents active;
+        public static final Map<String, PseudoClassIdents> cache;
+        public static final PseudoClassIdents checked;
+        public static final PseudoClassIdents disabled;
+        public static final PseudoClassIdents empty;
+        public static final PseudoClassIdents enabled;
+        public static final PseudoClassIdents first_child;
+        public static final PseudoClassIdents first_of_type;
+        public static final PseudoClassIdents focus;
+        public static final PseudoClassIdents hover;
+        public static final PseudoClassIdents indeterminate;
+        public static final PseudoClassIdents lang;
+        public static final PseudoClassIdents last_child;
+        public static final PseudoClassIdents last_of_type;
+        public static final PseudoClassIdents link;
+        public static final PseudoClassIdents not;
+        public static final PseudoClassIdents nth_child;
+        public static final PseudoClassIdents nth_last_child;
+        public static final PseudoClassIdents nth_last_of_type;
+        public static final PseudoClassIdents nth_of_type;
+        public static final PseudoClassIdents only_child;
+        public static final PseudoClassIdents only_of_type;
+        public static final PseudoClassIdents root;
+        public static final PseudoClassIdents target;
+        public static final PseudoClassIdents visited;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            PseudoClassIdents[] values;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(788114231, "Lcom/caverock/androidsvg/CSSParser$PseudoClassIdents;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(788114231, "Lcom/caverock/androidsvg/CSSParser$PseudoClassIdents;");
+                    return;
+                }
+            }
+            target = new PseudoClassIdents("target", 0);
+            root = new PseudoClassIdents("root", 1);
+            nth_child = new PseudoClassIdents("nth_child", 2);
+            nth_last_child = new PseudoClassIdents("nth_last_child", 3);
+            nth_of_type = new PseudoClassIdents("nth_of_type", 4);
+            nth_last_of_type = new PseudoClassIdents("nth_last_of_type", 5);
+            first_child = new PseudoClassIdents("first_child", 6);
+            last_child = new PseudoClassIdents("last_child", 7);
+            first_of_type = new PseudoClassIdents("first_of_type", 8);
+            last_of_type = new PseudoClassIdents("last_of_type", 9);
+            only_child = new PseudoClassIdents("only_child", 10);
+            only_of_type = new PseudoClassIdents("only_of_type", 11);
+            empty = new PseudoClassIdents(SchemeCollecter.CLASSIFY_EMPTY, 12);
+            not = new PseudoClassIdents("not", 13);
+            lang = new PseudoClassIdents(WebvttCueParser.TAG_LANG, 14);
+            link = new PseudoClassIdents("link", 15);
+            visited = new PseudoClassIdents(NativeConstants.VISITED, 16);
+            hover = new PseudoClassIdents("hover", 17);
+            active = new PseudoClassIdents("active", 18);
+            focus = new PseudoClassIdents(AddFriendActivityConfig.TYPE_FOCUS, 19);
+            enabled = new PseudoClassIdents(SapiOptions.KEY_CACHE_ENABLED, 20);
+            disabled = new PseudoClassIdents("disabled", 21);
+            checked = new PseudoClassIdents("checked", 22);
+            indeterminate = new PseudoClassIdents("indeterminate", 23);
+            PseudoClassIdents pseudoClassIdents = new PseudoClassIdents("UNSUPPORTED", 24);
+            UNSUPPORTED = pseudoClassIdents;
+            $VALUES = new PseudoClassIdents[]{target, root, nth_child, nth_last_child, nth_of_type, nth_last_of_type, first_child, last_child, first_of_type, last_of_type, only_child, only_of_type, empty, not, lang, link, visited, hover, active, focus, enabled, disabled, checked, indeterminate, pseudoClassIdents};
+            cache = new HashMap();
+            for (PseudoClassIdents pseudoClassIdents2 : values()) {
+                if (pseudoClassIdents2 != UNSUPPORTED) {
+                    cache.put(pseudoClassIdents2.name().replace('_', SignatureImpl.SEP), pseudoClassIdents2);
+                }
+            }
+        }
+
+        public PseudoClassIdents(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static PseudoClassIdents fromString(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                PseudoClassIdents pseudoClassIdents = cache.get(str);
+                return pseudoClassIdents != null ? pseudoClassIdents : UNSUPPORTED;
+            }
+            return (PseudoClassIdents) invokeL.objValue;
+        }
+
+        public static PseudoClassIdents valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (PseudoClassIdents) Enum.valueOf(PseudoClassIdents.class, str) : (PseudoClassIdents) invokeL.objValue;
+        }
+
+        public static PseudoClassIdents[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (PseudoClassIdents[]) $VALUES.clone() : (PseudoClassIdents[]) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes4.dex */
+    public static final class Source {
+        public static final /* synthetic */ Source[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final Source Document;
+        public static final Source RenderOptions;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1869991353, "Lcom/caverock/androidsvg/CSSParser$Source;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1869991353, "Lcom/caverock/androidsvg/CSSParser$Source;");
+                    return;
+                }
+            }
+            Document = new Source("Document", 0);
+            Source source = new Source("RenderOptions", 1);
+            RenderOptions = source;
+            $VALUES = new Source[]{Document, source};
+        }
+
+        public Source(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static Source valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Source) Enum.valueOf(Source.class, str) : (Source) invokeL.objValue;
+        }
+
+        public static Source[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Source[]) $VALUES.clone() : (Source[]) invokeV.objValue;
+        }
+    }
+
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
+        public static final /* synthetic */ int[] b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -250,19 +448,117 @@ public class CSSParser {
                     return;
                 }
             }
-            int[] iArr = new int[AttribOp.values().length];
-            a = iArr;
+            int[] iArr = new int[PseudoClassIdents.values().length];
+            b = iArr;
             try {
-                iArr[AttribOp.EQUALS.ordinal()] = 1;
+                iArr[PseudoClassIdents.first_child.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[AttribOp.INCLUDES.ordinal()] = 2;
+                b[PseudoClassIdents.last_child.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[AttribOp.DASHMATCH.ordinal()] = 3;
+                b[PseudoClassIdents.only_child.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                b[PseudoClassIdents.first_of_type.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                b[PseudoClassIdents.last_of_type.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                b[PseudoClassIdents.only_of_type.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                b[PseudoClassIdents.root.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                b[PseudoClassIdents.empty.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                b[PseudoClassIdents.nth_child.ordinal()] = 9;
+            } catch (NoSuchFieldError unused9) {
+            }
+            try {
+                b[PseudoClassIdents.nth_last_child.ordinal()] = 10;
+            } catch (NoSuchFieldError unused10) {
+            }
+            try {
+                b[PseudoClassIdents.nth_of_type.ordinal()] = 11;
+            } catch (NoSuchFieldError unused11) {
+            }
+            try {
+                b[PseudoClassIdents.nth_last_of_type.ordinal()] = 12;
+            } catch (NoSuchFieldError unused12) {
+            }
+            try {
+                b[PseudoClassIdents.not.ordinal()] = 13;
+            } catch (NoSuchFieldError unused13) {
+            }
+            try {
+                b[PseudoClassIdents.target.ordinal()] = 14;
+            } catch (NoSuchFieldError unused14) {
+            }
+            try {
+                b[PseudoClassIdents.lang.ordinal()] = 15;
+            } catch (NoSuchFieldError unused15) {
+            }
+            try {
+                b[PseudoClassIdents.link.ordinal()] = 16;
+            } catch (NoSuchFieldError unused16) {
+            }
+            try {
+                b[PseudoClassIdents.visited.ordinal()] = 17;
+            } catch (NoSuchFieldError unused17) {
+            }
+            try {
+                b[PseudoClassIdents.hover.ordinal()] = 18;
+            } catch (NoSuchFieldError unused18) {
+            }
+            try {
+                b[PseudoClassIdents.active.ordinal()] = 19;
+            } catch (NoSuchFieldError unused19) {
+            }
+            try {
+                b[PseudoClassIdents.focus.ordinal()] = 20;
+            } catch (NoSuchFieldError unused20) {
+            }
+            try {
+                b[PseudoClassIdents.enabled.ordinal()] = 21;
+            } catch (NoSuchFieldError unused21) {
+            }
+            try {
+                b[PseudoClassIdents.disabled.ordinal()] = 22;
+            } catch (NoSuchFieldError unused22) {
+            }
+            try {
+                b[PseudoClassIdents.checked.ordinal()] = 23;
+            } catch (NoSuchFieldError unused23) {
+            }
+            try {
+                b[PseudoClassIdents.indeterminate.ordinal()] = 24;
+            } catch (NoSuchFieldError unused24) {
+            }
+            int[] iArr2 = new int[AttribOp.values().length];
+            a = iArr2;
+            try {
+                iArr2[AttribOp.EQUALS.ordinal()] = 1;
+            } catch (NoSuchFieldError unused25) {
+            }
+            try {
+                a[AttribOp.INCLUDES.ordinal()] = 2;
+            } catch (NoSuchFieldError unused26) {
+            }
+            try {
+                a[AttribOp.DASHMATCH.ordinal()] = 3;
+            } catch (NoSuchFieldError unused27) {
             }
         }
     }
@@ -271,9 +567,9 @@ public class CSSParser {
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public AttribOp b;
-        public String c;
+        public final String a;
+        public final AttribOp b;
+        public final String c;
 
         public b(String str, AttribOp attribOp, String str2) {
             Interceptable interceptable = $ic;
@@ -290,8 +586,6 @@ public class CSSParser {
                     return;
                 }
             }
-            this.a = null;
-            this.c = null;
             this.a = str;
             this.b = attribOp;
             this.c = str2;
@@ -299,9 +593,36 @@ public class CSSParser {
     }
 
     /* loaded from: classes4.dex */
-    public static class c extends SVGParser.f {
+    public static class c extends SVGParser.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        /* loaded from: classes4.dex */
+        public static class a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public int a;
+            public int b;
+
+            public a(int i, int i2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = i;
+                this.b = i2;
+            }
+        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(String str) {
@@ -323,228 +644,244 @@ public class CSSParser {
             }
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:87:0x0158, code lost:
-            if (r4 == null) goto L83;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:88:0x015a, code lost:
-            r11.a(r4);
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:89:0x015d, code lost:
-            return true;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:90:0x015e, code lost:
-            r10.b = r0;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:91:0x0160, code lost:
-            return false;
-         */
-        /* JADX WARN: Removed duplicated region for block: B:18:0x003a  */
-        /* JADX WARN: Removed duplicated region for block: B:19:0x0040  */
-        /* JADX WARN: Removed duplicated region for block: B:25:0x0058  */
-        /* JADX WARN: Removed duplicated region for block: B:96:0x0158 A[EDGE_INSN: B:96:0x0158->B:87:0x0158 ?: BREAK  , SYNTHETIC] */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public boolean A(f fVar) throws SAXException {
-            InterceptResult invokeL;
-            Combinator combinator;
-            g gVar;
-            AttribOp attribOp;
-            String str;
+        public final int C(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, fVar)) != null) {
-                return invokeL.booleanValue;
-            }
-            if (g()) {
-                return false;
-            }
-            int i = this.b;
-            if (!fVar.f()) {
-                if (e('>')) {
-                    combinator = Combinator.CHILD;
-                    w();
-                } else if (e('+')) {
-                    combinator = Combinator.FOLLOWS;
-                    w();
-                }
-                if (!e('*')) {
-                    gVar = new g(combinator, null);
-                } else {
-                    String y = y();
-                    if (y != null) {
-                        g gVar2 = new g(combinator, y);
-                        fVar.c();
-                        gVar = gVar2;
-                    } else {
-                        gVar = null;
-                    }
-                }
-                while (true) {
-                    if (!g()) {
-                        if (e(IStringUtil.EXTENSION_SEPARATOR)) {
-                            if (gVar == null) {
-                                gVar = new g(combinator, null);
-                            }
-                            String y2 = y();
-                            if (y2 != null) {
-                                gVar.a(DealIntentService.KEY_CLASS, AttribOp.EQUALS, y2);
-                                fVar.b();
-                            } else {
-                                throw new SAXException("Invalid \".class\" selector in <style> element");
-                            }
-                        } else {
-                            if (e('#')) {
-                                if (gVar == null) {
-                                    gVar = new g(combinator, null);
-                                }
-                                String y3 = y();
-                                if (y3 != null) {
-                                    gVar.a("id", AttribOp.EQUALS, y3);
-                                    fVar.d();
-                                } else {
-                                    throw new SAXException("Invalid \"#id\" selector in <style> element");
-                                }
-                            }
-                            if (gVar == null) {
-                                break;
-                            } else if (e('[')) {
-                                w();
-                                String y4 = y();
-                                if (y4 != null) {
-                                    w();
-                                    if (e('=')) {
-                                        attribOp = AttribOp.EQUALS;
-                                    } else if (f("~=")) {
-                                        attribOp = AttribOp.INCLUDES;
-                                    } else {
-                                        attribOp = f("|=") ? AttribOp.DASHMATCH : null;
-                                    }
-                                    if (attribOp != null) {
-                                        w();
-                                        str = x();
-                                        if (str != null) {
-                                            w();
-                                        } else {
-                                            throw new SAXException("Invalid attribute selector in <style> element");
-                                        }
-                                    } else {
-                                        str = null;
-                                    }
-                                    if (e(']')) {
-                                        if (attribOp == null) {
-                                            attribOp = AttribOp.EXISTS;
-                                        }
-                                        gVar.a(y4, attribOp, str);
-                                        fVar.b();
-                                    } else {
-                                        throw new SAXException("Invalid attribute selector in <style> element");
-                                    }
-                                } else {
-                                    throw new SAXException("Invalid attribute selector in <style> element");
-                                }
-                            } else if (e(':')) {
-                                int i2 = this.b;
-                                if (y() != null) {
-                                    if (e('(')) {
-                                        w();
-                                        if (y() != null) {
-                                            w();
-                                            if (!e(')')) {
-                                                this.b = i2 - 1;
-                                            }
-                                        }
-                                    }
-                                    gVar.b(this.a.substring(i2, this.b));
-                                    fVar.b();
-                                }
-                            }
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                if (i < 48 || i > 57) {
+                    int i2 = 65;
+                    if (i < 65 || i > 70) {
+                        i2 = 97;
+                        if (i < 97 || i > 102) {
+                            return -1;
                         }
-                    } else {
-                        break;
                     }
+                    return (i - i2) + 10;
                 }
+                return i - 48;
             }
-            combinator = null;
-            if (!e('*')) {
-            }
-            while (true) {
-                if (!g()) {
-                }
-            }
+            return invokeI.intValue;
         }
 
-        public final int B() {
+        public final a D() throws CSSParseException {
             InterceptResult invokeV;
-            int i;
+            we9 we9Var;
+            a aVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (g()) {
-                    return this.b;
+                if (h()) {
+                    return null;
                 }
-                int i2 = this.b;
-                int charAt = this.a.charAt(i2);
-                if (charAt == 45) {
-                    charAt = a();
-                }
-                if ((charAt < 65 || charAt > 90) && ((charAt < 97 || charAt > 122) && charAt != 95)) {
-                    i = i2;
-                } else {
-                    int a = a();
-                    while (true) {
-                        if ((a < 65 || a > 90) && ((a < 97 || a > 122) && !((a >= 48 && a <= 57) || a == 45 || a == 95))) {
-                            break;
+                int i = this.b;
+                if (f('(')) {
+                    A();
+                    int i2 = 1;
+                    if (g("odd")) {
+                        aVar = new a(2, 1);
+                    } else {
+                        if (g("even")) {
+                            aVar = new a(2, 0);
+                        } else {
+                            int i3 = (!f('+') && f(SignatureImpl.SEP)) ? -1 : 1;
+                            we9 c = we9.c(this.a, this.b, this.c, false);
+                            if (c != null) {
+                                this.b = c.a();
+                            }
+                            if (f('n') || f('N')) {
+                                if (c == null) {
+                                    c = new we9(1L, this.b);
+                                }
+                                A();
+                                boolean f = f('+');
+                                if (!f && (f = f(SignatureImpl.SEP))) {
+                                    i2 = -1;
+                                }
+                                if (f) {
+                                    A();
+                                    we9Var = we9.c(this.a, this.b, this.c, false);
+                                    if (we9Var != null) {
+                                        this.b = we9Var.a();
+                                    } else {
+                                        this.b = i;
+                                        return null;
+                                    }
+                                } else {
+                                    we9Var = null;
+                                }
+                                int i4 = i2;
+                                i2 = i3;
+                                i3 = i4;
+                            } else {
+                                we9Var = c;
+                                c = null;
+                            }
+                            aVar = new a(c == null ? 0 : i2 * c.d(), we9Var != null ? i3 * we9Var.d() : 0);
                         }
-                        a = a();
                     }
-                    i = this.b;
+                    A();
+                    if (f(')')) {
+                        return aVar;
+                    }
+                    this.b = i;
+                    return null;
                 }
-                this.b = i2;
-                return i;
+                return null;
             }
-            return invokeV.intValue;
+            return (a) invokeV.objValue;
         }
 
-        public final String x() {
+        public final String E() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (g()) {
+                if (h()) {
                     return null;
                 }
-                String p = p();
-                return p != null ? p : y();
+                String q = q();
+                return q != null ? q : H();
             }
             return (String) invokeV.objValue;
         }
 
-        public String y() {
+        public String F() {
             InterceptResult invokeV;
+            int C;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                int B = B();
-                int i = this.b;
-                if (B == i) {
+                if (h()) {
                     return null;
                 }
-                String substring = this.a.substring(i, B);
-                this.b = B;
+                char charAt = this.a.charAt(this.b);
+                if (charAt == '\'' || charAt == '\"') {
+                    StringBuilder sb = new StringBuilder();
+                    this.b++;
+                    int intValue = l().intValue();
+                    while (intValue != -1 && intValue != charAt) {
+                        if (intValue == 92) {
+                            intValue = l().intValue();
+                            if (intValue != -1) {
+                                if (intValue != 10 && intValue != 13 && intValue != 12) {
+                                    int C2 = C(intValue);
+                                    if (C2 != -1) {
+                                        for (int i = 1; i <= 5 && (C = C((intValue = l().intValue()))) != -1; i++) {
+                                            C2 = (C2 * 16) + C;
+                                        }
+                                        sb.append((char) C2);
+                                    }
+                                } else {
+                                    intValue = l().intValue();
+                                }
+                            }
+                        }
+                        sb.append((char) intValue);
+                        intValue = l().intValue();
+                    }
+                    return sb.toString();
+                }
+                return null;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final List<String> G() throws CSSParseException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (h()) {
+                    return null;
+                }
+                int i = this.b;
+                if (f('(')) {
+                    A();
+                    ArrayList arrayList = null;
+                    do {
+                        String H = H();
+                        if (H == null) {
+                            this.b = i;
+                            return null;
+                        }
+                        if (arrayList == null) {
+                            arrayList = new ArrayList();
+                        }
+                        arrayList.add(H);
+                        A();
+                    } while (z());
+                    if (f(')')) {
+                        return arrayList;
+                    }
+                    this.b = i;
+                    return null;
+                }
+                return null;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public String H() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                int P = P();
+                int i = this.b;
+                if (P == i) {
+                    return null;
+                }
+                String substring = this.a.substring(i, P);
+                this.b = P;
                 return substring;
             }
             return (String) invokeV.objValue;
         }
 
-        public String z() {
+        public String I() {
+            InterceptResult invokeV;
+            char charAt;
+            int C;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                StringBuilder sb = new StringBuilder();
+                while (!h() && (charAt = this.a.charAt(this.b)) != '\'' && charAt != '\"' && charAt != '(' && charAt != ')' && !k(charAt) && !Character.isISOControl((int) charAt)) {
+                    this.b++;
+                    if (charAt == '\\') {
+                        if (!h()) {
+                            String str = this.a;
+                            int i = this.b;
+                            this.b = i + 1;
+                            charAt = str.charAt(i);
+                            if (charAt != '\n' && charAt != '\r' && charAt != '\f') {
+                                int C2 = C(charAt);
+                                if (C2 != -1) {
+                                    for (int i2 = 1; i2 <= 5 && !h() && (C = C(this.a.charAt(this.b))) != -1; i2++) {
+                                        this.b++;
+                                        C2 = (C2 * 16) + C;
+                                    }
+                                    sb.append((char) C2);
+                                }
+                            }
+                        }
+                    }
+                    sb.append(charAt);
+                }
+                if (sb.length() == 0) {
+                    return null;
+                }
+                return sb.toString();
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String J() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (g()) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                if (h()) {
                     return null;
                 }
                 int i = this.b;
                 int charAt = this.a.charAt(i);
                 int i2 = i;
-                while (charAt != -1 && charAt != 59 && charAt != 125 && charAt != 33 && !i(charAt)) {
-                    if (!j(charAt)) {
+                while (charAt != -1 && charAt != 59 && charAt != 125 && charAt != 33 && !j(charAt)) {
+                    if (!k(charAt)) {
                         i2 = this.b + 1;
                     }
                     charAt = a();
@@ -557,137 +894,453 @@ public class CSSParser {
             }
             return (String) invokeV.objValue;
         }
+
+        public final List<o> K() throws CSSParseException {
+            InterceptResult invokeV;
+            List<p> list;
+            List<d> list2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                if (h()) {
+                    return null;
+                }
+                int i = this.b;
+                if (f('(')) {
+                    A();
+                    List<o> L = L();
+                    if (L == null) {
+                        this.b = i;
+                        return null;
+                    } else if (!f(')')) {
+                        this.b = i;
+                        return null;
+                    } else {
+                        Iterator<o> it = L.iterator();
+                        while (it.hasNext() && (list = it.next().a) != null) {
+                            Iterator<p> it2 = list.iterator();
+                            while (it2.hasNext() && (list2 = it2.next().d) != null) {
+                                for (d dVar : list2) {
+                                    if (dVar instanceof g) {
+                                        return null;
+                                    }
+                                }
+                            }
+                        }
+                        return L;
+                    }
+                }
+                return null;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public final List<o> L() throws CSSParseException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                if (h()) {
+                    return null;
+                }
+                ArrayList arrayList = new ArrayList(1);
+                o oVar = new o(null);
+                while (!h() && M(oVar)) {
+                    if (z()) {
+                        arrayList.add(oVar);
+                        oVar = new o(null);
+                    }
+                }
+                if (!oVar.f()) {
+                    arrayList.add(oVar);
+                }
+                return arrayList;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:18:0x003a  */
+        /* JADX WARN: Removed duplicated region for block: B:19:0x0040  */
+        /* JADX WARN: Removed duplicated region for block: B:25:0x0057  */
+        /* JADX WARN: Removed duplicated region for block: B:81:0x0132  */
+        /* JADX WARN: Removed duplicated region for block: B:83:0x0137  */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public boolean M(o oVar) throws CSSParseException {
+            InterceptResult invokeL;
+            Combinator combinator;
+            p pVar;
+            AttribOp attribOp;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048586, this, oVar)) != null) {
+                return invokeL.booleanValue;
+            }
+            if (h()) {
+                return false;
+            }
+            int i = this.b;
+            if (!oVar.f()) {
+                if (f('>')) {
+                    combinator = Combinator.CHILD;
+                    A();
+                } else if (f('+')) {
+                    combinator = Combinator.FOLLOWS;
+                    A();
+                }
+                if (!f('*')) {
+                    pVar = new p(combinator, null);
+                } else {
+                    String H = H();
+                    if (H != null) {
+                        p pVar2 = new p(combinator, H);
+                        oVar.c();
+                        pVar = pVar2;
+                    } else {
+                        pVar = null;
+                    }
+                }
+                while (!h()) {
+                    if (f(IStringUtil.EXTENSION_SEPARATOR)) {
+                        if (pVar == null) {
+                            pVar = new p(combinator, null);
+                        }
+                        String H2 = H();
+                        if (H2 != null) {
+                            pVar.a(DealIntentService.KEY_CLASS, AttribOp.EQUALS, H2);
+                            oVar.b();
+                        } else {
+                            throw new CSSParseException("Invalid \".class\" simpleSelectors");
+                        }
+                    } else if (f('#')) {
+                        if (pVar == null) {
+                            pVar = new p(combinator, null);
+                        }
+                        String H3 = H();
+                        if (H3 != null) {
+                            pVar.a("id", AttribOp.EQUALS, H3);
+                            oVar.d();
+                        } else {
+                            throw new CSSParseException("Invalid \"#id\" simpleSelectors");
+                        }
+                    } else if (f('[')) {
+                        if (pVar == null) {
+                            pVar = new p(combinator, null);
+                        }
+                        A();
+                        String H4 = H();
+                        if (H4 != null) {
+                            A();
+                            if (f('=')) {
+                                attribOp = AttribOp.EQUALS;
+                            } else if (g("~=")) {
+                                attribOp = AttribOp.INCLUDES;
+                            } else {
+                                attribOp = g("|=") ? AttribOp.DASHMATCH : null;
+                            }
+                            if (attribOp != null) {
+                                A();
+                                str = E();
+                                if (str != null) {
+                                    A();
+                                } else {
+                                    throw new CSSParseException("Invalid attribute simpleSelectors");
+                                }
+                            } else {
+                                str = null;
+                            }
+                            if (f(']')) {
+                                if (attribOp == null) {
+                                    attribOp = AttribOp.EXISTS;
+                                }
+                                pVar.a(H4, attribOp, str);
+                                oVar.b();
+                            } else {
+                                throw new CSSParseException("Invalid attribute simpleSelectors");
+                            }
+                        } else {
+                            throw new CSSParseException("Invalid attribute simpleSelectors");
+                        }
+                    } else if (!f(':')) {
+                        break;
+                    } else {
+                        if (pVar == null) {
+                            pVar = new p(combinator, null);
+                        }
+                        O(oVar, pVar);
+                    }
+                }
+                if (pVar == null) {
+                    oVar.a(pVar);
+                    return true;
+                }
+                this.b = i;
+                return false;
+            }
+            combinator = null;
+            if (!f('*')) {
+            }
+            while (!h()) {
+            }
+            if (pVar == null) {
+            }
+        }
+
+        public String N() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                if (h()) {
+                    return null;
+                }
+                int i = this.b;
+                if (g("url(")) {
+                    A();
+                    String F = F();
+                    if (F == null) {
+                        F = I();
+                    }
+                    if (F == null) {
+                        this.b = i;
+                        return null;
+                    }
+                    A();
+                    if (h() || g(SmallTailInfo.EMOTION_SUFFIX)) {
+                        return F;
+                    }
+                    this.b = i;
+                    return null;
+                }
+                return null;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r1v8, resolved type: com.caverock.androidsvg.CSSParser$g */
+        /* JADX WARN: Multi-variable type inference failed */
+        public final void O(o oVar, p pVar) throws CSSParseException {
+            d eVar;
+            e eVar2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048588, this, oVar, pVar) == null) {
+                String H = H();
+                if (H != null) {
+                    PseudoClassIdents fromString = PseudoClassIdents.fromString(H);
+                    switch (a.b[fromString.ordinal()]) {
+                        case 1:
+                            eVar = new e(0, 1, true, false, null);
+                            oVar.b();
+                            break;
+                        case 2:
+                            eVar = new e(0, 1, false, false, null);
+                            oVar.b();
+                            break;
+                        case 3:
+                            eVar = new i(false, null);
+                            oVar.b();
+                            break;
+                        case 4:
+                            eVar = new e(0, 1, true, true, pVar.b);
+                            oVar.b();
+                            break;
+                        case 5:
+                            eVar = new e(0, 1, false, true, pVar.b);
+                            oVar.b();
+                            break;
+                        case 6:
+                            eVar = new i(true, pVar.b);
+                            oVar.b();
+                            break;
+                        case 7:
+                            eVar = new j(null);
+                            oVar.b();
+                            break;
+                        case 8:
+                            eVar = new f(null);
+                            oVar.b();
+                            break;
+                        case 9:
+                        case 10:
+                        case 11:
+                        case 12:
+                            boolean z = fromString == PseudoClassIdents.nth_child || fromString == PseudoClassIdents.nth_of_type;
+                            boolean z2 = fromString == PseudoClassIdents.nth_of_type || fromString == PseudoClassIdents.nth_last_of_type;
+                            a D = D();
+                            if (D != null) {
+                                e eVar3 = new e(D.a, D.b, z, z2, pVar.b);
+                                oVar.b();
+                                eVar2 = eVar3;
+                                eVar = eVar2;
+                                break;
+                            } else {
+                                throw new CSSParseException("Invalid or missing parameter section for pseudo class: " + H);
+                            }
+                            break;
+                        case 13:
+                            List<o> K = K();
+                            if (K != null) {
+                                g gVar = new g(K);
+                                oVar.b = gVar.b();
+                                eVar2 = gVar;
+                                eVar = eVar2;
+                                break;
+                            } else {
+                                throw new CSSParseException("Invalid or missing parameter section for pseudo class: " + H);
+                            }
+                        case 14:
+                            eVar = new k(null);
+                            oVar.b();
+                            break;
+                        case 15:
+                            G();
+                            eVar = new h(H);
+                            oVar.b();
+                            break;
+                        case 16:
+                        case 17:
+                        case 18:
+                        case 19:
+                        case 20:
+                        case 21:
+                        case 22:
+                        case 23:
+                        case 24:
+                            eVar = new h(H);
+                            oVar.b();
+                            break;
+                        default:
+                            throw new CSSParseException("Unsupported pseudo class: " + H);
+                    }
+                    pVar.b(eVar);
+                    return;
+                }
+                throw new CSSParseException("Invalid pseudo class");
+            }
+        }
+
+        public final int P() {
+            InterceptResult invokeV;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                if (h()) {
+                    return this.b;
+                }
+                int i2 = this.b;
+                int charAt = this.a.charAt(i2);
+                if (charAt == 45) {
+                    charAt = a();
+                }
+                if ((charAt < 65 || charAt > 90) && ((charAt < 97 || charAt > 122) && charAt != 95)) {
+                    i = i2;
+                } else {
+                    int a2 = a();
+                    while (true) {
+                        if ((a2 < 65 || a2 > 90) && ((a2 < 97 || a2 > 122) && !((a2 >= 48 && a2 <= 57) || a2 == 45 || a2 == 95))) {
+                            break;
+                        }
+                        a2 = a();
+                    }
+                    i = this.b;
+                }
+                this.b = i2;
+                return i;
+            }
+            return invokeV.intValue;
+        }
     }
 
     /* loaded from: classes4.dex */
-    public static class d {
+    public interface d {
+        boolean a(m mVar, SVG.j0 j0Var);
+    }
+
+    /* loaded from: classes4.dex */
+    public static class e implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public f a;
-        public SVG.Style b;
+        public int a;
+        public int b;
+        public boolean c;
+        public boolean d;
+        public String e;
 
-        public d(f fVar, SVG.Style style) {
+        public e(int i, int i2, boolean z, boolean z2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fVar, style};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = null;
-            this.b = null;
-            this.a = fVar;
-            this.b = style;
+            this.a = i;
+            this.b = i2;
+            this.c = z;
+            this.d = z2;
+            this.e = str;
         }
 
-        public String toString() {
-            InterceptResult invokeV;
+        @Override // com.caverock.androidsvg.CSSParser.d
+        public boolean a(m mVar, SVG.j0 j0Var) {
+            InterceptResult invokeLL;
+            int i;
+            int i2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a + " {}";
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public List<d> a;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-        }
-
-        public void a(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-                if (this.a == null) {
-                    this.a = new ArrayList();
-                }
-                for (int i = 0; i < this.a.size(); i++) {
-                    if (this.a.get(i).a.b > dVar.a.b) {
-                        this.a.add(i, dVar);
-                        return;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mVar, j0Var)) == null) {
+                String n = (this.d && this.e == null) ? j0Var.n() : this.e;
+                SVG.h0 h0Var = j0Var.b;
+                if (h0Var != null) {
+                    Iterator<SVG.l0> it = h0Var.getChildren().iterator();
+                    i = 0;
+                    i2 = 0;
+                    while (it.hasNext()) {
+                        SVG.j0 j0Var2 = (SVG.j0) it.next();
+                        if (j0Var2 == j0Var) {
+                            i = i2;
+                        }
+                        if (n == null || j0Var2.n().equals(n)) {
+                            i2++;
+                        }
                     }
+                } else {
+                    i = 0;
+                    i2 = 1;
                 }
-                this.a.add(dVar);
+                int i3 = this.c ? i + 1 : i2 - i;
+                int i4 = this.a;
+                if (i4 == 0) {
+                    return i3 == this.b;
+                }
+                int i5 = this.b;
+                if ((i3 - i5) % i4 == 0) {
+                    return Integer.signum(i3 - i5) == 0 || Integer.signum(i3 - this.b) == Integer.signum(this.a);
+                }
+                return false;
             }
-        }
-
-        public void b(e eVar) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) || eVar.a == null) {
-                return;
-            }
-            if (this.a == null) {
-                this.a = new ArrayList(eVar.a.size());
-            }
-            for (d dVar : eVar.a) {
-                this.a.add(dVar);
-            }
-        }
-
-        public List<d> c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (List) invokeV.objValue;
-        }
-
-        public boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                List<d> list = this.a;
-                return list == null || list.isEmpty();
-            }
-            return invokeV.booleanValue;
+            return invokeLL.booleanValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (this.a == null) {
-                    return "";
-                }
-                StringBuilder sb = new StringBuilder();
-                for (d dVar : this.a) {
-                    sb.append(dVar.toString());
-                    sb.append('\n');
-                }
-                return sb.toString();
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                String str = this.c ? "" : "last-";
+                return this.d ? String.format("nth-%schild(%dn%+d of type <%s>)", str, Integer.valueOf(this.a), Integer.valueOf(this.b), this.e) : String.format("nth-%schild(%dn%+d)", str, Integer.valueOf(this.a), Integer.valueOf(this.b));
             }
             return (String) invokeV.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class f {
+    public static class f implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<g> a;
-        public int b;
 
         public f() {
             Interceptable interceptable = $ic;
@@ -699,72 +1352,79 @@ public class CSSParser {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.caverock.androidsvg.CSSParser.d
+        public boolean a(m mVar, SVG.j0 j0Var) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mVar, j0Var)) == null) ? !(j0Var instanceof SVG.h0) || ((SVG.h0) j0Var).getChildren().size() == 0 : invokeLL.booleanValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? SchemeCollecter.CLASSIFY_EMPTY : (String) invokeV.objValue;
+        }
+
+        public /* synthetic */ f(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class g implements d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List<o> a;
+
+        public g(List<o> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = null;
-            this.b = 0;
+            this.a = list;
         }
 
-        public void a(g gVar) {
+        @Override // com.caverock.androidsvg.CSSParser.d
+        public boolean a(m mVar, SVG.j0 j0Var) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, gVar) == null) {
-                if (this.a == null) {
-                    this.a = new ArrayList();
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mVar, j0Var)) == null) {
+                for (o oVar : this.a) {
+                    if (CSSParser.l(mVar, oVar, j0Var)) {
+                        return false;
+                    }
                 }
-                this.a.add(gVar);
+                return true;
             }
+            return invokeLL.booleanValue;
         }
 
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.b += 100;
-            }
-        }
-
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.b++;
-            }
-        }
-
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.b += 10000;
-            }
-        }
-
-        public g e(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.a.get(i) : (g) invokeI.objValue;
-        }
-
-        public boolean f() {
+        public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                List<g> list = this.a;
-                if (list == null) {
-                    return true;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                int i = Integer.MIN_VALUE;
+                for (o oVar : this.a) {
+                    int i2 = oVar.b;
+                    if (i2 > i) {
+                        i = i2;
+                    }
                 }
-                return list.isEmpty();
-            }
-            return invokeV.booleanValue;
-        }
-
-        public int g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                List<g> list = this.a;
-                if (list == null) {
-                    return 0;
-                }
-                return list.size();
+                return i;
             }
             return invokeV.intValue;
         }
@@ -772,15 +1432,363 @@ public class CSSParser {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                StringBuilder sb = new StringBuilder();
-                for (g gVar : this.a) {
-                    sb.append(gVar);
-                    sb.append(WebvttCueParser.CHAR_SPACE);
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return "not(" + this.a + SmallTailInfo.EMOTION_SUFFIX;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class h implements d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public h(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                sb.append('(');
-                sb.append(this.b);
-                sb.append(')');
+            }
+            this.a = str;
+        }
+
+        @Override // com.caverock.androidsvg.CSSParser.d
+        public boolean a(m mVar, SVG.j0 j0Var) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mVar, j0Var)) == null) {
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class i implements d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public String b;
+
+        public i(boolean z, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z;
+            this.b = str;
+        }
+
+        @Override // com.caverock.androidsvg.CSSParser.d
+        public boolean a(m mVar, SVG.j0 j0Var) {
+            InterceptResult invokeLL;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mVar, j0Var)) == null) {
+                String n = (this.a && this.b == null) ? j0Var.n() : this.b;
+                SVG.h0 h0Var = j0Var.b;
+                if (h0Var != null) {
+                    Iterator<SVG.l0> it = h0Var.getChildren().iterator();
+                    i = 0;
+                    while (it.hasNext()) {
+                        SVG.j0 j0Var2 = (SVG.j0) it.next();
+                        if (n == null || j0Var2.n().equals(n)) {
+                            i++;
+                        }
+                    }
+                } else {
+                    i = 1;
+                }
+                return i == 1;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a ? String.format("only-of-type <%s>", this.b) : String.format("only-child", new Object[0]) : (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class j implements d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public j() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.caverock.androidsvg.CSSParser.d
+        public boolean a(m mVar, SVG.j0 j0Var) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mVar, j0Var)) == null) ? j0Var.b == null : invokeLL.booleanValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "root" : (String) invokeV.objValue;
+        }
+
+        public /* synthetic */ j(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class k implements d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public k() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.caverock.androidsvg.CSSParser.d
+        public boolean a(m mVar, SVG.j0 j0Var) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mVar, j0Var)) == null) ? mVar != null && j0Var == mVar.a : invokeLL.booleanValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "target" : (String) invokeV.objValue;
+        }
+
+        public /* synthetic */ k(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class l {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public o a;
+        public SVG.Style b;
+        public Source c;
+
+        public l(o oVar, SVG.Style style, Source source) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oVar, style, source};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.b = null;
+            this.a = oVar;
+            this.b = style;
+            this.c = source;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return String.valueOf(this.a) + " {...} (src=" + this.c + SmallTailInfo.EMOTION_SUFFIX;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class m {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public SVG.j0 a;
+
+        public m() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                SVG.j0 j0Var = this.a;
+                return j0Var != null ? String.format("<%s id=\"%s\">", j0Var.n(), this.a.c) : "";
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class n {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List<l> a;
+
+        public n() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+        }
+
+        public void a(l lVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, lVar) == null) {
+                if (this.a == null) {
+                    this.a = new ArrayList();
+                }
+                for (int i = 0; i < this.a.size(); i++) {
+                    if (this.a.get(i).a.b > lVar.a.b) {
+                        this.a.add(i, lVar);
+                        return;
+                    }
+                }
+                this.a.add(lVar);
+            }
+        }
+
+        public void b(n nVar) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nVar) == null) || nVar.a == null) {
+                return;
+            }
+            if (this.a == null) {
+                this.a = new ArrayList(nVar.a.size());
+            }
+            for (l lVar : nVar.a) {
+                a(lVar);
+            }
+        }
+
+        public List<l> c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (List) invokeV.objValue;
+        }
+
+        public boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                List<l> list = this.a;
+                return list == null || list.isEmpty();
+            }
+            return invokeV.booleanValue;
+        }
+
+        public void e(Source source) {
+            List<l> list;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, source) == null) || (list = this.a) == null) {
+                return;
+            }
+            Iterator<l> it = list.iterator();
+            while (it.hasNext()) {
+                if (it.next().c == source) {
+                    it.remove();
+                }
+            }
+        }
+
+        public int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                List<l> list = this.a;
+                if (list != null) {
+                    return list.size();
+                }
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                if (this.a == null) {
+                    return "";
+                }
+                StringBuilder sb = new StringBuilder();
+                for (l lVar : this.a) {
+                    sb.append(lVar.toString());
+                    sb.append('\n');
+                }
                 return sb.toString();
             }
             return (String) invokeV.objValue;
@@ -788,15 +1796,15 @@ public class CSSParser {
     }
 
     /* loaded from: classes4.dex */
-    public static class g {
+    public static class p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Combinator a;
         public String b;
         public List<b> c;
-        public List<String> d;
+        public List<d> d;
 
-        public g(Combinator combinator, String str) {
+        public p(Combinator combinator, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -829,13 +1837,13 @@ public class CSSParser {
             }
         }
 
-        public void b(String str) {
+        public void b(d dVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
                 if (this.d == null) {
                     this.d = new ArrayList();
                 }
-                this.d.add(str);
+                this.d.add(dVar);
             }
         }
 
@@ -874,11 +1882,11 @@ public class CSSParser {
                         sb.append(']');
                     }
                 }
-                List<String> list2 = this.d;
+                List<d> list2 = this.d;
                 if (list2 != null) {
-                    for (String str2 : list2) {
+                    for (d dVar : list2) {
                         sb.append(':');
-                        sb.append(str2);
+                        sb.append(dVar);
                     }
                 }
                 return sb.toString();
@@ -887,61 +1895,58 @@ public class CSSParser {
         }
     }
 
-    public CSSParser(MediaType mediaType) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public CSSParser(Source source) {
+        this(MediaType.screen, source);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mediaType};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {source};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((MediaType) objArr2[0], (Source) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = false;
-        this.a = mediaType;
     }
 
-    public static int a(List<SVG.h0> list, int i, SVG.j0 j0Var) {
+    public static int a(List<SVG.h0> list, int i2, SVG.j0 j0Var) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, list, i, j0Var)) == null) {
-            if (i < 0) {
-                return -1;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, list, i2, j0Var)) == null) {
+            int i3 = 0;
+            if (i2 < 0) {
+                return 0;
             }
-            SVG.h0 h0Var = list.get(i);
+            SVG.h0 h0Var = list.get(i2);
             SVG.h0 h0Var2 = j0Var.b;
             if (h0Var != h0Var2) {
                 return -1;
             }
-            int i2 = 0;
             for (SVG.l0 l0Var : h0Var2.getChildren()) {
                 if (l0Var == j0Var) {
-                    return i2;
+                    return i3;
                 }
-                i2++;
+                i3++;
             }
             return -1;
         }
         return invokeLIL.intValue;
     }
 
-    public static boolean b(String str, MediaType mediaType) throws SAXException {
+    public static boolean b(String str, MediaType mediaType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, mediaType)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, mediaType)) == null) {
             c cVar = new c(str);
-            cVar.w();
-            List<MediaType> h = h(cVar);
-            if (cVar.g()) {
-                return c(h, mediaType);
-            }
-            throw new SAXException("Invalid @media type list");
+            cVar.A();
+            return c(h(cVar), mediaType);
         }
         return invokeLL.booleanValue;
     }
@@ -949,7 +1954,7 @@ public class CSSParser {
     public static boolean c(List<MediaType> list, MediaType mediaType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, list, mediaType)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, mediaType)) == null) {
             for (MediaType mediaType2 : list) {
                 if (mediaType2 == MediaType.all) {
                     return true;
@@ -963,22 +1968,20 @@ public class CSSParser {
         return invokeLL.booleanValue;
     }
 
-    public static List<String> f(String str) throws SAXException {
+    public static List<String> f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             c cVar = new c(str);
             ArrayList arrayList = null;
-            while (!cVar.g()) {
-                String y = cVar.y();
-                if (y != null) {
+            while (!cVar.h()) {
+                String r = cVar.r();
+                if (r != null) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
                     }
-                    arrayList.add(y);
-                    cVar.w();
-                } else {
-                    throw new SAXException("Invalid value for \"class\" attribute: " + str);
+                    arrayList.add(r);
+                    cVar.A();
                 }
             }
             return arrayList;
@@ -986,19 +1989,19 @@ public class CSSParser {
         return (List) invokeL.objValue;
     }
 
-    public static List<MediaType> h(c cVar) throws SAXException {
+    public static List<MediaType> h(c cVar) {
         InterceptResult invokeL;
+        String w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cVar)) == null) {
             ArrayList arrayList = new ArrayList();
-            while (!cVar.g()) {
+            while (!cVar.h() && (w = cVar.w()) != null) {
                 try {
-                    arrayList.add(MediaType.valueOf(cVar.r(',')));
-                    if (!cVar.v()) {
-                        break;
-                    }
+                    arrayList.add(MediaType.valueOf(w));
                 } catch (IllegalArgumentException unused) {
-                    throw new SAXException("Invalid @media type list");
+                }
+                if (!cVar.z()) {
+                    break;
                 }
             }
             return arrayList;
@@ -1006,30 +2009,30 @@ public class CSSParser {
         return (List) invokeL.objValue;
     }
 
-    public static boolean l(f fVar, int i, List<SVG.h0> list, int i2, SVG.j0 j0Var) {
+    public static boolean k(m mVar, o oVar, int i2, List<SVG.h0> list, int i3, SVG.j0 j0Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{fVar, Integer.valueOf(i), list, Integer.valueOf(i2), j0Var})) == null) {
-            g e2 = fVar.e(i);
-            if (o(e2, list, i2, j0Var)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{mVar, oVar, Integer.valueOf(i2), list, Integer.valueOf(i3), j0Var})) == null) {
+            p e2 = oVar.e(i2);
+            if (n(mVar, e2, list, i3, j0Var)) {
                 Combinator combinator = e2.a;
                 if (combinator != Combinator.DESCENDANT) {
                     if (combinator == Combinator.CHILD) {
-                        return n(fVar, i - 1, list, i2);
+                        return m(mVar, oVar, i2 - 1, list, i3);
                     }
-                    int a2 = a(list, i2, j0Var);
+                    int a2 = a(list, i3, j0Var);
                     if (a2 <= 0) {
                         return false;
                     }
-                    return l(fVar, i - 1, list, i2, (SVG.j0) j0Var.b.getChildren().get(a2 - 1));
-                } else if (i == 0) {
+                    return k(mVar, oVar, i2 - 1, list, i3, (SVG.j0) j0Var.b.getChildren().get(a2 - 1));
+                } else if (i2 == 0) {
                     return true;
                 } else {
-                    while (i2 >= 0) {
-                        if (n(fVar, i - 1, list, i2)) {
+                    while (i3 >= 0) {
+                        if (m(mVar, oVar, i2 - 1, list, i3)) {
                             return true;
                         }
-                        i2--;
+                        i3--;
                     }
                     return false;
                 }
@@ -1039,46 +2042,46 @@ public class CSSParser {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean m(f fVar, SVG.j0 j0Var) {
-        InterceptResult invokeLL;
+    public static boolean l(m mVar, o oVar, SVG.j0 j0Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, fVar, j0Var)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, mVar, oVar, j0Var)) == null) {
             ArrayList arrayList = new ArrayList();
             for (SVG.h0 h0Var = j0Var.b; h0Var != null; h0Var = ((SVG.l0) h0Var).b) {
                 arrayList.add(0, h0Var);
             }
             int size = arrayList.size() - 1;
-            if (fVar.g() == 1) {
-                return o(fVar.e(0), arrayList, size, j0Var);
+            if (oVar.g() == 1) {
+                return n(mVar, oVar.e(0), arrayList, size, j0Var);
             }
-            return l(fVar, fVar.g() - 1, arrayList, size, j0Var);
+            return k(mVar, oVar, oVar.g() - 1, arrayList, size, j0Var);
         }
-        return invokeLL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
-    public static boolean n(f fVar, int i, List<SVG.h0> list, int i2) {
+    public static boolean m(m mVar, o oVar, int i2, List<SVG.h0> list, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{fVar, Integer.valueOf(i), list, Integer.valueOf(i2)})) == null) {
-            g e2 = fVar.e(i);
-            SVG.j0 j0Var = (SVG.j0) list.get(i2);
-            if (o(e2, list, i2, j0Var)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{mVar, oVar, Integer.valueOf(i2), list, Integer.valueOf(i3)})) == null) {
+            p e2 = oVar.e(i2);
+            SVG.j0 j0Var = (SVG.j0) list.get(i3);
+            if (n(mVar, e2, list, i3, j0Var)) {
                 Combinator combinator = e2.a;
                 if (combinator != Combinator.DESCENDANT) {
                     if (combinator == Combinator.CHILD) {
-                        return n(fVar, i - 1, list, i2 - 1);
+                        return m(mVar, oVar, i2 - 1, list, i3 - 1);
                     }
-                    int a2 = a(list, i2, j0Var);
+                    int a2 = a(list, i3, j0Var);
                     if (a2 <= 0) {
                         return false;
                     }
-                    return l(fVar, i - 1, list, i2, (SVG.j0) j0Var.b.getChildren().get(a2 - 1));
-                } else if (i == 0) {
+                    return k(mVar, oVar, i2 - 1, list, i3, (SVG.j0) j0Var.b.getChildren().get(a2 - 1));
+                } else if (i2 == 0) {
                     return true;
                 } else {
-                    while (i2 > 0) {
-                        i2--;
-                        if (n(fVar, i - 1, list, i2)) {
+                    while (i3 > 0) {
+                        i3--;
+                        if (m(mVar, oVar, i2 - 1, list, i3)) {
                             return true;
                         }
                     }
@@ -1090,222 +2093,350 @@ public class CSSParser {
         return invokeCommon.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0072  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean o(g gVar, List<SVG.h0> list, int i, SVG.j0 j0Var) {
-        InterceptResult invokeLLIL;
+    public static boolean n(m mVar, p pVar, List<SVG.h0> list, int i2, SVG.j0 j0Var) {
+        InterceptResult invokeCommon;
         List<String> list2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65545, null, gVar, list, i, j0Var)) == null) {
-            String str = gVar.b;
-            if (str != null) {
-                if (str.equalsIgnoreCase("G")) {
-                    if (!(j0Var instanceof SVG.l)) {
-                        return false;
-                    }
-                } else if (!gVar.b.equals(j0Var.getClass().getSimpleName().toLowerCase(Locale.US))) {
-                    return false;
-                }
-            }
-            List<b> list3 = gVar.c;
-            if (list3 != null) {
-                for (b bVar : list3) {
-                    String str2 = bVar.a;
-                    if (str2 == "id") {
-                        if (!bVar.c.equals(j0Var.c)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{mVar, pVar, list, Integer.valueOf(i2), j0Var})) == null) {
+            String str = pVar.b;
+            if (str == null || str.equals(j0Var.n().toLowerCase(Locale.US))) {
+                List<b> list3 = pVar.c;
+                if (list3 != null) {
+                    for (b bVar : list3) {
+                        String str2 = bVar.a;
+                        char c2 = 65535;
+                        int hashCode = str2.hashCode();
+                        if (hashCode != 3355) {
+                            if (hashCode == 94742904 && str2.equals(DealIntentService.KEY_CLASS)) {
+                                c2 = 1;
+                            }
+                        } else if (str2.equals("id")) {
+                            c2 = 0;
+                        }
+                        if (c2 != 0) {
+                            if (c2 != 1 || (list2 = j0Var.g) == null || !list2.contains(bVar.c)) {
+                                return false;
+                            }
+                        } else if (!bVar.c.equals(j0Var.c)) {
                             return false;
                         }
-                    } else if (str2 != DealIntentService.KEY_CLASS || (list2 = j0Var.g) == null || !list2.contains(bVar.c)) {
-                        return false;
                     }
                 }
-            }
-            List<String> list4 = gVar.d;
-            if (list4 != null) {
-                for (String str3 : list4) {
-                    if (!str3.equals("first-child") || a(list, i, j0Var) != 0) {
-                        return false;
-                    }
-                    while (r5.hasNext()) {
+                List<d> list4 = pVar.d;
+                if (list4 != null) {
+                    for (d dVar : list4) {
+                        if (!dVar.a(mVar, j0Var)) {
+                            return false;
+                        }
                     }
                 }
                 return true;
             }
-            return true;
+            return false;
         }
-        return invokeLLIL.booleanValue;
+        return invokeCommon.booleanValue;
     }
 
-    public static void q(String str, Object... objArr) {
+    public static void p(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, str, objArr) == null) {
-            Log.w("AndroidSVG CSSParser", String.format(str, objArr));
+        if (interceptable == null || interceptable.invokeLL(65547, null, str, objArr) == null) {
+            Log.w("CSSParser", String.format(str, objArr));
         }
     }
 
-    public e d(String str) throws SAXException {
+    public n d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             c cVar = new c(str);
-            cVar.w();
+            cVar.A();
             return j(cVar);
         }
-        return (e) invokeL.objValue;
+        return (n) invokeL.objValue;
     }
 
-    public final void e(e eVar, c cVar) throws SAXException {
+    public final void e(n nVar, c cVar) throws CSSParseException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, cVar) == null) {
-            String y = cVar.y();
-            cVar.w();
-            if (y != null) {
-                if (!this.b && y.equals("media")) {
-                    List<MediaType> h = h(cVar);
-                    if (cVar.e('{')) {
-                        cVar.w();
-                        if (c(h, this.a)) {
-                            this.b = true;
-                            eVar.b(j(cVar));
-                            this.b = false;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nVar, cVar) == null) {
+            String H = cVar.H();
+            cVar.A();
+            if (H != null) {
+                if (!this.c && H.equals("media")) {
+                    List<MediaType> h2 = h(cVar);
+                    if (cVar.f('{')) {
+                        cVar.A();
+                        if (c(h2, this.a)) {
+                            this.c = true;
+                            nVar.b(j(cVar));
+                            this.c = false;
                         } else {
                             j(cVar);
                         }
-                        if (!cVar.e('}')) {
-                            throw new SAXException("Invalid @media rule: expected '}' at end of rule set");
+                        if (!cVar.h() && !cVar.f('}')) {
+                            throw new CSSParseException("Invalid @media rule: expected '}' at end of rule set");
                         }
                     } else {
-                        throw new SAXException("Invalid @media rule: missing rule set");
+                        throw new CSSParseException("Invalid @media rule: missing rule set");
+                    }
+                } else if (!this.c && H.equals(ShareDirectionType.IMPORT)) {
+                    String N = cVar.N();
+                    if (N == null) {
+                        N = cVar.F();
+                    }
+                    if (N != null) {
+                        cVar.A();
+                        List<MediaType> h3 = h(cVar);
+                        if (!cVar.h() && !cVar.f(WebvttCueParser.CHAR_SEMI_COLON)) {
+                            throw new CSSParseException("Invalid @media rule: expected '}' at end of rule set");
+                        }
+                        if (SVG.g() != null && c(h3, this.a)) {
+                            String b2 = SVG.g().b(N);
+                            if (b2 == null) {
+                                return;
+                            }
+                            nVar.b(d(b2));
+                        }
+                    } else {
+                        throw new CSSParseException("Invalid @import rule: expected string or url()");
                     }
                 } else {
-                    q("Ignoring @%s rule", y);
-                    p(cVar);
+                    p("Ignoring @%s rule", H);
+                    o(cVar);
                 }
-                cVar.w();
+                cVar.A();
                 return;
             }
-            throw new SAXException("Invalid '@' rule in <style> element");
+            throw new CSSParseException("Invalid '@' rule");
         }
     }
 
-    public final SVG.Style g(c cVar) throws SAXException {
+    public final SVG.Style g(c cVar) throws CSSParseException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) {
             SVG.Style style = new SVG.Style();
             do {
-                String y = cVar.y();
-                cVar.w();
-                if (!cVar.e(':')) {
-                    break;
-                }
-                cVar.w();
-                String z = cVar.z();
-                if (z == null) {
-                    break;
-                }
-                cVar.w();
-                if (cVar.e('!')) {
-                    cVar.w();
-                    if (cVar.f("important")) {
-                        cVar.w();
+                String H = cVar.H();
+                cVar.A();
+                if (cVar.f(':')) {
+                    cVar.A();
+                    String J = cVar.J();
+                    if (J != null) {
+                        cVar.A();
+                        if (cVar.f('!')) {
+                            cVar.A();
+                            if (cVar.g("important")) {
+                                cVar.A();
+                            } else {
+                                throw new CSSParseException("Malformed rule set: found unexpected '!'");
+                            }
+                        }
+                        cVar.f(WebvttCueParser.CHAR_SEMI_COLON);
+                        SVGParser.S0(style, H, J);
+                        cVar.A();
+                        if (cVar.h()) {
+                            break;
+                        }
                     } else {
-                        throw new SAXException("Malformed rule set in <style> element: found unexpected '!'");
+                        throw new CSSParseException("Expected property value");
                     }
+                } else {
+                    throw new CSSParseException("Expected ':'");
                 }
-                cVar.e(WebvttCueParser.CHAR_SEMI_COLON);
-                SVGParser.B0(style, y, z);
-                cVar.w();
-                if (cVar.e('}')) {
-                    return style;
-                }
-            } while (!cVar.g());
-            throw new SAXException("Malformed rule set in <style> element");
+            } while (!cVar.f('}'));
+            return style;
         }
         return (SVG.Style) invokeL.objValue;
     }
 
-    public final boolean i(e eVar, c cVar) throws SAXException {
+    public final boolean i(n nVar, c cVar) throws CSSParseException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, eVar, cVar)) == null) {
-            List<f> k = k(cVar);
-            if (k == null || k.isEmpty()) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, nVar, cVar)) == null) {
+            List<o> L = cVar.L();
+            if (L == null || L.isEmpty()) {
                 return false;
             }
-            if (cVar.e('{')) {
-                cVar.w();
+            if (cVar.f('{')) {
+                cVar.A();
                 SVG.Style g2 = g(cVar);
-                cVar.w();
-                for (f fVar : k) {
-                    eVar.a(new d(fVar, g2));
+                cVar.A();
+                for (o oVar : L) {
+                    nVar.a(new l(oVar, g2, this.b));
                 }
                 return true;
             }
-            throw new SAXException("Malformed rule block in <style> element: missing '{'");
+            throw new CSSParseException("Malformed rule block: expected '{'");
         }
         return invokeLL.booleanValue;
     }
 
-    public final e j(c cVar) throws SAXException {
+    public final n j(c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cVar)) == null) {
-            e eVar = new e();
-            while (!cVar.g()) {
-                if (!cVar.f("<!--") && !cVar.f("-->")) {
-                    if (cVar.e('@')) {
-                        e(eVar, cVar);
-                    } else if (!i(eVar, cVar)) {
-                        break;
+            n nVar = new n();
+            while (!cVar.h()) {
+                try {
+                    if (!cVar.g("<!--") && !cVar.g("-->")) {
+                        if (cVar.f('@')) {
+                            e(nVar, cVar);
+                        } else if (!i(nVar, cVar)) {
+                            break;
+                        }
                     }
+                } catch (CSSParseException e2) {
+                    Log.e("CSSParser", "CSS parser terminated early due to error: " + e2.getMessage());
                 }
             }
-            return eVar;
+            return nVar;
         }
-        return (e) invokeL.objValue;
+        return (n) invokeL.objValue;
     }
 
-    public final List<f> k(c cVar) throws SAXException {
-        InterceptResult invokeL;
+    public final void o(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) {
-            if (cVar.g()) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(1);
-            f fVar = new f();
-            while (!cVar.g() && cVar.A(fVar)) {
-                if (cVar.v()) {
-                    arrayList.add(fVar);
-                    fVar = new f();
-                }
-            }
-            if (!fVar.f()) {
-                arrayList.add(fVar);
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final void p(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            int i = 0;
-            while (!cVar.g()) {
-                int intValue = cVar.k().intValue();
-                if (intValue == 59 && i == 0) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
+            int i2 = 0;
+            while (!cVar.h()) {
+                int intValue = cVar.l().intValue();
+                if (intValue == 59 && i2 == 0) {
                     return;
                 }
                 if (intValue == 123) {
-                    i++;
-                } else if (intValue == 125 && i > 0 && i - 1 == 0) {
+                    i2++;
+                } else if (intValue == 125 && i2 > 0 && i2 - 1 == 0) {
                     return;
                 }
             }
+        }
+    }
+
+    public CSSParser(MediaType mediaType, Source source) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mediaType, source};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = null;
+        this.c = false;
+        this.a = mediaType;
+        this.b = source;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class o {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List<p> a;
+        public int b;
+
+        public o() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.b = 0;
+        }
+
+        public void a(p pVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) {
+                if (this.a == null) {
+                    this.a = new ArrayList();
+                }
+                this.a.add(pVar);
+            }
+        }
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.b += 1000;
+            }
+        }
+
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.b++;
+            }
+        }
+
+        public void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.b += 1000000;
+            }
+        }
+
+        public p e(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.a.get(i) : (p) invokeI.objValue;
+        }
+
+        public boolean f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                List<p> list = this.a;
+                return list == null || list.isEmpty();
+            }
+            return invokeV.booleanValue;
+        }
+
+        public int g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                List<p> list = this.a;
+                if (list == null) {
+                    return 0;
+                }
+                return list.size();
+            }
+            return invokeV.intValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                StringBuilder sb = new StringBuilder();
+                for (p pVar : this.a) {
+                    sb.append(pVar);
+                    sb.append(WebvttCueParser.CHAR_SPACE);
+                }
+                sb.append('[');
+                sb.append(this.b);
+                sb.append(']');
+                return sb.toString();
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public /* synthetic */ o(a aVar) {
+            this();
         }
     }
 }

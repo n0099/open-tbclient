@@ -93,12 +93,12 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
 
         /* renamed from: com.baidu.tbadk.core.view.ThreadGodReplyLayout$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0189a implements Runnable {
+        public class RunnableC0190a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0189a(a aVar) {
+            public RunnableC0190a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -158,7 +158,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                 this.i.a.setMaxLines(15);
                 this.i.a.setEllipsize(TextUtils.TruncateAt.END);
                 this.i.a.setText(this.h.toString());
-                this.i.a.post(new RunnableC0189a(this));
+                this.i.a.post(new RunnableC0190a(this));
             }
         }
     }
@@ -442,7 +442,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         d2.f(R.color.CAM_X0206);
         l();
         g();
-        this.g.K(TbadkCoreApplication.getInst().getSkinType());
+        this.g.L(TbadkCoreApplication.getInst().getSkinType());
         this.b.e();
     }
 
@@ -463,7 +463,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                     this.a.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
                 } else {
                     SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(spannableStringBuilder);
-                    SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(getResources().getString(R.string.obfuscated_res_0x7f0f13ae));
+                    SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(getResources().getString(R.string.obfuscated_res_0x7f0f13b0));
                     if (spannableStringBuilder3.length() < 3) {
                         return;
                     }
@@ -561,7 +561,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i4, i4);
                     layoutParams.leftMargin = (this.q + this.r) * 4;
                     this.c.addView(imageView, -1, layoutParams);
-                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f0810b8);
+                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f0810b9);
                     this.d.setVisibility(0);
                     this.d.setText(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + (this.m.size() - 5));
                     this.d.post(new b(this));

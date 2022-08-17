@@ -39,13 +39,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ay7;
-import com.repackage.ey7;
+import com.repackage.dy7;
+import com.repackage.et7;
 import com.repackage.fi5;
-import com.repackage.ft7;
 import com.repackage.qi;
-import com.repackage.sv7;
-import com.repackage.v57;
+import com.repackage.rv7;
+import com.repackage.u57;
+import com.repackage.zx7;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.HeadItem;
@@ -62,9 +62,9 @@ public class VideoPbVideoInfoViewHolder extends TypeAdapter.ViewHolder {
     public TextView F;
     public TextView G;
     public FrameLayout H;
-    public ey7 I;
+    public dy7 I;
     public FrameLayout J;
-    public ay7 K;
+    public zx7 K;
     public int L;
     public int M;
     public LinearLayout N;
@@ -180,7 +180,7 @@ public class VideoPbVideoInfoViewHolder extends TypeAdapter.ViewHolder {
         this.y = view2.findViewById(R.id.obfuscated_res_0x7f0924d1);
         this.t = view2.findViewById(R.id.obfuscated_res_0x7f092523);
         this.u = view2.findViewById(R.id.obfuscated_res_0x7f0924d0);
-        this.p.setLayoutStrategy(new sv7(this.p.getLayoutStrategy()));
+        this.p.setLayoutStrategy(new rv7(this.p.getLayoutStrategy()));
         this.p.setTextSize(TbConfig.getContentSize());
         this.p.setTextBold();
         this.q.setTextSize(0, TbConfig.getContentSize());
@@ -203,18 +203,18 @@ public class VideoPbVideoInfoViewHolder extends TypeAdapter.ViewHolder {
         tbRichTextView.setIsShowOrderOrDownloadBtn(true);
         this.A.setIsNeedResizeEmotion(true);
         this.N = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091801);
-        sv7 sv7Var = new sv7(this.A.getLayoutStrategy());
-        sv7Var.v(TbConfig.getContentSize());
-        sv7Var.n(0.9f);
-        this.A.setLayoutStrategy(sv7Var);
+        rv7 rv7Var = new rv7(this.A.getLayoutStrategy());
+        rv7Var.v(TbConfig.getContentSize());
+        rv7Var.n(0.9f);
+        this.A.setLayoutStrategy(rv7Var);
         FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923f8);
         this.H = frameLayout;
-        ey7 ey7Var = new ey7(absVideoPbFragment, frameLayout);
-        this.I = ey7Var;
-        ey7Var.f = 2;
+        dy7 dy7Var = new dy7(absVideoPbFragment, frameLayout);
+        this.I = dy7Var;
+        dy7Var.f = 2;
         FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f01);
         this.J = frameLayout2;
-        this.K = new ay7(frameLayout2);
+        this.K = new zx7(frameLayout2);
         this.G = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923c7);
     }
 
@@ -253,7 +253,7 @@ public class VideoPbVideoInfoViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.s.setVisibility(0);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.r, R.drawable.obfuscated_res_0x7f080931, R.color.CAM_X0105, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.r, R.drawable.obfuscated_res_0x7f080932, R.color.CAM_X0105, null);
             this.p.setTextEllipsize(null);
             this.p.setMaxLines(3);
             if (this.O) {
@@ -425,16 +425,16 @@ public class VideoPbVideoInfoViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
             if (z) {
-                this.c.setImageResource(R.drawable.obfuscated_res_0x7f080f0d);
+                this.c.setImageResource(R.drawable.obfuscated_res_0x7f080f0e);
                 this.c.setVisibility(0);
             } else if (z2 && z3) {
-                this.c.setImageResource(R.drawable.obfuscated_res_0x7f080f4f);
+                this.c.setImageResource(R.drawable.obfuscated_res_0x7f080f50);
                 this.c.setVisibility(0);
             } else if (z2) {
-                this.c.setImageResource(R.drawable.obfuscated_res_0x7f080f4d);
+                this.c.setImageResource(R.drawable.obfuscated_res_0x7f080f4e);
                 this.c.setVisibility(0);
             } else if (z3) {
-                this.c.setImageResource(R.drawable.obfuscated_res_0x7f080f4e);
+                this.c.setImageResource(R.drawable.obfuscated_res_0x7f080f4f);
                 this.c.setVisibility(0);
             } else {
                 this.c.setVisibility(8);
@@ -453,10 +453,10 @@ public class VideoPbVideoInfoViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void o(@NonNull ft7 ft7Var, int i) {
+    public void o(@NonNull et7 et7Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048590, this, ft7Var, i) == null) {
-            this.K.e(ft7Var, i, null);
+        if (interceptable == null || interceptable.invokeLI(1048590, this, et7Var, i) == null) {
+            this.K.e(et7Var, i, null);
         }
     }
 
@@ -512,7 +512,7 @@ public class VideoPbVideoInfoViewHolder extends TypeAdapter.ViewHolder {
             if (!ListUtils.isEmpty(list)) {
                 tbRichText = TbRichTextView.Y(list, true, threadData);
             } else {
-                tbRichText = new TbRichText(v57.c(str, 1));
+                tbRichText = new TbRichText(u57.c(str, 1));
             }
             TbRichText tbRichText2 = tbRichText;
             j(tbRichText2, threadData.getItemStar());

@@ -24,25 +24,25 @@ public class ro8 extends CustomMessageListener {
     public final zn8 b;
 
     /* loaded from: classes7.dex */
-    public class a implements ui8<qi8> {
+    public class a implements ti8<pi8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ro8 a;
 
         /* renamed from: com.repackage.ro8$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0574a implements Runnable {
+        public class RunnableC0577a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ qi8 a;
+            public final /* synthetic */ pi8 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0574a(a aVar, qi8 qi8Var) {
+            public RunnableC0577a(a aVar, pi8 pi8Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, qi8Var};
+                    Object[] objArr = {aVar, pi8Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -53,17 +53,17 @@ public class ro8 extends CustomMessageListener {
                     }
                 }
                 this.b = aVar;
-                this.a = qi8Var;
+                this.a = pi8Var;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                qi8 qi8Var;
+                pi8 pi8Var;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (qi8Var = this.a) == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pi8Var = this.a) == null) {
                     return;
                 }
-                this.b.a.f(qi8Var);
+                this.b.a.f(pi8Var);
             }
         }
 
@@ -86,12 +86,12 @@ public class ro8 extends CustomMessageListener {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ui8
+        @Override // com.repackage.ti8
         /* renamed from: b */
-        public void a(qi8 qi8Var) {
+        public void a(pi8 pi8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qi8Var) == null) {
-                this.a.a.runOnUiThread(new RunnableC0574a(this, qi8Var));
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pi8Var) == null) {
+                this.a.a.runOnUiThread(new RunnableC0577a(this, pi8Var));
             }
         }
     }
@@ -171,15 +171,15 @@ public class ro8 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vr4 a;
-        public final /* synthetic */ qi8 b;
+        public final /* synthetic */ pi8 b;
         public final /* synthetic */ ro8 c;
 
-        public d(ro8 ro8Var, vr4 vr4Var, qi8 qi8Var) {
+        public d(ro8 ro8Var, vr4 vr4Var, pi8 pi8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ro8Var, vr4Var, qi8Var};
+                Object[] objArr = {ro8Var, vr4Var, pi8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -191,7 +191,7 @@ public class ro8 extends CustomMessageListener {
             }
             this.c = ro8Var;
             this.a = vr4Var;
-            this.b = qi8Var;
+            this.b = pi8Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -199,13 +199,13 @@ public class ro8 extends CustomMessageListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.a();
-                ti8 ti8Var = new ti8();
-                qi8 qi8Var = this.b;
-                if (qi8Var != null) {
-                    ti8Var.g(qi8Var.a());
-                    ti8Var.h(this.b.b());
+                si8 si8Var = new si8();
+                pi8 pi8Var = this.b;
+                if (pi8Var != null) {
+                    si8Var.g(pi8Var.a());
+                    si8Var.h(this.b.b());
                 }
-                new si8(this.c.a, ti8Var).a();
+                new ri8(this.c.a, si8Var).a();
                 this.c.i();
             }
         }
@@ -238,17 +238,17 @@ public class ro8 extends CustomMessageListener {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             MainTabActivity mainTabActivity = this.a;
             if (mainTabActivity.I == null) {
-                mainTabActivity.I = new xi8(mainTabActivity.getPageContext(), new a(this));
+                mainTabActivity.I = new wi8(mainTabActivity.getPageContext(), new a(this));
             }
             this.a.I.b();
         }
     }
 
-    public final void f(qi8 qi8Var) {
+    public final void f(pi8 pi8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qi8Var) == null) && !this.a.J && TbadkCoreApplication.isLogin() && this.a.D.intValue() == 4) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pi8Var) == null) && !this.a.J && TbadkCoreApplication.isLogin() && this.a.D.intValue() == 4) {
             NewStyleStampDialogView newStyleStampDialogView = new NewStyleStampDialogView(this.a);
-            newStyleStampDialogView.setStampData(qi8Var);
+            newStyleStampDialogView.setStampData(pi8Var);
             vr4 vr4Var = new vr4(this.a);
             vr4Var.c(newStyleStampDialogView);
             vr4Var.d();
@@ -256,7 +256,7 @@ public class ro8 extends CustomMessageListener {
             this.a.J = true;
             newStyleStampDialogView.getImgStampDialogCancelView().setOnClickListener(new b(this, vr4Var));
             newStyleStampDialogView.getStampDialogLookView().setOnClickListener(new c(this, vr4Var));
-            newStyleStampDialogView.getStampDialogShareView().setOnClickListener(new d(this, vr4Var, qi8Var));
+            newStyleStampDialogView.getStampDialogShareView().setOnClickListener(new d(this, vr4Var, pi8Var));
         }
     }
 
@@ -319,9 +319,9 @@ public class ro8 extends CustomMessageListener {
                 }
                 return;
             }
-            xi8 xi8Var = this.a.I;
-            if (xi8Var != null) {
-                xi8Var.a();
+            wi8 wi8Var = this.a.I;
+            if (wi8Var != null) {
+                wi8Var.a();
                 this.a.I = null;
             }
         }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.og;
-import com.repackage.ta7;
+import com.repackage.sa7;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -329,7 +329,7 @@ public final class GamePlayOrderMsgData extends OrmObject implements Serializabl
                 gamePlayOrderMsgData.setGid(longValue);
                 gamePlayOrderMsgData.setUser_id(msgInfo.userId.longValue());
                 gamePlayOrderMsgData.setLast(z);
-                gamePlayOrderMsgData.setMid(ta7.a(msgInfo.msgId.longValue()));
+                gamePlayOrderMsgData.setMid(sa7.a(msgInfo.msgId.longValue()));
             }
             return gamePlayOrderMsgData;
         }

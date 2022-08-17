@@ -31,13 +31,13 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class o70 {
     public static /* synthetic */ Interceptable $ic;
     public static c a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public class o70 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         Map<String, String> getHeaders();
 
@@ -108,7 +108,7 @@ public class o70 {
         byte[] getRequestParameter();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class c implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,14 +153,14 @@ public class o70 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface d {
         void onFailure(int i, String str);
 
         void onSuccess(byte[] bArr);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class e implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

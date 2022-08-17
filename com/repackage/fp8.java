@@ -69,7 +69,7 @@ public class fp8 extends ab {
                     this.b.a().k();
                 }
                 a();
-                l28.a().d(profileHttpResponseMessage.GetUser().virtual_image_info);
+                k28.a().d(profileHttpResponseMessage.GetUser().virtual_image_info);
                 d();
             }
             if (profileHttpResponseMessage == null || profileHttpResponseMessage.getMemberBlockInfo() == null) {
@@ -93,7 +93,7 @@ public class fp8 extends ab {
                     }
                     a();
                 }
-                l28.a().d(profileSocketResponseMessage.GetUser().virtual_image_info);
+                k28.a().d(profileSocketResponseMessage.GetUser().virtual_image_info);
                 d();
             }
             if (profileSocketResponseMessage == null || profileSocketResponseMessage.getMemberBlockInfo() == null) {

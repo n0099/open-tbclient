@@ -45,7 +45,7 @@ public class wn8 {
         public transient /* synthetic */ FieldHolder $fh;
         public f15 m;
         @Nullable
-        public fn8.a.InterfaceC0478a n;
+        public fn8.a.InterfaceC0480a n;
 
         static {
             InterceptResult invokeClinit;
@@ -82,9 +82,9 @@ public class wn8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 we5.b(this.m);
-                fn8.a.InterfaceC0478a interfaceC0478a = this.n;
-                if (interfaceC0478a != null) {
-                    interfaceC0478a.a(this.m);
+                fn8.a.InterfaceC0480a interfaceC0480a = this.n;
+                if (interfaceC0480a != null) {
+                    interfaceC0480a.a(this.m);
                 }
             }
         }
@@ -96,10 +96,10 @@ public class wn8 {
         }
 
         @Override // com.repackage.fn8.a
-        public void a(@Nullable fn8.a.InterfaceC0478a interfaceC0478a) {
+        public void a(@Nullable fn8.a.InterfaceC0480a interfaceC0480a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0478a) == null) {
-                this.n = interfaceC0478a;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0480a) == null) {
+                this.n = interfaceC0480a;
             }
         }
 
@@ -132,9 +132,9 @@ public class wn8 {
                         ru4.k().u(o, false);
                         return false;
                     }
-                    fn8.a.InterfaceC0478a interfaceC0478a = this.n;
-                    if (interfaceC0478a != null) {
-                        return interfaceC0478a.b();
+                    fn8.a.InterfaceC0480a interfaceC0480a = this.n;
+                    if (interfaceC0480a != null) {
+                        return interfaceC0480a.b();
                     }
                     return false;
                 }
@@ -208,7 +208,7 @@ public class wn8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 we5.b(this.m);
-                this.m.z0(this.n.a.getString(R.string.obfuscated_res_0x7f0f13e8), "SendHelpTipTask", true, false);
+                this.m.z0(this.n.a.getString(R.string.obfuscated_res_0x7f0f13ea), "SendHelpTipTask", true, false);
                 this.m.e0(new a(this));
             }
         }
@@ -391,7 +391,7 @@ public class wn8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 we5.b(this.m);
-                this.m.V(this.n.a.getString(R.string.obfuscated_res_0x7f0f13e9), "setVirtualImage", true, false);
+                this.m.V(this.n.a.getString(R.string.obfuscated_res_0x7f0f13eb), "setVirtualImage", true, false);
                 this.m.M(new b(this));
             }
         }
@@ -405,7 +405,7 @@ public class wn8 {
                     return false;
                 }
                 FragmentTabWidget fragmentTabWidget = this.n.b.B().getFragmentTabWidget();
-                if (fragmentTabWidget.getChildCount() >= 4 && l28.a().c()) {
+                if (fragmentTabWidget.getChildCount() >= 4 && k28.a().c()) {
                     r16 r16Var = new r16(this.n.a.getPageContext(), fragmentTabWidget.getChildAt(4));
                     this.m = r16Var;
                     r16Var.R(R.drawable.obfuscated_res_0x7f0802ed);
@@ -432,7 +432,7 @@ public class wn8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 we5.b(this.m);
-                return (l28.a().b() != 1) && this.m.C();
+                return (k28.a().b() != 1) && this.m.C();
             }
             return invokeV.booleanValue;
         }

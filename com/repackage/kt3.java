@@ -36,11 +36,11 @@ public class kt3 {
 
         /* renamed from: com.repackage.kt3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0516a extends TypeToken<ResultData<ReservationGameResultData>> {
+        public class C0518a extends TypeToken<ResultData<ReservationGameResultData>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0516a(a aVar) {
+            public C0518a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +84,7 @@ public class kt3 {
             if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) || TextUtils.isEmpty(str) || this.a == null) {
                 return;
             }
-            ResultData resultData = (ResultData) this.b.a.fromJson(str, new C0516a(this).getType());
+            ResultData resultData = (ResultData) this.b.a.fromJson(str, new C0518a(this).getType());
             if (resultData == null) {
                 this.a.onFail("result is null");
             } else if (resultData.errno == 0) {

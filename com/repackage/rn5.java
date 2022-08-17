@@ -24,12 +24,12 @@ public class rn5 extends uc1<ih0> {
 
         /* renamed from: com.repackage.rn5$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0573a implements kh0 {
+        public class C0576a implements kh0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a f;
 
-            public C0573a(a aVar) {
+            public C0576a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -215,7 +215,7 @@ public class rn5 extends uc1<ih0> {
         public kh0 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C0573a(this) : (kh0) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C0576a(this) : (kh0) invokeV.objValue;
         }
     }
 

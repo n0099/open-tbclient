@@ -54,12 +54,12 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
         /* renamed from: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0193a implements ValueAnimator.AnimatorUpdateListener {
+        public class C0194a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0193a(a aVar) {
+            public C0194a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -164,7 +164,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
                     ValueAnimator ofInt = ValueAnimator.ofInt(this.c, 0);
                     this.d = ofInt;
                     ofInt.setDuration(100L);
-                    this.d.addUpdateListener(new C0193a(this));
+                    this.d.addUpdateListener(new C0194a(this));
                     this.d.addListener(new b(this));
                     this.d.start();
                 }

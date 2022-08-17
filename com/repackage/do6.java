@@ -95,21 +95,21 @@ public class do6 extends jo6 {
                     co6Var.k(str);
                 }
                 this.a.a.F1(P0.getThreadList(), P0);
-                if (ij8.i() != null) {
-                    ij8.i().n(this.a.b.c(), false);
+                if (hj8.i() != null) {
+                    hj8.i().n(this.a.b.c(), false);
                 }
                 if (this.a.b != null) {
                     if (te6.g()) {
                         BdTopToast bdTopToast = new BdTopToast(this.a.b.getContext());
                         bdTopToast.h(true);
-                        bdTopToast.g(this.a.b.getContext().getString(R.string.obfuscated_res_0x7f0f1176));
-                        bdTopToast.i((ViewGroup) this.a.b.C3());
+                        bdTopToast.g(this.a.b.getContext().getString(R.string.obfuscated_res_0x7f0f1178));
+                        bdTopToast.i((ViewGroup) this.a.b.D3());
                         return;
                     }
                     BdTopToast bdTopToast2 = new BdTopToast(this.a.b.getContext());
                     bdTopToast2.h(true);
                     bdTopToast2.g(this.a.b.getContext().getString(R.string.obfuscated_res_0x7f0f04b9));
-                    bdTopToast2.i((ViewGroup) this.a.b.C3());
+                    bdTopToast2.i((ViewGroup) this.a.b.D3());
                 }
             }
         }
@@ -170,7 +170,7 @@ public class do6 extends jo6 {
                     this.a.d.W(P0);
                 }
                 if (TextUtils.equals(this.a.b.c(), str3)) {
-                    ij8.i().n(this.a.b.c(), false);
+                    hj8.i().n(this.a.b.c(), false);
                 }
             }
         }
@@ -228,7 +228,7 @@ public class do6 extends jo6 {
                     if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
                         GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                         if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                            errorString2 = this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c3c);
+                            errorString2 = this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c3d);
                         } else {
                             errorString2 = getMyPostHttpResponseMessage.getErrorString();
                         }
@@ -248,7 +248,7 @@ public class do6 extends jo6 {
                     } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                         GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                         if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                            errorString = this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c3c);
+                            errorString = this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c3d);
                         } else {
                             errorString = getMyPostSocketResponseMessage.getErrorString();
                         }
@@ -478,7 +478,7 @@ public class do6 extends jo6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048582, this, dq4Var, i, jSONObject) == null) {
             if (i == 1) {
-                FrsTabViewController.p C = this.b.E3().C();
+                FrsTabViewController.p C = this.b.F3().C();
                 if (C != null) {
                     Fragment fragment = C.b;
                     if (fragment instanceof FrsCommonTabFragment) {
@@ -486,14 +486,14 @@ public class do6 extends jo6 {
                     }
                 }
             } else if (i == 2) {
-                FrsTabViewController.p J = this.b.E3().J(301);
+                FrsTabViewController.p J = this.b.F3().J(301);
                 if (J == null || !(J.b instanceof FrsGoodFragment)) {
                     return;
                 }
                 this.c.b(301);
                 ((FrsGoodFragment) J.b).S1(dq4Var);
             } else if (dq4Var.getTabId() > 0) {
-                FrsTabViewController.p J2 = this.b.E3().J(dq4Var.getTabId());
+                FrsTabViewController.p J2 = this.b.F3().J(dq4Var.getTabId());
                 if (J2 != null) {
                     Fragment fragment2 = J2.b;
                     if (fragment2 instanceof FrsCommonTabFragment) {
@@ -506,7 +506,7 @@ public class do6 extends jo6 {
                 if (!ListUtils.isEmpty(dq4Var.getItemStar())) {
                     dq4Var.insertItemToTitleOrAbstractText();
                 }
-                FrsTabViewController.p J3 = this.b.E3().J(this.b.E3().F());
+                FrsTabViewController.p J3 = this.b.F3().J(this.b.F3().F());
                 if (J3 != null) {
                     Fragment fragment3 = J3.b;
                     if (fragment3 instanceof FrsNewAreaFragment) {

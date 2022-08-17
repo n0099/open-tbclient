@@ -187,7 +187,7 @@ public class ColumnLayout extends ViewGroup {
     public final void e(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040181, R.attr.obfuscated_res_0x7f04063e, R.attr.obfuscated_res_0x7f04063f});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040181, R.attr.obfuscated_res_0x7f04063f, R.attr.obfuscated_res_0x7f040640});
             String string = obtainStyledAttributes.getString(0);
             if (string == null) {
                 string = "vertical";
@@ -600,7 +600,7 @@ public class ColumnLayout extends ViewGroup {
                 }
             }
             this.a = 1;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040412});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040413});
             this.a = obtainStyledAttributes.getInt(0, 1);
             obtainStyledAttributes.recycle();
             if (((FrameLayout.LayoutParams) this).gravity == -1) {

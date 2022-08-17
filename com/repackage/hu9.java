@@ -1,39 +1,48 @@
 package com.repackage;
 
+import android.content.Context;
+import android.graphics.Matrix;
+import android.view.WindowManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import javax.annotation.Nullable;
-import org.webrtc.EglBase;
-import org.webrtc.EglBase10;
-import org.webrtc.EglBase14;
-/* compiled from: EglBase.java */
+import org.webrtc.TextureBufferImpl;
+import org.webrtc.VideoFrame;
+/* compiled from: CameraSession.java */
 /* loaded from: classes6.dex */
 public final /* synthetic */ class hu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static EglBase a() {
-        InterceptResult invokeV;
+    public static VideoFrame.TextureBuffer a(TextureBufferImpl textureBufferImpl, boolean z, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? c(null, EglBase.CONFIG_PLAIN) : (EglBase) invokeV.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{textureBufferImpl, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            Matrix matrix = new Matrix();
+            matrix.preTranslate(0.5f, 0.5f);
+            if (z) {
+                matrix.preScale(-1.0f, 1.0f);
+            }
+            matrix.preRotate(i);
+            matrix.preTranslate(-0.5f, -0.5f);
+            return textureBufferImpl.applyTransformMatrix(matrix, textureBufferImpl.getWidth(), textureBufferImpl.getHeight());
+        }
+        return (VideoFrame.TextureBuffer) invokeCommon.objValue;
     }
 
-    public static EglBase b(EglBase.Context context) {
+    public static int b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? c(context, EglBase.CONFIG_PLAIN) : (EglBase) invokeL.objValue;
-    }
-
-    public static EglBase c(@Nullable EglBase.Context context, int[] iArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, iArr)) == null) ? (EglBase14.isEGL14Supported() && (context == null || (context instanceof EglBase14.Context))) ? new EglBase14((EglBase14.Context) context, iArr) : new EglBase10((EglBase10.Context) context, iArr) : (EglBase) invokeLL.objValue;
-    }
-
-    public static EglBase d(int[] iArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iArr)) == null) ? new EglBase10(null, iArr) : (EglBase) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            int rotation = ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getRotation();
+            if (rotation != 1) {
+                if (rotation != 2) {
+                    return rotation != 3 ? 0 : 270;
+                }
+                return 180;
+            }
+            return 90;
+        }
+        return invokeL.intValue;
     }
 }

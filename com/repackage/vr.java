@@ -25,13 +25,13 @@ public class vr {
 
         /* renamed from: com.repackage.vr$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0602a implements Runnable {
+        public class RunnableC0606a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ byte[] a;
             public final /* synthetic */ a b;
 
-            public RunnableC0602a(a aVar, byte[] bArr) {
+            public RunnableC0606a(a aVar, byte[] bArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class vr {
         public void onSuccess(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-                ExecutorUtilsExt.postOnSerial(new RunnableC0602a(this, bArr), "HandshakeRequest");
+                ExecutorUtilsExt.postOnSerial(new RunnableC0606a(this, bArr), "HandshakeRequest");
             }
         }
 

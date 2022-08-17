@@ -343,7 +343,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         public final /* synthetic */ BottomSheetBehavior this$0;
 
         /* renamed from: view  reason: collision with root package name */
-        public final View f1070view;
+        public final View f1071view;
 
         public SettleRunnable(BottomSheetBehavior bottomSheetBehavior, View view2, int i) {
             Interceptable interceptable = $ic;
@@ -361,7 +361,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                 }
             }
             this.this$0 = bottomSheetBehavior;
-            this.f1070view = view2;
+            this.f1071view = view2;
             this.targetState = i;
         }
 
@@ -371,7 +371,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ViewDragHelper viewDragHelper = this.this$0.viewDragHelper;
                 if (viewDragHelper != null && viewDragHelper.continueSettling(true)) {
-                    ViewCompat.postOnAnimation(this.f1070view, this);
+                    ViewCompat.postOnAnimation(this.f1071view, this);
                 } else {
                     this.this$0.setStateInternal(this.targetState);
                 }
@@ -1950,7 +1950,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             }
         };
         this.peekHeightGestureInsetBuffer = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704b9);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843840, R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f0400d4, R.attr.obfuscated_res_0x7f0400d5, R.attr.obfuscated_res_0x7f0400d6, R.attr.obfuscated_res_0x7f0400d7, R.attr.obfuscated_res_0x7f0400d8, R.attr.obfuscated_res_0x7f0400da, R.attr.obfuscated_res_0x7f0400db, R.attr.obfuscated_res_0x7f0400dc, R.attr.obfuscated_res_0x7f0402e8, R.attr.obfuscated_res_0x7f040614, R.attr.obfuscated_res_0x7f040617});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843840, R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f0400d4, R.attr.obfuscated_res_0x7f0400d5, R.attr.obfuscated_res_0x7f0400d6, R.attr.obfuscated_res_0x7f0400d7, R.attr.obfuscated_res_0x7f0400d8, R.attr.obfuscated_res_0x7f0400da, R.attr.obfuscated_res_0x7f0400db, R.attr.obfuscated_res_0x7f0400dc, R.attr.obfuscated_res_0x7f0402e9, R.attr.obfuscated_res_0x7f040615, R.attr.obfuscated_res_0x7f040618});
         this.shapeThemingEnabled = obtainStyledAttributes.hasValue(11);
         boolean hasValue = obtainStyledAttributes.hasValue(1);
         if (hasValue) {

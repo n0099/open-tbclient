@@ -57,7 +57,7 @@ public class FileTypeBox extends AbstractBox {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FileTypeBox() {
-        super("ftyp");
+        super(TYPE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -196,7 +196,7 @@ public class FileTypeBox extends AbstractBox {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FileTypeBox(String str, long j, List<String> list) {
-        super("ftyp");
+        super(TYPE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

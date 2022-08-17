@@ -29,11 +29,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cb;
 import com.repackage.d9;
+import com.repackage.jk8;
 import com.repackage.kf;
-import com.repackage.kk8;
 import com.repackage.oi;
 import com.repackage.ru4;
-import com.repackage.zl8;
+import com.repackage.yl8;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class LocationModel extends BdBaseModel {
@@ -332,14 +332,14 @@ public class LocationModel extends BdBaseModel {
     public static void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            kk8.h(303017, LocationSocketResponsedMessage.class, false, false);
+            jk8.h(303017, LocationSocketResponsedMessage.class, false, false);
         }
     }
 
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? H(this.c.getPageActivity()) && TbadkCoreApplication.getInst().getLocationShared() && !zl8.a().d() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? H(this.c.getPageActivity()) && TbadkCoreApplication.getInst().getLocationShared() && !yl8.a().d() : invokeV.booleanValue;
     }
 
     public final void E() {
@@ -352,14 +352,14 @@ public class LocationModel extends BdBaseModel {
     public boolean F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() - zl8.a().c() > 300000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() - yl8.a().c() > 300000 : invokeV.booleanValue;
     }
 
     public boolean G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            LocationData b2 = zl8.a().b();
+            LocationData b2 = yl8.a().b();
             return (F() || b2 == null || StringUtils.isNull(b2.getFormatted_address())) ? false : true;
         }
         return invokeV.booleanValue;
@@ -383,8 +383,8 @@ public class LocationModel extends BdBaseModel {
                 return;
             }
             D(locationData);
-            zl8.a().g(System.currentTimeMillis());
-            zl8.a().e(locationData);
+            yl8.a().g(System.currentTimeMillis());
+            yl8.a().e(locationData);
             e eVar2 = this.a;
             if (eVar2 != null) {
                 eVar2.b(locationData);
@@ -410,7 +410,7 @@ public class LocationModel extends BdBaseModel {
             if (G()) {
                 e eVar = this.a;
                 if (eVar != null) {
-                    eVar.b(zl8.a().b());
+                    eVar.b(yl8.a().b());
                 }
             } else if (oi.z()) {
                 if (PermissionUtil.checkLocationForGoogle(this.c.getPageActivity())) {
@@ -464,7 +464,7 @@ public class LocationModel extends BdBaseModel {
     public void O(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
-            LocationData b2 = zl8.a().b();
+            LocationData b2 = yl8.a().b();
             if (b2 != null) {
                 b2.setFormatted_address(str);
                 b2.setSn(str2);
@@ -476,8 +476,8 @@ public class LocationModel extends BdBaseModel {
     public void P(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            zl8.a().f(z);
-            ru4.k().u("no_longer_show_address", zl8.a().d());
+            yl8.a().f(z);
+            ru4.k().u("no_longer_show_address", yl8.a().d());
         }
     }
 

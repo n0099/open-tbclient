@@ -9,22 +9,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.rb7;
 import com.repackage.s85;
 import com.repackage.sb7;
-import com.repackage.tb7;
 /* loaded from: classes3.dex */
-public class AtMeNetModel extends NetModel<sb7, tb7, AtMessageFragment> {
+public class AtMeNetModel extends NetModel<rb7, sb7, AtMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AtMeNetModel(TbPageContext tbPageContext, sb7 sb7Var) {
-        super(tbPageContext, sb7Var, NetModel.NetModelType.TYPE_NETWORK);
+    public AtMeNetModel(TbPageContext tbPageContext, rb7 rb7Var) {
+        super(tbPageContext, rb7Var, NetModel.NetModelType.TYPE_NETWORK);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, sb7Var};
+            Object[] objArr = {tbPageContext, rb7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -63,9 +63,9 @@ public class AtMeNetModel extends NetModel<sb7, tb7, AtMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<tb7> getResponseDataClass() {
+    public Class<sb7> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? tb7.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? sb7.class : (Class) invokeV.objValue;
     }
 }

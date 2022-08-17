@@ -163,8 +163,8 @@ public class jy2 extends w23 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             d03.a aVar = new d03.a(context);
             aVar.m(false);
-            aVar.U(R.string.obfuscated_res_0x7f0f12dc);
-            aVar.v(R.string.obfuscated_res_0x7f0f12e0);
+            aVar.U(R.string.obfuscated_res_0x7f0f12de);
+            aVar.v(R.string.obfuscated_res_0x7f0f12e2);
             aVar.O(R.string.obfuscated_res_0x7f0f0118, new b(this));
             aVar.X();
         }

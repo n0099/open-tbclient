@@ -35,8 +35,8 @@ import com.repackage.d9;
 import com.repackage.h9;
 import com.repackage.ms4;
 import com.repackage.qi;
-import com.repackage.s47;
-import com.repackage.x47;
+import com.repackage.r47;
+import com.repackage.w47;
 /* loaded from: classes3.dex */
 public class HotTopicDetailHeadView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -57,7 +57,7 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     public View n;
     public TBLottieAnimationView o;
     public TextView p;
-    public s47 q;
+    public r47 q;
     public ValueAnimator r;
 
     /* loaded from: classes3.dex */
@@ -186,16 +186,16 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     }
 
     public void d(long j, long j2) {
-        s47 s47Var;
+        r47 r47Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (s47Var = this.q) == null || s47Var.b == 1) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (r47Var = this.q) == null || r47Var.b == 1) {
             return;
         }
         this.o.playAnimation();
         i();
-        s47 s47Var2 = this.q;
-        s47Var2.b = 1;
-        s47Var2.d = j2;
+        r47 r47Var2 = this.q;
+        r47Var2.b = 1;
+        r47Var2.d = j2;
     }
 
     @StringRes
@@ -285,9 +285,9 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0101);
-        s47 s47Var = this.q;
-        if (s47Var != null) {
-            f(s47Var.e);
+        r47 r47Var = this.q;
+        if (r47Var != null) {
+            f(r47Var.e);
         }
         this.a = i;
     }
@@ -323,11 +323,11 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         view2.setBackgroundColor(i);
     }
 
-    public void setBlessInfo(s47 s47Var) {
+    public void setBlessInfo(r47 r47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, s47Var) == null) {
-            this.q = s47Var;
-            if (s47Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, r47Var) == null) {
+            this.q = r47Var;
+            if (r47Var == null) {
                 this.o.setVisibility(8);
                 this.p.setVisibility(4);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
@@ -338,15 +338,15 @@ public class HotTopicDetailHeadView extends RelativeLayout {
                 this.j.setLayoutParams(layoutParams2);
                 return;
             }
-            this.p.setText(getContext().getResources().getString(e(s47Var.e), StringHelper.numberUniformFormatExtraWithRoundInt(s47Var.a)));
-            if (s47Var.b == 1) {
+            this.p.setText(getContext().getResources().getString(e(r47Var.e), StringHelper.numberUniformFormatExtraWithRoundInt(r47Var.a)));
+            if (r47Var.b == 1) {
                 this.o.setVisibility(8);
                 this.p.setVisibility(0);
                 this.p.setTranslationX(0.0f);
             } else {
                 this.o.setVisibility(0);
                 this.p.setVisibility(4);
-                f(s47Var.e);
+                f(r47Var.e);
                 this.o.cancelAnimation();
             }
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
@@ -358,24 +358,24 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         }
     }
 
-    public void setTopicInfo(x47 x47Var) {
+    public void setTopicInfo(w47 w47Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, x47Var) == null) || x47Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, w47Var) == null) || w47Var == null) {
             return;
         }
-        this.e.setVisibility(TextUtils.isEmpty(x47Var.f) ? 0 : 8);
-        this.g.K(x47Var.e, 10, false);
-        this.c.K(x47Var.f, 39, false);
-        this.h.setText(x47Var.b);
-        if (x47Var.i > 0) {
+        this.e.setVisibility(TextUtils.isEmpty(w47Var.f) ? 0 : 8);
+        this.g.K(w47Var.e, 10, false);
+        this.c.K(w47Var.f, 39, false);
+        this.h.setText(w47Var.b);
+        if (w47Var.i > 0) {
             TextView textView = this.l;
             String string = getContext().getString(R.string.obfuscated_res_0x7f0f088e);
-            textView.setText(String.format(string, "" + x47Var.i));
+            textView.setText(String.format(string, "" + w47Var.i));
             this.l.setVisibility(0);
         } else {
             this.l.setVisibility(8);
         }
-        this.k.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f088c), StringHelper.numberUniformFormatExtraWithRoundInt(x47Var.d)));
+        this.k.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f088c), StringHelper.numberUniformFormatExtraWithRoundInt(w47Var.d)));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

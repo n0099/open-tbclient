@@ -370,7 +370,7 @@ public class SendSmsView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.b.setTextColor(Color.parseColor("#CCFFFFFF"));
-            this.b.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e78));
+            this.b.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e79));
         }
     }
 

@@ -280,7 +280,7 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
                     }
                 }
                 this.d.setText(sdkLiveInfoData.title);
-                this.f.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11d9, StringHelper.numberUniformFormatExtraWithRound(sdkLiveInfoData.liveInfo.audienceCount)));
+                this.f.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11db, StringHelper.numberUniformFormatExtraWithRound(sdkLiveInfoData.liveInfo.audienceCount)));
                 return;
             }
             setVisibility(4);

@@ -3,7 +3,6 @@ package com.repackage;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,7 +11,6 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -149,10 +147,10 @@ public class yu6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             dy.b bVar = new dy.b(this.b.getPageActivity(), false);
-            qx qxVar = new qx(this.b.getPageActivity());
-            qxVar.r(ImageViewerConfig.FROM_CONCERN);
-            qxVar.s(this.d);
-            bVar.n(qxVar);
+            rx rxVar = new rx(this.b.getPageActivity());
+            rxVar.s(ImageViewerConfig.FROM_CONCERN);
+            rxVar.t(this.d);
+            bVar.n(rxVar);
             dy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.e);
             k.r(1);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
@@ -182,13 +180,6 @@ public class yu6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
             threadCardViewHolder.e(n06Var);
             threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
             threadCardViewHolder.a().p(this.f);
-            qx qxVar = (qx) threadCardViewHolder.a().g();
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) qxVar.f.d.getLayoutParams();
-            layoutParams.width = n06Var.j;
-            layoutParams.height = n06Var.k;
-            if (qxVar.f.d.getVisibility() != 8) {
-                qxVar.f.d.setLayoutParams(layoutParams);
-            }
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
@@ -198,11 +189,9 @@ public class yu6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, n06Var) == null) {
             if (view2.getId() == R.id.obfuscated_res_0x7f09212a) {
-                ou6.b(view2, n06Var, 2);
-            } else if (view2 instanceof TbImageView) {
-                ou6.b(view2, n06Var, 3);
+                nu6.b(view2, n06Var, 2);
             } else if (view2.getId() == R.id.obfuscated_res_0x7f09212b || view2.getId() == R.id.obfuscated_res_0x7f09211d) {
-                ou6.b(view2, n06Var, 2);
+                nu6.b(view2, n06Var, 2);
             }
         }
     }

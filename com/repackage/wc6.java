@@ -78,7 +78,7 @@ public class wc6 extends ue6<xc6, FrsMemberHeaderViewHolder> {
                         if (view2.getId() == R.id.obfuscated_res_0x7f0912de) {
                             if (ViewHelper.checkUpIsLogin(this.a.c.getPageActivity())) {
                                 if (!oi.z()) {
-                                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                                     return;
                                 }
                                 String a = xc6Var.a();
@@ -122,7 +122,7 @@ public class wc6 extends ue6<xc6, FrsMemberHeaderViewHolder> {
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (!(obj instanceof ck8) || this.a.l.getErrorCode() != 0) {
+                if (!(obj instanceof bk8) || this.a.l.getErrorCode() != 0) {
                     if (AntiHelper.m(this.a.l.getErrorCode(), this.a.l.getErrorString())) {
                         AntiHelper.u(this.a.c.getPageActivity(), this.a.l.getErrorString());
                         return;
@@ -131,9 +131,9 @@ public class wc6 extends ue6<xc6, FrsMemberHeaderViewHolder> {
                         return;
                     }
                 }
-                ck8 ck8Var = (ck8) obj;
-                ck8Var.y(1);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, ck8Var));
+                bk8 bk8Var = (bk8) obj;
+                bk8Var.x(1);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, bk8Var));
             }
         }
     }
@@ -202,13 +202,13 @@ public class wc6 extends ue6<xc6, FrsMemberHeaderViewHolder> {
             if (xc6Var != null && xc6Var.c() != null) {
                 int parseColor = Color.parseColor("#56cfa1");
                 int color = SkinManager.getColor(R.color.CAM_X0109);
-                ck8 c = xc6Var.c();
+                bk8 c = xc6Var.c();
                 if (TbadkCoreApplication.isLogin()) {
-                    if (c.n() == 1) {
+                    if (c.m() == 1) {
                         frsMemberHeaderViewHolder.a.setVisibility(8);
                         frsMemberHeaderViewHolder.b.setVisibility(0);
-                        frsMemberHeaderViewHolder.b.setText(R.string.obfuscated_res_0x7f0f0b59);
-                        SkinManager.setImageResource(frsMemberHeaderViewHolder.c, BitmapHelper.getSmallGradeResourceIdNew(c.m()));
+                        frsMemberHeaderViewHolder.b.setText(R.string.obfuscated_res_0x7f0f0b5a);
+                        SkinManager.setImageResource(frsMemberHeaderViewHolder.c, BitmapHelper.getSmallGradeResourceIdNew(c.l()));
                         if (StringUtils.isNull(c.h())) {
                             frsMemberHeaderViewHolder.d.setVisibility(8);
                         } else {
@@ -257,8 +257,8 @@ public class wc6 extends ue6<xc6, FrsMemberHeaderViewHolder> {
                 SkinManager.setViewTextColor(frsMemberHeaderViewHolder.j, R.color.CAM_X0105, 1);
                 SkinManager.setBackgroundResource(frsMemberHeaderViewHolder.k, R.drawable.obfuscated_res_0x7f080572);
                 SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.l, R.color.CAM_X0204);
-                if (this.m != c.m() || this.n != c.c()) {
-                    this.m = c.m();
+                if (this.m != c.l() || this.n != c.c()) {
+                    this.m = c.l();
                     this.n = c.c();
                     frsMemberHeaderViewHolder.k.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, M(this.m)));
                     int c2 = c.c();
@@ -273,7 +273,7 @@ public class wc6 extends ue6<xc6, FrsMemberHeaderViewHolder> {
                     ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, i2, 1.0f, 1.0f);
                     scaleAnimation.setFillAfter(true);
                     scaleAnimation.setDuration(1000L);
-                    ej8.c((TbPageContextSupport) this.c.getPageActivity(), frsMemberHeaderViewHolder.k, scaleAnimation, null);
+                    dj8.c((TbPageContextSupport) this.c.getPageActivity(), frsMemberHeaderViewHolder.k, scaleAnimation, null);
                 }
             }
             return view2;

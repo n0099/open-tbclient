@@ -33,9 +33,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ks4;
-import com.repackage.m57;
+import com.repackage.l57;
 import com.repackage.ms4;
-import com.repackage.p57;
+import com.repackage.o57;
 import com.repackage.qi;
 import java.util.ArrayList;
 import java.util.List;
@@ -65,7 +65,7 @@ public class SelectTopicLayout extends RelativeLayout {
     public int t;
     public int u;
     public int v;
-    public List<p57> w;
+    public List<o57> w;
     public float x;
     public float y;
     public final View.OnClickListener z;
@@ -557,13 +557,13 @@ public class SelectTopicLayout extends RelativeLayout {
         }
     }
 
-    public void s(m57 m57Var, m57 m57Var2, m57 m57Var3) {
+    public void s(l57 l57Var, l57 l57Var2, l57 l57Var3) {
         SelectTopicListLayout selectTopicListLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048589, this, m57Var, m57Var2, m57Var3) == null) || (selectTopicListLayout = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048589, this, l57Var, l57Var2, l57Var3) == null) || (selectTopicListLayout = this.l) == null) {
             return;
         }
-        selectTopicListLayout.a(m57Var, m57Var2, m57Var3);
+        selectTopicListLayout.a(l57Var, l57Var2, l57Var3);
     }
 
     public void setDelButtonVisible(boolean z) {
@@ -613,18 +613,18 @@ public class SelectTopicLayout extends RelativeLayout {
         }
     }
 
-    public void u(m57 m57Var) {
+    public void u(l57 l57Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, m57Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, l57Var) == null) {
             this.w.clear();
             String searchKey = getSearchKey();
-            m57 m57Var2 = new m57();
-            this.w.add(new p57(searchKey, 0L, false));
-            if (m57Var == null) {
-                m57Var = m57Var2;
+            l57 l57Var2 = new l57();
+            this.w.add(new o57(searchKey, 0L, false));
+            if (l57Var == null) {
+                l57Var = l57Var2;
             }
-            m57Var.c().addAll(0, this.w);
-            this.m.a(getSearchKey(), m57Var.c());
+            l57Var.c().addAll(0, this.w);
+            this.m.a(getSearchKey(), l57Var.c());
         }
     }
 
@@ -658,7 +658,7 @@ public class SelectTopicLayout extends RelativeLayout {
             ms4 d7 = ms4.d(this.f);
             d7.n(R.string.J_X01);
             d7.f(R.color.CAM_X0209);
-            this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080999, SkinManager.getColor(R.color.CAM_X0108), WebPManager.ResourceStateType.NORMAL_DISABLE));
+            this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08099a, SkinManager.getColor(R.color.CAM_X0108), WebPManager.ResourceStateType.NORMAL_DISABLE));
         }
     }
 

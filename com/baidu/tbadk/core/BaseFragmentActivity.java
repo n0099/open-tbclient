@@ -661,7 +661,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                     intent.setData(Uri.parse("package:" + this.a.getPackageName()));
                     this.a.startActivityForResult(intent, 12016);
                 } catch (Exception unused) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f1008);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f1009);
                     if (this.a.mPermissionCallback != null) {
                         this.a.mPermissionCallback.onPermissionResult(false);
                     }
@@ -1421,9 +1421,9 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                     if (!h2) {
                         ur4 ur4Var = new ur4(this);
                         ur4Var.setCanceledOnTouchOutside(false);
-                        ur4Var.setTitle(R.string.obfuscated_res_0x7f0f0ffd);
-                        ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f1007);
-                        ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0980, new k(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new j(this)).create(getPageContext());
+                        ur4Var.setTitle(R.string.obfuscated_res_0x7f0f0ffe);
+                        ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f1008);
+                        ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0981, new k(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new j(this)).create(getPageContext());
                         ur4Var.show();
                         ru4.k().u("key_is_window_permission_dialog_shown", true);
                     } else {
@@ -2179,7 +2179,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void showToast(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048695, this, str) == null) {
-            qi.O(getPageContext().getContext(), str);
+            qi.N(getPageContext().getContext(), str);
         }
     }
 
@@ -2188,7 +2188,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (interceptable == null || interceptable.invokeLL(1048697, this, str, toastIcon) == null) {
             BdToast b2 = BdToast.b(getPageContext().getContext(), str);
             b2.f(toastIcon);
-            b2.h();
+            b2.i();
         }
     }
 
@@ -2197,7 +2197,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (interceptable == null || interceptable.invokeLI(1048698, this, str, i2) == null) {
             BdToast b2 = BdToast.b(getPageContext().getContext(), str);
             b2.e(i2);
-            b2.h();
+            b2.i();
         }
     }
 
@@ -2354,7 +2354,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void showToast(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048693, this, i2) == null) {
-            qi.N(getPageContext().getContext(), i2);
+            qi.M(getPageContext().getContext(), i2);
         }
     }
 
@@ -2364,7 +2364,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             if (z) {
                 showToast(str);
             } else {
-                qi.O(getPageContext().getContext(), str);
+                qi.N(getPageContext().getContext(), str);
             }
         }
     }
@@ -2406,7 +2406,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             if (z) {
                 showToast(i2);
             } else {
-                qi.N(getPageContext().getContext(), i2);
+                qi.M(getPageContext().getContext(), i2);
             }
         }
     }

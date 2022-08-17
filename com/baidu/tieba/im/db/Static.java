@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cf5;
 import com.repackage.gf5;
 import com.repackage.je5;
-import com.repackage.s77;
+import com.repackage.r77;
 /* loaded from: classes3.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
@@ -26,12 +26,12 @@ public class Static {
 
         /* renamed from: com.baidu.tieba.im.db.Static$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0219a extends cf5<Void> {
+        public class C0220a extends cf5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
 
-            public C0219a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public C0220a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,7 +57,7 @@ public class Static {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     if (this.a.getData() instanceof String) {
-                        s77.a((String) this.a.getData());
+                        r77.a((String) this.a.getData());
                         return null;
                     }
                     return null;
@@ -125,7 +125,7 @@ public class Static {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2008015 || customResponsedMessage.getData() == null) {
                 return;
             }
-            gf5.c(new C0219a(this, customResponsedMessage), new b(this));
+            gf5.c(new C0220a(this, customResponsedMessage), new b(this));
         }
     }
 

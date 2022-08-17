@@ -130,7 +130,7 @@ public class nw8 {
                 this.a.p(5, false);
                 PersonRedTipManager.getInstance().updateRedTipState(5, false, true);
                 if (!TbadkCoreApplication.getInst().appResponseToCmd(2015004)) {
-                    BdToast.b(this.a.a, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0eba)).h();
+                    BdToast.b(this.a.a, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ebb)).i();
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2015004, new IntentConfig(view2.getContext())));

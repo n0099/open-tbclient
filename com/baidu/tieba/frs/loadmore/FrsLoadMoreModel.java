@@ -34,13 +34,13 @@ import com.repackage.ko6;
 import com.repackage.oa5;
 import com.repackage.og;
 import com.repackage.on;
-import com.repackage.tk8;
-import com.repackage.uq6;
-import com.repackage.us6;
-import com.repackage.zb8;
+import com.repackage.sk8;
+import com.repackage.tq6;
+import com.repackage.ts6;
+import com.repackage.yb8;
+import com.repackage.ys6;
 import com.repackage.ze5;
 import com.repackage.zn6;
-import com.repackage.zs6;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -71,7 +71,7 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     public boolean loadingDone;
     public ko6 m;
     public co6.b n;
-    public zs6 o;
+    public ys6 o;
     public final ab p;
 
     /* loaded from: classes3.dex */
@@ -111,12 +111,12 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
             FrsLoadMoreModel frsLoadMoreModel = this.a;
             frsLoadMoreModel.isLoading = false;
             if (responsedMessage == null) {
-                frsLoadMoreModel.a.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c3c));
+                frsLoadMoreModel.a.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c3d));
             } else if (responsedMessage.getError() != 0) {
                 if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
                     this.a.a.onFailed(responsedMessage.getErrorString());
                 } else {
-                    this.a.a.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c3c));
+                    this.a.a.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c3d));
                 }
             } else {
                 long currentTimeMillis = System.currentTimeMillis();
@@ -144,8 +144,8 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                     }
                     this.a.L(loadMoreResponseSocketMessage);
                 }
-                if (!TextUtils.isEmpty(this.a.a.c()) && zb8.l().b() != null) {
-                    zb8.l().b().g(this.a.a.c(), 2, false);
+                if (!TextUtils.isEmpty(this.a.a.c()) && yb8.l().b() != null) {
+                    yb8.l().b().g(this.a.a.c(), 2, false);
                 }
                 this.a.loadIndex++;
             }
@@ -215,10 +215,10 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
 
     public final void C(String str, LoadMoreRequestMessage loadMoreRequestMessage) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, loadMoreRequestMessage) == null) || zb8.l().b() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, loadMoreRequestMessage) == null) || yb8.l().b() == null) {
             return;
         }
-        loadMoreRequestMessage.setLoadCount(zb8.l().b().e(str, false) + 1);
+        loadMoreRequestMessage.setLoadCount(yb8.l().b().e(str, false) + 1);
     }
 
     public boolean D(List<Long> list) {
@@ -277,14 +277,14 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public ArrayList<on> G(boolean z, boolean z2, boolean z3, ArrayList<on> arrayList, tk8 tk8Var, List<AdMixFloor> list, int i) {
+    public ArrayList<on> G(boolean z, boolean z2, boolean z3, ArrayList<on> arrayList, sk8 sk8Var, List<AdMixFloor> list, int i) {
         InterceptResult invokeCommon;
         zn6 zn6Var;
         zn6 zn6Var2;
         zn6 zn6Var3;
         zn6 zn6Var4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), arrayList, tk8Var, list, Integer.valueOf(i)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), arrayList, sk8Var, list, Integer.valueOf(i)})) == null) {
             if (z3) {
                 this.d.clear();
                 this.e.clear();
@@ -384,7 +384,7 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                     }
                 } else if (i != 2) {
                     if (i != 3) {
-                        if (zs6.d()) {
+                        if (ys6.d()) {
                             if (this.o != null) {
                                 String valueOf = String.valueOf(this.k);
                                 if (this.k == 0 && (zn6Var4 = this.a) != null && zn6Var4.P0() != null && this.a.P0().getForum() != null && this.a.P0().getForum().getId() != null) {
@@ -442,8 +442,8 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
             arrayList7.addAll(this.f);
             zn6 zn6Var9 = this.a;
             if (zn6Var9 instanceof gk5) {
-                uq6.b((gk5) zn6Var9, zn6Var9.P0(), arrayList2, getPn());
-                uq6.c(tk8Var, arrayList2, arrayList7);
+                tq6.b((gk5) zn6Var9, zn6Var9.P0(), arrayList2, getPn());
+                tq6.c(sk8Var, arrayList2, arrayList7);
             }
             return arrayList7;
         }
@@ -642,7 +642,7 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                 sendMessage(loadMoreRequestMessage);
                 this.isLoading = true;
                 this.c = System.currentTimeMillis();
-                us6.a();
+                ts6.a();
                 return;
             }
             this.loadingDone = true;
@@ -662,10 +662,10 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void T(zs6 zs6Var) {
+    public void T(ys6 ys6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, zs6Var) == null) {
-            this.o = zs6Var;
+        if (interceptable == null || interceptable.invokeL(1048593, this, ys6Var) == null) {
+            this.o = ys6Var;
         }
     }
 

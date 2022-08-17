@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o47;
+import com.repackage.n47;
 import java.util.ArrayList;
 @RemoteViews.RemoteView
 /* loaded from: classes3.dex */
@@ -1435,7 +1435,7 @@ public class HListView extends AbsHListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048579, this, view2, obj, z) == null) {
             ListAdapter listAdapter = this.mAdapter;
-            if (listAdapter != null && !(listAdapter instanceof o47)) {
+            if (listAdapter != null && !(listAdapter instanceof n47)) {
                 throw new IllegalStateException("Cannot add header view to list -- setAdapter has already been called.");
             }
             c cVar2 = new c();
@@ -2571,7 +2571,7 @@ public class HListView extends AbsHListView {
             boolean z = false;
             if (this.mFooterViewInfos.size() > 0) {
                 ListAdapter listAdapter = this.mAdapter;
-                if (listAdapter != null && ((o47) listAdapter).d(view2)) {
+                if (listAdapter != null && ((n47) listAdapter).d(view2)) {
                     AbsHListView.c cVar = this.mDataSetObserver;
                     if (cVar != null) {
                         cVar.onChanged();
@@ -2592,7 +2592,7 @@ public class HListView extends AbsHListView {
             boolean z = false;
             if (this.mHeaderViewInfos.size() > 0) {
                 ListAdapter listAdapter = this.mAdapter;
-                if (listAdapter != null && ((o47) listAdapter).e(view2)) {
+                if (listAdapter != null && ((n47) listAdapter).e(view2)) {
                     AbsHListView.c cVar = this.mDataSetObserver;
                     if (cVar != null) {
                         cVar.onChanged();
@@ -2851,7 +2851,7 @@ public class HListView extends AbsHListView {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public HListView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04031b);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04031c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2895,7 +2895,7 @@ public class HListView extends AbsHListView {
             if (this.mHeaderViewInfos.size() <= 0 && this.mFooterViewInfos.size() <= 0) {
                 this.mAdapter = listAdapter;
             } else {
-                this.mAdapter = new o47(this.mHeaderViewInfos, this.mFooterViewInfos, listAdapter);
+                this.mAdapter = new n47(this.mHeaderViewInfos, this.mFooterViewInfos, listAdapter);
             }
             this.mOldSelectedPosition = -1;
             this.mOldSelectedColId = Long.MIN_VALUE;
@@ -2963,7 +2963,7 @@ public class HListView extends AbsHListView {
         this.mArrowScrollFocusResult = new b(null);
         this.mMaxWidth = 0;
         this.mGestureDetector = new GestureDetector(new e(this, null));
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{16842930, 16843049, R.attr.obfuscated_res_0x7f040312, R.attr.obfuscated_res_0x7f040314, R.attr.obfuscated_res_0x7f040316, R.attr.obfuscated_res_0x7f04031c, R.attr.obfuscated_res_0x7f04031d, R.attr.obfuscated_res_0x7f04031e}, i, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{16842930, 16843049, R.attr.obfuscated_res_0x7f040313, R.attr.obfuscated_res_0x7f040315, R.attr.obfuscated_res_0x7f040317, R.attr.obfuscated_res_0x7f04031d, R.attr.obfuscated_res_0x7f04031e, R.attr.obfuscated_res_0x7f04031f}, i, 0);
         int i5 = -1;
         if (obtainStyledAttributes != null) {
             charSequenceArr = obtainStyledAttributes.getTextArray(0);

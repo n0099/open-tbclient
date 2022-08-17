@@ -39,12 +39,12 @@ public class xw8 {
 
         /* renamed from: com.repackage.xw8$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0625a extends sw8.d {
+        public class C0628a extends sw8.d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a b;
 
-            public C0625a(a aVar) {
+            public C0628a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -152,9 +152,9 @@ public class xw8 {
                 if (z) {
                     this.a.a = str;
                     this.a.o(2, 100);
-                    this.a.h = sw8.p(TbadkCoreApplication.getInst().getCurrentPageContext(TbadkCoreApplication.getInst()), this.a.a, this.a.d.c(), new C0625a(this));
+                    this.a.h = sw8.p(TbadkCoreApplication.getInst().getCurrentPageContext(TbadkCoreApplication.getInst()), this.a.a, this.a.d.c(), new C0628a(this));
                 } else if (this.a.c != null) {
-                    this.a.c.onError(-1, this.a.b.getString(R.string.obfuscated_res_0x7f0f11ff));
+                    this.a.c.onError(-1, this.a.b.getString(R.string.obfuscated_res_0x7f0f1201));
                     rg.a().postDelayed(new b(this), 2000L);
                 }
             }
@@ -269,7 +269,7 @@ public class xw8 {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            this.c.onError(-1, this.b.getString(R.string.obfuscated_res_0x7f0f11f5));
+            this.c.onError(-1, this.b.getString(R.string.obfuscated_res_0x7f0f11f7));
             return;
         }
         if (str.startsWith("http")) {
@@ -290,7 +290,7 @@ public class xw8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             if (TextUtils.isEmpty(str) && (tw8Var = this.c) != null) {
-                tw8Var.onError(-1, this.b.getString(R.string.obfuscated_res_0x7f0f11fb));
+                tw8Var.onError(-1, this.b.getString(R.string.obfuscated_res_0x7f0f11fd));
                 return;
             }
             uw8 uw8Var = new uw8(j(), str, this.i);

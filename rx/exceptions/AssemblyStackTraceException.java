@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wy9;
+import com.repackage.yy9;
 import java.util.HashSet;
 /* loaded from: classes8.dex */
 public final class AssemblyStackTraceException extends RuntimeException {
@@ -60,14 +60,14 @@ public final class AssemblyStackTraceException extends RuntimeException {
             while (th.getCause() != null) {
                 th = th.getCause();
                 if (!hashSet.add(th)) {
-                    wy9.j(this);
+                    yy9.j(this);
                     return;
                 }
             }
             try {
                 th.initCause(this);
             } catch (IllegalStateException unused) {
-                wy9.j(new RuntimeException("Received an exception with a cause set to null, instead of being unset. To fix this, look down the chain of causes. The last exception had a cause explicitly set to null. It should be unset instead.", th));
+                yy9.j(new RuntimeException("Received an exception with a cause set to null, instead of being unset. To fix this, look down the chain of causes. The last exception had a cause explicitly set to null. It should be unset instead.", th));
             }
         }
     }

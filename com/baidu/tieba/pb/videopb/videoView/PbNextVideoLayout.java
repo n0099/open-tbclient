@@ -142,7 +142,7 @@ public class PbNextVideoLayout extends RelativeLayout {
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091828);
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091825);
             this.f = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091827);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f08091d, R.color.CAM_X0622, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f08091e, R.color.CAM_X0622, null);
         }
     }
 
@@ -150,7 +150,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.g = true;
-            this.c.setText(R.string.obfuscated_res_0x7f0f0dfa);
+            this.c.setText(R.string.obfuscated_res_0x7f0f0dfb);
             a aVar = this.i;
             if (aVar != null) {
                 aVar.cancel();
@@ -169,7 +169,7 @@ public class PbNextVideoLayout extends RelativeLayout {
             if (aVar != null) {
                 aVar.cancel();
             }
-            this.c.setText(R.string.obfuscated_res_0x7f0f0dfb);
+            this.c.setText(R.string.obfuscated_res_0x7f0f0dfc);
             this.f.setProgress(0);
         }
     }
@@ -180,7 +180,7 @@ public class PbNextVideoLayout extends RelativeLayout {
             return;
         }
         this.b.K(threadData.getThreadVideoInfo().thumbnail_url, 10, false);
-        this.c.setText(R.string.obfuscated_res_0x7f0f0dfa);
+        this.c.setText(R.string.obfuscated_res_0x7f0f0dfb);
         this.d.setText(threadData.getTitle());
         this.f.setProgress(0);
     }

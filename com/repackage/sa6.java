@@ -311,7 +311,7 @@ public class sa6 {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.j.setVisibility(0);
             this.l.setVisibility(8);
-            this.j.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cc8));
+            this.j.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cc9));
             SkinManager.setViewTextColor(this.j, R.color.common_color_10172, 1);
             SkinManager.setBackgroundResource(this.j, R.drawable.btn_content_buy_d);
         }
@@ -541,7 +541,7 @@ public class sa6 {
         this.f.setText(facePackageData.pname);
         this.H.setTag(facePackageData.tag_url);
         TextView textView = this.h;
-        textView.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0eee) + facePackageData.price);
+        textView.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0eef) + facePackageData.price);
         this.k.setText(facePackageData.pdesc);
         this.g.setText(facePackageData.pname);
         s(facePackageData);

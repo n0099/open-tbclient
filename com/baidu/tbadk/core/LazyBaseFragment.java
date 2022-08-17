@@ -37,12 +37,12 @@ public abstract class LazyBaseFragment extends BaseFragment {
 
         /* renamed from: com.baidu.tbadk.core.LazyBaseFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0187a implements Runnable {
+        public class RunnableC0188a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0187a(a aVar) {
+            public RunnableC0188a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,7 +99,7 @@ public abstract class LazyBaseFragment extends BaseFragment {
                 if (lazyBaseFragment.d == null) {
                     lazyBaseFragment.c = true;
                 } else if (!rb.b().c()) {
-                    this.a.a.post(new RunnableC0187a(this));
+                    this.a.a.post(new RunnableC0188a(this));
                 } else {
                     this.a.t1();
                 }

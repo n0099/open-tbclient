@@ -1,5 +1,6 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,10 +11,9 @@ import org.json.JSONObject;
 public class ad8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public long d;
+    public String a;
+    public double b;
+    public double c;
 
     public ad8() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class ad8 {
         }
     }
 
-    public static ad8 a(JSONObject jSONObject) {
+    public static ad8 b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
@@ -37,12 +37,19 @@ public class ad8 {
                 return null;
             }
             ad8 ad8Var = new ad8();
-            ad8Var.a = jSONObject.optInt("agree_num", -1);
-            ad8Var.b = jSONObject.optInt("share_num", -1);
-            ad8Var.c = jSONObject.optInt("reply_num", -1);
-            ad8Var.d = jSONObject.optLong("time", System.currentTimeMillis());
+            ad8Var.a = jSONObject.optString("bottom_picture", "");
+            jSONObject.optInt("cover_shadow_switch", 0);
+            ad8Var.b = jSONObject.optDouble("player_width_ratio", 0.0d);
+            ad8Var.c = jSONObject.optDouble("right_margin_ratio", 0.0d);
+            jSONObject.optDouble("player_height_clipping_ratio", 0.0d);
             return ad8Var;
         }
         return (ad8) invokeL.objValue;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.a) : invokeV.booleanValue;
     }
 }

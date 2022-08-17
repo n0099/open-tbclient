@@ -24,13 +24,13 @@ public class qn5 extends uc1<ug0> {
 
         /* renamed from: com.repackage.qn5$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0563a implements xg0 {
+        public class C0565a implements xg0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ boolean[] a;
             public final /* synthetic */ vg0 b;
 
-            public C0563a(a aVar, boolean[] zArr, vg0 vg0Var) {
+            public C0565a(a aVar, boolean[] zArr, vg0 vg0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,7 +88,7 @@ public class qn5 extends uc1<ug0> {
                 if (UrlSchemaJumpHelper.isHitBlackList(str)) {
                     return true;
                 }
-                zg0.a(context, str, null, new C0563a(this, new boolean[1], vg0Var), false);
+                zg0.a(context, str, null, new C0565a(this, new boolean[1], vg0Var), false);
                 return true;
             }
             return invokeLLLL.booleanValue;

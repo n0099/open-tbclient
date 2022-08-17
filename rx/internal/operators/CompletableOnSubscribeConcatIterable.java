@@ -5,34 +5,34 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lz9;
-import com.repackage.mz9;
-import com.repackage.nu9;
-import com.repackage.ou9;
-import com.repackage.wu9;
+import com.repackage.nz9;
+import com.repackage.oz9;
+import com.repackage.pu9;
+import com.repackage.qu9;
+import com.repackage.yu9;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public final class CompletableOnSubscribeConcatIterable implements nu9.f {
+public final class CompletableOnSubscribeConcatIterable implements pu9.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Iterable<? extends nu9> a;
+    public final Iterable<? extends pu9> a;
 
     /* loaded from: classes8.dex */
-    public static final class ConcatInnerSubscriber extends AtomicInteger implements ou9 {
+    public static final class ConcatInnerSubscriber extends AtomicInteger implements qu9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7965400327305809232L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ou9 actual;
-        public final lz9 sd;
-        public final Iterator<? extends nu9> sources;
+        public final qu9 actual;
+        public final nz9 sd;
+        public final Iterator<? extends pu9> sources;
 
-        public ConcatInnerSubscriber(ou9 ou9Var, Iterator<? extends nu9> it) {
+        public ConcatInnerSubscriber(qu9 qu9Var, Iterator<? extends pu9> it) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ou9Var, it};
+                Object[] objArr = {qu9Var, it};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,15 +42,15 @@ public final class CompletableOnSubscribeConcatIterable implements nu9.f {
                     return;
                 }
             }
-            this.actual = ou9Var;
+            this.actual = qu9Var;
             this.sources = it;
-            this.sd = new lz9();
+            this.sd = new nz9();
         }
 
         public void next() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.sd.isUnsubscribed() && getAndIncrement() == 0) {
-                Iterator<? extends nu9> it = this.sources;
+                Iterator<? extends pu9> it = this.sources;
                 while (!this.sd.isUnsubscribed()) {
                     try {
                         if (!it.hasNext()) {
@@ -58,7 +58,7 @@ public final class CompletableOnSubscribeConcatIterable implements nu9.f {
                             return;
                         }
                         try {
-                            nu9 next = it.next();
+                            pu9 next = it.next();
                             if (next == null) {
                                 this.actual.onError(new NullPointerException("The completable returned is null"));
                                 return;
@@ -79,7 +79,7 @@ public final class CompletableOnSubscribeConcatIterable implements nu9.f {
             }
         }
 
-        @Override // com.repackage.ou9
+        @Override // com.repackage.qu9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -87,7 +87,7 @@ public final class CompletableOnSubscribeConcatIterable implements nu9.f {
             }
         }
 
-        @Override // com.repackage.ou9
+        @Override // com.repackage.qu9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -95,16 +95,16 @@ public final class CompletableOnSubscribeConcatIterable implements nu9.f {
             }
         }
 
-        @Override // com.repackage.ou9
-        public void onSubscribe(wu9 wu9Var) {
+        @Override // com.repackage.qu9
+        public void onSubscribe(yu9 yu9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, wu9Var) == null) {
-                this.sd.a(wu9Var);
+            if (interceptable == null || interceptable.invokeL(1048579, this, yu9Var) == null) {
+                this.sd.a(yu9Var);
             }
         }
     }
 
-    public CompletableOnSubscribeConcatIterable(Iterable<? extends nu9> iterable) {
+    public CompletableOnSubscribeConcatIterable(Iterable<? extends pu9> iterable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,23 +123,23 @@ public final class CompletableOnSubscribeConcatIterable implements nu9.f {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.nu9.f, com.repackage.dv9
-    public void call(ou9 ou9Var) {
+    @Override // com.repackage.pu9.f, com.repackage.fv9
+    public void call(qu9 qu9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ou9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, qu9Var) == null) {
             try {
-                Iterator<? extends nu9> it = this.a.iterator();
+                Iterator<? extends pu9> it = this.a.iterator();
                 if (it == null) {
-                    ou9Var.onSubscribe(mz9.c());
-                    ou9Var.onError(new NullPointerException("The iterator returned is null"));
+                    qu9Var.onSubscribe(oz9.c());
+                    qu9Var.onError(new NullPointerException("The iterator returned is null"));
                     return;
                 }
-                ConcatInnerSubscriber concatInnerSubscriber = new ConcatInnerSubscriber(ou9Var, it);
-                ou9Var.onSubscribe(concatInnerSubscriber.sd);
+                ConcatInnerSubscriber concatInnerSubscriber = new ConcatInnerSubscriber(qu9Var, it);
+                qu9Var.onSubscribe(concatInnerSubscriber.sd);
                 concatInnerSubscriber.next();
             } catch (Throwable th) {
-                ou9Var.onSubscribe(mz9.c());
-                ou9Var.onError(th);
+                qu9Var.onSubscribe(oz9.c());
+                qu9Var.onError(th);
             }
         }
     }

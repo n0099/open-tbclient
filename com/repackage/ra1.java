@@ -130,13 +130,13 @@ public class ra1 extends BaseAdapter {
                     aVar.a.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f0608d2));
                     aVar.b.setTextSize(1, 10.0f);
                     aVar.b.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f0608d2));
-                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ec8));
+                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ec9));
                 } else {
                     aVar.a.setTextSize(1, 14.0f);
                     aVar.a.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060ad0));
                     aVar.b.setTextSize(1, 10.0f);
                     aVar.b.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f0608d3));
-                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ec7));
+                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ec8));
                 }
             }
             return view2;

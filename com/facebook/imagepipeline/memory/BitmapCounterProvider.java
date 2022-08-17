@@ -15,7 +15,6 @@ public class BitmapCounterProvider {
     public static final long KB = 1024;
     public static final int MAX_BITMAP_TOTAL_SIZE;
     public static final long MB = 1048576;
-    public static final Class<?> TAG;
     public static volatile BitmapCounter sBitmapCounter;
     public static int sMaxBitmapCount;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +32,6 @@ public class BitmapCounterProvider {
                 return;
             }
         }
-        TAG = BitmapCounterProvider.class;
         MAX_BITMAP_TOTAL_SIZE = getMaxSizeHardCap();
         sMaxBitmapCount = 384;
     }

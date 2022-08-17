@@ -26,13 +26,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a37;
 import com.repackage.og;
 import com.repackage.oi;
 import com.repackage.on;
 import com.repackage.pi;
-import com.repackage.w27;
+import com.repackage.v27;
 import com.repackage.wj4;
+import com.repackage.z27;
 import com.repackage.z8;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -43,7 +43,7 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements w27 {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements v27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicDetailModel a;
@@ -153,7 +153,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.repackage.w27
+    @Override // com.repackage.v27
     public void M0(int i, boolean z, List<on> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) {
@@ -161,7 +161,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.repackage.w27
+    @Override // com.repackage.v27
     public void a() {
         int i;
         String substring;
@@ -315,14 +315,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.repackage.w27
-    public void t(int i, a37 a37Var) {
+    @Override // com.repackage.v27
+    public void t(int i, z27 z27Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048588, this, i, a37Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048588, this, i, z27Var) == null) {
             this.b.r();
-            if (i == 0 && a37Var != null && !ListUtils.isEmpty(a37Var.f)) {
+            if (i == 0 && z27Var != null && !ListUtils.isEmpty(z27Var.f)) {
                 this.b.s();
-                this.b.setData(a37Var);
+                this.b.setData(z27Var);
                 return;
             }
             this.b.B(true);

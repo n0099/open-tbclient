@@ -149,7 +149,7 @@ public class TiebaPrepareImageService extends BdBaseService {
                         this.d = this.e.getString(R.string.obfuscated_res_0x7f0f05ae);
                     }
                 } else {
-                    this.d = this.e.getString(R.string.obfuscated_res_0x7f0f0e78);
+                    this.d = this.e.getString(R.string.obfuscated_res_0x7f0f0e79);
                 }
                 z = false;
                 TiebaPrepareImageService.IS_DECODING = false;

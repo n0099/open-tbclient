@@ -63,7 +63,7 @@ public class w45 implements y45 {
             return;
         }
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-        SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080f08);
+        SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080f09);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0805e9, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
         TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0305).setShape(0).setAlpha(211).tlRadius(qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
     }

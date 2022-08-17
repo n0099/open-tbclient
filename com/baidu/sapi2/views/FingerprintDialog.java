@@ -221,14 +221,14 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             if (SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) {
-                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081035);
-                this.f.setImageResource(R.drawable.obfuscated_res_0x7f081033);
+                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081036);
+                this.f.setImageResource(R.drawable.obfuscated_res_0x7f081034);
                 this.b.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609c2));
                 this.c.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609ef));
                 this.d.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609c2));
-                this.d.setBackground(this.g.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081037));
+                this.d.setBackground(this.g.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081038));
                 this.e.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609c2));
-                this.e.setBackground(this.g.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081039));
+                this.e.setBackground(this.g.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08103a));
             }
         }
     }

@@ -42,11 +42,11 @@ public class w40 implements CallFactory.CallFactoryProducer {
 
         /* renamed from: com.repackage.w40$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0604a implements d50 {
+        public class C0608a implements d50 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0604a(a aVar, Request request) {
+            public C0608a(a aVar, Request request) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class w40 implements CallFactory.CallFactoryProducer {
                     }
                     newBuilder.eventListener(new y40(this.c.c));
                     if (this.c.d != null) {
-                        Dns a = this.c.d.a(e, new C0604a(this, e));
+                        Dns a = this.c.d.a(e, new C0608a(this, e));
                         newBuilder.dns(a);
                         newBuilder.addNetworkInterceptor(new a50(a));
                     }

@@ -2,319 +2,552 @@ package com.repackage;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
-import rx.exceptions.OnErrorFailedException;
-import rx.functions.Actions;
-import rx.internal.operators.EmptyObservableHolder;
-import rx.internal.operators.OnSubscribeFromIterable;
-import rx.internal.operators.OperatorMerge;
-import rx.internal.operators.OperatorReplay;
-import rx.internal.util.InternalObservableUtils;
-import rx.internal.util.ScalarSynchronousObservable;
-import rx.internal.util.UtilityFunctions;
-import rx.schedulers.Schedulers;
+import com.repackage.uu9;
+import rx.internal.operators.CompletableOnSubscribeConcatIterable;
 /* loaded from: classes7.dex */
-public class pu9<T> {
+public class pu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a<T> a;
+    public final f a;
 
     /* loaded from: classes7.dex */
-    public interface a<T> extends dv9<vu9<? super T>> {
-        @Override // com.repackage.dv9
+    public static class a implements f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.pu9.f, com.repackage.fv9
+        public void call(qu9 qu9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, qu9Var) == null) {
+                qu9Var.onSubscribe(oz9.c());
+                qu9Var.onCompleted();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uu9 a;
+        public final /* synthetic */ pu9 b;
+
+        /* loaded from: classes7.dex */
+        public class a implements qu9 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ uu9.a a;
+            public final /* synthetic */ qu9 b;
+            public final /* synthetic */ cx9 c;
+
+            /* renamed from: com.repackage.pu9$b$a$a  reason: collision with other inner class name */
+            /* loaded from: classes7.dex */
+            public class C0560a implements ev9 {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ a a;
+
+                public C0560a(a aVar) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {aVar};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = aVar;
+                }
+
+                @Override // com.repackage.ev9
+                public void call() {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                        try {
+                            this.a.b.onCompleted();
+                        } finally {
+                            this.a.c.unsubscribe();
+                        }
+                    }
+                }
+            }
+
+            /* renamed from: com.repackage.pu9$b$a$b  reason: collision with other inner class name */
+            /* loaded from: classes7.dex */
+            public class C0561b implements ev9 {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Throwable a;
+                public final /* synthetic */ a b;
+
+                public C0561b(a aVar, Throwable th) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {aVar, th};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.b = aVar;
+                    this.a = th;
+                }
+
+                @Override // com.repackage.ev9
+                public void call() {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                        try {
+                            this.b.b.onError(this.a);
+                        } finally {
+                            this.b.c.unsubscribe();
+                        }
+                    }
+                }
+            }
+
+            public a(b bVar, uu9.a aVar, qu9 qu9Var, cx9 cx9Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, aVar, qu9Var, cx9Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+                this.b = qu9Var;
+                this.c = cx9Var;
+            }
+
+            @Override // com.repackage.qu9
+            public void onCompleted() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.b(new C0560a(this));
+                }
+            }
+
+            @Override // com.repackage.qu9
+            public void onError(Throwable th) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                    this.a.b(new C0561b(this, th));
+                }
+            }
+
+            @Override // com.repackage.qu9
+            public void onSubscribe(yu9 yu9Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yu9Var) == null) {
+                    this.c.a(yu9Var);
+                }
+            }
+        }
+
+        public b(pu9 pu9Var, uu9 uu9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pu9Var, uu9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = pu9Var;
+            this.a = uu9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.pu9.f, com.repackage.fv9
+        public void call(qu9 qu9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, qu9Var) == null) {
+                cx9 cx9Var = new cx9();
+                uu9.a createWorker = this.a.createWorker();
+                cx9Var.a(createWorker);
+                qu9Var.onSubscribe(cx9Var);
+                this.b.j(new a(this, createWorker, qu9Var, cx9Var));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements qu9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mz9 a;
+
+        public c(pu9 pu9Var, mz9 mz9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pu9Var, mz9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mz9Var;
+        }
+
+        @Override // com.repackage.qu9
+        public void onCompleted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.unsubscribe();
+            }
+        }
+
+        @Override // com.repackage.qu9
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                yy9.j(th);
+                this.a.unsubscribe();
+                pu9.c(th);
+            }
+        }
+
+        @Override // com.repackage.qu9
+        public void onSubscribe(yu9 yu9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yu9Var) == null) {
+                this.a.a(yu9Var);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d implements f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.pu9.f, com.repackage.fv9
+        public void call(qu9 qu9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, qu9Var) == null) {
+                qu9Var.onSubscribe(oz9.c());
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e implements f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uu9 a;
+        public final /* synthetic */ pu9 b;
+
+        /* loaded from: classes7.dex */
+        public class a implements ev9 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ qu9 a;
+            public final /* synthetic */ uu9.a b;
+            public final /* synthetic */ e c;
+
+            public a(e eVar, qu9 qu9Var, uu9.a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {eVar, qu9Var, aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = eVar;
+                this.a = qu9Var;
+                this.b = aVar;
+            }
+
+            @Override // com.repackage.ev9
+            public void call() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    try {
+                        this.c.b.j(this.a);
+                    } finally {
+                        this.b.unsubscribe();
+                    }
+                }
+            }
+        }
+
+        public e(pu9 pu9Var, uu9 uu9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pu9Var, uu9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = pu9Var;
+            this.a = uu9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.pu9.f, com.repackage.fv9
+        public void call(qu9 qu9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, qu9Var) == null) {
+                uu9.a createWorker = this.a.createWorker();
+                createWorker.b(new a(this, qu9Var, createWorker));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface f extends fv9<qu9> {
+        @Override // com.repackage.fv9
         /* synthetic */ void call(T t);
     }
 
-    /* loaded from: classes7.dex */
-    public interface b<R, T> extends hv9<vu9<? super R>, vu9<? super T>> {
-        @Override // com.repackage.hv9
-        /* synthetic */ R call(T t);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755397283, "Lcom/repackage/pu9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755397283, "Lcom/repackage/pu9;");
+                return;
+            }
+        }
+        new pu9(new a(), false);
+        new pu9(new d(), false);
     }
 
-    public pu9(a<T> aVar) {
+    public pu9(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {fVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = aVar;
+        this.a = yy9.g(fVar);
     }
 
-    public static <T> pu9<T> a(a<T> aVar) {
+    public static pu9 a(Iterable<? extends pu9> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) ? new pu9<>(wy9.h(aVar)) : (pu9) invokeL.objValue;
-    }
-
-    public static <T> pu9<T> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? EmptyObservableHolder.instance() : (pu9) invokeV.objValue;
-    }
-
-    public static <T> pu9<T> e(Iterable<? extends T> iterable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iterable)) == null) ? a(new OnSubscribeFromIterable(iterable)) : (pu9) invokeL.objValue;
-    }
-
-    public static <T> pu9<T> f(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, t)) == null) ? ScalarSynchronousObservable.C(t) : (pu9) invokeL.objValue;
-    }
-
-    public static <T> pu9<T> i(Iterable<? extends pu9<? extends T>> iterable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, iterable)) == null) ? j(e(iterable)) : (pu9) invokeL.objValue;
-    }
-
-    public static <T> pu9<T> j(pu9<? extends pu9<? extends T>> pu9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, pu9Var)) == null) {
-            if (pu9Var.getClass() == ScalarSynchronousObservable.class) {
-                return ((ScalarSynchronousObservable) pu9Var).F(UtilityFunctions.b());
-            }
-            return (pu9<T>) pu9Var.g(OperatorMerge.a(false));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iterable)) == null) {
+            e(iterable);
+            return b(new CompletableOnSubscribeConcatIterable(iterable));
         }
         return (pu9) invokeL.objValue;
     }
 
-    public static <T> wu9 v(vu9<? super T> vu9Var, pu9<T> pu9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, vu9Var, pu9Var)) == null) {
-            if (vu9Var != null) {
-                if (pu9Var.a != null) {
-                    vu9Var.d();
-                    if (!(vu9Var instanceof qy9)) {
-                        vu9Var = new qy9(vu9Var);
-                    }
-                    try {
-                        wy9.p(pu9Var, pu9Var.a).call(vu9Var);
-                        return wy9.o(vu9Var);
-                    } catch (Throwable th) {
-                        bv9.e(th);
-                        if (vu9Var.isUnsubscribed()) {
-                            wy9.j(wy9.m(th));
-                        } else {
-                            try {
-                                vu9Var.onError(wy9.m(th));
-                            } catch (Throwable th2) {
-                                bv9.e(th2);
-                                OnErrorFailedException onErrorFailedException = new OnErrorFailedException("Error occurred attempting to subscribe [" + th.getMessage() + "] and then again while trying to pass to onError.", th2);
-                                wy9.m(onErrorFailedException);
-                                throw onErrorFailedException;
-                            }
-                        }
-                        return mz9.c();
-                    }
-                }
-                throw new IllegalStateException("onSubscribe function can not be null.");
-            }
-            throw new IllegalArgumentException("subscriber can not be null");
-        }
-        return (wu9) invokeLL.objValue;
-    }
-
-    public final pu9<T> A(long j, TimeUnit timeUnit, pu9<? extends T> pu9Var, su9 su9Var) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), timeUnit, pu9Var, su9Var})) == null) ? (pu9<T>) g(new aw9(j, timeUnit, pu9Var, su9Var)) : (pu9) invokeCommon.objValue;
-    }
-
-    public final wu9 B(vu9<? super T> vu9Var) {
+    public static pu9 b(f fVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vu9Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, fVar)) == null) {
+            e(fVar);
             try {
-                vu9Var.d();
-                wy9.p(this, this.a).call(vu9Var);
-                return wy9.o(vu9Var);
+                return new pu9(fVar);
+            } catch (NullPointerException e2) {
+                throw e2;
             } catch (Throwable th) {
-                bv9.e(th);
-                try {
-                    vu9Var.onError(wy9.m(th));
-                    return mz9.c();
-                } catch (Throwable th2) {
-                    bv9.e(th2);
-                    OnErrorFailedException onErrorFailedException = new OnErrorFailedException("Error occurred attempting to subscribe [" + th.getMessage() + "] and then again while trying to pass to onError.", th2);
-                    wy9.m(onErrorFailedException);
-                    throw onErrorFailedException;
-                }
+                yy9.j(th);
+                throw i(th);
             }
-        }
-        return (wu9) invokeL.objValue;
-    }
-
-    public final pu9<T> b(dv9<? super T> dv9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dv9Var)) == null) ? a(new ov9(this, new tw9(dv9Var, Actions.a(), Actions.a()))) : (pu9) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.repackage.hv9<? super T, ? extends com.repackage.pu9<? extends R>> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public final <R> pu9<R> d(hv9<? super T, ? extends pu9<? extends R>> hv9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, hv9Var)) == null) {
-            if (getClass() == ScalarSynchronousObservable.class) {
-                return ((ScalarSynchronousObservable) this).F(hv9Var);
-            }
-            return j(h(hv9Var));
         }
         return (pu9) invokeL.objValue;
     }
 
-    public final <R> pu9<R> g(b<? extends R, ? super T> bVar) {
-        InterceptResult invokeL;
+    public static void c(Throwable th) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) ? a(new pv9(this.a, bVar)) : (pu9) invokeL.objValue;
-    }
-
-    public final <R> pu9<R> h(hv9<? super T, ? extends R> hv9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, hv9Var)) == null) ? a(new qv9(this, hv9Var)) : (pu9) invokeL.objValue;
-    }
-
-    public final pu9<T> k(su9 su9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, su9Var)) == null) ? l(su9Var, yw9.c) : (pu9) invokeL.objValue;
-    }
-
-    public final pu9<T> l(su9 su9Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, su9Var, i)) == null) ? m(su9Var, false, i) : (pu9) invokeLI.objValue;
-    }
-
-    public final pu9<T> m(su9 su9Var, boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{su9Var, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            if (this instanceof ScalarSynchronousObservable) {
-                return ((ScalarSynchronousObservable) this).G(su9Var);
-            }
-            return (pu9<T>) g(new vv9(su9Var, z, i));
+        if (interceptable == null || interceptable.invokeL(65541, null, th) == null) {
+            Thread currentThread = Thread.currentThread();
+            currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, th);
         }
-        return (pu9) invokeCommon.objValue;
     }
 
-    public final pu9<T> n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (pu9<T>) g(wv9.a()) : (pu9) invokeV.objValue;
-    }
-
-    public final ny9<T> o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? OperatorReplay.D(this) : (ny9) invokeV.objValue;
-    }
-
-    public final ny9<T> p(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? OperatorReplay.E(this, i) : (ny9) invokeI.objValue;
-    }
-
-    public final ny9<T> q(int i, long j, TimeUnit timeUnit, su9 su9Var) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), timeUnit, su9Var})) == null) {
-            if (i >= 0) {
-                return OperatorReplay.G(this, j, timeUnit, su9Var, i);
-            }
-            throw new IllegalArgumentException("bufferSize < 0");
-        }
-        return (ny9) invokeCommon.objValue;
-    }
-
-    public final ny9<T> r(long j, TimeUnit timeUnit, su9 su9Var) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j), timeUnit, su9Var})) == null) ? OperatorReplay.F(this, j, timeUnit, su9Var) : (ny9) invokeCommon.objValue;
-    }
-
-    public final pu9<T> s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? rv9.a(this) : (pu9) invokeV.objValue;
-    }
-
-    public final wu9 t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? u(new uw9(Actions.a(), InternalObservableUtils.ERROR_NOT_IMPLEMENTED, Actions.a())) : (wu9) invokeV.objValue;
-    }
-
-    public final wu9 u(vu9<? super T> vu9Var) {
+    public static <T> T e(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, vu9Var)) == null) ? v(vu9Var, this) : (wu9) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, t)) == null) {
+            if (t != null) {
+                return t;
+            }
+            throw null;
+        }
+        return (T) invokeL.objValue;
     }
 
-    public final wu9 w(dv9<? super T> dv9Var) {
+    public static NullPointerException i(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, dv9Var)) == null) {
-            if (dv9Var != null) {
-                return u(new uw9(dv9Var, InternalObservableUtils.ERROR_NOT_IMPLEMENTED, Actions.a()));
-            }
-            throw new IllegalArgumentException("onNext can not be null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, th)) == null) {
+            NullPointerException nullPointerException = new NullPointerException("Actually not, but can't pass out an exception otherwise...");
+            nullPointerException.initCause(th);
+            return nullPointerException;
         }
-        return (wu9) invokeL.objValue;
+        return (NullPointerException) invokeL.objValue;
     }
 
-    public final wu9 x(dv9<? super T> dv9Var, dv9<Throwable> dv9Var2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, dv9Var, dv9Var2)) == null) {
-            if (dv9Var != null) {
-                if (dv9Var2 != null) {
-                    return u(new uw9(dv9Var, dv9Var2, Actions.a()));
-                }
-                throw new IllegalArgumentException("onError can not be null");
-            }
-            throw new IllegalArgumentException("onNext can not be null");
-        }
-        return (wu9) invokeLL.objValue;
-    }
-
-    public final pu9<T> y(su9 su9Var) {
+    public final pu9 d(uu9 uu9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, su9Var)) == null) {
-            if (this instanceof ScalarSynchronousObservable) {
-                return ((ScalarSynchronousObservable) this).G(su9Var);
-            }
-            return a(new zv9(this, su9Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uu9Var)) == null) {
+            e(uu9Var);
+            return b(new b(this, uu9Var));
         }
         return (pu9) invokeL.objValue;
     }
 
-    public final pu9<T> z(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
+    public final yu9 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048596, this, j, timeUnit)) == null) ? A(j, timeUnit, null, Schedulers.computation()) : (pu9) invokeJL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            mz9 mz9Var = new mz9();
+            j(new c(this, mz9Var));
+            return mz9Var;
+        }
+        return (yu9) invokeV.objValue;
+    }
+
+    public final void g(qu9 qu9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qu9Var) == null) {
+            if (!(qu9Var instanceof ry9)) {
+                qu9Var = new ry9(qu9Var);
+            }
+            j(qu9Var);
+        }
+    }
+
+    public final pu9 h(uu9 uu9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, uu9Var)) == null) {
+            e(uu9Var);
+            return b(new e(this, uu9Var));
+        }
+        return (pu9) invokeL.objValue;
+    }
+
+    public final void j(qu9 qu9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, qu9Var) == null) {
+            e(qu9Var);
+            try {
+                yy9.e(this, this.a).call(qu9Var);
+            } catch (NullPointerException e2) {
+                throw e2;
+            } catch (Throwable th) {
+                dv9.e(th);
+                Throwable d2 = yy9.d(th);
+                yy9.j(d2);
+                throw i(d2);
+            }
+        }
+    }
+
+    public pu9(f fVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fVar, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = z ? yy9.g(fVar) : fVar;
     }
 }

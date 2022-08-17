@@ -141,12 +141,12 @@ public class tw4 implements View.OnClickListener {
                     this.a.k = false;
                     String str2 = updateAttentionMessage.getData() != null ? updateAttentionMessage.getData().b : "";
                     if (TextUtils.isEmpty(str2)) {
-                        str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d04);
+                        str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d05);
                     }
                     BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), str2);
                     b.f(BdToast.ToastIcon.FAILURE);
                     b.c(3000);
-                    b.h();
+                    b.i();
                     sw4 sw4Var = (sw4) this.a.b.get();
                     if (sw4Var == null) {
                         return;
@@ -165,7 +165,7 @@ public class tw4 implements View.OnClickListener {
                         if (!this.a.i || this.a.k) {
                             fansNum--;
                             if (!this.a.h) {
-                                this.a.c.showToast(R.string.obfuscated_res_0x7f0f1496);
+                                this.a.c.showToast(R.string.obfuscated_res_0x7f0f1498);
                             }
                         } else {
                             this.a.k = false;
@@ -395,7 +395,7 @@ public class tw4 implements View.OnClickListener {
             zm4 zm4Var = this.l;
             if (zm4Var == null || !zm4Var.a(view2)) {
                 if (!oi.A()) {
-                    this.c.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                    this.c.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                     return;
                 }
                 sw4 sw4Var = this.b.get();

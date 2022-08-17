@@ -87,7 +87,7 @@ public class BarVoteActivity extends BaseActivity {
                     this.a.c.u().setVisibility(8);
                 }
                 if (gy5Var == null || gy5Var.a() == null) {
-                    this.a.c.F(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c56));
+                    this.a.c.F(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c57));
                 } else if (gy5Var.a().h() < 1 || gy5Var.a().h() > 2) {
                     this.a.c.F(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f05b1));
                 }

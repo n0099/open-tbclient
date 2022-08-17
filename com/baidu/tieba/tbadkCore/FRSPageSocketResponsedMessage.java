@@ -14,19 +14,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ij8;
+import com.repackage.hj8;
 import com.repackage.og;
-import com.repackage.rj8;
+import com.repackage.qj8;
 import tbclient.Error;
 import tbclient.FrsPage.FrsPageResIdl;
 /* loaded from: classes4.dex */
-public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<rj8, FrsPageResIdl> {
+public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<qj8, FrsPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mCategoryId;
     public int mIsGood;
     public boolean needCache;
-    public rj8 responseData;
+    public qj8 responseData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -55,9 +55,9 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<rj8
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, bArr)) == null) {
-            rj8 rj8Var = new rj8();
-            this.responseData = rj8Var;
-            FrsPageResIdl parserProtobuf = rj8Var.parserProtobuf(bArr, true);
+            qj8 qj8Var = new qj8();
+            this.responseData = qj8Var;
+            FrsPageResIdl parserProtobuf = qj8Var.parserProtobuf(bArr, true);
             if (parserProtobuf != null && (error = parserProtobuf.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -66,9 +66,9 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<rj8
                 }
                 setErrorString(parserProtobuf.error.usermsg);
             }
-            rj8 rj8Var2 = this.responseData;
-            rj8Var2.isFromCache = false;
-            setData(rj8Var2);
+            qj8 qj8Var2 = this.responseData;
+            qj8Var2.isFromCache = false;
+            setData(qj8Var2);
             return parserProtobuf;
         }
         return invokeIL.objValue;
@@ -81,10 +81,10 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<rj8
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? FrsPageResIdl.class : (Class) invokeV.objValue;
     }
 
-    public rj8 getResponseData() {
+    public qj8 getResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.responseData : (rj8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.responseData : (qj8) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -116,10 +116,10 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<rj8
         }
     }
 
-    public void setResponseData(rj8 rj8Var) {
+    public void setResponseData(qj8 qj8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, rj8Var) == null) {
-            this.responseData = rj8Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, qj8Var) == null) {
+            this.responseData = qj8Var;
         }
     }
 
@@ -133,18 +133,18 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<rj8
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        rj8 rj8Var;
+        qj8 qj8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || hasError() || (rj8Var = this.responseData) == null || !this.needCache || rj8Var.getForum() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || hasError() || (qj8Var = this.responseData) == null || !this.needCache || qj8Var.getForum() == null) {
             return;
         }
         int sortType = this.responseData.getSortType();
-        ij8 i2 = ij8.i();
+        hj8 i2 = hj8.i();
         String g = i2.g("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
         if (sortType == 3) {
-            ij8.i().m(g, bArr);
+            hj8.i().m(g, bArr);
         } else {
-            ij8.i().a(g, bArr, true);
+            hj8.i().a(g, bArr, true);
         }
     }
 

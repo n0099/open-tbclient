@@ -6,15 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import java.util.Arrays;
 /* loaded from: classes6.dex */
-public final class ko9<E> extends io9<E> {
+public class ko9<E> extends lo9<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Object[] a;
+    public int b;
+    public boolean c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ko9(int i) {
-        super(4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -24,33 +25,55 @@ public final class ko9<E> extends io9<E> {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new Object[4];
+        this.b = 0;
     }
 
-    public final ko9<E> c(E e) {
+    public final ko9<E> a(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
-            super.a(e);
-            return this;
+            if (e != null) {
+                b(this.b + 1);
+                Object[] objArr = this.a;
+                int i = this.b;
+                this.b = i + 1;
+                objArr[i] = e;
+                return this;
+            }
+            throw null;
         }
         return (ko9) invokeL.objValue;
     }
 
-    public final ko9<E> d(Iterator<? extends E> it) {
-        InterceptResult invokeL;
+    public final void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it)) == null) {
-            while (it.hasNext()) {
-                super.a(it.next());
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            Object[] objArr = this.a;
+            int length = objArr.length;
+            if (length >= i) {
+                if (this.c) {
+                    this.a = (Object[]) objArr.clone();
+                    this.c = false;
+                    return;
+                }
+                return;
             }
-            return this;
+            int i2 = length + (length >> 1) + 1;
+            if (i2 < i) {
+                int highestOneBit = Integer.highestOneBit(i - 1);
+                i2 = highestOneBit + highestOneBit;
+            }
+            if (i2 < 0) {
+                i2 = Integer.MAX_VALUE;
+            }
+            this.a = Arrays.copyOf(objArr, i2);
+            this.c = false;
         }
-        return (ko9) invokeL.objValue;
     }
 }

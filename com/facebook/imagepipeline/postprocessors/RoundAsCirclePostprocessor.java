@@ -61,7 +61,7 @@ public class RoundAsCirclePostprocessor extends BasePostprocessor {
     public void process(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-            NativeRoundingFilter.toCircle(bitmap, this.mEnableAntiAliasing);
+            NativeRoundingFilter.toCircleFast(bitmap, this.mEnableAntiAliasing);
         }
     }
 

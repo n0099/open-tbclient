@@ -252,7 +252,7 @@ public class kr8 implements View.OnClickListener, hr8 {
         this.f = new View(context);
         this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, qi.f(TbadkCoreApplication.getInst(), R.dimen.bottom_enter_anim_place_holder_height)));
         this.b.addView(this.f);
-        this.d.B(this);
+        this.d.A(this);
     }
 
     @Override // com.repackage.hr8
@@ -329,22 +329,22 @@ public class kr8 implements View.OnClickListener, hr8 {
             ShareItem shareItem2 = shareDialogConfig.shareItem;
             if (!shareItem2.k0) {
                 if (shareItem2.l0) {
-                    this.c.setText(R.string.obfuscated_res_0x7f0f144c);
+                    this.c.setText(R.string.obfuscated_res_0x7f0f144e);
                 } else {
-                    this.c.setText(R.string.obfuscated_res_0x7f0f144d);
+                    this.c.setText(R.string.obfuscated_res_0x7f0f144f);
                 }
             } else {
                 String sharePanelText = TbSingleton.getInstance().getSharePanelText();
                 if (!TextUtils.isEmpty(sharePanelText)) {
                     this.c.setText(sharePanelText);
                 } else {
-                    this.c.setText(R.string.obfuscated_res_0x7f0f144e);
+                    this.c.setText(R.string.obfuscated_res_0x7f0f1450);
                 }
             }
             if (shareDialogConfig.isShowNovelMask()) {
                 this.c.setVisibility(4);
             }
-            this.d.C(shareDialogConfig, this.i, z);
+            this.d.B(shareDialogConfig, this.i, z);
             this.j = shareDialogConfig;
         }
     }

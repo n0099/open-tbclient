@@ -1513,7 +1513,7 @@ public class TabLayout extends HorizontalScrollView {
     private void addTabView(@NonNull Tab tab) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, tab) == null) {
-            TabView tabView = tab.f1075view;
+            TabView tabView = tab.f1076view;
             tabView.setSelected(false);
             tabView.setActivated(false);
             this.slidingTabIndicator.addView(tabView, tab.getPosition(), createLayoutParamsForTabs());
@@ -1981,7 +1981,7 @@ public class TabLayout extends HorizontalScrollView {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             Tab createTabFromPool = createTabFromPool();
             createTabFromPool.parent = this;
-            createTabFromPool.f1075view = createTabView(createTabFromPool);
+            createTabFromPool.f1076view = createTabView(createTabFromPool);
             return createTabFromPool;
         }
         return (Tab) invokeV.objValue;
@@ -2439,7 +2439,7 @@ public class TabLayout extends HorizontalScrollView {
         @NonNull
 
         /* renamed from: view  reason: collision with root package name */
-        public TabView f1075view;
+        public TabView f1076view;
 
         public Tab() {
             Interceptable interceptable = $ic;
@@ -2462,7 +2462,7 @@ public class TabLayout extends HorizontalScrollView {
         public BadgeDrawable getBadge() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1075view.getBadge() : (BadgeDrawable) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1076view.getBadge() : (BadgeDrawable) invokeV.objValue;
         }
 
         @Nullable
@@ -2470,7 +2470,7 @@ public class TabLayout extends HorizontalScrollView {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                TabView tabView = this.f1075view;
+                TabView tabView = this.f1076view;
                 if (tabView == null) {
                     return null;
                 }
@@ -2497,7 +2497,7 @@ public class TabLayout extends HorizontalScrollView {
         public BadgeDrawable getOrCreateBadge() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1075view.getOrCreateBadge() : (BadgeDrawable) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1076view.getOrCreateBadge() : (BadgeDrawable) invokeV.objValue;
         }
 
         public int getPosition() {
@@ -2543,7 +2543,7 @@ public class TabLayout extends HorizontalScrollView {
         public void removeBadge() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-                this.f1075view.removeBadge();
+                this.f1076view.removeBadge();
             }
         }
 
@@ -2551,7 +2551,7 @@ public class TabLayout extends HorizontalScrollView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
                 this.parent = null;
-                this.f1075view = null;
+                this.f1076view = null;
                 this.tag = null;
                 this.icon = null;
                 this.text = null;
@@ -2610,8 +2610,8 @@ public class TabLayout extends HorizontalScrollView {
                     this.parent.updateTabViews(true);
                 }
                 updateView();
-                if (BadgeUtils.USE_COMPAT_PARENT && this.f1075view.hasBadgeDrawable() && this.f1075view.badgeDrawable.isVisible()) {
-                    this.f1075view.invalidate();
+                if (BadgeUtils.USE_COMPAT_PARENT && this.f1076view.hasBadgeDrawable() && this.f1076view.badgeDrawable.isVisible()) {
+                    this.f1076view.invalidate();
                 }
                 return this;
             }
@@ -2636,8 +2636,8 @@ public class TabLayout extends HorizontalScrollView {
                     this.parent.updateTabViews(true);
                 }
                 updateView();
-                if (BadgeUtils.USE_COMPAT_PARENT && this.f1075view.hasBadgeDrawable() && this.f1075view.badgeDrawable.isVisible()) {
-                    this.f1075view.invalidate();
+                if (BadgeUtils.USE_COMPAT_PARENT && this.f1076view.hasBadgeDrawable() && this.f1076view.badgeDrawable.isVisible()) {
+                    this.f1076view.invalidate();
                 }
                 return this;
             }
@@ -2661,7 +2661,7 @@ public class TabLayout extends HorizontalScrollView {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, charSequence)) == null) {
                 if (TextUtils.isEmpty(this.contentDesc) && !TextUtils.isEmpty(charSequence)) {
-                    this.f1075view.setContentDescription(charSequence);
+                    this.f1076view.setContentDescription(charSequence);
                 }
                 this.text = charSequence;
                 updateView();
@@ -2673,7 +2673,7 @@ public class TabLayout extends HorizontalScrollView {
         public void updateView() {
             TabView tabView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || (tabView = this.f1075view) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || (tabView = this.f1076view) == null) {
                 return;
             }
             tabView.update();
@@ -2683,7 +2683,7 @@ public class TabLayout extends HorizontalScrollView {
         public Tab setCustomView(@LayoutRes int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) ? setCustomView(LayoutInflater.from(this.f1075view.getContext()).inflate(i, (ViewGroup) this.f1075view, false)) : (Tab) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) ? setCustomView(LayoutInflater.from(this.f1076view.getContext()).inflate(i, (ViewGroup) this.f1076view, false)) : (Tab) invokeI.objValue;
         }
 
         @NonNull

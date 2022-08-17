@@ -41,16 +41,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.if5;
 import com.repackage.oi;
+import com.repackage.pp7;
 import com.repackage.qi;
 import com.repackage.qp7;
-import com.repackage.rp7;
 import com.repackage.ur4;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class FaceGroupMakeActivity extends BaseActivity implements qp7.c, BarInformationModel.b {
+public class FaceGroupMakeActivity extends BaseActivity implements pp7.c, BarInformationModel.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -65,7 +65,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements qp7.c, BarInf
     public TextView j;
     public TextView k;
     public ImageView l;
-    public qp7 m;
+    public pp7 m;
     public ArrayList<FaceData> n;
     public FaceData o;
     public Activity p;
@@ -146,20 +146,20 @@ public class FaceGroupMakeActivity extends BaseActivity implements qp7.c, BarInf
                         return;
                     } else if (oi.z()) {
                         if (this.a.N1() && this.a.u == null) {
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f08f7);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f08f8);
                             return;
                         }
                         ArrayList arrayList = new ArrayList();
                         arrayList.addAll(this.a.n);
                         arrayList.remove(this.a.o);
-                        rp7.l().A(trim, arrayList, null, this.a.u != null ? this.a.u.forum_id : 0);
+                        qp7.l().A(trim, arrayList, null, this.a.u != null ? this.a.u.forum_id : 0);
                         Intent intent = new Intent();
                         intent.putExtra("uploading", true);
                         this.a.setResult(-1, intent);
                         this.a.finish();
                         return;
                     } else {
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                         return;
                     }
                 }
@@ -265,7 +265,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements qp7.c, BarInf
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, ur4Var) == null) {
                 ur4Var.dismiss();
-                rp7.l().i();
+                qp7.l().i();
                 this.a.finish();
             }
         }
@@ -338,7 +338,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements qp7.c, BarInf
                 if (spanned == null || charSequence == null || (if5.b(spanned.toString()) - (i4 - i3)) + if5.b(charSequence.toString()) <= this.a) {
                     return charSequence;
                 }
-                this.b.showToast(R.string.obfuscated_res_0x7f0f0d1b);
+                this.b.showToast(R.string.obfuscated_res_0x7f0f0d1c);
                 return "";
             }
             return (CharSequence) invokeCommon.objValue;
@@ -384,7 +384,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements qp7.c, BarInf
             this.k.setClickable(true);
             this.k.setText(R.string.obfuscated_res_0x7f0f05f6);
             SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0304);
-            FaceGroupDraft k = rp7.l().k();
+            FaceGroupDraft k = qp7.l().k();
             if (k == null || k.getForumId() == 0) {
                 return;
             }
@@ -406,7 +406,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements qp7.c, BarInf
         }
     }
 
-    @Override // com.repackage.qp7.c
+    @Override // com.repackage.pp7.c
     public void L0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -477,9 +477,9 @@ public class FaceGroupMakeActivity extends BaseActivity implements qp7.c, BarInf
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092302);
             R1();
             this.e = (GridView) findViewById(R.id.obfuscated_res_0x7f090cdc);
-            qp7 qp7Var = new qp7(this.n);
-            this.m = qp7Var;
-            qp7Var.f(this);
+            pp7 pp7Var = new pp7(this.n);
+            this.m = pp7Var;
+            pp7Var.f(this);
             this.e.setAdapter((ListAdapter) this.m);
             this.h.setListener(new c(this));
             this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090338);
@@ -512,7 +512,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements qp7.c, BarInf
     public final void P1() {
         FaceGroupDraft k;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (k = rp7.l().k()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (k = qp7.l().k()) == null) {
             return;
         }
         if (!TextUtils.isEmpty(k.getName())) {
@@ -549,7 +549,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements qp7.c, BarInf
         }
     }
 
-    @Override // com.repackage.qp7.c
+    @Override // com.repackage.pp7.c
     public void Z0(FaceData faceData) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048586, this, faceData) == null) || faceData == null) {
@@ -660,7 +660,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements qp7.c, BarInf
             this.o = faceData;
             faceData.type = 4;
             this.n.add(faceData);
-            if (this.q && ((k = rp7.l().k()) == null || k.getForumId() != 0)) {
+            if (this.q && ((k = qp7.l().k()) == null || k.getForumId() != 0)) {
                 this.r = true;
             }
             M1();

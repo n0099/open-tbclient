@@ -3,61 +3,21 @@ package com.repackage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.OnErrorThrowable;
-import rx.internal.operators.NotificationLite;
+import rx.exceptions.CompositeException;
+import rx.exceptions.OnCompletedFailedException;
+import rx.exceptions.OnErrorFailedException;
 /* loaded from: classes7.dex */
-public class ry9<T> implements qu9<T> {
+public final class ry9 implements qu9, yu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final qu9<? super T> a;
-    public boolean b;
-    public volatile boolean c;
-    public a d;
+    public final qu9 a;
+    public yu9 b;
+    public boolean c;
 
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Object[] a;
-        public int b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                int i = this.b;
-                Object[] objArr = this.a;
-                if (objArr == null) {
-                    objArr = new Object[16];
-                    this.a = objArr;
-                } else if (i == objArr.length) {
-                    Object[] objArr2 = new Object[(i >> 2) + i];
-                    System.arraycopy(objArr, 0, objArr2, 0, i);
-                    this.a = objArr2;
-                    objArr = objArr2;
-                }
-                objArr[i] = obj;
-                this.b = i + 1;
-            }
-        }
-    }
-
-    public ry9(qu9<? super T> qu9Var) {
+    public ry9(qu9 qu9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,118 +35,66 @@ public class ry9<T> implements qu9<T> {
         this.a = qu9Var;
     }
 
+    @Override // com.repackage.yu9
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c || this.b.isUnsubscribed() : invokeV.booleanValue;
+    }
+
     @Override // com.repackage.qu9
     public void onCompleted() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c) {
             return;
         }
-        synchronized (this) {
-            if (this.c) {
-                return;
-            }
-            this.c = true;
-            if (this.b) {
-                a aVar = this.d;
-                if (aVar == null) {
-                    aVar = new a();
-                    this.d = aVar;
-                }
-                aVar.a(NotificationLite.b());
-                return;
-            }
-            this.b = true;
+        this.c = true;
+        try {
             this.a.onCompleted();
+        } catch (Throwable th) {
+            dv9.e(th);
+            throw new OnCompletedFailedException(th);
         }
     }
 
     @Override // com.repackage.qu9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            bv9.e(th);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+            yy9.j(th);
             if (this.c) {
                 return;
             }
-            synchronized (this) {
-                if (this.c) {
-                    return;
-                }
-                this.c = true;
-                if (this.b) {
-                    a aVar = this.d;
-                    if (aVar == null) {
-                        aVar = new a();
-                        this.d = aVar;
-                    }
-                    aVar.a(NotificationLite.c(th));
-                    return;
-                }
-                this.b = true;
+            this.c = true;
+            try {
                 this.a.onError(th);
+            } catch (Throwable th2) {
+                dv9.e(th2);
+                throw new OnErrorFailedException(new CompositeException(th, th2));
             }
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x0031, code lost:
-        continue;
-     */
     @Override // com.repackage.qu9
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onNext(T t) {
-        Object[] objArr;
+    public void onSubscribe(yu9 yu9Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.c) {
-            return;
-        }
-        synchronized (this) {
-            if (this.c) {
-                return;
-            }
-            if (this.b) {
-                a aVar = this.d;
-                if (aVar == null) {
-                    aVar = new a();
-                    this.d = aVar;
-                }
-                aVar.a(NotificationLite.h(t));
-                return;
-            }
-            this.b = true;
+        if (interceptable == null || interceptable.invokeL(1048579, this, yu9Var) == null) {
+            this.b = yu9Var;
             try {
-                this.a.onNext(t);
-                while (true) {
-                    synchronized (this) {
-                        a aVar2 = this.d;
-                        if (aVar2 == null) {
-                            this.b = false;
-                            return;
-                        }
-                        this.d = null;
-                        for (Object obj : aVar2.a) {
-                            if (obj == null) {
-                                break;
-                            }
-                            try {
-                                if (NotificationLite.a(this.a, obj)) {
-                                    this.c = true;
-                                    return;
-                                }
-                            } catch (Throwable th) {
-                                this.c = true;
-                                bv9.e(th);
-                                this.a.onError(OnErrorThrowable.addValueAsLastCause(th, t));
-                                return;
-                            }
-                        }
-                    }
-                }
-            } catch (Throwable th2) {
-                this.c = true;
-                bv9.g(th2, this.a, t);
+                this.a.onSubscribe(this);
+            } catch (Throwable th) {
+                dv9.e(th);
+                yu9Var.unsubscribe();
+                onError(th);
             }
+        }
+    }
+
+    @Override // com.repackage.yu9
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.unsubscribe();
         }
     }
 }

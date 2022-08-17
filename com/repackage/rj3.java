@@ -204,7 +204,7 @@ public class rj3 extends ActivityDelegation {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             if (!SwanAppNetworkUtils.i(getAgent())) {
-                r03.f(getAgent(), R.string.obfuscated_res_0x7f0f0974);
+                r03.f(getAgent(), R.string.obfuscated_res_0x7f0f0975);
             } else {
                 b84.h(AppRuntime.getAppContext()).getRequest().url(vx1.v(m())).addUrlParam(InvoiceBuildResult.KEY_INVOICE_ID, str).addUrlParam("invoice_type", str2).cookieManager(gk2.q().a()).build().executeAsync(new c(this));
             }

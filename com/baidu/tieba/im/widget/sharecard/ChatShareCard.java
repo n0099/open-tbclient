@@ -407,7 +407,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
             }
             imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
             textView.setText(StringHelper.stringForVideoTime(shareThreadMsgData.getVideo_duration() * 1000));
-            textView2.setText(String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0e88), StringHelper.numFormatOverWan(shareThreadMsgData.getPlay_count())));
+            textView2.setText(String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0e89), StringHelper.numFormatOverWan(shareThreadMsgData.getPlay_count())));
         }
     }
 
@@ -460,7 +460,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
         if (interceptable == null || interceptable.invokeL(1048586, this, shareThreadMsgData) == null) {
             if (!StringUtils.isNull(shareThreadMsgData.getForum_avatar()) && !StringUtils.isNull(shareThreadMsgData.getAuthor_name_show())) {
                 this.R.setVisibility(0);
-                this.R.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f13c0), shareThreadMsgData.getAuthor_name_show()));
+                this.R.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f13c2), shareThreadMsgData.getAuthor_name_show()));
                 return;
             }
             this.R.setVisibility(8);

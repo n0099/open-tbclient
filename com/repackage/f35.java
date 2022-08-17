@@ -14,7 +14,7 @@ public class f35 extends s25 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f35(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f098f), 35, i);
+        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0990), 35, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

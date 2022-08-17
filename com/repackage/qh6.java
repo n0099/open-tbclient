@@ -240,7 +240,7 @@ public class qh6 {
             this.c.setNextPage(this.e);
             this.e.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.e.f();
-            this.e.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09ea));
+            this.e.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09eb));
         }
     }
 

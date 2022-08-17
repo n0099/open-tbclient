@@ -1142,7 +1142,7 @@ public class PlaybackControlView extends FrameLayout {
         this.showShuffleButton = false;
         int i4 = R.layout.obfuscated_res_0x7f0d0276;
         if (attributeSet2 != null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet2, new int[]{R.attr.obfuscated_res_0x7f04019c, R.attr.obfuscated_res_0x7f0402b1, R.attr.obfuscated_res_0x7f0405b8, R.attr.obfuscated_res_0x7f0405bd, R.attr.obfuscated_res_0x7f040623, R.attr.obfuscated_res_0x7f040624}, 0, 0);
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet2, new int[]{R.attr.obfuscated_res_0x7f04019c, R.attr.obfuscated_res_0x7f0402b2, R.attr.obfuscated_res_0x7f0405b9, R.attr.obfuscated_res_0x7f0405be, R.attr.obfuscated_res_0x7f040624, R.attr.obfuscated_res_0x7f040625}, 0, 0);
             try {
                 this.rewindMs = obtainStyledAttributes.getInt(3, this.rewindMs);
                 this.fastForwardMs = obtainStyledAttributes.getInt(1, this.fastForwardMs);

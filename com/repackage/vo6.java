@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes7.dex */
-public class vo6 extends bn<qj8, FrsLikeRecommendHolder> {
+public class vo6 extends bn<pj8, FrsLikeRecommendHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThemeColorInfo a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public vo6(@NonNull Context context) {
-        super(context, qj8.e);
+        super(context, pj8.e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,14 +43,14 @@ public class vo6 extends bn<qj8, FrsLikeRecommendHolder> {
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
     @Override // com.repackage.bn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, qj8 qj8Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
-        u(i, view2, viewGroup, qj8Var, frsLikeRecommendHolder);
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, pj8 pj8Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
+        u(i, view2, viewGroup, pj8Var, frsLikeRecommendHolder);
         return view2;
     }
 
-    public /* synthetic */ void s(qj8 qj8Var, ViewGroup viewGroup, int i, View view2) {
+    public /* synthetic */ void s(pj8 pj8Var, ViewGroup viewGroup, int i, View view2) {
         if (getOnAdapterItemClickListener() != null) {
-            getOnAdapterItemClickListener().b(view2, qj8Var, qj8.e, viewGroup, i, view2.getId());
+            getOnAdapterItemClickListener().b(view2, pj8Var, pj8.e, viewGroup, i, view2.getId());
         }
     }
 
@@ -63,12 +63,12 @@ public class vo6 extends bn<qj8, FrsLikeRecommendHolder> {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new FrsLikeRecommendHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d032b, viewGroup, false), this.a) : (FrsLikeRecommendHolder) invokeL.objValue;
     }
 
-    public View u(final int i, View view2, final ViewGroup viewGroup, final qj8 qj8Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
+    public View u(final int i, View view2, final ViewGroup viewGroup, final pj8 pj8Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qj8Var, frsLikeRecommendHolder})) == null) {
-            if (qj8Var != null && frsLikeRecommendHolder != null) {
-                frsLikeRecommendHolder.a(qj8Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pj8Var, frsLikeRecommendHolder})) == null) {
+            if (pj8Var != null && frsLikeRecommendHolder != null) {
+                frsLikeRecommendHolder.a(pj8Var);
                 frsLikeRecommendHolder.c(new View.OnClickListener() { // from class: com.repackage.ro6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class vo6 extends bn<qj8, FrsLikeRecommendHolder> {
                     public final void onClick(View view3) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                            vo6.this.s(qj8Var, viewGroup, i, view3);
+                            vo6.this.s(pj8Var, viewGroup, i, view3);
                         }
                     }
                 });

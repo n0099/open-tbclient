@@ -1,87 +1,86 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
+import com.baidu.tieba.person.holder.PersonCenterIntervalHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.UcCard;
-import tbclient.UcCardInfo;
 /* loaded from: classes6.dex */
-public class m28 {
+public class m28 extends bn<h28, PersonCenterIntervalHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public long b;
-        public boolean c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(UcCardInfo ucCardInfo) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, ucCardInfo) == null) || ucCardInfo == null) {
-                return;
-            }
-            this.a = ucCardInfo.title;
-            String str = ucCardInfo.pic;
-            String str2 = ucCardInfo.jmp;
-            String str3 = ucCardInfo.tip;
-            this.b = ucCardInfo.st.intValue();
-        }
-    }
-
-    public m28() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m28(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void a(UcCard ucCard) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.repackage.bn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, h28 h28Var, PersonCenterIntervalHolder personCenterIntervalHolder) {
+        t(i, view2, viewGroup, h28Var, personCenterIntervalHolder);
+        return view2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: s */
+    public PersonCenterIntervalHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, ucCard) == null) || ucCard == null) {
-            return;
-        }
-        String str = ucCard.name;
-        String str2 = ucCard.icon;
-        String str3 = ucCard.doc;
-        String str4 = ucCard.jmp;
-        this.a = new ArrayList();
-        List<UcCardInfo> list = ucCard.uc_cards;
-        if (list != null) {
-            for (UcCardInfo ucCardInfo : list) {
-                if (ucCardInfo != null) {
-                    a aVar = new a();
-                    aVar.a(ucCardInfo);
-                    this.a.add(aVar);
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PersonCenterIntervalHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d03f4, viewGroup, false)) : (PersonCenterIntervalHolder) invokeL.objValue;
+    }
+
+    public View t(int i, View view2, ViewGroup viewGroup, h28 h28Var, PersonCenterIntervalHolder personCenterIntervalHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, h28Var, personCenterIntervalHolder})) == null) {
+            if (h28Var != null && personCenterIntervalHolder != null) {
+                int skinType = TbadkCoreApplication.getInst().getSkinType();
+                if (personCenterIntervalHolder.a != skinType) {
+                    personCenterIntervalHolder.a = skinType;
+                    SkinManager.setBackgroundResource(personCenterIntervalHolder.b, h28Var.c);
                 }
+                ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.b.getLayoutParams();
+                int i2 = h28Var.a;
+                if (i2 > 0) {
+                    layoutParams.height = i2;
+                }
+                int i3 = h28Var.b;
+                if (i3 > 0) {
+                    layoutParams.width = i3;
+                }
+                personCenterIntervalHolder.b.setLayoutParams(layoutParams);
+                personCenterIntervalHolder.b.setOnClickListener(null);
             }
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 }

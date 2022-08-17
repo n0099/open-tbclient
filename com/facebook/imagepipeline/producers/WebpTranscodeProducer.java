@@ -146,7 +146,7 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, this, encodedImage, consumer, producerContext) == null) {
             Preconditions.checkNotNull(encodedImage);
-            this.mExecutor.execute(new StatefulProducerRunnable<EncodedImage>(this, consumer, producerContext.getListener(), PRODUCER_NAME, producerContext.getId(), EncodedImage.cloneOrNull(encodedImage)) { // from class: com.facebook.imagepipeline.producers.WebpTranscodeProducer.1
+            this.mExecutor.execute(new StatefulProducerRunnable<EncodedImage>(this, consumer, producerContext.getProducerListener(), producerContext, PRODUCER_NAME, EncodedImage.cloneOrNull(encodedImage)) { // from class: com.facebook.imagepipeline.producers.WebpTranscodeProducer.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WebpTranscodeProducer this$0;
@@ -154,18 +154,18 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
-                    super(consumer, r12, r13, r14);
+                    super(consumer, r12, producerContext, r14);
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, consumer, r12, r13, r14, r15};
+                        Object[] objArr = {this, consumer, r12, producerContext, r14, r15};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
                             int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
-                            super((Consumer) objArr2[0], (ProducerListener) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
+                            super((Consumer) objArr2[0], (ProducerListener2) objArr2[1], (ProducerContext) objArr2[2], (String) objArr2[3]);
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

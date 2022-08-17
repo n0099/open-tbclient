@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cb8;
+import com.repackage.bb8;
+import com.repackage.bm8;
 import com.repackage.cm8;
-import com.repackage.dm8;
 import com.repackage.fe5;
 import com.repackage.ix4;
 import com.repackage.oa;
@@ -30,8 +30,8 @@ import com.repackage.pf;
 import com.repackage.ra5;
 import com.repackage.rg;
 import com.repackage.tn4;
+import com.repackage.wa8;
 import com.repackage.x15;
-import com.repackage.xa8;
 import com.repackage.z8;
 import com.repackage.zd5;
 /* loaded from: classes2.dex */
@@ -118,7 +118,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
     private void initQuickWebViewManager() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            xa8.q().u();
+            wa8.q().u();
         }
     }
 
@@ -198,7 +198,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setServiceOnCreateCallBack();
-            cb8.g().j();
+            bb8.g().j();
             x15.j().m(TbadkCoreApplication.getInst().isMainProcess(false));
             intReadThreadHistory();
             ix4.c();
@@ -272,8 +272,8 @@ public class InitLaunchAsyncTask extends LaunchTask {
     public void intReadThreadHistory() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            TbadkApplication.getInst().mReadThreadHistory = new dm8(300);
-            TbadkApplication.getInst().mPhotoLiveReadHistory = new cm8(300);
+            TbadkApplication.getInst().mReadThreadHistory = new cm8(300);
+            TbadkApplication.getInst().mPhotoLiveReadHistory = new bm8(300);
             z8.g().s(TbadkApplication.getInst());
         }
     }

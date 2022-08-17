@@ -14,7 +14,7 @@ public class s68 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public boolean a;
     public int b;
 
     static {
@@ -43,11 +43,8 @@ public class s68 extends BaseCardInfo {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = 0;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on

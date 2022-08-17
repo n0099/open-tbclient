@@ -89,11 +89,11 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
                 this.distanceTv.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609d6));
                 this.addressTv.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609d6));
                 this.bottomLine.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0609e0));
-                this.checkedIc.setImageResource(R.drawable.obfuscated_res_0x7f080fec);
-                view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f081053);
+                this.checkedIc.setImageResource(R.drawable.obfuscated_res_0x7f080fed);
+                view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f081054);
                 return;
             }
-            view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f081052);
+            view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f081053);
         }
 
         @Override // android.view.View.OnClickListener
@@ -117,16 +117,16 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
                 if (!TextUtils.isEmpty(selectedAddrId) ? TextUtils.equals(jSONObject.optString(SuggestAddrField.KEY_MAP_ADDRID), selectedAddrId) : false) {
                     this.checkedIc.setVisibility(0);
                     if (this.this$0.isDarkMode) {
-                        this.itemIc.setImageResource(R.drawable.obfuscated_res_0x7f080fee);
-                    } else {
                         this.itemIc.setImageResource(R.drawable.obfuscated_res_0x7f080fef);
+                    } else {
+                        this.itemIc.setImageResource(R.drawable.obfuscated_res_0x7f080ff0);
                     }
                 } else {
                     this.itemView.setBackgroundColor(0);
                     if (this.this$0.isDarkMode) {
-                        this.itemIc.setImageResource(R.drawable.obfuscated_res_0x7f080ff0);
-                    } else {
                         this.itemIc.setImageResource(R.drawable.obfuscated_res_0x7f080ff1);
+                    } else {
+                        this.itemIc.setImageResource(R.drawable.obfuscated_res_0x7f080ff2);
                     }
                     this.checkedIc.setVisibility(8);
                 }

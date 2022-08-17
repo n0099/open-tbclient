@@ -197,7 +197,7 @@ public class s16 implements View.OnClickListener {
                 k();
                 return;
             }
-            this.k.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+            this.k.showToast(R.string.obfuscated_res_0x7f0f0c3d);
         }
     }
 
@@ -260,7 +260,7 @@ public class s16 implements View.OnClickListener {
         String c = c(this.i);
         Uri parse = c == null ? null : Uri.parse(c);
         String str2 = this.i.getAbstract();
-        String format = MessageFormat.format(this.j.getResources().getString(R.string.obfuscated_res_0x7f0f112d), title, str2);
+        String format = MessageFormat.format(this.j.getResources().getString(R.string.obfuscated_res_0x7f0f112e), title, str2);
         ShareItem shareItem = new ShareItem();
         shareItem.u = title;
         shareItem.v = format;
@@ -311,9 +311,9 @@ public class s16 implements View.OnClickListener {
             this.c = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f092094);
             this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092092);
             this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f092091);
-            this.c.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15e1));
-            this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15dd));
-            this.e.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1128));
+            this.c.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15e4));
+            this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15e0));
+            this.e.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1129));
             this.e.setConfig(new ov4());
         }
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0302);
@@ -333,7 +333,7 @@ public class s16 implements View.OnClickListener {
         }
         this.m = true;
         if (!oi.z()) {
-            this.k.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+            this.k.showToast(R.string.obfuscated_res_0x7f0f0c3d);
             this.a.e();
             return;
         }

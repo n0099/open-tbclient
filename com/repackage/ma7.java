@@ -10,8 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ue;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class ma7 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
@@ -39,10 +37,15 @@ public class ma7 implements CustomMessageTask.CustomRunnable<Object> {
             if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
                 return null;
             }
+            long groupId = ((RequestSearchGroupsLocalMessage) customMessage).getGroupId();
+            ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage(2001207);
+            responseSearchGroupLocalMessage.setOrginalMessage(customMessage);
+            responseSearchGroupLocalMessage.setError(0);
+            responseSearchGroupLocalMessage.setGid(groupId);
+            String str = groupId + "";
             tr4.f();
-            List<ue.b<String>> b = vi.b(tr4.g("tb.im_group_search_history"));
-            ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage();
-            responseSearchGroupLocalMessage.setCacheList(b);
+            ue<String> g = tr4.g("tb.im_group_search_history");
+            g.g(str, g.get(str));
             return responseSearchGroupLocalMessage;
         }
         return (CustomResponsedMessage) invokeL.objValue;

@@ -273,11 +273,11 @@ public class iz8 {
             if (Build.VERSION.SDK_INT < 21) {
                 ur4 ur4Var = new ur4(this.a.getPageActivity());
                 ur4Var.setAutoNight(false);
-                ur4Var.setTitle(R.string.obfuscated_res_0x7f0f0f2b);
+                ur4Var.setTitle(R.string.obfuscated_res_0x7f0f0f2c);
                 ur4Var.setMessage(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f04f2));
                 ur4Var.setTitleShowCenter(true);
                 ur4Var.setMessageShowCenter(true);
-                ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f09a0, new a(this));
+                ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f09a1, new a(this));
                 ur4Var.create(this.a).show();
                 return;
             }

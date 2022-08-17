@@ -95,7 +95,7 @@ public class c65 extends a65 {
         this.g = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091648);
         this.f = (TBSpecificationBtn) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091645);
         ov4 ov4Var = new ov4();
-        this.f.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0fb8));
+        this.f.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0fb9));
         this.f.setTextSize(R.dimen.tbds42);
         this.f.setConfig(ov4Var);
         this.f.setOnClickListener(onClickListener);

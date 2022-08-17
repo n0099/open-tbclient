@@ -102,7 +102,7 @@ public class gm5 extends tt4 {
         if (!(interceptable == null || interceptable.invokeL(65539, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        BdToast.b(getContext(), jSONObject.optString("message")).h();
+        BdToast.b(getContext(), jSONObject.optString("message")).i();
     }
 
     @Override // com.repackage.tt4

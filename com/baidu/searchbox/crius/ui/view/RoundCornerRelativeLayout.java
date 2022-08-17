@@ -10,7 +10,6 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
-import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.render.OpacityController;
@@ -20,6 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 /* loaded from: classes2.dex */
 public class RoundCornerRelativeLayout extends RelativeLayout implements IOpacitySupport {
     public static /* synthetic */ Interceptable $ic;
@@ -61,7 +61,7 @@ public class RoundCornerRelativeLayout extends RelativeLayout implements IOpacit
             if (i3 != Integer.MAX_VALUE) {
                 this.mStrokePaint.setColor(i3);
             }
-            this.mStrokePaint.setColor(SupportMenu.CATEGORY_MASK);
+            this.mStrokePaint.setColor(-65536);
             Path path = new Path();
             path.addRoundRect(new RectF(0.0f, 0.0f, i, i2), this.radii, Path.Direction.CW);
             canvas.drawPath(path, this.mStrokePaint);
@@ -99,7 +99,7 @@ public class RoundCornerRelativeLayout extends RelativeLayout implements IOpacit
             Path path = new Path();
             path.addRoundRect(new RectF(0.0f, 0.0f, i, i2), this.radii, Path.Direction.CW);
             Paint paint = new Paint(1);
-            paint.setColor(-16711936);
+            paint.setColor(DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK);
             canvas.drawPath(path, paint);
             return createBitmap;
         }

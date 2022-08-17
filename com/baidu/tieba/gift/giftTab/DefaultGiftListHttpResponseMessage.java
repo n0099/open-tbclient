@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kt6;
-import com.repackage.ot6;
+import com.repackage.jt6;
+import com.repackage.nt6;
 import com.repackage.pp4;
 import com.repackage.qp4;
 import com.squareup.wire.Wire;
@@ -27,11 +27,11 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String addFreeUrl;
-    public ArrayList<kt6> categoryList;
+    public ArrayList<jt6> categoryList;
     public int currencyType;
     public int freeChance;
     public ArrayList<pp4> giftList;
-    public ArrayList<ot6> numberList;
+    public ArrayList<nt6> numberList;
     public long sceneId;
     public qp4 urlTitleData;
 
@@ -61,7 +61,7 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.addFreeUrl : (String) invokeV.objValue;
     }
 
-    public ArrayList<kt6> getCategoryList() {
+    public ArrayList<jt6> getCategoryList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.categoryList : (ArrayList) invokeV.objValue;
@@ -79,7 +79,7 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.giftList : (ArrayList) invokeV.objValue;
     }
 
-    public ArrayList<ot6> getGiftNumberList() {
+    public ArrayList<nt6> getGiftNumberList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.numberList : (ArrayList) invokeV.objValue;
@@ -155,9 +155,9 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
                 this.categoryList = new ArrayList<>();
                 for (PresentCategoryList presentCategoryList : getGiftListResIdl.data.list) {
                     if (presentCategoryList != null) {
-                        kt6 kt6Var = new kt6();
-                        kt6Var.d(presentCategoryList);
-                        this.categoryList.add(kt6Var);
+                        jt6 jt6Var = new jt6();
+                        jt6Var.d(presentCategoryList);
+                        this.categoryList.add(jt6Var);
                     }
                 }
             }
@@ -168,9 +168,9 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
             this.numberList = new ArrayList<>();
             for (PresentNumInfo presentNumInfo : getGiftListResIdl.data.num_info) {
                 if (presentNumInfo != null) {
-                    ot6 ot6Var = new ot6();
-                    ot6Var.c(presentNumInfo);
-                    this.numberList.add(ot6Var);
+                    nt6 nt6Var = new nt6();
+                    nt6Var.c(presentNumInfo);
+                    this.numberList.add(nt6Var);
                 }
             }
         }

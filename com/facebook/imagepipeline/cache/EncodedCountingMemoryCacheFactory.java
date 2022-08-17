@@ -57,7 +57,7 @@ public class EncodedCountingMemoryCacheFactory {
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, pooledByteBuffer)) == null) ? pooledByteBuffer.size() : invokeL.intValue;
                 }
-            }, new NativeMemoryCacheTrimStrategy(), supplier);
+            }, new NativeMemoryCacheTrimStrategy(), supplier, null);
             memoryTrimmableRegistry.registerMemoryTrimmable(countingMemoryCache);
             return countingMemoryCache;
         }

@@ -284,7 +284,7 @@ public class NadRewardCountDownView extends RelativeLayout {
                     this.a.k = 4;
                 }
                 this.a.c.setText(this.a.j);
-                this.a.c.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd5));
+                this.a.c.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd6));
                 this.a.requestLayout();
             }
         }

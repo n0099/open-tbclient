@@ -1,48 +1,28 @@
 package com.repackage;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.activity.LegoListFragment;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes6.dex */
-public class jf7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface jf7<T extends ICardInfo> {
+    void c(BdUniqueId bdUniqueId);
 
-    public static if7 a(TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) {
-            if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof xd7)) {
-                return null;
-            }
-            return ((xd7) tbPageContext.getPageActivity()).B();
-        }
-        return (if7) invokeL.objValue;
-    }
+    void d();
 
-    public static LegoListFragment b(TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbPageContext)) == null) {
-            if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof xd7)) {
-                return null;
-            }
-            return ((xd7) tbPageContext.getPageActivity()).U();
-        }
-        return (LegoListFragment) invokeL.objValue;
-    }
+    void f();
 
-    public static nf7 c(TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tbPageContext)) == null) {
-            if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof xd7)) {
-                return null;
-            }
-            return ((xd7) tbPageContext.getPageActivity()).v0();
-        }
-        return (nf7) invokeL.objValue;
-    }
+    void g();
+
+    void h();
+
+    void setAfterClickSchemeListener(ne7 ne7Var);
+
+    void setBusinessType(int i);
+
+    void setFromCDN(boolean z);
+
+    void setMulDel(boolean z);
+
+    void setPosition(int i);
+
+    void update(Object obj);
 }

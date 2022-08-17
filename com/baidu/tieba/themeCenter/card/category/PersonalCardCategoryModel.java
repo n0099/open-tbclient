@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.bq8;
 import com.repackage.gr8;
-import com.repackage.kk8;
+import com.repackage.jk8;
 import com.repackage.yq8;
 import java.util.ArrayList;
 import java.util.List;
@@ -124,8 +124,8 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         this.c = 1;
         this.d = true;
         this.f = new a(this, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, 309331);
-        kk8.h(309331, PersonalCardCategorySocktResponse.class, false, false);
-        kk8.c(309331, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, TbConfig.GET_PERSONAL_CARD_BY_CATEGORY, PersonalCardCategoryHttpResponse.class, false, false, false, false);
+        jk8.h(309331, PersonalCardCategorySocktResponse.class, false, false);
+        jk8.c(309331, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, TbConfig.GET_PERSONAL_CARD_BY_CATEGORY, PersonalCardCategoryHttpResponse.class, false, false, false, false);
         registerListener(this.f);
     }
 

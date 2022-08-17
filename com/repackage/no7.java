@@ -1,89 +1,32 @@
 package com.repackage;
 
 import android.content.Context;
-import android.graphics.Typeface;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
+import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class no7 extends bn<dp7, a> {
+public abstract class no7<T, V extends TypeAdapter.ViewHolder> extends bn<T, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static class a extends TypeAdapter.ViewHolder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public TextView b;
-        public View c;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(View view2, TextView textView, View view3) {
-            super(view2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, textView, view3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 3;
-            this.b = textView;
-            this.c = view3;
-        }
-
-        public void a(dp7 dp7Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dp7Var) == null) || dp7Var == null) {
-                return;
-            }
-            this.b.setText(dp7Var.a);
-            this.c.setVisibility(dp7Var.b ? 0 : 8);
-        }
-
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.a == i) {
-                return;
-            }
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0204);
-            this.a = i;
-        }
-    }
+    public boolean a;
+    public TbPageContext<HotTopicDetailActivity> b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public no7(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), bp7.b);
+    public no7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -95,51 +38,25 @@ public class no7 extends bn<dp7, a> {
                 return;
             }
         }
+        this.b = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bn
-    /* renamed from: s */
-    public a onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public boolean s() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            LinearLayout linearLayout = new LinearLayout(viewGroup.getContext());
-            linearLayout.setOrientation(1);
-            linearLayout.setPadding(qi.f(viewGroup.getContext(), R.dimen.tbds44), 0, qi.f(viewGroup.getContext(), R.dimen.tbds44), qi.f(viewGroup.getContext(), R.dimen.tbds12));
-            linearLayout.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
-            View view2 = new View(viewGroup.getContext());
-            linearLayout.addView(view2, new LinearLayout.LayoutParams(-1, qi.f(viewGroup.getContext(), R.dimen.tbds1)));
-            TextView textView = new TextView(viewGroup.getContext());
-            textView.setTextColor(viewGroup.getContext().getResources().getColor(R.color.CAM_X0105));
-            textView.setTextSize(0, qi.f(viewGroup.getContext(), R.dimen.tbds47));
-            textView.setTypeface(Typeface.DEFAULT_BOLD);
-            textView.setIncludeFontPadding(false);
-            textView.setSingleLine();
-            textView.setEllipsize(TextUtils.TruncateAt.END);
-            textView.setPadding(0, qi.f(viewGroup.getContext(), R.dimen.tbds48), 0, 0);
-            linearLayout.addView(textView, new LinearLayout.LayoutParams(-2, -2));
-            a aVar = new a(linearLayout, textView, view2);
-            aVar.b(TbadkCoreApplication.getInst().getSkinType());
-            return aVar;
-        }
-        return (a) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, dp7 dp7Var, a aVar) {
-        InterceptResult invokeCommon;
+    public TbPageContext t() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dp7Var, aVar})) == null) {
-            if (dp7Var == null || aVar == null) {
-                return null;
-            }
-            aVar.a(dp7Var);
-            aVar.b(TbadkCoreApplication.getInst().getSkinType());
-            return aVar.getView();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (TbPageContext) invokeV.objValue;
+    }
+
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.a = z;
         }
-        return (View) invokeCommon.objValue;
     }
 }

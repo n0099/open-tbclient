@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q87;
+import com.repackage.p87;
 /* loaded from: classes3.dex */
 public class OfficialFeedItemBottom extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -72,7 +72,7 @@ public class OfficialFeedItemBottom extends LinearLayout {
         }
     }
 
-    public void setData(q87.a aVar, boolean z) {
+    public void setData(p87.a aVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048579, this, aVar, z) == null) {
             int i = TextUtils.isEmpty(aVar.b) ? 8 : 0;

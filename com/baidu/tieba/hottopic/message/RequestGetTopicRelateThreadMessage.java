@@ -60,7 +60,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f1255common = getCommon();
+                builder.f1256common = getCommon();
                 builder.topic_id = getTopicId();
                 builder.topic_name = getTopicName();
                 builder.rn = getRn();

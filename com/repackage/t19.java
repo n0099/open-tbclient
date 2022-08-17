@@ -99,7 +99,7 @@ public class t19 implements hb5, View.OnClickListener {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qi.M(this.a.a.getPageActivity(), this.a.i);
+                qi.L(this.a.a.getPageActivity(), this.a.i);
             }
         }
     }
@@ -143,7 +143,7 @@ public class t19 implements hb5, View.OnClickListener {
             }
             String replace = obj.replace(" ", "");
             if (if5.d(replace) > 40) {
-                this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f15ee), 20));
+                this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f15f1), 20));
             }
             String n = if5.n(replace, 40);
             if (!n.equals(editable.toString())) {
@@ -370,7 +370,7 @@ public class t19 implements hb5, View.OnClickListener {
                 for (int i = 0; i < size; i++) {
                     WriteVoteItemData writeVoteItemData = w.get(i);
                     if (hashMap.containsKey(writeVoteItemData.getText())) {
-                        this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f15ec), Integer.valueOf(((Integer) hashMap.get(writeVoteItemData.getText())).intValue() + 1), Integer.valueOf(i + 1)));
+                        this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f15ef), Integer.valueOf(((Integer) hashMap.get(writeVoteItemData.getText())).intValue() + 1), Integer.valueOf(i + 1)));
                         return;
                     }
                     hashMap.put(writeVoteItemData.getText(), Integer.valueOf(i));
@@ -462,7 +462,7 @@ public class t19 implements hb5, View.OnClickListener {
     public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f15c1));
+            this.c.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f15c4));
             TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f04f8));
             this.v = addTextButton;
             addTextButton.setTextSize(0, qi.f(this.a.getPageActivity(), R.dimen.tbds44));
@@ -546,7 +546,7 @@ public class t19 implements hb5, View.OnClickListener {
             if (z) {
                 this.v.setTextColor(SkinManager.getColor(R.color.CAM_X0302));
             } else {
-                this.v.setTextColor(gj8.a(SkinManager.getColor(R.color.CAM_X0302), 0.5f));
+                this.v.setTextColor(fj8.a(SkinManager.getColor(R.color.CAM_X0302), 0.5f));
             }
         }
     }
@@ -570,7 +570,7 @@ public class t19 implements hb5, View.OnClickListener {
             if (this.y && this.z) {
                 this.v.setTextColor(SkinManager.getColor(R.color.CAM_X0302));
             } else {
-                this.v.setTextColor(gj8.a(SkinManager.getColor(R.color.CAM_X0302), 0.5f));
+                this.v.setTextColor(fj8.a(SkinManager.getColor(R.color.CAM_X0302), 0.5f));
             }
             H();
             G();

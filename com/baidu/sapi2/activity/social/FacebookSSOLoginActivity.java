@@ -77,7 +77,7 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
                 hashMap.put("supportGuestAccount", "1");
                 String addExtras = ParamsUtil.addExtras(urlBind, hashMap);
                 FacebookSSOLoginActivity facebookSSOLoginActivity = this.a;
-                facebookSSOLoginActivity.a(addExtras, facebookSSOLoginActivity.getString(R.string.obfuscated_res_0x7f0f105f));
+                facebookSSOLoginActivity.a(addExtras, facebookSSOLoginActivity.getString(R.string.obfuscated_res_0x7f0f1060));
             }
         }
 
@@ -173,7 +173,7 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f1073);
+            setTitleText(R.string.obfuscated_res_0x7f0f1074);
             RelativeLayout relativeLayout = this.rootView;
             if (relativeLayout != null) {
                 relativeLayout.setVisibility(4);

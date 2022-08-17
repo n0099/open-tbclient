@@ -97,7 +97,7 @@ public class i16 {
         ur4Var.setContentViewSize(1);
         ur4Var.setMessage(tbPageContext.getString(R.string.obfuscated_res_0x7f0f007b));
         ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f038d, new a(tbPageContext, i));
-        ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0c97, new b());
+        ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0c98, new b());
         ur4Var.create(tbPageContext).show();
     }
 }

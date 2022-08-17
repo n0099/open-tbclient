@@ -176,7 +176,7 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (e == null) {
-                e = getContext().getString(R.string.obfuscated_res_0x7f0f09e5);
+                e = getContext().getString(R.string.obfuscated_res_0x7f0f09e6);
             }
             RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d03e7, this);
             this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0915f5);

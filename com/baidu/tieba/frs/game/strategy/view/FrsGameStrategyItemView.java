@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.al6;
 import com.repackage.bz5;
-import com.repackage.dm8;
+import com.repackage.cm8;
 /* loaded from: classes3.dex */
 public class FrsGameStrategyItemView extends bz5<al6> {
     public static /* synthetic */ Interceptable $ic;
@@ -114,7 +114,7 @@ public class FrsGameStrategyItemView extends bz5<al6> {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             TbImageView tbImageView = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090b09);
             this.k = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f080870);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f080873);
             this.l = (ImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090b1c);
             this.m = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090b18);
             this.n = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090b17);
@@ -133,7 +133,7 @@ public class FrsGameStrategyItemView extends bz5<al6> {
         }
         ThreadData threadData = al6Var.getThreadData();
         this.m.setText(threadData.getTitle());
-        dm8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+        cm8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
         if (readThreadHistory != null && readThreadHistory.d(threadData.getId())) {
             SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0108);
         } else {

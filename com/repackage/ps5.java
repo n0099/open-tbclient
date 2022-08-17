@@ -179,7 +179,7 @@ public class ps5 extends os5 {
                     name_show = StringHelper.cutChineseAndEnglishWithSuffix(name_show, i3, StringHelper.STRING_MORE);
                 }
                 bVar.d.setText(name_show);
-                bVar.c.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11c3, StringHelper.numberUniformFormatExtra(item.a.getThreadAlaInfo().audience_count)));
+                bVar.c.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11c5, StringHelper.numberUniformFormatExtra(item.a.getThreadAlaInfo().audience_count)));
                 view3.setOnClickListener(new a(this, item));
                 StatisticItem statisticItem = new StatisticItem("c12658");
                 statisticItem.param("tid", item.a.getTid());

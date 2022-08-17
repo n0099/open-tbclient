@@ -47,12 +47,12 @@ public class ir2 {
 
         /* renamed from: com.repackage.ir2$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0507a implements nl1.a {
+        public class C0512a implements nl1.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ File[] a;
 
-            public C0507a(a aVar, File[] fileArr) {
+            public C0512a(a aVar, File[] fileArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public class ir2 {
                     fileArr = new File[]{b};
                 }
                 if (u != null) {
-                    u.d(p, null, fileArr, new C0507a(this, fileArr));
+                    u.d(p, null, fileArr, new C0512a(this, fileArr));
                 }
             }
         }

@@ -1,29 +1,16 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.MetaData;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class oa7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static ArrayList<MetaData> a() {
-        InterceptResult invokeV;
+    public static void a(@Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921689, k77.class);
-            if (runTask != null && runTask.getData() != null) {
-                return ((k77) runTask.getData()).b();
-            }
-            return new ArrayList<>();
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
         }
-        return (ArrayList) invokeV.objValue;
     }
 }

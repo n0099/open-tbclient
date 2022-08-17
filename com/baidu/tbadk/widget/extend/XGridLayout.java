@@ -204,7 +204,7 @@ public class XGridLayout extends AdapterLayout {
         this.e = 0;
         this.f = 0;
         this.g = 9;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0402ec, R.attr.obfuscated_res_0x7f0402ee, R.attr.obfuscated_res_0x7f0402f0, R.attr.obfuscated_res_0x7f0402f1, R.attr.obfuscated_res_0x7f0402f3});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0402ed, R.attr.obfuscated_res_0x7f0402ef, R.attr.obfuscated_res_0x7f0402f1, R.attr.obfuscated_res_0x7f0402f2, R.attr.obfuscated_res_0x7f0402f4});
         this.d = obtainStyledAttributes.getInteger(3, this.d);
         this.e = (int) obtainStyledAttributes.getDimension(0, this.e);
         this.f = (int) obtainStyledAttributes.getDimension(4, this.f);

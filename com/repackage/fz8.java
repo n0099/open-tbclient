@@ -286,7 +286,7 @@ public class fz8 {
         if (oi.x()) {
             String q = ru4.k().q("key_baidu_sim_card_writting_tip", "");
             if (!pi.isEmpty(q)) {
-                BdToast.b(this.a.getContext(), q).h();
+                BdToast.b(this.a.getContext(), q).i();
                 ru4.k().D("key_baidu_sim_card_writting_tip");
             }
         }
@@ -417,13 +417,13 @@ public class fz8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             if (!l()) {
-                BdToast b2 = BdToast.b(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0ed9));
+                BdToast b2 = BdToast.b(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0eda));
                 b2.f(BdToast.ToastIcon.FAILURE);
-                b2.h();
+                b2.i();
             } else if (!this.n) {
-                BdToast b3 = BdToast.b(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0eda));
+                BdToast b3 = BdToast.b(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0edb));
                 b3.f(BdToast.ToastIcon.FAILURE);
-                b3.h();
+                b3.i();
             } else {
                 if (this.f != null) {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_COMMODITY_ENTRANCE_CLICK).param("obj_locate", 1).param("fid", this.f.forumId).param("fname", this.f.forumName));

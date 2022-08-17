@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kr7;
+import com.repackage.jr7;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
@@ -84,7 +84,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091c79);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a5b));
+            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a5c));
             try {
                 this.a = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
             } catch (Exception e) {
@@ -157,10 +157,10 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             }
             return;
         }
-        kr7 kr7Var = new kr7();
-        kr7Var.a = this;
-        kr7Var.b = baseResp;
-        MessageManager.getInstance().runTask(2921351, null, kr7Var);
+        jr7 jr7Var = new jr7();
+        jr7Var.a = this;
+        jr7Var.b = baseResp;
+        MessageManager.getInstance().runTask(2921351, null, jr7Var);
         closeActivity();
     }
 

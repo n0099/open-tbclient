@@ -1,40 +1,123 @@
 package com.repackage;
 
 import android.app.Activity;
-import android.view.ActionMode;
-import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.SearchEvent;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.view.accessibility.AccessibilityEvent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
+import androidx.lifecycle.Lifecycle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.widget.floatball.FullScreenLayout;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public class xx6 implements Window.Callback {
+public class xx6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity a;
-    public final FullScreenLayout b;
-    public long c;
+    public final Set<Activity> a;
 
-    public xx6(@NonNull Activity activity, @NonNull FullScreenLayout fullScreenLayout) {
+    /* loaded from: classes7.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xx6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(xx6 xx6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xx6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xx6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof hr4)) {
+                this.a.d((hr4) customResponsedMessage.getData());
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements lg5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(xx6 xx6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xx6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.lg5
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                yx6.a();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final xx6 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(144379484, "Lcom/repackage/xx6$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(144379484, "Lcom/repackage/xx6$c;");
+                    return;
+                }
+            }
+            a = new xx6();
+        }
+    }
+
+    public xx6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, fullScreenLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,189 +127,43 @@ public class xx6 implements Window.Callback {
                 return;
             }
         }
-        this.a = activity;
-        this.b = fullScreenLayout;
+        this.a = new HashSet();
     }
 
-    @Override // android.view.Window.Callback
-    public boolean dispatchGenericMotionEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) ? this.a.dispatchGenericMotionEvent(motionEvent) : invokeL.booleanValue;
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, keyEvent)) == null) {
-            if (4 == keyEvent.getKeyCode()) {
-                long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.c > 500 && this.b.N()) {
-                    this.c = currentTimeMillis;
-                    return false;
-                }
-            }
-            return this.a.dispatchKeyEvent(keyEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean dispatchKeyShortcutEvent(KeyEvent keyEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, keyEvent)) == null) ? this.a.dispatchKeyShortcutEvent(keyEvent) : invokeL.booleanValue;
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, accessibilityEvent)) == null) ? this.a.dispatchPopulateAccessibilityEvent(accessibilityEvent) : invokeL.booleanValue;
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) ? this.a.dispatchTouchEvent(motionEvent) : invokeL.booleanValue;
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean dispatchTrackballEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) ? this.a.dispatchTrackballEvent(motionEvent) : invokeL.booleanValue;
-    }
-
-    @Override // android.view.Window.Callback
-    public void onActionModeFinished(ActionMode actionMode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, actionMode) == null) {
-            this.a.onActionModeFinished(actionMode);
-        }
-    }
-
-    @Override // android.view.Window.Callback
-    public void onActionModeStarted(ActionMode actionMode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, actionMode) == null) {
-            this.a.onActionModeStarted(actionMode);
-        }
-    }
-
-    @Override // android.view.Window.Callback
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a.onAttachedToWindow();
-        }
-    }
-
-    @Override // android.view.Window.Callback
-    public void onContentChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.a.onContentChanged();
-        }
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean onCreatePanelMenu(int i, @NonNull Menu menu) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, menu)) == null) ? this.a.onCreatePanelMenu(i, menu) : invokeIL.booleanValue;
-    }
-
-    @Override // android.view.Window.Callback
-    @Nullable
-    public View onCreatePanelView(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? this.a.onCreatePanelView(i) : (View) invokeI.objValue;
-    }
-
-    @Override // android.view.Window.Callback
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.a.onDetachedFromWindow();
-        }
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean onMenuItemSelected(int i, @NonNull MenuItem menuItem) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i, menuItem)) == null) ? this.a.onMenuItemSelected(i, menuItem) : invokeIL.booleanValue;
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean onMenuOpened(int i, @NonNull Menu menu) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048590, this, i, menu)) == null) ? this.a.onMenuOpened(i, menu) : invokeIL.booleanValue;
-    }
-
-    @Override // android.view.Window.Callback
-    public void onPanelClosed(int i, @NonNull Menu menu) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048591, this, i, menu) == null) {
-            this.a.onPanelClosed(i, menu);
-        }
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean onPreparePanel(int i, @Nullable View view2, @NonNull Menu menu) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048592, this, i, view2, menu)) == null) ? this.a.onPreparePanel(i, view2, menu) : invokeILL.booleanValue;
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean onSearchRequested() {
+    public static xx6 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.a.onSearchRequested() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a : (xx6) invokeV.objValue;
     }
 
-    @Override // android.view.Window.Callback
-    public void onWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, layoutParams) == null) {
-            this.a.onWindowAttributesChanged(layoutParams);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().registerListener(new a(this, 2921698));
         }
     }
 
-    @Override // android.view.Window.Callback
-    public void onWindowFocusChanged(boolean z) {
+    public final void d(hr4 hr4Var) {
+        Activity activity;
+        i15 i15Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.a.onWindowFocusChanged(z);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hr4Var) == null) || hr4Var == null || (activity = hr4Var.b) == null || hr4Var.c == null || !"com.duowan.mobile.basemedia.watchlive.activity.LiveTemplateActivity".equals(activity.getClass().getName())) {
+            return;
         }
-    }
-
-    @Override // android.view.Window.Callback
-    @Nullable
-    public ActionMode onWindowStartingActionMode(ActionMode.Callback callback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, callback)) == null) ? this.a.onWindowStartingActionMode(callback) : (ActionMode) invokeL.objValue;
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean onSearchRequested(SearchEvent searchEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, searchEvent)) == null) ? this.a.onSearchRequested(searchEvent) : invokeL.booleanValue;
-    }
-
-    @Override // android.view.Window.Callback
-    @Nullable
-    public ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048598, this, callback, i)) == null) ? this.a.onWindowStartingActionMode(callback, i) : (ActionMode) invokeLI.objValue;
+        if (!Lifecycle.Event.ON_START.equals(hr4Var.c)) {
+            if (Lifecycle.Event.ON_DESTROY.equals(hr4Var.c)) {
+                this.a.remove(hr4Var.b);
+            }
+        } else if (this.a.contains(hr4Var.b) || (i15Var = TbSingleton.getInstance().mLiveActivityGuide) == null || !i15Var.isValid()) {
+        } else {
+            FullScreenLayout fullScreenLayout = new FullScreenLayout(hr4Var.b);
+            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, -1);
+            fullScreenLayout.setFloatData(i15Var);
+            fullScreenLayout.setClickListener(new b(this));
+            hr4Var.b.addContentView(fullScreenLayout, layoutParams);
+            yx6.b();
+            this.a.add(hr4Var.b);
+            hr4Var.b.getWindow().setCallback(new wx6(hr4Var.b, fullScreenLayout));
+        }
     }
 }

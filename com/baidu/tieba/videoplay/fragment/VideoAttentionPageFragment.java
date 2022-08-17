@@ -54,7 +54,7 @@ import com.repackage.fn8;
 import com.repackage.g75;
 import com.repackage.og;
 import com.repackage.qi;
-import com.repackage.ss6;
+import com.repackage.rs6;
 import com.repackage.z8;
 import com.repackage.zu8;
 import java.util.ArrayList;
@@ -457,7 +457,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements aw
                 z = true;
             }
             if (z) {
-                qi.O(this$0.getPageContext().getPageActivity(), this$0.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c70));
+                qi.N(this$0.getPageContext().getPageActivity(), this$0.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c71));
             }
         }
     }
@@ -809,8 +809,8 @@ public final class VideoAttentionPageFragment extends BaseFragment implements aw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onDestroyView();
-            ss6.m().d("6061002332-203360688");
-            ss6.m().c(ss6.s());
+            rs6.m().d("6061002332-203360688");
+            rs6.m().c(rs6.s());
         }
     }
 

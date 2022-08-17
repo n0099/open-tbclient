@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l88;
+import com.repackage.k88;
 /* loaded from: classes4.dex */
 public class VideoControllerView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -273,7 +273,7 @@ public class VideoControllerView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, seekBar) == null) {
             seekBar.setThumbOffset(TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds18));
-            seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f08124d));
+            seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f08124e));
             this.e = true;
             SeekBar.OnSeekBarChangeListener onSeekBarChangeListener = this.j;
             if (onSeekBarChangeListener != null) {
@@ -287,7 +287,7 @@ public class VideoControllerView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, seekBar) == null) {
             seekBar.setThumbOffset(TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds12));
-            seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f08124c));
+            seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f08124d));
             this.b.seekTo(this.l);
             this.e = false;
             this.m.sendEmptyMessageDelayed(1, 500L);
@@ -322,8 +322,8 @@ public class VideoControllerView extends RelativeLayout {
             }
             int duration = mediaPlayerControl.getDuration();
             MediaController.MediaPlayerControl mediaPlayerControl2 = this.b;
-            if (mediaPlayerControl2 instanceof l88) {
-                currentPosition = ((l88) mediaPlayerControl2).getCurrentPositionSync();
+            if (mediaPlayerControl2 instanceof k88) {
+                currentPosition = ((k88) mediaPlayerControl2).getCurrentPositionSync();
             } else {
                 currentPosition = mediaPlayerControl2.getCurrentPosition();
             }

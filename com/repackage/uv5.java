@@ -326,7 +326,7 @@ public class uv5 extends az5<ThreadData> implements zz5, ol5 {
             return;
         }
         if (!oi.z()) {
-            qi.N(context, R.string.obfuscated_res_0x7f0f0c75);
+            qi.M(context, R.string.obfuscated_res_0x7f0f0c76);
             return;
         }
         String str = this.T ? AlaLiveRoomActivityConfig.FREM_TYPE_LIVE_FRS_STAGE_LIVE : AlaLiveRoomActivityConfig.FROM_TYPE_FRS_PLAY;
@@ -455,7 +455,7 @@ public class uv5 extends az5<ThreadData> implements zz5, ol5 {
                         String latitude = ((ThreadData) this.k).getLatitude();
                         String longtitude = ((ThreadData) this.k).getLongtitude();
                         if (UtilHelper.isDecimal(latitude) && UtilHelper.isDecimal(longtitude) && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
-                            AppPosInfo c = id8.e().c();
+                            AppPosInfo c = hd8.e().c();
                             String str2 = c.latitude;
                             String str3 = c.longitude;
                             if (UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3) && qi.g(Double.parseDouble(str2), Double.parseDouble(str3), Double.parseDouble(latitude), Double.parseDouble(longtitude)) <= 50.0d) {

@@ -180,7 +180,7 @@ public class MemberRecommendView extends FrameLayout {
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092585);
             this.c = tbImageView;
             tbImageView.setDefaultResource(R.drawable.icon_vip_orange);
-            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120f);
+            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081210);
             this.c.setAutoChangeStyle(true);
             this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921ec);
             TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091014);

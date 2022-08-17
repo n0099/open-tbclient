@@ -139,7 +139,7 @@ public class xa6 extends w25 {
         if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD() && this.a != null) {
             for (int i = 0; i < this.a.size(); i++) {
                 wa6 wa6Var = (wa6) this.a.get(i);
-                if (wa6Var.u() && hp7.i().g(wa6Var.f()) == null && aVar != null) {
+                if (wa6Var.u() && gp7.i().g(wa6Var.f()) == null && aVar != null) {
                     aVar.a(wa6Var);
                 }
             }

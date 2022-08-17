@@ -57,11 +57,11 @@ public class wm5 extends b9<NewFriendsActivity> {
         this.b = newFriendsActivity.findViewById(R.id.obfuscated_res_0x7f091652);
         NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09255c);
         this.c = navigationBar;
-        navigationBar.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c41));
+        navigationBar.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c42));
         this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         ImageView imageView = (ImageView) this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0076, this.a).findViewById(R.id.obfuscated_res_0x7f091654);
         this.d = imageView;
-        imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a05, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+        imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a06, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
         this.e = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f091653);
         um5 um5Var = new um5(this.a);
         this.f = um5Var;
@@ -72,7 +72,7 @@ public class wm5 extends b9<NewFriendsActivity> {
         this.g = bv4Var;
         this.e.setPullRefresh(bv4Var);
         BdListViewHelper.d(this.a.getActivity(), this.e, BdListViewHelper.HeadType.DEFAULT);
-        this.h = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, qi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c7b), null);
+        this.h = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, qi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c7c), null);
     }
 
     public void j(jn4 jn4Var, int i) {
@@ -83,7 +83,7 @@ public class wm5 extends b9<NewFriendsActivity> {
             this.g.H(i);
             jn4Var.k(this.b);
             this.h.f(this.a.getPageContext(), i);
-            this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a05, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a06, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
 
@@ -100,15 +100,15 @@ public class wm5 extends b9<NewFriendsActivity> {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (um5) invokeV.objValue;
     }
 
-    public void m(h77 h77Var) {
+    public void m(g77 g77Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, h77Var) == null) {
-            this.f.d(h77Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, g77Var) == null) {
+            this.f.d(g77Var);
             this.f.notifyDataSetChanged();
         }
     }
 
-    public void n(List<h77> list) {
+    public void n(List<g77> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.e.setEmptyView(this.h);
@@ -138,7 +138,7 @@ public class wm5 extends b9<NewFriendsActivity> {
         }
     }
 
-    public void r(List<h77> list) {
+    public void r(List<g77> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.f.h(list);

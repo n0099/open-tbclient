@@ -14,6 +14,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
@@ -39,7 +40,7 @@ import com.repackage.jm4;
 import com.repackage.k95;
 import com.repackage.pl4;
 import com.repackage.qi;
-import com.repackage.w38;
+import com.repackage.v38;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class PersonOftenFuncItemView extends LinearLayout implements View.OnClickListener {
@@ -47,8 +48,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
     public TextView b;
-    public w38 c;
-    public boolean d;
+    public v38 c;
 
     /* loaded from: classes4.dex */
     public class a implements pl4 {
@@ -127,12 +127,12 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
         }
     }
 
-    public void a(w38 w38Var) {
+    public void a(v38 v38Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, w38Var) == null) {
-            this.c = w38Var;
-            this.a.setImageResource(w38Var.b);
-            this.b.setText(w38Var.e);
+        if (interceptable == null || interceptable.invokeL(1048576, this, v38Var) == null) {
+            this.c = v38Var;
+            this.a.setImageResource(v38Var.b);
+            this.b.setText(v38Var.e);
         }
     }
 
@@ -155,9 +155,9 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     }
 
     public void d() {
-        w38 w38Var;
+        v38 v38Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (w38Var = this.c) != null && w38Var.a == 59) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (v38Var = this.c) != null && v38Var.a == 59 && TbSingleton.getInstance().isMyTabClicked()) {
             int[] iArr = new int[2];
             getLocationOnScreen(iArr);
             int i = iArr[1];
@@ -166,15 +166,11 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
             int i3 = height + i;
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.obfuscated_res_0x7f070306);
             int mainTabBottomBarHeight = i2 - TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
-            if ((i > dimenPixelSize && i < mainTabBottomBarHeight) || (i3 > dimenPixelSize && i3 < mainTabBottomBarHeight)) {
-                if (this.d) {
-                    return;
-                }
-                this.d = true;
-                TiebaStatic.log(new StatisticItem("c14904").addParam("obj_locate", "1").addParam("uid", TbadkCoreApplication.getCurrentAccount()));
+            if ((i <= dimenPixelSize || i >= mainTabBottomBarHeight) && (i3 <= dimenPixelSize || i3 >= mainTabBottomBarHeight)) {
                 return;
             }
-            this.d = false;
+            TbSingleton.getInstance().setMyTabClicked(false);
+            TiebaStatic.log(new StatisticItem("c14904").addParam("obj_locate", "1").addParam("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
@@ -189,12 +185,12 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        w38 w38Var;
+        v38 v38Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || (w38Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || (v38Var = this.c) == null) {
             return;
         }
-        int i = w38Var.a;
+        int i = v38Var.a;
         String valueOf = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         String displayName = currentAccountInfo.getDisplayName();
@@ -297,7 +293,6 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
                 return;
             }
         }
-        this.d = false;
         b(context);
     }
 }

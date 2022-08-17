@@ -47,8 +47,8 @@ public class e96 {
         this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e78);
         this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d4c);
         this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d4d);
-        this.e.setText(R.string.obfuscated_res_0x7f0f0c69);
-        this.f.setText(R.string.obfuscated_res_0x7f0f0c6a);
+        this.e.setText(R.string.obfuscated_res_0x7f0f0c6a);
+        this.f.setText(R.string.obfuscated_res_0x7f0f0c6b);
     }
 
     public void a() {

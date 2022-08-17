@@ -130,7 +130,7 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
             } else {
                 r();
             }
-            this.g.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081246));
+            this.g.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081247));
             return;
         }
         seekBar.setThumb(null);
@@ -139,7 +139,7 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
         } else {
             r();
         }
-        this.g.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081244));
+        this.g.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081245));
     }
 
     public void setLoading(boolean z) {

@@ -35,7 +35,7 @@ public class cs4 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: n */
-    public static final int obfuscated = 2131235021;
+    public static final int obfuscated = 2131235022;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public ViewGroup b;
@@ -134,7 +134,7 @@ public class cs4 implements View.OnClickListener {
         this.e.setRadius(qi.f(context, R.dimen.tbds20));
         this.i = qi.f(context, R.dimen.tbds176);
         this.h = qi.f(context, R.dimen.tbds29);
-        SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f080caf);
+        SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f080cb0);
         this.f = (WindowManager) this.a.getSystemService("window");
         g();
         this.l = new a(this);
@@ -164,7 +164,7 @@ public class cs4 implements View.OnClickListener {
             }
             this.m = gk4Var;
             if (pi.isEmpty(gk4Var.e)) {
-                this.c.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1370));
+                this.c.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1372));
             } else {
                 this.c.setText(gk4Var.e);
             }
@@ -176,12 +176,12 @@ public class cs4 implements View.OnClickListener {
             if (pi.isEmpty(gk4Var.p)) {
                 SkinManager.setViewTextColor(this.c, R.color.CAM_X0302, 1);
             } else {
-                this.c.setTextColor(cf7.b(gk4Var.p));
+                this.c.setTextColor(bf7.b(gk4Var.p));
             }
             if (pi.isEmpty(gk4Var.q)) {
                 SkinManager.setViewTextColor(this.d, R.color.CAM_X0101, 1);
             } else {
-                this.d.setTextColor(cf7.b(gk4Var.q));
+                this.d.setTextColor(bf7.b(gk4Var.q));
             }
             if (!pi.isEmpty(gk4Var.o)) {
                 this.d.setBackgroundDrawable(b(gk4Var.o));
@@ -205,10 +205,10 @@ public class cs4 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             StateListDrawable stateListDrawable = new StateListDrawable();
-            Drawable drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810ce);
+            Drawable drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810cf);
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setCornerRadius(qi.f(this.a, R.dimen.tbds10));
-            gradientDrawable.setColor(cf7.b(str));
+            gradientDrawable.setColor(bf7.b(str));
             stateListDrawable.addState(new int[]{16842919}, drawable);
             stateListDrawable.addState(new int[0], gradientDrawable);
             return stateListDrawable;
@@ -220,7 +220,7 @@ public class cs4 implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            this.c.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1370));
+            this.c.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1372));
             this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f02c9));
             SkinManager.setViewTextColor(this.c, R.color.CAM_X0302, 1);
             SkinManager.setViewTextColor(this.d, R.color.CAM_X0101, 1);

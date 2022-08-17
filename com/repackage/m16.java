@@ -58,17 +58,17 @@ public class m16 {
                     if (this.a.b != null && this.a.b.isShowing()) {
                         this.a.b.dismiss();
                         SmartLaunchStats.onConfirmPrivacy();
-                        nh8.a("1", "1");
+                        mh8.a("1", "1");
                         at4.l("logoController", false);
                     }
                     if (this.a.c != null && this.a.c.isShowing()) {
                         this.a.c.dismiss();
-                        nh8.a("2", "1");
+                        mh8.a("2", "1");
                         at4.l("logoController", false);
                     }
                     if (this.a.d != null && this.a.d.isShowing()) {
                         this.a.d.dismiss();
-                        nh8.a("3", "1");
+                        mh8.a("3", "1");
                         at4.l("logoController", false);
                     }
                     ru4.k().x("key_first_enter_app_timestamp", System.currentTimeMillis());
@@ -77,29 +77,29 @@ public class m16 {
                 } else if (id == R.id.obfuscated_res_0x7f091a4a) {
                     if (this.a.b.isShowing()) {
                         this.a.b.dismiss();
-                        nh8.a("1", "2");
+                        mh8.a("1", "2");
                     }
                     if (this.a.c == null) {
                         m16 m16Var = this.a;
-                        m16Var.c = el5.a(m16Var.a.getPageContext(), this.a.f, R.string.obfuscated_res_0x7f0f0efe, R.string.obfuscated_res_0x7f0f10dc);
+                        m16Var.c = el5.a(m16Var.a.getPageContext(), this.a.f, R.string.obfuscated_res_0x7f0f0eff, R.string.obfuscated_res_0x7f0f10dd);
                     }
                     this.a.c.show();
-                    nh8.b("2");
+                    mh8.b("2");
                 } else if (id == R.id.obfuscated_res_0x7f090404) {
                     m16.h(this.a);
                     if (this.a.c.isShowing()) {
                         this.a.c.dismiss();
-                        nh8.a("2", "2");
+                        mh8.a("2", "2");
                         if (this.a.d == null) {
                             m16 m16Var2 = this.a;
-                            m16Var2.d = el5.a(m16Var2.a.getPageContext(), this.a.f, R.string.obfuscated_res_0x7f0f0eff, R.string.obfuscated_res_0x7f0f10d1);
+                            m16Var2.d = el5.a(m16Var2.a.getPageContext(), this.a.f, R.string.obfuscated_res_0x7f0f0f00, R.string.obfuscated_res_0x7f0f10d2);
                             this.a.d.show();
-                            nh8.b("3");
+                            mh8.b("3");
                         }
                     }
                     if (this.a.d.isShowing() && this.a.e == 2) {
                         this.a.d.dismiss();
-                        nh8.a("3", "2");
+                        mh8.a("3", "2");
                         this.a.a.finish();
                     }
                 }
@@ -159,7 +159,7 @@ public class m16 {
             b.show();
             TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
             SmartLaunchStats.onPrivacyDialogShow();
-            nh8.b("1");
+            mh8.b("1");
         }
     }
 }

@@ -685,14 +685,14 @@ public class MultiImageView extends RelativeLayout {
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
             Button button = new Button(getContext());
             this.c = button;
-            SkinManager.setBackgroundResource(button, R.drawable.obfuscated_res_0x7f080bbd, 0);
+            SkinManager.setBackgroundResource(button, R.drawable.obfuscated_res_0x7f080bbe, 0);
             this.c.setLayoutParams(layoutParams2);
             this.c.setOnClickListener(this.g);
             this.c.setEnabled(false);
             this.d.addView(this.c);
             Button button2 = new Button(getContext());
             this.b = button2;
-            SkinManager.setBackgroundResource(button2, R.drawable.obfuscated_res_0x7f080bb9, 0);
+            SkinManager.setBackgroundResource(button2, R.drawable.obfuscated_res_0x7f080bba, 0);
             this.b.setLayoutParams(layoutParams2);
             this.b.setOnClickListener(this.g);
             this.b.setEnabled(false);

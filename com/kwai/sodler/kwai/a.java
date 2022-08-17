@@ -29,13 +29,13 @@ public final class a {
 
     /* renamed from: com.kwai.sodler.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0414a<P extends com.kwai.sodler.lib.a.a, R extends f<P>> extends b.C0415b<P, R> {
+    public static class C0416a<P extends com.kwai.sodler.lib.a.a, R extends f<P>> extends b.C0417b<P, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public com.kwai.sodler.lib.ext.b<P, R> axd;
         public b<P, R> axe;
 
-        public C0414a(com.kwai.sodler.lib.ext.b<P, R> bVar, b<P, R> bVar2) {
+        public C0416a(com.kwai.sodler.lib.ext.b<P, R> bVar, b<P, R> bVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,7 +54,7 @@ public final class a {
             this.axe = bVar2;
         }
 
-        @Override // com.kwai.sodler.lib.ext.b.C0415b, com.kwai.sodler.lib.ext.b
+        @Override // com.kwai.sodler.lib.ext.b.C0417b, com.kwai.sodler.lib.ext.b
         public final void a(R r) {
             com.kwai.sodler.lib.ext.b<P, R> bVar;
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public final class a {
             bVar.a(r);
         }
 
-        @Override // com.kwai.sodler.lib.ext.b.C0415b, com.kwai.sodler.lib.ext.b
+        @Override // com.kwai.sodler.lib.ext.b.C0417b, com.kwai.sodler.lib.ext.b
         public final void a(R r, P p) {
             com.kwai.sodler.lib.ext.b<P, R> bVar;
             Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public final class a {
             bVar.a((com.kwai.sodler.lib.ext.b<P, R>) r, (R) p);
         }
 
-        @Override // com.kwai.sodler.lib.ext.b.C0415b, com.kwai.sodler.lib.ext.b
+        @Override // com.kwai.sodler.lib.ext.b.C0417b, com.kwai.sodler.lib.ext.b
         public final void a(R r, PluginError pluginError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, r, pluginError) == null) {
@@ -90,7 +90,7 @@ public final class a {
             }
         }
 
-        @Override // com.kwai.sodler.lib.ext.b.C0415b, com.kwai.sodler.lib.ext.b
+        @Override // com.kwai.sodler.lib.ext.b.C0417b, com.kwai.sodler.lib.ext.b
         public final void b(R r) {
             com.kwai.sodler.lib.ext.b<P, R> bVar;
             Interceptable interceptable = $ic;
@@ -100,7 +100,7 @@ public final class a {
             bVar.b(r);
         }
 
-        @Override // com.kwai.sodler.lib.ext.b.C0415b, com.kwai.sodler.lib.ext.b
+        @Override // com.kwai.sodler.lib.ext.b.C0417b, com.kwai.sodler.lib.ext.b
         public final void c(R r) {
             com.kwai.sodler.lib.ext.b<P, R> bVar;
             Interceptable interceptable = $ic;
@@ -137,7 +137,7 @@ public final class a {
         if (interceptable == null || interceptable.invokeLLL(65537, null, context, r, bVar) == null) {
             init(context);
             r.cH(i.EU().EX().getRetryCount());
-            r.a(new C0414a(bVar, new b<P, R>() { // from class: com.kwai.sodler.kwai.a.1
+            r.a(new C0416a(bVar, new b<P, R>() { // from class: com.kwai.sodler.kwai.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

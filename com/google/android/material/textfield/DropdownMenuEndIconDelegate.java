@@ -681,7 +681,7 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
             this.filledPopupBackground = stateListDrawable;
             stateListDrawable.addState(new int[]{16842922}, popUpMaterialShapeDrawable);
             this.filledPopupBackground.addState(new int[0], popUpMaterialShapeDrawable2);
-            this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, IS_LOLLIPOP ? R.drawable.obfuscated_res_0x7f080d5e : R.drawable.obfuscated_res_0x7f080d5f));
+            this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, IS_LOLLIPOP ? R.drawable.obfuscated_res_0x7f080d5f : R.drawable.obfuscated_res_0x7f080d60));
             TextInputLayout textInputLayout = this.textInputLayout;
             textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f05e0));
             this.textInputLayout.setEndIconOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.textfield.DropdownMenuEndIconDelegate.6

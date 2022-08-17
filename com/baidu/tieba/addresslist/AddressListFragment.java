@@ -174,7 +174,7 @@ public class AddressListFragment extends BaseFragment implements tm5.a, av4.g, A
                     this.a.a.G(arrayList);
                     return;
                 }
-                this.a.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3c) : socketResponsedMessage.getErrorString(), false);
+                this.a.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3d) : socketResponsedMessage.getErrorString(), false);
             }
         }
     }
@@ -393,7 +393,7 @@ public class AddressListFragment extends BaseFragment implements tm5.a, av4.g, A
                 this.a.E();
             } else {
                 this.l.A(0L);
-                showToast(R.string.obfuscated_res_0x7f0f0c75);
+                showToast(R.string.obfuscated_res_0x7f0f0c76);
             }
         }
     }

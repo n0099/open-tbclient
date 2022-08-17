@@ -136,15 +136,15 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
                             if (i != 6) {
                                 return -1;
                             }
-                            return R.drawable.obfuscated_res_0x7f080dbd;
+                            return R.drawable.obfuscated_res_0x7f080dbe;
                         }
-                        return R.drawable.obfuscated_res_0x7f080dbf;
+                        return R.drawable.obfuscated_res_0x7f080dc0;
                     }
-                    return R.drawable.obfuscated_res_0x7f080dbe;
+                    return R.drawable.obfuscated_res_0x7f080dbf;
                 }
-                return R.drawable.obfuscated_res_0x7f080dc0;
+                return R.drawable.obfuscated_res_0x7f080dc1;
             }
-            return R.drawable.obfuscated_res_0x7f080dbd;
+            return R.drawable.obfuscated_res_0x7f080dbe;
         }
         return invokeL.intValue;
     }

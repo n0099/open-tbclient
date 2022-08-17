@@ -100,7 +100,7 @@ public class InterestForumTagView extends LinearLayout implements ix {
         this.d = selectForumData;
         SymbolEMTextView symbolEMTextView = this.b;
         if (symbolEMTextView != null) {
-            symbolEMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f090c, selectForumData.forumName));
+            symbolEMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f090d, selectForumData.forumName));
         }
     }
 

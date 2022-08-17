@@ -176,42 +176,42 @@ public class n86 extends bn<ir4, AutoVideoCardViewHolder<ThreadData>> {
         this.b = str;
     }
 
-    public final z88 w(ThreadData threadData) {
+    public final y88 w(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData)) == null) {
             if (threadData != null) {
-                z88 z88Var = new z88();
-                z88Var.a = PayUVEventType.PAY_WALLET_BANNER_SHOW;
-                z88Var.c = threadData.tid;
-                z88Var.f = threadData.mRecomSource;
-                z88Var.g = threadData.mRecomAbTag;
-                z88Var.h = threadData.mRecomWeight;
-                z88Var.i = "14";
-                z88Var.s = this.b;
-                z88Var.q = String.valueOf(threadData.statFloor);
+                y88 y88Var = new y88();
+                y88Var.a = PayUVEventType.PAY_WALLET_BANNER_SHOW;
+                y88Var.c = threadData.tid;
+                y88Var.f = threadData.mRecomSource;
+                y88Var.g = threadData.mRecomAbTag;
+                y88Var.h = threadData.mRecomWeight;
+                y88Var.i = "14";
+                y88Var.s = this.b;
+                y88Var.q = String.valueOf(threadData.statFloor);
                 if (threadData.getThreadVideoChannelInfo() != null) {
-                    z88Var.k = String.valueOf(threadData.getThreadVideoChannelInfo().a);
+                    y88Var.k = String.valueOf(threadData.getThreadVideoChannelInfo().a);
                 }
                 if (threadData.getThreadData() != null) {
-                    z88Var.d = String.valueOf(threadData.getThreadData().getFid());
-                    z88Var.v = threadData.getThreadData().getNid();
+                    y88Var.d = String.valueOf(threadData.getThreadData().getFid());
+                    y88Var.v = threadData.getThreadData().getNid();
                     if (threadData.getThreadData().getThreadVideoInfo() != null) {
-                        z88Var.m = threadData.getThreadData().getThreadVideoInfo().video_md5;
-                        z88Var.p = String.valueOf(threadData.getThreadData().getThreadVideoInfo().is_vertical);
+                        y88Var.m = threadData.getThreadData().getThreadVideoInfo().video_md5;
+                        y88Var.p = String.valueOf(threadData.getThreadData().getThreadVideoInfo().is_vertical);
                     }
                 }
-                z88Var.e = TbadkCoreApplication.getCurrentAccount();
+                y88Var.e = TbadkCoreApplication.getCurrentAccount();
                 if (threadData.getThreadData() == null || threadData.getThreadData().getBaijiahaoData() == null) {
-                    return z88Var;
+                    return y88Var;
                 }
-                z88Var.t = threadData.getThreadData().getBaijiahaoData().oriUgcNid;
-                z88Var.u = threadData.getThreadData().getBaijiahaoData().oriUgcVid;
-                return z88Var;
+                y88Var.t = threadData.getThreadData().getBaijiahaoData().oriUgcNid;
+                y88Var.u = threadData.getThreadData().getBaijiahaoData().oriUgcVid;
+                return y88Var;
             }
             return null;
         }
-        return (z88) invokeL.objValue;
+        return (y88) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

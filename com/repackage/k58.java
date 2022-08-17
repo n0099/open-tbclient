@@ -18,22 +18,21 @@ public class k58 extends bn<u68, CardViewHolder<w78>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public c68 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k58(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), u68.b, bdUniqueId);
+    public k58(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), u68.e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -58,19 +57,10 @@ public class k58 extends bn<u68, CardViewHolder<w78>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, u68Var, cardViewHolder})) == null) {
-            w78 a = cardViewHolder.a();
-            a.i(u68Var);
-            a.j(this.a, TbadkCoreApplication.getInst().getSkinType());
-            a.t(this.b);
+            cardViewHolder.a().i(u68Var);
+            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
-    }
-
-    public void u(c68 c68Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c68Var) == null) {
-            this.b = c68Var;
-        }
     }
 }

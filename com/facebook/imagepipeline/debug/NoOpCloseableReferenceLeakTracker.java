@@ -3,6 +3,7 @@ package com.facebook.imagepipeline.debug;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.references.SharedReference;
@@ -28,16 +29,26 @@ public class NoOpCloseableReferenceLeakTracker implements CloseableReferenceLeak
     }
 
     @Override // com.facebook.imagepipeline.debug.CloseableReferenceLeakTracker
+    public boolean isSet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.facebook.imagepipeline.debug.CloseableReferenceLeakTracker
     public void setListener(@Nullable CloseableReferenceLeakTracker.Listener listener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, listener) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listener) == null) {
         }
     }
 
     @Override // com.facebook.imagepipeline.debug.CloseableReferenceLeakTracker
-    public void trackCloseableReferenceLeak(SharedReference<Object> sharedReference) {
+    public void trackCloseableReferenceLeak(SharedReference<Object> sharedReference, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sharedReference) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sharedReference, th) == null) {
         }
     }
 }

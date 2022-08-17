@@ -106,7 +106,7 @@ public class NEGFeedBackView extends AppCompatImageView {
             }
         }
         this.b = 0L;
-        this.f = R.drawable.obfuscated_res_0x7f080915;
+        this.f = R.drawable.obfuscated_res_0x7f080916;
         this.g = R.color.CAM_X0111;
         this.i = new a(this);
         this.a = tbPageContext.getPageActivity();

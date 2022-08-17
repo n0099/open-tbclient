@@ -101,7 +101,7 @@ public class jy extends tw implements hx<ThreadData>, ix {
             layoutParams3.rightMargin = f2;
             layoutParams3.bottomMargin = f3;
             i(layoutParams3);
-            this.e.setWebPResId(R.drawable.obfuscated_res_0x7f080915, R.color.CAM_X0111);
+            this.e.setWebPResId(R.drawable.obfuscated_res_0x7f080916, R.color.CAM_X0111);
             this.e.setPadding(f, f, f, f);
             this.e.setLayoutParams(layoutParams3);
         }

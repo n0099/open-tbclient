@@ -31,8 +31,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.jm4;
-import com.repackage.ol8;
-import com.repackage.ql8;
+import com.repackage.nl8;
+import com.repackage.pl8;
 import com.repackage.rm4;
 import com.repackage.tg;
 import java.util.HashMap;
@@ -41,12 +41,12 @@ import java.util.LinkedHashMap;
 public class BaseWebView extends WebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ql8 jsCallback;
+    public pl8 jsCallback;
     public CommonTbJsBridge mCommonJsBridge;
     public Context mContext;
     public d mDownloadListener;
     public boolean mIsLoaded;
-    public ol8 mJsBridge;
+    public nl8 mJsBridge;
     public d mOnLoadUrlListener;
     public e mOnPageFinishedListener;
     public f mOnPageStartedListener;
@@ -58,7 +58,7 @@ public class BaseWebView extends WebView {
     public WebViewClient mWebViewClient;
 
     /* loaded from: classes3.dex */
-    public class a implements ql8 {
+    public class a implements pl8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseWebView a;
@@ -81,15 +81,15 @@ public class BaseWebView extends WebView {
             this.a = baseWebView;
         }
 
-        @Override // com.repackage.ql8
+        @Override // com.repackage.pl8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                 BaseWebView baseWebView = this.a;
-                ol8 ol8Var = baseWebView.mJsBridge;
-                if (ol8Var != null) {
-                    return ol8Var.b(baseWebView.getWebView(), str, jsPromptResult);
+                nl8 nl8Var = baseWebView.mJsBridge;
+                if (nl8Var != null) {
+                    return nl8Var.b(baseWebView.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -430,7 +430,7 @@ public class BaseWebView extends WebView {
             jm4.a(getSettings());
             this.mWebViewClient = new c(this);
             this.mWebChromeClient = new k(this, null);
-            this.mJsBridge = new ol8();
+            this.mJsBridge = new nl8();
             setWebViewClient(this.mWebViewClient);
             setWebChromeClient(this.mWebChromeClient);
             if (Build.VERSION.SDK_INT >= 11) {
@@ -521,12 +521,12 @@ public class BaseWebView extends WebView {
     }
 
     public void sendNotification(String str, HashMap hashMap) {
-        ol8 ol8Var;
+        nl8 nl8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, hashMap) == null) || (ol8Var = this.mJsBridge) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, hashMap) == null) || (nl8Var = this.mJsBridge) == null) {
             return;
         }
-        ol8Var.i(getWebView(), str, hashMap);
+        nl8Var.i(getWebView(), str, hashMap);
     }
 
     @RequiresApi(api = 21)
@@ -561,10 +561,10 @@ public class BaseWebView extends WebView {
         }
     }
 
-    public void setOnJsPromptCallback(ql8 ql8Var) {
+    public void setOnJsPromptCallback(pl8 pl8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, ql8Var) == null) {
-            this.jsCallback = ql8Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, pl8Var) == null) {
+            this.jsCallback = pl8Var;
         }
     }
 

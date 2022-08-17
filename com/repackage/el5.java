@@ -110,7 +110,7 @@ public final class el5 {
             View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0737, (ViewGroup) null);
             Intrinsics.checkNotNullExpressionValue(inflate, "from(tbPageContext.pageA…olicy_guide_dialog, null)");
             EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921ba);
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f10db);
+            eMTextView.setText(R.string.obfuscated_res_0x7f0f10dc);
             ms4 d = ms4.d(eMTextView);
             d.A(R.string.F_X02);
             d.z(R.dimen.T_X05);
@@ -119,7 +119,7 @@ public final class el5 {
             StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
             String string = tbPageContext.getString(i);
             Intrinsics.checkNotNullExpressionValue(string, "tbPageContext.getString(contentTestResId)");
-            String format = String.format(string, Arrays.copyOf(new Object[]{tbPageContext.getString(R.string.obfuscated_res_0x7f0f0f00), tbPageContext.getString(R.string.obfuscated_res_0x7f0f14ed)}, 2));
+            String format = String.format(string, Arrays.copyOf(new Object[]{tbPageContext.getString(R.string.obfuscated_res_0x7f0f0f01), tbPageContext.getString(R.string.obfuscated_res_0x7f0f14f0)}, 2));
             Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
             Activity pageActivity = tbPageContext.getPageActivity();
             Intrinsics.checkNotNullExpressionValue(pageActivity, "tbPageContext.pageActivity");
@@ -132,7 +132,7 @@ public final class el5 {
             ms4.d(eMTextView3).z(R.dimen.T_X08);
             eMTextView3.setOnClickListener(listener);
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f09266e);
-            tBSpecificationBtn.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f10cf));
+            tBSpecificationBtn.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f10d0));
             tBSpecificationBtn.setTextSize(R.dimen.T_X07);
             pv4 pv4Var = new pv4();
             pv4Var.p(R.color.CAM_X0303, R.color.CAM_X0101);
@@ -158,14 +158,14 @@ public final class el5 {
             Intrinsics.checkNotNullParameter(listener, "listener");
             View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0738, (ViewGroup) null);
             Intrinsics.checkNotNullExpressionValue(inflate, "from(tbPageContext.pageA…rivate_hint_dialog, null)");
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a4e)).setText(R.string.obfuscated_res_0x7f0f10db);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a4e)).setText(R.string.obfuscated_res_0x7f0f10dc);
             inflate.findViewById(R.id.obfuscated_res_0x7f091a92).setVisibility(0);
             TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a93);
             textView.setHighlightColor(0);
             StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-            String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f10da);
+            String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f10db);
             Intrinsics.checkNotNullExpressionValue(string, "tbPageContext.getString(…tring.secret_hint_format)");
-            String format = String.format(string, Arrays.copyOf(new Object[]{tbPageContext.getString(R.string.obfuscated_res_0x7f0f10d9), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10de), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10d2), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10d3), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10d4), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10d5), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10d6)}, 7));
+            String format = String.format(string, Arrays.copyOf(new Object[]{tbPageContext.getString(R.string.obfuscated_res_0x7f0f10da), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10df), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10d3), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10d4), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10d5), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10d6), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10d7)}, 7));
             Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
             Activity pageActivity = tbPageContext.getPageActivity();
             Intrinsics.checkNotNullExpressionValue(pageActivity, "tbPageContext.pageActivity");
@@ -214,11 +214,11 @@ public final class el5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
             SpannableString spannableString = new SpannableString(str);
-            int[] c = c(str, R.string.obfuscated_res_0x7f0f0f00);
+            int[] c = c(str, R.string.obfuscated_res_0x7f0f0f01);
             if (c[0] != -1) {
                 spannableString.setSpan(new a(context), c[0], c[1], 18);
             }
-            int[] c2 = c(str, R.string.obfuscated_res_0x7f0f14ed);
+            int[] c2 = c(str, R.string.obfuscated_res_0x7f0f14f0);
             if (c2[0] != -1) {
                 spannableString.setSpan(new b(context), c2[0], c2[1], 18);
             }

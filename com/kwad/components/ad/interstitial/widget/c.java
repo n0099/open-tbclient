@@ -52,7 +52,7 @@ public final class c extends b {
     public boolean im;
 
     /* renamed from: io  reason: collision with root package name */
-    public boolean f1079io;
+    public boolean f1080io;
     public final ViewPager.OnPageChangeListener iq;
     public AdInfo mAdInfo;
     @NonNull
@@ -300,7 +300,7 @@ public final class c extends b {
                 public final void dS() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.ir.f1079io = true;
+                        this.ir.f1080io = true;
                         if (this.ir.ia) {
                             this.ir.dR();
                         } else {
@@ -535,7 +535,7 @@ public final class c extends b {
                     }
                 }
             });
-            this.ig.a(new a.InterfaceC0320a(this) { // from class: com.kwad.components.ad.interstitial.widget.c.4
+            this.ig.a(new a.InterfaceC0322a(this) { // from class: com.kwad.components.ad.interstitial.widget.c.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ c ir;
@@ -558,10 +558,10 @@ public final class c extends b {
                     this.ir = this;
                 }
 
-                @Override // com.kwad.components.ad.interstitial.widget.a.InterfaceC0320a
+                @Override // com.kwad.components.ad.interstitial.widget.a.InterfaceC0322a
                 public final void dL() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.ir.f1079io) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.ir.f1080io) {
                         return;
                     }
                     if (this.ir.il != null) {

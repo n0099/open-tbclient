@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e37;
+import com.repackage.d37;
 import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class TopicTimelineCellCardView extends LinearLayout implements View.OnClickListener {
@@ -35,7 +35,7 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
     public TextView d;
     public int e;
     public int f;
-    public e37 g;
+    public d37 g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TopicTimelineCellCardView(Context context) {
@@ -105,19 +105,19 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
         }
     }
 
-    public void setData(e37 e37Var) {
+    public void setData(d37 d37Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, e37Var) == null) {
-            if (e37Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, d37Var) == null) {
+            if (d37Var == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.g = e37Var;
-            this.c.setText(e37Var.d);
-            this.d.setText(e37Var.c);
-            if (StringUtils.isNull(e37Var.e)) {
-                int i = e37Var.f;
+            this.g = d37Var;
+            this.c.setText(d37Var.d);
+            this.d.setText(d37Var.c);
+            if (StringUtils.isNull(d37Var.e)) {
+                int i = d37Var.f;
                 if (i == 0) {
                     SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_one);
                     return;
@@ -130,11 +130,11 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
                 }
             }
             try {
-                GradientDrawable gradientDrawable = (GradientDrawable) getResources().getDrawable(R.drawable.obfuscated_res_0x7f081205);
-                gradientDrawable.setColor(Color.parseColor(e37Var.e));
+                GradientDrawable gradientDrawable = (GradientDrawable) getResources().getDrawable(R.drawable.obfuscated_res_0x7f081206);
+                gradientDrawable.setColor(Color.parseColor(d37Var.e));
                 this.b.setBackgroundDrawable(gradientDrawable);
             } catch (Exception unused) {
-                int i2 = e37Var.f;
+                int i2 = d37Var.f;
                 if (i2 == 0) {
                     SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_one);
                 } else if (i2 == 1) {

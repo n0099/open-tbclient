@@ -479,7 +479,7 @@ public class p19 implements hb5, yn {
     public final void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.m.C(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f09e7));
+            this.m.C(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f09e8));
             this.m.f();
             this.m.L(qi.f(this.l.getContext(), R.dimen.tbds44));
             this.m.B(new g(this));
@@ -491,7 +491,7 @@ public class p19 implements hb5, yn {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.m.J();
             this.m.Q();
-            this.m.C(this.c.getString(R.string.obfuscated_res_0x7f0f09e9));
+            this.m.C(this.c.getString(R.string.obfuscated_res_0x7f0f09ea));
             this.m.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.m.B(null);
         }
@@ -500,7 +500,7 @@ public class p19 implements hb5, yn {
     public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.m.C(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f09ea));
+            this.m.C(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f09eb));
             this.m.f();
             this.m.L(qi.f(this.l.getContext(), R.dimen.tbds44));
             this.m.B(null);
@@ -514,7 +514,7 @@ public class p19 implements hb5, yn {
             if (bdTypeRecyclerView != null) {
                 bdTypeRecyclerView.setVisibility(8);
             }
-            L(this.c.getString(R.string.obfuscated_res_0x7f0f0c43), true);
+            L(this.c.getString(R.string.obfuscated_res_0x7f0f0c44), true);
         }
     }
 
@@ -621,7 +621,7 @@ public class p19 implements hb5, yn {
                 this.o.f(R.color.CAM_X0201);
             }
             if (this.b.getBackImageView() != null) {
-                this.b.getBackImageView().setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809f1, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+                this.b.getBackImageView().setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809f2, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             }
         }
     }

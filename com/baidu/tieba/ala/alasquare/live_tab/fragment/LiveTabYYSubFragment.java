@@ -383,7 +383,7 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
             this.l.setNextPage(this.o);
         }
         this.o.t(qi.f(this.a, R.dimen.tbds182));
-        this.o.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a3c));
+        this.o.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a3d));
         this.o.Q();
     }
 
@@ -404,7 +404,7 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
             }
             this.mRefreshView.p();
             this.mRefreshView.m(null);
-            this.mRefreshView.n(getResources().getString(R.string.obfuscated_res_0x7f0f0fb9));
+            this.mRefreshView.n(getResources().getString(R.string.obfuscated_res_0x7f0f0fba));
             this.mRefreshView.i(R.drawable.new_pic_emotion_08);
             this.mRefreshView.l(0);
             this.mRefreshView.onChangeSkinType();
@@ -422,7 +422,7 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
             this.l.setNextPage(this.o);
         }
         this.o.t(qi.f(this.a, R.dimen.tbds182));
-        this.o.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09ea));
+        this.o.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09eb));
         this.o.f();
     }
 

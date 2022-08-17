@@ -22,9 +22,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.d9;
-import com.repackage.k57;
-import com.repackage.kk8;
-import com.repackage.m57;
+import com.repackage.j57;
+import com.repackage.jk8;
+import com.repackage.l57;
 import com.repackage.oi;
 /* loaded from: classes3.dex */
 public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
@@ -175,9 +175,9 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
 
     /* loaded from: classes3.dex */
     public interface c {
-        void h0(m57 m57Var);
+        void h0(l57 l57Var);
 
-        void m0(m57 m57Var, m57 m57Var2, m57 m57Var3);
+        void m0(l57 l57Var, l57 l57Var2, l57 l57Var3);
 
         void s0(String str);
 
@@ -254,7 +254,7 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
                 if (z) {
                     this.b.s0("");
                 } else {
-                    this.b.y0(this.a.getString(R.string.obfuscated_res_0x7f0f0c3c));
+                    this.b.y0(this.a.getString(R.string.obfuscated_res_0x7f0f0c3d));
                 }
             } else if (z) {
                 this.b.s0("");
@@ -279,7 +279,7 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.f = new a(this, 2016491);
-            kk8.b(2016491, k57.class);
+            jk8.b(2016491, j57.class);
             registerListener(this.f);
         }
     }
@@ -288,8 +288,8 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.e = new b(this, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, 309416);
-            kk8.h(309416, HotSelectSocketResponseMessage.class, false, false);
-            kk8.c(309416, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, TbConfig.SET_HOTSELECT, HotSelectHttpResponseMessage.class, true, true, true, true);
+            jk8.h(309416, HotSelectSocketResponseMessage.class, false, false);
+            jk8.c(309416, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, TbConfig.SET_HOTSELECT, HotSelectHttpResponseMessage.class, true, true, true, true);
             registerListener(this.e);
         }
     }

@@ -581,8 +581,8 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                     indicatorView.setCount(this.k);
                     S1(this.f, R.dimen.tbds46);
                     this.f.setSpacing(getResources().getDimensionPixelSize(R.dimen.tbds35));
-                    this.f.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f3e));
-                    this.f.setDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f40));
+                    this.f.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f3f));
+                    this.f.setDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f41));
                     this.f.setPosition(0.0f);
                     if (this.k <= 1) {
                         this.f.setVisibility(4);

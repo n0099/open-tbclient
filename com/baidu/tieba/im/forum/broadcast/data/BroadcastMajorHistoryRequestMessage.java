@@ -57,7 +57,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1181common = this.f1053common;
+            builder.f1182common = this.f1053common;
             builder.query_type = Integer.valueOf(this.queryType);
             builder.forum_id = Long.valueOf(this.forumId);
             builder.need_cnt = Integer.valueOf(this.needCount);

@@ -53,18 +53,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a58;
-import com.repackage.cb8;
-import com.repackage.g68;
-import com.repackage.ku7;
-import com.repackage.l68;
+import com.repackage.bb8;
+import com.repackage.f68;
+import com.repackage.ju7;
+import com.repackage.k68;
 import com.repackage.og;
 import com.repackage.pi;
 import com.repackage.qi;
 import com.repackage.rg;
-import com.repackage.um7;
+import com.repackage.tm7;
 import com.repackage.ur4;
 import com.repackage.wj4;
+import com.repackage.z48;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -87,7 +87,7 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
     public ShareSuccessReplyToServerModel h;
     public boolean i;
     public String j;
-    public g68 k;
+    public f68 k;
     public long l;
     public String m;
     public String n;
@@ -257,7 +257,7 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                 if (TextUtils.isEmpty(str) || this.a.k == null) {
                     return;
                 }
-                l68 o = this.a.k.o(true);
+                k68 o = this.a.k.o(true);
                 this.a.j = str;
                 if (o == null || (j = o.j()) == null) {
                     return;
@@ -383,7 +383,7 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                 if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.a.getPageContext().getPageActivity() == null) {
                     return;
                 }
-                ku7.a(this.b.a.getPageContext(), this.a).show();
+                ju7.a(this.b.a.getPageContext(), this.a).show();
             }
         }
 
@@ -545,8 +545,8 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         }
         try {
             PostWriteCallBackData postWriteCallBackData = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
-            g68 g68Var = this.k;
-            if (g68Var == null || g68Var.j(postWriteCallBackData)) {
+            f68 f68Var = this.k;
+            if (f68Var == null || f68Var.j(postWriteCallBackData)) {
                 return;
             }
             this.k.v(postWriteCallBackData);
@@ -750,7 +750,7 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         thread2GroupShareView.setData(shareFromPBMsgData);
         ur4Var.setContentViewSize(1);
         ur4Var.setContentView(thread2GroupShareView);
-        ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1125, new h(this, thread2GroupShareView, j, str, str2, str3, shareFromPBMsgData));
+        ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1126, new h(this, thread2GroupShareView, j, str, str2, str3, shareFromPBMsgData));
         ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new i(this, thread2GroupShareView));
         ur4Var.setCanceledOnTouchOutside(true);
         ur4Var.create(getPageContext()).show();
@@ -775,74 +775,74 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            this.k = new g68(this, this.g, getUniqueId(), this.a, this.b, this.f, this.c);
+            this.k = new f68(this, this.g, getUniqueId(), this.a, this.b, this.f, this.c);
             this.h = new ShareSuccessReplyToServerModel();
-            a58.d().k(System.currentTimeMillis() - a58.d().a());
+            z48.d().k(System.currentTimeMillis() - z48.d().a());
         }
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onActivityResult(int i2, int i3, Intent intent) {
-        g68 g68Var;
-        g68 g68Var2;
+        f68 f68Var;
+        f68 f68Var2;
         String str;
         ShareSuccessReplyToServerModel shareSuccessReplyToServerModel;
-        g68 g68Var3;
+        f68 f68Var3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048586, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
             if (i3 == -1) {
                 if (i2 == 101) {
-                    if (this.k.m() instanceof um7) {
-                        ((um7) this.k.m()).resetData();
-                        ((um7) this.k.m()).a();
+                    if (this.k.m() instanceof tm7) {
+                        ((tm7) this.k.m()).resetData();
+                        ((tm7) this.k.m()).a();
                     }
                 } else if (i2 == 12002) {
-                    if (intent == null || (g68Var = this.k) == null) {
+                    if (intent == null || (f68Var = this.k) == null) {
                         return;
                     }
-                    g68Var.m().c().L().A(intent);
+                    f68Var.m().c().L().A(intent);
                 } else if (i2 == 12014) {
                     if (intent == null) {
                         return;
                     }
                     int intExtra = intent.getIntExtra("upload_image_type", 0);
                     if (intExtra != 1) {
-                        if (intExtra != 2 || (g68Var2 = this.k) == null) {
+                        if (intExtra != 2 || (f68Var2 = this.k) == null) {
                             return;
                         }
-                        g68Var2.i();
+                        f68Var2.i();
                         return;
                     }
-                    g68 g68Var4 = this.k;
-                    if (g68Var4 != null) {
-                        g68Var4.m().c().L().q();
+                    f68 f68Var4 = this.k;
+                    if (f68Var4 != null) {
+                        f68Var4.m().c().L().q();
                         this.k.b();
                     }
                 } else if (i2 == 13003) {
                     A1(intent);
                 } else if (i2 == 13011) {
-                    cb8.g().m(getPageContext());
+                    bb8.g().m(getPageContext());
                 } else if (i2 == 23007) {
                     C1(intent);
                 } else if (i2 == 24001) {
-                    if (intent != null && (this.k.m() instanceof um7)) {
-                        ((um7) this.k.m()).resetData();
-                        ((um7) this.k.m()).a();
+                    if (intent != null && (this.k.m() instanceof tm7)) {
+                        ((tm7) this.k.m()).resetData();
+                        ((tm7) this.k.m()).a();
                     }
                 } else if (i2 != 24007) {
                     if ((i2 == 12009 || i2 == 12010) && intent != null) {
                         int intExtra2 = intent.getIntExtra("upload_image_type", 0);
                         if (intExtra2 != 1) {
-                            if (intExtra2 != 2 || (g68Var3 = this.k) == null) {
+                            if (intExtra2 != 2 || (f68Var3 = this.k) == null) {
                                 return;
                             }
-                            g68Var3.i();
+                            f68Var3.i();
                             return;
                         }
-                        g68 g68Var5 = this.k;
-                        if (g68Var5 != null) {
-                            g68Var5.m().c().L().q();
+                        f68 f68Var5 = this.k;
+                        if (f68Var5 != null) {
+                            f68Var5.m().c().L().q();
                             this.k.b();
                         }
                     }
@@ -850,7 +850,7 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                     int intExtra3 = intent.getIntExtra("extra_share_status", 2);
                     int intExtra4 = intent.getIntExtra("extra_show_channel", 1);
                     if (intExtra3 == 1) {
-                        cb8.g().m(getPageContext());
+                        bb8.g().m(getPageContext());
                         ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
                         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
                         statisticItem.param("obj_locate", 8);
@@ -887,9 +887,9 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
             super.onChangeSkinType(i2);
-            g68 g68Var = this.k;
-            if (g68Var != null) {
-                g68Var.r(i2);
+            f68 f68Var = this.k;
+            if (f68Var != null) {
+                f68Var.r(i2);
             }
         }
     }
@@ -899,8 +899,8 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            a58.d().i();
-            a58.d().j(currentTimeMillis);
+            z48.d().i();
+            z48.d().j(currentTimeMillis);
             super.onCreate(bundle);
             VoiceManager t0 = t0();
             this.e = t0;
@@ -938,9 +938,9 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                 voiceManager.onDestory(getPageContext());
             }
             this.e = null;
-            g68 g68Var = this.k;
-            if (g68Var != null) {
-                g68Var.s();
+            f68 f68Var = this.k;
+            if (f68Var != null) {
+                f68Var.s();
             }
             BdAsyncTask.removeAllTask(SetPrivacyModel.UNIQUE_ID_SET_PRIVACY_TASK);
             BdAsyncTask.removeAllTask(ForumManageModel.UNIQUE_ID_DEL_POST_TASK);

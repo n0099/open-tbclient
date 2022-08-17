@@ -194,7 +194,7 @@ public class xo5 implements bl2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, str, w71Var) == null) {
             if (!da5.c().d()) {
-                qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0eb0);
+                qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0eb1);
                 return;
             }
             z03 M = z03.M();

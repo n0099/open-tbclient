@@ -447,10 +447,10 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
             });
             if (this.mIsDarkMode) {
                 Resources resources = getContext().getResources();
-                findViewById(R.id.obfuscated_res_0x7f091cab).setBackgroundResource(R.drawable.obfuscated_res_0x7f081027);
+                findViewById(R.id.obfuscated_res_0x7f091cab).setBackgroundResource(R.drawable.obfuscated_res_0x7f081028);
                 ((TextView) findViewById(R.id.obfuscated_res_0x7f091cad)).setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609e2));
                 findViewById(R.id.obfuscated_res_0x7f091cae).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0609e0));
-                this.mTabLayout.setIndicatorColor(R.drawable.obfuscated_res_0x7f08101f);
+                this.mTabLayout.setIndicatorColor(R.drawable.obfuscated_res_0x7f081020);
             }
         }
     }

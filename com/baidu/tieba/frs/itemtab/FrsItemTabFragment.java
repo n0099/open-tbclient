@@ -28,8 +28,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ag6;
 import com.repackage.c65;
 import com.repackage.cg6;
+import com.repackage.cj8;
 import com.repackage.df6;
-import com.repackage.dj8;
 import com.repackage.og;
 import com.repackage.oi;
 import com.repackage.qi;
@@ -223,7 +223,7 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
                 }
             }
             if (!this.j.a()) {
-                showNetRefreshView(this.g, errorData != null ? getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c3b, errorData.error_msg, Integer.valueOf(errorData.error_code)) : null, true);
+                showNetRefreshView(this.g, errorData != null ? getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c3c, errorData.error_msg, Integer.valueOf(errorData.error_code)) : null, true);
             }
             x1(false);
         }
@@ -306,7 +306,7 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
             VoiceManager t0 = t0();
             this.m = t0;
             t0.onCreate(getPageContext());
-            dj8.g().i(getUniqueId());
+            cj8.g().i(getUniqueId());
             this.j = new um6(this, this.c);
             if (this.n != -1) {
                 yv4 yv4Var = new yv4(5);
@@ -343,7 +343,7 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            dj8.g().k(getUniqueId());
+            cj8.g().k(getUniqueId());
             uz5.b().e(false);
             super.onDestroy();
             tm6 tm6Var = this.i;
@@ -461,7 +461,7 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onStop();
-            dj8.g().h(getUniqueId(), false);
+            cj8.g().h(getUniqueId(), false);
             VoiceManager voiceManager = this.m;
             if (voiceManager != null) {
                 voiceManager.onStop(getPageContext());
@@ -521,7 +521,7 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
             x1(false);
             this.i.m(vm6Var);
         }
-        dj8.g().h(getUniqueId(), false);
+        cj8.g().h(getUniqueId(), false);
     }
 
     public final void v1() {

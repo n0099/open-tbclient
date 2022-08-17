@@ -1146,7 +1146,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             if (getActivity().checkSelfPermission(PermissionRequest.RESOURCE_AUDIO_CAPTURE) == 0 && getActivity().checkSelfPermission(PermissionRequest.RESOURCE_VIDEO_CAPTURE) == 0) {
                 return;
             }
-            xz0.a().a(getActivity(), R.string.obfuscated_res_0x7f0f08f4);
+            xz0.a().a(getActivity(), R.string.obfuscated_res_0x7f0f08f5);
         }
     }
 

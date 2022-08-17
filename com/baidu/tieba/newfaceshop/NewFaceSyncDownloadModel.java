@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jp7;
+import com.repackage.ip7;
 /* loaded from: classes3.dex */
 public class NewFaceSyncDownloadModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -52,15 +52,15 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003351 && (httpResponsedMessage instanceof GetCloudFaceGroupMessage)) {
-                jp7 jp7Var = null;
+                ip7 ip7Var = null;
                 if (httpResponsedMessage.getOrginalMessage() != null) {
                     Object extra = httpResponsedMessage.getOrginalMessage().getExtra();
-                    if (extra instanceof jp7) {
-                        jp7Var = (jp7) extra;
+                    if (extra instanceof ip7) {
+                        ip7Var = (ip7) extra;
                     }
                 }
-                if (jp7Var != null) {
-                    jp7Var.a((GetCloudFaceGroupMessage) httpResponsedMessage);
+                if (ip7Var != null) {
+                    ip7Var.a((GetCloudFaceGroupMessage) httpResponsedMessage);
                 }
             }
         }
@@ -117,11 +117,11 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         }
     }
 
-    public void z(jp7 jp7Var) {
+    public void z(ip7 ip7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jp7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, ip7Var) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
-            httpMessage.setExtra(jp7Var);
+            httpMessage.setExtra(ip7Var);
             sendMessage(httpMessage);
         }
     }

@@ -19,10 +19,10 @@ public interface c extends IInterface {
 
         /* renamed from: com.ss.android.downloadlib.a.b.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0650a implements c {
+        public static class C0653a implements c {
             public IBinder a;
 
-            public C0650a(IBinder iBinder) {
+            public C0653a(IBinder iBinder) {
                 if (TextUtils.isEmpty(a.a)) {
                     JSONObject i = j.i();
                     String unused = a.a = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("r"), i.optString("s"));
@@ -81,7 +81,7 @@ public interface c extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof c)) {
                 return (c) queryLocalInterface;
             }
-            return new C0650a(iBinder);
+            return new C0653a(iBinder);
         }
     }
 

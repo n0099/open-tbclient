@@ -159,12 +159,12 @@ public class fg6 {
         }
     }
 
-    public fg6(Context context, af6 af6Var, tr6 tr6Var) {
+    public fg6(Context context, af6 af6Var, sr6 sr6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, af6Var, tr6Var};
+            Object[] objArr = {context, af6Var, sr6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {

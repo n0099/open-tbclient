@@ -1,5 +1,6 @@
 package com.facebook.common.time;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.DoNotStrip;
 @DoNotStrip
 /* loaded from: classes4.dex */
-public class AwakeTimeSinceBootClock implements MonotonicClock {
+public class AwakeTimeSinceBootClock implements MonotonicClock, MonotonicNanoClock {
     public static /* synthetic */ Interceptable $ic;
     @DoNotStrip
     public static final AwakeTimeSinceBootClock INSTANCE;
@@ -59,5 +60,13 @@ public class AwakeTimeSinceBootClock implements MonotonicClock {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? android.os.SystemClock.uptimeMillis() : invokeV.longValue;
+    }
+
+    @Override // com.facebook.common.time.MonotonicNanoClock
+    @DoNotStrip
+    public long nowNanos() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? System.nanoTime() : invokeV.longValue;
     }
 }

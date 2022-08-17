@@ -43,8 +43,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c78;
-import com.repackage.g68;
+import com.repackage.b78;
+import com.repackage.f68;
 import com.repackage.i96;
 import com.repackage.jm4;
 import com.repackage.og;
@@ -57,19 +57,19 @@ import java.util.Map;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes4.dex */
-public class PersonPolymericEventController extends c78 {
+public class PersonPolymericEventController extends b78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g68 e;
+    public f68 e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonPolymericEventController(TbPageContext tbPageContext, g68 g68Var) {
+    public PersonPolymericEventController(TbPageContext tbPageContext, f68 f68Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, g68Var};
+            Object[] objArr = {tbPageContext, f68Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,10 +80,10 @@ public class PersonPolymericEventController extends c78 {
                 return;
             }
         }
-        this.e = g68Var;
+        this.e = f68Var;
     }
 
-    @Override // com.repackage.c78, com.repackage.ow8
+    @Override // com.repackage.b78, com.repackage.ow8
     public void a(View view2, i96 i96Var) {
         String str;
         int i;
@@ -135,8 +135,8 @@ public class PersonPolymericEventController extends c78 {
                     this.a.getPageActivity().finish();
                     return;
                 case 9:
-                    g68 g68Var = this.e;
-                    if (g68Var == null || g68Var.l() == null) {
+                    f68 f68Var = this.e;
+                    if (f68Var == null || f68Var.l() == null) {
                         return;
                     }
                     TiebaStatic.log("c12207");

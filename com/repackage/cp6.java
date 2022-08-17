@@ -25,10 +25,10 @@ public class cp6 {
         }
     }
 
-    public static void b(Context context, ik8 ik8Var) {
+    public static void b(Context context, hk8 hk8Var) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, ik8Var) == null) || ik8Var == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, hk8Var) == null) || hk8Var == null) {
             return;
         }
         TbPageContext<BaseFragmentActivity> tbPageContext = null;
@@ -40,67 +40,67 @@ public class cp6 {
         if (tbPageContext == null) {
             return;
         }
-        jk8 jk8Var = ik8Var.f;
-        if (jk8Var != null) {
-            ho5.b(jk8Var.b, jk8Var.c, "1191003700000000", jk8Var.d);
+        ik8 ik8Var = hk8Var.f;
+        if (ik8Var != null) {
+            ho5.b(ik8Var.b, ik8Var.c, "1191003700000000", ik8Var.d);
         } else {
-            if (YYLiveUtil.isYYLiveLink(ik8Var.d)) {
-                str = ik8Var.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
+            if (YYLiveUtil.isYYLiveLink(hk8Var.d)) {
+                str = hk8Var.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
             } else {
-                str = ik8Var.d;
+                str = hk8Var.d;
             }
             UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
         }
-        cr6.a(tbPageContext, ik8Var.e);
+        br6.a(tbPageContext, hk8Var.e);
     }
 
-    public static void c(ik8 ik8Var) {
+    public static void c(hk8 hk8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, ik8Var) == null) || ik8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, hk8Var) == null) || hk8Var == null) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c13626");
-        statisticItem.param("fid", ik8Var.g);
-        statisticItem.param("obj_type", ik8Var.f == null ? 1 : 2);
-        statisticItem.param("obj_locate", ik8Var.h);
+        statisticItem.param("fid", hk8Var.g);
+        statisticItem.param("obj_type", hk8Var.f == null ? 1 : 2);
+        statisticItem.param("obj_locate", hk8Var.h);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        jk8 jk8Var = ik8Var.f;
-        String str = jk8Var != null ? jk8Var.c : ik8Var.d;
-        jk8 jk8Var2 = ik8Var.f;
-        if (jk8Var2 != null) {
-            String str2 = jk8Var2.a;
+        ik8 ik8Var = hk8Var.f;
+        String str = ik8Var != null ? ik8Var.c : hk8Var.d;
+        ik8 ik8Var2 = hk8Var.f;
+        if (ik8Var2 != null) {
+            String str2 = ik8Var2.a;
         } else {
-            String str3 = ik8Var.c;
+            String str3 = hk8Var.c;
         }
-        statisticItem.param("obj_name", ik8Var.c);
-        statisticItem.param("obj_param1", ik8Var.d);
+        statisticItem.param("obj_name", hk8Var.c);
+        statisticItem.param("obj_param1", hk8Var.d);
         a(statisticItem, str);
         TiebaStatic.log(statisticItem);
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(ik8Var.i, 1));
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(hk8Var.i, 1));
     }
 
-    public static void d(ik8 ik8Var) {
+    public static void d(hk8 hk8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, ik8Var) == null) || ik8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, hk8Var) == null) || hk8Var == null) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c13627");
-        statisticItem.param("fid", ik8Var.g);
-        statisticItem.param("obj_type", ik8Var.f == null ? 1 : 2);
-        statisticItem.param("obj_locate", ik8Var.h);
+        statisticItem.param("fid", hk8Var.g);
+        statisticItem.param("obj_type", hk8Var.f == null ? 1 : 2);
+        statisticItem.param("obj_locate", hk8Var.h);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        jk8 jk8Var = ik8Var.f;
-        String str = jk8Var != null ? jk8Var.c : ik8Var.d;
-        jk8 jk8Var2 = ik8Var.f;
-        if (jk8Var2 != null) {
-            String str2 = jk8Var2.a;
+        ik8 ik8Var = hk8Var.f;
+        String str = ik8Var != null ? ik8Var.c : hk8Var.d;
+        ik8 ik8Var2 = hk8Var.f;
+        if (ik8Var2 != null) {
+            String str2 = ik8Var2.a;
         } else {
-            String str3 = ik8Var.c;
+            String str3 = hk8Var.c;
         }
-        statisticItem.param("obj_name", ik8Var.c);
-        statisticItem.param("obj_param1", ik8Var.d);
+        statisticItem.param("obj_name", hk8Var.c);
+        statisticItem.param("obj_param1", hk8Var.d);
         a(statisticItem, str);
         TiebaStatic.log(statisticItem);
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(ik8Var.i, 0));
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(hk8Var.i, 0));
     }
 }

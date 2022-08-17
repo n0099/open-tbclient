@@ -322,7 +322,7 @@ public class ProgressCircle extends View {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04033a, R.attr.obfuscated_res_0x7f04033b, R.attr.obfuscated_res_0x7f04033c, R.attr.obfuscated_res_0x7f04033d, R.attr.obfuscated_res_0x7f040567, R.attr.obfuscated_res_0x7f040568, R.attr.obfuscated_res_0x7f04056c}, 0, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04033b, R.attr.obfuscated_res_0x7f04033c, R.attr.obfuscated_res_0x7f04033d, R.attr.obfuscated_res_0x7f04033e, R.attr.obfuscated_res_0x7f040568, R.attr.obfuscated_res_0x7f040569, R.attr.obfuscated_res_0x7f04056d}, 0, 0);
         try {
             this.a = obtainStyledAttributes.getBoolean(0, false);
             this.b = obtainStyledAttributes.getDimensionPixelSize(6, 5);

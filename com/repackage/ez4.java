@@ -410,7 +410,7 @@ public class ez4 {
                 this.F = ry4Var;
                 ry4Var.a(optJSONObject3);
             }
-            a87.f(jSONObject.optInt("android_max_stranger"));
+            y77.f(jSONObject.optInt("android_max_stranger"));
             TiebaPlusConfigData tiebaPlusConfigData = new TiebaPlusConfigData();
             tiebaPlusConfigData.setSwitchOpen(jSONObject.optInt("switch_open") == 1);
             tiebaPlusConfigData.setJumpUrl(jSONObject.optString("tiebaplus_jumpurl"));

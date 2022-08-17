@@ -17,6 +17,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.text.TextUtils;
 import com.baidu.android.util.io.ActionJsonData;
+import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
@@ -44,7 +45,7 @@ public abstract class a implements c {
             DebugLogger.e("AbstractPushNotification", "support notification channel on non meizu device");
             NotificationChannel notificationChannel = new NotificationChannel("mz_push_notification_channel", "MEIZUPUSH", 3);
             notificationChannel.enableLights(true);
-            notificationChannel.setLightColor(-16711936);
+            notificationChannel.setLightColor(DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK);
             notificationChannel.setShowBadge(true);
             this.d.createNotificationChannel(notificationChannel);
             builder.setChannelId("mz_push_notification_channel");

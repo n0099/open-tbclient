@@ -57,7 +57,7 @@ import com.repackage.ms4;
 import com.repackage.pi;
 import com.repackage.qi;
 import com.repackage.ru4;
-import com.repackage.t18;
+import com.repackage.s18;
 import com.repackage.yr8;
 import com.repackage.z05;
 import java.util.ArrayList;
@@ -77,7 +77,7 @@ public class FallingView extends FrameLayout {
     public View c;
     public View d;
     public TextView e;
-    public final List<t18> f;
+    public final List<s18> f;
     public final Context g;
     public int h;
     public int i;
@@ -591,7 +591,7 @@ public class FallingView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view2 = this.s) == null) {
             return;
         }
-        view2.setOnClickListener(new View.OnClickListener() { // from class: com.repackage.q18
+        view2.setOnClickListener(new View.OnClickListener() { // from class: com.repackage.p18
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -672,15 +672,15 @@ public class FallingView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048580, this, tbPageContext, z05Var, bitmap, i2) == null) {
             final Random random = new Random();
-            t18.b bVar = new t18.b(bitmap);
+            s18.b bVar = new s18.b(bitmap);
             bVar.p(qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds8), true);
             bVar.o(qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds200), qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds200), true);
             bVar.m(qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds100), qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds100));
-            bVar.n(new t18.c() { // from class: com.repackage.p18
+            bVar.n(new s18.c() { // from class: com.repackage.o18
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.repackage.t18.c
+                @Override // com.repackage.s18.c
                 public final float a() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -688,7 +688,7 @@ public class FallingView extends FrameLayout {
                 }
             });
             bVar.q(qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds40), true, true);
-            t18 l2 = bVar.l();
+            s18 l2 = bVar.l();
             this.A = i2;
             m(l2, 19);
             postDelayed(this.y, 1500L);
@@ -777,9 +777,9 @@ public class FallingView extends FrameLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.s : (View) invokeV.objValue;
     }
 
-    public final void m(t18 t18Var, int i2) {
+    public final void m(s18 s18Var, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, t18Var, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048585, this, s18Var, i2) == null) {
             if (this.h == 0) {
                 this.h = qi.k(this.g);
             }
@@ -788,9 +788,9 @@ public class FallingView extends FrameLayout {
             }
             this.f.clear();
             for (int i3 = 0; i3 < i2; i3++) {
-                t18 t18Var2 = new t18(t18Var.i, this.h, this.i);
-                t18Var2.e = (-i3) * 180;
-                this.f.add(t18Var2);
+                s18 s18Var2 = new s18(s18Var.i, this.h, this.i);
+                s18Var2.e = (-i3) * 180;
+                this.f.add(s18Var2);
             }
         }
     }
@@ -1023,7 +1023,7 @@ public class FallingView extends FrameLayout {
             ofFloat.setRepeatMode(2);
             ofFloat.setRepeatCount(-1);
             ofFloat.setInterpolator(new AccelerateInterpolator());
-            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.repackage.r18
+            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.repackage.q18
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1041,7 +1041,7 @@ public class FallingView extends FrameLayout {
             float f2 = i3;
             ValueAnimator ofObject = ValueAnimator.ofObject(new k(new PointF(qi.f(this.g, R.dimen.tbds50), qi.f(this.g, R.dimen.tbds400)), new PointF((k2 / 2.0f) - qi.f(this.g, R.dimen.tbds50), f2 - qi.f(this.g, R.dimen.tbds655))), pointF, new PointF(qi.f(this.g, R.dimen.tbds0), f2 - qi.f(this.g, R.dimen.tbds552)));
             ofObject.setDuration(5000L);
-            ofObject.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.repackage.s18
+            ofObject.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.repackage.r18
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1060,7 +1060,7 @@ public class FallingView extends FrameLayout {
             ValueAnimator ofFloat2 = ValueAnimator.ofFloat(1.0f, 0.8f);
             ofFloat2.setDuration(600L);
             ofFloat2.setInterpolator(new AccelerateInterpolator());
-            ofFloat2.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.repackage.o18
+            ofFloat2.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.repackage.n18
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

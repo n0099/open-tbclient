@@ -3,24 +3,24 @@ package com.repackage;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
-import com.baidu.tieba.im.message.OfficialFeedHeadResponsedMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.chat.officialBar.RequestLocalHistoryMessage;
+import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
+import com.baidu.tieba.im.chat.officialBar.ResponseLocalHistoryMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.squareup.wire.Wire;
+import java.util.Date;
 import java.util.LinkedList;
-import java.util.List;
+import protobuf.QueryHistoryMsg.MsgInfo;
+import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
 /* loaded from: classes6.dex */
-public class ga7 implements CustomMessageTask.CustomRunnable<OfficialFeedHeadResponsedMessage.a> {
+public class ga7 implements CustomMessageTask.CustomRunnable<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public x77 b;
 
     public ga7() {
         Interceptable interceptable = $ic;
@@ -32,54 +32,45 @@ public class ga7 implements CustomMessageTask.CustomRunnable<OfficialFeedHeadRes
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 2001154;
-        this.b = x77.w();
-    }
-
-    public final LoadHistoryResponsedMessage a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
-            loadHistoryResponsedMessage.setError(-18);
-            return loadHistoryResponsedMessage;
-        }
-        return (LoadHistoryResponsedMessage) invokeI.objValue;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
-            if (this.b == null) {
-                return a(this.a);
-            }
-            List<c87> x = x77.x();
-            if (x != null && x.size() > 0) {
-                HashMap hashMap = new HashMap(x.size());
-                for (c87 c87Var : x) {
-                    hashMap.put(c87Var.b(), c87Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof RequestLocalHistoryMessage)) {
+                tr4.f();
+                ue<byte[]> d = tr4.d("tb.im_official_history");
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                byte[] bArr = d.get(currentAccount + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
+                if (bArr == null) {
+                    return null;
                 }
-                LinkedList<ChatMessage> l = this.b.l(hashMap, 80);
-                if (l == null) {
-                    return a(this.a);
-                }
-                OfficialFeedHeadResponsedMessage.a aVar = new OfficialFeedHeadResponsedMessage.a();
-                OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.a);
-                aVar.b = l;
-                aVar.a = x;
+                LinkedList linkedList = new LinkedList();
                 try {
-                    officialFeedHeadResponsedMessage.decodeInBackGround(2001105, aVar);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    QueryHistoryMsgResIdl queryHistoryMsgResIdl = (QueryHistoryMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryHistoryMsgResIdl.class);
+                    if (queryHistoryMsgResIdl.data.res != null) {
+                        for (MsgInfo msgInfo : queryHistoryMsgResIdl.data.res) {
+                            ResponseHistoryMessage.a aVar = new ResponseHistoryMessage.a();
+                            if (msgInfo != null) {
+                                Date date = new Date();
+                                date.setTime(msgInfo.sendTime.longValue() * 1000);
+                                pi.getDateStringMouth(date);
+                                msgInfo.type.intValue();
+                                String str = msgInfo.content;
+                                msgInfo.id.intValue();
+                                linkedList.add(aVar);
+                            }
+                        }
+                    }
+                    return new ResponseLocalHistoryMessage(linkedList);
+                } catch (Exception unused) {
                 }
-                return officialFeedHeadResponsedMessage;
             }
-            return a(this.a);
+            return null;
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

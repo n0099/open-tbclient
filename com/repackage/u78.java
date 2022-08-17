@@ -1,12 +1,12 @@
 package com.repackage;
 
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,12 +17,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class u78 extends bz5<s68> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbImageView i;
-    public View j;
-    public View k;
+    public View i;
+    public ImageView j;
+    public TextView k;
+    public String l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u78(TbPageContext tbPageContext) {
+    public u78(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -39,28 +40,27 @@ public class u78 extends bz5<s68> {
                 return;
             }
         }
-        View h = h();
-        this.j = h;
-        this.i = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f0905cf);
-        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f091541);
+        r(h());
     }
 
     @Override // com.repackage.bz5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a4 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a5 : invokeV.intValue;
     }
 
     @Override // com.repackage.bz5
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.a == i) {
-            return;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.a != i) {
+                SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
+                SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_07);
+                SkinManager.setViewTextColor(this.k, R.color.CAM_X0108, 1);
+            }
+            this.a = i;
         }
-        this.a = i;
-        SkinManager.setImageResource(this.i, R.drawable.icon_mine_more);
-        SkinManager.setBackgroundResource(this.j, R.drawable.btn_look_more_selector);
     }
 
     @Override // android.view.View.OnClickListener
@@ -70,27 +70,45 @@ public class u78 extends bz5<s68> {
         }
     }
 
+    public final void r(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090559);
+            this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090558);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09055a);
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.bz5
-    /* renamed from: r */
+    /* renamed from: s */
     public void i(s68 s68Var) {
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, s68Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, s68Var) == null) {
             if (s68Var == null) {
-                this.j.setVisibility(8);
+                this.i.setVisibility(8);
+                return;
             }
-            ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
-            if (layoutParams != null) {
-                if (layoutParams.width > 0) {
-                    layoutParams.width = s68Var.a;
-                }
-                if (layoutParams.height > 0) {
-                    layoutParams.height = s68Var.b;
-                }
+            if (this.i.getVisibility() != 0) {
+                this.i.setVisibility(0);
             }
-            this.k.setLayoutParams(layoutParams);
-            this.j.setVisibility(0);
-            j(this.b, TbadkCoreApplication.getInst().getSkinType());
+            if (StringUtils.isNull(this.l)) {
+                TextView textView = this.k;
+                String string2 = this.c.getString(R.string.obfuscated_res_0x7f0f0e60);
+                Object[] objArr = new Object[1];
+                if (s68Var.a) {
+                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1603);
+                } else if (s68Var.b == 2) {
+                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1172);
+                } else {
+                    string = this.c.getString(R.string.obfuscated_res_0x7f0f083d);
+                }
+                objArr[0] = string;
+                textView.setText(String.format(string2, objArr));
+                return;
+            }
+            this.k.setText(this.l);
         }
     }
 }

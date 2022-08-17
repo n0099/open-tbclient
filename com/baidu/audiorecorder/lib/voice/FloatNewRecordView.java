@@ -21,9 +21,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dj;
 import com.repackage.qi;
-import com.repackage.w57;
+import com.repackage.v57;
 /* loaded from: classes.dex */
-public class FloatNewRecordView extends RelativeLayout implements w57 {
+public class FloatNewRecordView extends RelativeLayout implements v57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TBLottieAnimationView a;
@@ -151,17 +151,17 @@ public class FloatNewRecordView extends RelativeLayout implements w57 {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || dj.b - i > 10000 || this.f) {
             return;
         }
-        this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af9), Integer.valueOf(((dj.b - i) / 1000) + 1)));
+        this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0afa), Integer.valueOf(((dj.b - i) / 1000) + 1)));
     }
 
-    @Override // com.repackage.w57
+    @Override // com.repackage.v57
     public void closeRecordCancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
-    @Override // com.repackage.w57
+    @Override // com.repackage.v57
     public void closeRecordTooShort() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -176,9 +176,9 @@ public class FloatNewRecordView extends RelativeLayout implements w57 {
         this.a.cancelAnimation();
         this.a.setVisibility(8);
         this.b.setVisibility(0);
-        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0afd));
+        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0afe));
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0310);
-        WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080945, R.color.CAM_X0310, null);
+        WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080946, R.color.CAM_X0310, null);
         this.e.setArcColor(SkinManager.getColor(R.color.CAM_X0310));
         WebPManager.setMaskDrawable(this.d, R.drawable.icon_pic_im_bottom_voicebuton_out, null);
         this.f = true;
@@ -191,9 +191,9 @@ public class FloatNewRecordView extends RelativeLayout implements w57 {
             this.a.cancelAnimation();
             this.a.setVisibility(8);
             this.b.setVisibility(0);
-            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0afe));
+            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0aff));
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0319);
-            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080946, R.color.CAM_X0319, null);
+            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080947, R.color.CAM_X0319, null);
             this.g = false;
         }
     }
@@ -205,7 +205,7 @@ public class FloatNewRecordView extends RelativeLayout implements w57 {
         }
         this.a.setVisibility(0);
         this.b.setVisibility(8);
-        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af5));
+        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af6));
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
         this.a.playAnimation();
         this.e.setArcColor(SkinManager.getColor(R.color.CAM_X0302));
@@ -214,7 +214,7 @@ public class FloatNewRecordView extends RelativeLayout implements w57 {
         this.g = true;
     }
 
-    @Override // com.repackage.w57
+    @Override // com.repackage.v57
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {

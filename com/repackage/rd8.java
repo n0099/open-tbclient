@@ -1,11 +1,13 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.db.TableDefine;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tieba.recapp.widget.CountDownTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,16 +17,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class rd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final Context b;
-    public final ViewGroup c;
+    public final String a;
+    public final View b;
+    public AdvertAppInfo c;
+    public ue7 d;
+    public TbPageContext e;
+    public AdCard f;
+    public View.OnClickListener g;
 
-    public rd8(Context context, ViewGroup viewGroup) {
+    public rd8(View view2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, viewGroup};
+            Object[] objArr = {view2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,56 +40,81 @@ public class rd8 {
                 return;
             }
         }
-        this.a = 0;
-        this.b = context;
-        this.c = viewGroup;
+        this.b = view2;
+        this.a = str;
     }
 
-    public final boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    public final <T> T a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if ("apk_download".equals(str)) {
-                return "apk_download".equals(str2);
-            }
-            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str)) {
-                return TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str2);
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (T) this.b.findViewById(i) : (T) invokeI.objValue;
     }
 
-    public sd8 b(cd8 cd8Var, sd8 sd8Var) {
-        InterceptResult invokeLL;
-        String str;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cd8Var, sd8Var)) == null) {
-            if (cd8Var == null || (str = cd8Var.a) == null) {
-                return sd8Var;
-            }
-            if (sd8Var == null || !a(str, sd8Var.a)) {
-                ViewGroup viewGroup = this.c;
-                if (viewGroup == null) {
-                    return null;
-                }
-                viewGroup.removeAllViews();
-                if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(cd8Var.a)) {
-                    if (this.a == 2) {
-                        return new qd8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d08af, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-                    }
-                    return new od8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d083e, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-                } else if ("apk_download".equals(cd8Var.a)) {
-                    if (this.a == 2) {
-                        return new pd8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d08ae, this.c, true), "apk_download");
-                    }
-                    return new nd8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d083d, this.c, true), "apk_download");
-                } else {
-                    return null;
-                }
-            }
-            return sd8Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
-        return (sd8) invokeLL.objValue;
+    }
+
+    public void c(bd8 bd8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bd8Var) == null) {
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b.setVisibility(0);
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.v(this.c.j).q(String.valueOf(this.c.position + 1)).p(this.c.g).z(String.valueOf(303));
+            hy0.b(clogBuilder);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.setVisibility(8);
+        }
+    }
+
+    public void f(AdvertAppInfo advertAppInfo) {
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, advertAppInfo) == null) {
+            this.c = advertAppInfo;
+            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.h) == null || !(iLegoAdvert instanceof AdCard)) {
+                return;
+            }
+            this.f = (AdCard) iLegoAdvert;
+        }
+    }
+
+    public void g(ue7 ue7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, ue7Var) == null) {
+            this.d = ue7Var;
+        }
+    }
+
+    public void h(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, tbPageContext) == null) {
+            this.e = tbPageContext;
+        }
+    }
+
+    public void i(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
+            this.g = onClickListener;
+        }
+    }
+
+    public void j(CountDownTextView.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
+        }
     }
 }

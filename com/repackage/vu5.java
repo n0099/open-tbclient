@@ -375,7 +375,7 @@ public class vu5 {
         if (pbListView.b().getParent() == null) {
             this.j.setNextPage(this.s);
         }
-        this.s.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a39));
+        this.s.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a3a));
         this.s.f();
     }
 
@@ -502,7 +502,7 @@ public class vu5 {
                 this.k.setWidth(-2);
                 this.k.setHeight(-2);
                 this.k.setAnimationStyle(16973826);
-                this.k.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f96));
+                this.k.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f97));
                 this.k.setOutsideTouchable(true);
                 this.k.setFocusable(true);
                 this.k.setTouchable(true);

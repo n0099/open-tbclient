@@ -192,7 +192,7 @@ public final class f extends b {
                 });
                 fVar.a(this.mAdTemplate, this.mAdInfo);
                 fVar.t(true);
-                this.gh.gs.add(new c.InterfaceC0316c(this, fVar) { // from class: com.kwad.components.ad.interstitial.b.f.6
+                this.gh.gs.add(new c.InterfaceC0318c(this, fVar) { // from class: com.kwad.components.ad.interstitial.b.f.6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ f hp;
@@ -217,7 +217,7 @@ public final class f extends b {
                         this.hr = fVar;
                     }
 
-                    @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0316c
+                    @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0318c
                     public final void cH() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {

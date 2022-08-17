@@ -24,15 +24,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oy4;
 import com.repackage.pi;
-import com.repackage.ql8;
+import com.repackage.pl8;
+import com.repackage.sl8;
 import com.repackage.tg;
-import com.repackage.tl8;
-import com.repackage.xl8;
+import com.repackage.wl8;
 /* loaded from: classes3.dex */
 public class TbWebChromeClient extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ql8 callback;
+    public pl8 callback;
     public TbWebViewActivity mActivity;
 
     public TbWebChromeClient(TbWebViewActivity tbWebViewActivity) {
@@ -131,16 +131,16 @@ public class TbWebChromeClient extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
-        ql8 ql8Var;
+        pl8 pl8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
             if (!oy4.a(str) && str2.startsWith("tiebaapp")) {
-                tl8 tl8Var = new tl8();
-                tl8Var.v(xl8.b(str2));
-                tl8Var.x(301);
-                callJsMethod(webView, tl8Var.c(), tl8Var.d());
+                sl8 sl8Var = new sl8();
+                sl8Var.v(wl8.b(str2));
+                sl8Var.x(301);
+                callJsMethod(webView, sl8Var.c(), sl8Var.d());
             }
-            if (oy4.a(str) && (ql8Var = this.callback) != null && ql8Var.onJsPrompt(str2, jsPromptResult)) {
+            if (oy4.a(str) && (pl8Var = this.callback) != null && pl8Var.onJsPrompt(str2, jsPromptResult)) {
                 return true;
             }
             jsPromptResult.cancel();
@@ -193,10 +193,10 @@ public class TbWebChromeClient extends WebChromeClient {
         }
     }
 
-    public void setOnJsPromptCallback(ql8 ql8Var) {
+    public void setOnJsPromptCallback(pl8 pl8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, ql8Var) == null) {
-            this.callback = ql8Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, pl8Var) == null) {
+            this.callback = pl8Var;
         }
     }
 

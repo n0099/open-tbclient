@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sl7;
+import com.repackage.rl7;
 /* loaded from: classes3.dex */
-public class SetTailHttpResponseMessage extends HttpResponsedMessage implements IDataResponseMessage<sl7> {
+public class SetTailHttpResponseMessage extends HttpResponsedMessage implements IDataResponseMessage<rl7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sl7 resultData;
+    public rl7 resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SetTailHttpResponseMessage() {
@@ -46,9 +46,9 @@ public class SetTailHttpResponseMessage extends HttpResponsedMessage implements 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.core.util.IDataResponseMessage
-    public sl7 getResultData() {
+    public rl7 getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resultData : (sl7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resultData : (rl7) invokeV.objValue;
     }
 }

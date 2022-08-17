@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.SevenZipUtils;
 import com.repackage.tr4;
 import com.repackage.ue;
-import com.repackage.xk7;
+import com.repackage.wk7;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetVipInfo.DataRes;
@@ -21,7 +21,7 @@ import tbclient.GetVipInfo.GetVipInfoResIdl;
 public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xk7 mMembercenter;
+    public wk7 mMembercenter;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MembercenterSocketResponseMessage() {
@@ -58,7 +58,7 @@ public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
             }
             DataRes dataRes = getVipInfoResIdl.data;
             if (dataRes != null) {
-                this.mMembercenter = new xk7(dataRes);
+                this.mMembercenter = new wk7(dataRes);
             }
             if (getError() == 0) {
                 String currentAccount = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAccount() : SevenZipUtils.FILE_NAME_TEMP;
@@ -73,9 +73,9 @@ public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public xk7 getMembercenterData() {
+    public wk7 getMembercenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMembercenter : (xk7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMembercenter : (wk7) invokeV.objValue;
     }
 }

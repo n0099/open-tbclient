@@ -59,7 +59,7 @@ public class BdBaseViewPagerContainer extends RelativeLayout {
         SkinManager.setBackgroundColor(bdBaseViewPagerContainerHolder.e, R.color.CAM_X0204);
         SkinManager.setViewTextColor(bdBaseViewPagerContainerHolder.c, R.color.CAM_X0109, 1);
         SkinManager.setBackgroundColor(bdBaseViewPagerContainerHolder.c, R.color.CAM_X0201);
-        bdBaseViewPagerContainerHolder.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9f));
+        bdBaseViewPagerContainerHolder.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa0));
         bdBaseViewPagerContainerHolder.d.setSelector(SkinManager.getDrawable(R.drawable.icon_choose_dot_s));
         bdBaseViewPagerContainerHolder.d.setDrawable(SkinManager.getDrawable(R.drawable.icon_choose_dot_n));
     }

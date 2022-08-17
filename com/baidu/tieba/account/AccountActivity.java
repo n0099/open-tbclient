@@ -204,7 +204,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 String[] strArr = {this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f04ad), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f04ac), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0370)};
                 wr4 wr4Var = new wr4(this.a.getPageContext().getPageActivity());
-                wr4Var.k(R.string.obfuscated_res_0x7f0f08f0);
+                wr4Var.k(R.string.obfuscated_res_0x7f0f08f1);
                 wr4Var.j(strArr, new a(this, view2));
                 wr4Var.c(this.a.getPageContext());
                 wr4Var.m();
@@ -326,7 +326,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f006d, TBAlertConfig.OperateBtnStyle.MAIN);
                     TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.a.getActivity());
                     tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f006e);
-                    tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f1430);
+                    tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f1432);
                     tBAlertBuilder.r(aVar);
                     tBAlertBuilder.h(false);
                     aVar.a(new a(this, tBAlertBuilder.w()));
@@ -628,7 +628,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                 int i = this.b;
                 if (i == 0) {
                     AccountActivity accountActivity = this.d;
-                    accountActivity.showToast(accountActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f121a));
+                    accountActivity.showToast(accountActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f121c));
                     this.d.a.remove(this.a);
                     this.a = null;
                     this.d.b.notifyDataSetChanged();

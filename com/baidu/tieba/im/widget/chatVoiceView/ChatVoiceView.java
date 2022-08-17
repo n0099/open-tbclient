@@ -34,16 +34,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.repackage.cf5;
-import com.repackage.f97;
+import com.repackage.e97;
 import com.repackage.g75;
 import com.repackage.gf5;
 import com.repackage.je5;
 import com.repackage.ms4;
-import com.repackage.o77;
+import com.repackage.n77;
 import com.repackage.qi;
-import com.repackage.ua7;
+import com.repackage.ta7;
+import com.repackage.w77;
 import com.repackage.x77;
-import com.repackage.z77;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.OnClickListener {
@@ -91,7 +91,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(o77.h().l(this.a.getGroupId(), this.b, false)) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(n77.h().l(this.a.getGroupId(), this.b, false)) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -164,7 +164,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(z77.w().n(ua7.p(this.a), this.b, false)) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(x77.w().n(ta7.p(this.a), this.b, false)) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -237,7 +237,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(z77.w().n(ua7.p(this.a), this.b, false)) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(x77.w().n(ta7.p(this.a), this.b, false)) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -310,7 +310,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(x77.w().n(ua7.p(this.a), this.b, false)) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(w77.w().n(ta7.p(this.a), this.b, false)) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -492,7 +492,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
                 }
                 this.d.setVisibility(4);
                 k();
-                VoiceMsgData q = ua7.q(this.f);
+                VoiceMsgData q = ta7.q(this.f);
                 if (q == null || q.getHas_read() == 1) {
                     return;
                 }
@@ -504,7 +504,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
                     CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) chatMessage;
                     LinkedList linkedList = new LinkedList();
                     linkedList.add(new CommonMsgPojo(commonGroupChatMessage));
-                    if (!commonGroupChatMessage.getGroupId().equals(String.valueOf(f97.j))) {
+                    if (!commonGroupChatMessage.getGroupId().equals(String.valueOf(e97.j))) {
                         gf5.c(new a(this, commonGroupChatMessage, linkedList), new b(this));
                         return;
                     } else {
@@ -571,7 +571,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, chatMessage) == null) {
             boolean z = true;
-            if (ua7.v(chatMessage) || ((q = ua7.q(chatMessage)) != null && q.getHas_read() == 1)) {
+            if (ta7.v(chatMessage) || ((q = ta7.q(chatMessage)) != null && q.getHas_read() == 1)) {
                 z = false;
             }
             if (z) {
@@ -627,7 +627,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
     public void onShowErr(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048593, this, i, str) == null) {
-            qi.L(getContext(), str);
+            qi.K(getContext(), str);
         }
     }
 
@@ -677,7 +677,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         this.b = null;
         this.c = null;
         this.d = null;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040355}, 0, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040356}, 0, 0);
         if (obtainStyledAttributes != null) {
             z = obtainStyledAttributes.getBoolean(0, true);
             obtainStyledAttributes.recycle();

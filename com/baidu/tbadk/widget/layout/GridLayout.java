@@ -143,7 +143,7 @@ public class GridLayout extends ViewGroup {
     public final void d(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048580, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0402eb, R.attr.obfuscated_res_0x7f0402ed, R.attr.obfuscated_res_0x7f0402ef, R.attr.obfuscated_res_0x7f0402f2, R.attr.obfuscated_res_0x7f0402f4});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0402ec, R.attr.obfuscated_res_0x7f0402ee, R.attr.obfuscated_res_0x7f0402f0, R.attr.obfuscated_res_0x7f0402f3, R.attr.obfuscated_res_0x7f0402f5});
             boolean z = true;
             try {
                 this.c = obtainStyledAttributes.getDimensionPixelSize(1, 0);

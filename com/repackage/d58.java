@@ -21,7 +21,7 @@ public class d58 extends bn<o68, CardViewHolder<r78>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d58(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), o68.g);
+        super(tbPageContext.getPageActivity(), o68.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,8 +57,8 @@ public class d58 extends bn<o68, CardViewHolder<r78>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, o68Var, cardViewHolder})) == null) {
-            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
             cardViewHolder.a().i(o68Var);
+            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.g97;
+import com.repackage.f97;
 /* loaded from: classes3.dex */
 public class VoiceSendModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -25,7 +25,7 @@ public class VoiceSendModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public ChatMessage b;
-        public g97 c;
+        public f97 c;
         public final /* synthetic */ VoiceSendModel d;
 
         public a(VoiceSendModel voiceSendModel, String str, ChatMessage chatMessage) {
@@ -46,7 +46,7 @@ public class VoiceSendModel extends BdBaseModel {
             this.d = voiceSendModel;
             this.a = str;
             this.b = chatMessage;
-            this.c = new g97();
+            this.c = new f97();
         }
 
         /* JADX DEBUG: Method merged with bridge method */

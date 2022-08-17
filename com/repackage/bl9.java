@@ -1,110 +1,61 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.reporter.Reporter;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.repackage.cl9;
+import com.repackage.fg9;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class bl9 {
+public class bl9 implements cl9.a<cg9> {
     public static /* synthetic */ Interceptable $ic;
-    public static final jl9<Reporter> a;
-    public static final jl9<Reporter> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ cl9 a;
 
-    /* loaded from: classes5.dex */
-    public static class a extends jl9<Reporter> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
-        @Override // com.repackage.jl9
-        public Reporter a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new gl9("https://rpe.xdplt.com/evt/", true) : invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b extends jl9<Reporter> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
-        @Override // com.repackage.jl9
-        public Reporter a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new el9("https://rpd.xdplt.com/evt/") : invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755823006, "Lcom/repackage/bl9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755823006, "Lcom/repackage/bl9;");
+    public bl9(cl9 cl9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cl9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a();
-        b = new b();
+        this.a = cl9Var;
     }
 
-    /* JADX WARN: Type inference failed for: r1v7, types: [T, java.lang.Object] */
-    public static Reporter a() {
-        InterceptResult invokeV;
-        Reporter reporter;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.repackage.cl9.a
+    public void a(cg9 cg9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            jl9<Reporter> jl9Var = a;
-            synchronized (jl9Var) {
-                if (jl9Var.a == null) {
-                    jl9Var.a = jl9Var.a();
-                }
-                reporter = jl9Var.a;
-            }
-            return reporter;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cg9Var) == null) {
+            LogPrinter.v("SerialSlotId:%s is totally same with oldOne", cg9Var.a);
         }
-        return (Reporter) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.repackage.cl9.a
+    public void b(cg9 cg9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cg9Var) == null) {
+            cg9 cg9Var2 = cg9Var;
+            LogPrinter.v("Update SerialSlotId:%s", cg9Var2.a);
+            HashMap<String, hg9> hashMap = this.a.c;
+            String str = cg9Var2.a;
+            hashMap.put(str, new hg9(str, new og9(this, cg9Var2)));
+            fg9 fg9Var = this.a.b;
+            synchronized (fg9Var.a) {
+                fg9Var.a(cg9Var2.a).add(new fg9.b(cg9Var2));
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m57;
+import com.repackage.l57;
 import com.repackage.tr4;
 import com.squareup.wire.Wire;
 import java.io.IOException;
@@ -19,9 +19,9 @@ public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TOPIC_SELECT_KEY = "topic_select_user";
     public transient /* synthetic */ FieldHolder $fh;
-    public m57 mBangData;
-    public m57 mUserData;
-    public m57 mVideoHotpicData;
+    public l57 mBangData;
+    public l57 mUserData;
+    public l57 mVideoHotpicData;
     public int resultStatus;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -63,22 +63,22 @@ public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object
             }
             if (getSugTopicResIdl != null && (dataRes = getSugTopicResIdl.data) != null) {
                 if (dataRes.user_his_topic != null) {
-                    m57 m57Var = new m57();
-                    m57Var.d(getSugTopicResIdl.data.user_his_topic);
-                    m57Var.f(0);
-                    this.mUserData = m57Var;
+                    l57 l57Var = new l57();
+                    l57Var.d(getSugTopicResIdl.data.user_his_topic);
+                    l57Var.f(0);
+                    this.mUserData = l57Var;
                 }
                 if (getSugTopicResIdl.data.bang_topic != null) {
-                    m57 m57Var2 = new m57();
-                    m57Var2.d(getSugTopicResIdl.data.bang_topic);
-                    m57Var2.f(1);
-                    this.mBangData = m57Var2;
+                    l57 l57Var2 = new l57();
+                    l57Var2.d(getSugTopicResIdl.data.bang_topic);
+                    l57Var2.f(1);
+                    this.mBangData = l57Var2;
                 }
                 if (getSugTopicResIdl.data.video_topic != null) {
-                    m57 m57Var3 = new m57();
-                    m57Var3.d(getSugTopicResIdl.data.video_topic);
-                    m57Var3.f(2);
-                    this.mVideoHotpicData = m57Var3;
+                    l57 l57Var3 = new l57();
+                    l57Var3.d(getSugTopicResIdl.data.video_topic);
+                    l57Var3.f(2);
+                    this.mVideoHotpicData = l57Var3;
                 }
                 this.resultStatus = 2;
                 return;

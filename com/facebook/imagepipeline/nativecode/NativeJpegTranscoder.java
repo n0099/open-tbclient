@@ -2,8 +2,6 @@ package com.facebook.imagepipeline.nativecode;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,40 +34,27 @@ public class NativeJpegTranscoder implements ImageTranscoder {
     public boolean mResizingEnabled;
     public boolean mUseDownsamplingRatio;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-298362827, "Lcom/facebook/imagepipeline/nativecode/NativeJpegTranscoder;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-298362827, "Lcom/facebook/imagepipeline/nativecode/NativeJpegTranscoder;");
-                return;
-            }
-        }
-        NativeJpegTranscoderSoLoader.ensure();
-    }
-
-    public NativeJpegTranscoder(boolean z, int i, boolean z2) {
+    public NativeJpegTranscoder(boolean z, int i, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2), Boolean.valueOf(z3)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mResizingEnabled = z;
         this.mMaxBitmapSize = i;
         this.mUseDownsamplingRatio = z2;
+        if (z3) {
+            NativeJpegTranscoderSoLoader.ensure();
+        }
     }
 
     @DoNotStrip
@@ -81,7 +66,7 @@ public class NativeJpegTranscoder implements ImageTranscoder {
     @VisibleForTesting
     public static void transcodeJpeg(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{inputStream, outputStream, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{inputStream, outputStream, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             NativeJpegTranscoderSoLoader.ensure();
             boolean z = false;
             Preconditions.checkArgument(i2 >= 1);
@@ -97,7 +82,7 @@ public class NativeJpegTranscoder implements ImageTranscoder {
     @VisibleForTesting
     public static void transcodeJpegWithExifOrientation(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{inputStream, outputStream, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{inputStream, outputStream, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             NativeJpegTranscoderSoLoader.ensure();
             boolean z = false;
             Preconditions.checkArgument(i2 >= 1);

@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mk8;
+import com.repackage.lk8;
 /* loaded from: classes7.dex */
 public class td6 extends bz5<qd6> {
     public static /* synthetic */ Interceptable $ic;
@@ -42,7 +42,7 @@ public class td6 extends bz5<qd6> {
     public String q;
     public qd6 r;
     public LikeModel s;
-    public mk8 t;
+    public lk8 t;
     public boolean u;
 
     /* loaded from: classes7.dex */
@@ -75,11 +75,11 @@ public class td6 extends bz5<qd6> {
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 this.a.u = false;
                 if (this.a.s.getErrorCode() == 22) {
-                    qi.O(this.a.b.getPageActivity(), this.a.b.getString(R.string.obfuscated_res_0x7f0f0827));
+                    qi.N(this.a.b.getPageActivity(), this.a.b.getString(R.string.obfuscated_res_0x7f0f0827));
                 } else if (obj == null) {
                 } else {
                     if (this.a.s.getErrorCode() != 0) {
-                        qi.O(this.a.b.getPageActivity(), this.a.s.getErrorString());
+                        qi.N(this.a.b.getPageActivity(), this.a.s.getErrorString());
                     } else {
                         this.a.x(true);
                     }
@@ -89,7 +89,7 @@ public class td6 extends bz5<qd6> {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements mk8.a {
+    public class b implements lk8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ td6 a;
@@ -112,7 +112,7 @@ public class td6 extends bz5<qd6> {
             this.a = td6Var;
         }
 
-        @Override // com.repackage.mk8.a
+        @Override // com.repackage.lk8.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -120,7 +120,7 @@ public class td6 extends bz5<qd6> {
             }
         }
 
-        @Override // com.repackage.mk8.a
+        @Override // com.repackage.lk8.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -223,7 +223,7 @@ public class td6 extends bz5<qd6> {
             return;
         }
         if (!qi.D()) {
-            UtilHelper.showToast(this.b.getPageActivity(), this.b.getString(R.string.obfuscated_res_0x7f0f0c3c));
+            UtilHelper.showToast(this.b.getPageActivity(), this.b.getString(R.string.obfuscated_res_0x7f0f0c3d));
             return;
         }
         qd6 qd6Var = this.r;
@@ -248,7 +248,7 @@ public class td6 extends bz5<qd6> {
             return;
         }
         if (!qi.D()) {
-            UtilHelper.showToast(this.b.getPageActivity(), this.b.getString(R.string.obfuscated_res_0x7f0f0c3c));
+            UtilHelper.showToast(this.b.getPageActivity(), this.b.getString(R.string.obfuscated_res_0x7f0f0c3d));
             return;
         }
         qd6 qd6Var = this.r;
@@ -256,9 +256,9 @@ public class td6 extends bz5<qd6> {
             return;
         }
         if (this.t == null) {
-            mk8 mk8Var = new mk8();
-            this.t = mk8Var;
-            mk8Var.b(new b(this));
+            lk8 lk8Var = new lk8();
+            this.t = lk8Var;
+            lk8Var.b(new b(this));
         }
         this.u = true;
         this.t.c(this.r.h(), this.r.f());

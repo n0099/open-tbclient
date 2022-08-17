@@ -213,7 +213,7 @@ public class au5 {
                     this.a.setWidth(-2);
                     this.a.setHeight(-2);
                     this.a.setAnimationStyle(16973826);
-                    this.a.setBackgroundDrawable(this.j.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f96));
+                    this.a.setBackgroundDrawable(this.j.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f97));
                     this.a.setOutsideTouchable(true);
                     this.a.setFocusable(true);
                     this.a.setTouchable(true);
@@ -284,7 +284,7 @@ public class au5 {
             if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || this.c == null) {
                 return;
             }
-            this.c.setText(this.j.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11da, StringHelper.numberUniformFormatExtra(i)));
+            this.c.setText(this.j.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11dc, StringHelper.numberUniformFormatExtra(i)));
             this.b.setVisibility(0);
         }
 
@@ -305,7 +305,7 @@ public class au5 {
                         this.h = str;
                         if (str.contains("距离")) {
                             if (!d()) {
-                                this.j.a.showToast(R.string.obfuscated_res_0x7f0f11d7);
+                                this.j.a.showToast(R.string.obfuscated_res_0x7f0f11d9);
                                 return;
                             } else {
                                 kf.n().k(false, this.i);
@@ -602,7 +602,7 @@ public class au5 {
         if (pbListView.b().getParent() == null) {
             this.h.setNextPage(this.m);
         }
-        this.m.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a15));
+        this.m.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a16));
         this.m.f();
     }
 }

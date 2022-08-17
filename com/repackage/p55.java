@@ -139,7 +139,7 @@ public class p55 implements Callable<Boolean> {
     /* JADX WARN: Code restructure failed: missing block: B:157:0x0397, code lost:
         r8.append(r27);
         r8.append(r4);
-        com.repackage.xm8.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = pic = null    p = " + r11);
+        com.repackage.wm8.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = pic = null    p = " + r11);
      */
     /* JADX WARN: Code restructure failed: missing block: B:158:0x03b1, code lost:
         r11 = r7;
@@ -307,7 +307,7 @@ public class p55 implements Callable<Boolean> {
             return (ImageUploadResult) invokeCommon.objValue;
         }
         String str5 = str;
-        xm8.a("发帖：正在上传图片 = " + str5);
+        wm8.a("发帖：正在上传图片 = " + str5);
         BitmapFactory.Options options2 = new BitmapFactory.Options();
         boolean z3 = true;
         options2.inJustDecodeBounds = true;
@@ -340,7 +340,7 @@ public class p55 implements Callable<Boolean> {
                     try {
                         imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
                         imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0615);
-                        xm8.a("发帖：正在上传图片 失败 限制大小 = " + length + "    p = " + str5);
+                        wm8.a("发帖：正在上传图片 失败 限制大小 = " + length + "    p = " + str5);
                         ng.b(null);
                         this.s = null;
                         return imageUploadResult;
@@ -370,14 +370,14 @@ public class p55 implements Callable<Boolean> {
                         sb6.append("    p = ");
                         str2 = str;
                         sb6.append(str2);
-                        xm8.a(sb6.toString());
+                        wm8.a(sb6.toString());
                         ng.b(randomAccessFile2);
                         this.s = null;
-                        xm8.a("发帖：上传图片 结束      p = " + str2);
+                        wm8.a("发帖：上传图片 结束      p = " + str2);
                         return imageUploadResult;
                     }
                 }
-                xm8.a("发帖：正在上传图片 进行中 限制大小 = " + length + "    p = " + str5);
+                wm8.a("发帖：正在上传图片 进行中 限制大小 = " + length + "    p = " + str5);
                 String b = wi.b(FileHelper.GetStreamFromFile(file));
                 sb5.append("path=");
                 sb5.append(str5);
@@ -473,10 +473,10 @@ public class p55 implements Callable<Boolean> {
                                             sb62.append("    p = ");
                                             str2 = str;
                                             sb62.append(str2);
-                                            xm8.a(sb62.toString());
+                                            wm8.a(sb62.toString());
                                             ng.b(randomAccessFile2);
                                             this.s = null;
-                                            xm8.a("发帖：上传图片 结束      p = " + str2);
+                                            wm8.a("发帖：上传图片 结束      p = " + str2);
                                             return imageUploadResult;
                                         }
                                     } else if (i10 == 0) {
@@ -518,10 +518,10 @@ public class p55 implements Callable<Boolean> {
                                             sb622.append("    p = ");
                                             str2 = str;
                                             sb622.append(str2);
-                                            xm8.a(sb622.toString());
+                                            wm8.a(sb622.toString());
                                             ng.b(randomAccessFile2);
                                             this.s = null;
-                                            xm8.a("发帖：上传图片 结束      p = " + str2);
+                                            wm8.a("发帖：上传图片 结束      p = " + str2);
                                             return imageUploadResult;
                                         }
                                     }
@@ -558,10 +558,10 @@ public class p55 implements Callable<Boolean> {
                                         sb6222.append("    p = ");
                                         str2 = str;
                                         sb6222.append(str2);
-                                        xm8.a(sb6222.toString());
+                                        wm8.a(sb6222.toString());
                                         ng.b(randomAccessFile2);
                                         this.s = null;
-                                        xm8.a("发帖：上传图片 结束      p = " + str2);
+                                        wm8.a("发帖：上传图片 结束      p = " + str2);
                                         return imageUploadResult;
                                     }
                                 }
@@ -604,10 +604,10 @@ public class p55 implements Callable<Boolean> {
                                                 sb62222.append("    p = ");
                                                 str2 = str;
                                                 sb62222.append(str2);
-                                                xm8.a(sb62222.toString());
+                                                wm8.a(sb62222.toString());
                                                 ng.b(randomAccessFile2);
                                                 this.s = null;
-                                                xm8.a("发帖：上传图片 结束      p = " + str2);
+                                                wm8.a("发帖：上传图片 结束      p = " + str2);
                                                 return imageUploadResult;
                                             }
                                         } catch (Throwable th4) {
@@ -715,15 +715,15 @@ public class p55 implements Callable<Boolean> {
                                                             sb622222.append("    p = ");
                                                             str2 = str;
                                                             sb622222.append(str2);
-                                                            xm8.a(sb622222.toString());
+                                                            wm8.a(sb622222.toString());
                                                             ng.b(randomAccessFile2);
                                                             this.s = null;
-                                                            xm8.a("发帖：上传图片 结束      p = " + str2);
+                                                            wm8.a("发帖：上传图片 结束      p = " + str2);
                                                             return imageUploadResult;
                                                         }
                                                     }
                                                     if (parser.error_code != ImageUploadResult.CHUNK_ERROR) {
-                                                        xm8.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = " + parser.error_code + "    p = " + str5);
+                                                        wm8.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = " + parser.error_code + "    p = " + str5);
                                                         if (i3 == parser.chunkNo || parser.chunkNo <= 0) {
                                                             break;
                                                         }
@@ -785,10 +785,10 @@ public class p55 implements Callable<Boolean> {
                                                                 sb6222222.append("    p = ");
                                                                 str2 = str;
                                                                 sb6222222.append(str2);
-                                                                xm8.a(sb6222222.toString());
+                                                                wm8.a(sb6222222.toString());
                                                                 ng.b(randomAccessFile2);
                                                                 this.s = null;
-                                                                xm8.a("发帖：上传图片 结束      p = " + str2);
+                                                                wm8.a("发帖：上传图片 结束      p = " + str2);
                                                                 return imageUploadResult;
                                                             }
                                                         } catch (Throwable th6) {
@@ -847,10 +847,10 @@ public class p55 implements Callable<Boolean> {
                                                                         sb62222222.append("    p = ");
                                                                         str2 = str;
                                                                         sb62222222.append(str2);
-                                                                        xm8.a(sb62222222.toString());
+                                                                        wm8.a(sb62222222.toString());
                                                                         ng.b(randomAccessFile2);
                                                                         this.s = null;
-                                                                        xm8.a("发帖：上传图片 结束      p = " + str2);
+                                                                        wm8.a("发帖：上传图片 结束      p = " + str2);
                                                                         return imageUploadResult;
                                                                     }
                                                                 } else {
@@ -862,7 +862,7 @@ public class p55 implements Callable<Boolean> {
                                                                 } else {
                                                                     i6 = i11;
                                                                 }
-                                                                xm8.a("发帖：正在上传图片 已上传 = " + j3 + "    p = " + str5);
+                                                                wm8.a("发帖：正在上传图片 已上传 = " + j3 + "    p = " + str5);
                                                                 if (this.n != null) {
                                                                     try {
                                                                         j4 = j3;
@@ -911,10 +911,10 @@ public class p55 implements Callable<Boolean> {
                                                                         sb622222222.append("    p = ");
                                                                         str2 = str;
                                                                         sb622222222.append(str2);
-                                                                        xm8.a(sb622222222.toString());
+                                                                        wm8.a(sb622222222.toString());
                                                                         ng.b(randomAccessFile2);
                                                                         this.s = null;
-                                                                        xm8.a("发帖：上传图片 结束      p = " + str2);
+                                                                        wm8.a("发帖：上传图片 结束      p = " + str2);
                                                                         return imageUploadResult;
                                                                     }
                                                                 } else {
@@ -972,10 +972,10 @@ public class p55 implements Callable<Boolean> {
                                                                     sb6222222222.append("    p = ");
                                                                     str2 = str;
                                                                     sb6222222222.append(str2);
-                                                                    xm8.a(sb6222222222.toString());
+                                                                    wm8.a(sb6222222222.toString());
                                                                     ng.b(randomAccessFile2);
                                                                     this.s = null;
-                                                                    xm8.a("发帖：上传图片 结束      p = " + str2);
+                                                                    wm8.a("发帖：上传图片 结束      p = " + str2);
                                                                     return imageUploadResult;
                                                                 }
                                                             }
@@ -1010,10 +1010,10 @@ public class p55 implements Callable<Boolean> {
                                                             sb62222222222.append("    p = ");
                                                             str2 = str;
                                                             sb62222222222.append(str2);
-                                                            xm8.a(sb62222222222.toString());
+                                                            wm8.a(sb62222222222.toString());
                                                             ng.b(randomAccessFile2);
                                                             this.s = null;
-                                                            xm8.a("发帖：上传图片 结束      p = " + str2);
+                                                            wm8.a("发帖：上传图片 结束      p = " + str2);
                                                             return imageUploadResult;
                                                         }
                                                     }
@@ -1065,10 +1065,10 @@ public class p55 implements Callable<Boolean> {
                                         sb622222222222.append("    p = ");
                                         str2 = str;
                                         sb622222222222.append(str2);
-                                        xm8.a(sb622222222222.toString());
+                                        wm8.a(sb622222222222.toString());
                                         ng.b(randomAccessFile2);
                                         this.s = null;
-                                        xm8.a("发帖：上传图片 结束      p = " + str2);
+                                        wm8.a("发帖：上传图片 结束      p = " + str2);
                                         return imageUploadResult;
                                     }
                                 } catch (Throwable th7) {
@@ -1080,7 +1080,7 @@ public class p55 implements Callable<Boolean> {
                                 randomAccessFile2 = randomAccessFile;
                                 sb = sb2;
                             }
-                            xm8.a("发帖：上传图片 结束      p = " + str2);
+                            wm8.a("发帖：上传图片 结束      p = " + str2);
                             return imageUploadResult;
                         }
                         imageUploadResult2 = imageUploadResult3;
@@ -1089,7 +1089,7 @@ public class p55 implements Callable<Boolean> {
                         this.s = null;
                         imageUploadResult = imageUploadResult2;
                         str2 = str;
-                        xm8.a("发帖：上传图片 结束      p = " + str2);
+                        wm8.a("发帖：上传图片 结束      p = " + str2);
                         return imageUploadResult;
                     } catch (Throwable th8) {
                         th = th8;
@@ -1106,14 +1106,14 @@ public class p55 implements Callable<Boolean> {
                 this.s = null;
                 imageUploadResult = imageUploadResult2;
                 str2 = str;
-                xm8.a("发帖：上传图片 结束      p = " + str2);
+                wm8.a("发帖：上传图片 结束      p = " + str2);
                 return imageUploadResult;
             } catch (Throwable th9) {
                 th = th9;
                 randomAccessFile = null;
             }
         } else {
-            xm8.a("发帖：正在上传图片 失败 = " + str5);
+            wm8.a("发帖：正在上传图片 失败 = " + str5);
             return null;
         }
     }
@@ -1130,11 +1130,11 @@ public class p55 implements Callable<Boolean> {
             if (TextUtils.isEmpty(imageFileInfo.getTempUploadFileName())) {
                 imageFileInfo.setTempUploadFileName("img_upload_temp_file_" + this.e + ".temp");
             }
-            xm8.a("发帖：发送图片 上传图片 = " + this.e + " = " + imageFileInfo.toJson().toString());
+            wm8.a("发帖：发送图片 上传图片 = " + this.e + " = " + imageFileInfo.toJson().toString());
             boolean isOriginalImg = imageFileInfo.getImageType() == 1 ? false : this.c.isOriginalImg();
-            vm8.m(this.u, imageFileInfo);
+            um8.m(this.u, imageFileInfo);
             ImageUploadResult d = d(imageFileInfo, isOriginalImg, this.d, this.e + 1, this.b.size());
-            vm8.d(this.u, imageFileInfo, d);
+            um8.d(this.u, imageFileInfo, d);
             if (d != null) {
                 UploadedImageInfo uploadedPicInfo = d.getUploadedPicInfo();
                 if (uploadedPicInfo != null && !TextUtils.isEmpty(uploadedPicInfo.toPostString())) {
@@ -1145,13 +1145,13 @@ public class p55 implements Callable<Boolean> {
                 }
                 errorData.setError_code(d.error_code);
                 errorData.setError_msg(d.error_msg);
-                xm8.a("发帖：发送图片 上传图片 错误 1= " + this.e + " = " + imageFileInfo.toJson().toString());
+                wm8.a("发帖：发送图片 上传图片 错误 1= " + this.e + " = " + imageFileInfo.toJson().toString());
                 this.a.a(errorData);
                 return Boolean.FALSE;
             }
             errorData.setError_code(-52);
-            errorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14cb));
-            xm8.a("发帖：发送图片 上传图片 错误 2= " + this.e + " = " + imageFileInfo.toJson().toString());
+            errorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14cd));
+            wm8.a("发帖：发送图片 上传图片 错误 2= " + this.e + " = " + imageFileInfo.toJson().toString());
             this.a.a(errorData);
             return Boolean.FALSE;
         }
