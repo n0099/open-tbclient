@@ -16,7 +16,7 @@ import com.repackage.ab;
 import com.repackage.cr8;
 import com.repackage.fr8;
 import com.repackage.gr8;
-import com.repackage.kk8;
+import com.repackage.jk8;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
@@ -160,8 +160,8 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            kk8.h(309001, DressupCenterSocketResponseMessage.class, false, false);
-            kk8.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
+            jk8.h(309001, DressupCenterSocketResponseMessage.class, false, false);
+            jk8.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

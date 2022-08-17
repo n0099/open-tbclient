@@ -1,6 +1,8 @@
 package com.repackage;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import android.app.Activity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zj7 extends uc1<ThirdPartAliRechargeService> {
+public class zj7 implements ThirdPartAliRechargeService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,12 +28,18 @@ public class zj7 extends uc1<ThirdPartAliRechargeService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.uc1
-    /* renamed from: a */
-    public ThirdPartAliRechargeService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService
+    public String aliRecharge(Activity activity, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ak7() : (ThirdPartAliRechargeService) invokeV.objValue;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, activity, str, z)) == null) {
+            kl4 kl4Var = new kl4();
+            kl4Var.a = activity;
+            kl4Var.b = str;
+            kl4Var.c = z;
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921539, String.class, kl4Var);
+            return runTask == null ? "" : (String) runTask.getData();
+        }
+        return (String) invokeLLZ.objValue;
     }
 }

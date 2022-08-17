@@ -57,7 +57,7 @@ public class xu8 implements wu8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 fi.a(this.a.w);
-                qi.O(this.b.c.getPageActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0450));
+                qi.N(this.b.c.getPageActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0450));
             }
         }
     }

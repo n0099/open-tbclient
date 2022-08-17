@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.kk8;
+import com.repackage.jk8;
 import com.repackage.p29;
 /* loaded from: classes4.dex */
 public class WorkVideoGuideModel extends BdBaseModel {
@@ -87,7 +87,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             registerListener(new a(this, CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE));
-            kk8.e(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE, TbConfig.URL_WORK_VIDEO_GUIDE, ResponseHttpWorkVIdeoGuideMessage.class, true, true, true, true);
+            jk8.e(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE, TbConfig.URL_WORK_VIDEO_GUIDE, ResponseHttpWorkVIdeoGuideMessage.class, true, true, true, true);
         }
     }
 

@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ms4;
+import com.repackage.oq7;
 import com.repackage.ov4;
-import com.repackage.pq7;
 import com.repackage.qi;
 import com.repackage.qv4;
 /* loaded from: classes3.dex */
@@ -39,7 +39,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
     public View k;
     public LinearLayout l;
     public View m;
-    public pq7 n;
+    public oq7 n;
 
     public InterestedForumStyleAFragment() {
         Interceptable interceptable = $ic;
@@ -110,9 +110,9 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
             ms4.d(this.k).o(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
             ms4.d(this.m).o(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
             this.g.k();
-            pq7 pq7Var = this.n;
-            if (pq7Var != null) {
-                pq7Var.k(i);
+            oq7 oq7Var = this.n;
+            if (oq7Var != null) {
+                oq7Var.k(i);
             }
         }
     }
@@ -182,7 +182,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
             this.j = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.T_X06);
             this.j.setConfig(ov4Var);
-            this.j.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0934));
+            this.j.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0935));
             this.j.setEnabled(false);
             qv4 qv4Var = new qv4();
             TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f091de4);
@@ -190,7 +190,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
             tBSpecificationBtn2.setTextSize(R.dimen.T_X06);
             qv4Var.r(R.color.CAM_X0105);
             this.g.setConfig(qv4Var);
-            this.g.setText(getString(R.string.obfuscated_res_0x7f0f093c));
+            this.g.setText(getString(R.string.obfuscated_res_0x7f0f093d));
             this.k = this.e.findViewById(R.id.obfuscated_res_0x7f090f29);
             this.l = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f090f2a);
             this.m = this.e.findViewById(R.id.obfuscated_res_0x7f090f2b);
@@ -203,7 +203,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
             View view2 = new View(this.f.getContext());
             view2.setLayoutParams(new LinearLayout.LayoutParams(-2, v1(R.dimen.tbds78)));
             this.f.s(view2);
-            this.n = new pq7(this, this.f, this.j, this.g, getPageContext(), new InterestedForumModel(getUniqueId()), this.a, this.b);
+            this.n = new oq7(this, this.f, this.j, this.g, getPageContext(), new InterestedForumModel(getUniqueId()), this.a, this.b);
         }
     }
 }

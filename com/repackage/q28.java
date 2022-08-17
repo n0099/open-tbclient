@@ -1,79 +1,83 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.R;
-import com.baidu.tieba.person.holder.PersonInfoUserPicsHolder;
+import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class q28 extends pm5<s28, PersonInfoUserPicsHolder> {
+public class q28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener a;
+    public List<bn> a;
     public TbPageContext b;
+    public HTypeListView c;
+    public o28 d;
+    public n28 e;
+    public m28 f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q28(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public q28(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext, hTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ArrayList();
         this.b = tbPageContext;
+        this.c = hTypeListView;
+        a();
     }
 
-    @Override // com.repackage.bn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        t(i, view2, viewGroup, (s28) obj, (PersonInfoUserPicsHolder) viewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bn
-    /* renamed from: s */
-    public PersonInfoUserPicsHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            PersonInfoUserPicsHolder personInfoUserPicsHolder = new PersonInfoUserPicsHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06fb, viewGroup, false), this.b);
-            personInfoUserPicsHolder.e.d(this.a);
-            return personInfoUserPicsHolder;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = new o28(this.b, u15.d);
+            this.e = new n28(this.b, u28.b);
+            this.f = new m28(this.b.getPageActivity(), h28.d);
+            this.a.add(this.d);
+            this.a.add(this.e);
+            this.a.add(this.f);
+            this.c.a(this.a);
         }
-        return (PersonInfoUserPicsHolder) invokeL.objValue;
     }
 
-    public View t(int i, View view2, ViewGroup viewGroup, s28 s28Var, PersonInfoUserPicsHolder personInfoUserPicsHolder) {
-        InterceptResult invokeCommon;
+    public void b() {
+        HTypeListView hTypeListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, s28Var, personInfoUserPicsHolder})) == null) {
-            if (s28Var != null && personInfoUserPicsHolder != null) {
-                personInfoUserPicsHolder.b();
-                personInfoUserPicsHolder.a(s28Var);
-            }
-            return view2;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (hTypeListView = this.c) != null && (hTypeListView.getAdapter() instanceof TypeAdapter)) {
+            ((TypeAdapter) this.c.getAdapter()).notifyDataSetChanged();
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void c(List<on> list) {
+        HTypeListView hTypeListView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (hTypeListView = this.c) == null) {
+            return;
+        }
+        hTypeListView.setData(list);
+    }
+
+    public void d(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.d.u(onClickListener);
+            this.e.u(onClickListener);
+        }
     }
 }

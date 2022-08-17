@@ -128,7 +128,7 @@ public class j02 extends f02 {
             V1(view2);
             t2(-1);
             C2(-16777216);
-            v2(G(R.string.obfuscated_res_0x7f0f1256));
+            v2(G(R.string.obfuscated_res_0x7f0f1258));
             x2(true);
             J2(false);
         }

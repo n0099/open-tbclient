@@ -1,36 +1,88 @@
 package com.repackage;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class pc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTypeRecyclerView a;
-    public ArrayList<on> b;
-    public List<bn> c;
-    public lc7 d;
-    public lc7 e;
-    public lc7 f;
-    public nc7 g;
-    public nc7 h;
-    public nc7 i;
+    public d9 a;
+    public View b;
+    public ImageView c;
+    public TextView d;
+    public TBSpecificationBtn e;
+    public b f;
+    public View.OnClickListener g;
 
-    public pc7(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pc7 a;
+
+        public a(pc7 pc7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pc7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pc7Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (view2.getId() == this.a.e.getId()) {
+                    g05.e(this.a.a);
+                    TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 1));
+                } else if (view2.getId() == this.a.c.getId()) {
+                    ru4.k().x("key_im_open_notification_close_time", System.currentTimeMillis());
+                    if (this.a.f != null) {
+                        this.a.f.onClose();
+                    }
+                    TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 2));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface b {
+        void onClose();
+    }
+
+    public pc7(d9 d9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
+            Object[] objArr = {d9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,105 +92,41 @@ public class pc7 {
                 return;
             }
         }
-        this.c = new LinkedList();
-        if (tbPageContext == null || bdTypeRecyclerView == null) {
-            return;
-        }
-        this.a = bdTypeRecyclerView;
-        b(tbPageContext);
+        this.g = new a(this);
+        this.a = d9Var;
+        View inflate = LayoutInflater.from(d9Var.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0675, (ViewGroup) null);
+        this.b = inflate;
+        ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ebc);
+        this.c = imageView;
+        imageView.setOnClickListener(this.g);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09170a);
+        this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f09043d);
+        this.e.setConfig(new pv4());
+        this.e.setText(d9Var.getString(R.string.obfuscated_res_0x7f0f07d7));
+        this.e.setOnClickListener(this.g);
+        TiebaStatic.log("c13704");
+        f(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void a(int i) {
-        BdTypeRecyclerView bdTypeRecyclerView;
+    public View e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (bdTypeRecyclerView = this.a) == null) {
-            return;
-        }
-        bdTypeRecyclerView.D(i);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 
-    public final void b(TbPageContext tbPageContext) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
-            lc7 lc7Var = new lc7(tbPageContext, jc7.A);
-            this.d = lc7Var;
-            lc7Var.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
-            lc7 lc7Var2 = new lc7(tbPageContext, jc7.B);
-            this.e = lc7Var2;
-            lc7Var2.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
-            lc7 lc7Var3 = new lc7(tbPageContext, jc7.C);
-            this.f = lc7Var3;
-            lc7Var3.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
-            nc7 nc7Var = new nc7(tbPageContext, jc7.F);
-            this.g = nc7Var;
-            nc7Var.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
-            nc7 nc7Var2 = new nc7(tbPageContext, jc7.E);
-            this.h = nc7Var2;
-            nc7Var2.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
-            nc7 nc7Var3 = new nc7(tbPageContext, jc7.D);
-            this.i = nc7Var3;
-            nc7Var3.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
-            this.c.add(this.d);
-            this.c.add(this.e);
-            this.c.add(this.g);
-            this.c.add(this.h);
-            this.c.add(this.i);
-            this.c.add(this.f);
-            this.a.a(this.c);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0206);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f08091e, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
         }
     }
 
-    public void c() {
+    public void g(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.getAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (bn bnVar : this.c) {
-            }
-        }
-    }
-
-    public void e(yn ynVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ynVar) == null) {
-            for (bn bnVar : this.c) {
-                if (bnVar != null) {
-                    bnVar.setOnAdapterItemClickListener(ynVar);
-                }
-            }
-        }
-    }
-
-    public void f(ArrayList<on> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
-            this.a.setData(arrayList);
-            this.b = arrayList;
-        }
-    }
-
-    public void g(zn znVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, znVar) == null) {
-            for (bn bnVar : this.c) {
-                if (bnVar != null) {
-                    bnVar.setOnAdapterItemLongClickListener(znVar);
-                }
-            }
-        }
-    }
-
-    public void h(b06 b06Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, b06Var) == null) {
-            this.i.v(b06Var);
-            this.h.v(b06Var);
-            this.g.v(b06Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f = bVar;
         }
     }
 }

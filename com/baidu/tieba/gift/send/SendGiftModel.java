@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.d9;
-import com.repackage.kk8;
+import com.repackage.jk8;
 import com.repackage.pp4;
-import com.repackage.ut6;
+import com.repackage.tt6;
 /* loaded from: classes3.dex */
 public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -109,14 +109,14 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
             }
             boolean z = responsedMessage instanceof PlaceOrderHttpResponse;
             if (z || (responsedMessage instanceof PlaceOrderSocketResponse)) {
-                ut6 ut6Var = null;
+                tt6 tt6Var = null;
                 if (z) {
-                    ut6Var = ((PlaceOrderHttpResponse) responsedMessage).getOrderInfo();
+                    tt6Var = ((PlaceOrderHttpResponse) responsedMessage).getOrderInfo();
                 } else if (responsedMessage instanceof PlaceOrderSocketResponse) {
-                    ut6Var = ((PlaceOrderSocketResponse) responsedMessage).getOrderInfo();
+                    tt6Var = ((PlaceOrderSocketResponse) responsedMessage).getOrderInfo();
                 }
                 if (this.a.a != null) {
-                    this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), ut6Var);
+                    this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), tt6Var);
                 }
             }
         }
@@ -124,7 +124,7 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
 
     /* loaded from: classes3.dex */
     public interface c {
-        void a(int i, String str, ut6 ut6Var);
+        void a(int i, String str, tt6 tt6Var);
 
         void b();
 
@@ -151,10 +151,10 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
         }
         this.b = new a(this, CmdConfigHttp.CMD_SEND_FREE_GIFT, 309050);
         this.c = new b(this, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, 309051);
-        kk8.h(309050, SendFreeGiftSocketResponse.class, false, false);
-        kk8.c(309050, CmdConfigHttp.CMD_SEND_FREE_GIFT, TbConfig.SEND_FREE_GIFT, SendFreeGiftHttpResponse.class, false, false, false, false);
-        kk8.h(309051, PlaceOrderSocketResponse.class, false, false);
-        kk8.c(309051, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, TbConfig.GIFT_PLACE_ORDER, PlaceOrderHttpResponse.class, false, false, false, false);
+        jk8.h(309050, SendFreeGiftSocketResponse.class, false, false);
+        jk8.c(309050, CmdConfigHttp.CMD_SEND_FREE_GIFT, TbConfig.SEND_FREE_GIFT, SendFreeGiftHttpResponse.class, false, false, false, false);
+        jk8.h(309051, PlaceOrderSocketResponse.class, false, false);
+        jk8.c(309051, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, TbConfig.GIFT_PLACE_ORDER, PlaceOrderHttpResponse.class, false, false, false, false);
         registerListener(this.b);
         registerListener(this.c);
     }

@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.f28;
 import com.repackage.g28;
-import com.repackage.h28;
-import com.repackage.j87;
-import com.repackage.m28;
+import com.repackage.i87;
+import com.repackage.l28;
 import com.repackage.og;
 import com.repackage.tr4;
 import com.repackage.ue;
-import com.repackage.wt6;
+import com.repackage.vt6;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +48,7 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 import tbclient.UserManChannelInfo;
 /* loaded from: classes4.dex */
-public class ProfileSocketResponseMessage extends SocketResponsedMessage implements h28 {
+public class ProfileSocketResponseMessage extends SocketResponsedMessage implements g28 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROFILE_CACHE_KEY = "profile_cache_key";
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     public boolean isSelf;
     public AlaLiveInfoCoreData liveInfoData;
     public List<AlaLiveInfoCoreData> liveReplayData;
-    public wt6 mLiveGoodsWindowData;
+    public vt6 mLiveGoodsWindowData;
     public int maskType;
     public MemberBlockInfo memberBlockInfo;
     public ModuleInfo moduleInfo;
@@ -75,7 +75,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     public List<PostInfoList> post_list;
     public List<SmartApp> recomSwanList;
     public TAInfo tainfo;
-    public m28 ucCardData;
+    public l28 ucCardData;
     public User user;
     public UserAgreeInfo userAgreeInfo;
     public UserGodInfo userGodInfo;
@@ -100,21 +100,21 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         }
     }
 
-    @Override // com.repackage.h28
+    @Override // com.repackage.g28
     public Anti GetAntiStat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.anti_stat : (Anti) invokeV.objValue;
     }
 
-    @Override // com.repackage.h28
+    @Override // com.repackage.g28
     public List<PostInfoList> GetPostList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.post_list : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.h28
+    @Override // com.repackage.g28
     public User GetUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -143,7 +143,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
             if (getError() != 0) {
                 return profileResIdl;
             }
-            g28 personCenterData = profileRequestMessage.getPersonCenterData();
+            f28 personCenterData = profileRequestMessage.getPersonCenterData();
             if (personCenterData != null) {
                 personCenterData.b(profileResIdl);
             }
@@ -155,9 +155,9 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
                 this.tainfo = dataRes.tainfo;
                 this.post_list = dataRes.post_list;
                 if (dataRes.uc_card != null) {
-                    m28 m28Var = new m28();
-                    this.ucCardData = m28Var;
-                    m28Var.a(profileResIdl.data.uc_card);
+                    l28 l28Var = new l28();
+                    this.ucCardData = l28Var;
+                    l28Var.a(profileResIdl.data.uc_card);
                 }
                 DataRes dataRes2 = profileResIdl.data;
                 this.bookrack = dataRes2.tbbookrack;
@@ -173,9 +173,9 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
                     alaLiveInfoCoreData.parserProtoBuf(profileResIdl.data.ala_live_info);
                 }
                 if (profileResIdl.data.goods_win != null) {
-                    wt6 wt6Var = new wt6();
-                    this.mLiveGoodsWindowData = wt6Var;
-                    wt6Var.b(profileResIdl.data.goods_win);
+                    vt6 vt6Var = new vt6();
+                    this.mLiveGoodsWindowData = vt6Var;
+                    vt6Var.b(profileResIdl.data.goods_win);
                 }
                 if (!ListUtils.isEmpty(profileResIdl.data.ala_live_record)) {
                     this.liveReplayData = new ArrayList();
@@ -211,28 +211,28 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.banner : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.h28
+    @Override // com.repackage.g28
     public TbBookrack getBookrackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.bookrack : (TbBookrack) invokeV.objValue;
     }
 
-    @Override // com.repackage.h28
+    @Override // com.repackage.g28
     public List<ForumDynamic> getConcernedForumList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.concernedForumList : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.h28
+    @Override // com.repackage.g28
     public List<DynamicInfo> getDynamicInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.dynamicInfoList : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.h28
+    @Override // com.repackage.g28
     public int getErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -251,11 +251,11 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.feedBack : (Feedback) invokeV.objValue;
     }
 
-    @Override // com.repackage.h28
-    public wt6 getGoodsWindowInfo() {
+    @Override // com.repackage.g28
+    public vt6 getGoodsWindowInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mLiveGoodsWindowData : (wt6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mLiveGoodsWindowData : (vt6) invokeV.objValue;
     }
 
     public Highlist getHighlist() {
@@ -264,28 +264,28 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.highlist : (Highlist) invokeV.objValue;
     }
 
-    @Override // com.repackage.h28
+    @Override // com.repackage.g28
     public HotUserRankEntry getHotRankEntry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.hotUserRankEntry : (HotUserRankEntry) invokeV.objValue;
     }
 
-    @Override // com.repackage.h28
+    @Override // com.repackage.g28
     public AlaLiveInfoCoreData getLiveInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.liveInfoData : (AlaLiveInfoCoreData) invokeV.objValue;
     }
 
-    @Override // com.repackage.h28
+    @Override // com.repackage.g28
     public List<AlaLiveInfoCoreData> getLiveReplayInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.liveReplayData : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.h28
+    @Override // com.repackage.g28
     public int getMaskType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -304,14 +304,14 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.moduleInfo : (ModuleInfo) invokeV.objValue;
     }
 
-    @Override // com.repackage.h28
+    @Override // com.repackage.g28
     public List<ThreadInfo> getNewestThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.newest_dynamic_list : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.h28
+    @Override // com.repackage.g28
     public NicknameInfo getNicknameInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -330,20 +330,20 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.recomSwanList : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.h28
+    @Override // com.repackage.g28
     public TAInfo getTaInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.tainfo : (TAInfo) invokeV.objValue;
     }
 
-    public m28 getUcCardData() {
+    public l28 getUcCardData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.ucCardData : (m28) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.ucCardData : (l28) invokeV.objValue;
     }
 
-    @Override // com.repackage.h28
+    @Override // com.repackage.g28
     public UserAgreeInfo getUserAgreeInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -356,7 +356,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.userManChannelInfo : (UserManChannelInfo) invokeV.objValue;
     }
 
-    @Override // com.repackage.h28
+    @Override // com.repackage.g28
     public UserGodInfo getUserGodInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -404,7 +404,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
             if (bArr != null && this.isSelf) {
                 e.g("profile_cache_key", bArr);
             }
-            j87.b(this.isSelf, this.anti_stat);
+            i87.b(this.isSelf, this.anti_stat);
         }
     }
 
@@ -420,10 +420,10 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
                 if (h == null || !this.isSelf) {
                     return;
                 }
-                List<m28.a> list = this.ucCardData.a;
+                List<l28.a> list = this.ucCardData.a;
                 if (ListUtils.getCount(list) > 4) {
                     list.get(4).b = 8L;
-                    for (m28.a aVar : list) {
+                    for (l28.a aVar : list) {
                         if (aVar.b > og.g(h.get(aVar.a), 0L)) {
                             aVar.c = true;
                         } else {

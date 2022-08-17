@@ -35,13 +35,13 @@ public class f04 extends e04 {
 
         /* renamed from: com.repackage.f04$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0471a implements Runnable {
+        public class RunnableC0474a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ k04 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0471a(a aVar, k04 k04Var) {
+            public RunnableC0474a(a aVar, k04 k04Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public class f04 extends e04 {
                 if (e04.a) {
                     Log.d("CheckAdvisedToRestApi", "on success");
                 }
-                this.c.b.post(new RunnableC0471a(this, k04Var));
+                this.c.b.post(new RunnableC0474a(this, k04Var));
             }
         }
 

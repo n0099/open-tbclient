@@ -125,7 +125,7 @@ public class g09 {
                     netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
                     netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
                 }
-                LocationData b = zl8.a().b();
+                LocationData b = yl8.a().b();
                 if (b != null) {
                     netWork.addPostData("name", b.getFormatted_address());
                     netWork.addPostData("sn", b.getSn());
@@ -162,7 +162,7 @@ public class g09 {
                     errorData.setError_msg(netWork.getErrorString());
                 }
                 if (errorData.error_code != 0 && !oi.z()) {
-                    errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0c3c));
+                    errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0c3d));
                 }
                 e09Var.a = errorData;
                 try {

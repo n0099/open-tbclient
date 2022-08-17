@@ -47,7 +47,7 @@ public class ai6 extends BaseCardInfo implements IVideoData {
     public c n;
     public BaijiahaoData o;
     public er4 p;
-    public List<cl8> q;
+    public List<bl8> q;
     public WorksInfoData r;
     public boolean s;
     public AgreeData t;
@@ -392,9 +392,9 @@ public class ai6 extends BaseCardInfo implements IVideoData {
             if (optJSONArray != null) {
                 this.q = new ArrayList();
                 for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
-                    cl8 cl8Var = new cl8();
-                    cl8Var.a(optJSONArray.getJSONObject(i4));
-                    this.q.add(cl8Var);
+                    bl8 bl8Var = new bl8();
+                    bl8Var.a(optJSONArray.getJSONObject(i4));
+                    this.q.add(bl8Var);
                 }
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("works_info");

@@ -93,12 +93,12 @@ public class wb3 extends tb3 {
 
         /* renamed from: com.repackage.wb3$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0605b implements qb3 {
+        public class C0609b implements qb3 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public C0605b(b bVar) {
+            public C0609b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -295,9 +295,9 @@ public class wb3 extends tb3 {
             this.d = new Handler(Looper.getMainLooper());
             this.e = new ReentrantLock();
             this.f = new a(this);
-            C0605b c0605b = new C0605b(this);
-            this.g = c0605b;
-            wb3Var.c.setConnectListener(c0605b);
+            C0609b c0609b = new C0609b(this);
+            this.g = c0609b;
+            wb3Var.c.setConnectListener(c0609b);
         }
 
         @Override // com.repackage.ub3

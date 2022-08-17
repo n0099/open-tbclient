@@ -255,9 +255,9 @@ public class cq8 {
             return;
         }
         ur4 ur4Var = new ur4(tbPageContext.getPageActivity());
-        ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f1402);
+        ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f1404);
         ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new d(ur4Var));
-        ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1401, new e(ur4Var, str, tbPageContext));
+        ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1403, new e(ur4Var, str, tbPageContext));
         ur4Var.create(tbPageContext);
         ur4Var.show();
     }
@@ -272,7 +272,7 @@ public class cq8 {
         ur4Var.setTitle(str);
         a aVar = new a(ur4Var);
         ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, aVar);
-        ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f09a0, aVar);
+        ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f09a1, aVar);
         ur4Var.create(tbPageContext);
         ur4Var.show();
     }
@@ -286,7 +286,7 @@ public class cq8 {
         ur4Var.setButtonTextColor(R.color.CAM_X0305);
         ur4Var.setMessage(str);
         ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new b(ur4Var));
-        ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0cf5, new c(ur4Var, i, tbPageContext, i2, str2, str3));
+        ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0cf6, new c(ur4Var, i, tbPageContext, i2, str2, str3));
         ur4Var.create(tbPageContext);
         ur4Var.show();
     }

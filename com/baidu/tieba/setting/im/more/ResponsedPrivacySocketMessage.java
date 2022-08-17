@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ne8;
+import com.repackage.me8;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetPrivateInfo.GetPrivateInfoResIdl;
@@ -18,7 +18,7 @@ import tbclient.SimpleUser;
 public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ne8 privacyData;
+    public me8 privacyData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsedPrivacySocketMessage() {
@@ -36,7 +36,7 @@ public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
                 return;
             }
         }
-        this.privacyData = new ne8();
+        this.privacyData = new me8();
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -100,9 +100,9 @@ public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public ne8 getPrivacyData() {
+    public me8 getPrivacyData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.privacyData : (ne8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.privacyData : (me8) invokeV.objValue;
     }
 }

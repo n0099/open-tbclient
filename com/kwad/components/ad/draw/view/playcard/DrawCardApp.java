@@ -181,7 +181,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: cn  reason: collision with root package name */
-                    public final /* synthetic */ DrawCardApp f1077cn;
+                    public final /* synthetic */ DrawCardApp f1078cn;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -198,14 +198,14 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                                 return;
                             }
                         }
-                        this.f1077cn = this;
+                        this.f1078cn = this;
                     }
 
                     @Override // com.kwad.sdk.api.KsAppDownloadListener
                     public final void onDownloadFailed() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f1077cn.cl.f(com.kwad.sdk.core.response.a.a.al(this.f1077cn.mAdInfo), this.f1077cn.cl.getMax());
+                            this.f1078cn.cl.f(com.kwad.sdk.core.response.a.a.al(this.f1078cn.mAdInfo), this.f1078cn.cl.getMax());
                         }
                     }
 
@@ -213,7 +213,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                     public final void onDownloadFinished() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                            this.f1077cn.cl.f(com.kwad.sdk.core.response.a.a.aJ(this.f1077cn.mAdTemplate), this.f1077cn.cl.getMax());
+                            this.f1078cn.cl.f(com.kwad.sdk.core.response.a.a.aJ(this.f1078cn.mAdTemplate), this.f1078cn.cl.getMax());
                         }
                     }
 
@@ -221,7 +221,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                     public final void onIdle() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                            this.f1077cn.cl.f(com.kwad.sdk.core.response.a.a.al(this.f1077cn.mAdInfo), this.f1077cn.cl.getMax());
+                            this.f1078cn.cl.f(com.kwad.sdk.core.response.a.a.al(this.f1078cn.mAdInfo), this.f1078cn.cl.getMax());
                         }
                     }
 
@@ -229,7 +229,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                     public final void onInstalled() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                            this.f1077cn.cl.f(com.kwad.sdk.core.response.a.a.P(this.f1077cn.mAdInfo), this.f1077cn.cl.getMax());
+                            this.f1078cn.cl.f(com.kwad.sdk.core.response.a.a.P(this.f1078cn.mAdInfo), this.f1078cn.cl.getMax());
                         }
                     }
 
@@ -238,7 +238,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeI(1048580, this, i) == null) {
                             super.onPaused(i);
-                            this.f1077cn.cl.f(com.kwad.sdk.core.response.a.a.uU(), i);
+                            this.f1078cn.cl.f(com.kwad.sdk.core.response.a.a.uU(), i);
                         }
                     }
 
@@ -246,7 +246,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                     public final void onProgressUpdate(int i) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeI(1048581, this, i) == null) {
-                            DrawDownloadProgressBar drawDownloadProgressBar = this.f1077cn.cl;
+                            DrawDownloadProgressBar drawDownloadProgressBar = this.f1078cn.cl;
                             drawDownloadProgressBar.f(i + "%", i);
                         }
                     }
@@ -303,12 +303,12 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             if (view2 != this.cd) {
-                com.kwad.components.core.c.a.a.a(new a.C0352a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.cl).ae(view2 == this.cl ? 1 : 2).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardApp.2
+                com.kwad.components.core.c.a.a.a(new a.C0354a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.cl).ae(view2 == this.cl ? 1 : 2).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardApp.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: cn  reason: collision with root package name */
-                    public final /* synthetic */ DrawCardApp f1078cn;
+                    public final /* synthetic */ DrawCardApp f1079cn;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -325,16 +325,16 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                                 return;
                             }
                         }
-                        this.f1078cn = this;
+                        this.f1079cn = this;
                     }
 
                     @Override // com.kwad.components.core.c.a.a.b
                     public final void onAdClicked() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f1078cn.cc == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f1079cn.cc == null) {
                             return;
                         }
-                        this.f1078cn.cc.aD();
+                        this.f1079cn.cc.aD();
                     }
                 }));
                 return;

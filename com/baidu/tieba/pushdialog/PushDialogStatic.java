@@ -25,8 +25,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kk8;
-import com.repackage.la8;
+import com.repackage.jk8;
+import com.repackage.ka8;
 import com.repackage.ru4;
 import com.repackage.ur4;
 import com.squareup.wire.Wire;
@@ -115,12 +115,12 @@ public class PushDialogStatic {
 
         /* renamed from: com.baidu.tieba.pushdialog.PushDialogStatic$b$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0255b implements ur4.e {
+        public class C0256b implements ur4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ TbPageContextSupport a;
 
-            public C0255b(b bVar, TbPageContextSupport tbPageContextSupport) {
+            public C0256b(b bVar, TbPageContextSupport tbPageContextSupport) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -210,19 +210,19 @@ public class PushDialogStatic {
                     if (!(l >= 2) && TbSingleton.getInstance().canShowPermDialog()) {
                         TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) customMessage.getData();
                         if (tbPageContextSupport.getPageContext() != null && tbPageContextSupport.getPageContext().getPageActivity() != null) {
-                            if (la8.a()) {
+                            if (ka8.a()) {
                                 eVar = new a(this, tbPageContextSupport);
-                                i = R.string.obfuscated_res_0x7f0f0f49;
-                            } else if (la8.b()) {
-                                eVar = new C0255b(this, tbPageContextSupport);
                                 i = R.string.obfuscated_res_0x7f0f0f4a;
+                            } else if (ka8.b()) {
+                                eVar = new C0256b(this, tbPageContextSupport);
+                                i = R.string.obfuscated_res_0x7f0f0f4b;
                             } else {
                                 eVar = null;
                                 i = 0;
                             }
                             if (eVar != null) {
                                 ur4 ur4Var = new ur4(tbPageContextSupport.getPageContext().getPageActivity());
-                                ur4Var.setTitle(R.string.obfuscated_res_0x7f0f0f4b);
+                                ur4Var.setTitle(R.string.obfuscated_res_0x7f0f0f4c);
                                 ur4Var.setMessageId(i);
                                 ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f07d1, eVar);
                                 ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0835, new c(this));
@@ -276,12 +276,12 @@ public class PushDialogStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            kk8.h(309614, PushDialogSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, kk8.a(TbConfig.GET_PUSH_DIALOG_DETAIL, 309614));
+            jk8.h(309614, PushDialogSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, jk8.a(TbConfig.GET_PUSH_DIALOG_DETAIL, 309614));
             tbHttpMessageTask.setResponsedClass(PushDialogHttpResMsg.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            kk8.h(309618, PullTidSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, kk8.a(TbConfig.GET_PUSH_DIALOG_TID, 309618));
+            jk8.h(309618, PullTidSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, jk8.a(TbConfig.GET_PUSH_DIALOG_TID, 309618));
             tbHttpMessageTask2.setResponsedClass(PullTidHttpRespMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask2);
             CustomMessageTask customMessageTask = new CustomMessageTask(2921359, new a());

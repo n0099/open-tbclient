@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.core.internal.view.SupportMenu;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -343,7 +342,7 @@ public class ez8 {
             this.p = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f09265a);
             yd5 c2 = yd5.c(this.b);
             c2.h(BadgeDrawable.TOP_END);
-            c2.g(SupportMenu.CATEGORY_MASK);
+            c2.g(-65536);
             c2.m(R.dimen.tbds12, false);
             c2.k(R.dimen.tbds15, true);
             c2.i(R.dimen.tbds9);
@@ -383,7 +382,7 @@ public class ez8 {
         d4.f(R.color.CAM_X0206);
         SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0110);
-        this.m.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08099e, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
+        this.m.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08099f, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
         SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0105);

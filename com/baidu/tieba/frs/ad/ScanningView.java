@@ -224,7 +224,7 @@ public class ScanningView extends View {
         this.j = R.drawable.obfuscated_res_0x7f080575;
         this.k = 400;
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04042c, R.attr.obfuscated_res_0x7f04042d});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04042d, R.attr.obfuscated_res_0x7f04042f});
             this.j = obtainStyledAttributes.getResourceId(1, R.drawable.obfuscated_res_0x7f080575);
             this.k = obtainStyledAttributes.getInt(0, 400);
             obtainStyledAttributes.recycle();

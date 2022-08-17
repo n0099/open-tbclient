@@ -66,9 +66,9 @@ public class si6 extends bn<ir4, ThreadCardViewHolder<ThreadData>> {
                 if (z) {
                     ir4 ir4Var = (ir4) onVar;
                     if (ir4Var.t.getType() == ThreadData.TYPE_FAKE_VIDEO) {
-                        BdToast b = BdToast.b(this.b.b.getContext(), this.b.b.getString(R.string.obfuscated_res_0x7f0f1511));
+                        BdToast b = BdToast.b(this.b.b.getContext(), this.b.b.getString(R.string.obfuscated_res_0x7f0f1514));
                         b.f(BdToast.ToastIcon.FAILURE);
-                        b.h();
+                        b.i();
                         return;
                     }
                     ThreadData threadData = ir4Var.t;

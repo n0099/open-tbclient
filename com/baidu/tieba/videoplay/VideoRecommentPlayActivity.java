@@ -265,7 +265,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 arrayList.addAll(VideoPlayActivityConfig.bigDataList);
             }
             if (ListUtils.isEmpty(this.d)) {
-                qi.N(this, R.string.obfuscated_res_0x7f0f0c39);
+                qi.M(this, R.string.obfuscated_res_0x7f0f0c3a);
                 finish();
                 return;
             }
@@ -412,7 +412,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a01, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a02, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             VideoVerticalPageFragment videoVerticalPageFragment = this.e;
             if (videoVerticalPageFragment != null) {
                 videoVerticalPageFragment.onChangeSkinType(i);

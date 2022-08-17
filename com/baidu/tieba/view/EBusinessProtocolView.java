@@ -355,7 +355,7 @@ public class EBusinessProtocolView extends Dialog {
                 this.h.setVisibility(0);
                 setCanceledOnTouchOutside(true);
                 this.g.setText(this.k);
-                this.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1407));
+                this.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1409));
                 qv4 qv4Var = new qv4();
                 qv4Var.p(R.color.CAM_X0302);
                 this.h.setTextSize(R.dimen.T_X08);
@@ -371,13 +371,13 @@ public class EBusinessProtocolView extends Dialog {
                 qv4Var2.p(R.color.CAM_X0107);
                 this.e.setConfig(qv4Var2);
                 this.e.setTextSize(R.dimen.tbds42);
-                this.e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f2d));
+                this.e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f2e));
                 this.f.setTextSize(R.dimen.tbds42);
                 qv4 qv4Var3 = new qv4();
                 qv4Var3.p(R.color.CAM_X0302);
                 this.f.setConfig(qv4Var3);
                 this.f.setTextSize(R.dimen.tbds42);
-                this.f.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f2c));
+                this.f.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f2d));
             }
         }
     }

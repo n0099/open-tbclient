@@ -207,7 +207,7 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843039, R.attr.obfuscated_res_0x7f04006e, R.attr.obfuscated_res_0x7f040094, R.attr.obfuscated_res_0x7f0400b6, R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f0400ba, R.attr.obfuscated_res_0x7f04026d, R.attr.obfuscated_res_0x7f0404ba});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843039, R.attr.obfuscated_res_0x7f04006e, R.attr.obfuscated_res_0x7f040094, R.attr.obfuscated_res_0x7f0400b6, R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f0400ba, R.attr.obfuscated_res_0x7f04026e, R.attr.obfuscated_res_0x7f0404bb});
         this.maxWidth = obtainStyledAttributes.getDimensionPixelSize(0, -1);
         this.maxInlineActionWidth = obtainStyledAttributes.getDimensionPixelSize(7, -1);
         obtainStyledAttributes.recycle();

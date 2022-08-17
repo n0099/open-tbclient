@@ -129,7 +129,7 @@ public class ih6 implements jf6.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.h.setBackground(new ColorDrawable(SkinManager.getColor(R.color.CAM_X0201)));
-            this.k.setImageResource(R.drawable.obfuscated_res_0x7f080f80);
+            this.k.setImageResource(R.drawable.obfuscated_res_0x7f080f81);
         }
     }
 
@@ -138,7 +138,7 @@ public class ih6 implements jf6.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.h.setBackground(f());
-            this.k.setImageResource(R.drawable.obfuscated_res_0x7f080f7f);
+            this.k.setImageResource(R.drawable.obfuscated_res_0x7f080f80);
         }
     }
 

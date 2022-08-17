@@ -150,12 +150,12 @@ public class BackgroundItemView extends LinearLayout {
             this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09037a);
             TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091897);
             this.d = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08120f);
-            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120f);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081210);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081210);
             TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f28);
             this.e = tbImageView2;
-            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f08120f);
-            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120f);
+            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081210);
+            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081210);
             this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09060d);
             this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920b7);
             SkinProgressView skinProgressView = (SkinProgressView) this.b.findViewById(R.id.obfuscated_res_0x7f09253f);

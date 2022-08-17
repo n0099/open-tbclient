@@ -77,9 +77,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cs8;
 import com.repackage.cu8;
 import com.repackage.du8;
-import com.repackage.fn7;
+import com.repackage.en7;
 import com.repackage.hu8;
-import com.repackage.jn7;
+import com.repackage.in7;
 import com.repackage.jt8;
 import com.repackage.ju8;
 import com.repackage.lu8;
@@ -114,7 +114,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
     public RecordTabLayout J;
     public int K;
     public ImageFileInfo L;
-    public fn7 M;
+    public en7 M;
     public CustomMessageListener N;
     public st8.a O;
     public HttpMessageListener P;
@@ -361,7 +361,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
                     return;
                 }
                 RecordVideoActivity recordVideoActivity = this.c;
-                qi.O(recordVideoActivity, recordVideoActivity.getString(R.string.obfuscated_res_0x7f0f0add));
+                qi.N(recordVideoActivity, recordVideoActivity.getString(R.string.obfuscated_res_0x7f0f0ade));
                 this.c.p.setVisibility(8);
                 if (du8Var != null) {
                     this.c.g2(du8Var.a, du8Var.b);
@@ -686,13 +686,13 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
                     this.a.c.setDownLoadSticker(null);
                 }
                 if (StringUtils.isNull(str)) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f11f2);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f11f4);
                 } else {
                     this.a.showToast(str);
                 }
                 RecordVideoActivity recordVideoActivity = this.a;
                 if (StringUtils.isNull(str)) {
-                    str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11f2);
+                    str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11f4);
                 }
                 recordVideoActivity.g2(5, str);
             }
@@ -916,14 +916,14 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
         }
         this.E = true;
         this.N = new g(this, 2921583);
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, jn7.class);
-        jn7 jn7Var = runTask != null ? (jn7) runTask.getData() : null;
-        if (jn7Var != null) {
-            this.M = jn7Var.get();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, in7.class);
+        in7 in7Var = runTask != null ? (in7) runTask.getData() : null;
+        if (in7Var != null) {
+            this.M = in7Var.get();
         }
-        fn7 fn7Var = this.M;
-        if (fn7Var != null) {
-            fn7Var.g();
+        en7 en7Var = this.M;
+        if (en7Var != null) {
+            en7Var.g();
         }
         this.O = new h(this);
         this.P = new i(this, CmdConfigHttp.CMD_GET_STICKERS);
@@ -1005,18 +1005,18 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             return;
         }
         if (i2 == 0) {
-            recordTabLayout.d(1, getString(R.string.obfuscated_res_0x7f0f1352));
-            this.J.d(2, getString(R.string.obfuscated_res_0x7f0f1353));
+            recordTabLayout.d(1, getString(R.string.obfuscated_res_0x7f0f1354));
+            this.J.d(2, getString(R.string.obfuscated_res_0x7f0f1355));
             this.J.setListener(this);
             this.J.setCurrentTab(2, false);
             w(2, false);
         } else if (i2 == 1) {
-            recordTabLayout.d(1, getString(R.string.obfuscated_res_0x7f0f1352));
+            recordTabLayout.d(1, getString(R.string.obfuscated_res_0x7f0f1354));
             this.J.setShowIndicator(false);
             this.J.setCurrentTab(1, false);
             w(1, false);
         } else {
-            recordTabLayout.d(2, getString(R.string.obfuscated_res_0x7f0f1353));
+            recordTabLayout.d(2, getString(R.string.obfuscated_res_0x7f0f1355));
             this.J.setShowIndicator(false);
             this.J.setCurrentTab(2, false);
             w(2, false);
@@ -1175,9 +1175,9 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
                 ou8Var.g(editVideoActivityConfig);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, editVideoActivityConfig));
-            fn7 fn7Var = this.M;
-            if (fn7Var != null) {
-                fn7Var.d();
+            en7 en7Var = this.M;
+            if (en7Var != null) {
+                en7Var.d();
             }
         }
     }
@@ -1312,12 +1312,12 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
     }
 
     public final void f2(int i2) {
-        fn7 fn7Var;
+        en7 en7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || (fn7Var = this.M) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || (en7Var = this.M) == null) {
             return;
         }
-        fn7Var.i(i2, "record");
+        en7Var.i(i2, "record");
     }
 
     public final void g2(int i2, String str) {
@@ -1340,9 +1340,9 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
                 this.f.setVisibility(0);
             }
             if (this.k.l()) {
-                this.f.setImageResource(R.drawable.obfuscated_res_0x7f080afe);
+                this.f.setImageResource(R.drawable.obfuscated_res_0x7f080aff);
             } else {
-                this.f.setImageResource(R.drawable.obfuscated_res_0x7f080afd);
+                this.f.setImageResource(R.drawable.obfuscated_res_0x7f080afe);
             }
         }
     }
@@ -1569,7 +1569,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
                 if (this.i == null) {
                     ur4 ur4Var = new ur4(getPageContext().getPageActivity());
                     this.i = ur4Var;
-                    ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f152a);
+                    ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f152d);
                     this.i.setPositiveButton(R.string.obfuscated_res_0x7f0f04ee, new l(this));
                     this.i.setNegativeButton(R.string.obfuscated_res_0x7f0f04e9, new m(this));
                     this.i.setCancelable(true);
@@ -1666,9 +1666,9 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             if (selectMusicModel != null) {
                 selectMusicModel.cancelLoadData();
             }
-            fn7 fn7Var = this.M;
-            if (fn7Var != null) {
-                fn7Var.k("record");
+            en7 en7Var = this.M;
+            if (en7Var != null) {
+                en7Var.k("record");
             }
         }
     }
@@ -1730,9 +1730,9 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             if (this.c != null && this.E) {
                 c2();
             }
-            fn7 fn7Var = this.M;
-            if (fn7Var != null) {
-                fn7Var.e("album");
+            en7 en7Var = this.M;
+            if (en7Var != null) {
+                en7Var.e("album");
             }
         }
     }

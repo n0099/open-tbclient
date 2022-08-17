@@ -115,7 +115,7 @@ public class KSCornerImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet) == null) {
             h.a aVar = new h.a();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040393, R.attr.obfuscated_res_0x7f0403ab, R.attr.obfuscated_res_0x7f0403b5, R.attr.obfuscated_res_0x7f0403da});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040394, R.attr.obfuscated_res_0x7f0403ac, R.attr.obfuscated_res_0x7f0403b6, R.attr.obfuscated_res_0x7f0403db});
             aVar.bt(obtainStyledAttributes.getBoolean(1, true));
             aVar.bu(obtainStyledAttributes.getBoolean(3, true));
             aVar.bv(obtainStyledAttributes.getBoolean(2, true));

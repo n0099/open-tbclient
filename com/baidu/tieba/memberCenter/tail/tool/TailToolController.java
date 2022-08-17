@@ -23,18 +23,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.h25;
-import com.repackage.jm7;
+import com.repackage.im7;
+import com.repackage.nm7;
 import com.repackage.om7;
-import com.repackage.pm7;
 import com.repackage.t25;
 /* loaded from: classes3.dex */
 public class TailToolController extends NoPressedLinearLayout implements t25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public pm7 b;
-    public om7 c;
-    public jm7 d;
+    public om7 b;
+    public nm7 c;
+    public im7 d;
     public Context e;
     public EditorTools f;
     public CustomMessageListener g;
@@ -207,11 +207,11 @@ public class TailToolController extends NoPressedLinearLayout implements t25 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             this.e = context;
-            this.b = new pm7((ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0842, (ViewGroup) this, true));
-            this.c = new om7(context);
-            jm7 jm7Var = new jm7(context, this.c, this.i);
-            this.d = jm7Var;
-            this.b.a(jm7Var);
+            this.b = new om7((ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0842, (ViewGroup) this, true));
+            this.c = new nm7(context);
+            im7 im7Var = new im7(context, this.c, this.i);
+            this.d = im7Var;
+            this.b.a(im7Var);
         }
     }
 

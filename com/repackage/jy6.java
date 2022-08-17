@@ -7,8 +7,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,13 +21,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dy;
 import com.repackage.oy;
 /* loaded from: classes6.dex */
-public class jy6 extends dy6<ir4, ThreadCardViewHolder<ThreadData>> {
+public class jy6 extends cy6<ir4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b06<ThreadData> e;
+    public b06<ir4> e;
 
     /* loaded from: classes6.dex */
-    public class a extends b06<ThreadData> {
+    public class a extends b06<ir4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ jy6 b;
@@ -50,11 +53,12 @@ public class jy6 extends dy6<ir4, ThreadCardViewHolder<ThreadData>> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.repackage.b06
         /* renamed from: d */
-        public void a(View view2, ThreadData threadData) {
+        public void a(View view2, ir4 ir4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                this.b.s(view2, threadData);
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ir4Var) == null) || ir4Var == null) {
+                return;
             }
+            this.b.s(view2, ir4Var.t);
         }
     }
 
@@ -87,20 +91,58 @@ public class jy6 extends dy6<ir4, ThreadCardViewHolder<ThreadData>> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, onVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (onVar instanceof ir4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                ThreadData threadData = ((ir4) onVar).t;
+                ir4 ir4Var = (ir4) onVar;
+                ThreadData threadData = ir4Var.t;
                 threadData.objType = 1;
                 if (this.a.e != null) {
-                    this.a.e.a(threadCardViewHolder.getView(), threadData);
+                    this.a.e.a(threadCardViewHolder.getView(), ir4Var);
                 }
-                ThreadCardUtils.jumpToPB((fo4) threadData, view2.getContext(), 0, false);
+                ThreadCardUtils.jumpToPB((fo4) threadData, view2.getContext(), 0, false, vw.a((un) viewGroup, view2, i));
                 threadCardViewHolder.a().o(new oy.a(1));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements ThreadCommentAndPraiseInfoLayout.k {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ View b;
+        public final /* synthetic */ int c;
+
+        public c(jy6 jy6Var, ViewGroup viewGroup, View view2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jy6Var, viewGroup, view2, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = viewGroup;
+            this.b = view2;
+            this.c = i;
+        }
+
+        @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.k
+        public void a(IntentConfig intentConfig) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, intentConfig) == null) && (intentConfig instanceof PbActivityConfig)) {
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(vw.a((un) this.a, this.b, this.c));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public jy6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, ThreadData.TYPE_CONTENT_TEXT_NORMAL);
+        super(tbPageContext, ThreadData.TYPE_BOTTOM_NORMAL);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,12 +170,20 @@ public class jy6 extends dy6<ir4, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             dy.b bVar = new dy.b(this.b.getPageActivity(), false);
-            rx rxVar = new rx(this.b.getPageActivity());
-            rxVar.s("index");
-            rxVar.t(t());
-            bVar.n(rxVar);
-            dy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.c);
-            k.r(0);
+            fy fyVar = new fy(this.b.getPageActivity());
+            lo4 lo4Var = new lo4();
+            lo4Var.b = 1;
+            lo4Var.h = 1;
+            fyVar.w(lo4Var);
+            fyVar.y(1);
+            fyVar.E("personalize_page");
+            fyVar.D(1);
+            fyVar.z(2);
+            fyVar.c(32);
+            fyVar.x(false);
+            bVar.m(fyVar);
+            dy k = bVar.k(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.c);
+            k.r(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.i(this.mPageId);
             setOnAdapterItemClickListener(new b(this));
@@ -143,9 +193,9 @@ public class jy6 extends dy6<ir4, ThreadCardViewHolder<ThreadData>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.dy6, com.repackage.bn
+    @Override // com.repackage.cy6, com.repackage.bn
     /* renamed from: z */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ir4 ir4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ir4 ir4Var, ThreadCardViewHolder threadCardViewHolder) {
         InterceptResult invokeCommon;
         ThreadData threadData;
         Interceptable interceptable = $ic;
@@ -155,10 +205,12 @@ public class jy6 extends dy6<ir4, ThreadCardViewHolder<ThreadData>> {
             }
             threadData.statFloor = getPositionByType(i) + 1;
             threadCardViewHolder.a().q(i);
-            threadCardViewHolder.e(ir4Var.t);
+            if (threadCardViewHolder.a().f() instanceof fy) {
+                ((fy) threadCardViewHolder.a().f()).C(new c(this, viewGroup, view2, i));
+            }
+            threadCardViewHolder.e(ir4Var);
             threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
             threadCardViewHolder.a().p(this.e);
-            w(threadCardViewHolder.getView(), ir4Var.t, i, i);
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

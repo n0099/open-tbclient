@@ -31,13 +31,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b38;
+import com.repackage.a38;
 import com.repackage.cf5;
 import com.repackage.gf5;
 import com.repackage.je5;
-import com.repackage.m38;
+import com.repackage.l38;
+import com.repackage.o38;
 import com.repackage.og;
-import com.repackage.p38;
 import com.repackage.ru4;
 /* loaded from: classes4.dex */
 public class PersonCenterFragment extends LazyBaseFragment {
@@ -48,7 +48,7 @@ public class PersonCenterFragment extends LazyBaseFragment {
     @Deprecated
     public boolean i;
     public boolean j;
-    public m38 k;
+    public l38 k;
     public long l;
     public String m;
     public boolean n;
@@ -210,9 +210,9 @@ public class PersonCenterFragment extends LazyBaseFragment {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_FEEDBACK_TIP);
                 netWork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
                 String postNetData = netWork.postNetData();
-                p38 p38Var = new p38();
-                p38Var.c(postNetData);
-                if (p38Var.b() == 0 && p38Var.a() > 0) {
+                o38 o38Var = new o38();
+                o38Var.c(postNetData);
+                if (o38Var.b() == 0 && o38Var.a() > 0) {
                     return Boolean.TRUE;
                 }
                 return Boolean.FALSE;
@@ -375,7 +375,7 @@ public class PersonCenterFragment extends LazyBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            b38.d().h(System.currentTimeMillis() - b38.d().a());
+            a38.d().h(System.currentTimeMillis() - a38.d().a());
         }
     }
 
@@ -401,9 +401,9 @@ public class PersonCenterFragment extends LazyBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
-            m38 m38Var = this.k;
-            if (m38Var != null) {
-                m38Var.g(i);
+            l38 l38Var = this.k;
+            if (l38Var != null) {
+                l38Var.g(i);
             }
         }
     }
@@ -412,7 +412,7 @@ public class PersonCenterFragment extends LazyBaseFragment {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            b38.d().g(System.currentTimeMillis());
+            a38.d().g(System.currentTimeMillis());
             super.onCreate(bundle);
         }
     }
@@ -422,9 +422,9 @@ public class PersonCenterFragment extends LazyBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            m38 m38Var = this.k;
-            if (m38Var != null) {
-                m38Var.h();
+            l38 l38Var = this.k;
+            if (l38Var != null) {
+                l38Var.h();
             }
         }
     }
@@ -511,9 +511,9 @@ public class PersonCenterFragment extends LazyBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onStop();
-            m38 m38Var = this.k;
-            if (m38Var != null) {
-                m38Var.e();
+            l38 l38Var = this.k;
+            if (l38Var != null) {
+                l38Var.e();
             }
         }
     }
@@ -530,9 +530,9 @@ public class PersonCenterFragment extends LazyBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, view2, bundle) == null) {
             D1(bundle);
-            m38 m38Var = new m38(view2, getPageContext(), getUniqueId());
-            this.k = m38Var;
-            m38Var.f();
+            l38 l38Var = new l38(view2, getPageContext(), getUniqueId());
+            this.k = l38Var;
+            l38Var.f();
             this.n = false;
             if (TbadkCoreApplication.getInst().checkInterrupt()) {
                 return;

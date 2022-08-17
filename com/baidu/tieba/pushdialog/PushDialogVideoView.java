@@ -39,16 +39,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e98;
+import com.repackage.d98;
+import com.repackage.k88;
 import com.repackage.ki5;
-import com.repackage.l88;
 import com.repackage.oi;
 import com.repackage.qi;
 import com.repackage.rg;
 import com.repackage.us8;
-import com.repackage.w88;
+import com.repackage.v88;
+import com.repackage.x88;
 import com.repackage.y88;
-import com.repackage.z88;
 /* loaded from: classes4.dex */
 public class PushDialogVideoView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -56,7 +56,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     public boolean A;
     public boolean B;
     public ki5 C;
-    public e98 D;
+    public d98 D;
     public VideoLoadingProgressView.c E;
     public Runnable F;
     public Runnable G;
@@ -70,8 +70,8 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     public int c;
     public int d;
     public TbPageContext<?> e;
-    public l88 f;
-    public w88 g;
+    public k88 f;
+    public v88 g;
     public ProgressBar h;
     public View i;
     public View j;
@@ -93,7 +93,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     public boolean z;
 
     /* loaded from: classes4.dex */
-    public class a implements e98 {
+    public class a implements d98 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PushDialogVideoView a;
@@ -116,14 +116,14 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             this.a = pushDialogVideoView;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void changeRenderViewMode(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public int getCurrentPosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -133,7 +133,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             return invokeV.intValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public View getMainView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -143,7 +143,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             return (View) invokeV.objValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public boolean isFullScreen() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -153,7 +153,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public boolean isPlaying() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -163,7 +163,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public boolean onBackPress() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -173,7 +173,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public boolean onBackground(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -205,7 +205,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                 } else {
                     this.a.l.setVisibility(0);
                 }
-                y88.d().e(this.a.n);
+                x88.d().e(this.a.n);
                 if (this.a.f == null || this.a.f.getDuration() > 150000) {
                     return;
                 }
@@ -248,7 +248,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void onScroll() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -270,7 +270,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public boolean onVolumeUp() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -280,63 +280,63 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setAfterClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setData(ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setFrom(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setJumpToPbClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048595, this, onClickListener) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setStageType(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             }
         }
 
-        @Override // com.repackage.e98
-        public void setStatistic(z88 z88Var) {
+        @Override // com.repackage.d98
+        public void setStatistic(y88 y88Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048597, this, z88Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048597, this, y88Var) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setUniqueId(BdUniqueId bdUniqueId) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048598, this, bdUniqueId) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void startPlay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void stopPlay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
@@ -757,7 +757,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (!oi.z()) {
-                qi.L(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f0c3c));
+                qi.K(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f0c3d));
             } else if (this.f.isPlaying()) {
                 D();
             } else if (this.r) {
@@ -784,7 +784,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     public void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            y88.d().update(this.n, this.f.getCurrentPositionSync());
+            x88.d().update(this.n, this.f.getCurrentPositionSync());
         }
     }
 
@@ -884,19 +884,19 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     }
 
     public final void R() {
-        l88 l88Var;
+        k88 k88Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (l88Var = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (k88Var = this.f) == null) {
             return;
         }
         if (this.z) {
-            l88Var.start();
+            k88Var.start();
             this.z = false;
         }
         rg.a().removeCallbacks(this.F);
         rg.a().postDelayed(this.F, 20L);
         rg.a().removeCallbacks(this.G);
-        int c2 = y88.d().c(this.n);
+        int c2 = x88.d().c(this.n);
         this.s = c2;
         if (c2 != 0) {
             this.f.seekTo(c2);
@@ -912,11 +912,11 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            l88 l88Var = this.f;
-            if (l88Var == null) {
+            k88 k88Var = this.f;
+            if (k88Var == null) {
                 return 0;
             }
-            return l88Var.getCurrentPosition();
+            return k88Var.getCurrentPosition();
         }
         return invokeV.intValue;
     }
@@ -1002,10 +1002,10 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    public void setVideoViewBusiness(z88 z88Var) {
+    public void setVideoViewBusiness(y88 y88Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, z88Var) == null) {
-            this.f.setVideoStatData(z88Var);
+        if (interceptable == null || interceptable.invokeL(1048602, this, y88Var) == null) {
+            this.f.setVideoStatData(y88Var);
         }
     }
 
@@ -1036,9 +1036,9 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             this.f = control;
             control.setPlayMode("2");
             this.f.setStageType(null);
-            w88 w88Var = new w88((ViewGroup) findViewById(R.id.obfuscated_res_0x7f0902fa));
-            this.g = w88Var;
-            w88Var.f(this.E);
+            v88 v88Var = new v88((ViewGroup) findViewById(R.id.obfuscated_res_0x7f0902fa));
+            this.g = v88Var;
+            v88Var.f(this.E);
             ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091974);
             this.h = progressBar;
             progressBar.setMax(this.c);
@@ -1069,11 +1069,11 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            l88 l88Var = this.f;
-            if (l88Var == null) {
+            k88 k88Var = this.f;
+            if (k88Var == null) {
                 return false;
             }
-            return l88Var.isPlaying();
+            return k88Var.isPlaying();
         }
         return invokeV.booleanValue;
     }

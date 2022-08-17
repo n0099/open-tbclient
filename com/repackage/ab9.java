@@ -134,13 +134,13 @@ public class ab9 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
 
         /* renamed from: com.repackage.ab9$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0435a implements Runnable {
+        public class RunnableC0437a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public RunnableC0435a(a aVar, int i) {
+            public RunnableC0437a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -209,7 +209,7 @@ public class ab9 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
         public void c(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                this.a.p.post(new RunnableC0435a(this, i));
+                this.a.p.post(new RunnableC0437a(this, i));
             }
         }
 

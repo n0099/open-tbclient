@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gj8;
+import com.repackage.fj8;
 import com.repackage.ms4;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 /* loaded from: classes4.dex */
@@ -74,10 +74,10 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
     private void setBackground(String str) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || (drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080b1b)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || (drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080b1c)) == null) {
             return;
         }
-        DrawableCompat.setTint(drawable, gj8.a(gj8.f(str), 0.3f));
+        DrawableCompat.setTint(drawable, fj8.a(fj8.f(str), 0.3f));
         this.d.setBackground(drawable);
         this.d.setPadding(f, 0, g, 0);
     }
@@ -168,7 +168,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             if (TextUtils.isEmpty(str2)) {
                 str4 = "";
             } else {
-                str4 = String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1555), str2);
+                str4 = String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1558), str2);
                 if (!TextUtils.isEmpty(this.e)) {
                     str4 = " " + str4;
                 }
@@ -237,7 +237,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
-            this.e += String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1555), str2);
+            this.e += String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1558), str2);
         }
     }
 }

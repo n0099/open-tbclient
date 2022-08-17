@@ -151,7 +151,7 @@ public class zy5 {
                 imageView.setImageDrawable(SvgManager.getInstance().getMaskDrawable(R.drawable.obfuscated_res_0x7f0805e1, null));
                 linearLayout.addView(imageView, new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds39), UtilHelper.getDimenPixelSize(R.dimen.tbds39)));
                 TextView textView = new TextView(pageActivity);
-                textView.setText(R.string.obfuscated_res_0x7f0f0c88);
+                textView.setText(R.string.obfuscated_res_0x7f0f0c89);
                 textView.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, 0, 0);
                 ms4 d = ms4.d(textView);
                 d.z(R.dimen.T_X07);
@@ -166,7 +166,7 @@ public class zy5 {
                 tBAlertBuilder.l(3);
                 tBAlertBuilder.m(true);
                 tBAlertBuilder.i(linearLayout);
-                tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0c48, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0363, TBAlertConfig.OperateBtnStyle.MAIN, new b(this, imageView)));
+                tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0c49, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0363, TBAlertConfig.OperateBtnStyle.MAIN, new b(this, imageView)));
                 tBAlertBuilder.g();
                 tBAlertBuilder.w();
             }
@@ -179,7 +179,7 @@ public class zy5 {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CALL_FANS);
             httpMessage.addParam("thread_id", this.b);
             MessageManager.getInstance().sendMessage(httpMessage);
-            this.a.showToast(R.string.obfuscated_res_0x7f0f1629);
+            this.a.showToast(R.string.obfuscated_res_0x7f0f162c);
             TbSingleton.getInstance().mCallFansTid = this.b;
             TbSingleton.getInstance().mCanCallFans = false;
         }

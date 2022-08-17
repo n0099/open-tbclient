@@ -358,7 +358,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 if (this.a.getLoadingDialog() == null || !this.a.getLoadingDialog().c()) {
                     LoginActivity loginActivity = this.a;
-                    loginActivity.showLoadingDialog(loginActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f1049), new a(this));
+                    loginActivity.showLoadingDialog(loginActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f104a), new a(this));
                 }
             }
         }
@@ -379,6 +379,9 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 }
                 TiebaStatic.log(new StatisticItem("c12948").param("obj_type", this.a.b).param(TiebaStatic.Params.OBJ_URL, this.a.i).param("obj_param1", this.a.u).param(TiebaStatic.Params.OBJ_PARAM2, this.a.v).param(TiebaStatic.Params.OBJ_PARAM3, str));
                 this.a.closeLoadingDialog();
+                if (accountData.getGrowthSwitch().equals("1")) {
+                    ru4.k().y("key_device_is_first_login", "0");
+                }
                 if (!TbadkCoreApplication.getInst().shouldNeedCheckUserNameDialog() || !TextUtils.isEmpty(accountData.getAccount())) {
                     this.a.R1(accountData);
                 } else {

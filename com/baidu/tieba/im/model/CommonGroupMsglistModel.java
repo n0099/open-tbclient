@@ -27,8 +27,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cb;
 import com.repackage.cf5;
 import com.repackage.gf5;
-import com.repackage.m87;
-import com.repackage.o77;
+import com.repackage.l87;
+import com.repackage.n77;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -275,7 +275,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(o77.h().c(String.valueOf(this.this$0.mGroup.getGroupId()), String.valueOf(this.val$msg.getMsgId()))) : (Boolean) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(n77.h().c(String.valueOf(this.this$0.mGroup.getGroupId()), String.valueOf(this.val$msg.getMsgId()))) : (Boolean) invokeV.objValue;
             }
         }, null);
     }
@@ -292,7 +292,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (getGroup() != null) {
-                return m87.o().p(String.valueOf(getGroup().getGroupId()), this.customGroupType);
+                return l87.o().p(String.valueOf(getGroup().getGroupId()), this.customGroupType);
             }
             return 0L;
         }
@@ -336,7 +336,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(o77.h().m(String.valueOf(this.this$0.mGroup.getGroupId()), String.valueOf(this.val$msg.getMsgId()))) : (Boolean) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(n77.h().m(String.valueOf(this.this$0.mGroup.getGroupId()), String.valueOf(this.val$msg.getMsgId()))) : (Boolean) invokeV.objValue;
             }
         }, null);
     }

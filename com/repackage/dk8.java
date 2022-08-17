@@ -1,82 +1,97 @@
 package com.repackage;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.BusinessPromot;
-import tbclient.FrsPage.HeadImgs;
-import tbclient.TiebaPlusInfo;
 /* loaded from: classes6.dex */
-public class dk8 {
+public class dk8 extends ThreadData {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public TiebaPlusInfo b;
+    public String b;
+    public wj8 c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755764416, "Lcom/repackage/dk8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755764416, "Lcom/repackage/dk8;");
+                return;
+            }
+        }
+        d = BdUniqueId.gen();
+    }
 
     public dk8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public TiebaPlusInfo a() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (TiebaPlusInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public boolean b() {
+    public wj8 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (wj8) invokeV.objValue;
     }
 
-    public void c(BusinessPromot businessPromot) {
+    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, businessPromot) == null) {
-            this.a = businessPromot.is_download.booleanValue();
-            TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder();
-            builder.app_company = businessPromot.download_developer;
-            builder.title = businessPromot.download_appname;
-            builder.app_privacy = businessPromot.download_privacy_policy;
-            builder.download_url = businessPromot.download_url;
-            builder.app_icon = businessPromot.download_img;
-            builder.app_version = businessPromot.download_version;
-            builder.app_power = businessPromot.download_user_power;
-            builder.app_package = businessPromot.download_package_name;
-            builder.app_id = businessPromot.download_appid;
-            builder.item_id = businessPromot.download_item_id;
-            this.b = builder.build(true);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.a = z;
         }
     }
 
-    public void d(HeadImgs headImgs) {
+    public void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, headImgs) == null) {
-            this.a = headImgs.download_is_thirdpage.intValue() == 1;
-            TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder();
-            builder.app_company = headImgs.download_developer;
-            builder.title = headImgs.download_appname;
-            builder.app_privacy = headImgs.download_privacy_policy;
-            builder.download_url = headImgs.download_url;
-            builder.app_icon = headImgs.download_img;
-            builder.app_version = headImgs.download_version;
-            builder.app_power = headImgs.download_user_power;
-            builder.app_package = headImgs.download_package_name;
-            builder.app_id = headImgs.download_appid;
-            builder.item_id = String.valueOf(headImgs.download_item_id);
-            this.b = builder.build(true);
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void n(wj8 wj8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, wj8Var) == null) {
+            this.c = wj8Var;
         }
     }
 }

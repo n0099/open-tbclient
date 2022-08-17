@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gj8;
+import com.repackage.fj8;
 import com.repackage.ks4;
 import com.repackage.ls4;
 import com.repackage.ms4;
@@ -235,15 +235,15 @@ public class ItemCardHelper {
                 return;
             }
         }
-        a = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0992);
-        b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0983);
-        c = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0996);
-        d = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0993);
-        e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0981);
-        f = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0982);
-        g = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f140b);
-        h = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f140d);
-        i = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f140c);
+        a = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0993);
+        b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0984);
+        c = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0997);
+        d = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0994);
+        e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0982);
+        f = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0983);
+        g = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f140d);
+        h = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f140f);
+        i = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f140e);
         j = null;
         n = new a(CmdConfigHttp.CMD_GAME_ITEM_ORDER);
     }
@@ -521,7 +521,7 @@ public class ItemCardHelper {
                     ru4.k().u("key_download_manager_first_toast", false);
                     g(1, simpleName, j2);
                     ScreenTopToast screenTopToast = new ScreenTopToast(context);
-                    screenTopToast.m(context.getString(R.string.obfuscated_res_0x7f0f0990));
+                    screenTopToast.m(context.getString(R.string.obfuscated_res_0x7f0f0991));
                     screenTopToast.k(context.getString(R.string.obfuscated_res_0x7f0f04eb));
                     screenTopToast.j(new b(simpleName, j2, context));
                     screenTopToast.n(viewGroup);
@@ -553,11 +553,11 @@ public class ItemCardHelper {
                     textView.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0101));
                     d2.n(R.string.J_X01);
                     d2.k(R.color.transparent);
-                    d2.g(gj8.f(m));
+                    d2.g(fj8.f(m));
                 } else if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
-                    textView.setTextColor(gj8.a(gj8.f(m), ks4.a(R.string.A_X01)));
+                    textView.setTextColor(fj8.a(fj8.f(m), ks4.a(R.string.A_X01)));
                     d2.l(R.dimen.tbds1);
-                    d2.t(gj8.a(gj8.f(m), ks4.a(R.string.A_X07)));
+                    d2.t(fj8.a(fj8.f(m), ks4.a(R.string.A_X07)));
                     d2.n(R.string.J_X01);
                     d2.f(R.color.CAM_X0209);
                 } else {

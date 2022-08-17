@@ -100,7 +100,7 @@ public class c06 extends ds4 {
                     this.a.n.dismiss();
                 }
                 if (!oi.A()) {
-                    qi.N(this.a.l, R.string.obfuscated_res_0x7f0f0c3c);
+                    qi.M(this.a.l, R.string.obfuscated_res_0x7f0f0c3d);
                 } else {
                     this.a.i0(null, false);
                 }
@@ -174,7 +174,7 @@ public class c06 extends ds4 {
                     this.a.o.dismiss();
                 }
                 if (!oi.A()) {
-                    qi.N(this.a.l, R.string.obfuscated_res_0x7f0f0c3c);
+                    qi.M(this.a.l, R.string.obfuscated_res_0x7f0f0c3d);
                     return;
                 }
                 this.a.i0(null, true);
@@ -407,7 +407,7 @@ public class c06 extends ds4 {
                         if (bVar.h) {
                             BdTopToast bdTopToast = new BdTopToast(this.a.getContext());
                             bdTopToast.h(false);
-                            bdTopToast.g(this.a.Z(R.string.obfuscated_res_0x7f0f1174, new Object[0]));
+                            bdTopToast.g(this.a.Z(R.string.obfuscated_res_0x7f0f1176, new Object[0]));
                             bdTopToast.i(viewGroup);
                             return;
                         }
@@ -421,7 +421,7 @@ public class c06 extends ds4 {
                         if (bVar.h) {
                             BdTopToast bdTopToast3 = new BdTopToast(this.a.getContext());
                             bdTopToast3.h(true);
-                            bdTopToast3.g(this.a.Z(R.string.obfuscated_res_0x7f0f1176, new Object[0]));
+                            bdTopToast3.g(this.a.Z(R.string.obfuscated_res_0x7f0f1178, new Object[0]));
                             bdTopToast3.i(viewGroup);
                             return;
                         }
@@ -453,13 +453,13 @@ public class c06 extends ds4 {
                 case 1:
                     ForumManageModel.d dVar = (ForumManageModel.d) obj;
                     if (dVar == null) {
-                        qi.O(this.a.l, this.a.Z(R.string.obfuscated_res_0x7f0f0b31, new Object[0]));
+                        qi.N(this.a.l, this.a.Z(R.string.obfuscated_res_0x7f0f0b32, new Object[0]));
                         return;
                     } else if (dVar.a) {
-                        qi.O(this.a.l, !TextUtils.isEmpty(dVar.b) ? dVar.b : this.a.Z(R.string.obfuscated_res_0x7f0f0b34, new Object[0]));
+                        qi.N(this.a.l, !TextUtils.isEmpty(dVar.b) ? dVar.b : this.a.Z(R.string.obfuscated_res_0x7f0f0b35, new Object[0]));
                         return;
                     } else {
-                        qi.O(this.a.l, !TextUtils.isEmpty(dVar.b) ? dVar.b : this.a.Z(R.string.obfuscated_res_0x7f0f0b31, new Object[0]));
+                        qi.N(this.a.l, !TextUtils.isEmpty(dVar.b) ? dVar.b : this.a.Z(R.string.obfuscated_res_0x7f0f0b32, new Object[0]));
                         return;
                     }
                 case 2:
@@ -472,7 +472,7 @@ public class c06 extends ds4 {
                 case 6:
                     ForumManageModel.g gVar = (ForumManageModel.g) obj;
                     if (gVar == null || !gVar.a) {
-                        qi.O(this.a.l, this.a.Z(R.string.obfuscated_res_0x7f0f0d04, new Object[0]));
+                        qi.N(this.a.l, this.a.Z(R.string.obfuscated_res_0x7f0f0d05, new Object[0]));
                         return;
                     } else {
                         this.a.h0(gVar.c);
@@ -514,7 +514,7 @@ public class c06 extends ds4 {
             if (interceptable == null || interceptable.invokeLIL(1048576, this, fs4Var, i, view2) == null) {
                 this.a.dismiss();
                 if (!oi.z()) {
-                    qi.N(this.a.l, R.string.obfuscated_res_0x7f0f0c3d);
+                    qi.M(this.a.l, R.string.obfuscated_res_0x7f0f0c3e);
                     return;
                 }
                 if (i == 1) {
@@ -606,7 +606,7 @@ public class c06 extends ds4 {
         this.r = new ArrayList();
         fs4 fs4Var = new fs4(this.l);
         this.m = fs4Var;
-        fs4Var.q(Z(R.string.obfuscated_res_0x7f0f13cc, new Object[0]));
+        fs4Var.q(Z(R.string.obfuscated_res_0x7f0f13ce, new Object[0]));
         this.m.n(this.A);
         ForumManageModel forumManageModel = new ForumManageModel(this.k);
         this.w = forumManageModel;
@@ -681,11 +681,11 @@ public class c06 extends ds4 {
                 this.r.add(new bs4(9, Z(R.string.obfuscated_res_0x7f0f06b9, new Object[0]), this.m));
             }
             if (!UtilHelper.isCurrentAccount(this.v.getAuthor() != null ? this.v.getAuthor().getUserId() : "") && ((this.v.getAuthor() == null || !this.v.getAuthor().isForumBusinessAccount()) && !this.v.isTiePlusCantDeleteUnion())) {
-                this.r.add(new bs4(2, Z(R.string.obfuscated_res_0x7f0f13c7, new Object[0]), this.m));
+                this.r.add(new bs4(2, Z(R.string.obfuscated_res_0x7f0f13c9, new Object[0]), this.m));
             }
         }
         if (te6.e() || te6.f()) {
-            this.r.add(new bs4(3, Z(this.v.getIs_top() == 1 ? R.string.obfuscated_res_0x7f0f037c : R.string.obfuscated_res_0x7f0f1432, new Object[0]), this.m));
+            this.r.add(new bs4(3, Z(this.v.getIs_top() == 1 ? R.string.obfuscated_res_0x7f0f037c : R.string.obfuscated_res_0x7f0f1434, new Object[0]), this.m));
         }
         if (te6.e() || te6.h()) {
             this.r.add(new bs4(4, Z(this.v.getIs_good() == 1 ? R.string.obfuscated_res_0x7f0f0376 : R.string.obfuscated_res_0x7f0f040f, new Object[0]), this.m));
@@ -700,10 +700,10 @@ public class c06 extends ds4 {
             this.r.add(new bs4(7, Z(R.string.obfuscated_res_0x7f0f072c, new Object[0]), this.m));
         }
         if (!te6.f() && le6.f().j() && this.x && ((this.v.getAuthor() == null || !this.v.getAuthor().isForumBusinessAccount() || this.v.isSelf() || gg6.isOn()) && !te6.g())) {
-            this.r.add(new bs4(5, Z(R.string.obfuscated_res_0x7f0f0b23, new Object[0]), this.m));
+            this.r.add(new bs4(5, Z(R.string.obfuscated_res_0x7f0f0b24, new Object[0]), this.m));
         }
         if (te6.g() && !te6.f() && le6.f().j() && this.x && (this.v.getAuthor() == null || !this.v.getAuthor().isForumBusinessAccount() || this.v.isSelf() || gg6.isOn())) {
-            this.r.add(new bs4(10, Z(R.string.obfuscated_res_0x7f0f0b26, new Object[0]), this.m));
+            this.r.add(new bs4(10, Z(R.string.obfuscated_res_0x7f0f0b27, new Object[0]), this.m));
         }
         if (te6.g() && this.v.isSelf() && !this.v.isBjh()) {
             this.r.add(new bs4(1, Z(R.string.obfuscated_res_0x7f0f04ab, new Object[0]), this.m));
@@ -768,13 +768,13 @@ public class c06 extends ds4 {
                     if (te6.e()) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921469, gp4Var));
                     } else {
-                        str = a0(gVar.b, R.string.obfuscated_res_0x7f0f1117);
+                        str = a0(gVar.b, R.string.obfuscated_res_0x7f0f1118);
                         z = false;
                     }
                 } else {
                     if (i2 == 3) {
                         threadData.setIs_good(0);
-                        str = a0(gVar.b, R.string.obfuscated_res_0x7f0f0d05);
+                        str = a0(gVar.b, R.string.obfuscated_res_0x7f0f0d06);
                     } else if (i2 == 4) {
                         threadData.setIs_top(1);
                         gp4 gp4Var2 = new gp4();
@@ -783,7 +783,7 @@ public class c06 extends ds4 {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921469, gp4Var2));
                     } else if (i2 == 5) {
                         threadData.setIs_top(0);
-                        str = a0(gVar.b, R.string.obfuscated_res_0x7f0f0d05);
+                        str = a0(gVar.b, R.string.obfuscated_res_0x7f0f0d06);
                     }
                     z = false;
                 }
@@ -794,20 +794,20 @@ public class c06 extends ds4 {
                 eVar.d = i2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921316, eVar));
                 if (TextUtils.isEmpty(str)) {
-                    str = Z(R.string.obfuscated_res_0x7f0f0d05, new Object[0]);
+                    str = Z(R.string.obfuscated_res_0x7f0f0d06, new Object[0]);
                 }
                 if (z) {
                     return;
                 }
-                qi.O(this.l, str);
+                qi.N(this.l, str);
                 return;
             }
             if (gVar != null && !TextUtils.isEmpty(gVar.b)) {
                 Z = gVar.b;
             } else {
-                Z = Z(R.string.obfuscated_res_0x7f0f0d04, new Object[0]);
+                Z = Z(R.string.obfuscated_res_0x7f0f0d05, new Object[0]);
             }
-            qi.O(this.l, Z);
+            qi.N(this.l, Z);
         }
     }
 
@@ -897,11 +897,11 @@ public class c06 extends ds4 {
             if (this.k == null) {
                 return;
             }
-            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f1172, TBAlertConfig.OperateBtnStyle.MAIN);
+            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f1174, TBAlertConfig.OperateBtnStyle.MAIN);
             TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0370, TBAlertConfig.OperateBtnStyle.SECONDARY);
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.k.getPageActivity());
-            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0b2b);
-            tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f0b2c);
+            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0b2c);
+            tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f0b2d);
             tBAlertBuilder.m(true);
             tBAlertBuilder.r(aVar2, aVar);
             tBAlertBuilder.h(false);
@@ -958,7 +958,7 @@ public class c06 extends ds4 {
             LinearLayout linearLayout = (LinearLayout) this.q.findViewById(R.id.obfuscated_res_0x7f090cc2);
             linearLayout.removeAllViews();
             this.u = new ArrayList();
-            BlueCheckRadioButton Q = Q(this.s, Z(R.string.obfuscated_res_0x7f0f13c8, new Object[0]));
+            BlueCheckRadioButton Q = Q(this.s, Z(R.string.obfuscated_res_0x7f0f13ca, new Object[0]));
             Q.setChecked(true);
             linearLayout.addView(Q);
             this.u.add(Q);

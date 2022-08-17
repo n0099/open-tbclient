@@ -1,22 +1,24 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
+import com.baidu.tieba.im.settingcache.GroupSettingItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ue;
-import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class j97 {
+public class j97 extends i97 {
     public static /* synthetic */ Interceptable $ic;
+    public static j97 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, ChatSetting> a;
 
     /* loaded from: classes6.dex */
     public class a extends cf5<Boolean> {
@@ -24,14 +26,63 @@ public abstract class j97 {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
         public final /* synthetic */ String b;
-        public final /* synthetic */ j97 c;
+        public final /* synthetic */ long c;
+        public final /* synthetic */ j97 d;
 
-        public a(j97 j97Var, String str, String str2) {
+        public a(j97 j97Var, String str, String str2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j97Var, str, str2};
+                Object[] objArr = {j97Var, str, str2, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = j97Var;
+            this.a = str;
+            this.b = str2;
+            this.c = j;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.repackage.cf5
+        public Boolean doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                GroupSettingItemData a = this.d.a(this.a, this.b);
+                if (a != null && a.isAlreadyApply()) {
+                    if (System.currentTimeMillis() - a.getLastApplyTimeStamp() <= this.c) {
+                        return Boolean.FALSE;
+                    }
+                }
+                return Boolean.TRUE;
+            }
+            return (Boolean) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends cf5<Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GroupSettingItemData a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ j97 c;
+
+        public b(j97 j97Var, GroupSettingItemData groupSettingItemData, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j97Var, groupSettingItemData, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,115 +93,224 @@ public abstract class j97 {
                 }
             }
             this.c = j97Var;
-            this.a = str;
-            this.b = str2;
+            this.a = groupSettingItemData;
+            this.b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.repackage.cf5
-        public Boolean doInBackground() {
+        /* renamed from: a */
+        public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ChatSetting a = this.c.a(this.a, this.b);
-                if (a == null) {
-                    return Boolean.FALSE;
-                }
-                return Boolean.valueOf(a.isAcceptNotify());
+                this.c.b().g(this.b, OrmObject.jsonStrWithObject(this.a));
+                return null;
             }
-            return (Boolean) invokeV.objValue;
+            return (Void) invokeV.objValue;
         }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends cf5<Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ j97 b;
+
+        public c(j97 j97Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j97Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = j97Var;
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.cf5
+        /* renamed from: a */
+        public Void doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.b.b().remove(this.a);
+                return null;
+            }
+            return (Void) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755633751, "Lcom/repackage/j97;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755633751, "Lcom/repackage/j97;");
+                return;
+            }
+        }
+        b = new j97();
     }
 
     public j97() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        this.a = new HashMap<>();
-    }
-
-    public abstract ChatSetting a(String str, String str2);
-
-    public abstract ue<String> b();
-
-    public boolean c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            ChatSetting a2 = a(str, str2);
-            if (a2 == null) {
-                return false;
-            }
-            return a2.isAcceptNotify();
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void d(String str, String str2, je5<Boolean> je5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, je5Var) == null) {
-            gf5.c(new a(this, str, str2), je5Var);
         }
     }
 
-    public void e(Class<? extends ChatSetting> cls) {
-        String str;
+    public static j97 k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
-            synchronized (this.a) {
-                this.a.clear();
-            }
-            String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
-            if (id == null || id.length() == 0) {
-                return;
-            }
-            String str2 = id + "@";
-            synchronized (this.a) {
-                ue<String> b = b();
-                List<ue.b<String>> b2 = vi.b(b);
-                if (b2 != null) {
-                    for (ue.b<String> bVar : b2) {
-                        String str3 = bVar.a;
-                        if (str3 != null && str3.startsWith(str2) && (str = b.get(str3)) != null) {
-                            this.a.put(str3, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
-                        }
-                    }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (j97) invokeV.objValue;
+    }
+
+    @Override // com.repackage.i97
+    public ue<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            tr4.f();
+            return tr4.g("tb.im_group_setting");
+        }
+        return (ue) invokeV.objValue;
+    }
+
+    @Override // com.repackage.i97
+    public void h(ChatSetting chatSetting) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatSetting) == null) && chatSetting != null && (chatSetting instanceof GroupSettingItemData)) {
+            GroupSettingItemData groupSettingItemData = (GroupSettingItemData) chatSetting;
+            String uid = groupSettingItemData.getUid();
+            String gid = groupSettingItemData.getGid();
+            if (!TextUtils.isEmpty(uid) && !TextUtils.isEmpty(gid)) {
+                ue<String> b2 = b();
+                String str = uid + "@" + gid;
+                String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
+                synchronized (this.a) {
+                    this.a.put(str, groupSettingItemData);
                 }
+                b2.g(str, jsonStrWithObject);
+            } else if (TbConfig.getDebugSwitch()) {
+                throw new RuntimeException("key param is null");
             }
         }
     }
 
-    public void f(String str, String str2, boolean z) {
-        ChatSetting a2;
+    @Override // com.repackage.i97
+    public void i(ChatSetting chatSetting, je5<Void> je5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048581, this, str, str2, z) == null) || (a2 = a(str, str2)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, chatSetting, je5Var) == null) && chatSetting != null && (chatSetting instanceof GroupSettingItemData)) {
+            GroupSettingItemData groupSettingItemData = (GroupSettingItemData) chatSetting;
+            String uid = groupSettingItemData.getUid();
+            String gid = groupSettingItemData.getGid();
+            if (!TextUtils.isEmpty(uid) && !TextUtils.isEmpty(gid)) {
+                String str = uid + "@" + gid;
+                synchronized (this.a) {
+                    this.a.put(str, groupSettingItemData);
+                }
+                gf5.c(new b(this, groupSettingItemData, str), je5Var);
+            } else if (TbConfig.getDebugSwitch()) {
+                throw new RuntimeException("key param is null");
+            }
         }
-        a2.setAcceptNotify(z);
-        h(a2);
     }
 
-    public void g(String str, String str2, boolean z, je5<Void> je5Var) {
-        ChatSetting a2;
+    public void j(String str, String str2, je5<Void> je5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Boolean.valueOf(z), je5Var}) == null) || (a2 = a(str, str2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, je5Var) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        a2.setAcceptNotify(z);
+        String str3 = str + "@" + str2;
+        synchronized (this.a) {
+            this.a.remove(str3);
+        }
+        gf5.c(new c(this, str3), je5Var);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.i97
+    /* renamed from: l */
+    public GroupSettingItemData a(String str, String str2) {
+        InterceptResult invokeLL;
+        GroupSettingItemData groupSettingItemData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            String str3 = str + "@" + str2;
+            synchronized (this.a) {
+                ChatSetting chatSetting = this.a.get(str3);
+                groupSettingItemData = chatSetting instanceof GroupSettingItemData ? (GroupSettingItemData) chatSetting : null;
+            }
+            if (groupSettingItemData == null) {
+                GroupSettingItemData groupSettingItemData2 = new GroupSettingItemData();
+                groupSettingItemData2.setUid(str);
+                groupSettingItemData2.setGid(str2);
+                groupSettingItemData2.setAcceptNotify(true);
+                groupSettingItemData2.setInGroup(true);
+                return groupSettingItemData2;
+            }
+            return groupSettingItemData;
+        }
+        return (GroupSettingItemData) invokeLL.objValue;
+    }
+
+    public void m(String str, String str2, long j, je5<Boolean> je5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Long.valueOf(j), je5Var}) == null) {
+            gf5.c(new a(this, str, str2, j), je5Var);
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.e(GroupSettingItemData.class);
+        }
+    }
+
+    public void o(String str, String str2, boolean z, je5<Void> je5Var) {
+        GroupSettingItemData a2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Boolean.valueOf(z), je5Var}) == null) || (a2 = a(str, str2)) == null) {
+            return;
+        }
+        a2.setAlreadyApply(z);
+        a2.setLastApplyTimeStamp(System.currentTimeMillis());
         i(a2, je5Var);
     }
 
-    public abstract void h(ChatSetting chatSetting);
-
-    public abstract void i(ChatSetting chatSetting, je5<Void> je5Var);
+    public void p(String str, String str2, boolean z, je5<Void> je5Var) {
+        GroupSettingItemData a2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Boolean.valueOf(z), je5Var}) == null) || (a2 = a(str, str2)) == null) {
+            return;
+        }
+        a2.setInGroup(z);
+        i(a2, je5Var);
+    }
 }

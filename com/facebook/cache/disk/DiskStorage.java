@@ -45,16 +45,17 @@ public interface DiskStorage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String firstBits;
+        public final String id;
         public final String path;
         public final float size;
         public final String type;
 
-        public DiskDumpInfoEntry(String str, String str2, float f, String str3) {
+        public DiskDumpInfoEntry(String str, String str2, String str3, float f, String str4) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, Float.valueOf(f), str3};
+                Object[] objArr = {str, str2, str3, Float.valueOf(f), str4};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -64,10 +65,11 @@ public interface DiskStorage {
                     return;
                 }
             }
-            this.path = str;
-            this.type = str2;
+            this.id = str;
+            this.path = str2;
+            this.type = str3;
             this.size = f;
-            this.firstBits = str3;
+            this.firstBits = str4;
         }
     }
 

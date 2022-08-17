@@ -13,17 +13,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bn4;
-import com.repackage.d27;
+import com.repackage.c27;
 import com.repackage.dp4;
 import com.repackage.ed5;
 import com.repackage.fo4;
-import com.repackage.h27;
+import com.repackage.g27;
+import com.repackage.hu6;
 import com.repackage.iu6;
-import com.repackage.ju6;
-import com.repackage.o17;
+import com.repackage.n17;
 import com.repackage.ob5;
+import com.repackage.r17;
 import com.repackage.s17;
-import com.repackage.t17;
 import com.repackage.x95;
 import com.repackage.yf6;
 import com.repackage.zq4;
@@ -67,7 +67,7 @@ public class ActivityPageFragment extends BaseTemplateFragment implements yf6 {
         public void d(View view2, fo4 fo4Var, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, fo4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                o17.t(fo4Var, this.a.e);
+                n17.t(fo4Var, this.a.e);
                 ed5.b("----曝光统计----position = " + i);
             }
         }
@@ -78,7 +78,7 @@ public class ActivityPageFragment extends BaseTemplateFragment implements yf6 {
         public void c(View view2, fo4 fo4Var, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, fo4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                o17.m(view2, fo4Var, this.a.e);
+                n17.m(view2, fo4Var, this.a.e);
                 ed5.b("----点击统计----position = " + i);
             }
         }
@@ -151,16 +151,16 @@ public class ActivityPageFragment extends BaseTemplateFragment implements yf6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new t17(getPageContext(), zq4.e));
-            arrayList.add(new s17(getPageContext(), dp4.b));
-            arrayList.add(new d27(getPageContext()));
-            arrayList.add(new h27(getPageContext()));
+            arrayList.add(new s17(getPageContext(), zq4.e));
+            arrayList.add(new r17(getPageContext(), dp4.b));
+            arrayList.add(new c27(getPageContext()));
+            arrayList.add(new g27(getPageContext()));
             ob5.c cVar = new ob5.c();
             cVar.m(309655);
             cVar.i(CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST);
             cVar.j(TbConfig.URL_TAB_ACTIVITY_TAB);
-            cVar.k(new iu6(this.e, this.f));
-            cVar.l(new ju6());
+            cVar.k(new hu6(this.e, this.f));
+            cVar.l(new iu6());
             cVar.d(this.g);
             cVar.c(new ActivityPageHeaderView(getActivity(), this.e, this.f));
             cVar.b(arrayList);

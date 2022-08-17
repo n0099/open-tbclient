@@ -28,7 +28,7 @@ import com.baidu.webkit.sdk.SevenZipUtils;
 import com.repackage.l65;
 import com.repackage.rg;
 import com.repackage.ru4;
-import com.repackage.wd8;
+import com.repackage.vd8;
 /* loaded from: classes4.dex */
 public class PersonRedTipManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -544,30 +544,30 @@ public class PersonRedTipManager {
         if (interceptable == null || interceptable.invokeV(65563, this) == null) {
             SparseArray sparseArray = new SparseArray();
             if (this.mIsNewAddressList) {
-                sparseArray.append(4, new wd8.a(this.mShowFriendTip, this.maddressListNewCount));
+                sparseArray.append(4, new vd8.a(this.mShowFriendTip, this.maddressListNewCount));
             }
             if (this.mIsShowFansNewMsg) {
-                sparseArray.append(2, new wd8.a(this.mShowFanTip, this.mFans));
+                sparseArray.append(2, new vd8.a(this.mShowFanTip, this.mFans));
             }
             if (this.mIsShowGiftsNewMsg) {
-                sparseArray.append(1, new wd8.a(this.mShowGifTip, this.mGift));
+                sparseArray.append(1, new vd8.a(this.mShowGifTip, this.mGift));
             }
             if (this.mIsShowBookmarkNewMsg) {
-                sparseArray.append(3, new wd8.a(this.mShowBookTip, this.mBookMarks));
+                sparseArray.append(3, new vd8.a(this.mShowBookTip, this.mBookMarks));
             }
             if (this.mHasNewVersion) {
-                sparseArray.append(5, new wd8.a(this.mShowSettingTip, 0));
+                sparseArray.append(5, new vd8.a(this.mShowSettingTip, 0));
             }
             if (this.mIsShowMemberCenerNewMsg) {
-                sparseArray.append(7, new wd8.a(this.mShowMemberTip, 0));
+                sparseArray.append(7, new vd8.a(this.mShowMemberTip, 0));
             }
             if (this.mIsShowActivityNewMsg) {
-                sparseArray.append(9, new wd8.a(this.mShowActivityTip, 0));
+                sparseArray.append(9, new vd8.a(this.mShowActivityTip, 0));
             }
             if (this.mIsFeedbackNewMsg) {
-                sparseArray.append(10, new wd8.a(this.mShowFeedbackTip, 0));
+                sparseArray.append(10, new vd8.a(this.mShowFeedbackTip, 0));
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new wd8(sparseArray)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new vd8(sparseArray)));
             updateTabTip();
         }
     }
@@ -697,16 +697,16 @@ public class PersonRedTipManager {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && z) {
             SparseArray sparseArray = new SparseArray();
-            sparseArray.append(4, new wd8.a(this.mShowFriendTip, this.maddressListNewCount));
-            sparseArray.append(2, new wd8.a(this.mShowFanTip, this.mFans));
-            sparseArray.append(1, new wd8.a(this.mShowGifTip, this.mGift));
-            sparseArray.append(3, new wd8.a(this.mShowBookTip, this.mBookMarks));
-            sparseArray.append(5, new wd8.a(this.mShowSettingTip, 0));
-            sparseArray.append(7, new wd8.a(this.mShowMemberTip, 0));
-            sparseArray.append(9, new wd8.a(this.mShowActivityTip, 0));
-            sparseArray.append(10, new wd8.a(this.mShowFeedbackTip, 0));
-            sparseArray.append(11, new wd8.a(this.mShowNewGodInvitedTip, 0));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new wd8(sparseArray)));
+            sparseArray.append(4, new vd8.a(this.mShowFriendTip, this.maddressListNewCount));
+            sparseArray.append(2, new vd8.a(this.mShowFanTip, this.mFans));
+            sparseArray.append(1, new vd8.a(this.mShowGifTip, this.mGift));
+            sparseArray.append(3, new vd8.a(this.mShowBookTip, this.mBookMarks));
+            sparseArray.append(5, new vd8.a(this.mShowSettingTip, 0));
+            sparseArray.append(7, new vd8.a(this.mShowMemberTip, 0));
+            sparseArray.append(9, new vd8.a(this.mShowActivityTip, 0));
+            sparseArray.append(10, new vd8.a(this.mShowFeedbackTip, 0));
+            sparseArray.append(11, new vd8.a(this.mShowNewGodInvitedTip, 0));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new vd8(sparseArray)));
         }
     }
 

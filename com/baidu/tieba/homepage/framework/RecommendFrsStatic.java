@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yx6;
+import com.repackage.xx6;
 /* loaded from: classes3.dex */
 public class RecommendFrsStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -48,7 +48,7 @@ public class RecommendFrsStatic {
         tbHttpMessageTask2.setRetry(3);
         messageManager2.registerTask(tbHttpMessageTask2);
         TbadkCoreApplication.getInst().RegisterIntent(BigdayActivityConfig.class, BigdayActivity.class);
-        yx6.b().c();
+        xx6.b().c();
     }
 
     public RecommendFrsStatic() {

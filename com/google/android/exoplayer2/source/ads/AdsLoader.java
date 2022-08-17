@@ -3,10 +3,10 @@ package com.google.android.exoplayer2.source.ads;
 import android.view.ViewGroup;
 import com.google.android.exoplayer2.ExoPlayer;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface AdsLoader {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface EventListener {
         void onAdClicked();
 

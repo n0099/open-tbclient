@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.Preconditions;
 import com.facebook.common.memory.MemoryTrimType;
 /* loaded from: classes4.dex */
 public class DummyBitmapPool implements BitmapPool {
@@ -48,6 +49,7 @@ public class DummyBitmapPool implements BitmapPool {
     public void release(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
+            Preconditions.checkNotNull(bitmap);
             bitmap.recycle();
         }
     }

@@ -57,6 +57,7 @@ import com.repackage.hg0;
 import com.repackage.hu4;
 import com.repackage.i16;
 import com.repackage.ig0;
+import com.repackage.iu4;
 import com.repackage.k05;
 import com.repackage.ke6;
 import com.repackage.kg6;
@@ -67,16 +68,16 @@ import com.repackage.og;
 import com.repackage.oq6;
 import com.repackage.p75;
 import com.repackage.pi;
+import com.repackage.rs6;
 import com.repackage.ru4;
-import com.repackage.ss6;
 import com.repackage.tg;
 import com.repackage.ud5;
 import com.repackage.v95;
 import com.repackage.wf6;
 import com.repackage.x95;
 import com.repackage.xl5;
+import com.repackage.xs6;
 import com.repackage.y95;
-import com.repackage.ys6;
 import com.repackage.z8;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -175,7 +176,7 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, goodsEvent)) == null) {
-                if (goodsEvent == null || this.c.a.R() == null) {
+                if (goodsEvent == null || this.c.a.T() == null) {
                     return false;
                 }
                 if (goodsEvent.getDispose()) {
@@ -184,7 +185,7 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
                 if (WriteActivityConfig.isAsyncWriting()) {
                     return false;
                 }
-                WriteActivityConfig.newInstance(this.c).setType(9).setForumWriteData(this.c.a.R().n3()).setCallFrom("2").setGoodsList(goodsEvent.getGoodsList()).send();
+                WriteActivityConfig.newInstance(this.c).setType(9).setForumWriteData(this.c.a.T().o3()).setCallFrom("2").setGoodsList(goodsEvent.getGoodsList()).send();
                 goodsEvent.setDispost(true);
                 return true;
             }
@@ -318,7 +319,7 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
             if (frsTabController == null) {
                 return null;
             }
-            return frsTabController.R();
+            return frsTabController.T();
         }
         return (FrsFragment) invokeV.objValue;
     }
@@ -374,7 +375,7 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (TbadkCoreApplication.isLogin() && !ru4.k().h("has_guide_popup_window_been_shown", false)) {
                 FrsTabController frsTabController = this.a;
-                return frsTabController == null || frsTabController.X() == null || this.a.X().getUserData() == null || this.a.X().getUserData().getIs_manager() == 1;
+                return frsTabController == null || frsTabController.Y() == null || this.a.Y().getUserData() == null || this.a.Y().getUserData().getIs_manager() == 1;
             }
             return false;
         }
@@ -390,10 +391,10 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
     public final void O0() {
         FrsTabController frsTabController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (frsTabController = this.a) == null || frsTabController.X() == null || this.a.X().getForum() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (frsTabController = this.a) == null || frsTabController.Y() == null || this.a.Y().getForum() == null) {
             return;
         }
-        SpecHotTopicHelper.removeSpecTopicIconForFrs(Long.valueOf(og.g(this.a.X().getForum().getId(), 0L)));
+        SpecHotTopicHelper.removeSpecTopicIconForFrs(Long.valueOf(og.g(this.a.Y().getForum().getId(), 0L)));
     }
 
     @Override // com.repackage.hg0
@@ -407,13 +408,13 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
     public final void P0() {
         FrsTabController frsTabController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.l == null || (frsTabController = this.a) == null || frsTabController.X() == null || this.a.X().getForum() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.l == null || (frsTabController = this.a) == null || frsTabController.Y() == null || this.a.Y().getForum() == null) {
             return;
         }
-        ForumData forum = this.a.X().getForum();
+        ForumData forum = this.a.Y().getForum();
         this.l.t();
-        this.l.s(String.valueOf(this.a.X().getUserData().getLevel_id()));
-        this.l.r(this.a.X().getUserData());
+        this.l.s(String.valueOf(this.a.Y().getUserData().getLevel_id()));
+        this.l.r(this.a.Y().getUserData());
         this.l.k(forum.getName());
         this.l.p(forum.getMember_num(), forum.getThread_num());
         this.l.o(Integer.parseInt(forum.getId()));
@@ -458,15 +459,15 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
 
     public void T0(boolean z) {
         FrsTabController frsTabController;
-        FragmentTabHost T;
+        FragmentTabHost U;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || (frsTabController = this.a) == null || (T = frsTabController.T()) == null || T.getFragmentTabWidget() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || (frsTabController = this.a) == null || (U = frsTabController.U()) == null || U.getFragmentTabWidget() == null) {
             return;
         }
         if (z) {
-            T.f(2);
+            U.f(2);
         } else {
-            T.f(4);
+            U.f(4);
         }
     }
 
@@ -490,10 +491,10 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             FrsTabController frsTabController = this.a;
-            if (frsTabController == null || frsTabController.X() == null || this.a.X().getForum() == null) {
+            if (frsTabController == null || frsTabController.Y() == null || this.a.Y().getForum() == null) {
                 return null;
             }
-            return this.a.X().getForum().getId();
+            return this.a.Y().getForum().getId();
         }
         return (String) invokeV.objValue;
     }
@@ -573,8 +574,8 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
                 nextPageSourceKeyList = new ArrayList<>();
             }
             FrsTabController frsTabController = this.a;
-            if (frsTabController != null && frsTabController.d0() && this.a.T() != null && (this.a.T().getCurrentFragment() instanceof BaseFragment) && ((BaseFragment) this.a.T().getCurrentFragment()).getCurrentPageKey() != null && ((BaseFragment) this.a.T().getCurrentFragment()).isPrimary()) {
-                nextPageSourceKeyList.add(((BaseFragment) this.a.T().getCurrentFragment()).getCurrentPageKey());
+            if (frsTabController != null && frsTabController.e0() && this.a.U() != null && (this.a.U().getCurrentFragment() instanceof BaseFragment) && ((BaseFragment) this.a.U().getCurrentFragment()).getCurrentPageKey() != null && ((BaseFragment) this.a.U().getCurrentFragment()).isPrimary()) {
+                nextPageSourceKeyList.add(((BaseFragment) this.a.U().getCurrentFragment()).getCurrentPageKey());
             } else {
                 nextPageSourceKeyList.add(getCurrentPageKey());
             }
@@ -591,8 +592,8 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
             x95 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 FrsTabController frsTabController = this.a;
-                if (frsTabController != null && frsTabController.R() != null) {
-                    pageStayDurationItem.t(og.g(this.a.R().l, 0L));
+                if (frsTabController != null && frsTabController.T() != null) {
+                    pageStayDurationItem.t(og.g(this.a.T().l, 0L));
                 }
                 if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
                     pageStayDurationItem.q(TbadkCoreApplication.getInst().getAdAdSense().k);
@@ -616,8 +617,8 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             FrsTabController frsTabController = this.a;
-            TbPageTag W = frsTabController != null ? frsTabController.W() : null;
-            return W == null ? super.getTbPageTag() : W;
+            TbPageTag X = frsTabController != null ? frsTabController.X() : null;
+            return X == null ? super.getTbPageTag() : X;
         }
         return (TbPageTag) invokeV.objValue;
     }
@@ -638,7 +639,7 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
             super.onActivityResult(i, i2, intent);
             FrsTabController frsTabController = this.a;
             if (frsTabController != null) {
-                frsTabController.j0(i, i2, intent);
+                frsTabController.k0(i, i2, intent);
             }
         }
     }
@@ -650,7 +651,7 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
         if (!(interceptable == null || interceptable.invokeI(1048608, this, i) == null) || (frsTabController = this.a) == null) {
             return;
         }
-        frsTabController.k0(i);
+        frsTabController.l0(i);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -677,7 +678,7 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
             xl5.k().d();
             FrsTabController frsTabController = new FrsTabController(this);
             this.a = frsTabController;
-            frsTabController.Z(bundle);
+            frsTabController.a0(bundle);
             if (oq6.i(intent)) {
                 this.e = true;
                 enterExitAnimation();
@@ -697,7 +698,10 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
             registerResponsedEventListener(GoodsEvent.class, this.o);
             if (UbsABTestHelper.isFrsFunAdSdkTest() && ud5.r()) {
                 FrsTabController frsTabController2 = this.a;
-                ss6.m().K(this, ys6.e().d("frs_feed"), ss6.b("frs", "1"), (frsTabController2 == null || frsTabController2.R() == null) ? "" : this.a.R().U(), ud5.f());
+                rs6.m().K(this, xs6.e().d("frs_feed"), rs6.b("frs", "1"), (frsTabController2 == null || frsTabController2.T() == null) ? "" : this.a.T().U(), ud5.f());
+            }
+            if (this.a != null) {
+                iu4.c(this.a.Q() + "_onCreate_" + System.currentTimeMillis());
             }
             k05.b(true);
         }
@@ -711,11 +715,11 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
             O0();
             FrsTabController frsTabController = this.a;
             if (frsTabController != null) {
-                if (frsTabController.X() != null && this.a.X().getForum() != null && !TextUtils.isEmpty(this.a.X().getForum().getId())) {
-                    FrsVideoTabPlayActivityConfig.removeVideoTabListByFid(this.a.X().getForum().getId());
-                    FrsVideoTabPlayActivityConfig.subtractFrsPageCount(this.a.X().getForum().getId());
+                if (frsTabController.Y() != null && this.a.Y().getForum() != null && !TextUtils.isEmpty(this.a.Y().getForum().getId())) {
+                    FrsVideoTabPlayActivityConfig.removeVideoTabListByFid(this.a.Y().getForum().getId());
+                    FrsVideoTabPlayActivityConfig.subtractFrsPageCount(this.a.Y().getForum().getId());
                 }
-                this.a.l0();
+                this.a.m0();
             }
             le6.f().m();
             ke6.h().n();
@@ -741,7 +745,7 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048611, this, i, keyEvent)) == null) {
             FrsTabController frsTabController = this.a;
             if (frsTabController != null) {
-                return frsTabController.m0(i, keyEvent);
+                return frsTabController.n0(i, keyEvent);
             }
             return super.onKeyDown(i, keyEvent);
         }
@@ -755,7 +759,7 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
             super.onNewIntent(intent);
             FrsTabController frsTabController = this.a;
             if (frsTabController != null) {
-                frsTabController.n0(intent);
+                frsTabController.o0(intent);
             }
         }
     }
@@ -770,7 +774,7 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
             super.onPause();
             FrsTabController frsTabController = this.a;
             if (frsTabController != null) {
-                frsTabController.o0();
+                frsTabController.q0();
             }
             long j = this.j;
             if (j >= 0) {
@@ -808,7 +812,7 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
             }
             FrsTabController frsTabController = this.a;
             if (frsTabController != null) {
-                frsTabController.q0();
+                frsTabController.r0();
             }
             TbSingleton.getInstance().isInFrs = true;
         }
@@ -820,7 +824,7 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
         if (interceptable == null || interceptable.invokeL(1048616, this, bundle) == null) {
             FrsTabController frsTabController = this.a;
             if (frsTabController != null) {
-                frsTabController.r0(bundle);
+                frsTabController.s0(bundle);
             }
             bundle.putSerializable(FrsActivityConfig.FRS_PAGE_ID, getUniqueId());
         }
@@ -833,7 +837,7 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
             super.onScreenShot(str);
             FrsTabController frsTabController = this.a;
             if (frsTabController != null) {
-                frsTabController.s0(str);
+                frsTabController.u0(str);
             }
         }
     }
@@ -873,7 +877,7 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
             FrsTabController frsTabController = this.a;
-            return (frsTabController == null || frsTabController.R() == null || this.a.R().E3() == null || this.a.R().E3().C() == null || this.a.R().E3().C().d != 16) ? false : true;
+            return (frsTabController == null || frsTabController.T() == null || this.a.T().F3() == null || this.a.T().F3().C() == null || this.a.T().F3().C().d != 16) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -898,10 +902,10 @@ public class FrsActivity extends BaseFragmentActivity implements gk5, VoiceManag
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
             FrsTabController frsTabController = this.a;
-            if (frsTabController == null || frsTabController.R() == null) {
+            if (frsTabController == null || frsTabController.T() == null) {
                 return false;
             }
-            return this.a.R().videoNeedPreload();
+            return this.a.T().videoNeedPreload();
         }
         return invokeV.booleanValue;
     }

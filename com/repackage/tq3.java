@@ -172,11 +172,11 @@ public abstract class tq3 {
                 return;
             }
             if (this.a.c.d()) {
-                this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f080e36);
+                this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f080e37);
                 this.a.c.e(false);
                 return;
             }
-            this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f080e35);
+            this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f080e36);
             this.a.c.e(true);
         }
     }
@@ -282,11 +282,11 @@ public abstract class tq3 {
                     if (i > streamMinVolume || this.a.c.d()) {
                         return;
                     }
-                    this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f080e35);
+                    this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f080e36);
                     this.a.c.e(true);
                     return;
                 }
-                this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f080e36);
+                this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f080e37);
                 this.a.c.e(false);
             }
         }
@@ -432,7 +432,7 @@ public abstract class tq3 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) && this.y) {
             if (j <= 15000 || i > 15000) {
-                this.j.setText(R.string.obfuscated_res_0x7f0f132d);
+                this.j.setText(R.string.obfuscated_res_0x7f0f132f);
                 this.i.setVisibility(0);
                 this.k.setVisibility(0);
                 this.j.setVisibility(0);
@@ -465,8 +465,8 @@ public abstract class tq3 {
         int min = Math.min(this.q.getRewardTime(), this.e / 1000);
         int skipTime = this.q.getSkipTime();
         int currentPosition = this.d.getCurrentPosition() / 1000;
-        String string = this.p.getResources().getString(R.string.obfuscated_res_0x7f0f132f);
-        String string2 = this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1330);
+        String string = this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1331);
+        String string2 = this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1332);
         if (currentPosition <= min) {
             this.j.setText(String.format(string, Integer.valueOf(min - currentPosition)));
         } else {
@@ -486,7 +486,7 @@ public abstract class tq3 {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             TextView textView = new TextView(this.p);
             this.l = textView;
-            textView.setBackground(this.w.getDrawable(R.drawable.obfuscated_res_0x7f080e32));
+            textView.setBackground(this.w.getDrawable(R.drawable.obfuscated_res_0x7f080e33));
             this.l.setTextColor(this.w.getColor(R.color.obfuscated_res_0x7f060456));
             this.l.setText(this.w.getString(R.string.obfuscated_res_0x7f0f03f5));
             this.l.setTextSize(2, 16.0f);
@@ -531,10 +531,10 @@ public abstract class tq3 {
             ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09077f)).setText(this.q.getDescription());
             Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090818);
             if (this.q.getActionType() == 1) {
-                button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f10df));
+                button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f10e0));
             }
             if (this.q.getActionType() == 2) {
-                button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1274));
+                button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1276));
             }
             inflate.findViewById(R.id.obfuscated_res_0x7f0906d4).setOnClickListener(this.F);
             button.setOnClickListener(this.F);
@@ -582,7 +582,7 @@ public abstract class tq3 {
                 this.f.setVisibility(4);
             }
             if (this.j != null && this.d != null && (adElementInfo = this.q) != null) {
-                this.j.setText(String.format(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f132f), Integer.valueOf(Math.max(this.q.getSkipTime(), Math.min(adElementInfo.getRewardTime(), this.d.getDuration())) / 1000)));
+                this.j.setText(String.format(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1331), Integer.valueOf(Math.max(this.q.getSkipTime(), Math.min(adElementInfo.getRewardTime(), this.d.getDuration())) / 1000)));
                 if (this.q.getSkipTime() >= 0) {
                     this.i.setVisibility(8);
                     this.k.setVisibility(8);
@@ -656,7 +656,7 @@ public abstract class tq3 {
             this.g = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0925b4);
             this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0925b5);
             if (this.c.d()) {
-                this.h.setImageResource(R.drawable.obfuscated_res_0x7f080e35);
+                this.h.setImageResource(R.drawable.obfuscated_res_0x7f080e36);
             }
             this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090645);
             this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090648);
@@ -675,10 +675,10 @@ public abstract class tq3 {
                 ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09077f)).setText(this.q.getDescription());
                 Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090818);
                 if (this.q.getActionType() == 1) {
-                    button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f10df));
+                    button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f10e0));
                 }
                 if (this.q.getActionType() == 2) {
-                    button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1274));
+                    button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1276));
                 }
                 this.m.setOnClickListener(this.F);
                 button.setOnClickListener(this.F);

@@ -172,7 +172,7 @@ public class wr4 {
                 tbPageContext.getLayoutMode().l(skinType == 1);
                 tbPageContext.getLayoutMode().k(this.e);
             }
-            this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f08120f);
+            this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f081210);
         }
     }
 

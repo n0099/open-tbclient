@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cs6;
+import com.repackage.bs6;
 import com.repackage.ke6;
 import com.repackage.ms4;
 import com.repackage.qi;
@@ -128,7 +128,7 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
                     return;
                 }
                 if (h) {
-                    cs6.a(this.a, frsTabInfo, frsTabInfo2);
+                    bs6.a(this.a, frsTabInfo, frsTabInfo2);
                 } else {
                     ke6.h().m(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
                 }

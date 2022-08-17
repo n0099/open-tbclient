@@ -57,9 +57,9 @@ public class aj6 extends ue6<ir4, ThreadCardViewHolder<ThreadData>> implements z
         public void b(View view2, on onVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, onVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                BdToast b = BdToast.b(this.a.mContext, this.a.mContext.getString(R.string.obfuscated_res_0x7f0f1511));
+                BdToast b = BdToast.b(this.a.mContext, this.a.mContext.getString(R.string.obfuscated_res_0x7f0f1514));
                 b.f(BdToast.ToastIcon.FAILURE);
-                b.h();
+                b.i();
             }
         }
     }

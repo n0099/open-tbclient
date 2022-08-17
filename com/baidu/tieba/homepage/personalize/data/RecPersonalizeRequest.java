@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.id8;
-import com.repackage.ld8;
+import com.repackage.hd8;
+import com.repackage.kd8;
 import com.repackage.lq4;
 import com.repackage.og;
 import com.repackage.oi;
@@ -84,8 +84,8 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
             builder.request_times = Integer.valueOf(this.requestTime);
             builder.invoke_source = this.sourceFrom;
-            builder.ad_context_list = ld8.f().d("HOME");
-            builder.app_pos = id8.e().c();
+            builder.ad_context_list = kd8.f().d("HOME");
+            builder.app_pos = hd8.e().c();
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
                 lq4 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
                 builder.from_tid = Long.valueOf(og.g(pbToHomeUpdateData.a, 0L));

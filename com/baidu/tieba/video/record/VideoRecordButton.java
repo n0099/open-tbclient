@@ -81,7 +81,7 @@ public class VideoRecordButton extends FrameLayout {
             if (z) {
                 this.a.setVisibility(8);
             } else {
-                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fb7);
+                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fb8);
             }
             this.d.setVisibility(8);
             this.e.start();
@@ -117,7 +117,7 @@ public class VideoRecordButton extends FrameLayout {
                 ofPropertyValuesHolder.setDuration((Math.abs(0.766f - this.c.getScaleX()) * 500.0f) / 0.3f);
             }
             this.a.setVisibility(0);
-            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fb6);
+            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fb7);
             this.f.start();
         }
     }

@@ -12,13 +12,13 @@ import com.fun.ad.sdk.FunNativeAd;
 import com.fun.ad.sdk.FunNativeInfo;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.s0;
-import com.repackage.ll9;
+import com.repackage.nl9;
 import java.util.List;
 /* loaded from: classes4.dex */
 public abstract class BaseFunNativeAd implements FunNativeAd, FunNativeInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ll9.a a;
+    public final nl9.a a;
     public final String mSid;
 
     public BaseFunNativeAd(String str, Ssp.Pid pid) {
@@ -37,7 +37,7 @@ public abstract class BaseFunNativeAd implements FunNativeAd, FunNativeInfo {
             }
         }
         this.mSid = str;
-        this.a = new ll9.a(str, pid);
+        this.a = new nl9.a(str, pid);
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd
@@ -47,7 +47,7 @@ public abstract class BaseFunNativeAd implements FunNativeAd, FunNativeInfo {
             if (context == null || viewGroup == null || list == null || funAdInteractionListener == null) {
                 throw new IllegalArgumentException();
             }
-            ll9.a aVar = this.a;
+            nl9.a aVar = this.a;
             aVar.getClass();
             aVar.a.logEvent("ad_ldr", new s0(aVar, new Object[0], "ldr_sh_start"));
             showInternal(context, viewGroup, list, list2, funAdInteractionListener);

@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oz7;
+import com.repackage.nz7;
 /* loaded from: classes3.dex */
 public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean l;
     public boolean m;
-    public oz7 n;
+    public nz7 n;
     public TbPageContext<MsglistActivity<?>> o;
 
     /* loaded from: classes3.dex */
@@ -80,9 +80,9 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            oz7 oz7Var = new oz7(this.mContext);
-            this.n = oz7Var;
-            oz7Var.b(this.o.getUniqueId());
+            nz7 nz7Var = new nz7(this.mContext);
+            this.n = nz7Var;
+            nz7Var.b(this.o.getUniqueId());
         }
     }
 

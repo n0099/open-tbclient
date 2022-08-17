@@ -1,11 +1,36 @@
 package com.repackage;
 
-import android.content.res.Configuration;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes6.dex */
 public interface dh8 {
-    void a();
+    void a(boolean z);
 
-    boolean b();
+    void b(int i);
 
-    void onConfigurationChanged(Configuration configuration);
+    void c();
+
+    boolean d();
+
+    void e();
+
+    boolean f();
+
+    int g();
+
+    @NonNull
+    BaseFragmentActivity getActivity();
+
+    int getAdSource();
+
+    @NonNull
+    ViewGroup getRootView();
+
+    BdUniqueId getUniqueId();
+
+    boolean h();
+
+    long i();
 }

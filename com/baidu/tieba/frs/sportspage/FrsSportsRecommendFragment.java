@@ -600,8 +600,8 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             if (noNetworkView != null) {
                 noNetworkView.d(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             }
-            SkinManager.setBackgroundResource(this.K, R.drawable.obfuscated_res_0x7f0811ed);
-            SkinManager.setBackgroundResource(this.L, R.drawable.obfuscated_res_0x7f0811ed);
+            SkinManager.setBackgroundResource(this.K, R.drawable.obfuscated_res_0x7f0811ee);
+            SkinManager.setBackgroundResource(this.L, R.drawable.obfuscated_res_0x7f0811ee);
             SkinManager.setBackgroundColor(this.H, R.color.CAM_X0201);
             SkinManager.setBackgroundColor(this.G, R.color.CAM_X0201);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.O, R.drawable.obfuscated_res_0x7f080612, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);

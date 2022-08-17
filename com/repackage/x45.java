@@ -62,7 +62,7 @@ public class x45 implements y45 {
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
         this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_arrow12_right_n, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
         TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0302).setShape(0).setAlpha(211).tlRadius(qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
-        this.b.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0807ef, WebPManager.ResourceStateType.NORMAL));
+        this.b.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0807f0, WebPManager.ResourceStateType.NORMAL));
     }
 
     @Override // com.repackage.y45

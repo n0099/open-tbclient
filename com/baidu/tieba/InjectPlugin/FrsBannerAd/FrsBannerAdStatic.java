@@ -35,11 +35,11 @@ public class FrsBannerAdStatic {
 
         /* renamed from: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0196a implements zj5.a {
+        public class C0197a implements zj5.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0196a(a aVar) {
+            public C0197a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class FrsBannerAdStatic {
                     if (!(Q0 instanceof zj5)) {
                         return;
                     }
-                    ((zj5) Q0).h(new C0196a(this));
+                    ((zj5) Q0).h(new C0197a(this));
                 }
                 if (Q0 instanceof zj5) {
                     zj5 zj5Var = (zj5) Q0;

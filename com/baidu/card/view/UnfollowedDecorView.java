@@ -144,11 +144,11 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
                 return;
             }
         }
-        this.b = R.drawable.obfuscated_res_0x7f080915;
+        this.b = R.drawable.obfuscated_res_0x7f080916;
         this.c = R.color.CAM_X0111;
         this.a = new q16(g((Activity) context), this);
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080915, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
+        setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080916, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 }

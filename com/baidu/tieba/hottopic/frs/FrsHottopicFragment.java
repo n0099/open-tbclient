@@ -25,11 +25,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.a57;
 import com.repackage.ag6;
-import com.repackage.b57;
 import com.repackage.c65;
 import com.repackage.cg6;
-import com.repackage.j57;
+import com.repackage.i57;
 import com.repackage.og;
 import com.repackage.oi;
 import com.repackage.on;
@@ -38,12 +38,12 @@ import java.util.List;
 import tbclient.Media;
 import tbclient.TopicList.TopicList;
 /* loaded from: classes3.dex */
-public class FrsHottopicFragment extends BaseFragment implements ag6, j57.a, cg6 {
+public class FrsHottopicFragment extends BaseFragment implements ag6, i57.a, cg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotRanklistModel a;
-    public b57 b;
-    public j57 c;
+    public a57 b;
+    public i57 c;
     public long d;
     public String e;
     public String f;
@@ -116,17 +116,17 @@ public class FrsHottopicFragment extends BaseFragment implements ag6, j57.a, cg6
         }
 
         @Override // com.baidu.tieba.hottopic.controller.HotRanklistModel.b
-        public void a(boolean z, b57 b57Var, int i, String str) {
+        public void a(boolean z, a57 a57Var, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), b57Var, Integer.valueOf(i), str}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), a57Var, Integer.valueOf(i), str}) == null) {
                 this.a.m();
                 this.a.D1();
                 this.a.c.h(false);
                 if (z) {
-                    this.a.b = b57Var;
-                    j57 j57Var = this.a.c;
+                    this.a.b = a57Var;
+                    i57 i57Var = this.a.c;
                     FrsHottopicFragment frsHottopicFragment = this.a;
-                    j57Var.e(frsHottopicFragment.B1(frsHottopicFragment.b));
+                    i57Var.e(frsHottopicFragment.B1(frsHottopicFragment.b));
                     if (this.a.C1()) {
                         return;
                     }
@@ -199,15 +199,15 @@ public class FrsHottopicFragment extends BaseFragment implements ag6, j57.a, cg6
         this.j = new c(this, 2001624);
     }
 
-    public final List<on> B1(b57 b57Var) {
+    public final List<on> B1(a57 a57Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, b57Var)) == null) {
-            if (b57Var == null || ListUtils.isEmpty(b57Var.a())) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a57Var)) == null) {
+            if (a57Var == null || ListUtils.isEmpty(a57Var.a())) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (TopicList topicList : b57Var.a()) {
+            for (TopicList topicList : a57Var.a()) {
                 if (topicList != null) {
                     ThreadData threadData = new ThreadData();
                     threadData.setTid(topicList.topic_tid + "");
@@ -360,9 +360,9 @@ public class FrsHottopicFragment extends BaseFragment implements ag6, j57.a, cg6
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             super.onChangeSkinType(i);
-            j57 j57Var = this.c;
-            if (j57Var != null) {
-                j57Var.c();
+            i57 i57Var = this.c;
+            if (i57Var != null) {
+                i57Var.c();
             }
             c65 c65Var = this.g;
             if (c65Var == null || !c65Var.isViewAttached()) {
@@ -397,9 +397,9 @@ public class FrsHottopicFragment extends BaseFragment implements ag6, j57.a, cg6
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0320, (ViewGroup) null);
-            j57 j57Var = new j57(this, inflate, getPageContext());
-            this.c = j57Var;
-            j57Var.f(getTbPageTag());
+            i57 i57Var = new i57(this, inflate, getPageContext());
+            this.c = i57Var;
+            i57Var.f(getTbPageTag());
             return inflate;
         }
         return (View) invokeLLL.objValue;

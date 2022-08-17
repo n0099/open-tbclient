@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.d9;
-import com.repackage.kk8;
-import com.repackage.tf7;
+import com.repackage.jk8;
+import com.repackage.sf7;
 import com.repackage.tr4;
 import com.repackage.ue;
 import tbclient.Lego.DataRes;
@@ -170,7 +170,7 @@ public class LegoPageModel extends BdBaseModel {
             legoPageRequest.setLastRank(str2);
             legoPageRequest.setTagCode(j);
             legoPageRequest.setPageType(i);
-            tf7 a2 = tf7.a(j, str);
+            sf7 a2 = sf7.a(j, str);
             if (a2 != null) {
                 legoPageRequest.setRn(a2.d);
                 legoPageRequest.setParams(a2.e);
@@ -211,7 +211,7 @@ public class LegoPageModel extends BdBaseModel {
     public final void registerHttpTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, kk8.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, jk8.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(LegoHttpResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

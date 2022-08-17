@@ -24,17 +24,17 @@ public interface ia1 {
         public long e;
         public String f;
         public int g;
-        public List<C0502a> h;
+        public List<C0509a> h;
 
         /* renamed from: com.repackage.ia1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0502a {
+        public static class C0509a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String a;
             public String b;
 
-            public C0502a() {
+            public C0509a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,32 +48,32 @@ public interface ia1 {
                 }
             }
 
-            public static C0502a a(JSONObject jSONObject) {
+            public static C0509a a(JSONObject jSONObject) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
                     if (jSONObject == null) {
                         return null;
                     }
-                    C0502a c0502a = new C0502a();
-                    c0502a.a = jSONObject.isNull("promotionInsId") ? "" : jSONObject.optString("promotionInsId");
-                    c0502a.b = jSONObject.isNull("valid") ? "" : jSONObject.optString("valid");
-                    return c0502a;
+                    C0509a c0509a = new C0509a();
+                    c0509a.a = jSONObject.isNull("promotionInsId") ? "" : jSONObject.optString("promotionInsId");
+                    c0509a.b = jSONObject.isNull("valid") ? "" : jSONObject.optString("valid");
+                    return c0509a;
                 }
-                return (C0502a) invokeL.objValue;
+                return (C0509a) invokeL.objValue;
             }
 
-            public static JSONObject b(C0502a c0502a) {
+            public static JSONObject b(C0509a c0509a) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c0502a)) == null) {
-                    if (c0502a == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c0509a)) == null) {
+                    if (c0509a == null) {
                         return null;
                     }
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("promotionInsId", c0502a.a);
-                        jSONObject.put("valid", c0502a.b);
+                        jSONObject.put("promotionInsId", c0509a.a);
+                        jSONObject.put("valid", c0509a.b);
                     } catch (JSONException e) {
                         z91.d(e.getMessage());
                     }
@@ -82,7 +82,7 @@ public interface ia1 {
                 return (JSONObject) invokeL.objValue;
             }
 
-            public static List<C0502a> c(JSONArray jSONArray) {
+            public static List<C0509a> c(JSONArray jSONArray) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONArray)) == null) {
@@ -138,8 +138,8 @@ public interface ia1 {
                     jSONObject.put("usedHostMarketingDetail", aVar.f);
                     if (aVar.h != null && !aVar.h.isEmpty()) {
                         JSONArray jSONArray = new JSONArray();
-                        for (C0502a c0502a : aVar.h) {
-                            jSONArray.put(C0502a.b(c0502a));
+                        for (C0509a c0509a : aVar.h) {
+                            jSONArray.put(C0509a.b(c0509a));
                         }
                         jSONObject.put("promotionStatus", jSONArray);
                     }

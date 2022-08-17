@@ -106,7 +106,7 @@ public class SelectForumActivity extends SuspendedActivity {
                 if (TextUtils.isEmpty(str)) {
                     str = this.a.getString(R.string.obfuscated_res_0x7f0f008f);
                 }
-                qi.O(this.a, str);
+                qi.N(this.a, str);
             }
         }
     }

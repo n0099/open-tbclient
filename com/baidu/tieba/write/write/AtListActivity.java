@@ -108,12 +108,12 @@ public class AtListActivity extends SuspendedActivity implements hb5, AdapterVie
 
         /* renamed from: com.baidu.tieba.write.write.AtListActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0263a implements View.OnClickListener {
+        public class View$OnClickListenerC0265a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0263a(a aVar) {
+            public View$OnClickListenerC0265a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,7 +168,7 @@ public class AtListActivity extends SuspendedActivity implements hb5, AdapterVie
                 this.a.B.setVisibility(8);
                 if (this.a.e == null) {
                     AtListActivity atListActivity = this.a;
-                    atListActivity.e = atListActivity.l.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f04e9), new View$OnClickListenerC0263a(this));
+                    atListActivity.e = atListActivity.l.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f04e9), new View$OnClickListenerC0265a(this));
                 }
             }
         }
@@ -314,7 +314,7 @@ public class AtListActivity extends SuspendedActivity implements hb5, AdapterVie
                         return;
                     }
                     AtListActivity atListActivity = this.a;
-                    atListActivity.showToastWithIcon(String.format(atListActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0953), 5), R.drawable.obfuscated_res_0x7f080aa9);
+                    atListActivity.showToastWithIcon(String.format(atListActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0954), 5), R.drawable.obfuscated_res_0x7f080aaa);
                     tbCheckBox.setChecked(false);
                     ((MetaData) obj).setChecked(false);
                     return;
@@ -589,7 +589,7 @@ public class AtListActivity extends SuspendedActivity implements hb5, AdapterVie
                 if (!z) {
                     qi.x(this.a.getPageContext().getPageActivity(), view2);
                 } else {
-                    qi.M(this.a.getPageContext().getPageActivity(), view2);
+                    qi.L(this.a.getPageContext().getPageActivity(), view2);
                 }
             }
         }
@@ -626,7 +626,7 @@ public class AtListActivity extends SuspendedActivity implements hb5, AdapterVie
     private void M0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.A = this.l.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f10eb));
+            this.A = this.l.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f10ec));
             View addCustomView = this.l.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0076, new i(this));
             this.C = addCustomView;
             this.D = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091654);
@@ -728,7 +728,7 @@ public class AtListActivity extends SuspendedActivity implements hb5, AdapterVie
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.y = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09175b);
-            this.G = NoDataViewFactory.b(getPageContext().getContext(), this.y, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, qi.f(getActivity(), R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c52)), null, true);
+            this.G = NoDataViewFactory.b(getPageContext().getContext(), this.y, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, qi.f(getActivity(), R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c53)), null, true);
             this.z = findViewById(R.id.obfuscated_res_0x7f0902c3);
             this.G.setOnTouchListener(new d(this));
             M0();
@@ -836,13 +836,13 @@ public class AtListActivity extends SuspendedActivity implements hb5, AdapterVie
                 this.q.setVisibility(8);
                 hideNetRefreshView(this.H);
                 this.G.setVisibility(0);
-                this.G.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c52)));
+                this.G.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c53)));
                 this.s.setVisibility(8);
             } else if (i2 == 1) {
                 this.q.setVisibility(8);
                 hideNetRefreshView(this.H);
                 this.G.setVisibility(0);
-                this.G.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c85)));
+                this.G.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c86)));
                 this.s.setVisibility(8);
             } else if (i2 == 0) {
                 this.q.setVisibility(0);
@@ -940,9 +940,9 @@ public class AtListActivity extends SuspendedActivity implements hb5, AdapterVie
             d2.n(R.string.J_X03);
             d2.f(R.color.CAM_X0302);
             SkinManager.setViewTextColor(this.t, R.color.CAM_X0101, 3);
-            this.D.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a05, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.D.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a06, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             SkinManager.setViewTextColor(this.H, (int) R.color.CAM_X0201);
-            WebPManager.setPureDrawable(this.E, R.drawable.obfuscated_res_0x7f080a4e, R.color.CAM_X0109, null);
+            WebPManager.setPureDrawable(this.E, R.drawable.obfuscated_res_0x7f080a4f, R.color.CAM_X0109, null);
             ms4 d3 = ms4.d(this.p);
             d3.n(R.string.J_X07);
             d3.l(R.dimen.L_X01);
@@ -1008,7 +1008,7 @@ public class AtListActivity extends SuspendedActivity implements hb5, AdapterVie
                 if (item.isChecked()) {
                     K1(item);
                 } else if (5 <= this.r.getItemLength()) {
-                    showToastWithIcon(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f0953), 5), R.drawable.obfuscated_res_0x7f080aa9);
+                    showToastWithIcon(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f0954), 5), R.drawable.obfuscated_res_0x7f080aaa);
                     return;
                 } else {
                     G1(item);
@@ -1169,7 +1169,7 @@ public class AtListActivity extends SuspendedActivity implements hb5, AdapterVie
                 } else {
                     this.b.showToast(this.a.getErrorString());
                     AtListActivity atListActivity2 = this.b;
-                    atListActivity2.showNetRefreshView(atListActivity2.H, this.b.getString(R.string.obfuscated_res_0x7f0f0fb9), null, this.b.getString(R.string.obfuscated_res_0x7f0f0fb8), true, this.b.getNetRefreshListener());
+                    atListActivity2.showNetRefreshView(atListActivity2.H, this.b.getString(R.string.obfuscated_res_0x7f0f0fba), null, this.b.getString(R.string.obfuscated_res_0x7f0f0fb9), true, this.b.getNetRefreshListener());
                 }
                 super.onPostExecute(xz8Var);
             }

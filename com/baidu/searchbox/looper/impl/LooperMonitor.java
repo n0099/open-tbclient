@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wl9;
-import com.repackage.xl9;
+import com.repackage.am9;
 import com.repackage.yl9;
+import com.repackage.zl9;
 @Singleton
 @Service
 /* loaded from: classes2.dex */
@@ -24,7 +24,7 @@ public class LooperMonitor implements ILooperMonitor {
     public static volatile boolean sIsStartTrack;
     public static LooperContextDispatcher sLooperContextDispatcher;
     public transient /* synthetic */ FieldHolder $fh;
-    public xl9 mBlockCanaryCore;
+    public zl9 mBlockCanaryCore;
     public boolean mMonitorStarted;
 
     static {
@@ -76,12 +76,12 @@ public class LooperMonitor implements ILooperMonitor {
         Track.getInstance().startTrack(context);
     }
 
-    public void addBlockInterceptor(yl9 yl9Var) {
+    public void addBlockInterceptor(am9 am9Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, yl9Var) == null) || yl9Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, am9Var) == null) || am9Var == null) {
             return;
         }
-        this.mBlockCanaryCore.b(yl9Var);
+        this.mBlockCanaryCore.b(am9Var);
     }
 
     @Override // com.baidu.searchbox.ruka.ioc.ILooperMonitor
@@ -105,11 +105,11 @@ public class LooperMonitor implements ILooperMonitor {
             if (sLooperContextDispatcher == null) {
                 sLooperContextDispatcher = new LooperContextDispatcher();
             }
-            wl9.init(context, sLooperContextDispatcher, i);
-            xl9.k(wl9.get());
-            xl9 e = xl9.e();
+            yl9.init(context, sLooperContextDispatcher, i);
+            zl9.k(yl9.get());
+            zl9 e = zl9.e();
             this.mBlockCanaryCore = e;
-            e.b(wl9.get());
+            e.b(yl9.get());
             startLooperPrint();
             startTrack(context);
         }

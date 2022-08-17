@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.id8;
-import com.repackage.ld8;
+import com.repackage.hd8;
+import com.repackage.kd8;
 import com.repackage.on;
 import com.repackage.vp4;
 import com.squareup.wire.Wire;
@@ -78,7 +78,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            id8.e().h(threadListResIdl.data.asp_shown_info);
+            hd8.e().h(threadListResIdl.data.asp_shown_info);
             long j = 0;
             Message<?> orginalMessage2 = getOrginalMessage();
             if (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) {
@@ -108,13 +108,13 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                         this.threadList.add(vp4Var);
                     } else {
                         this.threadList.add(threadData);
-                        JSONObject b = ld8.b(threadInfo);
+                        JSONObject b = kd8.b(threadInfo);
                         if (b != null) {
                             arrayList.add(b);
                         }
                     }
                 }
-                ld8.f().h("FRS", arrayList);
+                kd8.f().h("FRS", arrayList);
             }
             this.bannerListData = null;
             if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {

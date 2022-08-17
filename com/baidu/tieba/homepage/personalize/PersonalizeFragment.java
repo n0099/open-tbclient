@@ -28,18 +28,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.c17;
 import com.repackage.cj4;
-import com.repackage.d17;
+import com.repackage.cj8;
 import com.repackage.dj4;
-import com.repackage.dj8;
+import com.repackage.dw6;
 import com.repackage.ew6;
-import com.repackage.fw6;
 import com.repackage.nl5;
 import com.repackage.p65;
 import com.repackage.rb;
 import com.repackage.ru4;
 import com.repackage.sn;
-import com.repackage.vy6;
+import com.repackage.uy6;
 import com.repackage.x95;
 import com.repackage.yf6;
 import java.util.ArrayList;
@@ -51,7 +51,7 @@ public class PersonalizeFragment extends BaseFragment implements yf6, VoiceManag
     public transient /* synthetic */ FieldHolder $fh;
     public PersonalizePageView a;
     public VoiceManager b;
-    public ew6 c;
+    public dw6 c;
     public boolean d;
     public CustomMessageListener e;
     public final CustomMessageListener f;
@@ -268,13 +268,13 @@ public class PersonalizeFragment extends BaseFragment implements yf6, VoiceManag
         this.h = new e(this, 2921391);
     }
 
-    public void A1(fw6 fw6Var) {
+    public void A1(ew6 ew6Var) {
         PersonalizePageView personalizePageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, fw6Var) == null) || (personalizePageView = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, ew6Var) == null) || (personalizePageView = this.a) == null) {
             return;
         }
-        personalizePageView.setScrollFragmentTabHost(fw6Var);
+        personalizePageView.setScrollFragmentTabHost(ew6Var);
     }
 
     public final void B1() {
@@ -301,7 +301,7 @@ public class PersonalizeFragment extends BaseFragment implements yf6, VoiceManag
     public void E1(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, str, i) == null) {
-            d17.a("mCurrentPageViewError");
+            c17.a("mCurrentPageViewError");
             this.a.J0(str, i);
         }
     }
@@ -413,7 +413,7 @@ public class PersonalizeFragment extends BaseFragment implements yf6, VoiceManag
         if (interceptable == null || interceptable.invokeL(1048590, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(bundle);
-            dj8.g().i(getUniqueId());
+            cj8.g().i(getUniqueId());
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_END_STAMP_KEY);
         }
     }
@@ -426,9 +426,9 @@ public class PersonalizeFragment extends BaseFragment implements yf6, VoiceManag
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_VIEW_START_STAMP_KEY);
             if (this.a.getParent() instanceof ViewGroup) {
                 ((ViewGroup) this.a.getParent()).removeView(this.a);
-                ew6 ew6Var = this.c;
-                if (ew6Var != null) {
-                    this.a.setCallback(ew6Var);
+                dw6 dw6Var = this.c;
+                if (dw6Var != null) {
+                    this.a.setCallback(dw6Var);
                 }
             }
             this.a.setPageUniqueId(getUniqueId());
@@ -451,7 +451,7 @@ public class PersonalizeFragment extends BaseFragment implements yf6, VoiceManag
             if (voiceManager != null) {
                 voiceManager.onDestory(getPageContext());
             }
-            dj8.g().k(getUniqueId());
+            cj8.g().k(getUniqueId());
             MessageManager.getInstance().unRegisterListener(this.e);
             MessageManager.getInstance().unRegisterListener(this.f);
             MessageManager.getInstance().unRegisterListener(this.h);
@@ -459,8 +459,8 @@ public class PersonalizeFragment extends BaseFragment implements yf6, VoiceManag
             this.a.t0();
             this.d = true;
             p65.e().b();
-            d17.a(MissionEvent.MESSAGE_DESTROY);
-            d17.b();
+            c17.a(MissionEvent.MESSAGE_DESTROY);
+            c17.b();
         }
     }
 
@@ -556,7 +556,7 @@ public class PersonalizeFragment extends BaseFragment implements yf6, VoiceManag
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             super.onStop();
-            dj8.g().h(getUniqueId(), false);
+            cj8.g().h(getUniqueId(), false);
             VoiceManager voiceManager = this.b;
             if (voiceManager != null) {
                 voiceManager.onStop(getPageContext());
@@ -616,7 +616,7 @@ public class PersonalizeFragment extends BaseFragment implements yf6, VoiceManag
     public final void u1() {
         PersonalizePageView personalizePageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048605, this) == null) && vy6.a(getBaseFragmentActivity()) && (personalizePageView = this.a) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048605, this) == null) && uy6.a(getBaseFragmentActivity()) && (personalizePageView = this.a) != null) {
             personalizePageView.A0();
         }
     }
@@ -656,11 +656,11 @@ public class PersonalizeFragment extends BaseFragment implements yf6, VoiceManag
         }
     }
 
-    public void z1(ew6 ew6Var) {
+    public void z1(dw6 dw6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, ew6Var) == null) {
-            this.c = ew6Var;
-            this.a.setCallback(ew6Var);
+        if (interceptable == null || interceptable.invokeL(1048611, this, dw6Var) == null) {
+            this.c = dw6Var;
+            this.a.setCallback(dw6Var);
         }
     }
 

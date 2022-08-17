@@ -61,7 +61,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class VideoMuxer implements j89.b, OnGenFilterVideoListener, a.InterfaceC0272a {
+public class VideoMuxer implements j89.b, OnGenFilterVideoListener, a.InterfaceC0274a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FILTER_TEMP_DIR_PREFIX = "video_addfilter_";
     public static int MAX_RETRY_COUNT = 2;
@@ -1549,7 +1549,7 @@ public class VideoMuxer implements j89.b, OnGenFilterVideoListener, a.InterfaceC
         combineAudioFinish();
     }
 
-    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC0272a
+    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC0274a
     public void onAudioVideoMuxerCancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -1558,7 +1558,7 @@ public class VideoMuxer implements j89.b, OnGenFilterVideoListener, a.InterfaceC
         }
     }
 
-    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC0272a
+    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC0274a
     public void onAudioVideoMuxerFail(na9 na9Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, na9Var) == null) {
@@ -1569,7 +1569,7 @@ public class VideoMuxer implements j89.b, OnGenFilterVideoListener, a.InterfaceC
         }
     }
 
-    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC0272a
+    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC0274a
     public void onAudioVideoMuxerFinish(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {

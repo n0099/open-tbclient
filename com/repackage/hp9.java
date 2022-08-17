@@ -1,19 +1,17 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.InstallActivity;
-import com.google.ar.core.exceptions.UnavailableException;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* loaded from: classes6.dex */
-public class hp9 {
+public final class hp9 extends AnimatorListenerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final /* synthetic */ InstallActivity b;
+    public final /* synthetic */ InstallActivity a;
 
     public hp9(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
@@ -30,46 +28,14 @@ public class hp9 {
                 return;
             }
         }
-        this.b = installActivity;
-        this.a = false;
+        this.a = installActivity;
     }
 
-    public void a(com.google.ar.core.p pVar) {
+    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+    public final void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) {
-            synchronized (this.b) {
-                if (this.a) {
-                    return;
-                }
-                InstallActivity.e(this.b, pVar);
-                int ordinal = pVar.ordinal();
-                if (ordinal != 0) {
-                    if (ordinal == 1) {
-                        InstallActivity.a(this.b, new UnavailableUserDeclinedInstallationException());
-                    } else if (ordinal == 2) {
-                        if (!InstallActivity.f(this.b)) {
-                            InstallActivity.g(this.b);
-                        }
-                        InstallActivity.a(this.b, null);
-                    }
-                    this.a = true;
-                }
-            }
-        }
-    }
-
-    public void b(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            synchronized (this.b) {
-                if (this.a) {
-                    return;
-                }
-                this.a = true;
-                InstallActivity.e(this.b, com.google.ar.core.p.b);
-                boolean z = exc instanceof UnavailableException;
-                InstallActivity.a(this.b, exc);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            this.a.m();
         }
     }
 }

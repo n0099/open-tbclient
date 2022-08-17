@@ -1,124 +1,171 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.nb;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 /* loaded from: classes7.dex */
 public class op7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Bitmap a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            Bitmap bitmap = null;
-            try {
-                File file = new File(str);
-                if (file.exists()) {
-                    if (c(file)) {
-                        zm zmVar = nb.a.b().get(str);
-                        if (zmVar != null) {
-                            bitmap = zmVar.p();
-                        }
-                    } else {
-                        BitmapFactory.Options options = new BitmapFactory.Options();
-                        options.inJustDecodeBounds = true;
-                        BitmapFactory.decodeFile(str, options);
-                        bitmap = BitmapHelper.loadResizedBitmap(str, options.outWidth, options.outHeight);
-                    }
-                }
-            } catch (OutOfMemoryError unused) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755431941, "Lcom/repackage/op7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return bitmap;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755431941, "Lcom/repackage/op7;");
+                return;
+            }
         }
-        return (Bitmap) invokeL.objValue;
+        a = gp7.c + "draft/";
+        b = a + "upload_draft";
     }
 
-    public static Bitmap b(ImageFileInfo imageFileInfo) {
-        InterceptResult invokeL;
-        Bitmap f;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
-            l55 l55Var = new l55();
-            zm c = l55Var.c(imageFileInfo, true);
-            if (c != null) {
-                f = c.p();
-            } else {
-                f = l55Var.f(imageFileInfo, true);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            File file = new File(b);
+            if (file.exists()) {
+                file.delete();
             }
-            return f == null ? a(imageFileInfo.getFilePath()) : f;
         }
-        return (Bitmap) invokeL.objValue;
     }
 
-    public static boolean c(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0010 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v1 */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r2v6, types: [com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft] */
+    public static FaceGroupDraft b() {
+        InterceptResult invokeV;
+        FaceGroupDraft faceGroupDraft;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            FileInputStream fileInputStream2 = null;
+        if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
+            return (FaceGroupDraft) invokeV.objValue;
+        }
+        File file = new File(b);
+        ?? r2 = 0;
+        r2 = null;
+        r2 = null;
+        r2 = null;
+        r2 = null;
+        FaceGroupDraft faceGroupDraft2 = null;
+        r2 = null;
+        r2 = null;
+        ObjectInputStream objectInputStream = null;
+        try {
+            if (!file.exists()) {
+                return null;
+            }
             try {
+                ObjectInputStream objectInputStream2 = new ObjectInputStream(new FileInputStream(file));
                 try {
-                    try {
-                        fileInputStream = new FileInputStream(file);
-                    } catch (Throwable th) {
-                        th = th;
+                    Object readObject = objectInputStream2.readObject();
+                    if (readObject != null && (readObject instanceof FaceGroupDraft)) {
+                        faceGroupDraft2 = (FaceGroupDraft) readObject;
                     }
-                } catch (FileNotFoundException e) {
+                    objectInputStream2.close();
+                    ng.c(objectInputStream2);
+                    return faceGroupDraft2;
+                } catch (IOException e) {
                     e = e;
-                } catch (IOException e2) {
+                    FaceGroupDraft faceGroupDraft3 = faceGroupDraft2;
+                    objectInputStream = objectInputStream2;
+                    faceGroupDraft = faceGroupDraft3;
+                    e.printStackTrace();
+                    ng.c(objectInputStream);
+                    r2 = faceGroupDraft;
+                    return r2;
+                } catch (ClassNotFoundException e2) {
                     e = e2;
+                    FaceGroupDraft faceGroupDraft4 = faceGroupDraft2;
+                    objectInputStream = objectInputStream2;
+                    faceGroupDraft = faceGroupDraft4;
+                    e.printStackTrace();
+                    ng.c(objectInputStream);
+                    r2 = faceGroupDraft;
+                    return r2;
+                } catch (Throwable th) {
+                    th = th;
+                    FaceGroupDraft faceGroupDraft5 = faceGroupDraft2;
+                    objectInputStream = objectInputStream2;
+                    faceGroupDraft = faceGroupDraft5;
+                    th.printStackTrace();
+                    ng.c(objectInputStream);
+                    r2 = faceGroupDraft;
+                    return r2;
                 }
-            } catch (Exception e3) {
-                e3.printStackTrace();
-            }
-            try {
-                byte[] bArr = new byte[7];
-                r1 = fileInputStream.read(bArr, 0, 6) == 6 ? qi.B(bArr) : false;
-                fileInputStream.close();
-            } catch (FileNotFoundException e4) {
+            } catch (IOException e3) {
+                e = e3;
+                faceGroupDraft = null;
+            } catch (ClassNotFoundException e4) {
                 e = e4;
-                fileInputStream2 = fileInputStream;
-                e.printStackTrace();
-                if (fileInputStream2 != null) {
-                    fileInputStream2.close();
-                }
-                return r1;
-            } catch (IOException e5) {
-                e = e5;
-                fileInputStream2 = fileInputStream;
-                e.printStackTrace();
-                if (fileInputStream2 != null) {
-                    fileInputStream2.close();
-                }
-                return r1;
+                faceGroupDraft = null;
             } catch (Throwable th2) {
                 th = th2;
-                fileInputStream2 = fileInputStream;
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (Exception e6) {
-                        e6.printStackTrace();
-                    }
-                }
-                throw th;
+                faceGroupDraft = null;
             }
-            if (0 != 0) {
-                fileInputStream2.close();
-            }
-            return r1;
+        } catch (Throwable th3) {
+            ng.c(r2);
+            throw th3;
         }
-        return invokeL.booleanValue;
+    }
+
+    public static void c(FaceGroupDraft faceGroupDraft) {
+        ObjectOutputStream objectOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, faceGroupDraft) == null) {
+            ObjectOutputStream objectOutputStream2 = null;
+            try {
+                try {
+                    File file = new File(a);
+                    if (!file.exists()) {
+                        file.mkdirs();
+                    }
+                    a();
+                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(b));
+                } finally {
+                    ng.d(objectOutputStream2);
+                }
+            } catch (FileNotFoundException e) {
+                e = e;
+            } catch (IOException e2) {
+                e = e2;
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                objectOutputStream.writeObject(faceGroupDraft);
+                ng.d(objectOutputStream);
+            } catch (FileNotFoundException e3) {
+                e = e3;
+                objectOutputStream2 = objectOutputStream;
+                e.printStackTrace();
+            } catch (IOException e4) {
+                e = e4;
+                objectOutputStream2 = objectOutputStream;
+                e.printStackTrace();
+            } catch (Throwable th2) {
+                th = th2;
+                objectOutputStream2 = objectOutputStream;
+                th.printStackTrace();
+            }
+        }
     }
 }

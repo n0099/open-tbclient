@@ -50,7 +50,7 @@ public class RequestGetTopicThreadMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1303common = this.f1047common;
+            builder.f1304common = this.f1047common;
             builder.topic_id = Long.valueOf(this.topicId);
             builder.page_no = Long.valueOf(this.pageNo);
             builder.last_feed_id = Long.valueOf(this.lastFeedId);

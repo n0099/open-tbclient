@@ -19,6 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dy;
 import com.repackage.oy;
+import com.repackage.uw;
 /* loaded from: classes5.dex */
 public class a47 extends bn<n06, ThreadCardViewHolder<n06>> {
     public static /* synthetic */ Interceptable $ic;
@@ -60,18 +61,51 @@ public class a47 extends bn<n06, ThreadCardViewHolder<n06>> {
             }
             int id = view2.getId();
             if (id == R.id.obfuscated_res_0x7f09212a || id == R.id.obfuscated_res_0x7f09213e) {
-                e47.f(n06Var);
+                d47.f(n06Var);
+            } else if (id == R.id.obfuscated_res_0x7f092422) {
+                d47.e(n06Var);
+            } else if (id == R.id.obfuscated_res_0x7f092450) {
+                d47.e(n06Var);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements yn {
+    public class b implements uw.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(a47 a47Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a47Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.uw.b
+        public void a(fo4 fo4Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, fo4Var, view2) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements yn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a47 a;
 
-        public b(a47 a47Var) {
+        public c(a47 a47Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,7 +133,7 @@ public class a47 extends bn<n06, ThreadCardViewHolder<n06>> {
                 if (this.a.e != null) {
                     this.a.e.a(threadCardViewHolder.getView(), n06Var);
                 }
-                e47.c(n06Var, view2.getContext(), 19, false, vw.a((un) viewGroup, view2, i));
+                d47.c(n06Var, view2.getContext(), 19, false, vw.a((un) viewGroup, view2, i));
                 threadCardViewHolder.a().o(new oy.a(1));
             }
         }
@@ -135,24 +169,18 @@ public class a47 extends bn<n06, ThreadCardViewHolder<n06>> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            dy.b bVar = new dy.b(this.a.getPageActivity(), false);
-            fy fyVar = new fy(this.a.getPageActivity());
-            lo4 lo4Var = new lo4();
-            lo4Var.b = 21;
-            lo4Var.c = 2;
-            lo4Var.h = 18;
-            fyVar.x(false);
-            fyVar.w(lo4Var);
-            fyVar.y(16);
-            fyVar.D(10);
-            fyVar.z(19);
-            fyVar.c(32);
-            bVar.m(fyVar);
-            dy k = bVar.k(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.c);
+            dy.b bVar = new dy.b(this.a.getPageActivity());
+            uw uwVar = new uw(this.a.getPageActivity());
+            uwVar.u(this.b);
+            uwVar.d(1024);
+            uwVar.t(new b(this));
+            uwVar.w(this.a);
+            bVar.o(uwVar);
+            dy k = bVar.k(BaseCardInfo.SupportType.TOP, viewGroup, this.c);
             k.r(19);
             ThreadCardViewHolder<n06> threadCardViewHolder = new ThreadCardViewHolder<>(k);
             threadCardViewHolder.i(this.b);
-            setOnAdapterItemClickListener(new b(this));
+            setOnAdapterItemClickListener(new c(this));
             return threadCardViewHolder;
         }
         return (ThreadCardViewHolder) invokeL.objValue;
@@ -170,8 +198,8 @@ public class a47 extends bn<n06, ThreadCardViewHolder<n06>> {
             }
             n06Var.I(n06Var.position + 1);
             threadCardViewHolder.a().q(i);
-            threadCardViewHolder.o(false).u(this.d);
-            threadCardViewHolder.p(false, Align.ALIGN_RIGHT_BOTTOM, this.d);
+            threadCardViewHolder.k(n06Var.a.showFollowBtn(), null);
+            threadCardViewHolder.p(true, Align.ALIGN_RIGHT_TOP, this.d);
             threadCardViewHolder.e(n06Var);
             threadCardViewHolder.a().onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
             threadCardViewHolder.a().p(this.e);

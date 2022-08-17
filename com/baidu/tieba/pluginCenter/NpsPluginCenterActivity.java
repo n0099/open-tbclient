@@ -162,7 +162,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
             }
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255c);
             this.b = navigationBar;
-            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e93));
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e94));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         }
     }

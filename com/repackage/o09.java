@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class o09 implements n09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class o09 implements n09 {
     public final NewWriteModel b;
     public final NewWriteModel.e c;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements NewWriteModel.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -159,7 +159,7 @@ public class o09 implements n09 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             if (!qi.D()) {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c3d);
                 this.a.getContext().finish();
             } else if (!TextUtils.isEmpty(str)) {
                 this.a.showPostThreadLoadingView(true);
@@ -169,7 +169,7 @@ public class o09 implements n09 {
                 }
                 this.b.g0();
             } else {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c3d);
                 this.a.getContext().finish();
             }
         }

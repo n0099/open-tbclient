@@ -8,9 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tb7;
+import com.repackage.sb7;
 /* loaded from: classes3.dex */
-public class AtMeCacheModel extends CacheModel<tb7, AtMessageFragment> {
+public class AtMeCacheModel extends CacheModel<sb7, AtMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,10 +35,10 @@ public class AtMeCacheModel extends CacheModel<tb7, AtMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<tb7> K() {
+    public Class<sb7> K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? tb7.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? sb7.class : (Class) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel

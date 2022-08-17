@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bj8;
-import com.repackage.dj8;
+import com.repackage.aj8;
+import com.repackage.cj8;
 import com.repackage.h9;
 import com.repackage.q66;
 /* loaded from: classes3.dex */
@@ -110,7 +110,7 @@ public class EnterForumAdModel extends BdBaseModel {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) || this.b || (q66Var = this.a) == null || !q66Var.a()) {
             return;
         }
-        dj8.g().c(h9.a(context).getUniqueId(), bj8.f("a025", "common_fill", true, 1, 5));
+        cj8.g().c(h9.a(context).getUniqueId(), aj8.f("a025", "common_fill", true, 1, 5));
         this.b = true;
     }
 

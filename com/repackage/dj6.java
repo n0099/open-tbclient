@@ -72,7 +72,7 @@ public class dj6 extends ue6<ir4, FrsCardVideoViewHolder<bk6>> implements zz5, z
             } else if (view2.getId() == R.id.obfuscated_res_0x7f090e91 || view2.getId() == R.id.obfuscated_res_0x7f091887) {
                 this.b.U(threadData, "c10241");
             } else if (view2.getId() == R.id.obfuscated_res_0x7f0904f3) {
-                ir6.a(this.b.n, threadData.getRecomReason());
+                hr6.a(this.b.n, threadData.getRecomReason());
             }
             if (view2.getId() != R.id.obfuscated_res_0x7f09053f && !(view2 instanceof HeadImageView) && !(view2 instanceof HeadPendantView)) {
                 if (view2.getId() == R.id.obfuscated_res_0x7f090ab9) {
@@ -160,25 +160,25 @@ public class dj6 extends ue6<ir4, FrsCardVideoViewHolder<bk6>> implements zz5, z
         return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i == p ? "3" : i == q ? "10" : i == r ? "11" : "" : (String) invokeI.objValue;
     }
 
-    public final z88 W(ThreadData threadData) {
+    public final y88 W(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData)) == null) {
             if (threadData != null) {
-                z88 z88Var = new z88();
-                z88Var.a = V(threadData.getInsertFloor());
-                z88Var.d = this.n.c;
-                z88Var.c = threadData.getTid();
-                z88Var.l = threadData.mRecomAbTag;
+                y88 y88Var = new y88();
+                y88Var.a = V(threadData.getInsertFloor());
+                y88Var.d = this.n.c;
+                y88Var.c = threadData.getTid();
+                y88Var.l = threadData.mRecomAbTag;
                 if (threadData.getThreadVideoInfo() != null) {
-                    z88Var.m = threadData.getThreadVideoInfo().video_md5;
+                    y88Var.m = threadData.getThreadVideoInfo().video_md5;
                 }
                 threadData.updateShowStatus();
-                return z88Var;
+                return y88Var;
             }
             return null;
         }
-        return (z88) invokeL.objValue;
+        return (y88) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

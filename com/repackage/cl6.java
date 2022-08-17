@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 import tbclient.GameForumGuideTab.GameForumSubTab;
 import tbclient.ThreadInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class cl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

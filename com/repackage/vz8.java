@@ -50,7 +50,7 @@ public class vz8 implements qs8, Handler.Callback {
     public AlbumVideoCompressingDialogView g;
     public VideoConvertUtil h;
     public Handler i;
-    public fn7 j;
+    public en7 j;
     public boolean k;
     public final CustomMessageListener l;
 
@@ -142,14 +142,14 @@ public class vz8 implements qs8, Handler.Callback {
         this.d = false;
         this.e = false;
         this.f = false;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, jn7.class);
-        jn7 jn7Var = runTask != null ? (jn7) runTask.getData() : null;
-        if (jn7Var != null) {
-            this.j = jn7Var.get();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, in7.class);
+        in7 in7Var = runTask != null ? (in7) runTask.getData() : null;
+        if (in7Var != null) {
+            this.j = in7Var.get();
         }
-        fn7 fn7Var = this.j;
-        if (fn7Var != null) {
-            fn7Var.g();
+        en7 en7Var = this.j;
+        if (en7Var != null) {
+            en7Var.g();
         }
         this.l = new b(this, 2001374);
         this.a = baseFragmentActivity;
@@ -266,9 +266,9 @@ public class vz8 implements qs8, Handler.Callback {
             }
             this.e = false;
             this.c = null;
-            fn7 fn7Var = this.j;
-            if (fn7Var != null) {
-                fn7Var.d();
+            en7 en7Var = this.j;
+            if (en7Var != null) {
+                en7Var.d();
             }
         }
     }
@@ -288,11 +288,11 @@ public class vz8 implements qs8, Handler.Callback {
             if (videoConvertUtil == null || !videoConvertUtil.n()) {
                 String str3 = this.b.videoPath;
                 if (TextUtils.isEmpty(str3)) {
-                    qi.N(this.a, R.string.obfuscated_res_0x7f0f0b39);
+                    qi.M(this.a, R.string.obfuscated_res_0x7f0f0b3a);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016328, str3));
                     n(107);
                 } else if (!new File(str3).exists()) {
-                    qi.N(this.a, R.string.obfuscated_res_0x7f0f0b39);
+                    qi.M(this.a, R.string.obfuscated_res_0x7f0f0b3a);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016328, str3));
                     n(106);
                 } else {
@@ -333,7 +333,7 @@ public class vz8 implements qs8, Handler.Callback {
                 handler.sendMessageDelayed(handler.obtainMessage(5), 60000L);
             } else if (i == 2) {
                 if (!this.f) {
-                    qi.N(this.a, R.string.obfuscated_res_0x7f0f0b36);
+                    qi.M(this.a, R.string.obfuscated_res_0x7f0f0b37);
                     n(103);
                 }
                 this.k = false;
@@ -350,9 +350,9 @@ public class vz8 implements qs8, Handler.Callback {
                 h();
                 if (!this.d) {
                     f(true);
-                    fn7 fn7Var = this.j;
-                    if (fn7Var != null) {
-                        fn7Var.d();
+                    en7 en7Var = this.j;
+                    if (en7Var != null) {
+                        en7Var.d();
                     }
                 }
             } else if (i == 4) {
@@ -362,7 +362,7 @@ public class vz8 implements qs8, Handler.Callback {
                 n(104);
             } else if (i == 5) {
                 this.k = false;
-                qi.N(this.a, R.string.obfuscated_res_0x7f0f0b36);
+                qi.M(this.a, R.string.obfuscated_res_0x7f0f0b37);
                 VideoConvertUtil videoConvertUtil = this.h;
                 if (videoConvertUtil != null && videoConvertUtil.n()) {
                     d();
@@ -391,9 +391,9 @@ public class vz8 implements qs8, Handler.Callback {
             if (handler != null) {
                 handler.removeMessages(5);
             }
-            fn7 fn7Var = this.j;
-            if (fn7Var != null) {
-                fn7Var.k("album");
+            en7 en7Var = this.j;
+            if (en7Var != null) {
+                en7Var.k("album");
             }
             MessageManager.getInstance().unRegisterListener(this.l);
         }
@@ -406,9 +406,9 @@ public class vz8 implements qs8, Handler.Callback {
                 f(true);
                 n(101);
             }
-            fn7 fn7Var = this.j;
-            if (fn7Var != null) {
-                fn7Var.e("album");
+            en7 en7Var = this.j;
+            if (en7Var != null) {
+                en7Var.e("album");
             }
         }
     }
@@ -429,12 +429,12 @@ public class vz8 implements qs8, Handler.Callback {
     }
 
     public final void n(int i) {
-        fn7 fn7Var;
+        en7 en7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || (fn7Var = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || (en7Var = this.j) == null) {
             return;
         }
-        fn7Var.i(i, "album");
+        en7Var.i(i, "album");
     }
 
     public void o(AntiData antiData, PostPrefixData postPrefixData, String str, String str2) {
@@ -499,7 +499,7 @@ public class vz8 implements qs8, Handler.Callback {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            ur4 positiveButton = new ur4(this.a).setTitle(R.string.obfuscated_res_0x7f0f0b38).setPositiveButton(R.string.obfuscated_res_0x7f0f07fc, new a(this));
+            ur4 positiveButton = new ur4(this.a).setTitle(R.string.obfuscated_res_0x7f0f0b39).setPositiveButton(R.string.obfuscated_res_0x7f0f07fc, new a(this));
             positiveButton.create(this.a.getPageContext());
             positiveButton.setCanceledOnTouchOutside(false);
             positiveButton.show();

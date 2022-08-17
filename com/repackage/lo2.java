@@ -84,7 +84,7 @@ public class lo2 extends BaseAdapter {
     public final String a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? TextUtils.equals(this.b, "Image") ? this.a.getString(R.string.obfuscated_res_0x7f0f12be, new Object[]{Integer.valueOf(i)}) : this.a.getString(R.string.obfuscated_res_0x7f0f128d, new Object[]{Integer.valueOf(i)}) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? TextUtils.equals(this.b, "Image") ? this.a.getString(R.string.obfuscated_res_0x7f0f12c0, new Object[]{Integer.valueOf(i)}) : this.a.getString(R.string.obfuscated_res_0x7f0f128f, new Object[]{Integer.valueOf(i)}) : (String) invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -134,7 +134,7 @@ public class lo2 extends BaseAdapter {
             } else {
                 aVar = (a) view2.getTag();
             }
-            view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081154));
+            view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081155));
             zo2 zo2Var = this.c.get(i);
             if (zo2Var == null) {
                 return view2;

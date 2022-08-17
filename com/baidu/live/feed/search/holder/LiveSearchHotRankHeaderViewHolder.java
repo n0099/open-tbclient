@@ -34,7 +34,7 @@ public class LiveSearchHotRankHeaderViewHolder extends RecyclerView.ViewHolder {
             }
         }
         if (view2 instanceof ImageView) {
-            ((ImageView) view2).setImageResource("day".equals(ab0.f().q()) ? R.drawable.obfuscated_res_0x7f080cf7 : R.drawable.obfuscated_res_0x7f080cf8);
+            ((ImageView) view2).setImageResource("day".equals(ab0.f().q()) ? R.drawable.obfuscated_res_0x7f080cf8 : R.drawable.obfuscated_res_0x7f080cf9);
         }
     }
 }

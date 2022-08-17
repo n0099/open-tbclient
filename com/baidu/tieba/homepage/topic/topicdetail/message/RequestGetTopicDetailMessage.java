@@ -48,7 +48,7 @@ public class RequestGetTopicDetailMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1299common = this.f1046common;
+            builder.f1300common = this.f1046common;
             builder.topic_id = Long.valueOf(this.topicId);
             builder.call_from = this.callFrom;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {

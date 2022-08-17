@@ -21,7 +21,7 @@ import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.TimestampAdjuster;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class DefaultHlsExtractorFactory implements HlsExtractorFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AAC_FILE_EXTENSION = ".aac";

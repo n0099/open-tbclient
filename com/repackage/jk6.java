@@ -154,7 +154,7 @@ public class jk6 extends bn<nk6, ForumRuleDetailSelfVH> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, forumRuleDetailSelfVH, nk6Var) == null) {
             if (nk6Var.c() != null) {
-                forumRuleDetailSelfVH.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080bc1);
+                forumRuleDetailSelfVH.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080bc2);
                 forumRuleDetailSelfVH.b.K(nk6Var.c().portrait, 12, false);
                 forumRuleDetailSelfVH.c.setText(nk6Var.c().name_show);
                 forumRuleDetailSelfVH.b(nk6Var.c().user_level.intValue());

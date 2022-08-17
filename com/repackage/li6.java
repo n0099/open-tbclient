@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class li6 implements uj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bs6 a;
+    public as6 a;
 
     public li6() {
         Interceptable interceptable = $ic;
@@ -29,16 +29,16 @@ public class li6 implements uj6 {
     }
 
     @Override // com.repackage.uj6
-    public pr6 a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
+    public or6 a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, frsFragment, noPressedRelativeLayout)) == null) {
-            if (frsFragment.S3()) {
+            if (frsFragment.T3()) {
                 return null;
             }
-            return new pr6(frsFragment, noPressedRelativeLayout);
+            return new or6(frsFragment, noPressedRelativeLayout);
         }
-        return (pr6) invokeLL.objValue;
+        return (or6) invokeLL.objValue;
     }
 
     @Override // com.repackage.uj6
@@ -59,11 +59,11 @@ public class li6 implements uj6 {
     public wj6 d(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, frsFragment, noPressedRelativeLayout)) == null) ? new nr6(frsFragment, noPressedRelativeLayout) : (wj6) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, frsFragment, noPressedRelativeLayout)) == null) ? new mr6(frsFragment, noPressedRelativeLayout) : (wj6) invokeLL.objValue;
     }
 
     @Override // com.repackage.uj6
-    public bs6 e(String str, FrsFragment frsFragment, int i) {
+    public as6 e(String str, FrsFragment frsFragment, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, str, frsFragment, i)) == null) {
@@ -72,9 +72,9 @@ public class li6 implements uj6 {
             }
             mi6 mi6Var = new mi6(frsFragment, null, null, i);
             this.a = mi6Var;
-            mi6Var.R(frsFragment.p3());
+            mi6Var.R(frsFragment.q3());
             return this.a;
         }
-        return (bs6) invokeLLI.objValue;
+        return (as6) invokeLLI.objValue;
     }
 }

@@ -125,10 +125,10 @@ public class v31 {
             textView.setTextColor(this.d.getResources().getColor(R.color.obfuscated_res_0x7f06080e));
             this.b.setText(c());
             c51.a aVar = new c51.a(this.d);
-            aVar.q(R.string.obfuscated_res_0x7f0f0bae);
+            aVar.q(R.string.obfuscated_res_0x7f0f0baf);
             aVar.s(inflate);
-            aVar.l(R.string.obfuscated_res_0x7f0f0baa, new b(this));
-            aVar.o(R.string.obfuscated_res_0x7f0f0bad, new a(this));
+            aVar.l(R.string.obfuscated_res_0x7f0f0bab, new b(this));
+            aVar.o(R.string.obfuscated_res_0x7f0f0bae, new a(this));
             this.e = aVar.a();
         }
     }
@@ -142,7 +142,7 @@ public class v31 {
             if ("http".equals(parse.getScheme())) {
                 str = this.c.substring(7);
             }
-            return String.format(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0bab), str);
+            return String.format(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0bac), str);
         }
         return (String) invokeV.objValue;
     }
@@ -152,7 +152,7 @@ public class v31 {
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             boolean isChecked = this.a.isChecked();
             if (isChecked) {
-                xz0.a().a(this.d.getApplicationContext(), z ? R.string.obfuscated_res_0x7f0f0baf : R.string.obfuscated_res_0x7f0f0bb0);
+                xz0.a().a(this.d.getApplicationContext(), z ? R.string.obfuscated_res_0x7f0f0bb0 : R.string.obfuscated_res_0x7f0f0bb1);
             }
             this.f.a(this.c, z, isChecked);
         }

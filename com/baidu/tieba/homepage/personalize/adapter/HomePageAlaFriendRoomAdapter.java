@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b06;
+import com.repackage.b17;
 import com.repackage.bn;
-import com.repackage.c17;
 import com.repackage.jz5;
 import com.repackage.m06;
 import com.repackage.o95;
@@ -122,7 +122,7 @@ public class HomePageAlaFriendRoomAdapter extends bn<m06, HomePageAlaLiveThreadV
                     i = 0;
                 }
                 if (i != 0) {
-                    c17.d(m06Var.a, this.b.a, m06Var.n(), i);
+                    b17.d(m06Var.a, this.b.a, m06Var.n(), i);
                 }
             }
         }
@@ -224,7 +224,7 @@ public class HomePageAlaFriendRoomAdapter extends bn<m06, HomePageAlaLiveThreadV
             homePageAlaLiveThreadViewHolder.a.i(m06Var);
             homePageAlaLiveThreadViewHolder.a.n(this.f);
             homePageAlaLiveThreadViewHolder.a.B(this.d);
-            c17.i(m06Var.a, this.a, m06Var.n());
+            b17.i(m06Var.a, this.a, m06Var.n());
             if (m06Var.getThreadData() != null && m06Var.getThreadData().getThreadAlaInfo() != null) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.ALA_FRIEND_ROOM_CARD_SHOW);
                 statisticItem.param("obj_locate", 1);

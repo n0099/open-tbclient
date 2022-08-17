@@ -76,10 +76,10 @@ public final class R$styleable {
             }
         }
         ColorStateListItem = new int[]{16843173, 16843551, R.attr.obfuscated_res_0x7f04008a};
-        CoordinatorLayout = new int[]{R.attr.obfuscated_res_0x7f04037d, R.attr.obfuscated_res_0x7f04065b};
-        CoordinatorLayout_Layout = new int[]{16842931, R.attr.obfuscated_res_0x7f04040c, R.attr.obfuscated_res_0x7f04040d, R.attr.obfuscated_res_0x7f04040e, R.attr.obfuscated_res_0x7f040414, R.attr.obfuscated_res_0x7f040418, R.attr.obfuscated_res_0x7f040419};
-        FontFamily = new int[]{R.attr.obfuscated_res_0x7f0402d9, R.attr.obfuscated_res_0x7f0402da, R.attr.obfuscated_res_0x7f0402db, R.attr.obfuscated_res_0x7f0402dc, R.attr.obfuscated_res_0x7f0402dd, R.attr.obfuscated_res_0x7f0402de};
-        FontFamilyFont = new int[]{16844082, 16844083, 16844095, 16844143, 16844144, R.attr.obfuscated_res_0x7f0402d7, R.attr.obfuscated_res_0x7f0402df, R.attr.obfuscated_res_0x7f0402e0, R.attr.obfuscated_res_0x7f0402e1, R.attr.obfuscated_res_0x7f040749};
+        CoordinatorLayout = new int[]{R.attr.obfuscated_res_0x7f04037e, R.attr.obfuscated_res_0x7f04065c};
+        CoordinatorLayout_Layout = new int[]{16842931, R.attr.obfuscated_res_0x7f04040d, R.attr.obfuscated_res_0x7f04040e, R.attr.obfuscated_res_0x7f04040f, R.attr.obfuscated_res_0x7f040415, R.attr.obfuscated_res_0x7f040419, R.attr.obfuscated_res_0x7f04041a};
+        FontFamily = new int[]{R.attr.obfuscated_res_0x7f0402da, R.attr.obfuscated_res_0x7f0402db, R.attr.obfuscated_res_0x7f0402dc, R.attr.obfuscated_res_0x7f0402dd, R.attr.obfuscated_res_0x7f0402de, R.attr.obfuscated_res_0x7f0402df};
+        FontFamilyFont = new int[]{16844082, 16844083, 16844095, 16844143, 16844144, R.attr.obfuscated_res_0x7f0402d8, R.attr.obfuscated_res_0x7f0402e0, R.attr.obfuscated_res_0x7f0402e1, R.attr.obfuscated_res_0x7f0402e2, R.attr.obfuscated_res_0x7f040749};
         GradientColor = new int[]{16843165, 16843166, 16843169, 16843170, 16843171, 16843172, 16843265, 16843275, 16844048, 16844049, 16844050, 16844051};
         GradientColorItem = new int[]{16843173, 16844052};
     }

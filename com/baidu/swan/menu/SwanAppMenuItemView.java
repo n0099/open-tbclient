@@ -167,14 +167,14 @@ public class SwanAppMenuItemView extends RelativeLayout {
                 return;
             }
             this.c.setVisibility(8);
-            this.d.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08112b));
+            this.d.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08112c));
             this.d.setVisibility(0);
         } else if (i <= 0) {
         } else {
             this.d.setVisibility(8);
             this.c.setText(a(f74Var.e()));
             this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a50));
-            this.c.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08112a));
+            this.c.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08112b));
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.c.getLayoutParams();
             marginLayoutParams.leftMargin = c(i);
             this.c.setLayoutParams(marginLayoutParams);

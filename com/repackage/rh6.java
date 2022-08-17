@@ -43,7 +43,7 @@ public class rh6 {
     public final AnimatorSet i;
     public long j;
     public ForumData k;
-    public mj8 l;
+    public lj8 l;
     public Dialog m;
     public int n;
     public int o;
@@ -57,12 +57,12 @@ public class rh6 {
 
         /* renamed from: com.repackage.rh6$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0571a implements Runnable {
+        public class RunnableC0575a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0571a(a aVar) {
+            public RunnableC0575a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class rh6 {
         public void I(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && i == 3) {
-                this.a.a.post(new RunnableC0571a(this));
+                this.a.a.post(new RunnableC0575a(this));
                 this.a.p.f();
             }
         }
@@ -122,7 +122,7 @@ public class rh6 {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || wh5.a(this.a.c, this.a.l.h())) {
                 return;
             }
-            cr6.b((TbPageContext) h9.a(this.a.c), this.a.l.j(), this.a.l.o(), this.a.l.i());
+            br6.b((TbPageContext) h9.a(this.a.c), this.a.l.j(), this.a.l.o(), this.a.l.i());
         }
     }
 
@@ -229,7 +229,7 @@ public class rh6 {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ar6.a("common_click", this.a.l, this.a.k, 2, "video");
+                zq6.a("common_click", this.a.l, this.a.k, 2, "video");
             }
         }
 
@@ -237,7 +237,7 @@ public class rh6 {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                ar6.k("common_exp", this.a.l, this.a.k, 2, "video");
+                zq6.k("common_exp", this.a.l, this.a.k, 2, "video");
             }
         }
 
@@ -245,7 +245,7 @@ public class rh6 {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                ar6.a("common_click", this.a.l, this.a.k, 2, "frontpage");
+                zq6.a("common_click", this.a.l, this.a.k, 2, "frontpage");
             }
         }
 
@@ -253,7 +253,7 @@ public class rh6 {
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                ar6.g("c14592", this.a.l, this.a.k);
+                zq6.g("c14592", this.a.l, this.a.k);
             }
         }
 
@@ -261,7 +261,7 @@ public class rh6 {
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                ar6.k("common_exp", this.a.l, this.a.k, 2, "frontpage");
+                zq6.k("common_exp", this.a.l, this.a.k, 2, "frontpage");
             }
         }
 
@@ -269,7 +269,7 @@ public class rh6 {
         public void f() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                ar6.g("c14593", this.a.l, this.a.k);
+                zq6.g("c14593", this.a.l, this.a.k);
             }
         }
     }
@@ -762,15 +762,15 @@ public class rh6 {
         }
     }
 
-    public void s(mj8 mj8Var, ForumData forumData, long j2) {
+    public void s(lj8 lj8Var, ForumData forumData, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{mj8Var, forumData, Long.valueOf(j2)}) == null) || this.c == null || this.e == null || this.f == null || mj8Var == null || StringUtils.isNull(mj8Var.p())) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{lj8Var, forumData, Long.valueOf(j2)}) == null) || this.c == null || this.e == null || this.f == null || lj8Var == null || StringUtils.isNull(lj8Var.p())) {
             return;
         }
         this.j = j2;
         this.k = forumData;
-        this.l = mj8Var;
-        this.f.setVideoData(mj8Var.p(), this.l.b());
+        this.l = lj8Var;
+        this.f.setVideoData(lj8Var.p(), this.l.b());
     }
 
     public final void t() {

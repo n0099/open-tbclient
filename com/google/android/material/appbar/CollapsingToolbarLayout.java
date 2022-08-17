@@ -1025,7 +1025,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         CollapsingTextHelper collapsingTextHelper = new CollapsingTextHelper(this);
         this.collapsingTextHelper = collapsingTextHelper;
         collapsingTextHelper.setTextSizeInterpolator(AnimationUtils.DECELERATE_INTERPOLATOR);
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f040167, R.attr.obfuscated_res_0x7f040168, R.attr.obfuscated_res_0x7f040198, R.attr.obfuscated_res_0x7f040293, R.attr.obfuscated_res_0x7f040294, R.attr.obfuscated_res_0x7f040295, R.attr.obfuscated_res_0x7f040296, R.attr.obfuscated_res_0x7f040297, R.attr.obfuscated_res_0x7f040298, R.attr.obfuscated_res_0x7f040299, R.attr.obfuscated_res_0x7f0404c3, R.attr.obfuscated_res_0x7f0405e9, R.attr.obfuscated_res_0x7f0405eb, R.attr.obfuscated_res_0x7f04065d, R.attr.obfuscated_res_0x7f040714, R.attr.obfuscated_res_0x7f040716, R.attr.obfuscated_res_0x7f040725}, i, obfuscated_res_0x7f100332, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f040167, R.attr.obfuscated_res_0x7f040168, R.attr.obfuscated_res_0x7f040198, R.attr.obfuscated_res_0x7f040294, R.attr.obfuscated_res_0x7f040295, R.attr.obfuscated_res_0x7f040296, R.attr.obfuscated_res_0x7f040297, R.attr.obfuscated_res_0x7f040298, R.attr.obfuscated_res_0x7f040299, R.attr.obfuscated_res_0x7f04029a, R.attr.obfuscated_res_0x7f0404c4, R.attr.obfuscated_res_0x7f0405ea, R.attr.obfuscated_res_0x7f0405ec, R.attr.obfuscated_res_0x7f04065e, R.attr.obfuscated_res_0x7f040714, R.attr.obfuscated_res_0x7f040716, R.attr.obfuscated_res_0x7f040725}, i, obfuscated_res_0x7f100332, new int[0]);
         this.collapsingTextHelper.setExpandedTextGravity(obtainStyledAttributes.getInt(3, BadgeDrawable.BOTTOM_START));
         this.collapsingTextHelper.setCollapsedTextGravity(obtainStyledAttributes.getInt(0, 8388627));
         int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(4, 0);
@@ -1153,7 +1153,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
             }
             this.collapseMode = 0;
             this.parallaxMult = 0.5f;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040410, R.attr.obfuscated_res_0x7f040411});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040411, R.attr.obfuscated_res_0x7f040412});
             this.collapseMode = obtainStyledAttributes.getInt(0, 0);
             setParallaxMultiplier(obtainStyledAttributes.getFloat(1, 0.5f));
             obtainStyledAttributes.recycle();

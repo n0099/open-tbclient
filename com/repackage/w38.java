@@ -1,6 +1,5 @@
 package com.repackage;
 
-import android.os.Bundle;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.card.data.BaseCardInfo;
@@ -14,19 +13,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class w38 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId l;
+    public static BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public String e;
-    public boolean f;
-    public String g;
-    public UserData h;
-    public y38 i;
-    public Bundle j;
-    public int k;
+    public UserData a;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +30,7 @@ public class w38 extends BaseCardInfo {
                 return;
             }
         }
-        l = BdUniqueId.gen();
+        b = BdUniqueId.gen();
     }
 
     public w38() {
@@ -62,6 +51,6 @@ public class w38 extends BaseCardInfo {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? l : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
     }
 }

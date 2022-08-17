@@ -109,7 +109,7 @@ public class pq6 {
         TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d1e);
         this.j = tbImageView;
         tbImageView.setDefaultBgResource(R.color.transparent);
-        this.j.setDefaultResource(R.drawable.obfuscated_res_0x7f080f0c);
+        this.j.setDefaultResource(R.drawable.obfuscated_res_0x7f080f0d);
         this.d = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090b46);
         TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a73);
         this.e = textView;
@@ -137,7 +137,7 @@ public class pq6 {
         SkinManager.setBackgroundResource(this.h, R.color.CAM_X0201);
         SkinManager.setImageResource(this.k, R.drawable.obfuscated_res_0x7f080612);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f080614, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        this.m.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809fb, SkinManager.getColor(R.color.CAM_X0101), null));
+        this.m.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809fc, SkinManager.getColor(R.color.CAM_X0101), null));
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.obfuscated_res_0x7f080613, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f0802d8, R.color.CAM_X0204, SvgManager.SvgResourceStateType.NORMAL);
     }

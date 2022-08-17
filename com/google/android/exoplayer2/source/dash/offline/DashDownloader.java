@@ -26,7 +26,7 @@ import com.google.android.exoplayer2.upstream.DataSpec;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class DashDownloader extends SegmentDownloader<DashManifest, RepresentationKey> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

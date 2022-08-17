@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gj8;
+import com.repackage.fj8;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes3.dex */
@@ -280,7 +280,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
             this.gradientColors = r1;
             int[] iArr = {0, SelectorHelper.getColor(i)};
             int[] iArr2 = this.gradientColors;
-            iArr2[0] = gj8.c(iArr2[1]);
+            iArr2[0] = fj8.c(iArr2[1]);
             this.gradientType = 0;
             this.gradientOrientation = TOP_BOTTOM;
             return this;

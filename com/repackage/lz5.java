@@ -46,7 +46,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m88;
+import com.repackage.l88;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class lz5 extends bz5<o06> implements View.OnClickListener, ol5 {
@@ -55,7 +55,7 @@ public class lz5 extends bz5<o06> implements View.OnClickListener, ol5 {
     public View A;
     public TextView B;
     public View C;
-    public w88 D;
+    public v88 D;
     public o06 E;
     public View F;
     public int G;
@@ -63,7 +63,7 @@ public class lz5 extends bz5<o06> implements View.OnClickListener, ol5 {
     public boolean I;
     public boolean J;
     public String K;
-    public m88 L;
+    public l88 L;
     public Animation M;
     public TextView N;
     public TextView O;
@@ -140,7 +140,7 @@ public class lz5 extends bz5<o06> implements View.OnClickListener, ol5 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements m88.c {
+    public class b implements l88.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lz5 a;
@@ -163,7 +163,7 @@ public class lz5 extends bz5<o06> implements View.OnClickListener, ol5 {
             this.a = lz5Var;
         }
 
-        @Override // com.repackage.m88.c
+        @Override // com.repackage.l88.c
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) || i2 >= i || i == 0 || (i2 * 100) / i < 80 || i <= 15000) {
@@ -181,7 +181,7 @@ public class lz5 extends bz5<o06> implements View.OnClickListener, ol5 {
                 e().a(view2, this.E);
             }
             if (!oi.z()) {
-                qi.N(this.p.getPageActivity(), R.string.obfuscated_res_0x7f0f0c75);
+                qi.M(this.p.getPageActivity(), R.string.obfuscated_res_0x7f0f0c76);
             } else {
                 w(ThreadCardUtils.computeViewArea(this.k));
             }
@@ -271,7 +271,7 @@ public class lz5 extends bz5<o06> implements View.OnClickListener, ol5 {
                     }
                 }
                 this.x.setText(StringHelper.stringForVideoTime(this.E.a.getThreadVideoInfo().video_duration.intValue() * 1000));
-                this.z.setText(String.format(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f0e87), StringHelper.numFormatOverWan(this.E.a.getThreadVideoInfo().play_count.intValue())));
+                this.z.setText(String.format(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f0e88), StringHelper.numFormatOverWan(this.E.a.getThreadVideoInfo().play_count.intValue())));
                 if (this.m != null && this.E.getThreadData() != null) {
                     cq4 cq4Var = new cq4();
                     cq4Var.o(this.E.getThreadData().getTid());
@@ -294,15 +294,15 @@ public class lz5 extends bz5<o06> implements View.OnClickListener, ol5 {
                 if ((o06Var2 == null || (threadData2 = o06Var2.a) == null || threadData2.getThreadVideoInfo() == null || this.E.a.getThreadVideoInfo().is_vertical.intValue() != 1) ? false : true) {
                     this.O.setVisibility(0);
                     if (B()) {
-                        this.O.setText(String.format("%s | %s", this.p.getResources().getString(R.string.obfuscated_res_0x7f0f0c2c), this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1529)));
+                        this.O.setText(String.format("%s | %s", this.p.getResources().getString(R.string.obfuscated_res_0x7f0f0c2d), this.p.getResources().getString(R.string.obfuscated_res_0x7f0f152c)));
                         return;
                     } else {
-                        this.O.setText(this.p.getString(R.string.obfuscated_res_0x7f0f0c2c));
+                        this.O.setText(this.p.getString(R.string.obfuscated_res_0x7f0f0c2d));
                         return;
                     }
                 } else if (B()) {
                     this.O.setVisibility(0);
-                    this.O.setText(this.p.getString(R.string.obfuscated_res_0x7f0f1529));
+                    this.O.setText(this.p.getString(R.string.obfuscated_res_0x7f0f152c));
                     return;
                 } else {
                     this.O.setVisibility(8);
@@ -335,24 +335,24 @@ public class lz5 extends bz5<o06> implements View.OnClickListener, ol5 {
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (o06Var = this.E) == null || o06Var.a == null) {
             return;
         }
-        z88 z88Var = new z88();
-        z88Var.a = this.E.T == 0 ? "index" : "hot_juhe";
-        z88Var.c = this.E.a.getTid();
-        z88Var.d = this.E.a.getFid() + "";
-        z88Var.e = TbadkCoreApplication.getCurrentAccount();
+        y88 y88Var = new y88();
+        y88Var.a = this.E.T == 0 ? "index" : "hot_juhe";
+        y88Var.c = this.E.a.getTid();
+        y88Var.d = this.E.a.getFid() + "";
+        y88Var.e = TbadkCoreApplication.getCurrentAccount();
         o06 o06Var2 = this.E;
         ThreadData threadData = o06Var2.a;
-        z88Var.f = threadData.mRecomSource;
+        y88Var.f = threadData.mRecomSource;
         String str = threadData.mRecomAbTag;
-        z88Var.l = str;
-        z88Var.g = str;
-        z88Var.h = threadData.mRecomWeight;
-        z88Var.i = "";
-        z88Var.k = o06Var2.h();
+        y88Var.l = str;
+        y88Var.g = str;
+        y88Var.h = threadData.mRecomWeight;
+        y88Var.i = "";
+        y88Var.k = o06Var2.h();
         if (this.E.a.getThreadVideoInfo() != null) {
-            z88Var.m = this.E.a.getThreadVideoInfo().video_md5;
+            y88Var.m = this.E.a.getThreadVideoInfo().video_md5;
         }
-        o88.e(this.E.a.getThreadVideoInfo().video_md5, "", "1", z88Var, this.w.getControl().getPcdnState());
+        n88.e(this.E.a.getThreadVideoInfo().video_md5, "", "1", y88Var, this.w.getControl().getPcdnState());
     }
 
     public final void K(boolean z, int i) {
@@ -529,10 +529,10 @@ public class lz5 extends bz5<o06> implements View.OnClickListener, ol5 {
         TextView textView = this.O;
         if (textView != null) {
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(this.O, R.drawable.obfuscated_res_0x7f081247);
+            SkinManager.setBackgroundResource(this.O, R.drawable.obfuscated_res_0x7f081248);
         }
         if (this.B != null) {
-            this.B.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080aa9), (Drawable) null, (Drawable) null);
+            this.B.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080aaa), (Drawable) null, (Drawable) null);
         }
         this.l.k();
         NEGFeedBackView nEGFeedBackView = this.m;
@@ -603,9 +603,9 @@ public class lz5 extends bz5<o06> implements View.OnClickListener, ol5 {
             }
             this.I = true;
             this.w.getControl().setVideoPath(this.K, this.E.g);
-            m88 m88Var = this.L;
-            if (m88Var != null) {
-                m88Var.m();
+            l88 l88Var = this.L;
+            if (l88Var != null) {
+                l88Var.m();
             }
             J();
         }
@@ -620,9 +620,9 @@ public class lz5 extends bz5<o06> implements View.OnClickListener, ol5 {
             TbVideoViewContainer tbVideoViewContainer = this.w;
             if (tbVideoViewContainer != null) {
                 tbVideoViewContainer.getControl().stopPlayback();
-                m88 m88Var = this.L;
-                if (m88Var != null) {
-                    m88Var.n();
+                l88 l88Var = this.L;
+                if (l88Var != null) {
+                    l88Var.n();
                 }
             }
             this.I = false;
@@ -671,7 +671,7 @@ public class lz5 extends bz5<o06> implements View.OnClickListener, ol5 {
                 e().a(view2, this.E);
             }
             if (!oi.z()) {
-                qi.N(this.p.getPageActivity(), R.string.obfuscated_res_0x7f0f0c75);
+                qi.M(this.p.getPageActivity(), R.string.obfuscated_res_0x7f0f0c76);
             } else {
                 w(ThreadCardUtils.computeViewArea(this.k));
             }

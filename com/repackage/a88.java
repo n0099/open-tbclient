@@ -1,74 +1,63 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a88 extends c65 {
+public class a88 extends xw {
     public static /* synthetic */ Interceptable $ic;
-    public static final int j;
-    public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755902800, "Lcom/repackage/a88;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755902800, "Lcom/repackage/a88;");
-                return;
-            }
-        }
-        j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds403);
-        k = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds90);
-    }
+    public f98 z;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a88(Context context, View.OnClickListener onClickListener) {
-        super(context, onClickListener);
+    public a88(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, onClickListener};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (View.OnClickListener) objArr2[1]);
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        g();
     }
 
-    public final void g() {
-        TbImageView tbImageView;
+    @Override // com.repackage.xw, com.repackage.ly
+    public d98 q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tbImageView = this.c) != null && (tbImageView.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-            int i = j;
-            layoutParams.width = i;
-            layoutParams.height = i;
-            layoutParams.topMargin = k;
-            this.c.setLayoutParams(layoutParams);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            f98 f98Var = new f98(this.b, this.i);
+            this.z = f98Var;
+            return f98Var;
+        }
+        return (d98) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ly
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.s();
+        }
+    }
+
+    @Override // com.repackage.ly
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.t();
         }
     }
 }

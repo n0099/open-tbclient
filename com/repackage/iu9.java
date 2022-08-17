@@ -1,27 +1,28 @@
 package com.repackage;
 
+import android.media.MediaRecorder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.webrtc.CalledByNative;
-import org.webrtc.PeerConnection;
-import org.webrtc.RtpTransceiver;
-/* compiled from: PeerConnection.java */
+import org.webrtc.CameraVideoCapturer;
+/* compiled from: CameraVideoCapturer.java */
 /* loaded from: classes6.dex */
 public final /* synthetic */ class iu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @CalledByNative("Observer")
-    public static void $default$onConnectionChange(PeerConnection.Observer observer, PeerConnection.PeerConnectionState peerConnectionState) {
+    @Deprecated
+    public static void $default$addMediaRecorderToCamera(CameraVideoCapturer cameraVideoCapturer, MediaRecorder mediaRecorder, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, observer, peerConnectionState) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65536, null, cameraVideoCapturer, mediaRecorder, mediaRecorderHandler) == null) {
+            throw new UnsupportedOperationException("Deprecated and not implemented.");
         }
     }
 
-    @CalledByNative("Observer")
-    public static void $default$onTrack(PeerConnection.Observer observer, RtpTransceiver rtpTransceiver) {
+    @Deprecated
+    public static void $default$removeMediaRecorderFromCamera(CameraVideoCapturer cameraVideoCapturer, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, observer, rtpTransceiver) == null) {
+        if (interceptable == null || interceptable.invokeLL(65537, null, cameraVideoCapturer, mediaRecorderHandler) == null) {
+            throw new UnsupportedOperationException("Deprecated and not implemented.");
         }
     }
 }

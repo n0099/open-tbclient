@@ -85,12 +85,12 @@ public class v16 implements t16 {
 
         /* renamed from: com.repackage.v16$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0597a implements Runnable {
+        public class RunnableC0600a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0597a(a aVar) {
+            public RunnableC0600a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,7 +147,7 @@ public class v16 implements t16 {
                         this.a.o = true;
                     }
                 }
-                rg.a().postDelayed(new RunnableC0597a(this), 100L);
+                rg.a().postDelayed(new RunnableC0600a(this), 100L);
                 this.a.g.setLocalAlbumInfoData(this.a.b, this.a.p, false);
                 if (this.a.r != null) {
                     this.a.g.y(this.a.r.c(), this.a.r.a() == 0);
@@ -263,13 +263,13 @@ public class v16 implements t16 {
                     if (ListUtils.getCount(this.a.p) < 1 || ((float) (this.a.k - this.a.j)) * ((MultiMediaData) this.a.p.get(0)).getCurrentSpeed() < 6000.0f) {
                         BdToast b = BdToast.b(this.a.a.getPageActivity(), String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f0612), 6));
                         b.f(BdToast.ToastIcon.FAILURE);
-                        b.h();
+                        b.i();
                         return false;
                     }
                 } else if (i == 4 && (ListUtils.getCount(this.a.p) < 1 || ((float) (this.a.k - this.a.j)) * ((MultiMediaData) this.a.p.get(0)).getCurrentSpeed() < 9000.0f)) {
                     BdToast b2 = BdToast.b(this.a.a.getPageActivity(), String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f0612), 9));
                     b2.f(BdToast.ToastIcon.FAILURE);
-                    b2.h();
+                    b2.i();
                     return false;
                 }
                 return true;

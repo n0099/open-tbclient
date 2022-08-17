@@ -68,7 +68,7 @@ public class sl5 implements View.OnClickListener {
                     return;
                 }
                 if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    ne8 privacyData = responsedMessage instanceof ResponsedPrivacyHttpMessage ? ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData() : null;
+                    me8 privacyData = responsedMessage instanceof ResponsedPrivacyHttpMessage ? ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData() : null;
                     if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                         privacyData = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                     }
@@ -82,7 +82,7 @@ public class sl5 implements View.OnClickListener {
                     return;
                 }
                 if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                    errorString = this.a.a.getString(R.string.obfuscated_res_0x7f0f0c3c);
+                    errorString = this.a.a.getString(R.string.obfuscated_res_0x7f0f0c3d);
                 } else {
                     errorString = responsedMessage.getErrorString();
                 }
@@ -115,7 +115,7 @@ public class sl5 implements View.OnClickListener {
         if (oi.z()) {
             g();
         } else {
-            this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+            this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
         }
     }
 
@@ -165,7 +165,7 @@ public class sl5 implements View.OnClickListener {
             if (view2.getId() == R.id.obfuscated_res_0x7f09033a) {
                 TiebaStatic.log("c10013");
                 if (!oi.z()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                 } else {
                     UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
                 }

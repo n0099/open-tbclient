@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.n97;
-import com.repackage.o67;
+import com.repackage.m97;
+import com.repackage.n67;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
@@ -52,17 +52,17 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         }
         buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
         buildNormalItem.setOwnerName(String.valueOf(7));
-        PersonalSettingItemData a = n97.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+        PersonalSettingItemData a = m97.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
         if (a != null) {
             buildNormalItem.setGroupSetting(a);
         }
         insertShowData(buildNormalItem, this.mList);
     }
 
-    public void deleteSelectedDatas(o67 o67Var) {
+    public void deleteSelectedDatas(n67 n67Var) {
         LinkedList<ImMessageCenterShowItemData> linkedList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o67Var) == null) || (linkedList = this.mList) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n67Var) == null) || (linkedList = this.mList) == null) {
             return;
         }
         ListIterator<ImMessageCenterShowItemData> listIterator = linkedList.listIterator();
@@ -73,7 +73,7 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
                 arrayList.add(next);
             }
         }
-        asyncDeleteMsgList(arrayList, 2, o67Var);
+        asyncDeleteMsgList(arrayList, 2, n67Var);
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
@@ -129,9 +129,9 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         }
     }
 
-    public void z(o67 o67Var) {
+    public void z(n67 n67Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, o67Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, n67Var) == null) {
             ListIterator<ImMessageCenterShowItemData> listIterator = this.mList.listIterator();
             ArrayList arrayList = new ArrayList();
             while (listIterator.hasNext()) {
@@ -140,7 +140,7 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
                     arrayList.add(next);
                 }
             }
-            asyncDeleteMsgList(arrayList, 2, o67Var);
+            asyncDeleteMsgList(arrayList, 2, n67Var);
         }
     }
 }

@@ -1,69 +1,95 @@
 package com.repackage;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewHottopic.PkModule;
-import tbclient.NewHottopic.TimeLine;
-import tbclient.NewHottopic.TopicDetail;
+import tbclient.NewHottopic.TopicThread;
 /* loaded from: classes5.dex */
-public class b37 {
+public class b37 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-    public String b;
-    public String c;
-    public String d;
-    public q37 e;
-    public f37 f;
+    public ThreadData b;
+    public long c;
+    public int d;
+    public int e;
+    public boolean f;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755877845, "Lcom/repackage/b37;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755877845, "Lcom/repackage/b37;");
+                return;
+            }
+        }
+        g = BdUniqueId.gen();
+    }
 
     public b37() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void a(TopicDetail topicDetail) {
+    public void c(TopicThread topicThread) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, topicDetail) == null) || topicDetail == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, topicThread) == null) || topicThread == null) {
             return;
         }
-        this.a = topicDetail.topic_id.longValue();
-        this.b = topicDetail.topic_desc;
-        topicDetail.discuss_num.longValue();
-        this.c = topicDetail.topic_image;
-        this.d = topicDetail.bg_image;
+        this.a = topicThread.feed_id.longValue();
+        if (topicThread.thread_info != null) {
+            ThreadData threadData = new ThreadData();
+            this.b = threadData;
+            threadData.parserProtobuf(topicThread.thread_info);
+            this.b.parser_title();
+        }
+        this.d = topicThread.user_agree.intValue();
+        this.e = topicThread.source.intValue();
     }
 
-    public void b(PkModule pkModule) {
+    public void f(tbclient.NewTopicThread.TopicThread topicThread) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) || pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicThread) == null) || topicThread == null) {
             return;
         }
-        q37 q37Var = new q37();
-        this.e = q37Var;
-        q37Var.a = this.a;
-        q37Var.f = 2;
-        q37Var.a(pkModule);
+        this.a = topicThread.feed_id.longValue();
+        if (topicThread.thread_info != null) {
+            ThreadData threadData = new ThreadData();
+            this.b = threadData;
+            threadData.parserProtobuf(topicThread.thread_info);
+            this.b.parser_title();
+        }
+        this.d = Integer.parseInt(topicThread.user_agree);
+        this.e = topicThread.source.intValue();
     }
 
-    public void c(TimeLine timeLine) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, timeLine) == null) || timeLine == null) {
-            return;
-        }
-        f37 f37Var = new f37();
-        this.f = f37Var;
-        f37Var.a(this.a, timeLine);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? g : (BdUniqueId) invokeV.objValue;
     }
 }

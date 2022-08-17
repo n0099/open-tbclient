@@ -27,7 +27,7 @@ import com.google.android.exoplayer2.upstream.DataSpec;
 import com.google.android.exoplayer2.upstream.LoaderErrorThrower;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class DefaultSsChunkSource implements SsChunkSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class DefaultSsChunkSource implements SsChunkSource {
     public final LoaderErrorThrower manifestLoaderErrorThrower;
     public final TrackSelection trackSelection;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Factory implements SsChunkSource.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

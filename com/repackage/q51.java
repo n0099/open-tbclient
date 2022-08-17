@@ -180,7 +180,7 @@ public class q51 extends s51 {
                 simpleFeedAdInfoView.update(adBaseModel);
                 mn0 mn0Var = adBaseModel.p;
                 if (mn0Var == null || mn0Var.k) {
-                    this.j.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dcb));
+                    this.j.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dcc));
                 }
                 this.j.setAfterListener(new a(this, adBaseModel));
             }

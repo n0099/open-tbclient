@@ -439,7 +439,7 @@ public class FixedAppBarLayout extends AppBarLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.g.setText(this.b.getString(R.string.obfuscated_res_0x7f0f10b2));
+            this.a.g.setText(this.b.getString(R.string.obfuscated_res_0x7f0f10b3));
             if (k()) {
                 this.d = true;
                 this.a.h.setVisibility(0);
@@ -504,7 +504,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             setImageBackgroundVisibility(8);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0208);
-            this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a05, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a06, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             ms4 d2 = ms4.d(this.a.g);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0105);
@@ -601,10 +601,10 @@ public class FixedAppBarLayout extends AppBarLayout {
                 if (z2) {
                     i = R.color.CAM_X0105;
                 }
-                this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a05, getResources().getColor(i), WebPManager.ResourceStateType.NORMAL_PRESS));
+                this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a06, getResources().getColor(i), WebPManager.ResourceStateType.NORMAL_PRESS));
                 return;
             }
-            this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a05, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a06, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
 

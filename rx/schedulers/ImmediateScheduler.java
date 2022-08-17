@@ -5,10 +5,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.su9;
+import com.repackage.uu9;
 @Deprecated
 /* loaded from: classes8.dex */
-public final class ImmediateScheduler extends su9 {
+public final class ImmediateScheduler extends uu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,13 +28,13 @@ public final class ImmediateScheduler extends su9 {
         throw new IllegalStateException("No instances!");
     }
 
-    @Override // com.repackage.su9
-    public su9.a createWorker() {
+    @Override // com.repackage.uu9
+    public uu9.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (su9.a) invokeV.objValue;
+        return (uu9.a) invokeV.objValue;
     }
 }

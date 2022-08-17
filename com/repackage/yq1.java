@@ -44,12 +44,12 @@ public class yq1 extends wq1 {
 
         /* renamed from: com.repackage.yq1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0630a implements sf3<c63<JSONObject>> {
+        public class C0636a implements sf3<c63<JSONObject>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ bp1.b a;
 
-            public C0630a(a aVar, bp1.b bVar) {
+            public C0636a(a aVar, bp1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,7 +121,7 @@ public class yq1 extends wq1 {
                 zx1.i("SettingApi", "getSwanId start");
                 if (SwanAppNetworkUtils.i(this.e.getContext())) {
                     h63 e = y03.K().x().a().b().e(this.e.getContext());
-                    e.o(new C0630a(this, bVar));
+                    e.o(new C0636a(this, bVar));
                     e.call();
                     return new zs1(0);
                 }

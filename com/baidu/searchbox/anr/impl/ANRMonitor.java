@@ -28,7 +28,7 @@ import com.github.anrwatchdog.ANRError;
 import com.kwad.sdk.crash.handler.AnrHandler;
 import com.repackage.c81;
 import com.repackage.e81;
-import com.repackage.tl9;
+import com.repackage.vl9;
 import java.io.File;
 @Singleton
 @Service
@@ -47,14 +47,14 @@ public class ANRMonitor implements IANRMonitor {
     public static String sANRTimeStamp;
     public static long sLastTimes;
     public transient /* synthetic */ FieldHolder $fh;
-    public tl9 mANRWatchDog;
+    public vl9 mANRWatchDog;
     public int mAnrWatchTimeOut;
     public FileObserver mFileObserver;
     public boolean mMonitorStarted;
     public c81 nativeANRListener;
 
     /* loaded from: classes2.dex */
-    public static class ANRListenerImpl implements tl9.f {
+    public static class ANRListenerImpl implements vl9.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -72,7 +72,7 @@ public class ANRMonitor implements IANRMonitor {
             }
         }
 
-        @Override // com.repackage.tl9.f
+        @Override // com.repackage.vl9.f
         public void onAppNotResponding(ANRError aNRError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aNRError) == null) {
@@ -361,9 +361,9 @@ public class ANRMonitor implements IANRMonitor {
             } else {
                 this.mAnrWatchTimeOut = i;
             }
-            tl9 tl9Var = new tl9(this.mAnrWatchTimeOut);
-            this.mANRWatchDog = tl9Var;
-            tl9Var.e();
+            vl9 vl9Var = new vl9(this.mAnrWatchTimeOut);
+            this.mANRWatchDog = vl9Var;
+            vl9Var.e();
             this.mANRWatchDog.c(new ANRListenerImpl());
             if (AppConfig.isDebug()) {
                 String str = TAG;
@@ -377,9 +377,9 @@ public class ANRMonitor implements IANRMonitor {
     public void stopANRMonitor() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.mMonitorStarted) {
-            tl9 tl9Var = this.mANRWatchDog;
-            if (tl9Var != null) {
-                tl9Var.interrupt();
+            vl9 vl9Var = this.mANRWatchDog;
+            if (vl9Var != null) {
+                vl9Var.interrupt();
                 this.mMonitorStarted = false;
             }
             FileObserver fileObserver = this.mFileObserver;

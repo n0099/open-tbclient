@@ -9,12 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.memory.FlexByteArrayPool;
 import com.facebook.imagepipeline.nativecode.DalvikPurgeableDecoder;
 import javax.annotation.concurrent.ThreadSafe;
+@DoNotStrip
 @ThreadSafe
 @TargetApi(19)
 /* loaded from: classes4.dex */
@@ -23,6 +25,7 @@ public class KitKatPurgeableDecoder extends DalvikPurgeableDecoder {
     public transient /* synthetic */ FieldHolder $fh;
     public final FlexByteArrayPool mFlexByteArrayPool;
 
+    @DoNotStrip
     public KitKatPurgeableDecoder(FlexByteArrayPool flexByteArrayPool) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

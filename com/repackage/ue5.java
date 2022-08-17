@@ -123,7 +123,7 @@ public class ue5 {
                 if (z) {
                     if (oi.H()) {
                         TbImageHelper.getInstance().setNetworkIsWifi(true);
-                        id8.e().f();
+                        hd8.e().f();
                     } else if (oi.x()) {
                         TbImageHelper.getInstance().setNetworkIsWifi(false);
                     }

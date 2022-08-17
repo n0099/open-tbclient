@@ -42,15 +42,15 @@ import com.repackage.eb5;
 import com.repackage.eq4;
 import com.repackage.kb5;
 import com.repackage.sa;
+import com.repackage.tl8;
 import com.repackage.ue5;
-import com.repackage.ul8;
 import com.repackage.wr8;
 import com.repackage.xl4;
+import com.repackage.xt6;
 import com.repackage.yt6;
 import com.repackage.z8;
 import com.repackage.za;
 import com.repackage.za5;
-import com.repackage.zt6;
 /* loaded from: classes2.dex */
 public class InitMessageManagerTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -101,10 +101,10 @@ public class InitMessageManagerTask extends LaunchTask {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ul8)) {
-                    ul8 ul8Var = (ul8) customResponsedMessage.getData();
-                    DescriptionTableInfo.setModuleSet(ul8Var.a);
-                    DescriptionTableInfo.setDescriptionTable(ul8Var.b);
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof tl8)) {
+                    tl8 tl8Var = (tl8) customResponsedMessage.getData();
+                    DescriptionTableInfo.setModuleSet(tl8Var.a);
+                    DescriptionTableInfo.setDescriptionTable(tl8Var.b);
                 }
             }
         };
@@ -163,8 +163,8 @@ public class InitMessageManagerTask extends LaunchTask {
             messageManager.addMessageRule(new bb5(0));
             messageManager.addResponsedMessageRule(new db5(0));
             messageManager.addRemovedMessageRule(new cb5(0));
-            messageManager.addResponsedMessageRule(new zt6());
             messageManager.addResponsedMessageRule(new yt6());
+            messageManager.addResponsedMessageRule(new xt6());
             messageManager.addResponsedMessageRule(new za5());
             messageManager.addResponsedMessageRule(new ab5());
             messageManager.addResponsedMessageRule(new wr8());

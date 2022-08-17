@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class zs8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class zs8 extends BaseAdapter {
     public int c;
     public String d;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -204,11 +204,11 @@ public class zs8 extends BaseAdapter {
             if (musicData != null) {
                 int i2 = musicData.editMusicType;
                 if (i2 == 1) {
-                    aVar.a.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080b07), 24, false);
+                    aVar.a.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080b08), 24, false);
                 } else if (i2 != 2) {
                     aVar.a.K(musicData.img, 10, false);
                 } else {
-                    aVar.a.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080af1), 24, false);
+                    aVar.a.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080af2), 24, false);
                 }
                 aVar.b.setVisibility(4);
                 aVar.c.setTextColor(SkinManager.getColor(R.color.CAM_X0107));

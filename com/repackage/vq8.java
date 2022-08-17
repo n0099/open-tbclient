@@ -115,7 +115,7 @@ public class vq8 {
         textView.setHeight(qi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
         TextView textView2 = (TextView) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0552, (ViewGroup) null);
         this.h = textView2;
-        textView2.setText(R.string.obfuscated_res_0x7f0f0ae5);
+        textView2.setText(R.string.obfuscated_res_0x7f0f0ae6);
         this.h.setOnClickListener(new a(this));
         this.j = new tq8(this.a.getPageContext(), sq8Var);
         TextView textView3 = new TextView(this.a.getActivity());
@@ -239,7 +239,7 @@ public class vq8 {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.c.setVisibility(8);
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
-            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c56);
+            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c57);
             this.a.setNetRefreshViewTopMargin(this.i);
             this.a.showNetRefreshView(this.b, string, false);
         }

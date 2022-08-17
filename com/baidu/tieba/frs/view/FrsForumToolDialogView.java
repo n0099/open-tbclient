@@ -52,7 +52,7 @@ public class FrsForumToolDialogView extends LinearLayout {
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090420);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09043a);
             this.a.setText(R.string.obfuscated_res_0x7f0f0370);
-            this.d.setText(R.string.obfuscated_res_0x7f0f09a1);
+            this.d.setText(R.string.obfuscated_res_0x7f0f09a2);
             this.c.setPlaceHolder(3);
             this.c.setDrawCorner(true);
             this.c.setAutoChangeStyle(true);

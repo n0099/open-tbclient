@@ -55,7 +55,7 @@ public class AnniversaryReqMsg extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f1393common = this.f1059common;
+                builder.f1394common = this.f1059common;
                 builder.source = Integer.valueOf(this.mSource);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
                     te5.a(builder, true);

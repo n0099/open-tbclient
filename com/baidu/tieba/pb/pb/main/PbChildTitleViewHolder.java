@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.et7;
+import com.repackage.dt7;
 import com.repackage.ms4;
 /* loaded from: classes3.dex */
 public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
@@ -49,10 +49,10 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
         ms4.d(textView).A(R.string.F_X02);
     }
 
-    public void a(et7 et7Var) {
+    public void a(dt7 dt7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, et7Var) == null) {
-            this.d.setText(et7Var.b());
+        if (interceptable == null || interceptable.invokeL(1048576, this, dt7Var) == null) {
+            this.d.setText(dt7Var.b());
         }
     }
 

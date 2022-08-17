@@ -56,7 +56,7 @@ public class z86 extends ds4 {
             if (interceptable == null || interceptable.invokeLIL(1048576, this, fs4Var, i, view2) == null) {
                 this.a.dismiss();
                 if (!oi.z()) {
-                    qi.N(this.a.l, R.string.obfuscated_res_0x7f0f0c3d);
+                    qi.M(this.a.l, R.string.obfuscated_res_0x7f0f0c3e);
                 } else if (i == 2) {
                     this.a.m.dispatchMvcEvent(new w85(4, this.a.o, null, null));
                 } else if (i == 1) {
@@ -102,7 +102,7 @@ public class z86 extends ds4 {
             return;
         }
         list.clear();
-        this.p.add(new bs4(1, p(this.o.l() == 1 ? R.string.obfuscated_res_0x7f0f037c : R.string.obfuscated_res_0x7f0f1432, new Object[0]), this.n));
+        this.p.add(new bs4(1, p(this.o.l() == 1 ? R.string.obfuscated_res_0x7f0f037c : R.string.obfuscated_res_0x7f0f1434, new Object[0]), this.n));
         this.p.add(new bs4(2, p(R.string.obfuscated_res_0x7f0f04ab, new Object[0]), this.n));
         this.n.j(this.p);
     }

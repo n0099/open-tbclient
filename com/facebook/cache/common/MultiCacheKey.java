@@ -85,10 +85,20 @@ public class MultiCacheKey implements CacheKey {
     }
 
     @Override // com.facebook.cache.common.CacheKey
-    public String toString() {
+    public boolean isResourceIdForDebugging() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.facebook.cache.common.CacheKey
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return "MultiCacheKey:" + this.mCacheKeys.toString();
         }
         return (String) invokeV.objValue;

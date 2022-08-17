@@ -277,9 +277,9 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
             this.e = booleanValue;
             ImageView imageView = this.d;
             if (booleanValue) {
-                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081042);
-            } else {
                 drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081043);
+            } else {
+                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081044);
             }
             imageView.setBackgroundDrawable(drawable);
         }
@@ -362,9 +362,9 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
             this.e = z;
             ImageView imageView = this.d;
             if (z) {
-                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081042);
-            } else {
                 drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081043);
+            } else {
+                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081044);
             }
             imageView.setBackgroundDrawable(drawable);
         }

@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.cb;
 import com.repackage.d9;
-import com.repackage.m97;
+import com.repackage.l97;
 import tbclient.Bigvip.UserInfoBigVip;
 /* loaded from: classes3.dex */
 public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
@@ -83,10 +83,10 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                     return;
                 }
                 if (responsedMessage == null) {
-                    this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c3c));
+                    this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c3d));
                 } else if (responsedMessage.getError() != 0) {
                     if (TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                        this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c3c));
+                        this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c3d));
                     } else {
                         this.a.c.onFailed(responsedMessage.getErrorString());
                     }
@@ -151,7 +151,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                     }
                     if (responseUpdateMaskInfoMessage.getError() != 0) {
                         if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                         } else {
                             this.a.a.showToast(responseUpdateMaskInfoMessage.getErrorString());
                         }
@@ -257,7 +257,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                m97.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.b.g), this.a);
+                l97.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.b.g), this.a);
                 return null;
             }
             return (Void) invokeL.objValue;

@@ -1,28 +1,23 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes7.dex */
-public class rm8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public String c;
+public interface rm8 {
+    void a(TbPageContext<?> tbPageContext);
 
-    public rm8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(String str);
+
+    boolean c(fj fjVar, int i);
+
+    void cancelRecord();
+
+    void d(int i);
+
+    void e(fj fjVar);
+
+    boolean f();
+
+    void release();
+
+    void stopRecord();
 }

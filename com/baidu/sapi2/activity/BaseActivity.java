@@ -774,8 +774,8 @@ public class BaseActivity extends TitleActivity {
                 public void onTitleChange(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                        String string = this.a.getString(R.string.obfuscated_res_0x7f0f104c);
-                        String string2 = this.a.getString(R.string.obfuscated_res_0x7f0f104b);
+                        String string = this.a.getString(R.string.obfuscated_res_0x7f0f104d);
+                        String string2 = this.a.getString(R.string.obfuscated_res_0x7f0f104c);
                         if (string.equals(str)) {
                             str = string2;
                         }
@@ -1349,7 +1349,7 @@ public class BaseActivity extends TitleActivity {
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                         try {
                             if (!"mounted".equals(Environment.getExternalStorageState())) {
-                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f1080, 0).show();
+                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f1081, 0).show();
                                 return;
                             }
                             File file = new File(this.a.getExternalCacheDir(), "camera_temp_image.jpg");

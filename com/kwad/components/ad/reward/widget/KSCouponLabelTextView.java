@@ -136,7 +136,7 @@ public class KSCouponLabelTextView extends TextView implements e {
     private void a(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65539, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403aa, R.attr.obfuscated_res_0x7f0403b9, R.attr.obfuscated_res_0x7f0403c2, R.attr.obfuscated_res_0x7f0403c3}, i, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403ab, R.attr.obfuscated_res_0x7f0403ba, R.attr.obfuscated_res_0x7f0403c3, R.attr.obfuscated_res_0x7f0403c4}, i, 0);
             int color = context.getResources().getColor(R.color.obfuscated_res_0x7f06076e);
             this.wt = obtainStyledAttributes.getDimension(0, 8.0f);
             this.wu = obtainStyledAttributes.getDimension(3, 2.0f);

@@ -171,7 +171,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
                 this.a.z = false;
                 this.a.u.setVisibility(8);
                 this.a.v.setVisibility(8);
-                Drawable drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081162);
+                Drawable drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081163);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 this.a.p.setCompoundDrawables(null, null, drawable, null);
             }
@@ -222,7 +222,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                 this.a.y = true;
                 this.a.z = false;
-                Drawable drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081150);
+                Drawable drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081151);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 this.a.p.setCompoundDrawables(null, null, drawable, null);
             }
@@ -353,12 +353,12 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
             if (qo2.d() > 0) {
                 this.q.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a80));
                 this.r.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a71));
-                this.q.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1290, Integer.valueOf(qo2.d())));
+                this.q.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1292, Integer.valueOf(qo2.d())));
                 return;
             }
             this.q.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a81));
             this.r.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a72));
-            this.q.setText(getString(R.string.obfuscated_res_0x7f0f12a0));
+            this.q.setText(getString(R.string.obfuscated_res_0x7f0f12a2));
         }
     }
 
@@ -448,7 +448,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
                 if (this.A.get(0).f() == null || this.A.get(0).f().size() == 0) {
                     this.s.setVisibility(8);
                 }
-                Drawable drawable = getResources().getDrawable(R.drawable.obfuscated_res_0x7f081162);
+                Drawable drawable = getResources().getDrawable(R.drawable.obfuscated_res_0x7f081163);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 this.p.setCompoundDrawables(null, null, drawable, null);
                 this.p.setCompoundDrawablePadding(qe3.f(this, 4.0f));

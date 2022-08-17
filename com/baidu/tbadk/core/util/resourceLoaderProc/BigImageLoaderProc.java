@@ -398,7 +398,7 @@ public class BigImageLoaderProc implements lg<zm> {
                 }
                 if (webClient.responseCode == 302 && (17 == getProcType() || 18 == getProcType() || 13 == getProcType() || 14 == getProcType())) {
                     try {
-                        InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080bc3, new TypedValue());
+                        InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080bc4, new TypedValue());
                         downloadImageBytes = dg.d(openRawResource);
                         ng.c(openRawResource);
                     } catch (Throwable th) {

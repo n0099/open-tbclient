@@ -160,11 +160,11 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
             setContentView(R.layout.obfuscated_res_0x7f0d07ab);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255c);
             this.f = navigationBar;
-            navigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f1189));
+            navigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f118b));
             this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e8e);
             this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091e89);
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e88);
-            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120f);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081210);
             kg.h().m(this.a, 10, new a(this), null);
             this.d.K(this.a, 10, false);
             this.d.setOnClickListener(new b(this));

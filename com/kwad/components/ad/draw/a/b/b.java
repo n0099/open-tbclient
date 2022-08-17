@@ -80,7 +80,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
             FrameLayout frameLayout = this.bS;
             com.kwad.components.ad.draw.kwai.b bVar3 = this.aK;
             bVar2.a(frameLayout, bVar3.mRootContainer, bVar3.mAdTemplate, bVar3.mApkDownloadHelper);
-            this.bb.a((b.InterfaceC0314b) null);
+            this.bb.a((b.InterfaceC0316b) null);
         }
     }
 

@@ -25,21 +25,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.tabs.TabLayout;
+import com.repackage.ax6;
 import com.repackage.bn4;
 import com.repackage.bx6;
-import com.repackage.cx6;
 import com.repackage.oi;
 import com.repackage.on;
 import com.repackage.p65;
 import com.repackage.rb;
+import com.repackage.ux6;
 import com.repackage.vn;
-import com.repackage.vx6;
 import com.repackage.xn;
 import com.repackage.yf6;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HotTopicTabFragment extends BaseFragment implements yf6, cx6 {
+public class HotTopicTabFragment extends BaseFragment implements yf6, bx6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotTopicTabModel a;
@@ -148,7 +148,7 @@ public class HotTopicTabFragment extends BaseFragment implements yf6, cx6 {
             if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) || obj == null) {
                 return;
             }
-            bx6.a(view2, obj, i + 1, this.a.x1());
+            ax6.a(view2, obj, i + 1, this.a.x1());
         }
 
         @Override // com.repackage.bn4
@@ -157,7 +157,7 @@ public class HotTopicTabFragment extends BaseFragment implements yf6, cx6 {
             if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) || obj == null) {
                 return;
             }
-            bx6.b(view2, obj, this.a.x1());
+            ax6.b(view2, obj, this.a.x1());
         }
     }
 
@@ -247,15 +247,15 @@ public class HotTopicTabFragment extends BaseFragment implements yf6, cx6 {
         }
     }
 
-    @Override // com.repackage.cx6
-    public void D0(int i, vx6 vx6Var) {
+    @Override // com.repackage.bx6
+    public void D0(int i, ux6 ux6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, vx6Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, ux6Var) == null) {
             this.b.m();
             this.b.n();
             this.b.D();
-            if (vx6Var != null && i == 0 && !ListUtils.isEmpty(vx6Var.getDataList())) {
-                this.b.setData(vx6Var);
+            if (ux6Var != null && i == 0 && !ListUtils.isEmpty(ux6Var.getDataList())) {
+                this.b.setData(ux6Var);
                 this.b.B();
             } else if (ListUtils.isEmpty(this.a.E())) {
                 B1();
@@ -271,7 +271,7 @@ public class HotTopicTabFragment extends BaseFragment implements yf6, cx6 {
             ArrayList arrayList = new ArrayList();
             xn xnVar = new xn();
             xnVar.b = R.drawable.new_pic_emotion_05;
-            xnVar.a = getString(R.string.obfuscated_res_0x7f0f0c55);
+            xnVar.a = getString(R.string.obfuscated_res_0x7f0f0c56);
             arrayList.add(xnVar);
             this.b.o();
             this.b.setListData(arrayList);
@@ -295,7 +295,7 @@ public class HotTopicTabFragment extends BaseFragment implements yf6, cx6 {
         }
     }
 
-    @Override // com.repackage.cx6
+    @Override // com.repackage.bx6
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {

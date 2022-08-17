@@ -35,7 +35,7 @@ public class hp4 implements rs4 {
     public String m;
     public float n;
     public List<String> o;
-    public dk8 p;
+    public ck8 p;
 
     /* loaded from: classes6.dex */
     public class a implements Comparator<VideoImageColor> {
@@ -152,10 +152,10 @@ public class hp4 implements rs4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f : (String) invokeV.objValue;
     }
 
-    public dk8 h() {
+    public ck8 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.p : (dk8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.p : (ck8) invokeV.objValue;
     }
 
     public String i() {
@@ -246,9 +246,9 @@ public class hp4 implements rs4 {
             this.k = str4.trim();
         }
         this.o = headImgs.third_statistics_url;
-        dk8 dk8Var = new dk8();
-        this.p = dk8Var;
-        dk8Var.d(headImgs);
+        ck8 ck8Var = new ck8();
+        this.p = ck8Var;
+        ck8Var.d(headImgs);
     }
 
     public void r(String str) {

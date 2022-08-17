@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.c55;
 import com.repackage.d9;
-import com.repackage.il8;
+import com.repackage.hl8;
 import com.repackage.og;
 import com.repackage.tr4;
 import com.repackage.ue;
@@ -44,7 +44,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public NicknameInfo b;
     public final Context c;
     public Handler d;
-    public il8 e;
+    public hl8 e;
     public boolean f;
     public ab g;
 
@@ -211,7 +211,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.a = null;
         this.c = moreActivity.getPageContext().getContext();
         this.d = new Handler(Looper.getMainLooper());
-        this.e = new il8("profileStat");
+        this.e = new hl8("profileStat");
         registerListener(this.g);
     }
 
@@ -311,7 +311,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             if (z3) {
                 setErrorString(str);
             } else {
-                setErrorString(this.c.getString(R.string.obfuscated_res_0x7f0f0c3c));
+                setErrorString(this.c.getString(R.string.obfuscated_res_0x7f0f0c3d));
             }
             this.mLoadDataMode = 1;
             this.mLoadDataCallBack.c(Boolean.FALSE);
@@ -371,9 +371,9 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public final void P() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.e == null) {
-            il8 il8Var = new il8("profileStat");
-            this.e = il8Var;
-            il8Var.f();
+            hl8 hl8Var = new hl8("profileStat");
+            this.e = hl8Var;
+            hl8Var.f();
         }
     }
 

@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
+import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class m97 extends j97 {
+public class m97 extends i97 {
     public static /* synthetic */ Interceptable $ic;
     public static m97 b;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,16 +24,16 @@ public class m97 extends j97 {
     public class a extends cf5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ OfficialSettingItemData a;
+        public final /* synthetic */ PersonalSettingItemData a;
         public final /* synthetic */ String b;
         public final /* synthetic */ m97 c;
 
-        public a(m97 m97Var, OfficialSettingItemData officialSettingItemData, String str) {
+        public a(m97 m97Var, PersonalSettingItemData personalSettingItemData, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {m97Var, officialSettingItemData, str};
+                Object[] objArr = {m97Var, personalSettingItemData, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,7 +44,7 @@ public class m97 extends j97 {
                 }
             }
             this.c = m97Var;
-            this.a = officialSettingItemData;
+            this.a = personalSettingItemData;
             this.b = str;
         }
 
@@ -98,30 +98,30 @@ public class m97 extends j97 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (m97) invokeV.objValue;
     }
 
-    @Override // com.repackage.j97
+    @Override // com.repackage.i97
     public ue<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             tr4.f();
-            return tr4.g("tb.im_official_chat_setting");
+            return tr4.g("tb.im_personal_chat_setting");
         }
         return (ue) invokeV.objValue;
     }
 
-    @Override // com.repackage.j97
+    @Override // com.repackage.i97
     public void h(ChatSetting chatSetting) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatSetting) == null) && chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
-            OfficialSettingItemData officialSettingItemData = (OfficialSettingItemData) chatSetting;
-            String myUid = officialSettingItemData.getMyUid();
-            String toUid = officialSettingItemData.getToUid();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatSetting) == null) && chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
+            PersonalSettingItemData personalSettingItemData = (PersonalSettingItemData) chatSetting;
+            String myUid = personalSettingItemData.getMyUid();
+            String toUid = personalSettingItemData.getToUid();
             if (!TextUtils.isEmpty(myUid) && !TextUtils.isEmpty(toUid)) {
                 ue<String> b2 = b();
                 String str = myUid + "@" + toUid;
-                String jsonStrWithObject = OrmObject.jsonStrWithObject(officialSettingItemData);
+                String jsonStrWithObject = OrmObject.jsonStrWithObject(personalSettingItemData);
                 synchronized (this.a) {
-                    this.a.put(str, officialSettingItemData);
+                    this.a.put(str, personalSettingItemData);
                 }
                 b2.g(str, jsonStrWithObject);
             } else if (TbConfig.getDebugSwitch()) {
@@ -130,19 +130,19 @@ public class m97 extends j97 {
         }
     }
 
-    @Override // com.repackage.j97
+    @Override // com.repackage.i97
     public void i(ChatSetting chatSetting, je5<Void> je5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, chatSetting, je5Var) == null) && chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
-            OfficialSettingItemData officialSettingItemData = (OfficialSettingItemData) chatSetting;
-            String myUid = officialSettingItemData.getMyUid();
-            String toUid = officialSettingItemData.getToUid();
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, chatSetting, je5Var) == null) && chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
+            PersonalSettingItemData personalSettingItemData = (PersonalSettingItemData) chatSetting;
+            String myUid = personalSettingItemData.getMyUid();
+            String toUid = personalSettingItemData.getToUid();
             if (!TextUtils.isEmpty(myUid) && !TextUtils.isEmpty(toUid)) {
                 String str = myUid + "@" + toUid;
                 synchronized (this.a) {
-                    this.a.put(str, officialSettingItemData);
+                    this.a.put(str, personalSettingItemData);
                 }
-                gf5.c(new a(this, officialSettingItemData, str), je5Var);
+                gf5.c(new a(this, personalSettingItemData, str), je5Var);
             } else if (TbConfig.getDebugSwitch()) {
                 throw new RuntimeException("key param is null");
             }
@@ -150,44 +150,44 @@ public class m97 extends j97 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.j97
+    @Override // com.repackage.i97
     /* renamed from: k */
-    public OfficialSettingItemData a(String str, String str2) {
+    public PersonalSettingItemData a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            OfficialSettingItemData officialSettingItemData = null;
+            PersonalSettingItemData personalSettingItemData = null;
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return null;
             }
             String str3 = str + "@" + str2;
             synchronized (this.a) {
                 ChatSetting chatSetting = this.a.get(str3);
-                if (chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
-                    officialSettingItemData = (OfficialSettingItemData) chatSetting;
+                if (chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
+                    personalSettingItemData = (PersonalSettingItemData) chatSetting;
                 }
             }
-            if (officialSettingItemData == null) {
-                OfficialSettingItemData officialSettingItemData2 = new OfficialSettingItemData();
-                officialSettingItemData2.setMyUid(str);
-                officialSettingItemData2.setToUid(str2);
-                officialSettingItemData2.setAcceptNotify(true);
-                return officialSettingItemData2;
+            if (personalSettingItemData == null) {
+                PersonalSettingItemData personalSettingItemData2 = new PersonalSettingItemData();
+                personalSettingItemData2.setMyUid(str);
+                personalSettingItemData2.setToUid(str2);
+                personalSettingItemData2.setAcceptNotify(true);
+                return personalSettingItemData2;
             }
-            return officialSettingItemData;
+            return personalSettingItemData;
         }
-        return (OfficialSettingItemData) invokeLL.objValue;
+        return (PersonalSettingItemData) invokeLL.objValue;
     }
 
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.e(OfficialSettingItemData.class);
+            super.e(PersonalSettingItemData.class);
         }
     }
 
     public void m(String str, String str2, UserData userData) {
-        OfficialSettingItemData a2;
+        PersonalSettingItemData a2;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, userData) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || userData == null || (a2 = a(str, str2)) == null) {
             return;

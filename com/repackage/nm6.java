@@ -630,7 +630,7 @@ public class nm6 implements TabLayout.OnTabSelectedListener {
         if (pi.isEmpty(this.l)) {
             qv4Var.r(R.color.CAM_X0105);
         } else {
-            qv4Var.q(cf7.b(this.l));
+            qv4Var.q(bf7.b(this.l));
         }
     }
 
@@ -727,7 +727,7 @@ public class nm6 implements TabLayout.OnTabSelectedListener {
             this.g.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.g.B(this.r);
             this.g.f();
-            this.g.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e7));
+            this.g.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e8));
         }
     }
 
@@ -766,7 +766,7 @@ public class nm6 implements TabLayout.OnTabSelectedListener {
             this.g.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.g.B(null);
             this.g.f();
-            this.g.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e8));
+            this.g.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e9));
         }
     }
 
@@ -889,7 +889,7 @@ public class nm6 implements TabLayout.OnTabSelectedListener {
                 G(intValue, this.f, false);
                 this.a.c2(this.o);
                 uz5.b().e(false);
-                dj8.g().h(this.a.getUniqueId(), false);
+                cj8.g().h(this.a.getUniqueId(), false);
             }
         }
         P(tab);
@@ -947,7 +947,7 @@ public class nm6 implements TabLayout.OnTabSelectedListener {
                 } else if (pi.isEmpty(this.l)) {
                     qv4Var.r(R.color.CAM_X0105);
                 } else {
-                    qv4Var.q(cf7.b(this.l));
+                    qv4Var.q(bf7.b(this.l));
                 }
             }
         }

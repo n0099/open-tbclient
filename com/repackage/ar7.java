@@ -1,7 +1,5 @@
 package com.repackage;
 /* loaded from: classes5.dex */
-public interface ar7<V> {
-    void a(V v);
-
-    void onError(int i, String str);
+public interface ar7 {
+    void d(int i, String str, int i2);
 }

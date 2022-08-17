@@ -41,7 +41,7 @@ public class bp6 implements ap6, zo6 {
     public TextView c;
     public TextView d;
     public TbClipImageView e;
-    public ik8 f;
+    public hk8 f;
     public ImageView g;
     public ImageOverlayView h;
     public FrsViewData i;
@@ -141,34 +141,34 @@ public class bp6 implements ap6, zo6 {
     }
 
     @Override // com.repackage.ap6
-    public void a(hk8 hk8Var, FrsViewData frsViewData) {
+    public void a(gk8 gk8Var, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, hk8Var, frsViewData) == null) || hk8Var == null || ListUtils.isEmpty(hk8Var.b)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, gk8Var, frsViewData) == null) || gk8Var == null || ListUtils.isEmpty(gk8Var.b)) {
             return;
         }
         this.i = frsViewData;
-        ik8 ik8Var = hk8Var.b.get(0);
-        if (ik8Var == null) {
+        hk8 hk8Var = gk8Var.b.get(0);
+        if (hk8Var == null) {
             return;
         }
-        this.f = ik8Var;
+        this.f = hk8Var;
         if (!TextUtils.equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f089b), this.f.b)) {
             this.c.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0677));
         } else {
             this.c.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f074a));
             this.b.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f086e));
         }
-        this.d.setText(StringHelper.cutStringWithEllipsisStrict(ik8Var.c, 20));
-        if (TextUtils.equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f089b), ik8Var.b)) {
+        this.d.setText(StringHelper.cutStringWithEllipsisStrict(hk8Var.c, 20));
+        if (TextUtils.equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f089b), hk8Var.b)) {
             this.h.setVisibility(0);
             this.e.setVisibility(8);
             f(frsViewData);
         } else {
-            this.e.K(ik8Var.b, 10, false);
+            this.e.K(hk8Var.b, 10, false);
             this.e.setVisibility(0);
             this.h.setVisibility(8);
         }
-        cp6.d(ik8Var);
+        cp6.d(hk8Var);
     }
 
     @Override // com.repackage.zo6

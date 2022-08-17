@@ -359,9 +359,9 @@ public class sz5 extends bz5<CardPersonDynamicThreadData> {
                         sz5Var2.M(sz5Var2.m.b);
                         return;
                     }
-                    BdToast b = BdToast.b(this.a.getContext(), this.a.getContext().getString(R.string.obfuscated_res_0x7f0f150a));
+                    BdToast b = BdToast.b(this.a.getContext(), this.a.getContext().getString(R.string.obfuscated_res_0x7f0f150d));
                     b.f(BdToast.ToastIcon.FAILURE);
-                    b.h();
+                    b.i();
                     return;
                 }
                 TiebaStatic.log(TbadkCoreStatisticKey.MY_THREAD_SHARE_LIVE);
@@ -665,7 +665,7 @@ public class sz5 extends bz5<CardPersonDynamicThreadData> {
             return;
         }
         if (!oi.z()) {
-            qi.N(this.n.getPageActivity(), R.string.obfuscated_res_0x7f0f0c75);
+            qi.M(this.n.getPageActivity(), R.string.obfuscated_res_0x7f0f0c76);
             return;
         }
         if (!H()) {
@@ -824,10 +824,10 @@ public class sz5 extends bz5<CardPersonDynamicThreadData> {
                     this.s.setText(sb2);
                     this.s.setVisibility(0);
                 } else {
-                    this.s.setText(R.string.obfuscated_res_0x7f0f0e4d);
+                    this.s.setText(R.string.obfuscated_res_0x7f0f0e4e);
                 }
             } else {
-                this.s.setText(R.string.obfuscated_res_0x7f0f0e4d);
+                this.s.setText(R.string.obfuscated_res_0x7f0f0e4e);
             }
             this.T.setVisibility(8);
             if (cardPersonDynamicThreadData.F) {
@@ -951,7 +951,7 @@ public class sz5 extends bz5<CardPersonDynamicThreadData> {
                 if (rn4.c().g()) {
                     this.A.setVisibility(0);
                     this.C.setVisibility(0);
-                    this.C.setImageResource(R.drawable.obfuscated_res_0x7f0808dc);
+                    this.C.setImageResource(R.drawable.obfuscated_res_0x7f0808dd);
                     LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.A.getLayoutParams();
                     int width2 = this.A.getWidth();
                     if (width2 == 0 || width2 > qi.k(this.c)) {
@@ -965,11 +965,11 @@ public class sz5 extends bz5<CardPersonDynamicThreadData> {
                         this.B.K(this.m.y.thumbnail_url, 17, false);
                         if (this.R) {
                             this.L.setVisibility(0);
-                            this.L.setText(String.format(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f152e), new Object[0]));
+                            this.L.setText(String.format(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f1531), new Object[0]));
                         } else {
                             this.G.setVisibility(0);
                             this.H.setText(StringHelper.stringForVideoTime(this.m.y.video_duration.intValue() * 1000));
-                            this.I.setText(String.format(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0e87), StringHelper.numFormatOverWan(this.m.y.play_count.intValue())));
+                            this.I.setText(String.format(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0e88), StringHelper.numFormatOverWan(this.m.y.play_count.intValue())));
                         }
                     }
                 }
@@ -1035,13 +1035,13 @@ public class sz5 extends bz5<CardPersonDynamicThreadData> {
             return;
         }
         if (z) {
-            textView.setText(R.string.obfuscated_res_0x7f0f0eef);
+            textView.setText(R.string.obfuscated_res_0x7f0f0ef0);
             Drawable drawable = SkinManager.getDrawable(R.drawable.icon_card_privacy);
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             this.t.setCompoundDrawables(drawable, null, null, null);
             return;
         }
-        textView.setText(R.string.obfuscated_res_0x7f0f0f31);
+        textView.setText(R.string.obfuscated_res_0x7f0f0f32);
         Drawable drawable2 = SkinManager.getDrawable(R.drawable.icon_card_open);
         drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
         this.t.setCompoundDrawables(drawable2, null, null, null);
@@ -1075,7 +1075,7 @@ public class sz5 extends bz5<CardPersonDynamicThreadData> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048589, this, view2, list, i2, threadData) == null) {
             if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-                qi.N(this.n.getPageActivity(), R.string.obfuscated_res_0x7f0f0ea0);
+                qi.M(this.n.getPageActivity(), R.string.obfuscated_res_0x7f0f0ea1);
                 return;
             }
             ArrayList<String> arrayList = new ArrayList<>();

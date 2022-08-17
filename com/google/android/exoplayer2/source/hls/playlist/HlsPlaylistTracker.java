@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.IdentityHashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable<HlsPlaylist>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double PLAYLIST_STUCK_TARGET_DURATION_COEFFICIENT = 3.5d;
@@ -45,13 +45,13 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
     public HlsMediaPlaylist primaryUrlSnapshot;
 
     /* renamed from: com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class MediaPlaylistBundle implements Loader.Callback<ParsingLoadable<HlsPlaylist>>, Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -249,14 +249,14 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface PlaylistEventListener {
         void onPlaylistBlacklisted(HlsMasterPlaylist.HlsUrl hlsUrl, long j);
 
         void onPlaylistChanged();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class PlaylistResetException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -285,7 +285,7 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class PlaylistStuckException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -314,7 +314,7 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface PrimaryPlaylistListener {
         void onPrimaryPlaylistRefreshed(HlsMediaPlaylist hlsMediaPlaylist);
     }

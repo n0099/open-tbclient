@@ -56,10 +56,15 @@ public class wu4 {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f == null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.f != null) {
+                    this.a.f.cancel();
+                }
+                if (this.a.c == null || !(this.a.c.getParent() instanceof ViewGroup)) {
+                    return;
+                }
+                ((ViewGroup) this.a.c.getParent()).removeView(this.a.c);
             }
-            this.a.f.cancel();
         }
     }
 
@@ -86,7 +91,7 @@ public class wu4 {
         this.g = new Handler();
     }
 
-    public void b(CharSequence charSequence) {
+    public void c(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, charSequence) == null) {
             View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d03c2, (ViewGroup) null);
@@ -96,12 +101,12 @@ public class wu4 {
             this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(qi.f(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
             this.d.setText(charSequence);
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080aa9);
-            d(this.c);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080aaa);
+            e(this.c);
         }
     }
 
-    public void c(CharSequence charSequence) {
+    public void d(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
             View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d03c2, (ViewGroup) null);
@@ -111,12 +116,12 @@ public class wu4 {
             this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(qi.f(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
             this.d.setText(charSequence);
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080aaa);
-            d(this.c);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080aab);
+            e(this.c);
         }
     }
 
-    public void d(View view2) {
+    public void e(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             this.g.removeCallbacks(this.h);

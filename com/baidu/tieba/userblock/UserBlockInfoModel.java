@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.d9;
-import com.repackage.kk8;
+import com.repackage.jk8;
 import com.repackage.vm4;
 import tbclient.GetUserBlackInfo.DataRes;
 /* loaded from: classes4.dex */
@@ -116,8 +116,8 @@ public class UserBlockInfoModel extends BdBaseModel {
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            kk8.h(309698, UserBlockInfoSocketResponseMessage.class, false, false);
-            kk8.c(309698, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, TbConfig.URL_GET_USER_BLOCK_INFO, UserBlockInfoHttpResponseMessage.class, true, false, true, false);
+            jk8.h(309698, UserBlockInfoSocketResponseMessage.class, false, false);
+            jk8.c(309698, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, TbConfig.URL_GET_USER_BLOCK_INFO, UserBlockInfoHttpResponseMessage.class, true, false, true, false);
             this.c.getHttpMessageListener().setSelfListener(true);
             this.c.getSocketMessageListener().setSelfListener(true);
             registerListener(this.c);

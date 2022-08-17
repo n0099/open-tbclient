@@ -42,7 +42,7 @@ public class a45 implements x35 {
         if (attributeSet != null) {
             TypedArray typedArray = null;
             try {
-                typedArray = view2.getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040335});
+                typedArray = view2.getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040336});
                 this.c = typedArray.getBoolean(0, false);
             } finally {
                 if (typedArray != null) {

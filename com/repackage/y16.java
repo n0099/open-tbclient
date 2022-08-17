@@ -563,7 +563,7 @@ public class y16 implements w16 {
                 return false;
             }
             if (FileHelper.getAvailableSize() < 52428800) {
-                BdToast.b(this.d.getPageActivity(), this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0a7a)).h();
+                BdToast.b(this.d.getPageActivity(), this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0a7b)).i();
                 return false;
             }
             d dVar = this.b;
@@ -575,7 +575,7 @@ public class y16 implements w16 {
                 this.b = dVar2;
                 dVar2.execute(list);
             } else {
-                BdToast.b(this.d.getPageActivity(), this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0a7b)).h();
+                BdToast.b(this.d.getPageActivity(), this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0a7c)).i();
             }
             return false;
         }

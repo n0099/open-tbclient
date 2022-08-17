@@ -31,13 +31,13 @@ public class m25 extends s25 {
             }
         }
         if (i == 7) {
-            this.d = R.drawable.obfuscated_res_0x7f080802;
+            this.d = R.drawable.obfuscated_res_0x7f080803;
             this.f = R.color.CAM_X0105;
             this.j = true;
         } else {
-            this.d = R.drawable.obfuscated_res_0x7f0809a0;
+            this.d = R.drawable.obfuscated_res_0x7f0809a1;
             this.i = true;
         }
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1339);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f133b);
     }
 }

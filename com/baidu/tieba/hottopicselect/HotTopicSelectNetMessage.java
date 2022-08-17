@@ -55,7 +55,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1243common = getCommon();
+            builder.f1244common = getCommon();
             builder.fid = Long.valueOf(this.fid);
             String str = this.prefix;
             if (str != null) {

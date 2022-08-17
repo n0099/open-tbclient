@@ -49,7 +49,7 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
     /* renamed from: DEF_STYLE_RES */
     public static final int obfuscated_res_0x7f100125 = 2131755301;
     @AttrRes
-    public static final int MATERIAL_ALERT_DIALOG_THEME_OVERLAY = 2130969765;
+    public static final int MATERIAL_ALERT_DIALOG_THEME_OVERLAY = 2130969766;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public Drawable background;

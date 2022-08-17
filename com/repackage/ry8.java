@@ -223,7 +223,7 @@ public class ry8 extends BaseAdapter {
                 if (this.a.get(i2).id == -1) {
                     cVar.i.setVisibility(0);
                     cVar.c.setVisibility(8);
-                    cVar.i.setImageResource(R.drawable.obfuscated_res_0x7f080b0c);
+                    cVar.i.setImageResource(R.drawable.obfuscated_res_0x7f080b0d);
                 } else {
                     cVar.i.setVisibility(8);
                     cVar.c.setVisibility(0);
@@ -242,7 +242,7 @@ public class ry8 extends BaseAdapter {
                     }
                 }
                 if (this.a.get(i2).isSelect) {
-                    cVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108f);
+                    cVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081090);
                 } else {
                     cVar.a.setBackgroundResource(R.color.transparent);
                 }
@@ -266,7 +266,7 @@ public class ry8 extends BaseAdapter {
                     }
                 }
                 if (this.a.get(i3).isSelect) {
-                    cVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108f);
+                    cVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f081090);
                 } else {
                     cVar.b.setBackgroundResource(R.color.transparent);
                 }

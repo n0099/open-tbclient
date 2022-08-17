@@ -184,12 +184,12 @@ public class i76 {
         this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ee6);
         IrregularImageView irregularImageView = (IrregularImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ef5);
         this.m = irregularImageView;
-        irregularImageView.setErrorRes(R.drawable.obfuscated_res_0x7f080f2c);
-        this.h.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f0810f7, 1, false));
-        this.i.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f0810f3, 1, false));
-        this.j.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f0810f5, 1, false));
-        this.k.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f0810f4, 1, false));
-        this.l.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f0810f6, 1, false));
+        irregularImageView.setErrorRes(R.drawable.obfuscated_res_0x7f080f2d);
+        this.h.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f0810f8, 1, false));
+        this.i.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f0810f4, 1, false));
+        this.j.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f0810f6, 1, false));
+        this.k.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f0810f5, 1, false));
+        this.l.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f0810f7, 1, false));
         TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920bc);
         this.n = textView2;
         textView2.setText(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f089e));
@@ -269,7 +269,7 @@ public class i76 {
         this.c = i;
         SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0109);
         SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.p, R.drawable.svg_icon_mask_crown24, SvgManager.SvgResourceStateType.NORMAL);
-        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.t, R.drawable.obfuscated_res_0x7f0810ee, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.t, R.drawable.obfuscated_res_0x7f0810ef, SvgManager.SvgResourceStateType.NORMAL);
         WebPManager.setPureDrawable(this.s, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
         SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0105);
         this.r.d();
@@ -296,7 +296,7 @@ public class i76 {
                 this.g.setVisibility(0);
                 this.g.setText(String.format(this.d.getContext().getString(R.string.obfuscated_res_0x7f0f089d), StringHelper.getDateStringMdChinease(k76Var.d * 1000)));
             }
-            this.m.setImage(k76Var.e, h(this.d.getContext()), R.drawable.obfuscated_res_0x7f080d2f);
+            this.m.setImage(k76Var.e, h(this.d.getContext()), R.drawable.obfuscated_res_0x7f080d30);
             TiebaFieldsInfo tiebaFieldsInfo = k76Var.f;
             if (tiebaFieldsInfo != null && !z && !TextUtils.isEmpty(tiebaFieldsInfo.tieba_name)) {
                 this.o.setVisibility(0);

@@ -16,7 +16,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.core.internal.view.SupportMenu;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -136,7 +135,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                 }
                 if (length >= 32) {
                     this.a.o.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02ef));
-                    this.a.o.setTextColor(SupportMenu.CATEGORY_MASK);
+                    this.a.o.setTextColor(-65536);
                     return;
                 }
                 this.a.o.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02f0));
@@ -481,7 +480,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             this.d = editText2;
             editText2.addTextChangedListener(this.m);
             if (this.t) {
-                this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c8b));
+                this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c8c));
                 this.c.setText(this.s);
             } else {
                 this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f02ee));

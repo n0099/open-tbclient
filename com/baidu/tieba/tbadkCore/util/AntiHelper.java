@@ -485,7 +485,7 @@ public class AntiHelper {
             if (tbPageContext == null || !j(threadData)) {
                 return false;
             }
-            qi.O(tbPageContext.getPageActivity(), StringUtils.isNull(threadData.noCommetStr) ? tbPageContext.getString(R.string.obfuscated_res_0x7f0f0655) : threadData.noCommetStr);
+            qi.N(tbPageContext.getPageActivity(), StringUtils.isNull(threadData.noCommetStr) ? tbPageContext.getString(R.string.obfuscated_res_0x7f0f0655) : threadData.noCommetStr);
             return true;
         }
         return invokeLL.booleanValue;
@@ -498,7 +498,7 @@ public class AntiHelper {
             if (tbPageContext == null || !k(videoItemData)) {
                 return false;
             }
-            qi.O(tbPageContext.getPageActivity(), StringUtils.isNull(videoItemData.noCommetStr) ? tbPageContext.getString(R.string.obfuscated_res_0x7f0f0655) : videoItemData.noCommetStr);
+            qi.N(tbPageContext.getPageActivity(), StringUtils.isNull(videoItemData.noCommetStr) ? tbPageContext.getString(R.string.obfuscated_res_0x7f0f0655) : videoItemData.noCommetStr);
             return true;
         }
         return invokeLL.booleanValue;
@@ -520,7 +520,7 @@ public class AntiHelper {
             if (context == null || !o(threadData)) {
                 return false;
             }
-            qi.N(context, R.string.obfuscated_res_0x7f0f0608);
+            qi.M(context, R.string.obfuscated_res_0x7f0f0608);
             return true;
         }
         return invokeLL.booleanValue;
@@ -581,7 +581,7 @@ public class AntiHelper {
             BdToast b2 = BdToast.b(TbadkCoreApplication.getInst().getContext(), str);
             b2.f(BdToast.ToastIcon.FAILURE);
             b2.c(3000);
-            b2.h();
+            b2.i();
             return true;
         }
         return invokeIL.booleanValue;

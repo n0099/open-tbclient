@@ -32,13 +32,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bk8;
-import com.repackage.cf7;
-import com.repackage.ee7;
-import com.repackage.je7;
+import com.repackage.ak8;
+import com.repackage.bf7;
+import com.repackage.de7;
+import com.repackage.ie7;
 import com.repackage.qi;
 import com.repackage.uz5;
-import com.repackage.wd7;
+import com.repackage.vd7;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -154,8 +154,8 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
                 return;
             }
             uz5.b().d(true);
-            ee7.e(this.a.m).d(TiebaStatic.Params.OBJ_URL, this.a.j).a(this.a.m);
-            bk8.c(this.b.h, this.a.j);
+            de7.e(this.a.m).d(TiebaStatic.Params.OBJ_URL, this.a.j).a(this.a.m);
+            ak8.c(this.b.h, this.a.j);
         }
     }
 
@@ -189,7 +189,7 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.b.getContext())) {
-                je7 a = je7.a();
+                ie7 a = ie7.a();
                 HorRankCard.a aVar = this.a;
                 a.e(aVar, aVar.f, null, null);
             }
@@ -286,15 +286,15 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
                 itemViewHolder.k.setVisibility(0);
                 itemViewHolder.k.setText(String.valueOf(aVar.a));
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                    if (!cf7.a(aVar.l)) {
+                    if (!bf7.a(aVar.l)) {
                         itemViewHolder.k.setBackgroundColor(aVar.l);
                     } else {
-                        SkinManager.setBackgroundColor(itemViewHolder.k, wd7.a[i <= 3 ? i : 3]);
+                        SkinManager.setBackgroundColor(itemViewHolder.k, vd7.a[i <= 3 ? i : 3]);
                     }
-                } else if (!cf7.a(aVar.k)) {
+                } else if (!bf7.a(aVar.k)) {
                     itemViewHolder.k.setBackgroundColor(aVar.k);
                 } else {
-                    SkinManager.setBackgroundColor(itemViewHolder.k, wd7.a[i <= 3 ? i : 3]);
+                    SkinManager.setBackgroundColor(itemViewHolder.k, vd7.a[i <= 3 ? i : 3]);
                 }
             }
             itemViewHolder.f.setRadius(0);

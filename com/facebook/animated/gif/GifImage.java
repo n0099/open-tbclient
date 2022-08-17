@@ -13,6 +13,7 @@ import com.facebook.common.soloader.SoLoaderProxy;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableFrameInfo;
 import com.facebook.imagepipeline.animated.base.AnimatedImage;
 import com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder;
+import com.facebook.imagepipeline.common.ImageDecodeOptions;
 import java.nio.ByteBuffer;
 import javax.annotation.concurrent.ThreadSafe;
 @DoNotStrip
@@ -42,23 +43,49 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
         }
     }
 
-    public static GifImage create(byte[] bArr) {
+    public static GifImage createFromByteArray(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
-            ensure();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
             Preconditions.checkNotNull(bArr);
             ByteBuffer allocateDirect = ByteBuffer.allocateDirect(bArr.length);
             allocateDirect.put(bArr);
             allocateDirect.rewind();
-            return nativeCreateFromDirectByteBuffer(allocateDirect);
+            return createFromByteBuffer(allocateDirect, ImageDecodeOptions.defaults());
         }
         return (GifImage) invokeL.objValue;
     }
 
+    public static GifImage createFromByteBuffer(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, byteBuffer)) == null) ? createFromByteBuffer(byteBuffer, ImageDecodeOptions.defaults()) : (GifImage) invokeL.objValue;
+    }
+
+    public static GifImage createFromFileDescriptor(int i, ImageDecodeOptions imageDecodeOptions) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i, imageDecodeOptions)) == null) {
+            ensure();
+            return nativeCreateFromFileDescriptor(i, imageDecodeOptions.maxDimensionPx, imageDecodeOptions.forceStaticImage);
+        }
+        return (GifImage) invokeIL.objValue;
+    }
+
+    public static GifImage createFromNativeMemory(long j, int i, ImageDecodeOptions imageDecodeOptions) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), imageDecodeOptions})) == null) {
+            ensure();
+            Preconditions.checkArgument(j != 0);
+            return nativeCreateFromNativeMemory(j, i, imageDecodeOptions.maxDimensionPx, imageDecodeOptions.forceStaticImage);
+        }
+        return (GifImage) invokeCommon.objValue;
+    }
+
     public static synchronized void ensure() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             synchronized (GifImage.class) {
                 if (!sInitialized) {
                     sInitialized = true;
@@ -71,7 +98,7 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     public static AnimatedDrawableFrameInfo.DisposalMethod fromGifDisposalMethod(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
             if (i == 0) {
                 return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
             }
@@ -90,10 +117,13 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     }
 
     @DoNotStrip
-    public static native GifImage nativeCreateFromDirectByteBuffer(ByteBuffer byteBuffer);
+    public static native GifImage nativeCreateFromDirectByteBuffer(ByteBuffer byteBuffer, int i, boolean z);
 
     @DoNotStrip
-    public static native GifImage nativeCreateFromNativeMemory(long j, int i);
+    public static native GifImage nativeCreateFromFileDescriptor(int i, int i2, boolean z);
+
+    @DoNotStrip
+    public static native GifImage nativeCreateFromNativeMemory(long j, int i, int i2, boolean z);
 
     @DoNotStrip
     private native void nativeDispose();
@@ -125,11 +155,21 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     @DoNotStrip
     private native int nativeGetWidth();
 
+    @DoNotStrip
+    private native boolean nativeIsAnimated();
+
     @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder
-    public AnimatedImage decode(long j, int i) {
+    public AnimatedImage decodeFromByteBuffer(ByteBuffer byteBuffer, ImageDecodeOptions imageDecodeOptions) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, byteBuffer, imageDecodeOptions)) == null) ? createFromByteBuffer(byteBuffer, imageDecodeOptions) : (AnimatedImage) invokeLL.objValue;
+    }
+
+    @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder
+    public AnimatedImage decodeFromNativeMemory(long j, int i, ImageDecodeOptions imageDecodeOptions) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? create(j, i) : (AnimatedImage) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), imageDecodeOptions})) == null) ? createFromNativeMemory(j, i, imageDecodeOptions) : (AnimatedImage) invokeCommon.objValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
@@ -231,6 +271,12 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? nativeGetWidth() : invokeV.intValue;
     }
 
+    public boolean isAnimated() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? nativeIsAnimated() : invokeV.booleanValue;
+    }
+
     @DoNotStrip
     public GifImage(long j) {
         Interceptable interceptable = $ic;
@@ -250,11 +296,15 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
         this.mNativeContext = j;
     }
 
-    @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder
-    public AnimatedImage decode(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
+    public static GifImage createFromByteBuffer(ByteBuffer byteBuffer, ImageDecodeOptions imageDecodeOptions) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer)) == null) ? create(byteBuffer) : (AnimatedImage) invokeL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer, imageDecodeOptions)) == null) {
+            ensure();
+            byteBuffer.rewind();
+            return nativeCreateFromDirectByteBuffer(byteBuffer, imageDecodeOptions.maxDimensionPx, imageDecodeOptions.forceStaticImage);
+        }
+        return (GifImage) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -263,27 +313,5 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? nativeGetFrame(i) : (GifFrame) invokeI.objValue;
-    }
-
-    public static GifImage create(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, byteBuffer)) == null) {
-            ensure();
-            byteBuffer.rewind();
-            return nativeCreateFromDirectByteBuffer(byteBuffer);
-        }
-        return (GifImage) invokeL.objValue;
-    }
-
-    public static GifImage create(long j, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            ensure();
-            Preconditions.checkArgument(j != 0);
-            return nativeCreateFromNativeMemory(j, i);
-        }
-        return (GifImage) invokeCommon.objValue;
     }
 }

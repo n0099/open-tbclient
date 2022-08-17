@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.qi;
-import com.repackage.vp7;
+import com.repackage.up7;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -36,7 +36,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
     public NavigationBar c;
     public View d;
     public TextView e;
-    public vp7 f;
+    public up7 f;
     public List<BazhuInfoData.BaInfo> g;
     public View h;
     public View i;
@@ -167,7 +167,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
     public final void F1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.setText(R.string.obfuscated_res_0x7f0f10f5);
+            this.a.setText(R.string.obfuscated_res_0x7f0f10f6);
         }
     }
 
@@ -219,9 +219,9 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
                 }
             }
             this.b.setOnItemClickListener(this.l);
-            vp7 vp7Var = new vp7(getActivity());
-            this.f = vp7Var;
-            this.b.setAdapter((ListAdapter) vp7Var);
+            up7 up7Var = new up7(getActivity());
+            this.f = up7Var;
+            this.b.setAdapter((ListAdapter) up7Var);
             this.f.b(this.g);
             F1();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());

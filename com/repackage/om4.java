@@ -189,7 +189,7 @@ public class om4 {
                         jm4.l(tbPageContext.getPageActivity(), str2);
                         return 1;
                     } else if (UtilHelper.isNativeAdURL(str2)) {
-                        ac8.a(tbPageContext.getPageActivity(), str2, null, null, null);
+                        zb8.a(tbPageContext.getPageActivity(), str2, null, null, null);
                         return 1;
                     } else if (!str2.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE) && !str2.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE_2)) {
                         if ((str2.contains(UrlSchemaHelper.SCHEMA_TYPE_FINISH_THIS_PAGE) || str2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_CLOSE_WEBVIEW)) && tbPageContext.getPageActivity() != null) {
@@ -244,7 +244,7 @@ public class om4 {
                             } else if (str2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TOPIC)) {
                                 om4.o(tbPageContext, str4, str2.substring(6), false, true, true, false);
                             } else if (str2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_ZB)) {
-                                om4.o(tbPageContext, str2.substring(3), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0e75), false, true, false, false);
+                                om4.o(tbPageContext, str2.substring(3), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0e76), false, true, false, false);
                             } else if (str2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_LIST)) {
                                 String substring2 = str2.substring(5);
                                 if (!TextUtils.isEmpty(substring2)) {
@@ -389,20 +389,23 @@ public class om4 {
                     } else if ("person".equalsIgnoreCase(parse.getAuthority())) {
                         String queryParameter4 = parse.getQueryParameter("uid");
                         String queryParameter5 = parse.getQueryParameter("uname");
+                        String queryParameter6 = parse.getQueryParameter("changeAvatar");
                         if (queryParameter4 == null || queryParameter4.length() <= 0) {
                             return 3;
                         }
-                        tbPageContext.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), queryParameter4, queryParameter5)));
+                        PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(tbPageContext.getPageActivity(), queryParameter4, queryParameter5);
+                        personInfoActivityConfig.setChangeAvatar(queryParameter6);
+                        tbPageContext.sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
                         return 0;
                     } else if ("topic".equalsIgnoreCase(parse.getAuthority())) {
-                        String queryParameter6 = parse.getQueryParameter("topic_id");
-                        String queryParameter7 = parse.getQueryParameter(IntentConfig.TOPIC_NAME);
-                        String queryParameter8 = parse.getQueryParameter("is_video_topic");
-                        if (queryParameter6 != null && queryParameter7 != null) {
-                            new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter6, queryParameter7, queryParameter8, null).start();
+                        String queryParameter7 = parse.getQueryParameter("topic_id");
+                        String queryParameter8 = parse.getQueryParameter(IntentConfig.TOPIC_NAME);
+                        String queryParameter9 = parse.getQueryParameter("is_video_topic");
+                        if (queryParameter7 != null && queryParameter8 != null) {
+                            new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter7, queryParameter8, queryParameter9, null).start();
                             return 1;
-                        } else if (queryParameter6 != null) {
-                            new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter6, null, queryParameter8, null).start();
+                        } else if (queryParameter7 != null) {
+                            new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter7, null, queryParameter9, null).start();
                             return 1;
                         }
                     }

@@ -29,12 +29,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dh5;
-import com.repackage.ey7;
+import com.repackage.dy7;
 import com.repackage.lo4;
 import com.repackage.ms4;
-import com.repackage.qi;
-import com.repackage.rv7;
-/* loaded from: classes3.dex */
+import com.repackage.qv7;
+/* loaded from: classes4.dex */
 public class PbTopCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +72,7 @@ public class PbTopCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public View d;
     public FrameLayout d0;
     public View e;
-    public ey7 e0;
+    public dy7 e0;
     public LinearLayout f;
     public FrameLayout f0;
     public TextView g;
@@ -89,12 +88,13 @@ public class PbTopCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public TextView l;
     public RelativeLayout l0;
     public TextView m;
-    public TextView m0;
+    public RelativeLayout m0;
     public TextView n;
     public TextView n0;
     public TextView o;
     public TextView o0;
     public HeadImageView p;
+    public TextView p0;
     public TbRichTextView q;
     public ConstrainImageGroup r;
     public View s;
@@ -106,7 +106,7 @@ public class PbTopCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public ImageView y;
     public ImageView z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,19 +190,19 @@ public class PbTopCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.x = view2.findViewById(R.id.obfuscated_res_0x7f091834);
         this.y = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a01);
         this.z = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a02);
-        this.o0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09239d);
+        this.p0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09239d);
         RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c18);
-        this.k0 = relativeLayout;
+        this.l0 = relativeLayout;
         ms4 d = ms4.d(relativeLayout);
         d.n(R.string.J_X04);
         d.f(R.color.CAM_X0204);
         RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c06);
-        this.l0 = relativeLayout2;
+        this.m0 = relativeLayout2;
         ms4 d2 = ms4.d(relativeLayout2);
         d2.n(R.string.J_X07);
         d2.f(R.color.CAM_X0905);
-        this.m0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09232a);
-        this.n0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09237b);
+        this.n0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09232a);
+        this.o0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09237b);
         this.s.setVisibility(8);
         this.x.setVisibility(8);
         this.y.setVisibility(0);
@@ -232,10 +232,9 @@ public class PbTopCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.r.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be));
         this.r.setSingleImageRatio(0.75d);
         this.r.setImageProcessor(new dh5(3));
-        rv7 rv7Var = new rv7(this.q.getLayoutStrategy());
-        rv7Var.j(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18));
-        rv7Var.o(TbConfig.getPostLineSpace(), 1.0f);
-        this.q.setLayoutStrategy(rv7Var);
+        qv7 qv7Var = new qv7(this.q.getLayoutStrategy());
+        qv7Var.o(TbConfig.getPostLineSpace(), 1.0f);
+        this.q.setLayoutStrategy(qv7Var);
         this.q.setIsNeedResizeEmotion(true);
         this.q.setTextSize(TbConfig.getContentSize());
         this.p.setIsRound(true);
@@ -273,14 +272,15 @@ public class PbTopCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.c0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090449);
         FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923f8);
         this.d0 = frameLayout;
-        ey7 ey7Var = new ey7(tbPageContext, frameLayout);
-        this.e0 = ey7Var;
-        ey7Var.f = 3;
+        dy7 dy7Var = new dy7(tbPageContext, frameLayout);
+        this.e0 = dy7Var;
+        dy7Var.f = 3;
         this.f0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092428);
         this.g0 = (VirtualImageStatusTip) view2.findViewById(R.id.obfuscated_res_0x7f0925a2);
         this.h0 = (HeadCustomImageView) view2.findViewById(R.id.obfuscated_res_0x7f09258b);
         this.i0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09258c);
         this.j0 = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091dd2);
+        this.k0 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c19);
         this.j = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917b1);
     }
 

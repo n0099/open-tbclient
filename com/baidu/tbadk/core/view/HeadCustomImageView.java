@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gj8;
+import com.repackage.fj8;
 import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class HeadCustomImageView extends RelativeLayout {
@@ -65,7 +65,7 @@ public class HeadCustomImageView extends RelativeLayout {
             }
         }
         this.g = true;
-        this.h = qi.f(TbadkApplication.getInst(), R.dimen.tbds31);
+        this.h = qi.f(TbadkApplication.getInst(), R.dimen.tbds36);
         this.m = qi.f(TbadkApplication.getInst(), R.dimen.tbds118);
         c(context);
     }
@@ -253,7 +253,7 @@ public class HeadCustomImageView extends RelativeLayout {
             return;
         }
         this.a.setDefaultBgResource(R.color.transparent);
-        this.a.setBackgroundColor(gj8.a(gj8.f(str), 0.3f));
+        this.a.setBackgroundColor(fj8.a(fj8.f(str), 0.3f));
     }
 
     public void setHeadImageBackgroundResource(String str) {
@@ -360,7 +360,7 @@ public class HeadCustomImageView extends RelativeLayout {
             }
         }
         this.g = true;
-        this.h = qi.f(TbadkApplication.getInst(), R.dimen.tbds31);
+        this.h = qi.f(TbadkApplication.getInst(), R.dimen.tbds36);
         this.m = qi.f(TbadkApplication.getInst(), R.dimen.tbds118);
         c(context);
     }
@@ -385,7 +385,7 @@ public class HeadCustomImageView extends RelativeLayout {
             }
         }
         this.g = true;
-        this.h = qi.f(TbadkApplication.getInst(), R.dimen.tbds31);
+        this.h = qi.f(TbadkApplication.getInst(), R.dimen.tbds36);
         this.m = qi.f(TbadkApplication.getInst(), R.dimen.tbds118);
         c(context);
     }

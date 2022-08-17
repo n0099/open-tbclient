@@ -1,23 +1,19 @@
 package com.repackage;
 
+import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ObjectInput;
-/* compiled from: lambda */
 /* loaded from: classes5.dex */
-public final /* synthetic */ class af9 implements fl9 {
+public class af9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ af9 a = new af9();
     public transient /* synthetic */ FieldHolder $fh;
 
-    private /* synthetic */ af9() {
-    }
+    public abstract boolean a(String str);
 
-    @Override // com.repackage.fl9
-    public final Object a(ObjectInput objectInput) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objectInput)) == null) ? jg9.h(objectInput) : invokeL.objValue;
-    }
+    public abstract String b(String str);
+
+    public abstract Typeface c(String str, int i, String str2);
+
+    public abstract Bitmap d(String str);
 }

@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bf7;
-import com.repackage.dd8;
-import com.repackage.zc8;
+import com.repackage.af7;
+import com.repackage.cd8;
+import com.repackage.yc8;
 /* loaded from: classes4.dex */
 public class AdCardSinglePicView extends AdCardBaseView {
     public static /* synthetic */ Interceptable $ic;
@@ -82,10 +82,10 @@ public class AdCardSinglePicView extends AdCardBaseView {
     public void O(AdCard adCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
-            zc8 zc8Var = adCard.picInfo;
-            if (zc8Var != null && !bf7.e(zc8Var.c)) {
-                String str = zc8Var.c.get(0);
-                boolean o0 = o0(this.b0, adCard, zc8Var);
+            yc8 yc8Var = adCard.picInfo;
+            if (yc8Var != null && !af7.e(yc8Var.c)) {
+                String str = yc8Var.c.get(0);
+                boolean o0 = o0(this.b0, adCard, yc8Var);
                 if (!TextUtils.isEmpty(str) && o0) {
                     this.o.setVisibility(0);
                     this.b0.g(str);
@@ -129,10 +129,10 @@ public class AdCardSinglePicView extends AdCardBaseView {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d0173 : invokeV.intValue;
     }
 
-    public boolean o0(View view2, AdCard adCard, @NonNull zc8 zc8Var) {
+    public boolean o0(View view2, AdCard adCard, @NonNull yc8 yc8Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, view2, adCard, zc8Var)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, view2, adCard, yc8Var)) == null) {
             if (adCard == null || view2 == null) {
                 return false;
             }
@@ -142,13 +142,13 @@ public class AdCardSinglePicView extends AdCardBaseView {
             }
             int i = this.B;
             int i2 = (int) (i * d);
-            int b = (int) (dd8.b(i) * d);
+            int b = (int) (cd8.b(i) * d);
             if (!adCard.isNeedResize()) {
                 p0(view2, b, i2);
                 return true;
             }
-            int i3 = zc8Var.e;
-            int i4 = zc8Var.d;
+            int i3 = yc8Var.e;
+            int i4 = yc8Var.d;
             if (i2 > 0 && i3 > 0 && i4 > 0) {
                 int i5 = (i3 * i2) / i4;
                 if (i5 > i2) {

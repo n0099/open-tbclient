@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.fb5;
-import com.repackage.je7;
+import com.repackage.ie7;
 import com.repackage.qi;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes3.dex */
@@ -69,7 +69,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.b.getContext())) {
-                je7 a = je7.a();
+                ie7 a = ie7.a();
                 RankDetailTrendCard rankDetailTrendCard = this.a;
                 a.e(rankDetailTrendCard, rankDetailTrendCard.getPostUrl(), null, null);
             }

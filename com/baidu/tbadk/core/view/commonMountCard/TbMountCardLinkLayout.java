@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gj8;
+import com.repackage.fj8;
 import com.repackage.ms4;
 import com.repackage.o95;
 import com.repackage.qi;
@@ -108,7 +108,7 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             CardLinkInfoData cardLinkInfoData = this.b;
-            int d = (cardLinkInfoData == null || StringUtils.isNull(cardLinkInfoData.getTagColor()) || !this.b.getTagColor().startsWith("CAM_")) ? 0 : gj8.d(this.a, this.b.getTagColor());
+            int d = (cardLinkInfoData == null || StringUtils.isNull(cardLinkInfoData.getTagColor()) || !this.b.getTagColor().startsWith("CAM_")) ? 0 : fj8.d(this.a, this.b.getTagColor());
             return d == 0 ? R.color.CAM_X0304 : d;
         }
         return invokeV.intValue;
@@ -120,7 +120,7 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
             return;
         }
         if (StringUtils.isNull(str)) {
-            str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0981);
+            str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0982);
         }
         this.k.setText(str);
     }
@@ -164,7 +164,7 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
             this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09208b);
             this.f = findViewById(R.id.obfuscated_res_0x7f09208c);
             this.e.setDrawCorner(true);
-            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080956);
+            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080957);
             this.e.setRadiusById(R.string.J_X04);
             this.e.setConrers(15);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09208e);
@@ -219,8 +219,8 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
                 d5.A(R.string.F_X01);
                 d5.v(R.color.CAM_X0109);
             }
-            WebPManager.setPureDrawable(this.l, R.drawable.obfuscated_res_0x7f080957, R.color.CAM_X0110, null);
-            WebPManager.setPureDrawable(this.m, R.drawable.obfuscated_res_0x7f080958, R.color.CAM_X0110, null);
+            WebPManager.setPureDrawable(this.l, R.drawable.obfuscated_res_0x7f080958, R.color.CAM_X0110, null);
+            WebPManager.setPureDrawable(this.m, R.drawable.obfuscated_res_0x7f080959, R.color.CAM_X0110, null);
         }
     }
 

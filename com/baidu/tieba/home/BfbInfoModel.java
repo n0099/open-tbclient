@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.d9;
-import com.repackage.kk8;
+import com.repackage.jk8;
 import tbclient.UserBfbInfo;
 /* loaded from: classes3.dex */
 public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
@@ -116,8 +116,8 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            kk8.h(309366, BfbInfoSocketResponseMessage.class, false, false);
-            kk8.c(309366, CmdConfigHttp.CMD_GET_BFB_INFO, TbConfig.GET_BFB_INFO, BfbInfoHttpResponseMessage.class, false, false, false, false);
+            jk8.h(309366, BfbInfoSocketResponseMessage.class, false, false);
+            jk8.c(309366, CmdConfigHttp.CMD_GET_BFB_INFO, TbConfig.GET_BFB_INFO, BfbInfoHttpResponseMessage.class, false, false, false, false);
         }
     }
 

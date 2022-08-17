@@ -54,13 +54,13 @@ public class io8 {
 
         /* renamed from: com.repackage.io8$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0505a implements Runnable {
+        public class RunnableC0511a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomDialogData a;
             public final /* synthetic */ a b;
 
-            public RunnableC0505a(a aVar, CustomDialogData customDialogData) {
+            public RunnableC0511a(a aVar, CustomDialogData customDialogData) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,7 +83,7 @@ public class io8 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ku7.a(this.b.a.a.getPageContext(), this.a).show();
+                    ju7.a(this.b.a.a.getPageContext(), this.a).show();
                 }
             }
         }
@@ -117,7 +117,7 @@ public class io8 {
         public void b(CustomDialogData customDialogData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customDialogData) == null) {
-                rg.a().postDelayed(new RunnableC0505a(this, customDialogData), 1000L);
+                rg.a().postDelayed(new RunnableC0511a(this, customDialogData), 1000L);
             }
         }
     }
@@ -276,7 +276,7 @@ public class io8 {
             AntiData antiData = new AntiData();
             antiData.setIfpost(1);
             if (antiData.getIfpost() == 0) {
-                qi.O(this.a.getPageContext().getPageActivity(), antiData.getForbid_info());
+                qi.N(this.a.getPageContext().getPageActivity(), antiData.getForbid_info());
             } else if (WriteActivityConfig.isAsyncWriting()) {
             } else {
                 antiData.setIfVoice(false);
@@ -332,12 +332,12 @@ public class io8 {
             } else if (i == 23007) {
                 e(intent);
             } else if (i == 13011) {
-                cb8.g().m(this.a.getPageContext());
+                bb8.g().m(this.a.getPageContext());
             } else if (i == 24007) {
                 int intExtra = intent.getIntExtra("extra_share_status", 2);
                 int intExtra2 = intent.getIntExtra("extra_show_channel", 1);
                 if (intExtra == 1) {
-                    cb8.g().m(this.a.getPageContext());
+                    bb8.g().m(this.a.getPageContext());
                     ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
                     if (shareItem != null) {
@@ -413,7 +413,7 @@ public class io8 {
         thread2GroupShareView.setData(shareFromPBMsgData);
         ur4Var.setContentViewSize(1);
         ur4Var.setContentView(thread2GroupShareView);
-        ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1125, new b(this, thread2GroupShareView, j, str, str2, str3, shareFromPBMsgData));
+        ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1126, new b(this, thread2GroupShareView, j, str, str2, str3, shareFromPBMsgData));
         ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new c(this, thread2GroupShareView));
         ur4Var.setCanceledOnTouchOutside(true);
         ur4Var.create(this.a.getPageContext()).show();

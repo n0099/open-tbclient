@@ -203,9 +203,9 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
             cVar.d.setVisibility(8);
             cVar.e.setVisibility(0);
             if (selectForumData.isInterestForumSelected) {
-                WebPManager.setPureDrawable(cVar.e, R.drawable.obfuscated_res_0x7f0809d9, R.color.CAM_X0302, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(cVar.e, R.drawable.obfuscated_res_0x7f0809da, R.color.CAM_X0302, WebPManager.ResourceStateType.NORMAL);
             } else {
-                WebPManager.setPureDrawable(cVar.e, R.drawable.obfuscated_res_0x7f0809d8, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(cVar.e, R.drawable.obfuscated_res_0x7f0809d9, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
             }
         } else {
             cVar.d.setVisibility(selectForumData.isLately ? 0 : 8);

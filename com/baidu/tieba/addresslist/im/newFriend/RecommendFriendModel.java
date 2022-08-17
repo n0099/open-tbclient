@@ -39,12 +39,12 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
 
         /* renamed from: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0197a extends cf5<Void> {
+        public class C0198a extends cf5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ List a;
 
-            public C0197a(a aVar, List list) {
+            public C0198a(a aVar, List list) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -159,7 +159,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                     }
                     return;
                 }
-                gf5.c(new C0197a(this, recommendFriendResponseMessage.getDatas()), new b(this, errMsg));
+                gf5.c(new C0198a(this, recommendFriendResponseMessage.getDatas()), new b(this, errMsg));
             }
         }
     }

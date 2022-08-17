@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.k06;
-import com.repackage.n47;
+import com.repackage.m47;
 /* loaded from: classes3.dex */
 public class CardExtendForumItemHolder extends ItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -53,11 +53,11 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void a(n47 n47Var) {
+    public void a(m47 m47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, n47Var) == null) {
-            if (n47Var != null && (n47Var instanceof k06)) {
-                k06 k06Var = (k06) n47Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, m47Var) == null) {
+            if (m47Var != null && (m47Var instanceof k06)) {
+                k06 k06Var = (k06) m47Var;
                 this.e = k06Var;
                 this.b.setTag(k06Var.b);
                 this.b.setTag(R.id.obfuscated_res_0x7f091ffa, this.e.c);

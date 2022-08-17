@@ -868,7 +868,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     private void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65541, this) == null) && ColorType.DARK == this.b) {
-            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e70));
+            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e71));
             this.e.setTextColor(Color.parseColor("#FFFFFF"));
             this.h.a();
         }

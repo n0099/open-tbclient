@@ -605,7 +605,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             this.d = findViewById(R.id.obfuscated_res_0x7f090910);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0913e8);
             this.e = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f0a3d);
+            textView.setText(R.string.obfuscated_res_0x7f0f0a3e);
             TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0919b5);
             this.f = textView2;
             textView2.setText(R.string.obfuscated_res_0x7f0f044c);

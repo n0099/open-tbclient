@@ -62,7 +62,7 @@ public class ik6 extends bn<ok6, ForumRuleDetailItemVH> {
                     on onVar = (on) this.b.c.get(this.a);
                     if (onVar instanceof ok6) {
                         fi.a(TbRichTextView.X(((ok6) onVar).b(), false).toString());
-                        qi.N(this.b.a, R.string.obfuscated_res_0x7f0f06b1);
+                        qi.M(this.b.a, R.string.obfuscated_res_0x7f0f06b1);
                     }
                 }
                 return false;

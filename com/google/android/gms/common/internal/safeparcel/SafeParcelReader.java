@@ -5,7 +5,6 @@ import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.NonNull;
-import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -241,7 +240,7 @@ public class SafeParcelReader {
     public static int o(@NonNull Parcel parcel, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, parcel, i)) == null) ? (i & SupportMenu.CATEGORY_MASK) != -65536 ? (char) (i >> 16) : parcel.readInt() : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, parcel, i)) == null) ? (i & (-65536)) != -65536 ? (char) (i >> 16) : parcel.readInt() : invokeLI.intValue;
     }
 
     public static void p(@NonNull Parcel parcel, int i) {

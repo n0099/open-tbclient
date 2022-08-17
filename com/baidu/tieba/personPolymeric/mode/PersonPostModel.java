@@ -41,8 +41,8 @@ import com.repackage.cb;
 import com.repackage.d9;
 import com.repackage.on;
 import com.repackage.qi;
+import com.repackage.s68;
 import com.repackage.t68;
-import com.repackage.u68;
 import com.squareup.wire.Wire;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -70,7 +70,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public Map<String, Object> dataResMap;
     public int hide_post;
     public boolean isShowRecycleBinRedTip;
-    public t68 mCardNullPolymericData;
+    public s68 mCardNullPolymericData;
     public int mFrom;
     public boolean mIsHost;
     public boolean mIsReset;
@@ -972,15 +972,15 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.dataResMap = DataExt.toMap(dataRes);
         this.hide_post = dataRes.hide_post.intValue();
         if (this.mIsHost && ((2 == dataRes.mask_type.intValue() || 3 == dataRes.mask_type.intValue() || 4 == dataRes.mask_type.intValue()) && i == 1)) {
-            this.postList.add(new u68());
+            this.postList.add(new t68());
             z = false;
         } else {
             z = true;
         }
         if (ListUtils.isEmpty(dataRes.post_list) && z) {
-            t68 t68Var = new t68();
-            this.mCardNullPolymericData = t68Var;
-            this.postList.add(t68Var);
+            s68 s68Var = new s68();
+            this.mCardNullPolymericData = s68Var;
+            this.postList.add(s68Var);
             return;
         }
         for (tbclient.PostInfoList postInfoList : dataRes.post_list) {

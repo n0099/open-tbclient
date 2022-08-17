@@ -42,12 +42,12 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
 
         /* renamed from: com.baidu.swan.facade.picture.wallpaper.PictureWallpaperActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0183a implements PictureView.c {
+        public class C0184a implements PictureView.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0183a(a aVar) {
+            public C0184a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,7 +104,7 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.m.setData(this.a.o, this.a.p, new C0183a(this));
+                this.a.m.setData(this.a.o, this.a.p, new C0184a(this));
             }
         }
     }
@@ -188,9 +188,9 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.b.n.setVisibility(8);
                 if (this.a) {
-                    r03.f(this.b.getApplicationContext(), R.string.obfuscated_res_0x7f0f1252).v();
+                    r03.f(this.b.getApplicationContext(), R.string.obfuscated_res_0x7f0f1254).v();
                 } else {
-                    r03.f(this.b.getApplicationContext(), R.string.obfuscated_res_0x7f0f1251).v();
+                    r03.f(this.b.getApplicationContext(), R.string.obfuscated_res_0x7f0f1253).v();
                 }
                 this.b.finish();
             }
@@ -250,7 +250,7 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
             this.m = (PictureCropView) findViewById(R.id.obfuscated_res_0x7f091994);
             LoadingView loadingView = (LoadingView) findViewById(R.id.obfuscated_res_0x7f091992);
             this.n = loadingView;
-            loadingView.setMsg(R.string.obfuscated_res_0x7f0f124f);
+            loadingView.setMsg(R.string.obfuscated_res_0x7f0f1251);
             findViewById(R.id.obfuscated_res_0x7f091995).setOnClickListener(this);
             findViewById(R.id.obfuscated_res_0x7f091996).setOnClickListener(this);
             this.m.post(new a(this));

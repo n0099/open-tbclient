@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.h9;
-import com.repackage.ok7;
+import com.repackage.nk7;
 /* loaded from: classes3.dex */
 public class CategoryView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -27,7 +27,7 @@ public class CategoryView extends LinearLayout {
     public TextView c;
     public TextView d;
     public ImageView e;
-    public ok7 f;
+    public nk7 f;
     public View.OnClickListener g;
 
     /* loaded from: classes3.dex */

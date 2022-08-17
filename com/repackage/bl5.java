@@ -137,7 +137,7 @@ public class bl5 {
                         return;
                     }
                     this.a.r.setClickable(false);
-                    this.a.r.setTextColor(gj8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                    this.a.r.setTextColor(fj8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
                 }
             }
         }
@@ -519,7 +519,7 @@ public class bl5 {
             if (this.z == null) {
                 this.z = new uu4(this.b);
             }
-            this.z.i(R.string.obfuscated_res_0x7f0f0a3c);
+            this.z.i(R.string.obfuscated_res_0x7f0f0a3d);
             this.z.h(true);
         }
     }
@@ -533,7 +533,7 @@ public class bl5 {
         SkinManager.setViewTextColor(this.s, R.color.CAM_X0105, 1);
         SkinManager.setViewTextColorSelector(this.q, R.color.CAM_X0105);
         if (this.D) {
-            this.r.setTextColor(gj8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.r.setTextColor(fj8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             this.r.setClickable(false);
         } else {
             ms4.d(this.r).v(R.color.CAM_X0302);
@@ -633,7 +633,7 @@ public class bl5 {
                 EMTextView eMTextView = (EMTextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0923f7);
                 this.s = eMTextView;
                 if (this.H) {
-                    eMTextView.setText(R.string.obfuscated_res_0x7f0f1175);
+                    eMTextView.setText(R.string.obfuscated_res_0x7f0f1177);
                 } else {
                     eMTextView.setText(R.string.obfuscated_res_0x7f0f04b8);
                 }
@@ -649,7 +649,7 @@ public class bl5 {
                 EMTextView eMTextView4 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f0923f1);
                 this.r = eMTextView4;
                 if (this.H) {
-                    eMTextView4.setText(R.string.obfuscated_res_0x7f0f1172);
+                    eMTextView4.setText(R.string.obfuscated_res_0x7f0f1174);
                 } else {
                     eMTextView4.setText(R.string.obfuscated_res_0x7f0f04ab);
                 }
@@ -669,14 +669,14 @@ public class bl5 {
                 this.u.setVisibility(0);
                 if (1 == this.F) {
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                    spannableStringBuilder.append((CharSequence) this.a.getString(R.string.obfuscated_res_0x7f0f1116));
+                    spannableStringBuilder.append((CharSequence) this.a.getString(R.string.obfuscated_res_0x7f0f1117));
                     f fVar = new f(this);
                     this.G = fVar;
                     spannableStringBuilder.setSpan(fVar, 13, 17, 18);
                     this.u.setText(spannableStringBuilder);
                     this.u.setMovementMethod(LinkMovementMethod.getInstance());
                 } else {
-                    this.u.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1115));
+                    this.u.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1116));
                 }
             } else {
                 this.u.setVisibility(8);

@@ -1,123 +1,27 @@
 package com.repackage;
 
+import android.text.SpannableString;
 import android.view.View;
-import android.widget.FrameLayout;
-import com.baidu.adp.BdUniqueId;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.OriginalThreadCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.rw;
 /* loaded from: classes7.dex */
-public class wy7 extends uy7 {
+public class wy7 extends ty7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public OriginalThreadCardView f;
-    public int g;
-    public int h;
-
-    /* loaded from: classes7.dex */
-    public class a implements OriginalThreadCardView.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wy7 a;
-
-        /* renamed from: com.repackage.wy7$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0612a extends fo4 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0612a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // com.repackage.fo4
-            public cq4 getNegFeedBackData() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    return null;
-                }
-                return (cq4) invokeV.objValue;
-            }
-
-            @Override // com.repackage.fo4
-            public ThreadData getThreadData() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    OriginalThreadInfo originalThreadInfo = this.a.a.d;
-                    if (originalThreadInfo != null) {
-                        return originalThreadInfo.b();
-                    }
-                    return null;
-                }
-                return (ThreadData) invokeV.objValue;
-            }
-
-            @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
-            public BdUniqueId getType() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                    return null;
-                }
-                return (BdUniqueId) invokeV.objValue;
-            }
-        }
-
-        public a(wy7 wy7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wy7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wy7Var;
-        }
-
-        @Override // com.baidu.tieba.card.OriginalThreadCardView.b
-        public void a(OriginalThreadInfo originalThreadInfo) {
-            wy7 wy7Var;
-            b06 b06Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) || (b06Var = (wy7Var = this.a).b) == null) {
-                return;
-            }
-            b06Var.a(wy7Var.f, new C0612a(this));
-        }
-    }
+    public LinearLayout f;
+    public TextView g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public wy7(TbPageContext tbPageContext, int i) {
@@ -137,55 +41,54 @@ public class wy7 extends uy7 {
                 return;
             }
         }
-        this.h = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07020f);
-        this.g = i;
     }
 
-    @Override // com.repackage.uy7
+    @Override // com.repackage.ty7
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f == null) {
-                OriginalThreadCardView originalThreadCardView = new OriginalThreadCardView(this.a.getPageActivity());
-                this.f = originalThreadCardView;
-                originalThreadCardView.m = this.g;
-                originalThreadCardView.setSubClickListener(new a(this));
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-                int i = this.h;
-                layoutParams.bottomMargin = i;
-                layoutParams.leftMargin = i;
-                layoutParams.rightMargin = i;
-                this.f.setLayoutParams(layoutParams);
-                this.f.s();
-            }
+            LinearLayout linearLayout = (LinearLayout) this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d020d, (ViewGroup) null);
+            this.f = linearLayout;
+            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0920a9);
             return this.f;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.uy7
+    @Override // com.repackage.ty7
     public void b(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) || this.e == i) {
             return;
         }
         this.e = i;
-        OriginalThreadCardView originalThreadCardView = this.f;
-        if (originalThreadCardView != null) {
-            originalThreadCardView.s();
-        }
+        SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
     }
 
-    @Override // com.repackage.uy7
+    @Override // com.repackage.ty7
     public void c(OriginalThreadInfo originalThreadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
-            this.d = originalThreadInfo;
-            OriginalThreadCardView originalThreadCardView = this.f;
-            if (originalThreadCardView != null) {
-                originalThreadCardView.i(originalThreadInfo);
-            }
+            this.g.setText(new SpannableString(this.a.getString(R.string.obfuscated_res_0x7f0f0d0e)));
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
+        }
+    }
+
+    @Override // com.repackage.ty7
+    public void d(rw.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            super.d(aVar);
+        }
+    }
+
+    @Override // com.repackage.ty7
+    public void e(b06 b06Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, b06Var) == null) {
+            super.e(b06Var);
         }
     }
 }

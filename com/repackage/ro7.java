@@ -2,6 +2,7 @@ package com.repackage;
 
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
@@ -19,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dy;
 import com.repackage.oy;
 /* loaded from: classes7.dex */
-public class ro7 extends oo7<ir4, ThreadCardViewHolder<ThreadData>> {
+public class ro7 extends no7<ir4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId c;
@@ -144,10 +145,10 @@ public class ro7 extends oo7<ir4, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             dy.b bVar = new dy.b(this.d.getPageActivity(), false);
-            nx nxVar = new nx(this.d.getPageActivity());
-            nxVar.t("index");
-            nxVar.u(this.e);
-            bVar.n(nxVar);
+            qx qxVar = new qx(this.d.getPageActivity());
+            qxVar.r("index");
+            qxVar.s(this.e);
+            bVar.n(qxVar);
             dy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.f);
             k.r(17);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
@@ -174,7 +175,14 @@ public class ro7 extends oo7<ir4, ThreadCardViewHolder<ThreadData>> {
             threadCardViewHolder.e(ir4Var.t);
             threadCardViewHolder.a().onChangeSkinType(this.d, TbadkCoreApplication.getInst().getSkinType());
             threadCardViewHolder.a().p(this.g);
-            lo7.c(this, ir4Var);
+            ko7.c(this, ir4Var);
+            qx qxVar = (qx) threadCardViewHolder.a().g();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) qxVar.f.d.getLayoutParams();
+            layoutParams.width = ir4Var.u;
+            layoutParams.height = ir4Var.v;
+            if (qxVar.f.d.getVisibility() != 8) {
+                qxVar.f.d.setLayoutParams(layoutParams);
+            }
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
@@ -183,10 +191,9 @@ public class ro7 extends oo7<ir4, ThreadCardViewHolder<ThreadData>> {
     public final void z(View view2, ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, threadData) == null) {
-            view2.getId();
-            lo7.b(this, threadData);
+            ko7.b(this, threadData);
             if (view2 instanceof TbImageView) {
-                lo7.e(threadData);
+                ko7.e(threadData);
             }
         }
     }

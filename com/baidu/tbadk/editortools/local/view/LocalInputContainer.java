@@ -257,7 +257,7 @@ public class LocalInputContainer extends RelativeLayout implements t25 {
             this.c.setFocusable(true);
             this.c.setFocusableInTouchMode(true);
             this.c.requestFocus();
-            qi.M(getContext(), this.c);
+            qi.L(getContext(), this.c);
             setVisibility(0);
         }
     }
@@ -335,7 +335,7 @@ public class LocalInputContainer extends RelativeLayout implements t25 {
             this.c.setMaxLines(4);
             this.c.setMinLines(2);
             this.c.setLineSpacing(qi.f(getContext(), R.dimen.M_T_X002), 1.0f);
-            this.c.setHint(getResources().getString(R.string.obfuscated_res_0x7f0f0a4b));
+            this.c.setHint(getResources().getString(R.string.obfuscated_res_0x7f0f0a4c));
             addView(this.c);
         }
     }
@@ -420,7 +420,7 @@ public class LocalInputContainer extends RelativeLayout implements t25 {
             this.e.setConfig(pv4Var);
             this.e.setEnabled(false);
             this.e.setTextSize(R.dimen.T_X08);
-            this.e.setText(getContext().getString(R.string.obfuscated_res_0x7f0f110a));
+            this.e.setText(getContext().getString(R.string.obfuscated_res_0x7f0f110b));
             addView(this.e);
         }
     }
@@ -472,7 +472,7 @@ public class LocalInputContainer extends RelativeLayout implements t25 {
             this.i = false;
             this.d.setSelected(false);
             J(new h25(5, 5, null));
-            qi.M(getContext(), this.c);
+            qi.L(getContext(), this.c);
             return;
         }
         this.i = true;
@@ -521,7 +521,7 @@ public class LocalInputContainer extends RelativeLayout implements t25 {
             this.c.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.c.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
             TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0209, i).setShape(0).radius(qi.f(getContext(), R.dimen.tbds21)).into(this.c);
-            this.d.setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(R.drawable.obfuscated_res_0x7f08099b, R.drawable.obfuscated_res_0x7f080802, 0, 0, i));
+            this.d.setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(R.drawable.obfuscated_res_0x7f08099c, R.drawable.obfuscated_res_0x7f080803, 0, 0, i));
             this.e.k();
         }
     }

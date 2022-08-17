@@ -1,41 +1,60 @@
 package com.repackage;
 
-import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.biometrics.base.utils.PassBioEnv;
-import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.WXEntryActivityConfig;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.resourceLoaderProc.EmotionShareLoaderProc;
+import com.baidu.tbadk.switchs.WeChatShareSmallAppToH5Switch;
+import com.baidu.tieba.R;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.WbSdk;
-import com.sina.weibo.sdk.api.ImageObject;
-import com.sina.weibo.sdk.api.TextObject;
-import com.sina.weibo.sdk.api.WebpageObject;
-import com.sina.weibo.sdk.api.WeiboMultiMessage;
-import com.sina.weibo.sdk.auth.AuthInfo;
-import com.sina.weibo.sdk.share.WbShareCallback;
-import com.sina.weibo.sdk.share.WbShareHandler;
-import com.sina.weibo.sdk.utils.Utility;
+import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
+import com.tencent.mm.opensdk.modelmsg.WXEmojiObject;
+import com.tencent.mm.opensdk.modelmsg.WXImageObject;
+import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
+import com.tencent.mm.opensdk.modelmsg.WXMiniProgramObject;
+import com.tencent.mm.opensdk.modelmsg.WXTextObject;
+import com.tencent.mm.opensdk.modelmsg.WXVideoObject;
+import com.tencent.mm.opensdk.modelmsg.WXWebpageObject;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.net.URLEncoder;
 /* loaded from: classes6.dex */
-public class lf8 extends hf8 {
+public class lf8 extends gf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public of8 i;
-    public WbShareHandler j;
-    public WbShareCallback k;
-    public final jg<zm> l;
+    public int j;
+    public nf8 k;
+    public IWXAPI l;
+    public d m;
+    public final jg<EmotionShareLoaderProc.EmotionShare> n;
+    public final c o;
 
     /* loaded from: classes6.dex */
-    public class a extends jg<zm> {
+    public class a extends jg<EmotionShareLoaderProc.EmotionShare> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lf8 a;
@@ -58,16 +77,124 @@ public class lf8 extends hf8 {
             this.a = lf8Var;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.jg
+        /* renamed from: a */
+        public void onLoaded(EmotionShareLoaderProc.EmotionShare emotionShare, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, emotionShare, str, i) == null) {
+                super.onLoaded(emotionShare, str, i);
+                if (emotionShare != null && emotionShare.image != null) {
+                    lf8 lf8Var = this.a;
+                    if (lf8Var.e0(lf8Var.e, emotionShare)) {
+                        return;
+                    }
+                }
+                this.a.o.onLoaded((zm) null, str, i);
+            }
+        }
+
+        @Override // com.repackage.jg
+        public void onCancelled(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                super.onCancelled(str);
+                this.a.o.onCancelled(str);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends BdAsyncTask<Bitmap, Void, Bitmap> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lf8 a;
+
+        public b(lf8 lf8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lf8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lf8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Bitmap doInBackground(Bitmap... bitmapArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmapArr)) == null) {
+                if (bitmapArr.length <= 0 || bitmapArr[0] == null) {
+                    return null;
+                }
+                lf8 lf8Var = this.a;
+                return lf8Var.u(bitmapArr[0], lf8Var.e, false);
+            }
+            return (Bitmap) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
+                super.onPostExecute((b) bitmap);
+                lf8 lf8Var = this.a;
+                lf8Var.k0(lf8Var.e, bitmap);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public final class c extends jg<zm> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lf8 a;
+
+        public c(lf8 lf8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lf8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lf8Var;
+        }
+
         @Override // com.repackage.jg
         public void onCancelled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 super.onCancelled(str);
-                if (this.a.i != null) {
-                    this.a.i.d1(6, 3);
+                if (this.a.k != null) {
+                    this.a.k.d1(this.a.j, 3);
                 }
-                this.a.s(3, 6);
+                lf8 lf8Var = this.a;
+                lf8Var.t(3, lf8Var.j);
             }
+        }
+
+        public /* synthetic */ c(lf8 lf8Var, a aVar) {
+            this(lf8Var);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -75,255 +202,650 @@ public class lf8 extends hf8 {
         public void onLoaded(zm zmVar, String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zmVar, str, i) == null) {
-                super.onLoaded((a) zmVar, str, i);
-                if (zmVar != null) {
-                    Bitmap p = zmVar.p();
-                    lf8 lf8Var = this.a;
-                    lf8Var.L(lf8Var.e, p);
+                super.onLoaded((c) zmVar, str, i);
+                if (zmVar == null) {
+                    this.a.m0();
                     return;
                 }
-                lf8 lf8Var2 = this.a;
-                lf8Var2.L(lf8Var2.e, null);
+                Bitmap p = zmVar.p();
+                if (!TextUtils.isEmpty(this.a.e.getLinkUrl())) {
+                    if (this.a.j == 2) {
+                        lf8 lf8Var = this.a;
+                        lf8Var.l0(lf8Var.e, p);
+                        return;
+                    }
+                    String tid = this.a.e.getTid();
+                    int typeShareToSmallApp = this.a.e.getTypeShareToSmallApp();
+                    if ((typeShareToSmallApp == 2 || typeShareToSmallApp == 4 || (!StringUtils.isNull(tid) && !tid.equals("0"))) && this.a.e.canShareBySmartApp && !WeChatShareSmallAppToH5Switch.isOn()) {
+                        lf8 lf8Var2 = this.a;
+                        lf8Var2.h0(lf8Var2.e, p);
+                        return;
+                    }
+                    lf8 lf8Var3 = this.a;
+                    lf8Var3.l0(lf8Var3.e, p);
+                } else if (!TextUtils.isEmpty(this.a.e.getVideoUrl())) {
+                    lf8 lf8Var4 = this.a;
+                    lf8Var4.j0(lf8Var4.e, p);
+                } else if (!TextUtils.isEmpty(this.a.e.getContent())) {
+                    this.a.m0();
+                } else {
+                    lf8 lf8Var5 = this.a;
+                    lf8Var5.f0(lf8Var5.e, p);
+                }
             }
         }
     }
 
+    /* loaded from: classes6.dex */
+    public class d extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lf8 this$0;
+
+        public d(lf8 lf8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lf8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = lf8Var;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent.hasExtra("weixin_result_errCode")) {
+                int intExtra = intent.getIntExtra("weixin_result_errCode", 0);
+                if (intExtra == 0) {
+                    if (this.this$0.k != null) {
+                        this.this$0.k.d1(this.this$0.j, 1);
+                    }
+                    lf8 lf8Var = this.this$0;
+                    lf8Var.t(1, lf8Var.j);
+                } else if (intExtra == -2) {
+                    if (this.this$0.k != null) {
+                        this.this$0.k.d1(this.this$0.j, 3);
+                    }
+                    lf8 lf8Var2 = this.this$0;
+                    lf8Var2.t(3, lf8Var2.j);
+                } else {
+                    this.this$0.p0(intExtra, intent.getStringExtra("weixin_result_errMsg"));
+                    if (this.this$0.k != null) {
+                        this.this$0.k.d1(this.this$0.j, 2);
+                    }
+                    lf8 lf8Var3 = this.this$0;
+                    lf8Var3.t(2, lf8Var3.j);
+                }
+                this.this$0.X();
+            }
+        }
+
+        public /* synthetic */ d(lf8 lf8Var, a aVar) {
+            this(lf8Var);
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lf8(Activity activity, of8 of8Var, WbShareCallback wbShareCallback) {
-        super(activity);
+    public lf8(Context context, int i) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, of8Var, wbShareCallback};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = new a(this);
-        try {
-            WbSdk.install(activity, new AuthInfo(activity, "1511099634", PassBioEnv.PASSPORT_DOMAIN, "invitation_write"));
-        } catch (Exception e) {
-            BdLog.e(e);
-        }
-        this.b = activity;
-        this.i = of8Var;
-        this.k = wbShareCallback;
-        WbShareHandler wbShareHandler = new WbShareHandler(activity);
-        this.j = wbShareHandler;
-        if (wbShareHandler != null) {
-            wbShareHandler.registerApp();
-        }
+        this.n = new a(this);
+        this.o = new c(this, null);
+        this.b = context.getApplicationContext();
+        this.j = i;
+        this.l = WXAPIFactory.createWXAPI(context.getApplicationContext(), TbConfig.WEIXIN_SHARE_APP_ID);
     }
 
-    public final String C(String str) {
+    public byte[] Q(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
-    }
-
-    public final ImageObject D(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
-            ImageObject imageObject = new ImageObject();
-            imageObject.setThumbImage(j(bitmap, 120));
-            imageObject.setImageObject(bitmap);
-            return imageObject;
-        }
-        return (ImageObject) invokeL.objValue;
-    }
-
-    public final WebpageObject E(Bitmap bitmap, String str, String str2, String str3) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, bitmap, str, str2, str3)) == null) {
-            if (bitmap == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
+            try {
+                Bitmap j = j(bitmap, 120);
+                if (j == null) {
+                    j = e();
+                }
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                j.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+                return byteArray;
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
-            WebpageObject webpageObject = new WebpageObject();
-            webpageObject.setThumbImage(bitmap);
-            webpageObject.identify = Utility.generateGUID();
-            webpageObject.title = C(str);
-            webpageObject.description = C(str2);
-            webpageObject.actionUrl = C(str3);
-            return webpageObject;
         }
-        return (WebpageObject) invokeLLLL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public final WebpageObject F(byte[] bArr, String str) {
-        InterceptResult invokeLL;
+    public byte[] R(Bitmap bitmap, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Bitmap j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, bArr, str)) == null) {
-            if (bArr == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bitmap, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            try {
+                if (z) {
+                    j = f(R.drawable.obfuscated_res_0x7f080d53);
+                } else {
+                    j = j(bitmap, i);
+                }
+                if (j == null) {
+                    j = f(R.drawable.obfuscated_res_0x7f080d53);
+                }
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                j.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+                return byteArray;
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
-            WebpageObject webpageObject = new WebpageObject();
-            webpageObject.thumbData = bArr;
-            webpageObject.identify = Utility.generateGUID();
-            webpageObject.title = "";
-            webpageObject.description = "";
-            webpageObject.actionUrl = C(str);
-            return webpageObject;
         }
-        return (WebpageObject) invokeLL.objValue;
+        return (byte[]) invokeCommon.objValue;
     }
 
-    public final TextObject G() {
+    public final int S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.e == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = this.j;
+            if (i == 3) {
+                return 0;
+            }
+            return i == 2 ? 1 : -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String T(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (str == null) {
+                return String.valueOf(System.currentTimeMillis());
+            }
+            return str + System.currentTimeMillis();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean U() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Build.VERSION.SDK_INT >= 24 : invokeV.booleanValue;
+    }
+
+    public boolean V(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? this.l.getWXAppSupportAPI() >= 654314752 : invokeL.booleanValue;
+    }
+
+    public byte[] W() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            try {
+                Bitmap f = f(R.drawable.obfuscated_res_0x7f080d53);
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                f.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+                return byteArray;
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
-            TextObject textObject = new TextObject();
-            textObject.title = C(this.e.getTitle());
-            textObject.text = C(this.e.topic) + C(this.e.getContent());
-            return textObject;
         }
-        return (TextObject) invokeV.objValue;
+        return (byte[]) invokeV.objValue;
     }
 
-    public final WebpageObject H(WeiboMultiMessage weiboMultiMessage, ShareEntity shareEntity, Bitmap bitmap) {
-        InterceptResult invokeLLL;
-        byte[] bArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, weiboMultiMessage, shareEntity, bitmap)) == null) {
-            byte[] bArr2 = null;
-            if (weiboMultiMessage != null && shareEntity != null) {
-                String linkUrl = shareEntity.getLinkUrl();
-                if (TextUtils.isEmpty(linkUrl)) {
-                    return null;
-                }
-                if (weiboMultiMessage.textObject != null) {
-                    ImageObject imageObject = weiboMultiMessage.imageObject;
-                    if (imageObject != null && (bArr = imageObject.thumbData) != null) {
-                        bArr2 = bArr;
-                    } else if (bitmap != null) {
-                        bArr2 = BitmapHelper.Bitmap2Bytes(j(bitmap, 120), 100);
-                    }
-                    return F(bArr2, linkUrl);
-                } else if (bitmap != null) {
-                    return E(j(bitmap, 120), shareEntity.getTitle(), shareEntity.getContent(), linkUrl);
-                }
-            }
-            return null;
-        }
-        return (WebpageObject) invokeLLL.objValue;
-    }
-
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            of8 of8Var = this.i;
-            if (of8Var != null) {
-                of8Var.d1(6, 3);
-            }
-            s(3, 6);
-        }
-    }
-
-    public void J() {
+    public final void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            of8 of8Var = this.i;
-            if (of8Var != null) {
-                of8Var.d1(6, 2);
-            }
-            s(2, 6);
+            FileHelper.deleteFile(new File(gf8.g + gf8.i));
         }
     }
 
-    public void K() {
+    public String Y(Context context, File file) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            of8 of8Var = this.i;
-            if (of8Var != null) {
-                of8Var.d1(6, 1);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, file)) == null) {
+            if (file == null || !file.exists()) {
+                return null;
             }
-            s(1, 6);
+            Uri uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".fileprovider", file);
+            context.grantUriPermission("com.tencent.mm", uriForFile, 1);
+            return uriForFile.toString();
         }
+        return (String) invokeLL.objValue;
     }
 
-    public final void L(ShareEntity shareEntity, Bitmap bitmap) {
+    public final boolean Z(WXImageObject wXImageObject, Bitmap bitmap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, shareEntity, bitmap) == null) {
-            if (this.e != null && this.j != null && (this.b instanceof Activity)) {
-                WeiboMultiMessage weiboMultiMessage = new WeiboMultiMessage();
-                if (!TextUtils.isEmpty(shareEntity.getContent()) || !TextUtils.isEmpty(shareEntity.topic)) {
-                    weiboMultiMessage.textObject = G();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, wXImageObject, bitmap)) == null) {
+            Context context = this.b;
+            if (context != null && wXImageObject != null && bitmap != null && V(context) && U()) {
+                try {
+                    b0(wXImageObject, FileHelper.saveFileAsPNG(gf8.g, gf8.i, bitmap, 100), bitmap);
+                    return true;
+                } catch (Exception e) {
+                    BdLog.e(e);
                 }
-                if (bitmap != null) {
-                    weiboMultiMessage.imageObject = D(bitmap);
-                }
-                WebpageObject H = H(weiboMultiMessage, shareEntity, bitmap);
-                if (H != null) {
-                    weiboMultiMessage.mediaObject = H;
-                }
-                this.j.shareMessage(weiboMultiMessage, false);
-                return;
             }
-            of8 of8Var = this.i;
-            if (of8Var != null) {
-                of8Var.d1(6, 2);
-            }
-            s(2, 6);
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.repackage.nf8
-    public void a(ShareEntity shareEntity, of8 of8Var) {
+    @Override // com.repackage.mf8
+    public void a(ShareEntity shareEntity, nf8 nf8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, shareEntity, of8Var) == null) {
-            if (shareEntity != null && this.j != null) {
+        if (interceptable == null || interceptable.invokeLL(1048586, this, shareEntity, nf8Var) == null) {
+            if (shareEntity != null && this.l != null) {
                 this.e = shareEntity;
-                this.i = of8Var;
-                zm p = p(shareEntity);
-                if (p != null && p.p() != null) {
-                    L(this.e, p.p());
+                this.k = nf8Var;
+                this.j = shareEntity.getShareTo();
+                if (!this.l.isWXAppInstalled()) {
+                    nf8 nf8Var2 = this.k;
+                    if (nf8Var2 != null) {
+                        nf8Var2.d1(this.j, 2);
+                    }
+                    BdToast.b(d(), d().getText(R.string.obfuscated_res_0x7f0f1170)).i();
                     return;
                 }
-                String imgUrl = shareEntity.getImgUrl();
-                if (o(shareEntity.getLocalFile())) {
-                    L(this.e, h(shareEntity.getLocalFile()));
-                    return;
-                } else if (!TextUtils.isEmpty(imgUrl) && (imgUrl.startsWith("http://") || imgUrl.startsWith("https://"))) {
-                    kg.h().k(imgUrl, 10, this.l, 0, 0, i(), new Object[0]);
-                    return;
-                } else if (n(shareEntity.getImageUri())) {
-                    L(this.e, g(shareEntity.getImageUri()));
+                zm q = q(shareEntity);
+                if (q != null && q.p() != null) {
+                    if (this.e.getShareType() == 2) {
+                        d0(this.e, q.p());
+                        return;
+                    } else {
+                        f0(this.e, q.p());
+                        return;
+                    }
+                } else if (p(shareEntity.getLocalFile())) {
+                    n0(shareEntity.getLocalFile());
                     return;
                 } else {
-                    L(this.e, e());
-                    return;
+                    String imgUrl = shareEntity.getImgUrl();
+                    if (!TextUtils.isEmpty(imgUrl) && (imgUrl.startsWith("http://") || imgUrl.startsWith("https://"))) {
+                        if (this.e.getShareType() != 0) {
+                            kg.h().k(imgUrl, 34, this.n, 0, 0, i(), new Object[0]);
+                            return;
+                        } else {
+                            kg.h().k(imgUrl, 10, this.o, 0, 0, i(), new Object[0]);
+                            return;
+                        }
+                    } else if (o(shareEntity.getImageUri())) {
+                        n0(shareEntity.getImageUri().getPath());
+                        return;
+                    } else {
+                        m0();
+                        return;
+                    }
                 }
             }
-            s(2, 6);
-            if (of8Var != null) {
-                of8Var.d1(6, 2);
+            t(2, this.j);
+            if (nf8Var != null) {
+                nf8Var.d1(0, 2);
             }
         }
     }
 
-    @Override // com.repackage.hf8
-    public void m(Intent intent) {
-        WbShareHandler wbShareHandler;
-        WbShareCallback wbShareCallback;
+    public final void a0() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, intent) == null) || (wbShareHandler = this.j) == null || (wbShareCallback = this.k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.b == null) {
             return;
         }
-        wbShareHandler.doResultIntent(intent, wbShareCallback);
-        if (intent == null || intent.getExtras() != null) {
+        this.m = new d(this, null);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(WXEntryActivityConfig.ACTION_WX_SHARE_RESULT);
+        this.b.registerReceiver(this.m, intentFilter);
+    }
+
+    public final void b0(@NonNull WXImageObject wXImageObject, @NonNull String str, @NonNull Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048588, this, wXImageObject, str, bitmap) == null) {
+            wXImageObject.setImagePath(Y(this.b, new File(str)));
+            WXMediaMessage wXMediaMessage = new WXMediaMessage();
+            wXMediaMessage.mediaObject = wXImageObject;
+            wXMediaMessage.thumbData = Q(bitmap);
+            SendMessageToWX.Req req = new SendMessageToWX.Req();
+            req.transaction = T("imageShare");
+            req.message = wXMediaMessage;
+            req.scene = S();
+            this.l.sendReq(req);
+        }
+    }
+
+    public final boolean c0(ShareEntity shareEntity, EmotionShareLoaderProc.EmotionShare emotionShare) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, shareEntity, emotionShare)) == null) {
+            if (shareEntity == null || this.l == null || emotionShare == null || emotionShare.image == null || StringUtils.isNull(emotionShare.path)) {
+                return false;
+            }
+            WXEmojiObject wXEmojiObject = new WXEmojiObject();
+            wXEmojiObject.emojiPath = emotionShare.path;
+            WXMediaMessage wXMediaMessage = new WXMediaMessage();
+            wXMediaMessage.mediaObject = wXEmojiObject;
+            wXMediaMessage.thumbData = Q(emotionShare.image.p());
+            SendMessageToWX.Req req = new SendMessageToWX.Req();
+            req.transaction = T("imageShare");
+            req.message = wXMediaMessage;
+            req.scene = S();
+            this.l.sendReq(req);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void d0(ShareEntity shareEntity, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048590, this, shareEntity, bitmap) == null) || shareEntity == null || this.l == null || bitmap == null) {
             return;
         }
-        this.k.onWbShareSuccess();
+        WXEmojiObject wXEmojiObject = new WXEmojiObject();
+        wXEmojiObject.emojiData = R(bitmap, 512, false);
+        WXMediaMessage wXMediaMessage = new WXMediaMessage();
+        wXMediaMessage.mediaObject = wXEmojiObject;
+        wXMediaMessage.thumbData = Q(bitmap);
+        SendMessageToWX.Req req = new SendMessageToWX.Req();
+        req.transaction = T("imageShare");
+        req.message = wXMediaMessage;
+        req.scene = S();
+        this.l.sendReq(req);
+    }
+
+    public final boolean e0(ShareEntity shareEntity, EmotionShareLoaderProc.EmotionShare emotionShare) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, shareEntity, emotionShare)) == null) {
+            if (this.j != 2 && this.e.getShareType() != 1) {
+                return c0(shareEntity, emotionShare);
+            }
+            return g0(shareEntity, emotionShare);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void f0(ShareEntity shareEntity, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048592, this, shareEntity, bitmap) == null) || shareEntity == null || this.l == null || bitmap == null) {
+            return;
+        }
+        WXImageObject wXImageObject = new WXImageObject(bitmap);
+        if (Z(wXImageObject, bitmap)) {
+            return;
+        }
+        wXImageObject.imageData = ii.d().a(bitmap, 85);
+        WXMediaMessage wXMediaMessage = new WXMediaMessage();
+        wXMediaMessage.mediaObject = wXImageObject;
+        wXMediaMessage.thumbData = Q(bitmap);
+        SendMessageToWX.Req req = new SendMessageToWX.Req();
+        req.transaction = T("imageShare");
+        req.message = wXMediaMessage;
+        req.scene = S();
+        this.l.sendReq(req);
+    }
+
+    public final boolean g0(ShareEntity shareEntity, EmotionShareLoaderProc.EmotionShare emotionShare) {
+        InterceptResult invokeLL;
+        zm zmVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, shareEntity, emotionShare)) == null) {
+            if (shareEntity == null || this.l == null || emotionShare == null || StringUtils.isNull(emotionShare.path) || (zmVar = emotionShare.image) == null || zmVar.p() == null) {
+                return false;
+            }
+            WXImageObject wXImageObject = new WXImageObject();
+            wXImageObject.setImagePath(emotionShare.path);
+            if (Z(wXImageObject, emotionShare.image.p())) {
+                return false;
+            }
+            WXMediaMessage wXMediaMessage = new WXMediaMessage();
+            wXMediaMessage.mediaObject = wXImageObject;
+            wXMediaMessage.thumbData = Q(emotionShare.image.p());
+            SendMessageToWX.Req req = new SendMessageToWX.Req();
+            req.transaction = T("imageShare");
+            req.message = wXMediaMessage;
+            req.scene = S();
+            this.l.sendReq(req);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void h0(ShareEntity shareEntity, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048594, this, shareEntity, bitmap) == null) || shareEntity == null || this.l == null) {
+            return;
+        }
+        WXMiniProgramObject wXMiniProgramObject = new WXMiniProgramObject();
+        wXMiniProgramObject.webpageUrl = shareEntity.getLinkUrl();
+        wXMiniProgramObject.miniprogramType = 0;
+        wXMiniProgramObject.userName = "gh_213e5678c5bf";
+        if (shareEntity.getTypeShareToSmallApp() != 2 && shareEntity.getTypeShareToSmallApp() != 4) {
+            String tid = shareEntity.getTid();
+            wXMiniProgramObject.path = "/pages/pb/pb?tid=" + tid;
+        } else {
+            String str = shareEntity.getfName();
+            if (pi.isEmpty(str)) {
+                str = "";
+            }
+            String encode = URLEncoder.encode(str);
+            wXMiniProgramObject.path = "/pages/frs/frs?kw=" + encode;
+        }
+        WXMediaMessage wXMediaMessage = new WXMediaMessage(wXMiniProgramObject);
+        String title = shareEntity.getTitle();
+        if (StringUtils.isNull(title)) {
+            title = shareEntity.getContent();
+        }
+        wXMediaMessage.title = title;
+        wXMediaMessage.description = shareEntity.getContent();
+        if ("https://tb5.bdstatic.com/yunying/tieba_logo.jpg".equals(shareEntity.getImgUrl())) {
+            wXMediaMessage.thumbData = q0(bitmap, true);
+        } else {
+            wXMediaMessage.thumbData = q0(bitmap, false);
+        }
+        SendMessageToWX.Req req = new SendMessageToWX.Req();
+        req.transaction = T("miniProgram");
+        req.message = wXMediaMessage;
+        req.scene = 0;
+        this.l.sendReq(req);
+    }
+
+    public final void i0(ShareEntity shareEntity) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, shareEntity) == null) || shareEntity == null || this.l == null) {
+            return;
+        }
+        String content = shareEntity.getContent();
+        WXTextObject wXTextObject = new WXTextObject();
+        wXTextObject.text = content;
+        WXMediaMessage wXMediaMessage = new WXMediaMessage();
+        wXMediaMessage.mediaObject = wXTextObject;
+        wXMediaMessage.description = content;
+        SendMessageToWX.Req req = new SendMessageToWX.Req();
+        req.transaction = T("textShare");
+        req.message = wXMediaMessage;
+        req.scene = S();
+        this.l.sendReq(req);
+    }
+
+    public final void j0(ShareEntity shareEntity, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048596, this, shareEntity, bitmap) == null) || shareEntity == null || this.l == null) {
+            return;
+        }
+        WXVideoObject wXVideoObject = new WXVideoObject();
+        wXVideoObject.videoUrl = shareEntity.getVideoUrl();
+        WXMediaMessage wXMediaMessage = new WXMediaMessage(wXVideoObject);
+        wXMediaMessage.title = shareEntity.getTitle();
+        wXMediaMessage.description = shareEntity.getContent();
+        wXMediaMessage.thumbData = Q(bitmap);
+        SendMessageToWX.Req req = new SendMessageToWX.Req();
+        req.transaction = T("videoShare");
+        req.message = wXMediaMessage;
+        req.scene = S();
+        this.l.sendReq(req);
+    }
+
+    public final void k0(ShareEntity shareEntity, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048597, this, shareEntity, bitmap) == null) || shareEntity == null || this.l == null) {
+            return;
+        }
+        WXWebpageObject wXWebpageObject = new WXWebpageObject();
+        wXWebpageObject.webpageUrl = shareEntity.getLinkUrl();
+        WXMediaMessage wXMediaMessage = new WXMediaMessage(wXWebpageObject);
+        wXMediaMessage.title = shareEntity.getTitle();
+        wXMediaMessage.description = shareEntity.getContent();
+        wXMediaMessage.thumbData = Q(bitmap);
+        SendMessageToWX.Req req = new SendMessageToWX.Req();
+        req.transaction = T("webpageShare");
+        req.message = wXMediaMessage;
+        req.scene = S();
+        this.l.sendReq(req);
+    }
+
+    public final void l0(ShareEntity shareEntity, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048598, this, shareEntity, bitmap) == null) {
+            if (shareEntity.getIsVideoThread()) {
+                b bVar = new b(this);
+                bVar.setPriority(3);
+                bVar.execute(bitmap);
+                return;
+            }
+            k0(this.e, bitmap);
+        }
+    }
+
+    public final void m0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            Bitmap e = e();
+            if (e != null) {
+                f0(this.e, e);
+            } else {
+                i0(this.e);
+            }
+        }
+    }
+
+    public final void n0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+            Bitmap h = h(str);
+            if (h == null) {
+                h = e();
+            }
+            if (h != null) {
+                f0(this.e, h);
+            } else {
+                i0(this.e);
+            }
+        }
+    }
+
+    public final void o0() {
+        Context context;
+        d dVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048601, this) == null) || (context = this.b) == null || (dVar = this.m) == null) {
+            return;
+        }
+        context.unregisterReceiver(dVar);
+    }
+
+    public final void p0(int i, String str) {
+        ShareEntity shareEntity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048602, this, i, str) == null) || (shareEntity = this.e) == null || StringUtils.isNull(shareEntity.getImgUrl())) {
+            return;
+        }
+        gu4.a("socail_share", -1L, 0, WXEntryActivityConfig.WX_SHARE_FAIL, i, "", "share_fail_exception", str + "&" + this.e.getImgUrl());
+    }
+
+    public byte[] q0(Bitmap bitmap, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048603, this, bitmap, z)) == null) {
+            try {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                if (!z && bitmap != null) {
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                    byte[] byteArray = byteArrayOutputStream.toByteArray();
+                    double length = byteArray.length / 1024;
+                    if (length <= 125.0d) {
+                        return byteArray;
+                    }
+                    while (length > 125.0d) {
+                        Double valueOf = Double.valueOf(length / 125.0d);
+                        Double valueOf2 = Double.valueOf(width / Math.sqrt(valueOf.doubleValue()));
+                        Double valueOf3 = Double.valueOf(height / Math.sqrt(valueOf.doubleValue()));
+                        width = valueOf2.intValue();
+                        height = valueOf3.intValue();
+                        bitmap = k(bitmap, width, height);
+                        ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream2);
+                        byteArray = byteArrayOutputStream2.toByteArray();
+                        length = byteArray.length / 1024;
+                    }
+                    byteArrayOutputStream.close();
+                    return bitmap == null ? W() : byteArray;
+                }
+                return W();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (byte[]) invokeLZ.objValue;
+    }
+
+    @Override // com.repackage.gf8
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            o0();
+            super.r();
+        }
+    }
+
+    @Override // com.repackage.gf8
+    public void s(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, bdUniqueId) == null) {
+            super.s(bdUniqueId);
+            a0();
+        }
     }
 }

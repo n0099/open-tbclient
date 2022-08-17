@@ -32,7 +32,7 @@ public class dn8 {
                 netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
                 netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
             }
-            LocationData b = zl8.a().b();
+            LocationData b = yl8.a().b();
             if (b != null) {
                 netWork.addPostData("name", b.getFormatted_address());
                 netWork.addPostData("sn", b.getSn());
@@ -54,10 +54,10 @@ public class dn8 {
             SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0305);
             ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091f5a);
             if (imageView != null) {
-                imageView.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0809e2, R.color.CAM_X0101, null));
+                imageView.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0809e3, R.color.CAM_X0101, null));
             }
             if (StringUtils.isNull(str)) {
-                str = context.getString(R.string.obfuscated_res_0x7f0f110f);
+                str = context.getString(R.string.obfuscated_res_0x7f0f1110);
             }
             textView.setText(str);
             if (str2 != null || str3 != null) {

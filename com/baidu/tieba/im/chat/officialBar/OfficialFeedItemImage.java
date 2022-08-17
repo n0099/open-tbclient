@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f87;
-import com.repackage.q87;
+import com.repackage.d87;
+import com.repackage.p87;
 import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class OfficialFeedItemImage extends RelativeLayout {
@@ -97,7 +97,7 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f08090e, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f08090f, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             DrawableSelector gradientLinear = TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606);
             if (this.i) {
                 gradientLinear.into(this.f);
@@ -113,7 +113,7 @@ public class OfficialFeedItemImage extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (i > 0) {
-                this.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0e6c, StringHelper.numberUniformFormatExtraWithRound(i)));
+                this.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0e6d, StringHelper.numberUniformFormatExtraWithRound(i)));
                 this.d.setVisibility(0);
                 this.c.setVisibility(0);
                 return;
@@ -123,13 +123,13 @@ public class OfficialFeedItemImage extends RelativeLayout {
         }
     }
 
-    public void setData(q87.a aVar, int i, f87 f87Var) {
+    public void setData(p87.a aVar, int i, d87 d87Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, f87Var) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, d87Var) == null) {
             this.b.K(aVar.c, 10, false);
             this.e.setText(aVar.a);
-            if (f87Var != null) {
-                i = f87Var.i();
+            if (d87Var != null) {
+                i = d87Var.i();
             }
             d(i);
         }

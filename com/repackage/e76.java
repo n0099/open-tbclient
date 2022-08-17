@@ -109,8 +109,8 @@ public class e76 {
                     this.a.d.l(this.a.h);
                 }
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(new x66(this.a.c.getString(R.string.obfuscated_res_0x7f0f09d7), 2));
-                arrayList.add(new x66(this.a.c.getString(R.string.obfuscated_res_0x7f0f14c4), 1));
+                arrayList.add(new x66(this.a.c.getString(R.string.obfuscated_res_0x7f0f09d8), 2));
+                arrayList.add(new x66(this.a.c.getString(R.string.obfuscated_res_0x7f0f14c6), 1));
                 this.a.d.k(arrayList, this.a.b);
                 this.a.d.n(this.a.a);
             }
@@ -232,9 +232,9 @@ public class e76 {
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && n() && (textView = this.a) != null) {
             int i = this.b;
             if (i == 1) {
-                textView.setText(R.string.obfuscated_res_0x7f0f14c4);
+                textView.setText(R.string.obfuscated_res_0x7f0f14c6);
             } else if (i == 2) {
-                textView.setText(R.string.obfuscated_res_0x7f0f09d7);
+                textView.setText(R.string.obfuscated_res_0x7f0f09d8);
             }
             this.a.setOnClickListener(this.i);
             s(this.g);
@@ -244,7 +244,7 @@ public class e76 {
     public final void s(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            int i = z ? R.drawable.obfuscated_res_0x7f080931 : R.drawable.icon_pure_unfold12_svg;
+            int i = z ? R.drawable.obfuscated_res_0x7f080932 : R.drawable.icon_pure_unfold12_svg;
             b96 b96Var = this.f;
             r66 n = b96Var != null ? b96Var.n() : null;
             if (n != null && n.a) {

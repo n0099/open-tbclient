@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cf5;
 import com.repackage.gf5;
 import com.repackage.je5;
-import com.repackage.p77;
+import com.repackage.o77;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -136,7 +136,7 @@ public class UpdatesModel {
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(p77.f().a(this.val$data.getNotice_id())) : (Boolean) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(o77.f().a(this.val$data.getNotice_id())) : (Boolean) invokeV.objValue;
             }
         }, je5Var);
     }
@@ -167,7 +167,7 @@ public class UpdatesModel {
                 public LinkedList<GroupNewsPojo> doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? p77.f().c(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change") : (LinkedList) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? o77.f().c(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change") : (LinkedList) invokeV.objValue;
                 }
             }, je5Var);
         }
@@ -211,7 +211,7 @@ public class UpdatesModel {
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? p77.f().m(this.val$list) : (Boolean) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? o77.f().m(this.val$list) : (Boolean) invokeV.objValue;
             }
         }, je5Var);
     }
@@ -281,7 +281,7 @@ public class UpdatesModel {
                 public Boolean doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(p77.f().b(this.this$0.dataToDelete)) : (Boolean) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(o77.f().b(this.this$0.dataToDelete)) : (Boolean) invokeV.objValue;
                 }
             }, je5Var);
         }

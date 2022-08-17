@@ -49,7 +49,7 @@ public class nt8 extends b9 {
     public int l;
     public MediaPlayer m;
     public boolean n;
-    public fn7 o;
+    public en7 o;
     public fs4.e p;
 
     /* loaded from: classes6.dex */
@@ -160,12 +160,12 @@ public class nt8 extends b9 {
 
         /* renamed from: com.repackage.nt8$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0535b implements MediaPlayer.OnInfoListener {
+        public class C0540b implements MediaPlayer.OnInfoListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public C0535b(b bVar) {
+            public C0540b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -239,7 +239,7 @@ public class nt8 extends b9 {
                     rg.a().postDelayed(new a(this), 200L);
                     if (Build.VERSION.SDK_INT < 17) {
                         this.a.c.start();
-                        mediaPlayer.setOnInfoListener(new C0535b(this));
+                        mediaPlayer.setOnInfoListener(new C0540b(this));
                         return;
                     }
                     this.a.c.seekTo(this.a.g.getCurrentPosition());
@@ -403,13 +403,13 @@ public class nt8 extends b9 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nt8(d9 d9Var, vs8 vs8Var, View view2, fn7 fn7Var) {
+    public nt8(d9 d9Var, vs8 vs8Var, View view2, en7 en7Var) {
         super(d9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d9Var, vs8Var, view2, fn7Var};
+            Object[] objArr = {d9Var, vs8Var, view2, en7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -424,7 +424,7 @@ public class nt8 extends b9 {
         this.p = new f(this);
         this.d = vs8Var;
         this.a = view2;
-        this.o = fn7Var;
+        this.o = en7Var;
         this.e = view2.getResources();
         this.g = new pt8(this.mContext, this);
         this.h = new rt8(this.mContext, this, this.o);
@@ -457,9 +457,9 @@ public class nt8 extends b9 {
     public final void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.setCenterTextTitle(this.e.getString(R.string.obfuscated_res_0x7f0f10e7));
+            this.b.setCenterTextTitle(this.e.getString(R.string.obfuscated_res_0x7f0f10e8));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d(this));
-            SkinManager.setViewTextColor(this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.e.getString(R.string.obfuscated_res_0x7f0f10e8), new e(this)), (int) R.color.CAM_X0106);
+            SkinManager.setViewTextColor(this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.e.getString(R.string.obfuscated_res_0x7f0f10e9), new e(this)), (int) R.color.CAM_X0106);
         }
     }
 
@@ -751,11 +751,11 @@ public class nt8 extends b9 {
                 return;
             }
             if (this.f == null) {
-                String[] strArr = {getPageContext().getString(R.string.obfuscated_res_0x7f0f1081), getPageContext().getString(R.string.obfuscated_res_0x7f0f0ca5)};
+                String[] strArr = {getPageContext().getString(R.string.obfuscated_res_0x7f0f1082), getPageContext().getString(R.string.obfuscated_res_0x7f0f0ca6)};
                 ds4 ds4Var = new ds4(getPageContext());
                 this.f = ds4Var;
-                ds4Var.setTitle(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f108f));
-                this.f.i(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f108f), strArr, this.p);
+                ds4Var.setTitle(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1090));
+                this.f.i(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1090), strArr, this.p);
             }
             this.f.k();
         }

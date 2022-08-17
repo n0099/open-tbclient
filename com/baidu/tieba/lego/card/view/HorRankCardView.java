@@ -22,10 +22,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.af7;
-import com.repackage.bk8;
-import com.repackage.ee7;
+import com.repackage.ak8;
+import com.repackage.de7;
 import com.repackage.fb5;
+import com.repackage.ze7;
 import java.util.List;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes3.dex */
@@ -73,8 +73,8 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || TextUtils.isEmpty(this.a.getScheme())) {
                 return;
             }
-            ee7.e(this.a).d(TiebaStatic.Params.OBJ_URL, this.a.getScheme()).b("obj_locate", this.b.getStatPosition()).a(this.a);
-            bk8.c(this.b.i, this.a.getScheme());
+            de7.e(this.a).d(TiebaStatic.Params.OBJ_URL, this.a.getScheme()).b("obj_locate", this.b.getStatPosition()).a(this.a);
+            ak8.c(this.b.i, this.a.getScheme());
         }
     }
 
@@ -98,13 +98,13 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
         }
     }
 
-    private void setMoreColor(af7 af7Var) {
+    private void setMoreColor(ze7 ze7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, af7Var) == null) {
-            if (af7Var == null) {
+        if (interceptable == null || interceptable.invokeL(65537, this, ze7Var) == null) {
+            if (ze7Var == null) {
                 SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0302);
             } else {
-                y(this.r, af7Var.b(), af7Var.c(), R.color.CAM_X0302);
+                y(this.r, ze7Var.b(), ze7Var.c(), R.color.CAM_X0302);
             }
         }
     }
@@ -160,7 +160,7 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
                 SkinManager.setBackgroundColor(this.m, R.color.CAM_X0201);
                 this.m.setOnClickListener(null);
             }
-            af7 rightText = horRankCard.getRightText();
+            ze7 rightText = horRankCard.getRightText();
             if (rightText.f()) {
                 this.s.setVisibility(8);
                 this.r.setVisibility(0);

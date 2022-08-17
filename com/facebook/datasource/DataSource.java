@@ -1,10 +1,14 @@
 package com.facebook.datasource;
 
+import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes4.dex */
 public interface DataSource<T> {
     boolean close();
+
+    @Nullable
+    Map<String, Object> getExtras();
 
     @Nullable
     Throwable getFailureCause();

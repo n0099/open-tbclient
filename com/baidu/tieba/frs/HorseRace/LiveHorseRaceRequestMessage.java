@@ -47,7 +47,7 @@ public class LiveHorseRaceRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1197common = this.f1044common;
+            builder.f1198common = this.f1044common;
             builder.forum_id = this.forum_id;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
                 te5.a(builder, true);

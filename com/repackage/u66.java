@@ -214,12 +214,12 @@ public class u66 extends dp4 implements m85 {
                 return null;
             }
             ArrayList<Integer> arrayList = new ArrayList<>();
-            arrayList.add(Integer.valueOf(cf7.b(this.p.day.light_color)));
-            arrayList.add(Integer.valueOf(cf7.b(this.p.day.dark_color)));
-            arrayList.add(Integer.valueOf(cf7.b(this.p.night.light_color)));
-            arrayList.add(Integer.valueOf(cf7.b(this.p.night.dark_color)));
-            arrayList.add(Integer.valueOf(cf7.b(this.p.dark.light_color)));
-            arrayList.add(Integer.valueOf(cf7.b(this.p.dark.dark_color)));
+            arrayList.add(Integer.valueOf(bf7.b(this.p.day.light_color)));
+            arrayList.add(Integer.valueOf(bf7.b(this.p.day.dark_color)));
+            arrayList.add(Integer.valueOf(bf7.b(this.p.night.light_color)));
+            arrayList.add(Integer.valueOf(bf7.b(this.p.night.dark_color)));
+            arrayList.add(Integer.valueOf(bf7.b(this.p.dark.light_color)));
+            arrayList.add(Integer.valueOf(bf7.b(this.p.dark.dark_color)));
             return arrayList;
         }
         return (ArrayList) invokeV.objValue;

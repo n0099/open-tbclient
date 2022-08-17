@@ -18,9 +18,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.au7;
 import com.repackage.bu7;
-import com.repackage.cu7;
-import com.repackage.eu7;
+import com.repackage.du7;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -38,9 +38,9 @@ public class EjectionAnimationView extends View {
     public boolean f;
     public int g;
     public int h;
-    public ArrayList<bu7> i;
+    public ArrayList<au7> i;
     public List<Bitmap> j;
-    public eu7 k;
+    public du7 k;
     public Vibrator l;
 
     /* loaded from: classes3.dex */
@@ -125,16 +125,16 @@ public class EjectionAnimationView extends View {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || !this.e || ListUtils.isEmpty(this.j) || (bitmap = this.j.get(new Random().nextInt(this.j.size()))) == null) {
             return;
         }
-        this.i.add(new cu7(bitmap, this.g, this.h, this.b, this.c));
+        this.i.add(new bu7(bitmap, this.g, this.h, this.b, this.c));
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.f = true;
-            Iterator<bu7> it = this.i.iterator();
+            Iterator<au7> it = this.i.iterator();
             while (it.hasNext()) {
-                bu7 next = it.next();
+                au7 next = it.next();
                 if (next.v == LifeCycleState.ACTIVE) {
                     this.f = false;
                     next.a();
@@ -171,9 +171,9 @@ public class EjectionAnimationView extends View {
             this.d = 1;
             this.i = new ArrayList<>();
             this.a.removeMessages(0);
-            eu7 eu7Var = this.k;
-            if (eu7Var != null) {
-                eu7Var.onStop();
+            du7 du7Var = this.k;
+            if (du7Var != null) {
+                du7Var.onStop();
             }
             Vibrator vibrator = this.l;
             if (vibrator != null) {
@@ -189,9 +189,9 @@ public class EjectionAnimationView extends View {
             this.i = new ArrayList<>();
             this.e = true;
             this.d = 1;
-            eu7 eu7Var = this.k;
-            if (eu7Var != null) {
-                eu7Var.onStart();
+            du7 du7Var = this.k;
+            if (du7Var != null) {
+                du7Var.onStart();
             }
             this.a.sendEmptyMessage(0);
             Vibrator vibrator = this.l;
@@ -227,13 +227,13 @@ public class EjectionAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
             super.onDraw(canvas);
-            ArrayList<bu7> arrayList = this.i;
+            ArrayList<au7> arrayList = this.i;
             if (arrayList == null) {
                 return;
             }
-            Iterator<bu7> it = arrayList.iterator();
+            Iterator<au7> it = arrayList.iterator();
             while (it.hasNext()) {
-                bu7 next = it.next();
+                au7 next = it.next();
                 if (next.v == LifeCycleState.ACTIVE) {
                     next.b(canvas);
                 }
@@ -266,10 +266,10 @@ public class EjectionAnimationView extends View {
         }
     }
 
-    public void setEjectionAnimationViewCallback(eu7 eu7Var) {
+    public void setEjectionAnimationViewCallback(du7 du7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, eu7Var) == null) {
-            this.k = eu7Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, du7Var) == null) {
+            this.k = du7Var;
         }
     }
 

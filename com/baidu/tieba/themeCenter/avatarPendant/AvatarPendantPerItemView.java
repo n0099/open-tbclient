@@ -103,10 +103,10 @@ public class AvatarPendantPerItemView extends LinearLayout {
         boolean inUse = dressItemData.getInUse();
         if (dressItemData.isPropIdEven()) {
             if (this.c.getHeadView() != null) {
-                this.c.getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f60), 24, false);
+                this.c.getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f61), 24, false);
             }
         } else if (this.c.getHeadView() != null) {
-            this.c.getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f5f), 24, false);
+            this.c.getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f60), 24, false);
         }
         if (pi.byteLength(dressItemData.getTitle()) > 8) {
             this.f.setText(pi.cutString(dressItemData.getTitle(), 8));
@@ -133,8 +133,8 @@ public class AvatarPendantPerItemView extends LinearLayout {
             this.c = (HeadPendantView) inflate.findViewById(R.id.obfuscated_res_0x7f090302);
             TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091897);
             this.d = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08120f);
-            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120f);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081210);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081210);
             this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09060d);
             this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920d5);
             this.c.setHasPendantStyle();

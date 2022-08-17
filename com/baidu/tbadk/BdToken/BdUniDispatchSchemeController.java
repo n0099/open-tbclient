@@ -50,6 +50,7 @@ public class BdUniDispatchSchemeController {
     public static String PARAM_FORUM_ID = "forumId";
     public static String PARAM_FORUM_NAME = "forumName";
     public static String PARAM_FROM = "from";
+    public static String PARAM_FROM_NATIVE = "from_native";
     public static String PARAM_GAME_ID = "game_id";
     public static String PARAM_GAME_NAME = "game_name";
     public static String PARAM_GOD_ID = "god_id";
@@ -73,6 +74,7 @@ public class BdUniDispatchSchemeController {
     public static String PARAM_PLAY_PRICE = "play_price";
     public static String PARAM_PLAY_TIMES = "play_times";
     public static String PARAM_PORTRAIT = "portrait";
+    public static String PARAM_PUSH_TYPE = "push_type";
     public static String PARAM_QQ = "QQ";
     public static String PARAM_QUERY = "query";
     public static String PARAM_RANK_CODE_CAMEL = "rankCode";
@@ -357,6 +359,10 @@ public class BdUniDispatchSchemeController {
             hashMap.put(str4, uri.getQueryParameter(str4));
             String str5 = PARAM_ORI_UGC_VID;
             hashMap.put(str5, uri.getQueryParameter(str5));
+            String str6 = PARAM_PUSH_TYPE;
+            hashMap.put(str6, uri.getQueryParameter(str6));
+            String str7 = PARAM_SOURCE;
+            hashMap.put(str7, uri.getQueryParameter(str7));
             String queryParameter = uri.getQueryParameter(PARAM_SHOW_REPLY_PANEL);
             if (TextUtils.isEmpty(queryParameter)) {
                 queryParameter = uri.getQueryParameter(PARAM_SHOW_REPLY_PANEL.toLowerCase());

@@ -43,8 +43,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.cb;
 import com.repackage.ru4;
+import com.repackage.yd8;
 import com.repackage.z8;
-import com.repackage.zd8;
 /* loaded from: classes4.dex */
 public class PushDialogLoopManager {
     public static /* synthetic */ Interceptable $ic;
@@ -167,7 +167,7 @@ public class PushDialogLoopManager {
                     return;
                 }
                 this.a.b = tid;
-                if (zd8.j().d.c()) {
+                if (yd8.j().d.c()) {
                     this.a.c = true;
                 } else {
                     this.a.p(tid);
@@ -337,7 +337,7 @@ public class PushDialogLoopManager {
 
     public final void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && zd8.j().g() && !this.d) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && yd8.j().g() && !this.d) {
             if (Build.VERSION.SDK_INT >= 21 && this.e) {
                 try {
                     ((JobScheduler) TbadkCoreApplication.getInst().getSystemService("jobscheduler")).schedule(new JobInfo.Builder(29467, new ComponentName(TbadkCoreApplication.getInst(), PushDialogJobService.class)).setMinimumLatency(TbSingleton.getInstance().getPushDialogShowTime()).setOverrideDeadline(TbSingleton.getInstance().getPushDialogShowTime()).setRequiredNetworkType(1).setRequiresCharging(false).setRequiresDeviceIdle(false).build());
@@ -399,7 +399,7 @@ public class PushDialogLoopManager {
 
     public final void p(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || zd8.j().d.c() || TbSingleton.getInstance().getLastResumeTime() > UtilHelper.getTodayZeroTime()) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || yd8.j().d.c() || TbSingleton.getInstance().getLastResumeTime() > UtilHelper.getTodayZeroTime()) {
             return;
         }
         Activity b2 = z8.g().b();

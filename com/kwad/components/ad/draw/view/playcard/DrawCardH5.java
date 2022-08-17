@@ -179,7 +179,7 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             if (view2 != this.cp) {
-                com.kwad.components.core.c.a.a.a(new a.C0352a(getContext()).L(this.mAdTemplate).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardH5.1
+                com.kwad.components.core.c.a.a.a(new a.C0354a(getContext()).L(this.mAdTemplate).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardH5.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ DrawCardH5 cs;

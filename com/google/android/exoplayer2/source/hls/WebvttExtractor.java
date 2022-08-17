@@ -28,7 +28,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class WebvttExtractor implements Extractor {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern LOCAL_TIMESTAMP;

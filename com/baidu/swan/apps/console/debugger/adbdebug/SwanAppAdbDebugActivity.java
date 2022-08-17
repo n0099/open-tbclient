@@ -153,7 +153,7 @@ public class SwanAppAdbDebugActivity extends Activity {
             aVar.n(new hg3());
             aVar.m(false);
             aVar.O(R.string.obfuscated_res_0x7f0f0118, new b(this, intent));
-            aVar.B(R.string.obfuscated_res_0x7f0f129d, new a(this));
+            aVar.B(R.string.obfuscated_res_0x7f0f129f, new a(this));
             aVar.X();
             LogUtil.logActivity(this, "onCreate");
         }

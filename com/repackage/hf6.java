@@ -13,7 +13,7 @@ import java.util.List;
 public class hf6 extends e06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<n47> a;
+    public List<m47> a;
 
     public hf6() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class hf6 extends e06 {
         }
     }
 
-    public List<n47> getDataList() {
+    public List<m47> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;

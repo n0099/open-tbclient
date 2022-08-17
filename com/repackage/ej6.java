@@ -76,7 +76,7 @@ public class ej6 extends ue6<ir4, ThreadCardViewHolder<ThreadData>> implements z
             if (view2.getId() != R.id.obfuscated_res_0x7f092450 && view2.getId() != R.id.obfuscated_res_0x7f092422) {
                 if (view2.getId() == R.id.obfuscated_res_0x7f09213e) {
                     wp6.e(threadData, 5, this.b.mPageId, this.b.p, this.b.t());
-                    ir6.g(threadData, this.b.b, 1);
+                    hr6.g(threadData, this.b.b, 1);
                 } else if (view2.getId() == R.id.obfuscated_res_0x7f091e43) {
                     wp6.e(threadData, 14, this.b.mPageId, this.b.p, this.b.t());
                 } else if (view2.getId() == R.id.obfuscated_res_0x7f090eaa) {
@@ -91,13 +91,13 @@ public class ej6 extends ue6<ir4, ThreadCardViewHolder<ThreadData>> implements z
                             wp6.e(threadData, 3, this.b.mPageId, this.b.p, this.b.t());
                         }
                     }
-                    ir6.g(threadData, this.b.b, 2);
+                    hr6.g(threadData, this.b.b, 2);
                 } else if (view2 instanceof ThreadGodReplyLayout) {
                     wp6.e(threadData, 15, this.b.mPageId, this.b.p, this.b.t());
-                    ir6.g(threadData, this.b.b, 1);
+                    hr6.g(threadData, this.b.b, 1);
                 } else {
                     wp6.e(threadData, 1, this.b.mPageId, this.b.p, this.b.t());
-                    ir6.g(threadData, this.b.b, 1);
+                    hr6.g(threadData, this.b.b, 1);
                 }
             } else {
                 wp6.e(threadData, 2, this.b.mPageId, this.b.p, this.b.t());

@@ -89,8 +89,8 @@ public class ks5 {
                 EmotionStrategy.getInstance().setEmptyImageRes(R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, 125.0f, 125.0f);
                 EmotionStrategy.getInstance().setErrorImageRes(R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, 125.0f, 125.0f);
                 EmotionStrategy.getInstance().setNetworkImageRes(R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, 125.0f, 125.0f);
-                EmotionStrategy.getInstance().setPlaceHolderRes(R.drawable.obfuscated_res_0x7f080cd8, R.drawable.obfuscated_res_0x7f080cd9, R.drawable.obfuscated_res_0x7f080cd7, R.drawable.obfuscated_res_0x7f080cd8);
-                LiveFeedPageSdk.getInstance().initNetWork(new aj7());
+                EmotionStrategy.getInstance().setPlaceHolderRes(R.drawable.obfuscated_res_0x7f080cd9, R.drawable.obfuscated_res_0x7f080cda, R.drawable.obfuscated_res_0x7f080cd8, R.drawable.obfuscated_res_0x7f080cd9);
+                LiveFeedPageSdk.getInstance().initNetWork(new zi7());
                 LiveFeedPageSdk.getInstance().initHostInfo("tieba", b(TbadkCoreApplication.getInst().getSkinType()));
                 LiveFeedPageSdk.getInstance().initInvoke(new ls5());
                 LiveFeedPageSdk.getInstance().setInit();

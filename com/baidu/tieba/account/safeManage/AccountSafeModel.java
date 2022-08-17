@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.ne8;
+import com.repackage.me8;
 import tbclient.SimpleUser;
 /* loaded from: classes3.dex */
 public class AccountSafeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public ne8 b;
+    public me8 b;
     public String c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -42,10 +42,10 @@ public class AccountSafeModel extends BdBaseModel {
         this.a = false;
     }
 
-    public ne8 A() {
+    public me8 A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (ne8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (me8) invokeV.objValue;
     }
 
     public String B() {
@@ -58,8 +58,8 @@ public class AccountSafeModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ne8 ne8Var = this.b;
-            if (ne8Var == null || ne8Var.f() == null) {
+            me8 me8Var = this.b;
+            if (me8Var == null || me8Var.f() == null) {
                 return null;
             }
             return this.b.f();
@@ -98,10 +98,10 @@ public class AccountSafeModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void G(ne8 ne8Var) {
+    public void G(me8 me8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ne8Var) == null) {
-            this.b = ne8Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, me8Var) == null) {
+            this.b = me8Var;
             E();
         }
     }

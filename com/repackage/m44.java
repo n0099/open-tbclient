@@ -261,7 +261,7 @@ public class m44 extends f44 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             boolean a2 = gk2.M().a();
             this.n.setVisibility(8);
-            this.m.setImageResource(a2 ? R.drawable.obfuscated_res_0x7f0811c3 : R.drawable.obfuscated_res_0x7f0811c2);
+            this.m.setImageResource(a2 ? R.drawable.obfuscated_res_0x7f0811c4 : R.drawable.obfuscated_res_0x7f0811c3);
             if (a2) {
                 this.l.post(new e(this));
             }

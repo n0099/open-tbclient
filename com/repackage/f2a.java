@@ -1,18 +1,20 @@
 package com.repackage;
 
-import android.content.res.Resources;
-import android.util.TypedValue;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class f2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(float f) {
-        InterceptResult invokeF;
+    public static void a(String str, Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) ? (int) TypedValue.applyDimension(1, f, Resources.getSystem().getDisplayMetrics()) : invokeF.intValue;
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, context) == null) {
+            ((ClipboardManager) context.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText("Label", str));
+        }
     }
 }

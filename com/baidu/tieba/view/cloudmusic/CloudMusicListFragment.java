@@ -120,7 +120,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
                 if (oi.z()) {
                     this.a.c.b(this.a.b.getItem(i), i);
                 } else {
-                    qi.N(this.a.getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0c3c);
+                    qi.M(this.a.getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0c3d);
                 }
             }
         }
@@ -216,7 +216,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
             if (getPageContext() == null && getPageContext().getPageActivity() == null) {
                 return;
             }
-            qi.N(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0500);
+            qi.M(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0500);
         }
     }
 
@@ -312,7 +312,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
             pbListView.a();
             this.e.p(R.color.CAM_X0201);
             this.e.d(TbadkCoreApplication.getInst().getSkinType());
-            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07026c)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c56), null);
+            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07026c)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c57), null);
             this.g = a2;
             a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             CloudMusicData.MusicTagList musicTagList = this.d;
@@ -366,7 +366,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, bdListView) == null) {
             if (!oi.z()) {
-                qi.N(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0c3c);
+                qi.M(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0c3d);
                 return;
             }
             lx8 lx8Var = this.c;

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w97;
+import com.repackage.v97;
 /* loaded from: classes3.dex */
 public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMultiImageTextView> {
     public static /* synthetic */ Interceptable $ic;
@@ -101,8 +101,8 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
             a2.U(this.a, chatMessage, viewGroup);
             this.a.getLayoutMode().l(false);
             this.a.getLayoutMode().k(view2);
-            w97.c().d(chatMessage, this.a.getPageActivity());
-            w97.c().e(chatMessage, this.a.getPageActivity());
+            v97.c().d(chatMessage, this.a.getPageActivity());
+            v97.c().e(chatMessage, this.a.getPageActivity());
             return view2;
         }
         return (View) invokeCommon.objValue;

@@ -281,7 +281,7 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
             this.h = nadMiniVideoDownloadView;
             nadMiniVideoDownloadView.setTextSize(12.0f);
             this.h.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060846));
-            int intrinsicHeight = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080dc8).getIntrinsicHeight();
+            int intrinsicHeight = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080dc9).getIntrinsicHeight();
             ViewGroup.LayoutParams layoutParams2 = this.d.getLayoutParams();
             layoutParams2.width = -2;
             layoutParams2.height = intrinsicHeight;
@@ -413,9 +413,9 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
                     if (TextUtils.isEmpty(ln0Var.e)) {
                         this.g.setText(ln0Var.e);
                     } else {
-                        this.g.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0b78));
+                        this.g.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0b79));
                     }
-                    this.q.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080dbc));
+                    this.q.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080dbd));
                     this.h.setVisibility(8);
                     if (this.i != null) {
                         this.i = null;

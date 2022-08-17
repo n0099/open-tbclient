@@ -533,7 +533,7 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
                 return;
             }
             if (!oi.z()) {
-                qi.L(this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3c));
+                qi.K(this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3d));
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -1095,7 +1095,7 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            WebPManager.setPureDrawable(this.k, R.drawable.obfuscated_res_0x7f080a01, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.k, R.drawable.obfuscated_res_0x7f080a02, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             FragmentAdapter fragmentAdapter = this.m;
             if (fragmentAdapter == null || fragmentAdapter.c() == null) {
                 return;

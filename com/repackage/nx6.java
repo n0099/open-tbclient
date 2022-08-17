@@ -1,31 +1,71 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.NoDataItemViewHolder;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
+import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class nx6 extends bn<xn, NoDataItemViewHolder> {
+public class nx6 extends dx6<tx6, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+
+    /* loaded from: classes6.dex */
+    public static class a extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public HotTopicTabThreadItem a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(HotTopicTabThreadItem hotTopicTabThreadItem) {
+            super(hotTopicTabThreadItem);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hotTopicTabThreadItem};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hotTopicTabThreadItem;
+        }
+
+        public void a(tx6 tx6Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, tx6Var) == null) || tx6Var == null) {
+                return;
+            }
+            this.a.c(tx6Var);
+        }
+
+        public void b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                this.a.f(i);
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nx6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), xn.c);
+    public nx6(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), px6.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,41 +82,38 @@ public class nx6 extends bn<xn, NoDataItemViewHolder> {
                 return;
             }
         }
-        this.a = 3;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.repackage.bn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, xn xnVar, NoDataItemViewHolder noDataItemViewHolder) {
-        t(i, view2, viewGroup, xnVar, noDataItemViewHolder);
-        return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.bn
-    /* renamed from: s */
-    public NoDataItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: x */
+    public a onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0072, viewGroup, false);
-            inflate.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
-            return new NoDataItemViewHolder(inflate);
+            HotTopicTabThreadItem hotTopicTabThreadItem = new HotTopicTabThreadItem(viewGroup.getContext());
+            hotTopicTabThreadItem.setOnItemCoverListener(this.d);
+            hotTopicTabThreadItem.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
+            a aVar = new a(hotTopicTabThreadItem);
+            aVar.b(TbadkCoreApplication.getInst().getSkinType());
+            return aVar;
         }
-        return (NoDataItemViewHolder) invokeL.objValue;
+        return (a) invokeL.objValue;
     }
 
-    public View t(int i, View view2, ViewGroup viewGroup, xn xnVar, NoDataItemViewHolder noDataItemViewHolder) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.dx6, com.repackage.bn
+    /* renamed from: y */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, tx6 tx6Var, a aVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xnVar, noDataItemViewHolder})) == null) {
-            noDataItemViewHolder.a.setText(xnVar.a);
-            if (this.a != TbadkCoreApplication.getInst().getSkinType()) {
-                SkinManager.setImageResource(noDataItemViewHolder.b, xnVar.b);
-                SkinManager.setViewTextColor(noDataItemViewHolder.a, (int) R.color.CAM_X0109);
-                this.a = TbadkCoreApplication.getInst().getSkinType();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tx6Var, aVar})) == null) {
+            if (tx6Var == null || aVar == null) {
+                return null;
             }
-            return view2;
+            aVar.a(tx6Var);
+            aVar.b(TbadkCoreApplication.getInst().getSkinType());
+            return aVar.getView();
         }
         return (View) invokeCommon.objValue;
     }

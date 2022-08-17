@@ -279,7 +279,7 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements ix {
             d2.v(R.color.CAM_X0105);
             ms4.d(this.h).v(R.color.CAM_X0305);
             ms4.d(this.e).v(R.color.CAM_X0311);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f08093a, R.color.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f08093b, R.color.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundResource(this.d, R.drawable.pic_bg_gamelistl);
             this.i.e(i);
         }

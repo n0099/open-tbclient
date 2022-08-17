@@ -83,13 +83,13 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
             this.chooseImgTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091cc1);
             this.cancelTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d1f);
             if (this.isDarkMode) {
-                this.takePhotoTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081067);
+                this.takePhotoTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081068);
                 this.takePhotoTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609bd));
                 view2.findViewById(R.id.obfuscated_res_0x7f091d36).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06093e));
-                this.chooseImgTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081065);
+                this.chooseImgTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081066);
                 this.chooseImgTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609bd));
                 view2.findViewById(R.id.obfuscated_res_0x7f091cc2).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060968));
-                this.cancelTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081065);
+                this.cancelTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081066);
                 this.cancelTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609bd));
             }
             this.takePhotoTv.setOnClickListener(this);

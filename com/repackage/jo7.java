@@ -1,18 +1,55 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import tbclient.RecomTopicList;
+import android.view.View;
 /* loaded from: classes6.dex */
 public interface jo7 {
-    void S(@NonNull RecomTopicList recomTopicList);
+    void a();
 
-    void W0(w47 w47Var);
+    void b(boolean z);
 
-    void f1(int i);
+    void c(int i);
 
-    void p(int i, v47 v47Var);
+    void d(v47 v47Var);
 
-    void q0(int i, w47 w47Var);
+    void destroy();
 
-    void r1(int i, long j, long j2, int i2);
+    void e();
+
+    void f(boolean z);
+
+    void g(long j, long j2);
+
+    View getRootView();
+
+    v47 h();
+
+    void i();
+
+    void j(boolean z, int i);
+
+    void k(int i);
+
+    int l();
+
+    void m();
+
+    void n(v47 v47Var);
+
+    void o(long j, long j2, int i);
+
+    u47 p(int i);
+
+    void pause();
+
+    void q();
+
+    void r();
+
+    void resetView();
+
+    void resume();
+
+    void s(int i);
+
+    void t(u47 u47Var, boolean z, int i);
 }

@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr6;
+import com.repackage.er6;
 import com.repackage.jf6;
 import com.repackage.pi;
 import com.repackage.qi;
@@ -199,13 +199,13 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.q.setVisibility(8);
         }
         if (frsViewData.getForum() != null) {
-            e(fr6.c(frsViewData.getForum()));
+            e(er6.c(frsViewData.getForum()));
         }
         if (frsViewData.getForum() != null && frsViewData.getForum().getMember_num() > 3) {
             TextView textView2 = this.k;
             textView2.setText(frsViewData.getForum().getMember_num() + getResources().getString(R.string.obfuscated_res_0x7f0f02e0));
         } else {
-            this.k.setText(getResources().getString(R.string.obfuscated_res_0x7f0f158d));
+            this.k.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1590));
         }
         ArrayList arrayList = new ArrayList();
         if (frsViewData.userList != null) {
@@ -277,7 +277,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090bcc);
             this.d = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f080f0c);
+            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f080f0d);
             this.d.setRadius(qi.f(this.s.getPageActivity(), R.dimen.tbds30));
             this.d.setConrers(3);
             h();
@@ -302,7 +302,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.h.setDefaultBgResource(R.color.CAM_X0205);
             this.h.setIsRound(true);
             this.h.setTag(null);
-            SkinManager.setBackgroundResource(this.i, R.drawable.obfuscated_res_0x7f08122b);
+            SkinManager.setBackgroundResource(this.i, R.drawable.obfuscated_res_0x7f08122c);
             TextView textView3 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bc8);
             this.k = textView3;
             SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0106);

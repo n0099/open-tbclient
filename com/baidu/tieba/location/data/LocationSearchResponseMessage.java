@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rg7;
+import com.repackage.qg7;
 import com.squareup.wire.Wire;
 import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameResIdl;
 /* loaded from: classes3.dex */
 public class LocationSearchResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rg7 mLocationData;
+    public qg7 mLocationData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocationSearchResponseMessage() {
@@ -48,25 +48,25 @@ public class LocationSearchResponseMessage extends SocketResponsedMessage {
             if (getError() != 0) {
                 return getSuggestionByAddrNameResIdl;
             }
-            rg7 rg7Var = new rg7();
-            this.mLocationData = rg7Var;
-            rg7Var.b(getSuggestionByAddrNameResIdl.data);
+            qg7 qg7Var = new qg7();
+            this.mLocationData = qg7Var;
+            qg7Var.b(getSuggestionByAddrNameResIdl.data);
             BdLog.detailException(null);
             return getSuggestionByAddrNameResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public rg7 getLocationData() {
+    public qg7 getLocationData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLocationData : (rg7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLocationData : (qg7) invokeV.objValue;
     }
 
-    public void setLocationData(rg7 rg7Var) {
+    public void setLocationData(qg7 qg7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rg7Var) == null) {
-            this.mLocationData = rg7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qg7Var) == null) {
+            this.mLocationData = qg7Var;
         }
     }
 }

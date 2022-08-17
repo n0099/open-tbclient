@@ -115,7 +115,7 @@ public class be6 {
             return;
         }
         if (!qi.D()) {
-            this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+            this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
             return;
         }
         c();

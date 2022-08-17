@@ -311,12 +311,12 @@ public class dv3 implements cv3 {
 
         /* renamed from: com.repackage.dv3$e$e  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0465e implements n74 {
+        public class C0467e implements n74 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
 
-            public C0465e(e eVar) {
+            public C0467e(e eVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -378,7 +378,7 @@ public class dv3 implements cv3 {
                 this.b.a.setOnCompletionListener(this.b.e, new b(this));
                 this.b.a.setOnSeekCompleteListener(this.b.e, new c(this));
                 this.b.a.setOnErrorListener(this.b.e, new d(this));
-                this.b.a.setOnPauseListener(this.b.e, new C0465e(this));
+                this.b.a.setOnPauseListener(this.b.e, new C0467e(this));
                 this.b.a.prepare(this.b.e);
             }
         }

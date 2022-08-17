@@ -109,10 +109,10 @@ import com.repackage.gp8;
 import com.repackage.hg0;
 import com.repackage.hn8;
 import com.repackage.hp8;
+import com.repackage.id7;
 import com.repackage.ig0;
 import com.repackage.io8;
 import com.repackage.ip8;
-import com.repackage.jd7;
 import com.repackage.jn8;
 import com.repackage.jo8;
 import com.repackage.jp8;
@@ -151,6 +151,7 @@ import com.repackage.rg;
 import com.repackage.rj4;
 import com.repackage.ro8;
 import com.repackage.rp8;
+import com.repackage.rs6;
 import com.repackage.ru4;
 import com.repackage.s65;
 import com.repackage.sj5;
@@ -160,25 +161,24 @@ import com.repackage.sn4;
 import com.repackage.sn8;
 import com.repackage.so8;
 import com.repackage.sp8;
-import com.repackage.ss6;
 import com.repackage.to8;
 import com.repackage.tp8;
 import com.repackage.tr4;
 import com.repackage.ud5;
+import com.repackage.ud7;
 import com.repackage.uo8;
 import com.repackage.up8;
 import com.repackage.uu4;
 import com.repackage.v95;
-import com.repackage.vd7;
 import com.repackage.vn8;
 import com.repackage.vo8;
+import com.repackage.wi8;
 import com.repackage.wo8;
 import com.repackage.x95;
-import com.repackage.xi8;
 import com.repackage.xo8;
+import com.repackage.xs6;
 import com.repackage.y95;
 import com.repackage.yo8;
-import com.repackage.ys6;
 import com.repackage.z45;
 import com.repackage.z8;
 import com.repackage.zn8;
@@ -201,7 +201,7 @@ public class MainTabActivity extends BaseFragmentActivity implements fn8, VoiceM
     public boolean G;
     @Nullable
     public TiePlusEventController H;
-    public xi8 I;
+    public wi8 I;
     public boolean J;
     public int K;
     public int L;
@@ -941,11 +941,11 @@ public class MainTabActivity extends BaseFragmentActivity implements fn8, VoiceM
             i1();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.UPDATE_PROFILE_INFO_END_STAMP_KEY);
             if (UbsABTestHelper.isPersonalizeFunAdABTest()) {
-                ss6.m().J(this, ss6.g(), ss6.b("personalize", "1"));
+                rs6.m().J(this, rs6.g(), rs6.b("personalize", "1"));
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.TRY_LOAD_NATIVE_FUN_START_STAMP_KEY);
             if (UbsABTestHelper.isFrsFunAdSdkTest() && UbsABTestHelper.isGetFunAdPreLoadABTest() && ud5.r()) {
-                ss6.m().K(this, ys6.e().d("frs_feed"), ss6.b("frs", "1"), "", ud5.f());
+                rs6.m().K(this, xs6.e().d("frs_feed"), rs6.b("frs", "1"), "", ud5.f());
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.TRY_LOAD_NATIVE_FUN_END_STAMP_KEY);
             TbSingleton.getInstance().getChannelConfigModel().d();
@@ -1424,15 +1424,15 @@ public class MainTabActivity extends BaseFragmentActivity implements fn8, VoiceM
                 this.e.A().t();
             }
             if (UbsABTestHelper.isVideoAdDrawABTestA()) {
-                ss6.m().d("6061002332-203360688");
+                rs6.m().d("6061002332-203360688");
             }
             if (UbsABTestHelper.isVideoAdDrawABTestB()) {
-                ss6.m().c(ss6.s());
+                rs6.m().c(rs6.s());
             }
             if (this.H != null) {
                 getLifecycle().removeObserver(this.H);
             }
-            vd7.b().c();
+            ud7.b().c();
             BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask("key_res_del");
             if (searchTask instanceof cm) {
                 searchTask.cancel();
@@ -1450,7 +1450,7 @@ public class MainTabActivity extends BaseFragmentActivity implements fn8, VoiceM
             if (zn8Var4 != null && zn8Var4.g() != null) {
                 this.f.g().b();
             }
-            jd7.m(this).B();
+            id7.m(this).B();
             System.gc();
         }
     }

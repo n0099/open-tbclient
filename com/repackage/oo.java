@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class oo implements sm8 {
+public class oo implements rm8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public fj a;
@@ -99,7 +99,7 @@ public class oo implements sm8 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     oo ooVar = this.a.c;
-                    ooVar.a.onShowErr(4, ooVar.g.getString(R.string.obfuscated_res_0x7f0f1567));
+                    ooVar.a.onShowErr(4, ooVar.g.getString(R.string.obfuscated_res_0x7f0f156a));
                     hj.a = 1;
                 }
             }
@@ -107,13 +107,13 @@ public class oo implements sm8 {
 
         /* renamed from: com.repackage.oo$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0549b implements Runnable {
+        public class RunnableC0551b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ b b;
 
-            public RunnableC0549b(b bVar, String str) {
+            public RunnableC0551b(b bVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -173,7 +173,7 @@ public class oo implements sm8 {
                     if (StringUtils.isNull(str)) {
                         this.c.b.post(new a(this));
                     } else {
-                        this.c.b.post(new RunnableC0549b(this, str));
+                        this.c.b.post(new RunnableC0551b(this, str));
                     }
                 }
             }
@@ -283,7 +283,7 @@ public class oo implements sm8 {
                         this.a.c = null;
                         return;
                     }
-                    fjVar.onShowErr(2, hj.a(R.string.obfuscated_res_0x7f0f156c));
+                    fjVar.onShowErr(2, hj.a(R.string.obfuscated_res_0x7f0f156f));
                     FieldBuilder fieldBuilder2 = new FieldBuilder();
                     fieldBuilder2.append("file", str);
                     fieldBuilder2.append("dur", Integer.valueOf(i));
@@ -328,11 +328,11 @@ public class oo implements sm8 {
                         this.a.c = null;
                         if (this.a.d == dj.b) {
                             oo ooVar3 = this.a;
-                            ooVar3.a.onShowErr(3, ooVar3.g.getString(R.string.obfuscated_res_0x7f0f156d));
+                            ooVar3.a.onShowErr(3, ooVar3.g.getString(R.string.obfuscated_res_0x7f0f1570));
                             return;
                         }
                         oo ooVar4 = this.a;
-                        ooVar4.a.onShowErr(3, ooVar4.g.getString(R.string.obfuscated_res_0x7f0f156e));
+                        ooVar4.a.onShowErr(3, ooVar4.g.getString(R.string.obfuscated_res_0x7f0f1571));
                     }
                 } else {
                     hj.a = 1;
@@ -392,7 +392,7 @@ public class oo implements sm8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? new oo() : (oo) invokeV.objValue;
     }
 
-    @Override // com.repackage.sm8
+    @Override // com.repackage.rm8
     public void a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
@@ -400,7 +400,7 @@ public class oo implements sm8 {
         }
     }
 
-    @Override // com.repackage.sm8
+    @Override // com.repackage.rm8
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -418,7 +418,7 @@ public class oo implements sm8 {
         }
     }
 
-    @Override // com.repackage.sm8
+    @Override // com.repackage.rm8
     public boolean c(fj fjVar, int i) {
         InterceptResult invokeLI;
         TbPageContext<?> tbPageContext;
@@ -431,7 +431,7 @@ public class oo implements sm8 {
             if (!FileHelper.checkSD()) {
                 String sdErrorString = FileHelper.getSdErrorString();
                 if (sdErrorString == null) {
-                    sdErrorString = hj.a(R.string.obfuscated_res_0x7f0f1568);
+                    sdErrorString = hj.a(R.string.obfuscated_res_0x7f0f156b);
                 }
                 this.a.onShowErr(0, sdErrorString);
                 return false;
@@ -462,7 +462,7 @@ public class oo implements sm8 {
         return invokeLI.booleanValue;
     }
 
-    @Override // com.repackage.sm8
+    @Override // com.repackage.rm8
     public void cancelRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -470,7 +470,7 @@ public class oo implements sm8 {
         }
     }
 
-    @Override // com.repackage.sm8
+    @Override // com.repackage.rm8
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -479,7 +479,7 @@ public class oo implements sm8 {
         }
     }
 
-    @Override // com.repackage.sm8
+    @Override // com.repackage.rm8
     public void e(fj fjVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, fjVar) == null) {
@@ -487,7 +487,7 @@ public class oo implements sm8 {
         }
     }
 
-    @Override // com.repackage.sm8
+    @Override // com.repackage.rm8
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -523,7 +523,7 @@ public class oo implements sm8 {
         }
     }
 
-    @Override // com.repackage.sm8
+    @Override // com.repackage.rm8
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -542,7 +542,7 @@ public class oo implements sm8 {
         }
     }
 
-    @Override // com.repackage.sm8
+    @Override // com.repackage.rm8
     public void stopRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {

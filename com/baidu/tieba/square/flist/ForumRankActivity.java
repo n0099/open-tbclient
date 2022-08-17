@@ -34,7 +34,7 @@ import com.repackage.av4;
 import com.repackage.bv4;
 import com.repackage.c9;
 import com.repackage.qi;
-import com.repackage.zh8;
+import com.repackage.yh8;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
@@ -42,7 +42,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public BdListView a;
     public ForumRankModel b;
-    public zh8 c;
+    public yh8 c;
     public NavigationBar d;
     public TbImageView e;
     public LikeModel f;
@@ -155,9 +155,9 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                 if (obj == null || !(obj instanceof ForumRankData)) {
                     this.a.a.setVisibility(8);
                     ForumRankActivity forumRankActivity = this.a;
-                    forumRankActivity.showNetRefreshView(forumRankActivity.findViewById(R.id.obfuscated_res_0x7f091c31), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fac), true);
+                    forumRankActivity.showNetRefreshView(forumRankActivity.findViewById(R.id.obfuscated_res_0x7f091c31), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fad), true);
                     this.a.setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(false);
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                     return;
                 }
                 ForumRankData forumRankData = (ForumRankData) obj;
@@ -194,13 +194,13 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                 }
                 this.a.a.setVisibility(8);
                 ForumRankActivity forumRankActivity2 = this.a;
-                forumRankActivity2.showNetRefreshView(forumRankActivity2.findViewById(R.id.obfuscated_res_0x7f091c31), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fac), true);
+                forumRankActivity2.showNetRefreshView(forumRankActivity2.findViewById(R.id.obfuscated_res_0x7f091c31), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fad), true);
                 this.a.setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(false);
                 NewErrorData newErrorData = forumRankData.error;
                 if (newErrorData != null) {
                     this.a.showToast(newErrorData.usermsg);
                 } else {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                 }
             }
         }
@@ -284,9 +284,9 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             }
             this.k = true;
             this.b.setLoadDataCallBack(this.l);
-            zh8 zh8Var = new zh8(getPageContext(), 0);
-            this.c = zh8Var;
-            zh8Var.e(100);
+            yh8 yh8Var = new yh8(getPageContext(), 0);
+            this.c = yh8Var;
+            yh8Var.e(100);
             this.c.h(Boolean.TRUE);
             this.c.g(ForumDetailActivityConfig.FromType.BAR_RANK);
             this.a.setAdapter((ListAdapter) this.c);

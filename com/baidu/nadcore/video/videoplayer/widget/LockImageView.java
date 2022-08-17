@@ -93,7 +93,7 @@ public class LockImageView extends ImageView {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.a = new b21(c(getResources(), R.drawable.obfuscated_res_0x7f080e0d), c(getResources(), R.drawable.obfuscated_res_0x7f080e0c));
+            this.a = new b21(c(getResources(), R.drawable.obfuscated_res_0x7f080e0e), c(getResources(), R.drawable.obfuscated_res_0x7f080e0d));
         }
     }
 

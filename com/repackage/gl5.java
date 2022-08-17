@@ -178,7 +178,7 @@ public class gl5 implements xj5 {
                 return;
             }
             if (this.a.j.size() == 2 && !selectForumData.isInterestForumSelected) {
-                qi.O(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f0098));
+                qi.N(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f0098));
                 return;
             }
             boolean z = !selectForumData.isInterestForumSelected;

@@ -161,7 +161,7 @@ public final class m extends e implements com.kwad.components.ad.splashscreen.f 
             int i2 = 0;
             boolean z2 = bVar != null;
             boolean z3 = i == 1;
-            com.kwad.components.core.c.a.a.a(new a.C0352a(this.yF.mRootContainer.getContext()).L(this.yF.mAdTemplate).b(this.yF.mApkDownloadHelper).aj(z3).ae(i).a(bVar).al(z2).a(new a.b(this) { // from class: com.kwad.components.ad.splashscreen.b.m.6
+            com.kwad.components.core.c.a.a.a(new a.C0354a(this.yF.mRootContainer.getContext()).L(this.yF.mAdTemplate).b(this.yF.mApkDownloadHelper).aj(z3).ae(i).a(bVar).al(z2).a(new a.b(this) { // from class: com.kwad.components.ad.splashscreen.b.m.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ m zt;

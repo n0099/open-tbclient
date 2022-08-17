@@ -147,7 +147,7 @@ public class EmotionNoLaunchView extends AppCompatImageView implements t25 {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(R.drawable.obfuscated_res_0x7f08099b, R.drawable.obfuscated_res_0x7f080802, R.color.CAM_X0105, R.color.CAM_X0105, i));
+            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(R.drawable.obfuscated_res_0x7f08099c, R.drawable.obfuscated_res_0x7f080803, R.color.CAM_X0105, R.color.CAM_X0105, i));
         }
     }
 

@@ -22,12 +22,12 @@ public class b25 {
 
         /* renamed from: com.repackage.b25$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0449a implements c25 {
+        public class C0447a implements c25 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ gd0 a;
 
-            public C0449a(a aVar, gd0 gd0Var) {
+            public C0447a(a aVar, gd0 gd0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -122,7 +122,7 @@ public class b25 {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setPath(str2 + "/" + str3);
                 downloadData.setUrl(str);
-                downloadData.setCallback(new C0449a(this, gd0Var));
+                downloadData.setCallback(new C0447a(this, gd0Var));
                 d25.k().l(downloadData);
             }
         }

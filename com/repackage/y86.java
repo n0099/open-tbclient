@@ -278,12 +278,12 @@ public class y86 extends d95<dp4, r66> {
             }
             r(dp4Var);
             SkinManager.setBackgroundColor(this.r, R.color.CAM_X0205);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f080909, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f08090a, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
         }
     }
 
-    @Override // com.repackage.zj8
+    @Override // com.repackage.yj8
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -401,7 +401,7 @@ public class y86 extends d95<dp4, r66> {
                 TiebaStatic.log(statisticItem2);
             }
         }
-        SkinManager.setBackgroundResource(this.n, R.drawable.obfuscated_res_0x7f080899);
+        SkinManager.setBackgroundResource(this.n, R.drawable.obfuscated_res_0x7f08089b);
         SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
         this.s.setVisibility(8);

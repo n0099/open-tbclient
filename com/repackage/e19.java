@@ -304,7 +304,7 @@ public class e19 {
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.o.getBackImageView(), R.drawable.obfuscated_res_0x7f080612, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         this.o.onChangeSkinType(this.i, i);
         SkinManager.setNavbarTitleColor(this.g, R.color.CAM_X0302, R.color.s_navbar_title_color);
-        this.f.setRemoveRes(R.drawable.obfuscated_res_0x7f080a7d);
+        this.f.setRemoveRes(R.drawable.obfuscated_res_0x7f080a7e);
         this.c.n();
         this.d.l();
         Iterator<FragmentTabIndicator> it = this.p.iterator();
@@ -382,7 +382,7 @@ public class e19 {
             Resources resources = this.i.getResources() == null ? TbadkCoreApplication.getInst().getResources() : this.i.getResources();
             NavigationBar navigationBar = (NavigationBar) this.k.findViewById(R.id.obfuscated_res_0x7f092650);
             this.o = navigationBar;
-            navigationBar.setCenterTextTitle(resources.getString(R.string.obfuscated_res_0x7f0f0e77));
+            navigationBar.setCenterTextTitle(resources.getString(R.string.obfuscated_res_0x7f0f0e78));
             this.o.showBottomLine();
             this.g = this.o.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, resources.getString(R.string.obfuscated_res_0x7f0f04f8));
             this.o.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
@@ -431,7 +431,7 @@ public class e19 {
             if (this.b == null) {
                 ur4 ur4Var = new ur4(this.i.getPageActivity());
                 this.b = ur4Var;
-                ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0d0a);
+                ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0d0b);
                 this.b.setPositiveButton(R.string.obfuscated_res_0x7f0f0265, new d(this));
                 this.b.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new e(this));
                 this.b.create(this.i);

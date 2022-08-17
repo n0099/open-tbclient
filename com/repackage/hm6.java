@@ -62,13 +62,13 @@ public class hm6 extends tt4 {
             return;
         }
         if (!oi.z()) {
-            UtilHelper.showToast(getContext(), (int) R.string.obfuscated_res_0x7f0f0c3c);
+            UtilHelper.showToast(getContext(), (int) R.string.obfuscated_res_0x7f0f0c3d);
             return;
         }
         if (StringUtils.isNull(optString2)) {
             g(optString);
         } else {
-            oc8.n().E(optString, optString2, optString, 0, oc8.o(optString).intValue(), null, true, false, true, optString3, null, null);
+            nc8.n().E(optString, optString2, optString, 0, nc8.o(optString).intValue(), null, true, false, true, optString3, null, null);
         }
         TiebaStatic.log(new StatisticItem("c12775").param("fid", StringUtils.isNull(this.d) ? "" : this.d));
     }

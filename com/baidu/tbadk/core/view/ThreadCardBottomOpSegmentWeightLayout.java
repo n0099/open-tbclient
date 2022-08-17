@@ -103,9 +103,9 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            boolean D = this.e.D();
+            boolean E = this.e.E();
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.e.getLayoutParams();
-            return (layoutParams.weight == (D ? 1.0f : 2.0f) && layoutParams.width == 0) ? false : true;
+            return (layoutParams.weight == (E ? 1.0f : 2.0f) && layoutParams.width == 0) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -123,7 +123,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             super.r(view2);
             this.e.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
-            this.e.H(true);
+            this.e.I(true);
         }
     }
 

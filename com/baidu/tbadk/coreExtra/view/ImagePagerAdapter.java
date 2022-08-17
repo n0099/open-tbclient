@@ -22,9 +22,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.db8;
+import com.repackage.cb8;
 import com.repackage.og;
-import com.repackage.us6;
+import com.repackage.ts6;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -173,7 +173,7 @@ public class ImagePagerAdapter extends PagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
             String str = i < this.c.size() ? this.c.get(i) : null;
-            if (StringUtils.isNull(str) || db8.j(str) || us6.d(str)) {
+            if (StringUtils.isNull(str) || cb8.j(str) || ts6.d(str)) {
                 return null;
             }
             UrlDragImageView urlDragImageView = new UrlDragImageView(this.a);

@@ -407,7 +407,7 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
                 this.h.p();
                 this.h.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }
-            this.h.m(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f11d6));
+            this.h.m(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f11d8));
             this.h.onChangeSkinType();
             if (this.l) {
                 return;
@@ -423,7 +423,7 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
             this.e.setNextPage(this.f);
             this.f.t(qi.f(getContext(), R.dimen.tbds182));
             this.f.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.f.C(getResources().getString(R.string.obfuscated_res_0x7f0f0a15));
+            this.f.C(getResources().getString(R.string.obfuscated_res_0x7f0f0a16));
             this.f.f();
         }
     }

@@ -14,7 +14,7 @@ public class xc6 implements on {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ck8 a;
+    public bk8 a;
     public String b;
     public String c;
 
@@ -60,10 +60,10 @@ public class xc6 implements on {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public ck8 c() {
+    public bk8 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (ck8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (bk8) invokeV.objValue;
     }
 
     public void f(String str) {
@@ -87,10 +87,10 @@ public class xc6 implements on {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
     }
 
-    public void h(ck8 ck8Var) {
+    public void h(bk8 bk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ck8Var) == null) {
-            this.a = ck8Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bk8Var) == null) {
+            this.a = bk8Var;
         }
     }
 }

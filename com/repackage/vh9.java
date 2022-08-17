@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 /* loaded from: classes7.dex */
-public class vh9 extends ih9<TTNativeExpressAd> {
+public class vh9 extends kh9<TTNativeExpressAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,7 +32,7 @@ public class vh9 extends ih9<TTNativeExpressAd> {
         }
     }
 
-    @Override // com.repackage.ih9
+    @Override // com.repackage.kh9
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -7,7 +7,6 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -18,6 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 /* loaded from: classes3.dex */
 public class FlowLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
@@ -69,8 +69,8 @@ public class FlowLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, view2) == null) && this.d) {
             Paint a = a(-256);
-            Paint a2 = a(-16711936);
-            Paint a3 = a(SupportMenu.CATEGORY_MASK);
+            Paint a2 = a(DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK);
+            Paint a3 = a(-65536);
             LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
             if (layoutParams.c > 0) {
                 float right = view2.getRight();
@@ -189,7 +189,7 @@ public class FlowLayout extends ViewGroup {
     public final void h(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040201, R.attr.obfuscated_res_0x7f040326, R.attr.obfuscated_res_0x7f040374, R.attr.obfuscated_res_0x7f040433, R.attr.obfuscated_res_0x7f04050f, R.attr.obfuscated_res_0x7f04075f});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040202, R.attr.obfuscated_res_0x7f040327, R.attr.obfuscated_res_0x7f040375, R.attr.obfuscated_res_0x7f040434, R.attr.obfuscated_res_0x7f040510, R.attr.obfuscated_res_0x7f04075f});
             try {
                 this.a = obtainStyledAttributes.getDimensionPixelSize(1, 0);
                 this.b = obtainStyledAttributes.getDimensionPixelSize(5, 0);
@@ -383,7 +383,7 @@ public class FlowLayout extends ViewGroup {
         public final void g(Context context, AttributeSet attributeSet) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040416, R.attr.obfuscated_res_0x7f04041a, R.attr.obfuscated_res_0x7f04041e});
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040417, R.attr.obfuscated_res_0x7f04041b, R.attr.obfuscated_res_0x7f04041f});
                 try {
                     this.c = obtainStyledAttributes.getDimensionPixelSize(0, f);
                     this.d = obtainStyledAttributes.getDimensionPixelSize(2, f);

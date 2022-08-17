@@ -1,5 +1,6 @@
 package com.facebook.imageformat;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,10 +42,29 @@ public class ImageFormatCheckerUtils {
         return (byte[]) invokeL.objValue;
     }
 
+    public static boolean hasPatternAt(byte[] bArr, byte[] bArr2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bArr, bArr2, i)) == null) {
+            Preconditions.checkNotNull(bArr);
+            Preconditions.checkNotNull(bArr2);
+            if (bArr2.length + i > bArr.length) {
+                return false;
+            }
+            for (int i2 = 0; i2 < bArr2.length; i2++) {
+                if (bArr[i + i2] != bArr2[i2]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeLLI.booleanValue;
+    }
+
     public static int indexOfPattern(byte[] bArr, int i, byte[] bArr2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{bArr, Integer.valueOf(i), bArr2, Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{bArr, Integer.valueOf(i), bArr2, Integer.valueOf(i2)})) == null) {
             Preconditions.checkNotNull(bArr);
             Preconditions.checkNotNull(bArr2);
             if (i2 > i) {
@@ -82,19 +102,6 @@ public class ImageFormatCheckerUtils {
     public static boolean startsWithPattern(byte[] bArr, byte[] bArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
-            Preconditions.checkNotNull(bArr);
-            Preconditions.checkNotNull(bArr2);
-            if (bArr2.length > bArr.length) {
-                return false;
-            }
-            for (int i = 0; i < bArr2.length; i++) {
-                if (bArr[i] != bArr2[i]) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, bArr2)) == null) ? hasPatternAt(bArr, bArr2, 0) : invokeLL.booleanValue;
     }
 }

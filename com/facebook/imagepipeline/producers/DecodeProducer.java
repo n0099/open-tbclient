@@ -1,6 +1,7 @@
 package com.facebook.imagepipeline.producers;
 
 import android.graphics.Bitmap;
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,6 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.ImmutableMap;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.Supplier;
 import com.facebook.common.logging.FLog;
 import com.facebook.common.memory.ByteArrayPool;
 import com.facebook.common.references.CloseableReference;
@@ -23,15 +25,18 @@ import com.facebook.imagepipeline.decoder.DecodeException;
 import com.facebook.imagepipeline.decoder.ImageDecoder;
 import com.facebook.imagepipeline.decoder.ProgressiveJpegConfig;
 import com.facebook.imagepipeline.decoder.ProgressiveJpegParser;
+import com.facebook.imagepipeline.image.CloseableBitmap;
 import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.image.CloseableStaticBitmap;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.image.ImmutableQualityInfo;
 import com.facebook.imagepipeline.image.QualityInfo;
 import com.facebook.imagepipeline.producers.JobScheduler;
+import com.facebook.imagepipeline.producers.ProducerContext;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import com.facebook.imagepipeline.transcoder.DownsampleUtil;
+import com.facebook.imageutils.BitmapUtil;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executor;
@@ -41,10 +46,12 @@ import javax.annotation.concurrent.GuardedBy;
 public class DecodeProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCODED_IMAGE_SIZE = "encodedImageSize";
+    public static final String EXTRA_BITMAP_BYTES = "byteCount";
     public static final String EXTRA_BITMAP_SIZE = "bitmapSize";
     public static final String EXTRA_HAS_GOOD_QUALITY = "hasGoodQuality";
     public static final String EXTRA_IMAGE_FORMAT_NAME = "imageFormat";
     public static final String EXTRA_IS_FINAL = "isFinal";
+    public static final int MAX_BITMAP_SIZE = 104857600;
     public static final String PRODUCER_NAME = "DecodeProducer";
     public static final String REQUESTED_IMAGE_SIZE = "requestedImageSize";
     public static final String SAMPLE_SIZE = "sampleSize";
@@ -59,6 +66,9 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
     public final Producer<EncodedImage> mInputProducer;
     public final int mMaxBitmapSize;
     public final ProgressiveJpegConfig mProgressiveJpegConfig;
+    @Nullable
+    public final Runnable mReclaimMemoryRunnable;
+    public final Supplier<Boolean> mRecoverFromDecoderOOM;
 
     /* loaded from: classes4.dex */
     public class LocalImagesProgressiveDecoder extends ProgressiveDecoder {
@@ -204,7 +214,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         public boolean mIsFinished;
         public final JobScheduler mJobScheduler;
         public final ProducerContext mProducerContext;
-        public final ProducerListener mProducerListener;
+        public final ProducerListener2 mProducerListener;
         public final /* synthetic */ DecodeProducer this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -228,7 +238,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
             this.this$0 = decodeProducer;
             this.TAG = "ProgressiveDecoder";
             this.mProducerContext = producerContext;
-            this.mProducerListener = producerContext.getListener();
+            this.mProducerListener = producerContext.getProducerListener();
             this.mImageDecodeOptions = producerContext.getImageRequest().getImageDecodeOptions();
             this.mIsFinished = false;
             this.mJobScheduler = new JobScheduler(decodeProducer.mExecutor, new JobScheduler.JobRunnable(this, decodeProducer, producerContext, i) { // from class: com.facebook.imagepipeline.producers.DecodeProducer.ProgressiveDecoder.1
@@ -266,11 +276,15 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
                     if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, encodedImage, i4) == null) || encodedImage == null) {
                         return;
                     }
+                    this.this$1.mProducerContext.setExtra("image_format", encodedImage.getImageFormat().getName());
                     if (this.this$1.this$0.mDownsampleEnabled || !BaseConsumer.statusHasFlag(i4, 16)) {
                         ImageRequest imageRequest = this.val$producerContext.getImageRequest();
                         if (this.this$1.this$0.mDownsampleEnabledForNetwork || !UriUtil.isNetworkUri(imageRequest.getSourceUri())) {
                             encodedImage.setSampleSize(DownsampleUtil.determineSampleSize(imageRequest.getRotationOptions(), imageRequest.getResizeOptions(), encodedImage, this.val$maxBitmapSize));
                         }
+                    }
+                    if (this.val$producerContext.getImagePipelineConfig().getExperiments().shouldDownsampleIfLargeBitmap()) {
+                        this.this$1.maybeIncreaseSampleSize(encodedImage);
                     }
                     this.this$1.doDecode(encodedImage, i4);
                 }
@@ -321,14 +335,14 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* JADX WARN: Can't wrap try/catch for region: R(8:24|25|(9:(13:29|(11:33|34|35|36|38|39|(1:41)|42|43|44|45)|59|34|35|36|38|39|(0)|42|43|44|45)|(11:33|34|35|36|38|39|(0)|42|43|44|45)|38|39|(0)|42|43|44|45)|60|59|34|35|36) */
-        /* JADX WARN: Code restructure failed: missing block: B:50:0x0105, code lost:
+        /* JADX WARN: Can't wrap try/catch for region: R(8:24|25|(9:(13:29|(11:33|34|35|36|38|39|(1:41)|42|43|44|45)|60|34|35|36|38|39|(0)|42|43|44|45)|(11:33|34|35|36|38|39|(0)|42|43|44|45)|38|39|(0)|42|43|44|45)|61|60|34|35|36) */
+        /* JADX WARN: Code restructure failed: missing block: B:50:0x00f8, code lost:
             r0 = e;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:51:0x0106, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:51:0x00f9, code lost:
             r2 = null;
          */
-        /* JADX WARN: Removed duplicated region for block: B:43:0x00e4  */
+        /* JADX WARN: Removed duplicated region for block: B:43:0x00d8  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -338,9 +352,9 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
             int size;
             QualityInfo qualityInfo;
             QualityInfo qualityInfo2;
-            CloseableImage decode;
+            CloseableImage internalDecode;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLI(65541, this, encodedImage, i) != null) {
+            if (interceptable != null && interceptable.invokeLI(65542, this, encodedImage, i) != null) {
                 return;
             }
             int i2 = i;
@@ -369,51 +383,55 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
                             if (!z && !statusHasFlag) {
                                 qualityInfo = getQualityInfo();
                                 qualityInfo2 = qualityInfo;
-                                this.mProducerListener.onProducerStart(this.mProducerContext.getId(), DecodeProducer.PRODUCER_NAME);
-                                decode = this.this$0.mImageDecoder.decode(encodedImage, size, qualityInfo2, this.mImageDecodeOptions);
+                                this.mProducerListener.onProducerStart(this.mProducerContext, DecodeProducer.PRODUCER_NAME);
+                                internalDecode = internalDecode(encodedImage, size, qualityInfo2);
                                 if (encodedImage.getSampleSize() != 1) {
                                     i2 |= 16;
                                 }
-                                this.mProducerListener.onProducerFinishWithSuccess(this.mProducerContext.getId(), DecodeProducer.PRODUCER_NAME, getExtraMap(decode, queuedTime, qualityInfo2, isLast, name, str2, str, valueOf));
-                                handleResult(decode, i2);
+                                this.mProducerListener.onProducerFinishWithSuccess(this.mProducerContext, DecodeProducer.PRODUCER_NAME, getExtraMap(internalDecode, queuedTime, qualityInfo2, isLast, name, str2, str, valueOf));
+                                setImageExtras(encodedImage, internalDecode);
+                                handleResult(internalDecode, i2);
                                 return;
                             }
                             qualityInfo = ImmutableQualityInfo.FULL_QUALITY;
                             qualityInfo2 = qualityInfo;
-                            this.mProducerListener.onProducerStart(this.mProducerContext.getId(), DecodeProducer.PRODUCER_NAME);
-                            decode = this.this$0.mImageDecoder.decode(encodedImage, size, qualityInfo2, this.mImageDecodeOptions);
+                            this.mProducerListener.onProducerStart(this.mProducerContext, DecodeProducer.PRODUCER_NAME);
+                            internalDecode = internalDecode(encodedImage, size, qualityInfo2);
                             if (encodedImage.getSampleSize() != 1) {
                             }
-                            this.mProducerListener.onProducerFinishWithSuccess(this.mProducerContext.getId(), DecodeProducer.PRODUCER_NAME, getExtraMap(decode, queuedTime, qualityInfo2, isLast, name, str2, str, valueOf));
-                            handleResult(decode, i2);
+                            this.mProducerListener.onProducerFinishWithSuccess(this.mProducerContext, DecodeProducer.PRODUCER_NAME, getExtraMap(internalDecode, queuedTime, qualityInfo2, isLast, name, str2, str, valueOf));
+                            setImageExtras(encodedImage, internalDecode);
+                            handleResult(internalDecode, i2);
                             return;
                         }
                         if (!z) {
                             qualityInfo = getQualityInfo();
                             qualityInfo2 = qualityInfo;
-                            this.mProducerListener.onProducerStart(this.mProducerContext.getId(), DecodeProducer.PRODUCER_NAME);
-                            decode = this.this$0.mImageDecoder.decode(encodedImage, size, qualityInfo2, this.mImageDecodeOptions);
+                            this.mProducerListener.onProducerStart(this.mProducerContext, DecodeProducer.PRODUCER_NAME);
+                            internalDecode = internalDecode(encodedImage, size, qualityInfo2);
                             if (encodedImage.getSampleSize() != 1) {
                             }
-                            this.mProducerListener.onProducerFinishWithSuccess(this.mProducerContext.getId(), DecodeProducer.PRODUCER_NAME, getExtraMap(decode, queuedTime, qualityInfo2, isLast, name, str2, str, valueOf));
-                            handleResult(decode, i2);
+                            this.mProducerListener.onProducerFinishWithSuccess(this.mProducerContext, DecodeProducer.PRODUCER_NAME, getExtraMap(internalDecode, queuedTime, qualityInfo2, isLast, name, str2, str, valueOf));
+                            setImageExtras(encodedImage, internalDecode);
+                            handleResult(internalDecode, i2);
                             return;
                         }
                         if (encodedImage.getSampleSize() != 1) {
                         }
-                        this.mProducerListener.onProducerFinishWithSuccess(this.mProducerContext.getId(), DecodeProducer.PRODUCER_NAME, getExtraMap(decode, queuedTime, qualityInfo2, isLast, name, str2, str, valueOf));
-                        handleResult(decode, i2);
+                        this.mProducerListener.onProducerFinishWithSuccess(this.mProducerContext, DecodeProducer.PRODUCER_NAME, getExtraMap(internalDecode, queuedTime, qualityInfo2, isLast, name, str2, str, valueOf));
+                        setImageExtras(encodedImage, internalDecode);
+                        handleResult(internalDecode, i2);
                         return;
                     } catch (Exception e) {
                         e = e;
-                        CloseableImage closeableImage = decode;
+                        CloseableImage closeableImage = internalDecode;
                         Map<String, String> extraMap = getExtraMap(closeableImage, queuedTime, qualityInfo2, isLast, name, str2, str, valueOf);
-                        this.mProducerListener.onProducerFinishWithFailure(this.mProducerContext.getId(), DecodeProducer.PRODUCER_NAME, e, extraMap);
+                        this.mProducerListener.onProducerFinishWithFailure(this.mProducerContext, DecodeProducer.PRODUCER_NAME, e, extraMap);
                         this.mProducerListener.onDecoderFinishWithFailure(this.mProducerContext.getImageRequest(), encodedImage, e, extraMap);
                         handleError(e);
                         return;
                     }
-                    decode = this.this$0.mImageDecoder.decode(encodedImage, size, qualityInfo2, this.mImageDecodeOptions);
+                    internalDecode = internalDecode(encodedImage, size, qualityInfo2);
                 } catch (DecodeException e2) {
                     EncodedImage encodedImage2 = e2.getEncodedImage();
                     FLog.w("ProgressiveDecoder", "%s, {uri: %s, firstEncodedBytes: %s, length: %d}", e2.getMessage(), valueOf2, encodedImage2.getFirstBytesAsHexString(10), Integer.valueOf(encodedImage2.getSize()));
@@ -422,7 +440,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
                 size = encodedImage.getSize();
                 qualityInfo = ImmutableQualityInfo.FULL_QUALITY;
                 qualityInfo2 = qualityInfo;
-                this.mProducerListener.onProducerStart(this.mProducerContext.getId(), DecodeProducer.PRODUCER_NAME);
+                this.mProducerListener.onProducerStart(this.mProducerContext, DecodeProducer.PRODUCER_NAME);
             } finally {
                 EncodedImage.closeSafely(encodedImage);
             }
@@ -432,8 +450,8 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         private Map<String, String> getExtraMap(@Nullable CloseableImage closeableImage, long j, QualityInfo qualityInfo, boolean z, String str, String str2, String str3, String str4) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, this, new Object[]{closeableImage, Long.valueOf(j), qualityInfo, Boolean.valueOf(z), str, str2, str3, str4})) == null) {
-                if (this.mProducerListener.requiresExtraMap(this.mProducerContext.getId())) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{closeableImage, Long.valueOf(j), qualityInfo, Boolean.valueOf(z), str, str2, str3, str4})) == null) {
+                if (this.mProducerListener.requiresExtraMap(this.mProducerContext, DecodeProducer.PRODUCER_NAME)) {
                     String valueOf = String.valueOf(j);
                     String valueOf2 = String.valueOf(qualityInfo.isOfGoodEnoughQuality());
                     String valueOf3 = String.valueOf(z);
@@ -448,6 +466,9 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
                         hashMap.put("imageFormat", str);
                         hashMap.put("requestedImageSize", str3);
                         hashMap.put("sampleSize", str4);
+                        if (Build.VERSION.SDK_INT >= 12) {
+                            hashMap.put("byteCount", underlyingBitmap.getByteCount() + "");
+                        }
                         return ImmutableMap.copyOf((Map) hashMap);
                     }
                     HashMap hashMap2 = new HashMap(7);
@@ -468,7 +489,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         /* JADX INFO: Access modifiers changed from: private */
         public void handleCancellation() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            if (interceptable == null || interceptable.invokeV(65544, this) == null) {
                 maybeFinish(true);
                 getConsumer().onCancellation();
             }
@@ -476,7 +497,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
 
         private void handleError(Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65544, this, th) == null) {
+            if (interceptable == null || interceptable.invokeL(65545, this, th) == null) {
                 maybeFinish(true);
                 getConsumer().onFailure(th);
             }
@@ -484,7 +505,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
 
         private void handleResult(CloseableImage closeableImage, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(65545, this, closeableImage, i) == null) {
+            if (interceptable == null || interceptable.invokeLI(65546, this, closeableImage, i) == null) {
                 CloseableReference<CloseableImage> create = this.this$0.mCloseableReferenceFactory.create(closeableImage);
                 try {
                     maybeFinish(BaseConsumer.isLast(i));
@@ -495,11 +516,30 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
             }
         }
 
+        private CloseableImage internalDecode(EncodedImage encodedImage, int i, QualityInfo qualityInfo) {
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65547, this, encodedImage, i, qualityInfo)) == null) {
+                boolean z = this.this$0.mReclaimMemoryRunnable != null && ((Boolean) this.this$0.mRecoverFromDecoderOOM.get()).booleanValue();
+                try {
+                    return this.this$0.mImageDecoder.decode(encodedImage, i, qualityInfo, this.mImageDecodeOptions);
+                } catch (OutOfMemoryError e) {
+                    if (z) {
+                        this.this$0.mReclaimMemoryRunnable.run();
+                        System.gc();
+                        return this.this$0.mImageDecoder.decode(encodedImage, i, qualityInfo, this.mImageDecodeOptions);
+                    }
+                    throw e;
+                }
+            }
+            return (CloseableImage) invokeLIL.objValue;
+        }
+
         private synchronized boolean isFinished() {
             InterceptResult invokeV;
             boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
                 synchronized (this) {
                     z = this.mIsFinished;
                 }
@@ -510,7 +550,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
 
         private void maybeFinish(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(65547, this, z) == null) {
+            if (interceptable == null || interceptable.invokeZ(65549, this, z) == null) {
                 synchronized (this) {
                     if (z) {
                         if (!this.mIsFinished) {
@@ -519,6 +559,30 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
                             this.mJobScheduler.clearJob();
                         }
                     }
+                }
+            }
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void maybeIncreaseSampleSize(EncodedImage encodedImage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(65550, this, encodedImage) == null) && encodedImage.getImageFormat() == DefaultImageFormats.JPEG) {
+                encodedImage.setSampleSize(DownsampleUtil.determineSampleSizeJPEG(encodedImage, BitmapUtil.getPixelSizeForBitmapConfig(this.mImageDecodeOptions.bitmapConfig), 104857600));
+            }
+        }
+
+        private void setImageExtras(EncodedImage encodedImage, CloseableImage closeableImage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65551, this, encodedImage, closeableImage) == null) {
+                this.mProducerContext.setExtra(ProducerContext.ExtraKeys.ENCODED_WIDTH, Integer.valueOf(encodedImage.getWidth()));
+                this.mProducerContext.setExtra(ProducerContext.ExtraKeys.ENCODED_HEIGHT, Integer.valueOf(encodedImage.getHeight()));
+                this.mProducerContext.setExtra(ProducerContext.ExtraKeys.ENCODED_SIZE, Integer.valueOf(encodedImage.getSize()));
+                if (closeableImage instanceof CloseableBitmap) {
+                    Bitmap underlyingBitmap = ((CloseableBitmap) closeableImage).getUnderlyingBitmap();
+                    this.mProducerContext.setExtra("bitmap_config", String.valueOf(underlyingBitmap == null ? null : underlyingBitmap.getConfig()));
+                }
+                if (closeableImage != null) {
+                    closeableImage.setImageExtras(this.mProducerContext.getExtras());
                 }
             }
         }
@@ -561,6 +625,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
         public void onNewResultImpl(EncodedImage encodedImage, int i) {
+            boolean isTracing;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048580, this, encodedImage, i) == null) {
                 try {
@@ -568,20 +633,35 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
                         FrescoSystrace.beginSection("DecodeProducer#onNewResultImpl");
                     }
                     boolean isLast = BaseConsumer.isLast(i);
-                    if (isLast && !EncodedImage.isValid(encodedImage)) {
-                        handleError(new ExceptionWithNoStacktrace("Encoded image is not valid."));
-                    } else if (!updateDecodeJob(encodedImage, i)) {
+                    if (isLast) {
+                        if (encodedImage == null) {
+                            handleError(new ExceptionWithNoStacktrace("Encoded image is null."));
+                            if (isTracing) {
+                                return;
+                            }
+                            return;
+                        } else if (!encodedImage.isValid()) {
+                            handleError(new ExceptionWithNoStacktrace("Encoded image is not valid."));
+                            if (FrescoSystrace.isTracing()) {
+                                FrescoSystrace.endSection();
+                                return;
+                            }
+                            return;
+                        }
+                    }
+                    if (!updateDecodeJob(encodedImage, i)) {
                         if (FrescoSystrace.isTracing()) {
                             FrescoSystrace.endSection();
+                            return;
                         }
-                    } else {
-                        boolean statusHasFlag = BaseConsumer.statusHasFlag(i, 4);
-                        if (isLast || statusHasFlag || this.mProducerContext.isIntermediateResultExpected()) {
-                            this.mJobScheduler.scheduleJob();
-                        }
-                        if (FrescoSystrace.isTracing()) {
-                            FrescoSystrace.endSection();
-                        }
+                        return;
+                    }
+                    boolean statusHasFlag = BaseConsumer.statusHasFlag(i, 4);
+                    if (isLast || statusHasFlag || this.mProducerContext.isIntermediateResultExpected()) {
+                        this.mJobScheduler.scheduleJob();
+                    }
+                    if (FrescoSystrace.isTracing()) {
+                        FrescoSystrace.endSection();
                     }
                 } finally {
                     if (FrescoSystrace.isTracing()) {
@@ -592,12 +672,12 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         }
     }
 
-    public DecodeProducer(ByteArrayPool byteArrayPool, Executor executor, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, Producer<EncodedImage> producer, int i, CloseableReferenceFactory closeableReferenceFactory) {
+    public DecodeProducer(ByteArrayPool byteArrayPool, Executor executor, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, Producer<EncodedImage> producer, int i, CloseableReferenceFactory closeableReferenceFactory, @Nullable Runnable runnable, Supplier<Boolean> supplier) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {byteArrayPool, executor, imageDecoder, progressiveJpegConfig, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), producer, Integer.valueOf(i), closeableReferenceFactory};
+            newInitContext.initArgs = r3;
+            Object[] objArr = {byteArrayPool, executor, imageDecoder, progressiveJpegConfig, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), producer, Integer.valueOf(i), closeableReferenceFactory, runnable, supplier};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -617,6 +697,8 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         this.mDecodeCancellationEnabled = z3;
         this.mMaxBitmapSize = i;
         this.mCloseableReferenceFactory = closeableReferenceFactory;
+        this.mReclaimMemoryRunnable = runnable;
+        this.mRecoverFromDecoderOOM = supplier;
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer

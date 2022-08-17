@@ -11,5 +11,7 @@ public interface CacheKey {
 
     int hashCode();
 
+    boolean isResourceIdForDebugging();
+
     String toString();
 }

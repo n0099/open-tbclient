@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.dynamic.IFragmentWrapper;
-import com.repackage.ym9;
+import com.repackage.an9;
 /* loaded from: classes5.dex */
 public final class SupportFragmentWrapper extends IFragmentWrapper.Stub {
     public static /* synthetic */ Interceptable $ic;
@@ -135,7 +135,7 @@ public final class SupportFragmentWrapper extends IFragmentWrapper.Stub {
         if (interceptable == null || interceptable.invokeL(1048586, this, iObjectWrapper) == null) {
             View view2 = (View) ObjectWrapper.unwrap(iObjectWrapper);
             Fragment fragment = this.zza;
-            ym9.d(view2);
+            an9.d(view2);
             fragment.registerForContextMenu(view2);
         }
     }
@@ -194,7 +194,7 @@ public final class SupportFragmentWrapper extends IFragmentWrapper.Stub {
         if (interceptable == null || interceptable.invokeL(1048593, this, iObjectWrapper) == null) {
             View view2 = (View) ObjectWrapper.unwrap(iObjectWrapper);
             Fragment fragment = this.zza;
-            ym9.d(view2);
+            an9.d(view2);
             fragment.unregisterForContextMenu(view2);
         }
     }

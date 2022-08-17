@@ -173,14 +173,14 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                         xn4.c(this.a.f1(), BasePersonInfoActivity.t[this.a.c]);
                         SkinManager.setNavbarIconSrc(this.a.l, BasePersonInfoActivity.r[this.a.c], BasePersonInfoActivity.q[this.a.c]);
                         BasePersonInfoActivity basePersonInfoActivity = this.a;
-                        basePersonInfoActivity.showToastWithIcon(basePersonInfoActivity.getPageContext().getString(BasePersonInfoActivity.s[this.a.c]), R.drawable.obfuscated_res_0x7f080aab);
+                        basePersonInfoActivity.showToastWithIcon(basePersonInfoActivity.getPageContext().getString(BasePersonInfoActivity.s[this.a.c]), R.drawable.obfuscated_res_0x7f080aac);
                         return;
                     }
                     this.a.showToast(httpResponsedMessage.getErrorString());
                     return;
                 }
                 BasePersonInfoActivity basePersonInfoActivity2 = this.a;
-                basePersonInfoActivity2.showToast(basePersonInfoActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c3c));
+                basePersonInfoActivity2.showToast(basePersonInfoActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c3d));
             }
         }
     }
@@ -199,8 +199,8 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             }
         }
         q = new int[]{R.drawable.icon_pop_key_all_bg, R.drawable.icon_pop_key_f_bg, R.drawable.icon_pop_key_d_bg};
-        r = new int[]{R.drawable.obfuscated_res_0x7f0808e1, R.drawable.obfuscated_res_0x7f0808e5, R.drawable.obfuscated_res_0x7f0808e3};
-        s = new int[]{R.string.obfuscated_res_0x7f0f08ec, R.string.obfuscated_res_0x7f0f08ed, R.string.obfuscated_res_0x7f0f08ee};
+        r = new int[]{R.drawable.obfuscated_res_0x7f0808e2, R.drawable.obfuscated_res_0x7f0808e6, R.drawable.obfuscated_res_0x7f0808e4};
+        s = new int[]{R.string.obfuscated_res_0x7f0f08ed, R.string.obfuscated_res_0x7f0f08ee, R.string.obfuscated_res_0x7f0f08ef};
         t = new int[]{1, 2, 3};
     }
 
@@ -329,9 +329,9 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             if (!this.i) {
                 navigationBar.setCenterTextTitle(String.format(a1(), this.e));
             } else if (this.m == 23011) {
-                navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f09f0));
+                navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f09f1));
             } else {
-                navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f112b));
+                navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f112c));
             }
             this.k.showBottomLine();
             this.k.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
@@ -430,7 +430,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             }
             this.d = str;
             if (str.equals(TbadkCoreApplication.getCurrentAccount())) {
-                this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f0aa9);
+                this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f0aaa);
                 this.g = true;
             } else {
                 this.g = false;
@@ -438,9 +438,9 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                 if (i == 1) {
                     this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f083d);
                 } else if (i != 2) {
-                    this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f1342);
+                    this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f1344);
                 } else {
-                    this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f1170);
+                    this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f1172);
                 }
             }
             if (pi.isEmpty(this.d)) {

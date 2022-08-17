@@ -138,7 +138,7 @@ public class Fresco {
 
     public static void initializeDrawee(Context context, @Nullable DraweeConfig draweeConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, context, draweeConfig) == null) {
+        if (interceptable == null || interceptable.invokeLL(65546, null, context, draweeConfig) == null) {
             if (FrescoSystrace.isTracing()) {
                 FrescoSystrace.beginSection("Fresco.initializeDrawee");
             }
@@ -154,12 +154,12 @@ public class Fresco {
     public static PipelineDraweeControllerBuilder newDraweeControllerBuilder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? (PipelineDraweeControllerBuilder) mFactory.get2().get() : (PipelineDraweeControllerBuilder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? (PipelineDraweeControllerBuilder) mFactory.get2().get() : (PipelineDraweeControllerBuilder) invokeV.objValue;
     }
 
     public static void shutDown() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
             mFactory = null;
             SimpleDraweeView.shutDown();
             ImagePipelineFactory.shutDown();
@@ -176,6 +176,13 @@ public class Fresco {
     public static void initialize(Context context, @Nullable ImagePipelineConfig imagePipelineConfig, @Nullable DraweeConfig draweeConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65544, null, context, imagePipelineConfig, draweeConfig) == null) {
+            initialize(context, imagePipelineConfig, draweeConfig, true);
+        }
+    }
+
+    public static void initialize(Context context, @Nullable ImagePipelineConfig imagePipelineConfig, @Nullable DraweeConfig draweeConfig, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, imagePipelineConfig, draweeConfig, Boolean.valueOf(z)}) == null) {
             if (FrescoSystrace.isTracing()) {
                 FrescoSystrace.beginSection("Fresco#initialize");
             }

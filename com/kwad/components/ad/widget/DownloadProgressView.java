@@ -247,7 +247,7 @@ public class DownloadProgressView extends FrameLayout {
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040392, R.attr.obfuscated_res_0x7f04039f, R.attr.obfuscated_res_0x7f0403a0, R.attr.obfuscated_res_0x7f0403a1, R.attr.obfuscated_res_0x7f0403a2, R.attr.obfuscated_res_0x7f0403a3, R.attr.obfuscated_res_0x7f0403b2});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040393, R.attr.obfuscated_res_0x7f0403a0, R.attr.obfuscated_res_0x7f0403a1, R.attr.obfuscated_res_0x7f0403a2, R.attr.obfuscated_res_0x7f0403a3, R.attr.obfuscated_res_0x7f0403a4, R.attr.obfuscated_res_0x7f0403b3});
             this.Cm = obtainStyledAttributes.getColor(3, -117146);
             this.Cn = obtainStyledAttributes.getColor(1, -1);
             this.Co = obtainStyledAttributes.getColor(2, -117146);
@@ -255,12 +255,12 @@ public class DownloadProgressView extends FrameLayout {
             Drawable drawable = obtainStyledAttributes.getDrawable(6);
             this.Cq = drawable;
             if (drawable == null) {
-                this.Cq = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bf1);
+                this.Cq = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bf2);
             }
             Drawable drawable2 = obtainStyledAttributes.getDrawable(0);
             this.Cr = drawable2;
             if (drawable2 == null) {
-                this.Cr = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bf0);
+                this.Cr = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bf1);
             }
             String string = obtainStyledAttributes.getString(5);
             this.Cs = string;

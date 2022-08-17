@@ -32,7 +32,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ac8;
 import com.repackage.fi;
 import com.repackage.fm5;
 import com.repackage.im5;
@@ -42,6 +41,7 @@ import com.repackage.rf5;
 import com.repackage.rg;
 import com.repackage.rj5;
 import com.repackage.sn4;
+import com.repackage.zb8;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -211,7 +211,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!oi.z()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                     return;
                 }
                 this.a.a.f();
@@ -344,7 +344,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
     public boolean C1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? ac8.l(str, getApplicationContext()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? zb8.l(str, getApplicationContext()) : invokeL.booleanValue;
     }
 
     @JavascriptInterface
@@ -381,7 +381,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, str, str2, str3, str4)) == null) {
             ShareItem shareItem = new ShareItem();
             if (StringUtils.isNull(this.d, true)) {
-                shareItem.u = getResources().getString(R.string.obfuscated_res_0x7f0f1134);
+                shareItem.u = getResources().getString(R.string.obfuscated_res_0x7f0f1135);
             } else {
                 shareItem.u = this.d;
             }
@@ -516,7 +516,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         this.a.v(z);
         setUseStyleImmersiveSticky(intent.getBooleanExtra(WebViewActivityConfig.TAG_NEED_STYLE_IMMERSIVE_STICKY, true));
         if (TextUtils.isEmpty(this.b)) {
-            qi.O(getPageContext().getPageActivity(), getResources().getString(R.string.obfuscated_res_0x7f0f14d2));
+            qi.N(getPageContext().getPageActivity(), getResources().getString(R.string.obfuscated_res_0x7f0f14d4));
             return;
         }
         if (this.b.contains("useImmersive=0") && "Meizu".equalsIgnoreCase(Build.BRAND)) {
@@ -694,7 +694,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             } else if (id == R.id.obfuscated_res_0x7f0925f8) {
                 this.a.c();
                 fi.a(this.b);
-                qi.O(view2.getContext(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0450));
+                qi.N(view2.getContext(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0450));
             }
         }
     }

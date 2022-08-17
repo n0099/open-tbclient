@@ -360,7 +360,8 @@ public class EncodedImage implements Closeable {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            if (this.mImageFormat == DefaultImageFormats.JPEG && this.mInputStreamSupplier == null) {
+            ImageFormat imageFormat = this.mImageFormat;
+            if ((imageFormat == DefaultImageFormats.JPEG || imageFormat == DefaultImageFormats.DNG) && this.mInputStreamSupplier == null) {
                 Preconditions.checkNotNull(this.mPooledByteBufferRef);
                 PooledByteBuffer pooledByteBuffer = this.mPooledByteBufferRef.get();
                 return pooledByteBuffer.read(i + (-2)) == -1 && pooledByteBuffer.read(i - 1) == -39;
@@ -406,7 +407,7 @@ public class EncodedImage implements Closeable {
                 int orientation2 = HeifExifUtil.getOrientation(getInputStream());
                 this.mExifOrientation = orientation2;
                 this.mRotationAngle = JfifUtil.getAutoRotateAngleFromOrientation(orientation2);
-            } else {
+            } else if (this.mRotationAngle == -1) {
                 this.mRotationAngle = 0;
             }
         }

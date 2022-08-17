@@ -97,11 +97,11 @@ public class cx4 implements lg<ax4> {
             byte[] downloadCommonBytes = webClient.downloadCommonBytes(str4);
             if (!webClient.IsRequestSuccess()) {
                 ax4Var.c = 3;
-                ax4Var.d = hj.a(R.string.obfuscated_res_0x7f0f0c3c);
+                ax4Var.d = hj.a(R.string.obfuscated_res_0x7f0f0c3d);
                 return ax4Var;
             } else if (downloadCommonBytes == null || downloadCommonBytes.length == 0) {
                 ax4Var.c = 4;
-                ax4Var.d = hj.a(R.string.obfuscated_res_0x7f0f155a);
+                ax4Var.d = hj.a(R.string.obfuscated_res_0x7f0f155d);
                 return ax4Var;
             } else {
                 if (str == null) {

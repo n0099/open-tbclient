@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.hw8;
-import com.repackage.ob8;
+import com.repackage.nb8;
 import com.repackage.oj5;
 /* loaded from: classes4.dex */
 public class AdVideoFlowFragment extends BaseFragment implements oj5.b, hw8 {
@@ -34,7 +34,7 @@ public class AdVideoFlowFragment extends BaseFragment implements oj5.b, hw8 {
     public transient /* synthetic */ FieldHolder $fh;
     public GestureInterceptTouchFrameLayout a;
     public FrameLayout b;
-    public ob8 c;
+    public nb8 c;
     public VideoItemModel d;
     public int e;
     public int f;
@@ -145,12 +145,12 @@ public class AdVideoFlowFragment extends BaseFragment implements oj5.b, hw8 {
 
     @Override // com.repackage.oj5.b
     public void k0(float f, float f2) {
-        ob8 ob8Var;
+        nb8 nb8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || (ob8Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || (nb8Var = this.c) == null) {
             return;
         }
-        ob8Var.onViewDoubleClick();
+        nb8Var.onViewDoubleClick();
     }
 
     @Override // com.repackage.hw8
@@ -190,7 +190,7 @@ public class AdVideoFlowFragment extends BaseFragment implements oj5.b, hw8 {
                 this.d = (VideoItemModel) arguments.get("video_data");
                 this.f = arguments.getInt(VideoPlayActivityConfig.CURRENT_TYPE);
             }
-            this.c.setDrawables(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080a23, WebPManager.ResourceStateType.NORMAL), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a01, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08082c, WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08082a, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080831, SkinManager.getColor(R.color.CAM_X0104), WebPManager.ResourceStateType.NORMAL_DISABLE), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080832, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.c.setDrawables(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080a24, WebPManager.ResourceStateType.NORMAL), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a02, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08082e, WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08082c, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080833, SkinManager.getColor(R.color.CAM_X0104), WebPManager.ResourceStateType.NORMAL_DISABLE), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080834, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
             this.c.updateTiebaData(this.f, this.d);
             GestureInterceptTouchFrameLayout gestureInterceptTouchFrameLayout = (GestureInterceptTouchFrameLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0071, (ViewGroup) null);
             this.a = gestureInterceptTouchFrameLayout;
@@ -210,11 +210,11 @@ public class AdVideoFlowFragment extends BaseFragment implements oj5.b, hw8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            ob8 ob8Var = this.c;
-            if (ob8Var == null) {
+            nb8 nb8Var = this.c;
+            if (nb8Var == null) {
                 return;
             }
-            ob8Var.onDestroy();
+            nb8Var.onDestroy();
         }
     }
 
@@ -235,11 +235,11 @@ public class AdVideoFlowFragment extends BaseFragment implements oj5.b, hw8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onPause();
-            ob8 ob8Var = this.c;
-            if (ob8Var == null) {
+            nb8 nb8Var = this.c;
+            if (nb8Var == null) {
                 return;
             }
-            ob8Var.onPause();
+            nb8Var.onPause();
         }
     }
 
@@ -248,32 +248,32 @@ public class AdVideoFlowFragment extends BaseFragment implements oj5.b, hw8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onPrimary();
-            ob8 ob8Var = this.c;
-            if (ob8Var == null) {
+            nb8 nb8Var = this.c;
+            if (nb8Var == null) {
                 return;
             }
-            ob8Var.onPrimary(isPrimary());
+            nb8Var.onPrimary(isPrimary());
         }
     }
 
     @Override // com.repackage.oj5.b
     public void onViewClick() {
-        ob8 ob8Var;
+        nb8 nb8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (ob8Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (nb8Var = this.c) == null) {
             return;
         }
-        ob8Var.onViewClick();
+        nb8Var.onViewClick();
     }
 
     @Override // com.repackage.oj5.b
     public void onViewDragToRight() {
-        ob8 ob8Var;
+        nb8 nb8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (ob8Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (nb8Var = this.c) == null) {
             return;
         }
-        ob8Var.onViewDragToRight();
+        nb8Var.onViewDragToRight();
     }
 
     @Override // com.repackage.hw8
@@ -295,18 +295,18 @@ public class AdVideoFlowFragment extends BaseFragment implements oj5.b, hw8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             super.setUserVisibleHint(z);
-            ob8 ob8Var = this.c;
-            if (ob8Var == null) {
+            nb8 nb8Var = this.c;
+            if (nb8Var == null) {
                 return;
             }
-            ob8Var.onUserVisibleHint(z);
+            nb8Var.onUserVisibleHint(z);
         }
     }
 
-    public void t1(ob8 ob8Var) {
+    public void t1(nb8 nb8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, ob8Var) == null) {
-            this.c = ob8Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, nb8Var) == null) {
+            this.c = nb8Var;
         }
     }
 }

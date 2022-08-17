@@ -239,12 +239,12 @@ public final class b12 {
 
         /* renamed from: com.repackage.b12$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0448b implements sf3<String> {
+        public class C0446b implements sf3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ sf3 a;
 
-            public C0448b(b bVar, sf3 sf3Var) {
+            public C0446b(b bVar, sf3 sf3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -343,7 +343,7 @@ public final class b12 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                StringBuilder sb = new StringBuilder(gk2.c().getText(R.string.obfuscated_res_0x7f0f1306));
+                StringBuilder sb = new StringBuilder(gk2.c().getText(R.string.obfuscated_res_0x7f0f1308));
                 sb.append(str);
                 String e = w02.e();
                 if (!TextUtils.isEmpty(e)) {
@@ -357,7 +357,7 @@ public final class b12 {
         public void e(@NonNull sf3<String> sf3Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sf3Var) == null) {
-                this.e.e(new C0448b(this, sf3Var));
+                this.e.e(new C0446b(this, sf3Var));
             }
         }
 

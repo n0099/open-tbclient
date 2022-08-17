@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zd8;
+import com.repackage.yd8;
 /* loaded from: classes4.dex */
 public class ScreenLockActivityStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -33,7 +33,7 @@ public class ScreenLockActivityStatic {
         }
         TbadkApplication.getInst().RegisterIntent(ScreenLockActivityConfig.class, ScreenLockActivity.class);
         try {
-            zd8.j();
+            yd8.j();
             TbadkCoreApplication.getInst().getApp().startService(new Intent(TbadkCoreApplication.getInst().getApp(), ScreenLockNotifyService.class));
         } catch (Exception e) {
             BdLog.e(e);

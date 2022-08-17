@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cf5;
 import com.repackage.d9;
 import com.repackage.gf5;
-import com.repackage.il8;
+import com.repackage.hl8;
 import com.repackage.k66;
 import com.repackage.pi;
 import com.repackage.ru4;
@@ -61,7 +61,7 @@ public class EnterForumModel extends BdBaseModel {
     public s66 a;
     public RecentlyVisitedForumData b;
     public f c;
-    public il8 d;
+    public hl8 d;
     public long e;
     public long f;
     public long g;
@@ -460,7 +460,7 @@ public class EnterForumModel extends BdBaseModel {
             forumGuideRequestMessage.setSortType(Integer.valueOf(i == 1 ? 1 : 2));
             this.e = System.currentTimeMillis();
             if (this.d == null) {
-                this.d = new il8("forumrecommendStat");
+                this.d = new hl8("forumrecommendStat");
             }
             sendMessage(forumGuideRequestMessage);
             return true;
@@ -469,12 +469,12 @@ public class EnterForumModel extends BdBaseModel {
     }
 
     public final void M() {
-        il8 il8Var;
+        hl8 hl8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (il8Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (hl8Var = this.d) == null) {
             return;
         }
-        il8Var.a();
+        hl8Var.a();
         this.d = null;
     }
 
@@ -531,7 +531,7 @@ public class EnterForumModel extends BdBaseModel {
             int downSize = forumGuideHttpResponseMessage.getDownSize();
             long costTime = forumGuideHttpResponseMessage.getCostTime();
             if (StringUtils.isNull(forumGuideHttpResponseMessage.getErrorString())) {
-                errorString = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0c3c);
+                errorString = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0c3d);
             } else {
                 errorString = forumGuideHttpResponseMessage.getErrorString();
             }
@@ -546,7 +546,7 @@ public class EnterForumModel extends BdBaseModel {
             int downSize = forumGuideSocketResponseMessage.getDownSize();
             long costTime = forumGuideSocketResponseMessage.getCostTime();
             if (StringUtils.isNull(forumGuideSocketResponseMessage.getErrorString())) {
-                errorString = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0c3c);
+                errorString = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0c3d);
             } else {
                 errorString = forumGuideSocketResponseMessage.getErrorString();
             }
@@ -576,9 +576,9 @@ public class EnterForumModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str, Boolean.valueOf(z2), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)}) == null) {
             e eVar = new e(this);
             boolean z3 = !z;
-            il8 il8Var = this.d;
-            if (il8Var != null) {
-                il8Var.b(z2, z3, i, str, i2, j, j2);
+            hl8 hl8Var = this.d;
+            if (hl8Var != null) {
+                hl8Var.b(z2, z3, i, str, i2, j, j2);
                 this.d = null;
             }
             if (!z && this.a.h()) {

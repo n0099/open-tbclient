@@ -1,128 +1,139 @@
 package com.repackage;
 
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.text.TextPaint;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.bumptech.glide.load.engine.GlideException;
 /* loaded from: classes5.dex */
 public class cd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public int h;
-    public String i;
-    public String j;
-    public boolean k;
 
-    public cd8() {
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
+    }
+
+    public static int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (int) ((i * 16.0d) / 9.0d) : invokeI.intValue;
+    }
+
+    public static int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
+    }
+
+    public static oi0 d(@NonNull AdCard adCard) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, adCard)) == null) {
+            if (ei0.a().query(adCard.getDownloadKey()) != null) {
+                return ei0.a().query(adCard.getDownloadKey());
             }
+            oi0 oi0Var = new oi0();
+            oi0Var.h(adCard.getDownloadKey());
+            if (adCard.downloadInfo != null) {
+                if (TextUtils.isEmpty(oi0Var.e())) {
+                    oi0Var.h(adCard.downloadInfo.b);
+                }
+                vc8 vc8Var = adCard.downloadInfo;
+                oi0Var.g = vc8Var.b;
+                oi0Var.d = vc8Var.a;
+            }
+            if (TextUtils.isEmpty(oi0Var.e())) {
+                oi0Var.h(adCard.adId);
+            }
+            si0 si0Var = new si0();
+            si0Var.j = adCard.adId;
+            si0Var.a = adCard.getExtInfo();
+            ho4 ho4Var = adCard.appInfoModel;
+            if (ho4Var != null) {
+                si0Var.g = ho4Var.b;
+                si0Var.h = ho4Var.c;
+            }
+            if (ah0.n(adCard.cmdScheme)) {
+                si0Var.c = adCard.cmdScheme;
+            }
+            oi0Var.p = si0Var;
+            pi0 pi0Var = new pi0();
+            pi0Var.a = adCard.getAdvertAppInfo().j;
+            pi0Var.s = rj5.a().b();
+            pi0Var.r = rj5.a().h();
+            oi0Var.q = pi0Var;
+            return oi0Var;
         }
-        this.k = false;
+        return (oi0) invokeL.objValue;
     }
 
-    public void a(AdvertAppInfo advertAppInfo, @NonNull AdCard adCard) {
+    public static String e(String str, String str2, float f, TextPaint textPaint) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, advertAppInfo, adCard) == null) || advertAppInfo == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "";
+            }
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            if (textPaint == null) {
+                textPaint = new TextPaint();
+            }
+            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText(GlideException.IndentedAppendable.INDENT + str2), TextUtils.TruncateAt.END);
+            if (ellipsize != null) {
+                return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
+            }
+            return str2;
         }
-        int i = advertAppInfo.m;
-        if (i == 3) {
-            this.a = "apk_download";
-            this.f = advertAppInfo.p;
-            this.g = advertAppInfo.o;
-        } else if (i == 1) {
-            this.a = TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT;
-        }
-        this.e = adCard.getButtonText();
-        this.b = adCard.userName;
-        this.c = adCard.userImage;
-        this.d = adCard.scheme;
-        this.i = adCard.threadTitle;
-        this.j = adCard.getButtonCmdScheme();
+        return (String) invokeCommon.objValue;
     }
 
-    public void b(JSONObject jSONObject) {
+    public static Drawable f(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("style");
-        this.b = jSONObject.optString("user_name");
-        this.c = jSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
-        this.d = jSONObject.optString("scheme");
-        this.e = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-        this.h = jSONObject.optInt("close_time");
-        JSONObject optJSONObject = jSONObject.optJSONObject("ext_data");
-        if (optJSONObject != null) {
-            this.f = optJSONObject.optString("pkgname");
-            this.g = optJSONObject.optString("download_url");
-        }
-        jSONObject.optString("content");
-        this.k = true;
-        this.j = jSONObject.optString("button_scheme");
+        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, null, i, i2, i3, i4)) == null) ? ks4.D(ks4.k(ls4.y(), i), i2, i3, i4) : (Drawable) invokeIIII.objValue;
     }
 
-    public void c(String str) {
+    public static int g(float f, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (i != i2 && f > 0.0f) {
+                if (f >= 1.0f) {
+                    return i2;
+                }
+                int red = Color.red(i);
+                int green = Color.green(i);
+                int blue = Color.blue(i);
+                int alpha = Color.alpha(i);
+                return Color.argb((int) (alpha + (f * (Color.alpha(i2) - alpha))), (int) (red + ((Color.red(i2) - red) * f)), (int) (green + ((Color.green(i2) - green) * f)), (int) (blue + ((Color.blue(i2) - blue) * f)));
+            }
+            return i;
         }
-        try {
-            b(new JSONObject(str));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        return invokeCommon.intValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public static int h(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
             try {
-                jSONObject.put("style", this.a);
-                jSONObject.put("user_name", this.b);
-                jSONObject.put(RecommendDetailActivityConfig.USER_PORTRAIT, this.c);
-                jSONObject.put("scheme", this.d);
-                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.e);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("pkgname", this.f);
-                jSONObject2.put("download_url", this.g);
-                jSONObject.put("ext_data", jSONObject2);
-                jSONObject.put("content", this.h);
-                jSONObject.put("button_scheme", this.j);
-            } catch (JSONException e) {
+                return Color.parseColor(str);
+            } catch (Exception e) {
                 e.printStackTrace();
+                return i;
             }
-            return jSONObject.toString();
         }
-        return (String) invokeV.objValue;
+        return invokeLI.intValue;
     }
 }

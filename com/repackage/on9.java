@@ -1,16 +1,20 @@
 package com.repackage;
 
+import android.accounts.Account;
+import android.os.Bundle;
+import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.Feature;
+import com.google.android.gms.common.api.Scope;
+import com.google.android.gms.common.internal.GetServiceRequest;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
-import com.google.android.gms.common.stats.WakeLockEvent;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public final class on9 implements Parcelable.Creator<WakeLockEvent> {
+public final class on9 implements Parcelable.Creator<GetServiceRequest> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,25 +32,46 @@ public final class on9 implements Parcelable.Creator<WakeLockEvent> {
         }
     }
 
+    public static void a(GetServiceRequest getServiceRequest, Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65537, null, getServiceRequest, parcel, i) == null) {
+            int a = cn9.a(parcel);
+            cn9.g(parcel, 1, getServiceRequest.zza);
+            cn9.g(parcel, 2, getServiceRequest.zzb);
+            cn9.g(parcel, 3, getServiceRequest.zzc);
+            cn9.k(parcel, 4, getServiceRequest.zzd, false);
+            cn9.f(parcel, 5, getServiceRequest.zze, false);
+            cn9.m(parcel, 6, getServiceRequest.zzf, i, false);
+            cn9.d(parcel, 7, getServiceRequest.zzg, false);
+            cn9.j(parcel, 8, getServiceRequest.zzh, i, false);
+            cn9.m(parcel, 10, getServiceRequest.zzi, i, false);
+            cn9.m(parcel, 11, getServiceRequest.zzj, i, false);
+            cn9.c(parcel, 12, getServiceRequest.zzk);
+            cn9.g(parcel, 13, getServiceRequest.zzl);
+            cn9.c(parcel, 14, getServiceRequest.zzm);
+            cn9.k(parcel, 15, getServiceRequest.zza(), false);
+            cn9.b(parcel, a);
+        }
+    }
+
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // android.os.Parcelable.Creator
-    public final /* bridge */ /* synthetic */ WakeLockEvent createFromParcel(Parcel parcel) {
+    public final /* bridge */ /* synthetic */ GetServiceRequest createFromParcel(Parcel parcel) {
         int q = SafeParcelReader.q(parcel);
-        long j = 0;
-        long j2 = 0;
-        long j3 = 0;
         String str = null;
-        ArrayList<String> arrayList = null;
+        IBinder iBinder = null;
+        Scope[] scopeArr = null;
+        Bundle bundle = null;
+        Account account = null;
+        Feature[] featureArr = null;
+        Feature[] featureArr2 = null;
         String str2 = null;
-        String str3 = null;
-        String str4 = null;
-        String str5 = null;
         int i = 0;
         int i2 = 0;
         int i3 = 0;
-        int i4 = 0;
-        float f = 0.0f;
         boolean z = false;
+        int i4 = 0;
+        boolean z2 = false;
         while (parcel.dataPosition() < q) {
             int k = SafeParcelReader.k(parcel);
             switch (SafeParcelReader.h(k)) {
@@ -54,62 +79,57 @@ public final class on9 implements Parcelable.Creator<WakeLockEvent> {
                     i = SafeParcelReader.m(parcel, k);
                     break;
                 case 2:
-                    j = SafeParcelReader.n(parcel, k);
+                    i2 = SafeParcelReader.m(parcel, k);
                     break;
                 case 3:
-                case 7:
-                case 9:
-                default:
-                    SafeParcelReader.p(parcel, k);
+                    i3 = SafeParcelReader.m(parcel, k);
                     break;
                 case 4:
                     str = SafeParcelReader.d(parcel, k);
                     break;
                 case 5:
-                    i3 = SafeParcelReader.m(parcel, k);
+                    iBinder = SafeParcelReader.l(parcel, k);
                     break;
                 case 6:
-                    arrayList = SafeParcelReader.e(parcel, k);
+                    scopeArr = (Scope[]) SafeParcelReader.f(parcel, k, Scope.CREATOR);
+                    break;
+                case 7:
+                    bundle = SafeParcelReader.a(parcel, k);
                     break;
                 case 8:
-                    j2 = SafeParcelReader.n(parcel, k);
+                    account = (Account) SafeParcelReader.c(parcel, k, Account.CREATOR);
+                    break;
+                case 9:
+                default:
+                    SafeParcelReader.p(parcel, k);
                     break;
                 case 10:
-                    str3 = SafeParcelReader.d(parcel, k);
+                    featureArr = (Feature[]) SafeParcelReader.f(parcel, k, Feature.CREATOR);
                     break;
                 case 11:
-                    i2 = SafeParcelReader.m(parcel, k);
+                    featureArr2 = (Feature[]) SafeParcelReader.f(parcel, k, Feature.CREATOR);
                     break;
                 case 12:
-                    str2 = SafeParcelReader.d(parcel, k);
+                    z = SafeParcelReader.i(parcel, k);
                     break;
                 case 13:
-                    str4 = SafeParcelReader.d(parcel, k);
-                    break;
-                case 14:
                     i4 = SafeParcelReader.m(parcel, k);
                     break;
+                case 14:
+                    z2 = SafeParcelReader.i(parcel, k);
+                    break;
                 case 15:
-                    f = SafeParcelReader.j(parcel, k);
-                    break;
-                case 16:
-                    j3 = SafeParcelReader.n(parcel, k);
-                    break;
-                case 17:
-                    str5 = SafeParcelReader.d(parcel, k);
-                    break;
-                case 18:
-                    z = SafeParcelReader.i(parcel, k);
+                    str2 = SafeParcelReader.d(parcel, k);
                     break;
             }
         }
         SafeParcelReader.g(parcel, q);
-        return new WakeLockEvent(i, j, i2, str, i3, arrayList, str2, j2, i4, str3, str4, f, j3, str5, z);
+        return new GetServiceRequest(i, i2, i3, str, iBinder, scopeArr, bundle, account, featureArr, featureArr2, z, i4, z2, str2);
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
     @Override // android.os.Parcelable.Creator
-    public final /* synthetic */ WakeLockEvent[] newArray(int i) {
-        return new WakeLockEvent[i];
+    public final /* synthetic */ GetServiceRequest[] newArray(int i) {
+        return new GetServiceRequest[i];
     }
 }

@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunNativeAd2;
-import com.repackage.at6;
 import com.repackage.ms4;
+import com.repackage.zs6;
 /* loaded from: classes3.dex */
 public class FunAdSmallPicView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -107,7 +107,7 @@ public class FunAdSmallPicView extends LinearLayout {
             this.d.setText(funNativeAd2.getNativeInfo().getTitle());
             this.e.setText(funNativeAd2.getNativeInfo().getDescription());
         }
-        at6.F(this.b, funNativeAd2);
+        zs6.F(this.b, funNativeAd2);
         if (!StringHelper.equals(str, this.a.getUrl())) {
             this.a.F();
         }

@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ec7;
+import com.repackage.dc7;
 import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes3.dex */
-public class ReplyMeHttpResponseMessage extends MvcProtobufHttpResponsedMessage<ec7, ReplyMeResIdl> {
+public class ReplyMeHttpResponseMessage extends MvcProtobufHttpResponsedMessage<dc7, ReplyMeResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

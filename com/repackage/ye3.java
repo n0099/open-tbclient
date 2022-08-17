@@ -34,12 +34,12 @@ public class ye3 implements sf3<Exception> {
 
         /* renamed from: com.repackage.ye3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0629a implements Runnable {
+        public class RunnableC0635a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0629a(a aVar) {
+            public RunnableC0635a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public class ye3 implements sf3<Exception> {
                         if (this.a.c != null) {
                             this.a.b.removeCallbacks(this.a.c);
                         }
-                        this.a.c = new RunnableC0629a(this);
+                        this.a.c = new RunnableC0635a(this);
                         long a = dd4.a(300) * 1000;
                         this.a.b.postDelayed(this.a.c, a);
                         if (ye3.e) {

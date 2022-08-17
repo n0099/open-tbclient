@@ -1,36 +1,33 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.AbsListView;
+import android.widget.BaseAdapter;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.R;
+import com.baidu.tieba.pbextra.praise.PraiseListActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class b28 {
+public class b28 extends BaseAdapter implements AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public HeadImageView b;
-    public TextView c;
-    public TextView d;
-    public ImageView e;
+    public PraiseListActivity a;
+    public List<z18> b;
+    public volatile boolean c;
 
-    public b28(Context context) {
+    public b28(PraiseListActivity praiseListActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {praiseListActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,45 +39,90 @@ public class b28 {
         }
         this.a = null;
         this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0922, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09268f);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092691);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092692);
-        ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092690);
-        this.e = imageView;
-        imageView.setVisibility(0);
-        this.a.setTag(this);
+        this.a = praiseListActivity;
     }
 
-    public static b28 b(Context context, View view2) {
-        InterceptResult invokeLL;
+    public final View a(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, view2)) == null) {
-            if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof b28)) {
-                return (b28) view2.getTag();
-            }
-            return new b28(context);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
+            a28 b = a28.b(this.a.getPageContext().getPageActivity(), view2);
+            z18 item = getItem(i);
+            b.c(StringUtils.isNull(item.b()) ? item.d() : item.b(), item.a(), item.e(), this.c);
+            this.a.changSkinType(b.a());
+            return b.a();
         }
-        return (b28) invokeLL.objValue;
+        return (View) invokeILL.objValue;
     }
 
-    public View a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: b */
+    public z18 getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            List<z18> list = this.b;
+            if (list != null) {
+                return list.get(i);
+            }
+            return null;
+        }
+        return (z18) invokeI.objValue;
+    }
+
+    public void c(List<z18> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.b = list;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<z18> list = this.b;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
+        }
+        return invokeV.intValue;
     }
 
-    public void c(String str, String str2, long j, boolean z) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            this.c.setText(str);
-            this.b.setImageDrawable(null);
-            this.d.setText(StringHelper.getFormatTime(j));
-            this.b.K(str2, 28, false);
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) ? a(i, view2, viewGroup) : (View) invokeILL.objValue;
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048583, this, absListView, i, i2, i3) == null) {
+        }
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, absListView, i) == null) {
+            if (i == 0) {
+                this.c = false;
+                notifyDataSetChanged();
+                return;
+            }
+            this.c = true;
         }
     }
 }

@@ -136,7 +136,7 @@ public class up2 extends w23 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements dv9<File> {
+    public class c implements fv9<File> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
@@ -166,7 +166,7 @@ public class up2 extends w23 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.dv9
+        @Override // com.repackage.fv9
         public void call(File file) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
@@ -186,7 +186,7 @@ public class up2 extends w23 {
     }
 
     /* loaded from: classes7.dex */
-    public class d implements hv9<File, File> {
+    public class d implements jv9<File, File> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -212,7 +212,7 @@ public class up2 extends w23 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.hv9
+        @Override // com.repackage.jv9
         public File call(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -426,7 +426,7 @@ public class up2 extends w23 {
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "can not save to album : " + file).toString());
                 return;
             }
-            pu9.f(file).h(new d(this, context)).y(Schedulers.io()).k(zu9.b()).w(new c(this, callbackHandler, str, context));
+            ru9.f(file).h(new d(this, context)).y(Schedulers.io()).k(bv9.b()).w(new c(this, callbackHandler, str, context));
         }
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.dq8;
-import com.repackage.kk8;
+import com.repackage.jk8;
 /* loaded from: classes4.dex */
 public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -108,8 +108,8 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
         }
         this.d = false;
         this.f = new a(this, CmdConfigHttp.CMD_SET_PENDANT, 309412);
-        kk8.h(309412, SetPendantSocketResponse.class, false, false);
-        kk8.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
+        jk8.h(309412, SetPendantSocketResponse.class, false, false);
+        jk8.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
         registerListener(this.f);
     }
 

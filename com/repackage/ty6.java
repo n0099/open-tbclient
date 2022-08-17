@@ -1,56 +1,62 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.FrameLayout;
+import androidx.collection.LongSparseArray;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.homepage.personalize.PersonalizePageView;
-import com.baidu.tieba.homepage.personalize.data.ConcernUnreadTipHttpResMsg;
-import com.baidu.tieba.homepage.personalize.data.ConcernUnreadTipSocketResMsg;
-import com.baidu.tieba.homepage.personalize.view.ConcernUnreadTipView;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
+import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
+import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import tbclient.ThreadInfo;
 /* loaded from: classes7.dex */
 public class ty6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fw6 a;
-    public PersonalizePageView b;
-    public ConcernUnreadTipView c;
-    public TbPageContext d;
+    public final List<on> a;
+    public final c07 b;
+    public LongSparseArray<ThreadInfo> c;
+    public List<ThreadInfo> d;
     public BdUniqueId e;
-    public Runnable f;
-    public ab g;
-    public CustomMessageListener h;
+    public d f;
+    public CustomMessageListener g;
+    public final ab h;
+    public final CustomMessageListener i;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ty6 a;
 
-        public a(ty6 ty6Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ty6 ty6Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ty6Var};
+                Object[] objArr = {ty6Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -59,17 +65,22 @@ public class ty6 {
             this.a = ty6Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.b == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData)) {
+                PostWriteCallBackData postWriteCallBackData = (PostWriteCallBackData) customResponsedMessage.getData();
+                long g = og.g(postWriteCallBackData.getPostId(), 0L);
+                long g2 = og.g(postWriteCallBackData.getThreadId(), 0L);
+                if (g == 0 || g2 == 0) {
+                    return;
+                }
+                rg.a().removeCallbacks(this.a.f);
+                ty6 ty6Var = this.a;
+                ty6Var.f = new d(ty6Var, g2, g);
+                rg.a().postDelayed(this.a.f, 500L);
             }
-            if (this.a.c != null) {
-                this.a.b.removeView(this.a.c);
-                TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 3));
-            }
-            this.a.b.setIsUnreadTipShow(false);
         }
     }
 
@@ -77,7 +88,6 @@ public class ty6 {
     public class b extends ab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ty6 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(ty6 ty6Var, int i, int i2) {
@@ -98,17 +108,16 @@ public class ty6 {
                     return;
                 }
             }
-            this.a = ty6Var;
         }
 
         @Override // com.repackage.ab
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (responsedMessage instanceof ConcernUnreadTipHttpResMsg) {
-                    this.a.e(((ConcernUnreadTipHttpResMsg) responsedMessage).mData);
-                } else if (responsedMessage instanceof ConcernUnreadTipSocketResMsg) {
-                    this.a.e(((ConcernUnreadTipSocketResMsg) responsedMessage).mData);
+                if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
+                    GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
+                } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
+                    GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                 }
             }
         }
@@ -144,25 +153,56 @@ public class ty6 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Long l;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.f(true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
+                String str = (String) customResponsedMessage.getData();
+                if (StringUtils.isNull(str) || ListUtils.isEmpty(this.a.a) || ListUtils.isEmpty(this.a.d)) {
+                    return;
+                }
+                Iterator it = this.a.a.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    on onVar = (on) it.next();
+                    if (onVar instanceof f06) {
+                        f06 f06Var = (f06) onVar;
+                        if (f06Var.getThreadData() != null && f06Var.getThreadData().getTid() != null && f06Var.getThreadData().getTid().equals(str)) {
+                            it.remove();
+                            r07.b(this.a.a);
+                            this.a.b.y(new ArrayList(this.a.a));
+                            break;
+                        }
+                    }
+                }
+                long g = og.g(str, 0L);
+                Iterator it2 = this.a.d.iterator();
+                while (it2.hasNext()) {
+                    ThreadInfo threadInfo = (ThreadInfo) it2.next();
+                    if (threadInfo != null && (l = threadInfo.tid) != null && l.longValue() == g) {
+                        it2.remove();
+                        return;
+                    }
+                }
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class d implements View.OnClickListener {
+    public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ty6 a;
+        public long a;
+        public long b;
+        public final /* synthetic */ ty6 c;
 
-        public d(ty6 ty6Var) {
+        public d(ty6 ty6Var, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ty6Var};
+                Object[] objArr = {ty6Var, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -172,33 +212,33 @@ public class ty6 {
                     return;
                 }
             }
-            this.a = ty6Var;
+            this.c = ty6Var;
+            this.a = j;
+            this.b = j2;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.c == null || this.a.c.a == null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int k = qi.k(TbadkCoreApplication.getInst());
+                int i = qi.i(TbadkCoreApplication.getInst());
+                float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
+                int i2 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
+                RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
+                requestGetMyPostNetMessage.setTag(this.c.e);
+                requestGetMyPostNetMessage.setParams(this.a, this.b, 0L, k, i, f, i2);
+                MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
             }
-            if (view2.getId() != this.a.c.a.getId()) {
-                if (this.a.a != null) {
-                    this.a.a.setCurrentTab(0);
-                    return;
-                }
-                return;
-            }
-            this.a.f(false);
-            TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 1));
         }
     }
 
-    public ty6(TbPageContext tbPageContext) {
+    public ty6(List<on> list, c07 c07Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {list, c07Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -208,103 +248,56 @@ public class ty6 {
                 return;
             }
         }
-        this.f = new a(this);
-        this.g = new b(this, CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, 309541);
-        this.h = new c(this, 2921064);
-        if (tbPageContext == null) {
+        this.c = new LongSparseArray<>();
+        this.g = new a(this, 2921030);
+        this.h = new b(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
+        this.i = new c(this, 2921031);
+        this.a = list;
+        this.b = c07Var;
+    }
+
+    public void g(List<ThreadInfo> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.d = tbPageContext;
-        tbPageContext.registerListener(this.g);
-        tbPageContext.registerListener(this.h);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, kk8.a(TbConfig.URL_CONCERN_UNREAD_TIP, 309541));
-        tbHttpMessageTask.setIsNeedAddCommenParam(true);
-        tbHttpMessageTask.setResponsedClass(ConcernUnreadTipHttpResMsg.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        lb5 lb5Var = new lb5(309541);
-        lb5Var.setResponsedClass(ConcernUnreadTipSocketResMsg.class);
-        lb5Var.g(true);
-        MessageManager.getInstance().registerTask(lb5Var);
-    }
-
-    public final void e(k07 k07Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, k07Var) == null) && k07Var != null && k07Var.a()) {
-            k(k07Var);
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            rg.a().removeCallbacks(this.f);
-            PersonalizePageView personalizePageView = this.b;
-            if (personalizePageView != null) {
-                ConcernUnreadTipView concernUnreadTipView = this.c;
-                if (concernUnreadTipView != null) {
-                    personalizePageView.removeView(concernUnreadTipView);
-                    if (z && this.b.getIsUnreadTipShow()) {
-                        ru4.k().x(ru4.o("concern_unread_tip_next_show_time"), 0L);
-                        TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 2));
-                    }
-                }
-                this.b.setIsUnreadTipShow(false);
+        Iterator<ThreadInfo> it = list.iterator();
+        while (it.hasNext()) {
+            ThreadInfo next = it.next();
+            if (next != null && this.c.get(next.tid.longValue()) != null) {
+                it.remove();
             }
         }
     }
 
-    public void g() {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = null;
-            this.a = null;
-            if (this.f != null) {
-                rg.a().removeCallbacks(this.f);
-            }
-            MessageManager.getInstance().unRegisterListener(this.g);
-            MessageManager.getInstance().unRegisterListener(this.h);
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f == null) {
+            return;
         }
+        rg.a().removeCallbacks(this.f);
     }
 
-    public void h(BdUniqueId bdUniqueId) {
+    public void i(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
             this.e = bdUniqueId;
+            this.g.setTag(bdUniqueId);
+            this.g.setSelfListener(false);
+            this.h.setTag(bdUniqueId);
+            this.h.getHttpMessageListener().setSelfListener(true);
+            this.h.getSocketMessageListener().setSelfListener(true);
+            this.i.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.g);
+            MessageManager.getInstance().registerListener(this.h);
+            MessageManager.getInstance().registerListener(this.i);
         }
     }
 
-    public void i(PersonalizePageView personalizePageView) {
+    public void j(List<ThreadInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, personalizePageView) == null) {
-            this.b = personalizePageView;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.d = list;
         }
-    }
-
-    public void j(fw6 fw6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, fw6Var) == null) {
-            this.a = fw6Var;
-        }
-    }
-
-    public void k(k07 k07Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, k07Var) == null) || this.b == null) {
-            return;
-        }
-        ConcernUnreadTipView concernUnreadTipView = new ConcernUnreadTipView(this.d.getContext());
-        this.c = concernUnreadTipView;
-        concernUnreadTipView.setBdUniqueId(this.e);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-        layoutParams.gravity = 49;
-        this.c.setLayoutParams(layoutParams);
-        this.c.setData(k07Var);
-        this.c.setClickListener(new d(this));
-        this.b.setIsUnreadTipShow(true);
-        this.b.addView(this.c);
-        if (k07Var != null) {
-            TiebaStatic.log(new StatisticItem("c12631").param("obj_param1", k07Var.a).param(TiebaStatic.Params.OBJ_PARAM2, k07Var.e));
-        }
-        rg.a().postDelayed(this.f, 5000L);
     }
 }

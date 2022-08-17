@@ -1,84 +1,75 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class f77 {
+public class f77 implements on {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<g77> a;
-    public List<g77> b;
+    public String a;
+    public String b;
+    public int c;
+    public int d;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755754837, "Lcom/repackage/f77;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755754837, "Lcom/repackage/f77;");
+                return;
+            }
+        }
+        e = BdUniqueId.gen();
+    }
 
     public f77() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @NonNull
-    public List<g77> a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.a)) {
-                arrayList.addAll(this.a);
-            }
-            if (!ListUtils.isEmpty(this.b)) {
-                arrayList.addAll(this.b);
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void b(@Nullable JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.a = c(jSONObject, "tieba_memes");
-        this.b = c(jSONObject, "outer_memes");
+        this.a = jSONObject.optString("pid");
+        this.b = jSONObject.optString("url");
     }
 
-    @Nullable
-    public final List<g77> c(@NonNull JSONObject jSONObject, @NonNull String str) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.on
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str)) == null) {
-            JSONArray optJSONArray = jSONObject.optJSONArray(str);
-            if (optJSONArray == null || optJSONArray.length() <= 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                g77 g77Var = new g77();
-                g77Var.a(optJSONArray.optJSONObject(i));
-                if (g77Var.isValid()) {
-                    arrayList.add(g77Var);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (StringUtils.isNull(this.a) || StringUtils.isNull(this.b)) ? false : true : invokeV.booleanValue;
     }
 }

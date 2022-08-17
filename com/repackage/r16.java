@@ -73,24 +73,24 @@ public class r16 {
 
         /* renamed from: com.repackage.r16$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0566a implements ff {
+        public class C0570a implements ff {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
             /* renamed from: com.repackage.r16$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class View$OnClickListenerC0567a implements View.OnClickListener {
+            public class View$OnClickListenerC0571a implements View.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0566a a;
+                public final /* synthetic */ C0570a a;
 
-                public View$OnClickListenerC0567a(C0566a c0566a) {
+                public View$OnClickListenerC0571a(C0570a c0570a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0566a};
+                        Object[] objArr = {c0570a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -100,7 +100,7 @@ public class r16 {
                             return;
                         }
                     }
-                    this.a = c0566a;
+                    this.a = c0570a;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -125,7 +125,7 @@ public class r16 {
                 }
             }
 
-            public C0566a(a aVar) {
+            public C0570a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -201,7 +201,7 @@ public class r16 {
                     if (this.a.a.t != null) {
                         textView.setOnClickListener(this.a.a.t);
                     } else {
-                        textView.setOnClickListener(new View$OnClickListenerC0567a(this));
+                        textView.setOnClickListener(new View$OnClickListenerC0571a(this));
                     }
                     return inflate;
                 }
@@ -251,7 +251,7 @@ public class r16 {
                     hfVar.c(0);
                     hfVar.j(true);
                     hfVar.i(true);
-                    hfVar.a(new C0566a(this));
+                    hfVar.a(new C0570a(this));
                     this.a.b = hfVar.b();
                     this.a.b.k(false);
                     this.a.b.l(this.a.v);

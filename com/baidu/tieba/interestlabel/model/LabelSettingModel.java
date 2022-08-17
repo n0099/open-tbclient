@@ -20,17 +20,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.d9;
+import com.repackage.od7;
 import com.repackage.oi;
 import com.repackage.pd7;
-import com.repackage.qd7;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class LabelSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public qd7 b;
-    public pd7 c;
+    public pd7 b;
+    public od7 c;
     public ab d;
     public ab e;
 
@@ -141,7 +141,7 @@ public class LabelSettingModel extends BdBaseModel {
         this.d = new a(this, CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467);
         this.e = new b(this, CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468);
         this.a = tbPageContext;
-        this.c = new pd7();
+        this.c = new od7();
         registerListener(this.d);
         registerListener(this.e);
     }
@@ -150,9 +150,9 @@ public class LabelSettingModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!oi.A()) {
-                qd7 qd7Var = this.b;
-                if (qd7Var != null) {
-                    qd7Var.a(LabelRequestEnum.GET_LABEL, null, -1);
+                pd7 pd7Var = this.b;
+                if (pd7Var != null) {
+                    pd7Var.a(LabelRequestEnum.GET_LABEL, null, -1);
                     return;
                 }
                 return;
@@ -169,7 +169,7 @@ public class LabelSettingModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             if (!oi.A()) {
-                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0c3c);
+                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0c3d);
                 return;
             }
             RequestSubLabelMessage requestSubLabelMessage = new RequestSubLabelMessage();
@@ -179,10 +179,10 @@ public class LabelSettingModel extends BdBaseModel {
         }
     }
 
-    public void G(qd7 qd7Var) {
+    public void G(pd7 pd7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qd7Var) == null) {
-            this.b = qd7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pd7Var) == null) {
+            this.b = pd7Var;
         }
     }
 

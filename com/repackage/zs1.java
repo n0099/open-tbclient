@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.charset.StandardCharsets;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class zs1 implements ys1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class zs1 implements ys1 {
     public JSONObject d;
     public boolean e;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a extends zs1 {
         public static /* synthetic */ Interceptable $ic;
         public static final zs1 g;
@@ -155,26 +155,26 @@ public class zs1 implements ys1 {
                                 if (i != 302) {
                                     switch (i) {
                                         case 401:
-                                            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14ac);
+                                            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14ae);
                                         case 402:
-                                            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14a9);
+                                            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14ab);
                                         case 403:
-                                            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14aa);
+                                            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14ac);
                                         default:
-                                            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14b1);
+                                            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14b3);
                                     }
                                 }
-                                return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14ab);
+                                return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14ad);
                             }
-                            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14ad);
+                            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14af);
                         }
-                        return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14b0);
+                        return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14b2);
                     }
-                    return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14b1);
+                    return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14b3);
                 }
-                return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14ae);
+                return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14b0);
             }
-            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14af);
+            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14b1);
         }
         return (String) invokeI.objValue;
     }

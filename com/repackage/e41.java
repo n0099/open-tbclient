@@ -114,11 +114,11 @@ public class e41 extends Dialog {
         Resources resources = context.getResources();
         View view2 = this.b;
         if (view2 != null) {
-            view2.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080db0));
+            view2.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080db1));
         }
         LoadingProgressBar loadingProgressBar = this.c;
         if (loadingProgressBar != null) {
-            loadingProgressBar.setIndeterminateDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f080db3));
+            loadingProgressBar.setIndeterminateDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f080db4));
         }
         TextView textView = this.d;
         if (textView != null) {

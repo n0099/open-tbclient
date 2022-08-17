@@ -25,10 +25,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ac8;
 import com.repackage.ho4;
 import com.repackage.hy0;
 import com.repackage.qi;
+import com.repackage.zb8;
 /* loaded from: classes4.dex */
 public class AdAppInfoView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -73,7 +73,7 @@ public class AdAppInfoView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04040a});
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04040b});
         this.k = obtainStyledAttributes.getResourceId(0, this.k);
         obtainStyledAttributes.recycle();
     }
@@ -370,13 +370,13 @@ public class AdAppInfoView extends FrameLayout {
                             str2 = "app_permission";
                         }
                     } else if (id == R.id.obfuscated_res_0x7f09008d) {
-                        qi.O(this.a.getContext(), this.a.i.d);
+                        qi.N(this.a.getContext(), this.a.i.d);
                         return;
                     }
                     str = "";
                     str2 = str;
                 }
-                ac8.a(this.a.getContext(), str3, null, null, str);
+                zb8.a(this.a.getContext(), str3, null, null, str);
                 this.a.d(str2);
             }
         };

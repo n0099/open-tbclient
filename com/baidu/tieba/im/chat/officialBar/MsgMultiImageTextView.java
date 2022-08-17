@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a67;
-import com.repackage.q87;
+import com.repackage.p87;
+import com.repackage.z57;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class MsgMultiImageTextView extends a67 {
+public class MsgMultiImageTextView extends z57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiContentView E;
@@ -56,7 +56,7 @@ public class MsgMultiImageTextView extends a67 {
             return;
         }
         M(chatMessage);
-        List<q87.a> b = q87.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+        List<p87.a> b = p87.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
         this.E.setPosition(this.f);
         this.E.setOnItemViewLongClickListener(this.c);
         this.E.setNeedNightMode(true);

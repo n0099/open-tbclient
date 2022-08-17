@@ -493,7 +493,7 @@ public class ob6 implements View.OnClickListener, nb6 {
         if (pbListView.b().getParent() == null) {
             this.b.setNextPage(this.f);
         }
-        this.f.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09ea));
+        this.f.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09eb));
         this.f.f();
     }
 

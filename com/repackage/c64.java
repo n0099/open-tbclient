@@ -277,7 +277,7 @@ public class c64 {
             }
             String str = next.d;
             if (TextUtils.isEmpty(str)) {
-                str = ImageRequestBuilder.newBuilderWithResourceId(R.drawable.obfuscated_res_0x7f080f84).build().getSourceUri().toString();
+                str = ImageRequestBuilder.newBuilderWithResourceId(R.drawable.obfuscated_res_0x7f080f85).build().getSourceUri().toString();
             }
             wd3.e(str, new a(next, h64Var, arrayList, context, i64Var, arrayList2, arrayList3, atomicInteger, size));
             it = it;
@@ -288,7 +288,7 @@ public class c64 {
     public static Bitmap f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? BitmapFactory.decodeResource(AppRuntime.getAppContext().getResources(), R.drawable.obfuscated_res_0x7f080f84) : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? BitmapFactory.decodeResource(AppRuntime.getAppContext().getResources(), R.drawable.obfuscated_res_0x7f080f85) : (Bitmap) invokeV.objValue;
     }
 
     @Nullable

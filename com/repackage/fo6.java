@@ -115,7 +115,7 @@ public class fo6 {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdTypeRecyclerView)) == null) {
             if (this.a != null && bdTypeRecyclerView != null) {
                 this.c = new ArrayList();
-                ArrayList<BdUniqueId> g = bk8.g();
+                ArrayList<BdUniqueId> g = ak8.g();
                 if (g != null && g.size() > 0) {
                     int size = g.size();
                     for (int i = 0; i < size; i++) {
@@ -205,8 +205,8 @@ public class fo6 {
             bf6Var.A(bdTypeRecyclerView);
             bn<? extends ir4, ? extends TypeAdapter.ViewHolder> a2 = oe6.e().a(frsNewAreaFragment.getPageContext(), this.a.getUniqueId(), true);
             bn<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d = oe6.e().d(frsNewAreaFragment.getPageContext(), ThreadData.TYPE_LOTTERY, this.a.getUniqueId());
-            bn<?, ?> d2 = zb8.l().d(this.a, AdvertAppInfo.w);
-            bn<?, ?> d3 = zb8.l().d(this.a, AdvertAppInfo.z);
+            bn<?, ?> d2 = yb8.l().d(this.a, AdvertAppInfo.w);
+            bn<?, ?> d3 = yb8.l().d(this.a, AdvertAppInfo.z);
             mj6 mj6Var = new mj6(frsNewAreaFragment.getPageContext(), ThreadData.TYPE_SHARE_THREAD, this.a.getUniqueId());
             mj6Var.A(bdTypeRecyclerView);
             si6 si6Var = new si6(frsNewAreaFragment.getPageContext(), ThreadData.TYPE_ITEM, this.a.getUniqueId());
@@ -240,8 +240,8 @@ public class fo6 {
             }
             this.d.add(d2);
             this.d.add(d3);
-            bn<?, ?> d4 = ts6.e().d(this.a.getBaseFragmentActivity(), AdvertAppInfo.H, "frs_new_tab");
-            bn<?, ?> d5 = ts6.e().d(this.a.getBaseFragmentActivity(), AdvertAppInfo.G, "frs_new_tab");
+            bn<?, ?> d4 = ss6.e().d(this.a.getBaseFragmentActivity(), AdvertAppInfo.H, "frs_new_tab");
+            bn<?, ?> d5 = ss6.e().d(this.a.getBaseFragmentActivity(), AdvertAppInfo.G, "frs_new_tab");
             this.d.add(d4);
             this.d.add(d5);
             AbsDelegateAdapterList absDelegateAdapterList = new AbsDelegateAdapterList();
@@ -300,8 +300,8 @@ public class fo6 {
             for (bn bnVar : this.d) {
                 if (bnVar instanceof ue6) {
                     ((ue6) bnVar).v();
-                } else if (bnVar instanceof qb8) {
-                    ((qb8) bnVar).onDestroy();
+                } else if (bnVar instanceof pb8) {
+                    ((pb8) bnVar).onDestroy();
                 }
             }
         }
@@ -320,7 +320,7 @@ public class fo6 {
         if (interceptable == null || interceptable.invokeLL(1048587, this, arrayList, frsViewData) == null) {
             t(frsViewData);
             s();
-            bk8.f(arrayList, 1);
+            ak8.f(arrayList, 1);
             i(arrayList);
             this.b.setData(arrayList);
             this.f = arrayList;

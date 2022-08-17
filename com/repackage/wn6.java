@@ -267,7 +267,7 @@ public class wn6 {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (frsFragment = this.g) == null) {
             return;
         }
-        frsFragment.E3().b(49);
+        frsFragment.F3().b(49);
     }
 
     public final void m() {
@@ -415,7 +415,7 @@ public class wn6 {
             if (System.currentTimeMillis() - o() < FlushManager.ReportTimer.DEFAULT_INTERVAL) {
                 return;
             }
-            if (this.g.W3() && r()) {
+            if (this.g.X3() && r()) {
                 this.e = false;
                 return;
             }

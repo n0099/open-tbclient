@@ -68,7 +68,7 @@ public class SearchEmotionModel extends BdBaseModel {
                     return;
                 }
                 if (!TextUtils.isEmpty(searchEmotionResponseMessage.getErrorString())) {
-                    qi.O(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
+                    qi.N(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
                 }
                 this.a.a.onFail(searchEmotionResponseMessage.getError(), searchEmotionResponseMessage.getErrorString());
             }

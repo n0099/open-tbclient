@@ -54,11 +54,11 @@ public class kg5 implements gb5 {
     public boolean j;
     public boolean k;
     public String l;
-    public final ol8 m;
-    public final ql8 n;
+    public final nl8 m;
+    public final pl8 n;
 
     /* loaded from: classes6.dex */
-    public class a implements ql8 {
+    public class a implements pl8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ kg5 a;
@@ -81,7 +81,7 @@ public class kg5 implements gb5 {
             this.a = kg5Var;
         }
 
-        @Override // com.repackage.ql8
+        @Override // com.repackage.pl8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -124,7 +124,7 @@ public class kg5 implements gb5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!oi.z()) {
-                    qi.N(this.a.a, R.string.obfuscated_res_0x7f0f0c3c);
+                    qi.M(this.a.a, R.string.obfuscated_res_0x7f0f0c3d);
                 } else {
                     this.a.u();
                 }
@@ -318,9 +318,9 @@ public class kg5 implements gb5 {
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0491, (ViewGroup) linearLayout, true);
         this.d = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f0925eb);
         this.e = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0913eb);
-        ol8 ol8Var = new ol8();
-        this.m = ol8Var;
-        ol8Var.a(new CommonTbJsBridge(context));
+        nl8 nl8Var = new nl8();
+        this.m = nl8Var;
+        nl8Var.a(new CommonTbJsBridge(context));
         this.m.a(new UegTbJsBridge(context));
         jm4.g(context);
         y();
@@ -338,9 +338,9 @@ public class kg5 implements gb5 {
             e.printStackTrace();
         }
         r(MissionEvent.MESSAGE_PAUSE);
-        ol8 ol8Var = this.m;
-        if (ol8Var != null) {
-            ol8Var.i(this.d, CommonTbJsBridge.RE_HIDE, null);
+        nl8 nl8Var = this.m;
+        if (nl8Var != null) {
+            nl8Var.i(this.d, CommonTbJsBridge.RE_HIDE, null);
         }
     }
 
@@ -366,8 +366,8 @@ public class kg5 implements gb5 {
             if (this.f == null) {
                 this.f = new h65(this.a, new b(this));
             }
-            this.f.n(this.a.getString(R.string.obfuscated_res_0x7f0f14d3));
-            this.f.g(this.a.getString(R.string.obfuscated_res_0x7f0f0fb6));
+            this.f.n(this.a.getString(R.string.obfuscated_res_0x7f0f14d5));
+            this.f.g(this.a.getString(R.string.obfuscated_res_0x7f0f0fb7));
             this.f.i(R.drawable.new_pic_emotion_08);
             this.f.attachView(this.e, false);
             this.f.p();
@@ -409,12 +409,12 @@ public class kg5 implements gb5 {
     }
 
     public void onDestroy() {
-        ol8 ol8Var;
+        nl8 nl8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (ol8Var = this.m) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (nl8Var = this.m) == null) {
             return;
         }
-        ol8Var.g();
+        nl8Var.g();
     }
 
     public void onResume() {
@@ -429,9 +429,9 @@ public class kg5 implements gb5 {
             e.printStackTrace();
         }
         r("onResume");
-        ol8 ol8Var = this.m;
-        if (ol8Var != null) {
-            ol8Var.i(this.d, CommonTbJsBridge.RE_SHOW, null);
+        nl8 nl8Var = this.m;
+        if (nl8Var != null) {
+            nl8Var.i(this.d, CommonTbJsBridge.RE_SHOW, null);
             if (CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.WEB && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NONE && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NATIVE_WEB && !this.k) {
                 this.m.i(this.d, CommonTbJsBridge.GO_BACK_FROM_NATIVE, null);
             }

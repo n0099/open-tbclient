@@ -117,7 +117,7 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
         public void a(List<tm0.a> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0b90, 0).show();
+                Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0b91, 0).show();
                 this.a.setVisibility(8);
                 AdFeedBaseView adFeedBaseView = this.a;
                 if (adFeedBaseView.a == null || !(adFeedBaseView.getTag() instanceof AdBaseModel)) {

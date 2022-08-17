@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.id8;
+import com.repackage.hd8;
 import com.repackage.kf;
 import com.repackage.qi;
 import com.repackage.ru4;
@@ -250,9 +250,9 @@ public class MercatorModel {
                     String version = TbConfig.getVersion();
                     String cuid = TbadkCoreApplication.getInst().getCuid();
                     String clientIP = UtilHelper.getClientIP();
-                    id8.e().i(valueOf);
-                    id8.e().j(valueOf2);
-                    id8.e().k(System.currentTimeMillis());
+                    hd8.e().i(valueOf);
+                    hd8.e().j(valueOf2);
+                    hd8.e().k(System.currentTimeMillis());
                     MercatorRequestHttpMessage mercatorRequestHttpMessage = new MercatorRequestHttpMessage(CmdConfigHttp.CMD_GET_MERCATOR);
                     mercatorRequestHttpMessage.addParam("cuid", cuid);
                     mercatorRequestHttpMessage.addParam("cip", clientIP);
@@ -266,7 +266,7 @@ public class MercatorModel {
                     return;
                 }
                 if (TbSingleton.getInstance().isMercatorRequestFromHomePageTabFeedFragment()) {
-                    qi.O(TbadkCoreApplication.getInst().getContext(), str);
+                    qi.N(TbadkCoreApplication.getInst().getContext(), str);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921649, Boolean.valueOf(TbSingleton.getInstance().isMercatorRequestFromHomePageTabFeedFragment())));
             }

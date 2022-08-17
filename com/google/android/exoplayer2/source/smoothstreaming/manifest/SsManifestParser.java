@@ -37,13 +37,13 @@ import java.util.UUID;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final XmlPullParserFactory xmlParserFactory;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static abstract class ElementParser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -295,7 +295,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class MissingFieldException extends ParserException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -321,7 +321,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class ProtectionParser extends ElementParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_SYSTEM_ID = "SystemID";
@@ -403,7 +403,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class QualityLevelParser extends ElementParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_BITRATE = "Bitrate";
@@ -535,7 +535,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class SmoothStreamingMediaParser extends ElementParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_DURATION = "Duration";
@@ -638,7 +638,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class StreamIndexParser extends ElementParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_DISPLAY_HEIGHT = "DisplayHeight";

@@ -22,7 +22,7 @@ public class DividerView extends View {
 
     public DividerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040396, R.attr.obfuscated_res_0x7f040397, R.attr.obfuscated_res_0x7f040398, R.attr.obfuscated_res_0x7f040399, R.attr.obfuscated_res_0x7f0403ad}, 0, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040397, R.attr.obfuscated_res_0x7f040398, R.attr.obfuscated_res_0x7f040399, R.attr.obfuscated_res_0x7f04039a, R.attr.obfuscated_res_0x7f0403ae}, 0, 0);
         try {
             int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(1, 5);
             int dimensionPixelSize2 = obtainStyledAttributes.getDimensionPixelSize(2, 5);

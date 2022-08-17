@@ -100,7 +100,7 @@ public class ur5 {
                 }
                 if (!ListUtils.isEmpty(this.d)) {
                     gt5 gt5Var = new gt5();
-                    gt5Var.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a18, Integer.valueOf(alaLiveTabMyConcernResponse.followCloseNum));
+                    gt5Var.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a19, Integer.valueOf(alaLiveTabMyConcernResponse.followCloseNum));
                     arrayList.add(gt5Var);
                 }
                 if (!ListUtils.isEmpty(this.d)) {
@@ -124,7 +124,7 @@ public class ur5 {
             }
             if (alaLiveTabMyConcernResponse.followStatus != 1) {
                 gt5 gt5Var = new gt5();
-                gt5Var.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a19, Integer.valueOf(alaLiveTabMyConcernResponse.totalFollowCount));
+                gt5Var.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a1a, Integer.valueOf(alaLiveTabMyConcernResponse.totalFollowCount));
                 arrayList.add(gt5Var);
             }
             if (!ListUtils.isEmpty(this.c)) {
@@ -146,7 +146,7 @@ public class ur5 {
             ArrayList arrayList = new ArrayList();
             if (!ListUtils.isEmpty(this.e)) {
                 gt5 gt5Var = new gt5();
-                gt5Var.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a1d);
+                gt5Var.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a1e);
                 arrayList.add(gt5Var);
                 arrayList.addAll(g(this.e));
             }

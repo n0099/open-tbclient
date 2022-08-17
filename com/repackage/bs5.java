@@ -70,7 +70,7 @@ public class bs5 {
                     this.a.g.a(this.a.h);
                     return;
                 }
-                qi.L(this.a.a.getPageActivity(), this.a.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c75));
+                qi.K(this.a.a.getPageActivity(), this.a.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c76));
             }
         }
     }
@@ -131,7 +131,7 @@ public class bs5 {
                     this.d.setText(name_show);
                 }
                 if (iq5Var.d.getThreadAlaInfo() != null) {
-                    this.e.setText(String.format(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a1b), StringHelper.numberUniformFormatExtraWithRound(iq5Var.d.getThreadAlaInfo().audience_count)));
+                    this.e.setText(String.format(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a1c), StringHelper.numberUniformFormatExtraWithRound(iq5Var.d.getThreadAlaInfo().audience_count)));
                 }
                 g(this.a, TbadkCoreApplication.getInst().getSkinType());
                 return;

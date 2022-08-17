@@ -1,25 +1,14 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tv.athena.revenue.payui.model.PayFlowType;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes7.dex */
-public class u0a implements r0a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface u0a {
+    void a(String str, PayFlowType payFlowType);
 
-    public u0a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(PayFlowType payFlowType);
+
+    void c(String str, PayFlowType payFlowType);
+
+    void d(PayFlowType payFlowType, PayDialogType payDialogType);
 }

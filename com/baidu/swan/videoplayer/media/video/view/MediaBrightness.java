@@ -76,7 +76,7 @@ public final class MediaBrightness extends FrameLayout {
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706e1);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
             layoutParams.gravity = 17;
-            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811b2);
+            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811b3);
             this.a.setLayoutParams(layoutParams);
         }
     }

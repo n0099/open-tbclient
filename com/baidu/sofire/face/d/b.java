@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.coremedia.iso.boxes.FileTypeBox;
 import com.coremedia.iso.boxes.MovieBox;
 import com.coremedia.iso.boxes.mdat.MediaDataBox;
 import java.nio.ByteBuffer;
@@ -31,7 +32,7 @@ public class b {
                 return;
             }
         }
-        "ftyp".getBytes();
+        FileTypeBox.TYPE.getBytes();
         MediaDataBox.TYPE.getBytes();
         MovieBox.TYPE.getBytes();
         "free".getBytes();

@@ -303,7 +303,7 @@ public class aw4 {
             return;
         }
         if (this.a.contains(itemData.pkgName)) {
-            qi.O(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f098e));
+            qi.N(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f098f));
             return;
         }
         this.a.add(itemData.pkgName);

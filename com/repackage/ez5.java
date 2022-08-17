@@ -73,7 +73,7 @@ public class ez5 extends bz5<r46> {
                 SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
                 SkinManager.setBackgroundResource(this.r, R.color.CAM_X0204);
                 SkinManager.setViewTextColor(this.m, R.color.CAM_X0101, 1);
-                dm8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+                cm8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
                 if (readThreadHistory != null && readThreadHistory.d(this.s.getThreadData().getId())) {
                     SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0108);
                 } else {
@@ -108,7 +108,7 @@ public class ez5 extends bz5<r46> {
             this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090501);
             this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090500);
             this.r = view2.findViewById(R.id.obfuscated_res_0x7f0904f9);
-            this.k.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080870);
+            this.k.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080873);
             int dimensionPixelSize = this.c.getResources().getDimensionPixelSize(R.dimen.tbds326);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.j.getLayoutParams();
             layoutParams.width = dimensionPixelSize;
@@ -150,7 +150,7 @@ public class ez5 extends bz5<r46> {
         }
         this.k.K(str, 10, false);
         this.n.setText(r46Var.getThreadData().getTitle());
-        dm8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+        cm8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
         if (readThreadHistory != null && readThreadHistory.d(r46Var.getThreadData().getId())) {
             SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0108);
         } else {
@@ -160,7 +160,7 @@ public class ez5 extends bz5<r46> {
         this.q.setText(StringHelper.getFormatTimeShort(r46Var.getThreadData().getAuditTime()));
         if ("news".equals(r46Var.getThreadData().getGameInformationSource())) {
             this.o.setVisibility(8);
-            this.p.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0e6c, StringHelper.numberUniformFormat(r46Var.getThreadData().getView_num())));
+            this.p.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0e6d, StringHelper.numberUniformFormat(r46Var.getThreadData().getView_num())));
             return;
         }
         this.o.setVisibility(0);

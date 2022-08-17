@@ -37,14 +37,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cb8;
+import com.repackage.bb8;
 import com.repackage.cv4;
 import com.repackage.f25;
 import com.repackage.g25;
 import com.repackage.m75;
 import com.repackage.o95;
 import com.repackage.qi;
-import com.repackage.sk8;
+import com.repackage.rk8;
 /* loaded from: classes3.dex */
 public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorListener {
     public static /* synthetic */ Interceptable $ic;
@@ -62,7 +62,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
     public TBLottieAnimationView f;
     public TextView g;
     public AgreeData h;
-    public sk8 i;
+    public rk8 i;
     public ScaleAnimation j;
     public boolean k;
     public boolean l;
@@ -112,10 +112,10 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof sk8)) {
-                sk8 sk8Var = (sk8) customResponsedMessage.getData();
-                AgreeData agreeData = sk8Var.b;
-                if (this.a.h == null || agreeData == null || this.a.i == null || this.a.h.isInPost || this.a.i.a == sk8Var.a) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof rk8)) {
+                rk8 rk8Var = (rk8) customResponsedMessage.getData();
+                AgreeData agreeData = rk8Var.b;
+                if (this.a.h == null || agreeData == null || this.a.i == null || this.a.h.isInPost || this.a.i.a == rk8Var.a) {
                     return;
                 }
                 String str = agreeData.nid;
@@ -167,9 +167,9 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof sk8)) {
-                sk8 sk8Var = (sk8) customResponsedMessage.getData();
-                AgreeData agreeData = sk8Var.b;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof rk8)) {
+                rk8 rk8Var = (rk8) customResponsedMessage.getData();
+                AgreeData agreeData = rk8Var.b;
                 if (this.a.h == null || TextUtils.isEmpty(this.a.h.postId) || agreeData == null || TextUtils.isEmpty(agreeData.postId) || !this.a.h.postId.equals(agreeData.postId) || this.a.h.isInThread) {
                     return;
                 }
@@ -177,7 +177,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                     if (this.a.h.indexOfPic == agreeData.indexOfPic) {
                         return;
                     }
-                } else if (this.a.i.a == sk8Var.a) {
+                } else if (this.a.i.a == rk8Var.a) {
                     return;
                 }
                 this.a.v(agreeData);
@@ -544,9 +544,9 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
             textView2.setText(R.string.obfuscated_res_0x7f0f0773);
             this.g.setTextSize(0, qi.f(context, R.dimen.T_X09));
             this.g.setOnClickListener(this.E);
-            sk8 sk8Var = new sk8();
-            this.i = sk8Var;
-            sk8Var.a = getPageId();
+            rk8 rk8Var = new rk8();
+            this.i = rk8Var;
+            rk8Var.a = getPageId();
             o();
             setAgreeAnimationResource();
             setAgreeAlone(true);
@@ -881,14 +881,14 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                                 agreeData2.hasAgree = true;
                                 agreeData2.agreeNum++;
                                 x(true);
-                                cb8.g().l(getTbPageContext());
+                                bb8.g().l(getTbPageContext());
                             }
                         } else {
                             agreeData2.agreeType = 2;
                             agreeData2.hasAgree = true;
                             agreeData2.agreeNum++;
                             x(true);
-                            cb8.g().l(getTbPageContext());
+                            bb8.g().l(getTbPageContext());
                         }
                         o95 findPageExtraByView2 = TbPageExtraHelper.findPageExtraByView(this);
                         if (findPageExtraByView2 != null) {

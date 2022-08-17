@@ -232,8 +232,8 @@ public class rq8 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            kk8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-            kk8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+            jk8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+            jk8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -249,7 +249,7 @@ public class rq8 {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.c.setVisibility(8);
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
-            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c56);
+            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c57);
             this.a.setNetRefreshViewTopMargin(m);
             this.a.showNetRefreshView(this.b, string, false);
         }

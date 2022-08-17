@@ -23,21 +23,21 @@ import com.repackage.gy4;
 import com.repackage.h25;
 import com.repackage.i25;
 import com.repackage.ms4;
+import com.repackage.pm7;
+import com.repackage.ql7;
 import com.repackage.qm7;
-import com.repackage.rl7;
-import com.repackage.rm7;
+import com.repackage.tl7;
 import com.repackage.ul7;
 import com.repackage.ur4;
-import com.repackage.vl7;
 /* loaded from: classes3.dex */
 public class TailEditActivity extends BaseActivity<TailEditActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ul7 a;
-    public vl7 b;
+    public tl7 a;
+    public ul7 b;
     public View c;
-    public qm7<Integer> d;
-    public qm7<Integer> e;
+    public pm7<Integer> d;
+    public pm7<Integer> e;
     public View.OnClickListener f;
     public View.OnClickListener g;
     public View.OnTouchListener h;
@@ -45,7 +45,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     public i25 j;
 
     /* loaded from: classes3.dex */
-    public class a implements qm7<Integer> {
+    public class a implements pm7<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailEditActivity a;
@@ -69,7 +69,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.qm7
+        @Override // com.repackage.pm7
         /* renamed from: b */
         public void a(boolean z, String str, Integer num) {
             Interceptable interceptable = $ic;
@@ -80,7 +80,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements qm7<Integer> {
+    public class b implements pm7<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailEditActivity a;
@@ -104,7 +104,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.qm7
+        @Override // com.repackage.pm7
         /* renamed from: b */
         public void a(boolean z, String str, Integer num) {
             Interceptable interceptable = $ic;
@@ -148,7 +148,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                     return;
                 }
                 TailEditActivity tailEditActivity = this.a;
-                tailEditActivity.showToast(tailEditActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1365));
+                tailEditActivity.showToast(tailEditActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1367));
             }
         }
     }
@@ -417,12 +417,12 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
             this.a.i().setContent(this.b.g());
-            ul7 ul7Var = this.a;
-            if (ul7Var.l(ul7Var.e(ul7Var.i().getContent()))) {
-                showToast(R.string.obfuscated_res_0x7f0f0d19);
+            tl7 tl7Var = this.a;
+            if (tl7Var.l(tl7Var.e(tl7Var.i().getContent()))) {
+                showToast(R.string.obfuscated_res_0x7f0f0d1a);
             } else if (obj == null || !(obj instanceof gy4)) {
             } else {
-                new rm7().b(this, this.b.h(), (gy4) obj);
+                new qm7().b(this, this.b.h(), (gy4) obj);
             }
         }
     }
@@ -442,7 +442,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             ur4 ur4Var = new ur4(getActivity());
-            ur4Var.setMessage(getResources().getString(R.string.obfuscated_res_0x7f0f135a));
+            ur4Var.setMessage(getResources().getString(R.string.obfuscated_res_0x7f0f135c));
             ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new h(this, ur4Var));
             ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0431, new i(this, ur4Var));
             ur4Var.create(getPageContext());
@@ -509,13 +509,13 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                 tailData.setId(num.intValue());
                 tailData.setContent(this.a.i().getContent());
                 tailData.setFontColor(this.a.g());
-                rl7 rl7Var = new rl7(1, tailData);
+                ql7 ql7Var = new ql7(1, tailData);
                 if (!z) {
-                    rl7Var.a = 2;
+                    ql7Var.a = 2;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001348, null));
                 finish();
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001340, rl7Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001340, ql7Var));
             }
         }
     }
@@ -565,8 +565,8 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             setContentView(R.layout.obfuscated_res_0x7f0d083a);
             setActivityBgTransparent();
             setSwipeBackEnabled(false);
-            this.b = new vl7(this, this.f, this.g);
-            this.a = new ul7(getPageContext());
+            this.b = new ul7(this, this.f, this.g);
+            this.a = new tl7(getPageContext());
             this.c = findViewById(R.id.obfuscated_res_0x7f09204d);
             L1();
             M1();

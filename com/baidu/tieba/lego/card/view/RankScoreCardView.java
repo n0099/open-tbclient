@@ -21,11 +21,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bk8;
+import com.repackage.ak8;
 import com.repackage.fb5;
-import com.repackage.je7;
+import com.repackage.ie7;
 import com.repackage.qi;
-import com.repackage.wd7;
+import com.repackage.vd7;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes3.dex */
 public class RankScoreCardView extends BaseCardView<RankScoreCard> {
@@ -74,7 +74,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                bk8.c(this.b.i, this.a.getD2Scheme());
+                ak8.c(this.b.i, this.a.getD2Scheme());
             }
         }
     }
@@ -109,7 +109,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.b.getContext())) {
-                je7 a = je7.a();
+                ie7 a = ie7.a();
                 RankScoreCard rankScoreCard = this.a;
                 a.e(rankScoreCard, rankScoreCard.getPostUrl(), null, null);
             }
@@ -287,7 +287,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
                     } else {
                         SkinManager.setViewTextColor(this.t, (int) R.color.CAM_X0111);
                     }
-                    SkinManager.setBackgroundColor(this.t, wd7.a[i]);
+                    SkinManager.setBackgroundColor(this.t, vd7.a[i]);
                     this.t.setText(rankScoreCard.getRank() + "");
                 }
             }

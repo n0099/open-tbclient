@@ -31,11 +31,11 @@ public final class k13 {
 
         /* renamed from: com.repackage.k13$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0515a extends n13<a> {
+        public static class C0517a extends n13<a> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0515a() {
+            public C0517a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public final class k13 {
                     return;
                 }
             }
-            e = new C0515a();
+            e = new C0517a();
             f = new b();
         }
 

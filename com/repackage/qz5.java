@@ -108,11 +108,11 @@ public class qz5 implements View.OnClickListener {
                 ms4.d(this.f).v(R.color.CAM_X0108);
                 this.g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_close22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
                 if (i == 4) {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f68, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f69, WebPManager.ResourceStateType.NORMAL);
                 } else if (i == 1) {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f67, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f68, WebPManager.ResourceStateType.NORMAL);
                 } else {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f66, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f67, WebPManager.ResourceStateType.NORMAL);
                 }
             }
             this.h = i;
@@ -123,10 +123,10 @@ public class qz5 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             if ("2".equals(str)) {
-                py6.a("c14079", "0", str);
+                oy6.a("c14079", "0", str);
             }
             if ("1".equals(str)) {
-                py6.a("c14079", StringUtils.isNull(TbSingleton.getInstance().getLFUserTaskId()) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), str);
+                oy6.a("c14079", StringUtils.isNull(TbSingleton.getInstance().getLFUserTaskId()) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), str);
             }
         }
     }
@@ -139,10 +139,10 @@ public class qz5 implements View.OnClickListener {
             if ("from_personaize".equals(this.i)) {
                 hashMap.put(LowFlowsActivityConfig.LF_USER, TbSingleton.getInstance().getLFUser());
                 hashMap.put(LowFlowsActivityConfig.LF_USER_TASKID, TbSingleton.getInstance().getLFUserTaskId());
-                py6.a("c14080", StringUtils.isNull(TbSingleton.getInstance().getLFUserTaskId()) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), "1");
+                oy6.a("c14080", StringUtils.isNull(TbSingleton.getInstance().getLFUserTaskId()) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), "1");
             } else {
                 hashMap.put(LowFlowsActivityConfig.LF_USER, "1");
-                py6.a("c14080", "0", "2");
+                oy6.a("c14080", "0", "2");
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a, "TreasureTrovePage", hashMap)));
         }

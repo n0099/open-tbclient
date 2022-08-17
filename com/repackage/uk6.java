@@ -222,7 +222,7 @@ public class uk6 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                qi.M(this.a.a, this.a.i);
+                qi.L(this.a.a, this.a.i);
             }
         }
     }
@@ -255,7 +255,7 @@ public class uk6 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                qi.M(this.a.a, this.a.j);
+                qi.L(this.a.a, this.a.j);
             }
         }
     }
@@ -301,7 +301,7 @@ public class uk6 {
         d2.v(R.color.CAM_X0107);
         d2.A(R.string.F_X02);
         ms4.d(this.e).v(R.color.CAM_X0111);
-        this.h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080928, SkinManager.getColor(R.color.CAM_X0107), WebPManager.ResourceStateType.NORMAL_PRESS));
+        this.h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080929, SkinManager.getColor(R.color.CAM_X0107), WebPManager.ResourceStateType.NORMAL_PRESS));
         this.j.setHintTextColor(SkinManager.getColor(R.color.CAM_X0111));
         this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         this.i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));

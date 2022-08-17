@@ -21,7 +21,7 @@ public class z15 {
         }
         BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
         bdTopToast.h(false);
-        bdTopToast.g(currentActivity.getString(R.string.obfuscated_res_0x7f0f0985));
+        bdTopToast.g(currentActivity.getString(R.string.obfuscated_res_0x7f0f0986));
         bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
     }
 
@@ -33,7 +33,7 @@ public class z15 {
         }
         BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
         bdTopToast.h(false);
-        bdTopToast.g(currentActivity.getString(R.string.obfuscated_res_0x7f0f0987));
+        bdTopToast.g(currentActivity.getString(R.string.obfuscated_res_0x7f0f0988));
         bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
     }
 
@@ -45,7 +45,7 @@ public class z15 {
         }
         BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
         bdTopToast.h(true);
-        bdTopToast.g(currentActivity.getString(R.string.obfuscated_res_0x7f0f098c));
+        bdTopToast.g(currentActivity.getString(R.string.obfuscated_res_0x7f0f098d));
         bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
     }
 }

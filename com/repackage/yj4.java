@@ -164,14 +164,14 @@ public class yj4 {
             Activity pageActivity = c.getPageActivity();
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01f5, (ViewGroup) null, false);
             TextView textView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09260d);
-            textView.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13ec), mVar.a()));
+            textView.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13ee), mVar.a()));
             textView.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
             View findViewById = viewGroup.findViewById(R.id.obfuscated_res_0x7f0912ad);
             View findViewById2 = viewGroup.findViewById(R.id.obfuscated_res_0x7f091bee);
             findViewById.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
             findViewById2.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
             HeadImageView headImageView = (HeadImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092425);
-            headImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08120f);
+            headImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081210);
             headImageView.setGodIconWidth(R.dimen.tbds68);
             headImageView.setAutoChangeStyle(false);
             UtilHelper.showHeadImageViewBigV(headImageView, userData);
@@ -181,7 +181,7 @@ public class yj4 {
             textView2.setText(userData.getName_show());
             textView2.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0105));
             TextView textView3 = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092470);
-            textView3.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13eb), mVar.b()));
+            textView3.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13ed), mVar.b()));
             textView3.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0109));
             LinearLayout linearLayout = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0906be);
             if (ListUtils.isEmpty(userData.getManagerForum()) && !userData.isNewGod()) {
@@ -211,12 +211,12 @@ public class yj4 {
                         if (z3) {
                             desc = StringHelper.cutChineseAndEnglishWithSuffix(desc, 6, StringHelper.STRING_MORE);
                         }
-                        format = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b22), desc, Integer.valueOf(userData.getManagerForum().size()));
+                        format = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b23), desc, Integer.valueOf(userData.getManagerForum().size()));
                     } else {
                         if (z3) {
                             desc = StringHelper.cutChineseAndEnglishWithSuffix(desc, 8, StringHelper.STRING_MORE);
                         }
-                        format = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f119c), desc);
+                        format = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f119e), desc);
                     }
                     textView5.setText(format);
                     textView5.setTextSize(0, UtilHelper.getDimenPixelSize(R.dimen.T_X09));
@@ -251,7 +251,7 @@ public class yj4 {
             tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0345));
             tBSpecificationBtn.setOnClickListener(new a(this, userData, c));
             this.a = new gj4(c);
-            this.a.b(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080d30, false));
+            this.a.b(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080d31, false));
             this.a.c(viewGroup);
             this.a.d();
             TbSingleton.getInstance().setExceptInsertAdDiaShow(true);

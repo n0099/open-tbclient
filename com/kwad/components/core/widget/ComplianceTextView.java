@@ -179,12 +179,12 @@ public class ComplianceTextView extends TextView {
     private void b(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403b1, R.attr.obfuscated_res_0x7f0403b8, R.attr.obfuscated_res_0x7f0403de});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403b2, R.attr.obfuscated_res_0x7f0403b9, R.attr.obfuscated_res_0x7f0403df});
             this.OH = obtainStyledAttributes.getDimensionPixelOffset(2, Cea708Decoder.COMMAND_DF2);
             this.OJ = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.obfuscated_res_0x7f060762));
             this.OK = obtainStyledAttributes.getBoolean(1, true);
             if (getBackground() == null) {
-                setBackground(ContextCompat.getDrawable(context, R.drawable.obfuscated_res_0x7f080be2));
+                setBackground(ContextCompat.getDrawable(context, R.drawable.obfuscated_res_0x7f080be3));
             }
             obtainStyledAttributes.recycle();
         }
@@ -227,7 +227,7 @@ public class ComplianceTextView extends TextView {
                     public final void onClick(@NonNull View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            AdWebViewActivityProxy.launch(this.OL.getContext(), new AdWebViewActivityProxy.a.C0359a().ao(this.OM).ap(this.OL.OF).N(this.OL.mAdTemplate).nx());
+                            AdWebViewActivityProxy.launch(this.OL.getContext(), new AdWebViewActivityProxy.a.C0361a().ao(this.OM).ap(this.OL.OF).N(this.OL.mAdTemplate).nx());
                         }
                     }
 
@@ -277,7 +277,7 @@ public class ComplianceTextView extends TextView {
                     public final void onClick(@NonNull View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            AdWebViewActivityProxy.launch(this.OL.getContext(), new AdWebViewActivityProxy.a.C0359a().ao(this.ON).ap(this.OL.OG).N(this.OL.mAdTemplate).nx());
+                            AdWebViewActivityProxy.launch(this.OL.getContext(), new AdWebViewActivityProxy.a.C0361a().ao(this.ON).ap(this.OL.OG).N(this.OL.mAdTemplate).nx());
                         }
                     }
 

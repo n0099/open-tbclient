@@ -12,7 +12,6 @@ public class UsbAbTestConst {
     public static final String KEY_ENTER_FRS_NO_ANMI = "12.25_enter_frs_no_anim";
     public static final String KEY_FEED_VIDEO_TRANSITION = "12_19_feed_video_transition_a";
     public static final String KEY_FORUM_REC_REASON_COLOR_TEST_A = "12_19_rec_a";
-    public static final String KEY_FRS_LIKE_SHARE_GUIDE_DIALOG = "12_19_focusbar_a";
     public static final String KEY_FUN_AD_SDK_DUPLICATE_REMOVAL = "12_4_bear_duplicate_removal_a";
     public static final String KEY_FUN_AD_SDK_FRS = "12_2_frs_bear_a";
     public static final String KEY_FUN_AD_SDK_PB_BANNER = "11_9_pb_bear_a";
@@ -25,7 +24,6 @@ public class UsbAbTestConst {
     public static final String KEY_HOT_SPLASH_FIX = "12_25_splash_req_ad_rule";
     public static final String KEY_IMG_CLICK_TO_PB = "12_24_tupiandianji_b";
     public static final String KEY_LIVE_CARD_GAME_SHOW = "12_18_live_gameshow_style_a";
-    public static final String KEY_LOOPER_BLOCK_OPT = "12_22_looper_block_opt_a";
     public static final String KEY_MAIN_INDEX_TAB_SHOW_A = "12_26_index_tab_show_a";
     public static final String KEY_MAIN_TAB_DATA_CACHE = "12_21_main_tab_data_b";
     public static final String KEY_MAIN_TAB_DATA_OFF = "12_21_main_tab_data_c";

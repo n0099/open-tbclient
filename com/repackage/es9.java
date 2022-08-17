@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes6.dex */
-public class es9 extends gs9 {
+public class es9 extends is9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public es9() {
-        super(Framedata.Opcode.CONTINUOUS);
+        super(Framedata.Opcode.BINARY);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

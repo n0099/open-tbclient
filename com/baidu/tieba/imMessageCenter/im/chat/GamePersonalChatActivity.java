@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.x57;
+import com.repackage.w57;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -199,7 +199,7 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
             tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0793);
             tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f0375);
             tBAlertBuilder.m(true);
-            tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04e9, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0f74, TBAlertConfig.OperateBtnStyle.MAIN, new c(this)));
+            tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04e9, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0f75, TBAlertConfig.OperateBtnStyle.MAIN, new c(this)));
             tBAlertBuilder.g();
             tBAlertBuilder.h(false);
             tBAlertBuilder.w();
@@ -207,10 +207,10 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivity, com.baidu.tieba.im.chat.MsglistActivity
-    public boolean m1(x57 x57Var) {
+    public boolean m1(w57 w57Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, x57Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, w57Var)) == null) {
             return true;
         }
         return invokeL.booleanValue;

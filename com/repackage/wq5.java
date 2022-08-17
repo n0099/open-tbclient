@@ -72,7 +72,7 @@ public class wq5 extends bn<cf6, FrsNoListItemViewHolder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cf6Var, frsNoListItemViewHolder})) == null) {
-            frsNoListItemViewHolder.d.setText(R.string.obfuscated_res_0x7f0f0c55);
+            frsNoListItemViewHolder.d.setText(R.string.obfuscated_res_0x7f0f0c56);
             SkinManager.setViewTextColor(frsNoListItemViewHolder.d, R.color.CAM_X0107, 1);
             SkinManager.setImageResource(frsNoListItemViewHolder.e, R.drawable.new_pic_emotion_06);
             return view2;

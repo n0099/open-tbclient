@@ -83,7 +83,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            PointPageIndicator e = new i74(context).e(R.drawable.obfuscated_res_0x7f080d4d, R.drawable.obfuscated_res_0x7f080d4e);
+            PointPageIndicator e = new i74(context).e(R.drawable.obfuscated_res_0x7f080d4e, R.drawable.obfuscated_res_0x7f080d4f);
             e.f((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0701c8));
             this.h = e;
             this.i[0] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0700dd);

@@ -85,7 +85,7 @@ public class RecommendForumLayout extends LinearLayout implements ix {
             if (!TextUtils.isEmpty(vq4Var.d) && vq4Var.e != 0) {
                 this.f.setText(vq4Var.d);
             } else {
-                this.f.setText(R.string.obfuscated_res_0x7f0f0f9c);
+                this.f.setText(R.string.obfuscated_res_0x7f0f0f9d);
                 if (this.e.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                     ((ViewGroup.MarginLayoutParams) this.e.getLayoutParams()).topMargin = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds38);
                     this.e.requestLayout();
@@ -143,7 +143,7 @@ public class RecommendForumLayout extends LinearLayout implements ix {
             this.c.setAdapter(this.d);
             this.c.setClipChildren(false);
             this.d.notifyDataSetChanged();
-            this.f.setText(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0f9c));
+            this.f.setText(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0f9d));
             RefreshView refreshView = new RefreshView(getContext());
             this.k = refreshView;
             this.b.setRefreshViewAndListener(refreshView);

@@ -19,7 +19,7 @@ import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.fun.module.ks.x;
 import com.kwad.sdk.api.KsImage;
 import com.kwad.sdk.api.KsNativeAd;
-import com.repackage.wk9;
+import com.repackage.yk9;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class KSNativeAdSingleImgAppDownloadView extends x {
@@ -132,7 +132,7 @@ public class KSNativeAdSingleImgAppDownloadView extends x {
             }
             this.f.setText(ksNativeAd.getAppName());
             this.g.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new wk9(ksNativeAd.getActionDescription(), this.g));
+            ksNativeAd.setDownloadListener(new yk9(ksNativeAd.getActionDescription(), this.g));
         }
     }
 

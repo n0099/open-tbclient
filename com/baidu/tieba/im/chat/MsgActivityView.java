@@ -18,14 +18,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.Cif;
-import com.repackage.a67;
 import com.repackage.jf;
 import com.repackage.og;
+import com.repackage.z57;
 import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class MsgActivityView extends a67 {
+public class MsgActivityView extends z57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView E;
@@ -177,7 +177,7 @@ public class MsgActivityView extends a67 {
         k().setOnLongClickListener(new b(this));
     }
 
-    @Override // com.repackage.a67
+    @Override // com.repackage.z57
     public void B(Cif cif) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cif) == null) {
@@ -185,7 +185,7 @@ public class MsgActivityView extends a67 {
         }
     }
 
-    @Override // com.repackage.a67
+    @Override // com.repackage.z57
     public void C(jf jfVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jfVar) == null) {
@@ -193,7 +193,7 @@ public class MsgActivityView extends a67 {
         }
     }
 
-    @Override // com.repackage.a67
+    @Override // com.repackage.z57
     public void D(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -229,16 +229,16 @@ public class MsgActivityView extends a67 {
                 String str = "";
                 switch (i3) {
                     case 0:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1123);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1124);
                         break;
                     case 1:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0ce1);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0ce2);
                         break;
                     case 2:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f148e);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1490);
                         break;
                     case 3:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f13d2);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f13d4);
                         break;
                     case 4:
                         str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f06cb);
@@ -247,11 +247,11 @@ public class MsgActivityView extends a67 {
                         str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0630);
                         break;
                     case 6:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f119d);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f119f);
                         break;
                 }
                 if (i > 12) {
-                    string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0ec7);
+                    string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0ec8);
                     i -= 12;
                 } else {
                     string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f027e);

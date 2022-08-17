@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e77;
+import com.repackage.d77;
 import com.repackage.ms4;
 import com.repackage.pv4;
 import com.repackage.qi;
@@ -27,7 +27,7 @@ public class GamePersonalChatTitleView extends RelativeLayout {
     public View a;
     public TextView b;
     public TBSpecificationBtn c;
-    public e77 d;
+    public d77 d;
     public b e;
 
     /* loaded from: classes3.dex */
@@ -66,7 +66,7 @@ public class GamePersonalChatTitleView extends RelativeLayout {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(@NonNull e77 e77Var);
+        void a(@NonNull d77 d77Var);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -157,11 +157,11 @@ public class GamePersonalChatTitleView extends RelativeLayout {
         }
     }
 
-    public void h(e77 e77Var) {
+    public void h(d77 d77Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, e77Var) == null) {
-            this.d = e77Var;
-            this.b.setText(e77Var.c());
+        if (interceptable == null || interceptable.invokeL(1048581, this, d77Var) == null) {
+            this.d = d77Var;
+            this.b.setText(d77Var.c());
         }
     }
 

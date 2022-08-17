@@ -84,7 +84,7 @@ public class PostForumData extends e06 implements Serializable {
             return;
         }
         this.showTopDivider = true;
-        this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fae);
+        this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0faf);
         this.mRelateForumDataList = new ArrayList();
         for (RelateForum relateForum : list) {
             if (relateForum != null && !StringUtils.isNull(relateForum.forum_name)) {

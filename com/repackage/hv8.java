@@ -24,10 +24,10 @@ public class hv8 {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e */
-    public static final int obfuscated = 2131232808;
+    public static final int obfuscated = 2131232810;
 
     /* renamed from: f */
-    public static final int obfuscated = 2131232807;
+    public static final int obfuscated = 2131232809;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public ImageView b;

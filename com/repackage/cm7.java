@@ -4,25 +4,29 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class cm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-    public ImageView b;
-    public Context c;
+    public TailData b;
+    public TextView c;
     public TextView d;
+    public Context e;
+    public String f;
 
     public cm7() {
         Interceptable interceptable = $ic;
@@ -43,6 +47,7 @@ public class cm7 {
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
             tbPageContext.getLayoutMode().l(TbadkCoreApplication.getInst().getSkinType() == 1);
             tbPageContext.getLayoutMode().k(this.a);
+            d(this.f);
         }
     }
 
@@ -50,28 +55,67 @@ public class cm7 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.c = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0840, (ViewGroup) null);
+            this.e = context;
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0841, (ViewGroup) null);
             this.a = inflate;
             inflate.setTag(this);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092069);
-            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092068);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092065);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092064);
+            this.d = textView;
+            textView.setTag(this);
             return this.a;
         }
         return (View) invokeL.objValue;
     }
 
-    public void c(View.OnClickListener onClickListener) {
+    public TailData c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.b.setOnClickListener(onClickListener);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (TailData) invokeV.objValue;
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f = str;
+            this.c.setTextColor(rm7.a(str));
         }
     }
 
-    public void d(int i) {
+    public final void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.d.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f1361), Integer.valueOf(i)));
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.c.setText(TbFaceManager.i().t(this.e, sm7.a(str), null));
+        }
+    }
+
+    public void f(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
+            this.d.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void g(Boolean bool) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bool) == null) {
+            this.d.setVisibility(bool.booleanValue() ? 0 : 8);
+        }
+    }
+
+    public void h(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
+            this.a.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void i(TailData tailData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tailData) == null) {
+            this.b = tailData;
+            e(tailData.getContent());
+            d(tailData.getFontColor());
         }
     }
 }

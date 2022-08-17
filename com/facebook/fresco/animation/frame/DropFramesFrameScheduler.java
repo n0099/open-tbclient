@@ -40,8 +40,12 @@ public class DropFramesFrameScheduler implements FrameScheduler {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (isInfiniteAnimation() || j / getLoopDurationMs() < this.mAnimationInformation.getLoopCount()) {
-                return getFrameNumberWithinLoop(j % getLoopDurationMs());
+            long loopDurationMs = getLoopDurationMs();
+            if (loopDurationMs == 0) {
+                return getFrameNumberWithinLoop(0L);
+            }
+            if (isInfiniteAnimation() || j / loopDurationMs < this.mAnimationInformation.getLoopCount()) {
+                return getFrameNumberWithinLoop(j % loopDurationMs);
             }
             return -1;
         }

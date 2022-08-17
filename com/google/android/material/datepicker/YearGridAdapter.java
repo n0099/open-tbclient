@@ -133,7 +133,7 @@ public class YearGridAdapter extends RecyclerView.Adapter<ViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, viewHolder, i) == null) {
             int yearForPosition = getYearForPosition(i);
-            String string = viewHolder.textView.getContext().getString(R.string.obfuscated_res_0x7f0f0b10);
+            String string = viewHolder.textView.getContext().getString(R.string.obfuscated_res_0x7f0f0b11);
             viewHolder.textView.setText(String.format(Locale.getDefault(), "%d", Integer.valueOf(yearForPosition)));
             viewHolder.textView.setContentDescription(String.format(string, Integer.valueOf(yearForPosition)));
             CalendarStyle calendarStyle = this.materialCalendar.getCalendarStyle();

@@ -11,20 +11,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class a implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterfaceC0365a Nb;
+    public InterfaceC0367a Nb;
 
     /* renamed from: com.kwad.components.core.webview.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0365a {
+    public interface InterfaceC0367a {
         void ii();
     }
 
-    public a(InterfaceC0365a interfaceC0365a) {
+    public a(InterfaceC0367a interfaceC0367a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC0365a};
+            Object[] objArr = {interfaceC0367a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,17 +34,17 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
                 return;
             }
         }
-        this.Nb = interfaceC0365a;
+        this.Nb = interfaceC0367a;
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        InterfaceC0365a interfaceC0365a;
+        InterfaceC0367a interfaceC0367a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) || (interfaceC0365a = this.Nb) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) || (interfaceC0367a = this.Nb) == null) {
             return;
         }
-        interfaceC0365a.ii();
+        interfaceC0367a.ii();
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a

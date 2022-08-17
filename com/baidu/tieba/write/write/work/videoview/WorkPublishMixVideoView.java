@@ -372,7 +372,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements t29 {
                 Intrinsics.throwUninitializedPropertyAccessException("mContext");
                 tbPageContext = null;
             }
-            String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f1516);
+            String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f1519);
             Intrinsics.checkNotNullExpressionValue(string, "mContext.getString(R.string.video_mix_percent)");
             String format = String.format(string, Arrays.copyOf(new Object[]{Integer.valueOf(i2)}, 1));
             Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
@@ -396,7 +396,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements t29 {
                         Intrinsics.throwUninitializedPropertyAccessException("mContext");
                         tbPageContext2 = null;
                     }
-                    textView3.setText(tbPageContext2.getString(R.string.obfuscated_res_0x7f0f1519));
+                    textView3.setText(tbPageContext2.getString(R.string.obfuscated_res_0x7f0f151c));
                     TextView textView4 = this.k;
                     if (textView4 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mixPercentText");
@@ -420,7 +420,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements t29 {
                         Intrinsics.throwUninitializedPropertyAccessException("mContext");
                         tbPageContext3 = null;
                     }
-                    textView6.setText(tbPageContext3.getString(R.string.obfuscated_res_0x7f0f1515));
+                    textView6.setText(tbPageContext3.getString(R.string.obfuscated_res_0x7f0f1518));
                     TextView textView7 = this.k;
                     if (textView7 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mixPercentText");
@@ -444,7 +444,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements t29 {
                         Intrinsics.throwUninitializedPropertyAccessException("mContext");
                         tbPageContext4 = null;
                     }
-                    textView9.setText(tbPageContext4.getString(R.string.obfuscated_res_0x7f0f1518));
+                    textView9.setText(tbPageContext4.getString(R.string.obfuscated_res_0x7f0f151b));
                     TextView textView10 = this.k;
                     if (textView10 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mixPercentText");

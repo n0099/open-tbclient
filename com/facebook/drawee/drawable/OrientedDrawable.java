@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 /* loaded from: classes4.dex */
 public class OrientedDrawable extends ForwardingDrawable {
@@ -154,11 +153,8 @@ public class OrientedDrawable extends ForwardingDrawable {
         }
         this.mTempMatrix = new Matrix();
         this.mTempRectF = new RectF();
-        boolean z = true;
-        Preconditions.checkArgument(i % 90 == 0);
-        Preconditions.checkArgument((i2 < 0 || i2 > 8) ? false : false);
         this.mRotationMatrix = new Matrix();
-        this.mRotationAngle = i;
-        this.mExifOrientation = i2;
+        this.mRotationAngle = i - (i % 90);
+        this.mExifOrientation = (i2 < 0 || i2 > 8) ? 0 : 0;
     }
 }

@@ -5,9 +5,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd7;
+import com.repackage.id7;
 /* loaded from: classes7.dex */
-public class rn8 implements jd7.e {
+public class rn8 implements id7.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
@@ -32,10 +32,10 @@ public class rn8 implements jd7.e {
         this.b = new xp8(mainTabActivity.getPageContext(), mn8Var, mainTabActivity, true);
     }
 
-    @Override // com.repackage.jd7.e
+    @Override // com.repackage.id7.e
     public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && jd7.m(this.a).i) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && id7.m(this.a).i) {
             this.a.P0().u(this.b);
         }
     }

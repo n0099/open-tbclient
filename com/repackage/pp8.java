@@ -49,7 +49,7 @@ public class pp8 extends CustomMessageListener {
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(jd7.w()) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(id7.w()) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -84,13 +84,13 @@ public class pp8 extends CustomMessageListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
                 if (bool != null && !bool.booleanValue()) {
-                    jd7 m = jd7.m(this.a.a);
+                    id7 m = id7.m(this.a.a);
                     m.o(true);
                     m.C("1", this.a.a.D.intValue(), 0, this.a.a.M, new rn8(this.a.a, this.a.c), false);
                     m.o(false);
                     return;
                 }
-                jd7.A(1);
+                id7.A(1);
             }
         }
     }
@@ -128,7 +128,7 @@ public class pp8 extends CustomMessageListener {
             if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
                 gf5.b(new a(this), new b(this));
             } else {
-                jd7 m = jd7.m(this.a);
+                id7 m = id7.m(this.a);
                 int intValue = this.a.D.intValue();
                 MainTabActivity mainTabActivity = this.a;
                 m.C("1", intValue, 0, mainTabActivity.M, new rn8(mainTabActivity, this.c), false);

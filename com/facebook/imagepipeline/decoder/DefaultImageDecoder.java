@@ -101,10 +101,13 @@ public class DefaultImageDecoder implements ImageDecoder {
         ImageDecoder imageDecoder;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLILL = interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, encodedImage, i, qualityInfo, imageDecodeOptions)) == null) {
-            if (!imageDecodeOptions.forceStaticImage && (imageDecoder = this.mAnimatedGifDecoder) != null) {
-                return imageDecoder.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
+            if (encodedImage.getWidth() != -1 && encodedImage.getHeight() != -1) {
+                if (!imageDecodeOptions.forceStaticImage && (imageDecoder = this.mAnimatedGifDecoder) != null) {
+                    return imageDecoder.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
+                }
+                return decodeStaticImage(encodedImage, imageDecodeOptions);
             }
-            return decodeStaticImage(encodedImage, imageDecodeOptions);
+            throw new DecodeException("image width or height is incorrect", encodedImage);
         }
         return (CloseableImage) invokeLILL.objValue;
     }
@@ -113,7 +116,7 @@ public class DefaultImageDecoder implements ImageDecoder {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048579, this, encodedImage, i, qualityInfo, imageDecodeOptions)) == null) {
-            CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace = this.mPlatformDecoder.decodeJPEGFromEncodedImageWithColorSpace(encodedImage, imageDecodeOptions.bitmapConfig, null, i, imageDecodeOptions.transformToSRGB);
+            CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace = this.mPlatformDecoder.decodeJPEGFromEncodedImageWithColorSpace(encodedImage, imageDecodeOptions.bitmapConfig, null, i, imageDecodeOptions.colorSpace);
             try {
                 maybeApplyTransformation(imageDecodeOptions.bitmapTransformation, decodeJPEGFromEncodedImageWithColorSpace);
                 return new CloseableStaticBitmap(decodeJPEGFromEncodedImageWithColorSpace, qualityInfo, encodedImage.getRotationAngle(), encodedImage.getExifOrientation());
@@ -128,7 +131,7 @@ public class DefaultImageDecoder implements ImageDecoder {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, encodedImage, imageDecodeOptions)) == null) {
-            CloseableReference<Bitmap> decodeFromEncodedImageWithColorSpace = this.mPlatformDecoder.decodeFromEncodedImageWithColorSpace(encodedImage, imageDecodeOptions.bitmapConfig, null, imageDecodeOptions.transformToSRGB);
+            CloseableReference<Bitmap> decodeFromEncodedImageWithColorSpace = this.mPlatformDecoder.decodeFromEncodedImageWithColorSpace(encodedImage, imageDecodeOptions.bitmapConfig, null, imageDecodeOptions.colorSpace);
             try {
                 maybeApplyTransformation(imageDecodeOptions.bitmapTransformation, decodeFromEncodedImageWithColorSpace);
                 return new CloseableStaticBitmap(decodeFromEncodedImageWithColorSpace, ImmutableQualityInfo.FULL_QUALITY, encodedImage.getRotationAngle(), encodedImage.getExifOrientation());

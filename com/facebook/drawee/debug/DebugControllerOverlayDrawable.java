@@ -9,6 +9,7 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,6 +18,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.drawee.debug.listener.ImageLoadingTimeListener;
 import com.facebook.drawee.drawable.ScalingUtils;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes4.dex */
 public class DebugControllerOverlayDrawable extends Drawable implements ImageLoadingTimeListener {
@@ -30,16 +34,18 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
     public static final String NO_CONTROLLER_ID = "none";
     public static final int OUTLINE_COLOR = -26624;
     public static final int OUTLINE_STROKE_WIDTH_PX = 2;
-    @VisibleForTesting
-    public static final int OVERLAY_COLOR_IMAGE_ALMOST_OK = 1728026624;
-    @VisibleForTesting
-    public static final int OVERLAY_COLOR_IMAGE_NOT_OK = 1727284022;
-    @VisibleForTesting
-    public static final int OVERLAY_COLOR_IMAGE_OK = 1716301648;
+    public static final int TEXT_BACKGROUND_COLOR = 1711276032;
     public static final int TEXT_COLOR = -1;
+    @VisibleForTesting
+    public static final int TEXT_COLOR_IMAGE_ALMOST_OK = -256;
+    @VisibleForTesting
+    public static final int TEXT_COLOR_IMAGE_NOT_OK = -65536;
+    @VisibleForTesting
+    public static final int TEXT_COLOR_IMAGE_OK = -16711936;
     public static final int TEXT_LINE_SPACING_PX = 8;
     public static final int TEXT_PADDING_PX = 10;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, String> mAdditionalData;
     public String mControllerId;
     public int mCurrentTextXPx;
     public int mCurrentTextYPx;
@@ -52,7 +58,9 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
     public int mLineIncrementPx;
     public int mLoopCount;
     public final Matrix mMatrix;
-    public String mOrigin;
+    public int mOriginColor;
+    public String mOriginText;
+    public int mOverlayColor;
     public final Paint mPaint;
     public final Rect mRect;
     public final RectF mRectF;
@@ -75,29 +83,33 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
                 return;
             }
         }
+        this.mAdditionalData = new HashMap<>();
         this.mTextGravity = 80;
         this.mPaint = new Paint(1);
         this.mMatrix = new Matrix();
         this.mRect = new Rect();
         this.mRectF = new RectF();
+        this.mOriginColor = -1;
+        this.mOverlayColor = 0;
         reset();
     }
 
-    private void addDebugText(Canvas canvas, String str, @Nullable Object... objArr) {
+    private void addDebugText(Canvas canvas, String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, this, canvas, str, objArr) == null) {
-            if (objArr == null) {
-                canvas.drawText(str, this.mCurrentTextXPx, this.mCurrentTextYPx, this.mPaint);
-            } else {
-                canvas.drawText(String.format(str, objArr), this.mCurrentTextXPx, this.mCurrentTextYPx, this.mPaint);
-            }
-            this.mCurrentTextYPx += this.mLineIncrementPx;
+        if (interceptable == null || interceptable.invokeLLL(65537, this, canvas, str, obj) == null) {
+            addDebugText(canvas, str, String.valueOf(obj), -1);
         }
+    }
+
+    public static String format(String str, @Nullable Object... objArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, objArr)) == null) ? objArr == null ? str : String.format(Locale.US, str, objArr) : (String) invokeLL.objValue;
     }
 
     private void prepareDebugTextParameters(Rect rect, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65538, this, rect, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLII(65541, this, rect, i, i2) == null) {
             int min = Math.min(40, Math.max(10, Math.min(rect.width() / i2, rect.height() / i)));
             this.mPaint.setTextSize(min);
             int i3 = min + 8;
@@ -110,11 +122,18 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
         }
     }
 
+    public void addAdditionalData(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            this.mAdditionalData.put(str, str2);
+        }
+    }
+
     @VisibleForTesting
-    public int determineOverlayColor(int i, int i2, @Nullable ScalingUtils.ScaleType scaleType) {
+    public int determineSizeHintColor(int i, int i2, @Nullable ScalingUtils.ScaleType scaleType) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, scaleType)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, scaleType)) == null) {
             int width = getBounds().width();
             int height = getBounds().height();
             if (width > 0 && height > 0 && i > 0 && i2 > 0) {
@@ -145,13 +164,13 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
                 int abs2 = Math.abs(i2 - height);
                 float f7 = abs;
                 if (f7 < f2 && abs2 < f5) {
-                    return OVERLAY_COLOR_IMAGE_OK;
+                    return TEXT_COLOR_IMAGE_OK;
                 }
                 if (f7 < f3 && abs2 < f6) {
-                    return OVERLAY_COLOR_IMAGE_ALMOST_OK;
+                    return -256;
                 }
             }
-            return OVERLAY_COLOR_IMAGE_NOT_OK;
+            return -65536;
         }
         return invokeIIL.intValue;
     }
@@ -159,14 +178,14 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             Rect bounds = getBounds();
             this.mPaint.setStyle(Paint.Style.STROKE);
             this.mPaint.setStrokeWidth(2.0f);
             this.mPaint.setColor(OUTLINE_COLOR);
             canvas.drawRect(bounds.left, bounds.top, bounds.right, bounds.bottom, this.mPaint);
             this.mPaint.setStyle(Paint.Style.FILL);
-            this.mPaint.setColor(determineOverlayColor(this.mWidthPx, this.mHeightPx, this.mScaleType));
+            this.mPaint.setColor(this.mOverlayColor);
             canvas.drawRect(bounds.left, bounds.top, bounds.right, bounds.bottom, this.mPaint);
             this.mPaint.setStyle(Paint.Style.FILL);
             this.mPaint.setStrokeWidth(0.0f);
@@ -175,32 +194,35 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
             this.mCurrentTextYPx = this.mStartTextYPx;
             String str = this.mImageId;
             if (str != null) {
-                addDebugText(canvas, "IDs: %s, %s", this.mControllerId, str);
+                addDebugText(canvas, "IDs", format("%s, %s", this.mControllerId, str));
             } else {
-                addDebugText(canvas, "ID: %s", this.mControllerId);
+                addDebugText(canvas, UserSettingForceListListener.FORCE_LIST_ITEM_ID_KEY, this.mControllerId);
             }
-            addDebugText(canvas, "D: %dx%d", Integer.valueOf(bounds.width()), Integer.valueOf(bounds.height()));
-            addDebugText(canvas, "I: %dx%d", Integer.valueOf(this.mWidthPx), Integer.valueOf(this.mHeightPx));
-            addDebugText(canvas, "I: %d KiB", Integer.valueOf(this.mImageSizeBytes / 1024));
+            addDebugText(canvas, "D", format("%dx%d", Integer.valueOf(bounds.width()), Integer.valueOf(bounds.height())));
+            addDebugText(canvas, "I", format("%dx%d", Integer.valueOf(this.mWidthPx), Integer.valueOf(this.mHeightPx)), determineSizeHintColor(this.mWidthPx, this.mHeightPx, this.mScaleType));
+            addDebugText(canvas, "I", format("%d KiB", Integer.valueOf(this.mImageSizeBytes / 1024)));
             String str2 = this.mImageFormat;
             if (str2 != null) {
-                addDebugText(canvas, "i format: %s", str2);
+                addDebugText(canvas, "i format", str2);
             }
             int i = this.mFrameCount;
             if (i > 0) {
-                addDebugText(canvas, "anim: f %d, l %d", Integer.valueOf(i), Integer.valueOf(this.mLoopCount));
+                addDebugText(canvas, "anim", format("f %d, l %d", Integer.valueOf(i), Integer.valueOf(this.mLoopCount)));
             }
             ScalingUtils.ScaleType scaleType = this.mScaleType;
             if (scaleType != null) {
-                addDebugText(canvas, "scale: %s", scaleType);
+                addDebugText(canvas, "scale", scaleType);
             }
             long j = this.mFinalImageTimeMs;
             if (j >= 0) {
-                addDebugText(canvas, "t: %d ms", Long.valueOf(j));
+                addDebugText(canvas, "t", format("%d ms", Long.valueOf(j)));
             }
-            String str3 = this.mOrigin;
+            String str3 = this.mOriginText;
             if (str3 != null) {
-                addDebugText(canvas, "origin: %s", str3);
+                addDebugText(canvas, "origin", str3, this.mOriginColor);
+            }
+            for (Map.Entry<String, String> entry : this.mAdditionalData.entrySet()) {
+                addDebugText(canvas, entry.getKey(), entry.getValue());
             }
         }
     }
@@ -209,7 +231,7 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
     public int getOpacity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return -3;
         }
         return invokeV.intValue;
@@ -218,7 +240,7 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
     @Override // android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, rect) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, rect) == null) {
             super.onBoundsChange(rect);
             prepareDebugTextParameters(rect, 9, 8);
         }
@@ -227,7 +249,7 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
     @Override // com.facebook.drawee.debug.listener.ImageLoadingTimeListener
     public void onFinalImageSet(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
             this.mFinalImageTimeMs = j;
             invalidateSelf();
         }
@@ -235,16 +257,18 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
 
     public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.mWidthPx = -1;
             this.mHeightPx = -1;
             this.mImageSizeBytes = -1;
+            this.mAdditionalData = new HashMap<>();
             this.mFrameCount = -1;
             this.mLoopCount = -1;
             this.mImageFormat = null;
             setControllerId(null);
             this.mFinalImageTimeMs = -1L;
-            this.mOrigin = null;
+            this.mOriginText = null;
+            this.mOriginColor = -1;
             invalidateSelf();
         }
     }
@@ -252,13 +276,13 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
         }
     }
 
     public void setAnimationInfo(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
             this.mFrameCount = i;
             this.mLoopCount = i2;
             invalidateSelf();
@@ -268,13 +292,13 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, colorFilter) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, colorFilter) == null) {
         }
     }
 
     public void setControllerId(@Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             if (str == null) {
                 str = "none";
             }
@@ -285,7 +309,7 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
 
     public void setDimensions(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
             this.mWidthPx = i;
             this.mHeightPx = i2;
             invalidateSelf();
@@ -294,21 +318,21 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
 
     public void setFinalImageTimeMs(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
             this.mFinalImageTimeMs = j;
         }
     }
 
     public void setImageFormat(@Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             this.mImageFormat = str;
         }
     }
 
     public void setImageId(@Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
             this.mImageId = str;
             invalidateSelf();
         }
@@ -316,31 +340,64 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
 
     public void setImageSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             this.mImageSizeBytes = i;
         }
     }
 
-    public void setOrigin(String str) {
+    public void setOrigin(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.mOrigin = str;
+        if (interceptable == null || interceptable.invokeLI(1048592, this, str, i) == null) {
+            this.mOriginText = str;
+            this.mOriginColor = i;
             invalidateSelf();
+        }
+    }
+
+    public void setOverlayColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.mOverlayColor = i;
         }
     }
 
     public void setScaleType(ScalingUtils.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, scaleType) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, scaleType) == null) {
             this.mScaleType = scaleType;
         }
     }
 
     public void setTextGravity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             this.mTextGravity = i;
             invalidateSelf();
+        }
+    }
+
+    private void addDebugText(Canvas canvas, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, this, canvas, str, str2) == null) {
+            addDebugText(canvas, str, str2, -1);
+        }
+    }
+
+    private void addDebugText(Canvas canvas, String str, String str2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(65539, this, canvas, str, str2, i) == null) {
+            String str3 = str + ": ";
+            float measureText = this.mPaint.measureText(str3);
+            float measureText2 = this.mPaint.measureText(str2);
+            this.mPaint.setColor(TEXT_BACKGROUND_COLOR);
+            int i2 = this.mCurrentTextXPx;
+            int i3 = this.mCurrentTextYPx;
+            canvas.drawRect(i2 - 4, i3 + 8, i2 + measureText + measureText2 + 4.0f, i3 + this.mLineIncrementPx + 8, this.mPaint);
+            this.mPaint.setColor(-1);
+            canvas.drawText(str3, this.mCurrentTextXPx, this.mCurrentTextYPx, this.mPaint);
+            this.mPaint.setColor(i);
+            canvas.drawText(str2, this.mCurrentTextXPx + measureText, this.mCurrentTextYPx, this.mPaint);
+            this.mCurrentTextYPx += this.mLineIncrementPx;
         }
     }
 }

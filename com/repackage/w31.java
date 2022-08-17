@@ -208,13 +208,13 @@ public class w31 {
             TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091779);
             this.f = textView;
             textView.setOnEditorActionListener(new a(this));
-            String string = this.a.getString(R.string.obfuscated_res_0x7f0f0bea, this.b, this.c);
+            String string = this.a.getString(R.string.obfuscated_res_0x7f0f0beb, this.b, this.c);
             c51.a aVar = new c51.a(this.a);
             aVar.r(string);
             aVar.i(17301543);
             aVar.s(inflate);
-            aVar.o(R.string.obfuscated_res_0x7f0f0bb2, new d(this));
-            aVar.l(R.string.obfuscated_res_0x7f0f0bb1, new c(this));
+            aVar.o(R.string.obfuscated_res_0x7f0f0bb3, new d(this));
+            aVar.l(R.string.obfuscated_res_0x7f0f0bb2, new c(this));
             aVar.n(new b(this));
             c51 a2 = aVar.a();
             this.d = a2;

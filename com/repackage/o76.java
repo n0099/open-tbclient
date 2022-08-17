@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class o76 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class o76 {
     public b d;
     public ab e;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends ab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public class o76 {
                 if (responsedMessage.getError() == 0) {
                     if (this.a.b == 1 && (m76Var == null || ListUtils.isEmpty(m76Var.b))) {
                         if (this.a.d != null) {
-                            this.a.d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c3c));
+                            this.a.d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c3d));
                         }
                     } else if (m76Var != null) {
                         this.a.c.a = m76Var.a;
@@ -99,7 +99,7 @@ public class o76 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(m76 m76Var);
 
@@ -191,7 +191,7 @@ public class o76 {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_USER_RANK, kk8.a(TbConfig.HOT_USER_RANK_URL, 309652));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_USER_RANK, jk8.a(TbConfig.HOT_USER_RANK_URL, 309652));
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
             tbHttpMessageTask.setResponsedClass(HotUserRankHttpResMsg.class);
             tbHttpMessageTask.setPriority(4);

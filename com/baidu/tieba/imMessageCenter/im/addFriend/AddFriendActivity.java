@@ -31,10 +31,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab7;
 import com.repackage.cb;
 import com.repackage.og;
 import com.repackage.qi;
+import com.repackage.za7;
 /* loaded from: classes3.dex */
 public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -89,7 +89,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                 int error = responseAddFriendMessage.getError();
                 String errorString = responseAddFriendMessage.getErrorString();
                 if (error == 0) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001193, new ab7(this.a.h, this.a.j)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001193, new za7(this.a.h, this.a.j)));
                     if (this.a.k) {
                         AddFriendActivity addFriendActivity = this.a;
                         addFriendActivity.showToast(addFriendActivity.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f07fa), false);
@@ -101,7 +101,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                 } else if (AntiHelper.m(error, errorString)) {
                     AntiHelper.u(this.a.getPageContext().getPageActivity(), errorString);
                 } else {
-                    qi.O(this.a.getPageContext().getPageActivity(), errorString);
+                    qi.N(this.a.getPageContext().getPageActivity(), errorString);
                 }
             }
         }
@@ -209,7 +209,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                     this.a.I1(this.a.d.getText().toString());
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0ead);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0eae);
             }
         }
     }
@@ -322,7 +322,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                             String stringExtra2 = intent.getStringExtra("from");
                             if (StringUtils.isNull(stringExtra2)) {
                                 EditText editText = this.d;
-                                editText.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b50) + TbadkCoreApplication.getCurrentAccountName());
+                                editText.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b51) + TbadkCoreApplication.getCurrentAccountName());
                             } else {
                                 EditText editText2 = this.d;
                                 editText2.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f08a7) + stringExtra2 + getPageContext().getString(R.string.obfuscated_res_0x7f0f0281) + TbadkCoreApplication.getCurrentAccountName());
@@ -371,7 +371,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            str = getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0b50) + TbadkCoreApplication.getCurrentAccountName();
+            str = getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0b51) + TbadkCoreApplication.getCurrentAccountName();
         }
         MessageManager.getInstance().dispatchResponsedMessageToUI(new RequestNewFriendActionLocalMessage(og.g(this.h, 0L), this.j, this.i, str, this.l));
     }
@@ -389,7 +389,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
             this.c = navigationBar;
             navigationBar.setTitleText(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f02a1));
             this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f110a));
+            TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f110b));
             this.e = addTextButton;
             if (addTextButton.getLayoutParams() instanceof LinearLayout.LayoutParams) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.e.getLayoutParams();

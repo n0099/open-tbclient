@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.id8;
-import com.repackage.ld8;
+import com.repackage.hd8;
+import com.repackage.kd8;
 import com.repackage.og;
 import com.repackage.te5;
 import com.repackage.xd5;
@@ -183,7 +183,7 @@ public class PbPageRequestMessage extends NetMessage {
                 builder.obj_source = this.obj_source;
                 builder.obj_locate = this.mObjLocate;
                 builder.from_smart_frs = this.fromSmartFrs;
-                builder.app_pos = id8.e().a();
+                builder.app_pos = hd8.e().a();
                 builder.forum_id = this.forumId;
                 builder.need_repost_recommend_forum = this.needRepostRecommendForum;
                 AdParam.Builder builder2 = new AdParam.Builder();
@@ -195,7 +195,7 @@ public class PbPageRequestMessage extends NetMessage {
                 builder.ori_ugc_tid = this.oriUgcTid;
                 builder.ori_ugc_type = Integer.valueOf(this.oriUgcType);
                 builder.ori_ugc_vid = this.oriUgcVid;
-                builder.ad_context_list = ld8.f().d("PB");
+                builder.ad_context_list = kd8.f().d("PB");
                 builder.up_schema = this.mSchemeUrl;
                 builder.from_push = Integer.valueOf(this.from_push);
                 AdExtParam.a b = AdExtParam.a.b();

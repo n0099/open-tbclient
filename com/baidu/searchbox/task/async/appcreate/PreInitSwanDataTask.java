@@ -53,7 +53,7 @@ public class PreInitSwanDataTask extends LaunchTask {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return -1;
+            return 1;
         }
         return invokeV.intValue;
     }

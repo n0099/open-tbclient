@@ -1,47 +1,137 @@
 package com.repackage;
 
-import com.baidu.tbadk.TbPageContext;
+import android.content.Context;
+import android.text.SpannableStringBuilder;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes6.dex */
-public class g08 {
+public class g08 implements c08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SpannableStringBuilder a;
+    public int b;
+    public String c;
+    public int d;
 
-    public static final d08 a(TbPageContext<?> tbPageContext, ExcContent excContent) {
-        InterceptResult invokeLL;
-        Long l;
+    public g08() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, excContent)) == null) {
-            if (excContent == null || (l = excContent.type) == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (l.longValue() == 2) {
-                return new b08(excContent);
-            }
-            if (excContent.type.longValue() == 0) {
-                return new h08(tbPageContext.getPageActivity(), excContent);
-            }
-            if (excContent.type.longValue() == 1) {
-                return new c08(tbPageContext, excContent);
-            }
-            return null;
         }
-        return (d08) invokeLL.objValue;
+        this.b = 0;
+        this.d = -1;
+        this.a = new SpannableStringBuilder();
     }
 
-    public static final e08 b(ExcContent excContent) {
-        InterceptResult invokeL;
-        Long l;
+    @Override // com.repackage.c08
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, excContent)) == null) {
-            if (excContent == null || (l = excContent.type) == null || !l.equals(3L)) {
-                return null;
-            }
-            return new f08(excContent);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = this.b;
+            return (i > 0 && i < 3) || !StringUtils.isNull(this.c);
         }
-        return (e08) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.c08
+    public CharSequence b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (CharSequence) invokeV.objValue;
+    }
+
+    public void c(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) || charSequence == null) {
+            return;
+        }
+        this.a.append(charSequence);
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    @Override // com.repackage.d08
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public g08(Context context, ExcContent excContent) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, excContent};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = 0;
+        this.d = -1;
+        if (excContent == null) {
+            return;
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        this.a = spannableStringBuilder;
+        if (excContent != null) {
+            spannableStringBuilder.append((CharSequence) excContent.text);
+        }
+        Integer num = excContent.align;
+        if (num != null) {
+            this.b = num.intValue();
+        }
+        if (!StringUtils.isNull(excContent.color)) {
+            this.c = excContent.color;
+        }
+        Integer num2 = excContent.size;
+        if (num2 == null || num2.intValue() <= 0 || context == null || context.getResources() == null) {
+            return;
+        }
+        int identifier = context.getResources().getIdentifier("fontsize" + excContent.size, EMABTest.TYPE_DIMEN, context.getPackageName());
+        if (identifier <= 0) {
+            return;
+        }
+        this.d = context.getResources().getDimensionPixelSize(identifier);
     }
 }

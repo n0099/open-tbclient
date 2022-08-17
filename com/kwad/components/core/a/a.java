@@ -30,7 +30,7 @@ public class a {
 
     /* renamed from: com.kwad.components.core.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0344a extends SQLiteOpenHelper {
+    public static class C0346a extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic = null;
         public static int CU = 1;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class a {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0344a(@Nullable Context context) {
+        public C0346a(@Nullable Context context) {
             super(context, "ksadcache.db", (SQLiteDatabase.CursorFactory) null, CU);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -107,7 +107,7 @@ public class a {
                 return;
             }
         }
-        this.CR = new C0344a(context).getWritableDatabase();
+        this.CR = new C0346a(context).getWritableDatabase();
     }
 
     private <T extends h> void b(List<T> list, String str) {

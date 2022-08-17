@@ -6,9 +6,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class kd7 {
@@ -16,8 +13,6 @@ public class kd7 {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
-    public List<ld7> c;
-    public ArrayList<Integer> d;
 
     public kd7() {
         Interceptable interceptable = $ic;
@@ -33,85 +28,45 @@ public class kd7 {
         }
     }
 
-    public static kd7 e(JSONObject jSONObject) {
+    public static kd7 c(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             if (jSONObject == null) {
                 return null;
             }
+            int optInt = jSONObject.optInt("day");
+            int optInt2 = jSONObject.optInt("forum_num");
             kd7 kd7Var = new kd7();
-            kd7Var.h(jSONObject.optInt("follow_forum_number"));
-            kd7Var.i(jSONObject.optInt("interest_board_stage"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("day_config");
-            if (optJSONArray != null) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    arrayList.add(ld7.c(optJSONArray.optJSONObject(i)));
-                }
-                kd7Var.g(arrayList);
-            }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("class_id");
-            if (optJSONArray2 != null) {
-                ArrayList<Integer> arrayList2 = new ArrayList<>();
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    arrayList2.add(Integer.valueOf(optJSONArray2.optInt(i2)));
-                }
-                kd7Var.f(arrayList2);
-            }
+            kd7Var.d(optInt);
+            kd7Var.e(optInt2);
             return kd7Var;
         }
         return (kd7) invokeL.objValue;
     }
 
-    public ArrayList<Integer> a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public List<ld7> b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public void f(ArrayList<Integer> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.d = arrayList;
-        }
-    }
-
-    public void g(List<ld7> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.c = list;
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             this.a = i;
         }
     }
 
-    public void i(int i) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.b = i;
         }
     }

@@ -357,7 +357,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements t25, View.
                 this.b.setFocusable(true);
                 this.b.setFocusableInTouchMode(true);
                 this.b.requestFocus();
-                qi.M(getContext(), this.b);
+                qi.L(getContext(), this.b);
             }
             setVisibility(0);
         }
@@ -441,7 +441,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements t25, View.
             this.c.setIncludeFontPadding(false);
             this.c.setEnabled(false);
             this.c.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.tbds42));
-            this.c.setText(R.string.obfuscated_res_0x7f0f0dee);
+            this.c.setText(R.string.obfuscated_res_0x7f0f0def);
             this.c.setOnClickListener(new a(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(0, 0, qi.f(context, R.dimen.tbds14), 0);
@@ -484,7 +484,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements t25, View.
             if (!this.g || gy4Var.getType() == EmotionGroupType.LOCAL) {
                 String obj = this.b.getText().toString();
                 if (this.h && da6.a(obj) >= 10 && getContext() != null) {
-                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1431);
+                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1433);
                 } else {
                     ea6.b(getContext(), gy4Var, this.b);
                 }
@@ -499,7 +499,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements t25, View.
         }
         String obj = this.b.getText().toString();
         if (this.h && da6.a(obj) >= 10 && getContext() != null) {
-            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1431);
+            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1433);
         } else {
             ea6.c(getContext(), gy4Var, this.b);
         }

@@ -1,4 +1,14 @@
 package com.repackage;
-/* loaded from: classes6.dex */
+
+import android.app.Activity;
+import android.app.Dialog;
+import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
+import tv.athena.revenue.payui.view.IYYPayWayView;
+/* loaded from: classes7.dex */
 public interface o0a {
+    void f(Activity activity, z1a z1aVar, Dialog dialog, IYYPayWayView iYYPayWayView);
+
+    void l(Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, PurchaseStatus purchaseStatus);
+
+    void q(int i, String str, Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, IYYPayWayView.b bVar);
 }

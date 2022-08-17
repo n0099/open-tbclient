@@ -150,7 +150,7 @@ public class BdVideoSeekbarImageView extends View {
             this.d.setTextSize(p);
             this.d.setColor(-7829368);
             this.k = new Rect();
-            this.j = this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e08);
+            this.j = this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e09);
             BdThumbSeekBar bdThumbSeekBar = new BdThumbSeekBar(this.b, y);
             this.a = bdThumbSeekBar;
             bdThumbSeekBar.setDragable(false);

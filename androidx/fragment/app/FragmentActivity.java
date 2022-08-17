@@ -26,7 +26,6 @@ import androidx.annotation.RestrictTo;
 import androidx.collection.SparseArrayCompat;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.SharedElementCallback;
-import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleRegistry;
@@ -280,7 +279,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
 
     public static void checkForValidRequestCode(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65539, null, i) == null) && (i & SupportMenu.CATEGORY_MASK) != 0) {
+        if ((interceptable == null || interceptable.invokeI(65539, null, i) == null) && (i & (-65536)) != 0) {
             throw new IllegalArgumentException("Can only use lower 16 bits for requestCode");
         }
     }

@@ -57,7 +57,7 @@ public class qq2 extends qp1 {
             if (zs1Var.isSuccess()) {
                 String optString = ((JSONObject) s.second).optString("imageURL");
                 if (TextUtils.isEmpty(optString)) {
-                    return new zs1(202, gk2.c().getString(R.string.obfuscated_res_0x7f0f14b0));
+                    return new zs1(202, gk2.c().getString(R.string.obfuscated_res_0x7f0f14b2));
                 }
                 return y(optString);
             }

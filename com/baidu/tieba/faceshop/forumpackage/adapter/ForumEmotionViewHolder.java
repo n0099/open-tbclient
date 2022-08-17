@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.hj;
 import com.repackage.ia6;
-import com.repackage.kp7;
+import com.repackage.jp7;
 import com.repackage.pb6;
 import com.repackage.qi;
 import com.repackage.ub6;
@@ -232,7 +232,7 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
     }
 
     /* loaded from: classes3.dex */
-    public class f implements kp7 {
+    public class f implements jp7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumEmotionPackageData a;
@@ -257,32 +257,32 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
             this.a = forumEmotionPackageData;
         }
 
-        @Override // com.repackage.kp7
+        @Override // com.repackage.jp7
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                qi.N(this.b.b.getPageActivity(), R.string.obfuscated_res_0x7f0f0500);
+                qi.M(this.b.b.getPageActivity(), R.string.obfuscated_res_0x7f0f0500);
                 this.b.a.getDownLoadView().setEnabled(true);
             }
         }
 
-        @Override // com.repackage.kp7
+        @Override // com.repackage.jp7
         public void onProgress(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 if (i > 0 && i < 100) {
-                    qi.L(this.b.b.getPageActivity(), hj.a(R.string.obfuscated_res_0x7f0f0d2b));
+                    qi.K(this.b.b.getPageActivity(), hj.a(R.string.obfuscated_res_0x7f0f0d2c));
                 } else if (i >= 100) {
-                    qi.K(this.b.b.getPageActivity(), R.string.obfuscated_res_0x7f0f04fb);
+                    qi.J(this.b.b.getPageActivity(), R.string.obfuscated_res_0x7f0f04fb);
                 }
             }
         }
 
-        @Override // com.repackage.kp7
+        @Override // com.repackage.jp7
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                qi.N(this.b.b.getPageActivity(), R.string.obfuscated_res_0x7f0f04fb);
+                qi.M(this.b.b.getPageActivity(), R.string.obfuscated_res_0x7f0f04fb);
                 this.b.a.getDownLoadView().setText(R.string.obfuscated_res_0x7f0f0279);
                 SkinManager.setViewTextColor(this.b.a.getDownLoadView(), (int) R.color.CAM_X0109);
                 this.b.a.getDownLoadView().setBackgroundDrawable(null);

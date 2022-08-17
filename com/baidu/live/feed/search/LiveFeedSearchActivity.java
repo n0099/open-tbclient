@@ -1243,20 +1243,20 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements a
             if (Intrinsics.areEqual(str, "day")) {
                 ImageView imageView = this.b;
                 if (imageView != null) {
-                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f080cf2);
+                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f080cf3);
                 }
                 Button button = this.f;
                 if (button != null) {
-                    button.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cfb);
+                    button.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cfc);
                 }
             } else if (Intrinsics.areEqual(str, "night")) {
                 ImageView imageView2 = this.b;
                 if (imageView2 != null) {
-                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080cf3);
+                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080cf4);
                 }
                 Button button2 = this.f;
                 if (button2 != null) {
-                    button2.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cfc);
+                    button2.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cfd);
                 }
             }
             View view3 = this.e;
@@ -1515,7 +1515,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements a
                     Intrinsics.checkExpressionValueIsNotNull(liveFeedPageSdk, "LiveFeedPageSdk.getInstance()");
                     ILiveFeedPageInvoke invoker = liveFeedPageSdk.getInvoker();
                     if (invoker != null) {
-                        invoker.showToast(this, getResources().getString(R.string.obfuscated_res_0x7f0f0a09));
+                        invoker.showToast(this, getResources().getString(R.string.obfuscated_res_0x7f0f0a0a));
                     }
                 }
                 o80.d("sp_key_search_incognito_mode", true);
@@ -1527,7 +1527,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements a
                 Intrinsics.checkExpressionValueIsNotNull(liveFeedPageSdk2, "LiveFeedPageSdk.getInstance()");
                 ILiveFeedPageInvoke invoker2 = liveFeedPageSdk2.getInvoker();
                 if (invoker2 != null) {
-                    invoker2.showToast(this, getResources().getString(R.string.obfuscated_res_0x7f0f0a0a));
+                    invoker2.showToast(this, getResources().getString(R.string.obfuscated_res_0x7f0f0a0b));
                 }
             }
             o80.d("sp_key_search_incognito_mode", false);
@@ -1548,20 +1548,20 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements a
             if (Intrinsics.areEqual(str, "day")) {
                 ImageView imageView = this.i;
                 if (imageView != null) {
-                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f080cf9);
+                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f080cfa);
                 }
                 ImageView imageView2 = this.u;
                 if (imageView2 != null) {
-                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080d07);
+                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080d08);
                 }
             } else if (Intrinsics.areEqual(str, "night")) {
                 ImageView imageView3 = this.i;
                 if (imageView3 != null) {
-                    imageView3.setImageResource(R.drawable.obfuscated_res_0x7f080cfa);
+                    imageView3.setImageResource(R.drawable.obfuscated_res_0x7f080cfb);
                 }
                 ImageView imageView4 = this.u;
                 if (imageView4 != null) {
-                    imageView4.setImageResource(R.drawable.obfuscated_res_0x7f080d08);
+                    imageView4.setImageResource(R.drawable.obfuscated_res_0x7f080d09);
                 }
             }
             TextView textView = this.j;

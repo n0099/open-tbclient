@@ -90,7 +90,7 @@ public class CustomPushPremissionDialogView extends LinearLayout {
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090743);
             this.e = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-            this.e.setText(context.getString(R.string.obfuscated_res_0x7f0f0f4e));
+            this.e.setText(context.getString(R.string.obfuscated_res_0x7f0f0f4f));
             qv4 qv4Var = new qv4();
             qv4Var.r(R.color.CAM_X0105);
             this.e.setConfig(qv4Var);
@@ -98,7 +98,7 @@ public class CustomPushPremissionDialogView extends LinearLayout {
             TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090744);
             this.f = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.tbds34);
-            this.f.setText(context.getString(R.string.obfuscated_res_0x7f0f0f50));
+            this.f.setText(context.getString(R.string.obfuscated_res_0x7f0f0f51));
             qv4 qv4Var2 = new qv4();
             qv4Var2.p(R.color.CAM_X0302);
             this.f.setConfig(qv4Var2);

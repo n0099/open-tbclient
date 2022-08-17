@@ -121,16 +121,16 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092405);
             this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092403);
             this.d.setVisibility(8);
-            WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f080820, null);
+            WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f080822, null);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090e95);
             this.e = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f08da);
+            textView.setText(R.string.obfuscated_res_0x7f0f08db);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0101);
             this.e.setBackground(SkinManager.createShapeDrawableFromColor(qi.f(context, R.dimen.tbds38), SkinManager.getColor(R.color.CAM_X0615)));
             this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090e94);
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090672);
             this.h = imageView;
-            WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080914, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+            WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080915, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
             TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090675);
             this.i = textView2;
             textView2.setText("0");
@@ -153,10 +153,10 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
             this.g.setStatisticData(lo4Var);
             ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e33);
             this.j = imageView2;
-            WebPManager.setPureDrawable(imageView2, R.drawable.obfuscated_res_0x7f080930, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+            WebPManager.setPureDrawable(imageView2, R.drawable.obfuscated_res_0x7f080931, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
             ImageView imageView3 = (ImageView) findViewById(R.id.obfuscated_res_0x7f09081d);
             this.k = imageView3;
-            WebPManager.setPureDrawable(imageView3, R.drawable.obfuscated_res_0x7f0809c8, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+            WebPManager.setPureDrawable(imageView3, R.drawable.obfuscated_res_0x7f0809c9, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
         }
     }
 
@@ -208,7 +208,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
                 }
                 ImageView imageView = this.j;
                 if (imageView != null) {
-                    WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080930, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+                    WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080931, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
                     return;
                 }
                 return;
@@ -228,7 +228,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
                 return;
             }
             this.b.setText(getContext().getString(R.string.obfuscated_res_0x7f0f063c));
-            WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f080820, null);
+            WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f080822, null);
             this.f.setVisibility(0);
             this.e.setVisibility(0);
         }
@@ -262,7 +262,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
                 } else if (view2 == this.d) {
                     if (this.b.getText().toString().equals(getContext().getString(R.string.obfuscated_res_0x7f0f05d6))) {
                         this.b.setText(getContext().getString(R.string.obfuscated_res_0x7f0f063c));
-                        WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f080820, null);
+                        WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f080822, null);
                         a aVar = this.m;
                         if (aVar != null) {
                             aVar.a(this, true);

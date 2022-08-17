@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bm8;
+import com.repackage.am8;
 import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class ShareFromGameCenter extends LinearLayout {
@@ -128,7 +128,7 @@ public class ShareFromGameCenter extends LinearLayout {
             this.e.setDefaultResource(R.drawable.obfuscated_res_0x7f081833);
             this.e.setAutoChangeStyle(false);
             this.e.K(this.j.getShareSourceIcon(), 10, false);
-            TiebaStatic.eventStat(this.k, "game_show", "show", 1, "dev_id", bm8.a(this.j.getShareSourceUrl()), "ref_id", GameCenterCoreUtils.REF_TYPE_IM);
+            TiebaStatic.eventStat(this.k, "game_show", "show", 1, "dev_id", am8.a(this.j.getShareSourceUrl()), "ref_id", GameCenterCoreUtils.REF_TYPE_IM);
         }
     }
 

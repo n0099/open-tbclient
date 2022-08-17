@@ -483,7 +483,7 @@ public class TBAlertBuilder {
             linearLayout.addView(linearLayout2, new ViewGroup.LayoutParams(-1, -2));
             if (this.n) {
                 ImageView imageView = new ImageView(this.b);
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f0807f7);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f0807f8);
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds104), qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds105));
                 layoutParams2.setMargins(0, qi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X010), 0, 0);
                 imageView.setOnClickListener(new c(this));

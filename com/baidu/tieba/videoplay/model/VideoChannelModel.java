@@ -141,7 +141,7 @@ public class VideoChannelModel extends BdBaseModel {
                 return;
             }
             if (!oi.z()) {
-                qi.L(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3c));
+                qi.K(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3d));
                 return;
             }
             Object data = customResponsedMessage.getData();

@@ -1,253 +1,117 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.cfg.VideoOption;
-import com.qq.e.ads.nativ.ADSize;
-import com.qq.e.ads.nativ.NativeExpressAD;
-import com.qq.e.ads.nativ.NativeExpressADView;
-import com.qq.e.comm.util.AdError;
-import java.util.List;
+import com.qq.e.ads.nativ.express2.AdEventListener;
+import com.qq.e.ads.nativ.express2.NativeExpressADData2;
 /* loaded from: classes7.dex */
-public class xi9 extends ReporterPidLoader<NativeExpressADView> {
+public class xi9 implements AdEventListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ NativeExpressADData2 c;
+    public final /* synthetic */ ExpressAdListenerWrapper d;
+    public final /* synthetic */ String e;
+    public final /* synthetic */ wi9 f;
 
-    /* loaded from: classes7.dex */
-    public class a implements NativeExpressAD.NativeExpressADListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public final /* synthetic */ xi9 c;
-
-        public a(xi9 xi9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xi9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = xi9Var;
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onADClicked(NativeExpressADView nativeExpressADView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nativeExpressADView) == null) {
-                LogPrinter.d();
-                this.c.onAdClicked(nativeExpressADView, this.b, new String[0]);
-                this.b = true;
-            }
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeExpressADView) == null) {
-                LogPrinter.e("GDTNativeExpressAd onADCloseOverlay", new Object[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onADClosed(NativeExpressADView nativeExpressADView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nativeExpressADView) == null) {
-                LogPrinter.e("GDTNativeExpressAd onADClosed", new Object[0]);
-                this.c.onAdClose(nativeExpressADView);
-            }
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onADExposure(NativeExpressADView nativeExpressADView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, nativeExpressADView) == null) {
-                LogPrinter.d();
-                this.c.onAdShow(nativeExpressADView, this.a, new String[0]);
-                this.a = true;
-            }
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, nativeExpressADView) == null) {
-                LogPrinter.e("GDTNativeExpressAd onADLeftApplication", new Object[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onADLoaded(List<NativeExpressADView> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-                LogPrinter.d();
-                if (list == null || list.isEmpty()) {
-                    this.c.onError(0, "NoFill");
-                } else {
-                    list.get(0).render();
-                }
-            }
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, nativeExpressADView) == null) {
-                LogPrinter.e("GDTNativeExpressAd onADOpenOverlay", new Object[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.NativeAbstractAD.BasicADListener
-        public void onNoAD(AdError adError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, adError) == null) {
-                LogPrinter.e("GDTNativeExpressAd onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
-                this.c.onError(adError.getErrorCode(), adError.getErrorMsg());
-            }
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onRenderFail(NativeExpressADView nativeExpressADView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, nativeExpressADView) == null) {
-                LogPrinter.e();
-                this.c.onError(0, "RenderFail");
-            }
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onRenderSuccess(NativeExpressADView nativeExpressADView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, nativeExpressADView) == null) {
-                LogPrinter.d();
-                this.c.onAdLoaded((xi9) nativeExpressADView);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xi9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid, false);
+    public xi9(wi9 wi9Var, NativeExpressADData2 nativeExpressADData2, ExpressAdListenerWrapper expressAdListenerWrapper, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {wi9Var, nativeExpressADData2, expressAdListenerWrapper, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.f = wi9Var;
+        this.c = nativeExpressADData2;
+        this.d = expressAdListenerWrapper;
+        this.e = str;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
-        InterceptResult invokeL;
+    @Override // com.qq.e.ads.nativ.express2.AdEventListener
+    public void onAdClosed() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new lj9(pid) : (AdRipper) invokeL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        NativeExpressADView nativeExpressADView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) || (nativeExpressADView = (NativeExpressADView) obj) == null) {
-            return;
-        }
-        nativeExpressADView.destroy();
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public double getAdBiddingPrices(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? ((NativeExpressADView) obj).getECPM() / 100.0d : invokeL.doubleValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
-            onLoadStart(funAdSlot);
-            if (!(context instanceof Activity)) {
-                onError(0, "NotActvity");
-                return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d();
+            this.f.onAdClose(this.c);
+            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
+            if (funAdInteractionListener != null) {
+                funAdInteractionListener.onAdClose(this.e);
             }
-            NativeExpressAD nativeExpressAD = new NativeExpressAD((Activity) context, new ADSize(-1, -2), this.mPid.pid, new a(this));
-            nativeExpressAD.setVideoOption(new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(!FunAdSdk.getFunAdConfig().isVideoSoundEnable).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build());
-            nativeExpressAD.setMinVideoDuration(0);
-            nativeExpressAD.setMaxVideoDuration(0);
-            nativeExpressAD.setVideoPlayPolicy(1);
-            nativeExpressAD.loadAD(1);
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void setAdBiddingResult(Object obj, double d, double d2, boolean z, int i) {
+    @Override // com.qq.e.ads.nativ.express2.AdEventListener
+    public void onClick() {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{obj, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            NativeExpressADView nativeExpressADView = (NativeExpressADView) obj;
-            double d3 = d * 100.0d;
-            if (z) {
-                nativeExpressADView.sendWinNotification((int) d3);
-                return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            this.f.onAdClicked(this.c, this.b, new String[0]);
+            this.b = true;
+            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
+            if (funAdInteractionListener != null) {
+                String str = this.e;
+                pid = this.f.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.f.mPid;
+                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
             }
-            int i2 = 1;
-            if (i == 3) {
-                i2 = 2;
-            } else if (i == 5) {
-                i2 = 3;
-            }
-            nativeExpressADView.sendLossNotification((int) d3, i2, "");
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    @Override // com.qq.e.ads.nativ.express2.AdEventListener
+    public void onExposed() {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, activity, viewGroup, str, obj)) == null) {
-            NativeExpressADView nativeExpressADView = (NativeExpressADView) obj;
-            if (nativeExpressADView.getBoundData().getAdPatternType() == 2) {
-                nativeExpressADView.setMediaListener(new yi9(this));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogPrinter.e();
+            this.f.onAdShow(this.c, this.a, new String[0]);
+            this.a = true;
+            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
+            if (funAdInteractionListener != null) {
+                String str = this.e;
+                pid = this.f.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.f.mPid;
+                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
             }
-            onShowStart(nativeExpressADView);
-            if (nativeExpressADView.getParent() != null) {
-                ((ViewGroup) nativeExpressADView.getParent()).removeView(nativeExpressADView);
-            }
-            viewGroup.removeAllViews();
-            viewGroup.addView(nativeExpressADView);
-            return true;
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.qq.e.ads.nativ.express2.AdEventListener
+    public void onRenderFail() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LogPrinter.d();
+            this.f.onError(0, "RenderFail");
+        }
+    }
+
+    @Override // com.qq.e.ads.nativ.express2.AdEventListener
+    public void onRenderSuccess() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LogPrinter.d();
+            this.f.e.put(this.c, this.d);
+            this.f.onAdLoaded((wi9) this.c);
+        }
     }
 }

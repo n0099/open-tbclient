@@ -1,139 +1,122 @@
 package com.repackage;
 
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.text.TextPaint;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
+import com.baidu.tieba.ad.AbsDataRecorder;
+import com.baidu.tieba.recapp.lego.view.AdCardBaseView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.load.engine.GlideException;
 /* loaded from: classes6.dex */
 public class dd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    public static boolean a(String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
-    }
-
-    public static int b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (int) ((i * 16.0d) / 9.0d) : invokeI.intValue;
-    }
-
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
-    }
-
-    public static oi0 d(@NonNull AdCard adCard) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, adCard)) == null) {
-            if (ei0.a().query(adCard.getDownloadKey()) != null) {
-                return ei0.a().query(adCard.getDownloadKey());
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, str, i, i2)) == null) {
+            if (i != 2) {
+                return i == 3 ? xl5.k().r(i2, AbsDataRecorder.Scene.PB) : i == 1 && "INDEX".equals(str) && xl5.k().s(AbsDataRecorder.Scene.RECOMMEND);
+            } else if ("frs_new_tab".equals(str) && xl5.k().s(AbsDataRecorder.Scene.FRS_NEW)) {
+                return true;
+            } else {
+                return "frs_hot_tab".equals(str) && xl5.k().s(AbsDataRecorder.Scene.FRS_HOT);
             }
-            oi0 oi0Var = new oi0();
-            oi0Var.h(adCard.getDownloadKey());
-            if (adCard.downloadInfo != null) {
-                if (TextUtils.isEmpty(oi0Var.e())) {
-                    oi0Var.h(adCard.downloadInfo.b);
+        }
+        return invokeLII.booleanValue;
+    }
+
+    public static void b(AdCardBaseView adCardBaseView, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{adCardBaseView, vipAdFreeGuideLayout, str, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            if (i == 2 || i == 1) {
+                if (vipAdFreeGuideLayout != null) {
+                    vipAdFreeGuideLayout.setBottomCornerRound(true);
                 }
-                wc8 wc8Var = adCard.downloadInfo;
-                oi0Var.g = wc8Var.b;
-                oi0Var.d = wc8Var.a;
-            }
-            if (TextUtils.isEmpty(oi0Var.e())) {
-                oi0Var.h(adCard.adId);
-            }
-            si0 si0Var = new si0();
-            si0Var.j = adCard.adId;
-            si0Var.a = adCard.getExtInfo();
-            ho4 ho4Var = adCard.appInfoModel;
-            if (ho4Var != null) {
-                si0Var.g = ho4Var.b;
-                si0Var.h = ho4Var.c;
-            }
-            if (ah0.n(adCard.cmdScheme)) {
-                si0Var.c = adCard.cmdScheme;
-            }
-            oi0Var.p = si0Var;
-            pi0 pi0Var = new pi0();
-            pi0Var.a = adCard.getAdvertAppInfo().j;
-            pi0Var.s = rj5.a().b();
-            pi0Var.r = rj5.a().h();
-            oi0Var.q = pi0Var;
-            return oi0Var;
-        }
-        return (oi0) invokeL.objValue;
-    }
-
-    public static String e(String str, String str2, float f, TextPaint textPaint) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                str2 = "";
-            }
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            if (textPaint == null) {
-                textPaint = new TextPaint();
-            }
-            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText(GlideException.IndentedAppendable.INDENT + str2), TextUtils.TruncateAt.END);
-            if (ellipsize != null) {
-                return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
-            }
-            return str2;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static Drawable f(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, null, i, i2, i3, i4)) == null) ? ks4.D(ks4.k(ls4.y(), i), i2, i3, i4) : (Drawable) invokeIIII.objValue;
-    }
-
-    public static int g(float f, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (i != i2 && f > 0.0f) {
-                if (f >= 1.0f) {
-                    return i2;
+            } else if (i == 3) {
+                if (xl5.k().m() && i2 == 1) {
+                    vipAdFreeGuideLayout.setBottomCornerRound(false);
+                    vipAdFreeGuideLayout.setAllCornerRound(false);
+                    if (adCardBaseView.getPbBottomView() != null) {
+                        adCardBaseView.getPbBottomView().setVisibility(8);
+                        return;
+                    }
+                    return;
                 }
-                int red = Color.red(i);
-                int green = Color.green(i);
-                int blue = Color.blue(i);
-                int alpha = Color.alpha(i);
-                return Color.argb((int) (alpha + (f * (Color.alpha(i2) - alpha))), (int) (red + ((Color.red(i2) - red) * f)), (int) (green + ((Color.green(i2) - green) * f)), (int) (blue + ((Color.blue(i2) - blue) * f)));
+                if (vipAdFreeGuideLayout != null) {
+                    vipAdFreeGuideLayout.setBottomCornerRound(false);
+                    vipAdFreeGuideLayout.setAllCornerRound(true);
+                }
+                if (adCardBaseView.getPbBottomView() != null) {
+                    adCardBaseView.getPbBottomView().setVisibility(0);
+                }
             }
-            return i;
         }
-        return invokeCommon.intValue;
     }
 
-    public static int h(String str, int i) {
-        InterceptResult invokeLI;
+    public static void c(VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
-            try {
-                return Color.parseColor(str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return i;
+        if (interceptable == null || interceptable.invokeLLLI(65538, null, vipAdFreeGuideLayout, str, str2, i) == null) {
+            if (i == 2) {
+                if ("frs_new_tab".equals(str2)) {
+                    vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_NEW, str);
+                } else if ("frs_hot_tab".equals(str2)) {
+                    vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_HOT, str);
+                }
+            } else if (i == 3) {
+                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.PB, str);
+            } else if (i == 1) {
+                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.RECOMMEND, str);
             }
         }
-        return invokeLI.intValue;
+    }
+
+    public static void d(AdCardBaseView adCardBaseView, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{adCardBaseView, vipAdFreeGuideLayout, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) || vipAdFreeGuideLayout == null) {
+            return;
+        }
+        vipAdFreeGuideLayout.setVisibility(0);
+        b(adCardBaseView, vipAdFreeGuideLayout, str2, i, i2);
+        vipAdFreeGuideLayout.f();
+        c(vipAdFreeGuideLayout, str, str2, i);
+    }
+
+    public static void e(AdvertAppInfo advertAppInfo, jf7<?> jf7Var, String str, String str2, int i, int i2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{advertAppInfo, jf7Var, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            AdCardBaseView adCardBaseView = jf7Var instanceof AdCardBaseView ? (AdCardBaseView) jf7Var : null;
+            VipAdFreeGuideLayout vipAdFreeGuideLayout = adCardBaseView != null ? adCardBaseView.getVipAdFreeGuideLayout() : null;
+            if (vipAdFreeGuideLayout != null) {
+                if (i == 1) {
+                    i3 = xl5.k().j(advertAppInfo.a);
+                } else {
+                    i3 = advertAppInfo.s;
+                }
+                if (i3 == 1) {
+                    vipAdFreeGuideLayout.setVisibility(8);
+                } else if (i3 == 2) {
+                    d(adCardBaseView, vipAdFreeGuideLayout, str, str2, i, i2);
+                } else if (a(str2, i, i2)) {
+                    d(adCardBaseView, vipAdFreeGuideLayout, str, str2, i, i2);
+                    xl5.k().c();
+                    if (i == 1) {
+                        xl5.k().p(advertAppInfo.a, 2);
+                    } else {
+                        advertAppInfo.s = 2;
+                    }
+                } else {
+                    vipAdFreeGuideLayout.setVisibility(8);
+                    if (i == 1) {
+                        xl5.k().p(advertAppInfo.a, 1);
+                    } else {
+                        advertAppInfo.s = 1;
+                    }
+                }
+            }
+        }
     }
 }

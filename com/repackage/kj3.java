@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pu9;
+import com.repackage.ru9;
 import com.repackage.zk2;
 import java.util.concurrent.TimeUnit;
 import okhttp3.MediaType;
@@ -35,7 +35,7 @@ public abstract class kj3 extends w23 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements dv9<oj3> {
+    public class a implements fv9<oj3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nj3 a;
@@ -67,7 +67,7 @@ public abstract class kj3 extends w23 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.dv9
+        @Override // com.repackage.fv9
         public void call(oj3 oj3Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, oj3Var) == null) {
@@ -78,7 +78,7 @@ public abstract class kj3 extends w23 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements dv9<Throwable> {
+    public class b implements fv9<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -110,7 +110,7 @@ public abstract class kj3 extends w23 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.dv9
+        @Override // com.repackage.fv9
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -121,7 +121,7 @@ public abstract class kj3 extends w23 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements pu9.a<oj3> {
+    public class c implements ru9.a<oj3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -129,14 +129,14 @@ public abstract class kj3 extends w23 {
         public class a implements zk2.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ vu9 a;
+            public final /* synthetic */ xu9 a;
 
-            public a(c cVar, vu9 vu9Var) {
+            public a(c cVar, xu9 xu9Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar, vu9Var};
+                    Object[] objArr = {cVar, xu9Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -146,7 +146,7 @@ public abstract class kj3 extends w23 {
                         return;
                     }
                 }
-                this.a = vu9Var;
+                this.a = xu9Var;
             }
 
             @Override // com.repackage.zk2.a
@@ -192,11 +192,11 @@ public abstract class kj3 extends w23 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.pu9.a, com.repackage.dv9
-        public void call(vu9<? super oj3> vu9Var) {
+        @Override // com.repackage.ru9.a, com.repackage.fv9
+        public void call(xu9<? super oj3> xu9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, vu9Var) == null) {
-                gk2.I().b(BDLocation.BDLOCATION_GCJ02_TO_BD09, true, false, new a(this, vu9Var));
+            if (interceptable == null || interceptable.invokeL(1048576, this, xu9Var) == null) {
+                gk2.I().b(BDLocation.BDLOCATION_GCJ02_TO_BD09, true, false, new a(this, xu9Var));
             }
         }
     }
@@ -435,7 +435,7 @@ public abstract class kj3 extends w23 {
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sf3Var)) == null) ? new e(this, sf3Var) : (ResponseCallback) invokeL.objValue;
     }
 
-    public final pu9<oj3> q(Context context) {
+    public final ru9<oj3> q(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
@@ -443,11 +443,11 @@ public abstract class kj3 extends w23 {
                 return null;
             }
             if (!gd3.h() || (context.checkSelfPermission(com.kuaishou.weapon.p0.h.g) == 0 && context.checkSelfPermission(com.kuaishou.weapon.p0.h.h) == 0)) {
-                return pu9.a(new c(this));
+                return ru9.a(new c(this));
             }
             return null;
         }
-        return (pu9) invokeL.objValue;
+        return (ru9) invokeL.objValue;
     }
 
     @NonNull
@@ -458,7 +458,7 @@ public abstract class kj3 extends w23 {
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, context, callbackHandler, str, jSONObject) == null) {
             zx1.i("recommend", "get request params");
             nj3 nj3Var = new nj3(context, jSONObject);
-            pu9<oj3> q = q(context);
+            ru9<oj3> q = q(context);
             if (q != null) {
                 q.z(60L, TimeUnit.MILLISECONDS).x(new a(this, nj3Var, context, callbackHandler, str), new b(this, context, callbackHandler, str, nj3Var));
                 return;

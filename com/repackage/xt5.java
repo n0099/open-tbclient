@@ -123,7 +123,7 @@ public class xt5 {
                 this.a.c.e().smoothScrollToPosition(0);
             }
             if (ListUtils.getCount(this.a.d.M()) == 0) {
-                this.a.c.u(this.a.b.getString(R.string.obfuscated_res_0x7f0f0c56), this.a.i, true);
+                this.a.c.u(this.a.b.getString(R.string.obfuscated_res_0x7f0f0c57), this.a.i, true);
                 this.a.c.o(8);
                 return;
             }
@@ -141,7 +141,7 @@ public class xt5 {
             this.a.c.g();
             au5 au5Var = this.a.c;
             if (TextUtils.isEmpty(str)) {
-                str = this.a.b.getString(R.string.obfuscated_res_0x7f0f0c56);
+                str = this.a.b.getString(R.string.obfuscated_res_0x7f0f0c57);
             }
             au5Var.u(str, this.a.i, true);
             this.a.c.o(8);

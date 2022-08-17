@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.hi8;
+import com.repackage.gi8;
 import com.repackage.tr4;
 import com.repackage.ue;
-import com.repackage.xh8;
+import com.repackage.wh8;
 /* loaded from: classes4.dex */
 public class SquareModel extends BdBaseModel<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public hi8 b;
+    public gi8 b;
     public a c;
     public long d;
     public long e;
@@ -30,14 +30,14 @@ public class SquareModel extends BdBaseModel<Object> {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void a(boolean z, String str, hi8 hi8Var);
+        void a(boolean z, String str, gi8 gi8Var);
     }
 
     /* loaded from: classes4.dex */
-    public class b extends BdAsyncTask<Object, hi8, hi8> {
+    public class b extends BdAsyncTask<Object, gi8, gi8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public xh8 a;
+        public wh8 a;
         public int b;
         public ue<String> c;
         public final /* synthetic */ SquareModel d;
@@ -68,12 +68,12 @@ public class SquareModel extends BdBaseModel<Object> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public hi8 doInBackground(Object... objArr) {
+        public gi8 doInBackground(Object... objArr) {
             InterceptResult invokeL;
-            hi8 hi8Var;
+            gi8 gi8Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                this.a = new xh8();
+                this.a = new wh8();
                 tr4.f();
                 ue<String> g = tr4.g("tb.square");
                 this.c = g;
@@ -83,20 +83,20 @@ public class SquareModel extends BdBaseModel<Object> {
                     if (str2 == null) {
                         return null;
                     }
-                    hi8 hi8Var2 = new hi8();
-                    hi8Var2.j(str2);
-                    this.d.h = hi8Var2.f();
-                    if (hi8Var2.g()) {
+                    gi8 gi8Var2 = new gi8();
+                    gi8Var2.j(str2);
+                    this.d.h = gi8Var2.f();
+                    if (gi8Var2.g()) {
                         this.d.h = 0L;
                     }
-                    if (hi8Var2.c()) {
-                        return hi8Var2;
+                    if (gi8Var2.c()) {
+                        return gi8Var2;
                     }
                     this.b = 1;
                     str = str2;
-                    hi8Var = hi8Var2;
+                    gi8Var = gi8Var2;
                 } else {
-                    hi8Var = null;
+                    gi8Var = null;
                 }
                 if (this.b == 1) {
                     this.d.d = System.currentTimeMillis();
@@ -107,45 +107,45 @@ public class SquareModel extends BdBaseModel<Object> {
                     this.d.g = System.currentTimeMillis();
                 }
                 if (this.a.e()) {
-                    hi8Var = new hi8();
-                    hi8Var.j(str);
-                    Long valueOf = Long.valueOf(hi8Var.f());
+                    gi8Var = new gi8();
+                    gi8Var.j(str);
+                    Long valueOf = Long.valueOf(gi8Var.f());
                     if (valueOf.longValue() > this.d.h) {
                         this.c.e("square_cache_key", str, 86400000L);
                     } else {
                         String str3 = this.c.get("square_cache_key");
                         if (str3 != null) {
-                            hi8 hi8Var3 = new hi8();
-                            hi8Var3.j(str3);
-                            hi8Var3.m(hi8Var.e());
-                            hi8Var3.n(valueOf.longValue());
-                            this.c.e("square_cache_key", hi8Var3.d(), 86400000L);
-                            hi8Var = hi8Var3;
+                            gi8 gi8Var3 = new gi8();
+                            gi8Var3.j(str3);
+                            gi8Var3.m(gi8Var.e());
+                            gi8Var3.n(valueOf.longValue());
+                            this.c.e("square_cache_key", gi8Var3.d(), 86400000L);
+                            gi8Var = gi8Var3;
                         } else {
                             this.c.e("square_cache_key", str, 86400000L);
                         }
                     }
                     this.d.h = valueOf.longValue();
                 }
-                return hi8Var;
+                return gi8Var;
             }
-            return (hi8) invokeL.objValue;
+            return (gi8) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(hi8 hi8Var) {
+        public void onPostExecute(gi8 gi8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hi8Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gi8Var) == null) {
                 this.d.a = null;
-                this.d.b = hi8Var;
+                this.d.b = gi8Var;
                 if (this.d.c != null) {
                     if (this.b == 0 || this.a.e()) {
-                        this.d.c.a(true, null, hi8Var);
+                        this.d.c.a(true, null, gi8Var);
                         return;
                     }
-                    this.d.c.a(false, this.a.c(), hi8Var);
+                    this.d.c.a(false, this.a.c(), gi8Var);
                 }
             }
         }
@@ -155,9 +155,9 @@ public class SquareModel extends BdBaseModel<Object> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel();
-                xh8 xh8Var = this.a;
-                if (xh8Var != null) {
-                    xh8Var.b();
+                wh8 wh8Var = this.a;
+                if (wh8Var != null) {
+                    wh8Var.b();
                 }
                 this.d.a = null;
             }
@@ -189,13 +189,13 @@ public class SquareModel extends BdBaseModel<Object> {
         this.e = 0L;
         this.f = 0L;
         this.g = 0L;
-        this.b = new hi8();
+        this.b = new gi8();
     }
 
-    public hi8 I() {
+    public gi8 I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (hi8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (gi8) invokeV.objValue;
     }
 
     public long J() {

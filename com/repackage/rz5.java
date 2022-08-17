@@ -134,7 +134,7 @@ public class rz5 {
                 }
                 return;
             }
-            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0f0b);
+            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0f0c);
             if (this.a.g.getThreadData() != null) {
                 this.a.p.d(i, 3, this.a.g.getThreadData().getTid());
             }
@@ -170,7 +170,7 @@ public class rz5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, ur4Var) == null) {
                 if (!oi.A()) {
-                    qi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c3c);
+                    qi.M(this.a.b, R.string.obfuscated_res_0x7f0f0c3d);
                     return;
                 }
                 if (this.a.g.q != 1) {
@@ -247,7 +247,7 @@ public class rz5 {
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                qi.O(this.a.b, str);
+                qi.N(this.a.b, str);
             }
         }
 
@@ -257,9 +257,9 @@ public class rz5 {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 if (this.a.g.o) {
                     this.a.g.o = false;
-                    qi.N(this.a.b, R.string.obfuscated_res_0x7f0f13ca);
+                    qi.M(this.a.b, R.string.obfuscated_res_0x7f0f13cc);
                     if (this.a.i != null) {
-                        this.a.i.n(this.a.b.getString(R.string.obfuscated_res_0x7f0f111a));
+                        this.a.i.n(this.a.b.getString(R.string.obfuscated_res_0x7f0f111b));
                     }
                     if (this.a.f != null) {
                         this.a.f.a(false);
@@ -269,7 +269,7 @@ public class rz5 {
                 }
                 this.a.g.o = true;
                 if (this.a.i != null) {
-                    this.a.i.n(this.a.b.getString(R.string.obfuscated_res_0x7f0f111b));
+                    this.a.i.n(this.a.b.getString(R.string.obfuscated_res_0x7f0f111c));
                 }
                 if (this.a.f != null) {
                     this.a.f.a(true);
@@ -308,7 +308,7 @@ public class rz5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (!oi.A()) {
-                    qi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c3c);
+                    qi.M(this.a.b, R.string.obfuscated_res_0x7f0f0c3d);
                     return;
                 }
                 if (this.a.g.o) {
@@ -364,7 +364,7 @@ public class rz5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (!oi.A()) {
-                    qi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c3c);
+                    qi.M(this.a.b, R.string.obfuscated_res_0x7f0f0c3d);
                     return;
                 }
                 TiebaPlusConfigData tiebaPlusConfigData = TbSingleton.getInstance().getTiebaPlusConfigData();
@@ -408,7 +408,7 @@ public class rz5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (!oi.A()) {
-                    qi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c3c);
+                    qi.M(this.a.b, R.string.obfuscated_res_0x7f0f0c3d);
                     return;
                 }
                 if (this.a.g != null && this.a.n != null) {
@@ -450,7 +450,7 @@ public class rz5 {
             if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof ForumManageModel.b)) {
                 ForumManageModel.b bVar = (ForumManageModel.b) obj;
                 if (bVar.c == 0) {
-                    qi.N(this.a.b, R.string.obfuscated_res_0x7f0f04b9);
+                    qi.M(this.a.b, R.string.obfuscated_res_0x7f0f04b9);
                     if (this.a.g != null) {
                         if (pi.isEmpty(this.a.g.G)) {
                             if (pi.isEmpty(this.a.g.b)) {
@@ -462,9 +462,9 @@ public class rz5 {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921436, this.a.g.G));
                     }
                 } else if (!pi.isEmpty(bVar.b)) {
-                    qi.O(this.a.b, bVar.b);
+                    qi.N(this.a.b, bVar.b);
                 } else {
-                    qi.N(this.a.b, R.string.obfuscated_res_0x7f0f04b0);
+                    qi.M(this.a.b, R.string.obfuscated_res_0x7f0f04b0);
                 }
             }
         }
@@ -519,7 +519,7 @@ public class rz5 {
                 return;
             }
             if (cardPersonDynamicThreadData.o) {
-                bs4Var.n(this.b.getString(R.string.obfuscated_res_0x7f0f111b));
+                bs4Var.n(this.b.getString(R.string.obfuscated_res_0x7f0f111c));
             } else {
                 ThreadData threadData = cardPersonDynamicThreadData.p;
                 if (threadData != null && threadData.notShowHideThreadBtn()) {
@@ -528,7 +528,7 @@ public class rz5 {
                         this.d.j(this.h);
                     }
                 } else {
-                    this.i.n(this.b.getString(R.string.obfuscated_res_0x7f0f111a));
+                    this.i.n(this.b.getString(R.string.obfuscated_res_0x7f0f111b));
                 }
             }
             this.i.r(z);

@@ -31,8 +31,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
-import com.repackage.kk8;
-import com.repackage.re8;
+import com.repackage.jk8;
+import com.repackage.qe8;
 import com.repackage.ur4;
 import com.repackage.uu4;
 /* loaded from: classes4.dex */
@@ -42,7 +42,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public static int f = 1;
     public static int g = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public re8 a;
+    public qe8 a;
     public int b;
     public uu4 c;
     public ab d;
@@ -216,8 +216,8 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            kk8.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
-            kk8.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
+            jk8.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
+            jk8.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -232,7 +232,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
             MemberCloseAdRequestMessage memberCloseAdRequestMessage = new MemberCloseAdRequestMessage(CmdConfigHttp.CMD_MEMBER_CLOSE_AD, 309348);
             memberCloseAdRequestMessage.setVipClose(i);
             MessageManager.getInstance().sendMessage(memberCloseAdRequestMessage);
-            this.c.i(R.string.obfuscated_res_0x7f0f111f);
+            this.c.i(R.string.obfuscated_res_0x7f0f1120);
             this.c.h(true);
         }
     }
@@ -254,7 +254,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
                 this.a.l();
             }
             if (z) {
-                showToast(R.string.obfuscated_res_0x7f0f111c);
+                showToast(R.string.obfuscated_res_0x7f0f111d);
             }
             this.b = g;
             this.c.h(false);
@@ -282,9 +282,9 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             ur4 ur4Var = new ur4(getPageContext().getPageActivity());
-            ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0aab);
+            ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0aac);
             ur4Var.setButtonTextColor(R.color.CAM_X0305);
-            ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0cf5, new a(this));
+            ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0cf6, new a(this));
             ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new b(this));
             ur4Var.create(getPageContext()).show();
         }
@@ -326,7 +326,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new re8(this);
+            this.a = new qe8(this);
             D1();
             registerListener(this.d);
         }

@@ -37,14 +37,14 @@ public class mx5 {
 
         /* renamed from: com.repackage.mx5$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0528a extends BdAsyncTask {
+        public class C0530a extends BdAsyncTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ List a;
             public final /* synthetic */ HttpResponsedMessage b;
             public final /* synthetic */ a c;
 
-            public C0528a(a aVar, List list, HttpResponsedMessage httpResponsedMessage) {
+            public C0530a(a aVar, List list, HttpResponsedMessage httpResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,7 +138,7 @@ public class mx5 {
                     this.a.b.a(alaGetEnterEffectResponsedMessage);
                     return;
                 }
-                this.a.c = new C0528a(this, effectList, httpResponsedMessage).execute(new Object[0]);
+                this.a.c = new C0530a(this, effectList, httpResponsedMessage).execute(new Object[0]);
             }
         }
     }

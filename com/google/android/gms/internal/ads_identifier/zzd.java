@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eo9;
+import com.repackage.go9;
 /* loaded from: classes5.dex */
 public final class zzd extends zza implements zzf {
     public static /* synthetic */ Interceptable $ic;
@@ -55,7 +55,7 @@ public final class zzd extends zza implements zzf {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Parcel zzb = zzb(6, zza());
-            boolean b = eo9.b(zzb);
+            boolean b = go9.b(zzb);
             zzb.recycle();
             return b;
         }
@@ -68,9 +68,9 @@ public final class zzd extends zza implements zzf {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
             Parcel zza = zza();
-            eo9.a(zza, true);
+            go9.a(zza, true);
             Parcel zzb = zzb(2, zza);
-            boolean b = eo9.b(zzb);
+            boolean b = go9.b(zzb);
             zzb.recycle();
             return b;
         }

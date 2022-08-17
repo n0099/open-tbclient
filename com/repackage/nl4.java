@@ -56,7 +56,7 @@ public class nl4 {
                 return;
             }
             if (!oi.z()) {
-                qi.N(view2.getContext(), R.string.obfuscated_res_0x7f0f0c75);
+                qi.M(view2.getContext(), R.string.obfuscated_res_0x7f0f0c76);
                 return;
             }
             ll4 ll4Var = (ll4) view2.getTag();
@@ -94,9 +94,9 @@ public class nl4 {
                 }
                 TiebaStatic.log(new StatisticItem("c12542"));
                 if (ll4Var.c && !StringUtils.isNull(alaUserInfoData.sex)) {
-                    BdToast b = BdToast.b(view2.getContext(), String.format(view2.getContext().getString(R.string.obfuscated_res_0x7f0f0e63), alaUserInfoData.sex));
+                    BdToast b = BdToast.b(view2.getContext(), String.format(view2.getContext().getString(R.string.obfuscated_res_0x7f0f0e64), alaUserInfoData.sex));
                     b.f(BdToast.ToastIcon.FAILURE);
-                    b.h();
+                    b.i();
                     return;
                 }
             }

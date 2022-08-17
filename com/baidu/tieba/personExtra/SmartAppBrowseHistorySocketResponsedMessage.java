@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q48;
+import com.repackage.p48;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.HistorySwan.HistorySwanResIdl;
@@ -16,7 +16,7 @@ import tbclient.HistorySwan.HistorySwanResIdl;
 public class SmartAppBrowseHistorySocketResponsedMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q48 mData;
+    public p48 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SmartAppBrowseHistorySocketResponsedMessage() {
@@ -52,18 +52,18 @@ public class SmartAppBrowseHistorySocketResponsedMessage extends SocketResponsed
                 setErrorString(historySwanResIdl.error.usermsg);
             }
             if (historySwanResIdl.data != null) {
-                q48 q48Var = new q48();
-                this.mData = q48Var;
-                q48Var.b(historySwanResIdl.data);
+                p48 p48Var = new p48();
+                this.mData = p48Var;
+                p48Var.b(historySwanResIdl.data);
             }
             return historySwanResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public q48 getData() {
+    public p48 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (q48) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (p48) invokeV.objValue;
     }
 }

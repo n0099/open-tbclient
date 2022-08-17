@@ -747,7 +747,7 @@ public class PopupWindow {
         this.M = new a(this);
         this.a = context;
         this.b = (WindowManager) context.getSystemService("window");
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843126, 16843465, R.attr.obfuscated_res_0x7f040513, R.attr.obfuscated_res_0x7f04055c, R.attr.obfuscated_res_0x7f04055d}, i, i2);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843126, 16843465, R.attr.obfuscated_res_0x7f040514, R.attr.obfuscated_res_0x7f04055d, R.attr.obfuscated_res_0x7f04055e}, i, i2);
         this.D = obtainStyledAttributes.getDrawable(4);
         int resourceId = obtainStyledAttributes.getResourceId(3, -1);
         this.K = resourceId != 16973824 ? resourceId : -1;

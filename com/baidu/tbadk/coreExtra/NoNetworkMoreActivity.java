@@ -79,13 +79,13 @@ public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
             this.a = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this);
-            this.b.setTitleText(R.string.obfuscated_res_0x7f0f0c74);
+            this.b.setTitleText(R.string.obfuscated_res_0x7f0f0c75);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091538);
-            SpannableString spannableString = new SpannableString(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c76));
+            SpannableString spannableString = new SpannableString(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c77));
             spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
             this.c.setText(spannableString);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091539);
-            SpannableString spannableString2 = new SpannableString(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c77));
+            SpannableString spannableString2 = new SpannableString(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c78));
             spannableString2.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
             this.d.setText(spannableString2);
             ((Button) findViewById(R.id.obfuscated_res_0x7f09164b)).setOnClickListener(this);

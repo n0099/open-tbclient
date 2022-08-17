@@ -149,7 +149,7 @@ public class ot8 implements ws8, bt8.c, j16 {
                 this.b.c();
                 this.b = null;
             } else if (TextUtils.isEmpty(str)) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0adf);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0ae0);
                 os8 os8Var2 = this.b;
                 if (os8Var2 != null) {
                     os8Var2.g(i, str2);

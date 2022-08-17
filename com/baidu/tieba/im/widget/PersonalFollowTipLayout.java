@@ -211,7 +211,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
             this.c.setRadius(qi.f(getContext(), R.dimen.tbds83));
             this.c.setConrers(15);
             this.c.setPlaceHolder(1);
-            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080ee3);
+            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080ee4);
             h();
         }
     }
@@ -265,7 +265,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
             d.z(R.dimen.T_X12);
             d.v(R.color.CAM_X0107);
             d.A(R.string.F_X01);
-            WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080944, R.color.CAM_X0111, null);
+            WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080945, R.color.CAM_X0111, null);
             ms4.d(this).f(R.color.CAM_X0204);
             ms4.d(this.a).p(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
             ms4 d2 = ms4.d(this.b);
@@ -294,7 +294,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, userData) == null) {
             ov4 ov4Var = new ov4();
-            ov4Var.i(R.drawable.obfuscated_res_0x7f080932, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            ov4Var.i(R.drawable.obfuscated_res_0x7f080933, 0, TBSpecificationButtonConfig.IconType.WEBP);
             ov4Var.h(R.color.CAM_X0101);
             ov4Var.g(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
             ov4Var.f(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));

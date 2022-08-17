@@ -878,7 +878,7 @@ public class BdThumbSeekBar extends View {
         this.x = true;
         this.c = context;
         setClickable(true);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404e2});
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404e3});
         int i5 = obtainStyledAttributes.getInt(0, 0);
         obtainStyledAttributes.recycle();
         if (i5 == 1) {
@@ -905,7 +905,7 @@ public class BdThumbSeekBar extends View {
         this.q = 0;
         if (this.c != null) {
             if (this.k == null) {
-                this.k = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080e03);
+                this.k = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080e04);
             }
             this.l = w11.a(0.0f);
         }

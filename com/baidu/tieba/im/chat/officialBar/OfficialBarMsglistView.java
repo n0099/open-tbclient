@@ -33,9 +33,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d35;
 import com.repackage.e35;
 import com.repackage.h25;
+import com.repackage.h77;
 import com.repackage.i25;
-import com.repackage.i77;
-import com.repackage.q67;
+import com.repackage.p67;
 import com.repackage.s25;
 import com.repackage.s45;
 import com.repackage.t25;
@@ -338,10 +338,10 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
             }
             this.mTool.d(e35Var);
             s45 s45Var = new s45(talkableActivity.getActivity());
-            s45Var.g(R.string.obfuscated_res_0x7f0f110a);
+            s45Var.g(R.string.obfuscated_res_0x7f0f110b);
             this.mTool.d(s45Var);
             if (this.h) {
-                this.mTool.d(new q67(talkableActivity.getActivity()));
+                this.mTool.d(new p67(talkableActivity.getActivity()));
             }
             this.mTool.f();
             this.mInputControl.addView(this.mTool, new ViewGroup.LayoutParams(-1, -2));
@@ -504,13 +504,13 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
         }
     }
 
-    public void w(List<i77> list) {
+    public void w(List<h77> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048589, this, list) == null) && list != null && list.size() == 3) {
             for (int i = 0; i < 3; i++) {
-                i77 i77Var = list.get(i);
-                this.g[i].c.setText(i77Var.d());
-                if (i77Var.a() != 0) {
+                h77 h77Var = list.get(i);
+                this.g[i].c.setText(h77Var.d());
+                if (h77Var.a() != 0) {
                     this.g[i].d.setVisibility(8);
                 }
             }

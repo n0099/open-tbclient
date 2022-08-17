@@ -162,7 +162,7 @@ public class ReplyEditorParams implements Parcelable {
                 }
                 i2 = color;
             }
-            String d = cy2.d(jSONObject.optString("contentPlaceholder", c2.getResources().getString(R.string.obfuscated_res_0x7f0f12e8)), 20, StringHelper.STRING_MORE);
+            String d = cy2.d(jSONObject.optString("contentPlaceholder", c2.getResources().getString(R.string.obfuscated_res_0x7f0f12ea)), 20, StringHelper.STRING_MORE);
             String optString2 = jSONObject.optString("emojiPath");
             if (TextUtils.isEmpty(optString2)) {
                 arrayList.remove(MODULE_EMOJI);

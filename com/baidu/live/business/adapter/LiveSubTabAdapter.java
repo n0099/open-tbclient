@@ -428,7 +428,7 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<RecyclerView.V
                 if (this.b) {
                     LiveBaseItemView liveBaseItemView4 = liveFeedBaseHolder.a;
                     if (liveBaseItemView4 != null) {
-                        ((LiveLoadMoreView) liveBaseItemView4).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f09fe);
+                        ((LiveLoadMoreView) liveBaseItemView4).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f09ff);
                         LiveBaseItemView liveBaseItemView5 = liveFeedBaseHolder.a;
                         if (liveBaseItemView5 == null) {
                             throw new TypeCastException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
@@ -445,13 +445,13 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<RecyclerView.V
                     if (liveBaseItemView6 == null) {
                         throw new TypeCastException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
                     }
-                    ((LiveLoadMoreView) liveBaseItemView6).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f0a00);
+                    ((LiveLoadMoreView) liveBaseItemView6).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f0a01);
                 } else {
                     LiveBaseItemView liveBaseItemView7 = liveFeedBaseHolder.a;
                     if (liveBaseItemView7 == null) {
                         throw new TypeCastException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
                     }
-                    ((LiveLoadMoreView) liveBaseItemView7).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f09ff);
+                    ((LiveLoadMoreView) liveBaseItemView7).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f0a00);
                 }
                 LiveBaseItemView liveBaseItemView8 = liveFeedBaseHolder.a;
                 if (liveBaseItemView8 == null) {

@@ -35,7 +35,6 @@ import com.baidu.tbadk.switchs.LaunchUpApplicationSwitch;
 import com.baidu.tbadk.switchs.LaunchUpSpeedSwitch;
 import com.baidu.tbadk.switchs.LaunchViewOptSwitch;
 import com.baidu.tbadk.switchs.LoginPassV6Switch;
-import com.baidu.tbadk.switchs.LooperBlockOptSwitch;
 import com.baidu.tbadk.switchs.MainTabDataSwitch;
 import com.baidu.tbadk.switchs.NewWriteProtobufSwitch;
 import com.baidu.tbadk.switchs.OpenStartSafeModeSwitch;
@@ -193,9 +192,9 @@ public class ey4 {
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("movideo");
             if (optJSONObject2 != null) {
-                gm8.c(optJSONObject2.optInt("chunk_size"));
-                gm8.b(optJSONObject2.optInt("block_size"));
-                gm8.d(optJSONObject2.optInt("data_size"));
+                fm8.c(optJSONObject2.optInt("chunk_size"));
+                fm8.b(optJSONObject2.optInt("block_size"));
+                fm8.d(optJSONObject2.optInt("data_size"));
             }
             PerformanceLoggerHelper.getInstance().setSmallFlowInterval(jSONObject.optLong("small_flow_time_out"));
             JSONArray optJSONArray = jSONObject.optJSONArray(SetImageWatermarkTypeReqMsg.SWITCH);
@@ -276,8 +275,6 @@ public class ey4 {
                             ru4.k().w("key_delay_pb_task_init", valueOf.intValue());
                         } else if (LaunchUpApplicationSwitch.LAUNCH_UP_APPLICATION_ENABLE.equals(optString)) {
                             ru4.k().w("key_launch_up_application_init", valueOf.intValue());
-                        } else if (LooperBlockOptSwitch.LOOPER_BLOCK_OPT_ENABLE.equals(optString)) {
-                            ru4.k().w("key_looper_block_opt", valueOf.intValue());
                         } else if (OpenStartSafeModeSwitch.KEY.equals(optString)) {
                             ru4.k().w("key_is_start_safe_mode", valueOf.intValue());
                         } else if (ResetSplashAdConfigSwitch.KEY.equals(optString)) {

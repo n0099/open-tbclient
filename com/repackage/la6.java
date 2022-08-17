@@ -346,7 +346,7 @@ public class la6 extends BaseAdapter {
                     fVar2 = (f) view2.getTag();
                 }
                 fVar2.b.setTag(null);
-                fVar2.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080bc1);
+                fVar2.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080bc2);
                 fVar2.b.K(null, 12, false);
                 fVar2.b.invalidate();
                 SkinManager.setBackgroundResource(fVar2.b, R.drawable.btn_choose_face_selector, this.f);

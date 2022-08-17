@@ -3,7 +3,6 @@ package com.repackage;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -14,13 +13,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class v78 extends bz5<t68> {
+public class v78 extends bz5<t68> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View i;
-    public ImageView j;
-    public TextView k;
-    public String l;
+    public b68 j;
+    public View k;
+    public TextView l;
+    public TextView m;
+    public ImageView n;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v78(TbPageContext<?> tbPageContext) {
@@ -47,7 +48,7 @@ public class v78 extends bz5<t68> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a5 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01ae : invokeV.intValue;
     }
 
     @Override // com.repackage.bz5
@@ -56,8 +57,10 @@ public class v78 extends bz5<t68> {
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
             if (this.a != i) {
                 SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
-                SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_07);
-                SkinManager.setViewTextColor(this.k, R.color.CAM_X0108, 1);
+                SkinManager.setBackgroundResource(this.k, R.color.CAM_X0205);
+                SkinManager.setViewTextColor(this.m, R.color.CAM_X0109, 1);
+                SkinManager.setImageResource(this.n, R.drawable.pic_pop_key);
+                SkinManager.setViewTextColor(this.l, R.color.CAM_X0304, 1);
             }
             this.a = i;
         }
@@ -65,17 +68,23 @@ public class v78 extends bz5<t68> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
+        b68 b68Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || view2 == null || (b68Var = this.j) == null || view2 != this.l) {
+            return;
         }
+        b68Var.a();
     }
 
     public final void r(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090559);
-            this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090558);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09055a);
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f09056a);
+            this.k = view2.findViewById(R.id.obfuscated_res_0x7f09223e);
+            this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091417);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091704);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090529);
+            this.l.setOnClickListener(this);
         }
     }
 
@@ -83,7 +92,6 @@ public class v78 extends bz5<t68> {
     @Override // com.repackage.bz5
     /* renamed from: s */
     public void i(t68 t68Var) {
-        String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, t68Var) == null) {
             if (t68Var == null) {
@@ -93,22 +101,21 @@ public class v78 extends bz5<t68> {
             if (this.i.getVisibility() != 0) {
                 this.i.setVisibility(0);
             }
-            if (StringUtils.isNull(this.l)) {
-                TextView textView = this.k;
-                String string2 = this.c.getString(R.string.obfuscated_res_0x7f0f0e5f);
-                Object[] objArr = new Object[1];
+            View view2 = this.k;
+            if (view2 != null) {
                 if (t68Var.a) {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1600);
-                } else if (t68Var.b == 2) {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1170);
+                    view2.setVisibility(8);
                 } else {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f083d);
+                    view2.setVisibility(0);
                 }
-                objArr[0] = string;
-                textView.setText(String.format(string2, objArr));
-                return;
             }
-            this.k.setText(this.l);
+        }
+    }
+
+    public void t(b68 b68Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, b68Var) == null) {
+            this.j = b68Var;
         }
     }
 }

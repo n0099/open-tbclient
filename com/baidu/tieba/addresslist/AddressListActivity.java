@@ -80,7 +80,7 @@ public class AddressListActivity extends BaseFragmentActivity {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255c);
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.a.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b48));
+            this.a.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b49));
             getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090131, new AddressListFragment()).commit();
         }
     }

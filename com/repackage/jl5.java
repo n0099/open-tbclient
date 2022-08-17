@@ -130,7 +130,7 @@ public class jl5 {
     public static boolean c(Context context, CombineDownload combineDownload) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, combineDownload)) == null) ? (combineDownload == null || gk8.b(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, combineDownload)) == null) ? (combineDownload == null || fk8.b(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true : invokeLL.booleanValue;
     }
 
     public static void d() {

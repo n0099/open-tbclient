@@ -11,22 +11,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cc7;
 import com.repackage.dc7;
-import com.repackage.ec7;
 import com.repackage.s85;
 /* loaded from: classes3.dex */
-public class ReplyMeNetModel extends NetAutoModel<dc7, ec7, ReplyMessageFragment> {
+public class ReplyMeNetModel extends NetAutoModel<cc7, dc7, ReplyMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ReplyMeNetModel(TbPageContext tbPageContext, dc7 dc7Var) {
-        super(tbPageContext, dc7Var);
+    public ReplyMeNetModel(TbPageContext tbPageContext, cc7 cc7Var) {
+        super(tbPageContext, cc7Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, dc7Var};
+            Object[] objArr = {tbPageContext, cc7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -79,9 +79,9 @@ public class ReplyMeNetModel extends NetAutoModel<dc7, ec7, ReplyMessageFragment
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<ec7> getResponseDataClass() {
+    public Class<dc7> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ec7.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? dc7.class : (Class) invokeV.objValue;
     }
 }

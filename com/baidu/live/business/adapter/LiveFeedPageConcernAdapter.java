@@ -601,7 +601,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                         LiveHostInfo liveHostInfo = liveFollowEntity.hostInfo;
                         if (liveHostInfo != null) {
                             if (oa0.a(liveHostInfo.name)) {
-                                oneFollowViewHolder.c.setText(R.string.obfuscated_res_0x7f0f09fc);
+                                oneFollowViewHolder.c.setText(R.string.obfuscated_res_0x7f0f09fd);
                             } else {
                                 oneFollowViewHolder.c.setText(liveFollowEntity.hostInfo.name);
                             }
@@ -662,7 +662,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                         LiveHostInfo liveHostInfo5 = liveFollowEntity2.hostInfo;
                         if (liveHostInfo5 != null) {
                             if (oa0.a(liveHostInfo5.name)) {
-                                twoFollowViewHolder.f.setText(R.string.obfuscated_res_0x7f0f09fc);
+                                twoFollowViewHolder.f.setText(R.string.obfuscated_res_0x7f0f09fd);
                             } else {
                                 twoFollowViewHolder.f.setText(liveFollowEntity2.hostInfo.name);
                             }
@@ -703,12 +703,12 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                     }
                     if (!LiveFeedPageSdk.IMMERSION.equals(this.e) && !LiveFeedPageSdk.VIDEO_BAR.equals(this.e)) {
                         if (!"night".equals(ab0.f().q()) && !"dark".equals(ab0.f().q())) {
-                            twoFollowViewHolder.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cd4);
-                        } else {
                             twoFollowViewHolder.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cd5);
+                        } else {
+                            twoFollowViewHolder.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cd6);
                         }
                     } else {
-                        twoFollowViewHolder.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cd6);
+                        twoFollowViewHolder.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cd7);
                     }
                     twoFollowViewHolder.itemView.setOnClickListener(new b(this, i));
                     twoFollowViewHolder.d.getHierarchy().setPlaceholderImage(ab0.f().k(this.e), ScalingUtils.ScaleType.FIT_XY);
@@ -745,12 +745,12 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                         f(viewHolder2);
                         if (!LiveFeedPageSdk.IMMERSION.equals(this.e) && !LiveFeedPageSdk.VIDEO_BAR.equals(this.e)) {
                             if (!"night".equals(ab0.f().q()) && !"dark".equals(ab0.f().q())) {
-                                viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080cc9);
+                                viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080cca);
                             } else {
-                                viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080ccb);
+                                viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080ccc);
                             }
                         } else {
-                            viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080cca);
+                            viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080ccb);
                         }
                         viewHolder2.e.setVisibility(0);
                         viewHolder2.b.setVisibility(4);
@@ -770,7 +770,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                     LiveHostInfo liveHostInfo9 = liveFollowEntity3.hostInfo;
                     if (liveHostInfo9 != null) {
                         if (oa0.a(liveHostInfo9.name)) {
-                            viewHolder2.a.setText(R.string.obfuscated_res_0x7f0f09fc);
+                            viewHolder2.a.setText(R.string.obfuscated_res_0x7f0f09fd);
                         } else {
                             viewHolder2.a.setText(liveFollowEntity3.hostInfo.name);
                         }

@@ -237,12 +237,12 @@ public class nz4 implements iz4 {
 
         /* renamed from: com.repackage.nz4$c$c  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0541c implements View.OnClickListener {
+        public class View$OnClickListenerC0544c implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
 
-            public View$OnClickListenerC0541c(c cVar) {
+            public View$OnClickListenerC0544c(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -317,7 +317,7 @@ public class nz4 implements iz4 {
                 findViewById.setOnTouchListener(aVar);
                 findViewById4.setOnTouchListener(aVar);
                 textView.setOnClickListener(new b(this));
-                imageView.setOnClickListener(new View$OnClickListenerC0541c(this));
+                imageView.setOnClickListener(new View$OnClickListenerC0544c(this));
             }
         }
     }
@@ -445,7 +445,7 @@ public class nz4 implements iz4 {
             textView.setGravity(17);
             textView.setTextSize(0, o(R.dimen.tbfontsize42));
             textView.setLineSpacing(o(R.dimen.obfuscated_res_0x7f0701d4), 1.0f);
-            textView.setText(activity.getString(R.string.obfuscated_res_0x7f0f1186));
+            textView.setText(activity.getString(R.string.obfuscated_res_0x7f0f1188));
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
             SkinManager.setBackgroundColor(navigationBarCoverTip, R.color.cp_link_tip_a_alpha95);
             navigationBarCoverTip.l(activity, textView);

@@ -24,7 +24,6 @@ import com.baidu.searchbox.task.async.appcreate.PreLoadBaiduClass;
 import com.baidu.searchbox.task.async.appcreate.PreLoadTiebaClass;
 import com.baidu.searchbox.task.async.appcreate.WebViewDataDirectorySuffixTask;
 import com.baidu.searchbox.task.async.homeready.ApplicationAsyncTask;
-import com.baidu.searchbox.task.async.homeready.ApplicationIdleTask;
 import com.baidu.searchbox.task.async.homeready.GetYYCloudTask;
 import com.baidu.searchbox.task.async.homeready.InitCookieTask;
 import com.baidu.searchbox.task.async.homeready.InitCyberPlayerTask;
@@ -166,7 +165,6 @@ public class PBTaskPool extends BaseTaskPool {
                 }
             } else if (i == 3) {
                 arrayList.add(new InitEmotionsTask());
-                arrayList.add(new ApplicationIdleTask());
                 if (LaunchUpApplicationSwitch.getIsOn()) {
                     arrayList.add(new InitDiskStatTask());
                 }

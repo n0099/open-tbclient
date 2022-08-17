@@ -44,13 +44,13 @@ public class oo3 extends Dialog {
 
         /* renamed from: com.repackage.oo3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class View$OnClickListenerC0550a implements View.OnClickListener {
+        public class View$OnClickListenerC0552a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0550a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0552a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -349,7 +349,7 @@ public class oo3 extends Dialog {
                     this.a.i.setVisibility(0);
                 }
                 this.a.e.setText(charSequence);
-                this.a.e.setOnClickListener(new View$OnClickListenerC0550a(this, onClickListener));
+                this.a.e.setOnClickListener(new View$OnClickListenerC0552a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -406,7 +406,7 @@ public class oo3 extends Dialog {
                 Resources b2 = b();
                 int i = this.a.C;
                 if (i == -1) {
-                    i = R.drawable.obfuscated_res_0x7f0810fc;
+                    i = R.drawable.obfuscated_res_0x7f0810fd;
                 }
                 relativeLayout.setBackground(b2.getDrawable(i));
                 this.a.b.setTextColor(color);
@@ -437,12 +437,12 @@ public class oo3 extends Dialog {
                 this.a.h.setBackgroundColor(color5);
                 this.a.i.setBackgroundColor(color5);
                 this.a.j.setBackgroundColor(color5);
-                this.a.e.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f0810fa));
-                this.a.f.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f0810f9));
-                this.a.g.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f0810f8));
+                this.a.e.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f0810fb));
+                this.a.f.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f0810fa));
+                this.a.g.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f0810f9));
                 TextView d = d();
                 if (d != null) {
-                    d.setBackground(this.a.E ? b().getDrawable(R.drawable.obfuscated_res_0x7f0810f8) : null);
+                    d.setBackground(this.a.E ? b().getDrawable(R.drawable.obfuscated_res_0x7f0810f9) : null);
                 }
             }
         }

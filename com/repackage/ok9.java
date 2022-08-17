@@ -1,94 +1,78 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsRewardVideoAd;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.kwad.sdk.api.KsNativeAd;
+import com.repackage.mk9;
 /* loaded from: classes7.dex */
-public class ok9 extends tk9 {
+public class ok9 extends FunNativeAd2Bridger<KsNativeAd, com.fun.module.ks.x> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ KsRewardVideoAd c;
-    public final /* synthetic */ String d;
-    public final /* synthetic */ nk9 e;
+    public final mk9.b b;
+    public final /* synthetic */ Context c;
+    public final /* synthetic */ mk9 d;
 
-    public ok9(nk9 nk9Var, KsRewardVideoAd ksRewardVideoAd, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ok9(mk9 mk9Var, ReporterPidLoader reporterPidLoader, KsNativeAd ksNativeAd, Context context) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nk9Var, ksRewardVideoAd, str};
+            Object[] objArr = {mk9Var, reporterPidLoader, ksNativeAd, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = nk9Var;
-        this.c = ksRewardVideoAd;
-        this.d = str;
+        this.d = mk9Var;
+        this.c = context;
+        this.b = new mk9.b(mk9Var, ksNativeAd);
     }
 
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onAdClicked() {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
+    /* JADX WARN: Type inference failed for: r1v1, types: [android.view.View, com.fun.module.ks.x] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public com.fun.module.ks.x createExpressView(KsNativeAd ksNativeAd) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.e.onAdClicked(this.c, this.b, this.d);
-            this.b = true;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ksNativeAd)) == null) ? this.d.e(this.c, ksNativeAd) : (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, KsNativeAd ksNativeAd, BaseNativeAd2<KsNativeAd, com.fun.module.ks.x> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, ksNativeAd, baseNativeAd2, funAdInteractionListener}) == null) {
+            this.d.i(ksNativeAd, str, customInflater.inflate(), customInflater.getClickViews(), this.b, funAdInteractionListener);
         }
     }
 
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onPageDismiss() {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, KsNativeAd ksNativeAd, BaseNativeAd2<KsNativeAd, com.fun.module.ks.x> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            this.e.onAdClose(this.c);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onRewardVerify() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.d();
-            this.e.onRewardedVideo(this.c, this.d);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onVideoPlayEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onVideoPlayError(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            LogPrinter.d();
-            this.e.onAdError(this.c, i, String.valueOf(i2));
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onVideoPlayStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LogPrinter.d();
-            this.e.onAdShow(this.c, this.a, this.d);
-            this.a = true;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, ksNativeAd, baseNativeAd2, funAdInteractionListener}) == null) {
+            this.d.i(ksNativeAd, str, expressInflater.inflate(), baseNativeAd2.getExpressView().getClickViews(), this.b, funAdInteractionListener);
         }
     }
 }

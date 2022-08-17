@@ -75,7 +75,7 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.a.a.getPageActivity()) && qi.D() && this.a.l != null && !StringUtils.isNull(this.a.l.W0)) {
                 if (!TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                    qi.N(this.a.a.getPageActivity(), R.string.obfuscated_res_0x7f0f0328);
+                    qi.M(this.a.a.getPageActivity(), R.string.obfuscated_res_0x7f0f0328);
                     return;
                 }
                 if (this.a.m != null) {
@@ -137,8 +137,8 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
         this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916de);
         TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0916df);
         this.i = tbImageView;
-        tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08120f);
-        this.i.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120f);
+        tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081210);
+        this.i.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081210);
         this.k = view2.findViewById(R.id.obfuscated_res_0x7f091b4f);
         this.h.setOnClickListener(this.n);
         this.j.setOnClickListener(this.n);

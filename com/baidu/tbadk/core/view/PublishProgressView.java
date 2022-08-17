@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ms4;
-import com.repackage.zm8;
+import com.repackage.ym8;
 /* loaded from: classes3.dex */
 public class PublishProgressView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -50,7 +50,7 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
     private void setProgress(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, this, i) == null) {
-            this.b.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0f39), Integer.valueOf(this.a.c(i))));
+            this.b.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0f3a), Integer.valueOf(this.a.c(i))));
         }
     }
 
@@ -120,7 +120,7 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
                 publishProgressData.hideRunning();
                 d();
             }
-            zm8.c();
+            ym8.c();
         }
     }
 

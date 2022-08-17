@@ -123,8 +123,8 @@ import com.repackage.ur4;
 import com.repackage.uu4;
 import com.repackage.w35;
 import com.repackage.x09;
+import com.repackage.yl8;
 import com.repackage.yu4;
-import com.repackage.zl8;
 import com.repackage.zm;
 import com.repackage.zz8;
 import java.util.ArrayList;
@@ -246,7 +246,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
                         if (editorTools != null) {
                             editorTools.q();
                         }
-                        qi.M(this.a.getActivity(), this.a.H);
+                        qi.L(this.a.getActivity(), this.a.H);
                     } else {
                         AbsBaseWriteActivity absBaseWriteActivity3 = this.a;
                         if (view2 == absBaseWriteActivity3.H) {
@@ -262,7 +262,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
                     if (editorTools2 != null) {
                         editorTools2.q();
                     }
-                    qi.M(this.a.getActivity(), this.a.L);
+                    qi.L(this.a.getActivity(), this.a.L);
                 }
                 this.a.X2(view2, z);
                 this.a.V2();
@@ -370,7 +370,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
                 if (!this.a.t2()) {
                     this.a.Q2();
                 } else {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0d19);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0d1a);
                 }
             } else if (i == 3) {
                 this.a.Q1();
@@ -996,12 +996,12 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
                     } else if (postWriteCallBackData.isErrorShowApplyMemberDialog()) {
                         ur4 ur4Var = new ur4(this.a.getActivity());
                         if (pi.isEmpty(postWriteCallBackData.getErrorString())) {
-                            ur4Var.setMessage(this.a.getActivity().getString(R.string.obfuscated_res_0x7f0f0cf3));
+                            ur4Var.setMessage(this.a.getActivity().getString(R.string.obfuscated_res_0x7f0f0cf4));
                         } else {
                             ur4Var.setMessage(postWriteCallBackData.getErrorString());
                         }
                         ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new a(this));
-                        ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0cf5, new b(this));
+                        ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0cf6, new b(this));
                         ur4Var.create(this.a.getPageContext()).show();
                         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW).param("obj_locate", 1).param("obj_type", 1));
                     } else if ((az4Var == null || writeData == null || az4Var.c() == null || AntiHelper.h(antiData)) && postWriteCallBackData.getErrorCode() != 227001 && this.a.S1(postWriteCallBackData)) {
@@ -1057,7 +1057,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c75);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c76);
                 this.a.H2(0, true, null);
             }
         }
@@ -1080,7 +1080,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
                 AbsBaseWriteActivity absBaseWriteActivity = this.a;
                 if (StringUtils.isNull(str)) {
-                    str = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0a50);
+                    str = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0a51);
                 }
                 absBaseWriteActivity.showToast(str);
                 this.a.H2(0, true, null);
@@ -1335,7 +1335,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             this.g = "";
             W1().requestFocus();
             if (W1().getText() != null && W1().getText().length() + str.length() > 5000) {
-                showToast((int) R.string.obfuscated_res_0x7f0f0d19);
+                showToast((int) R.string.obfuscated_res_0x7f0f0d1a);
                 return;
             } else {
                 i2 = W1().getSelectionStart();
@@ -1345,7 +1345,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             this.g = "";
             X1().requestFocus();
             if (X1().getText() != null && X1().getText().length() + str.length() > 31) {
-                showToast((int) R.string.obfuscated_res_0x7f0f0d19);
+                showToast((int) R.string.obfuscated_res_0x7f0f0d1a);
                 return;
             } else {
                 i2 = X1().getSelectionStart();
@@ -1382,7 +1382,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.A.C()) {
                 if (this.A.G()) {
-                    H2(2, true, zl8.a().b().getFormatted_address());
+                    H2(2, true, yl8.a().b().getFormatted_address());
                     return;
                 }
                 H2(1, true, null);
@@ -1611,12 +1611,12 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
                     i3 = 0;
                 }
                 if (i2 > i3) {
-                    String format = String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f15c6), Integer.valueOf(i2 - i3));
+                    String format = String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f15c9), Integer.valueOf(i2 - i3));
                     sb.append("\n");
                     sb.append(format);
                 }
             }
-            qi.O(getPageContext().getPageActivity(), sb.toString());
+            qi.N(getPageContext().getPageActivity(), sb.toString());
         }
     }
 
@@ -1679,7 +1679,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
             ur4 ur4Var = new ur4(getPageContext().getPageActivity());
-            ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0a4e).setPositiveButton(R.string.obfuscated_res_0x7f0f0980, new i(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new h(this)).create(getPageContext());
+            ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0a4f).setPositiveButton(R.string.obfuscated_res_0x7f0f0981, new i(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new h(this)).create(getPageContext());
             ur4Var.show();
         }
     }
@@ -1719,7 +1719,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             }
             String errorString2 = postWriteCallBackData.getErrorString();
             if (TextUtils.isEmpty(errorString2)) {
-                errorString2 = getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1043);
+                errorString2 = getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1044);
             }
             showToast(errorString2);
         } else if (this.s == null) {
@@ -1830,12 +1830,12 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             if (this.s != null) {
                 this.Q.setVisibility(0);
                 TextView textView = this.R;
-                textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f15c3) + StringHelper.getFormatTime(this.s.getCreateTime() * 1000));
+                textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f15c6) + StringHelper.getFormatTime(this.s.getCreateTime() * 1000));
                 if (this.s.getAlreadyCount() == 0) {
                     this.S.setVisibility(8);
                 } else {
                     TextView textView2 = this.S;
-                    textView2.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f15c5) + StringHelper.getFormatTime(this.s.getLastAdditionTime() * 1000));
+                    textView2.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f15c8) + StringHelper.getFormatTime(this.s.getLastAdditionTime() * 1000));
                 }
                 String lastAdditionContent = this.s.getLastAdditionContent();
                 if (!TextUtils.isEmpty(lastAdditionContent)) {
@@ -1843,8 +1843,8 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
                 } else {
                     this.T.setVisibility(8);
                 }
-                W1().setHint(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f15c4), Integer.valueOf(this.s.getAlreadyCount()), Integer.valueOf(this.s.getTotalCount())));
-                this.G.setText(R.string.obfuscated_res_0x7f0f15c7);
+                W1().setHint(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f15c7), Integer.valueOf(this.s.getAlreadyCount()), Integer.valueOf(this.s.getTotalCount())));
+                this.G.setText(R.string.obfuscated_res_0x7f0f15ca);
                 return;
             }
             this.Q.setVisibility(8);
@@ -2183,7 +2183,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         if (interceptable == null || (invokeI = interceptable.invokeI(1048644, this, i2)) == null) {
             lw8 lw8Var = new lw8(getPageContext().getPageActivity(), new g(this), new Date().getHours(), new Date().getMinutes(), false);
             this.z0 = lw8Var;
-            lw8Var.setTitle(R.string.obfuscated_res_0x7f0f0c5a);
+            lw8Var.setTitle(R.string.obfuscated_res_0x7f0f0c5b);
             this.z0.setButton(-1, getPageContext().getString(R.string.obfuscated_res_0x7f0f0265), this.z0);
             this.z0.setButton(-2, getPageContext().getString(R.string.obfuscated_res_0x7f0f0370), this.z0);
             return this.z0;
@@ -2337,7 +2337,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         if (interceptable == null || interceptable.invokeL(1048657, this, gy4Var) == null) {
             if (((ImageSpan[]) W1().getText().getSpans(0, W1().getText().length(), ImageSpan.class)).length >= 10) {
                 if (this.P == null) {
-                    this.P = Toast.makeText(getPageContext().getPageActivity(), (int) R.string.obfuscated_res_0x7f0f1431, 0);
+                    this.P = Toast.makeText(getPageContext().getPageActivity(), (int) R.string.obfuscated_res_0x7f0f1433, 0);
                 }
                 if (Build.VERSION.SDK_INT >= 28 && this.P.getView().isShown()) {
                     this.P.cancel();
@@ -2359,7 +2359,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             return;
         }
         uu4Var.e(null);
-        this.a0.i(R.string.obfuscated_res_0x7f0f1112);
+        this.a0.i(R.string.obfuscated_res_0x7f0f1113);
         this.a0.h(true);
     }
 
@@ -2400,7 +2400,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048663, this) == null) {
             if (!this.A.H(getPageContext().getPageActivity())) {
-                showToast((int) R.string.obfuscated_res_0x7f0f0a55);
+                showToast((int) R.string.obfuscated_res_0x7f0f0a56);
                 H2(0, true, null);
             } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
                 S2();

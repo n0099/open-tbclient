@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class tv5 extends bz5<lj8> implements zz5 {
+public class tv5 extends bz5<kj8> implements zz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForbidParentSwipeBackRelativeLayout i;
@@ -44,7 +44,7 @@ public class tv5 extends bz5<lj8> implements zz5 {
     public View n;
     public View o;
     public String p;
-    public lj8 q;
+    public kj8 q;
     public int r;
     public nv5 s;
     public ov5 t;
@@ -246,7 +246,7 @@ public class tv5 extends bz5<lj8> implements zz5 {
         nv5 nv5Var = new nv5(tbPageContext, this.i);
         this.s = nv5Var;
         nv5Var.d(f());
-        this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f08120f);
+        this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f081210);
         this.j.setOnPageChangeListener(this.y);
         FrsAlaStageLiveViewItemAdapter frsAlaStageLiveViewItemAdapter = new FrsAlaStageLiveViewItemAdapter(this.b, f());
         this.k = frsAlaStageLiveViewItemAdapter;
@@ -268,10 +268,10 @@ public class tv5 extends bz5<lj8> implements zz5 {
     }
 
     public final void B() {
-        lj8 lj8Var;
+        kj8 kj8Var;
         int c2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (lj8Var = this.q) == null || !ListUtils.isEmpty(lj8Var.a) || (c2 = this.t.c(this.r)) >= this.q.a.size() || c2 < 0) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (kj8Var = this.q) == null || !ListUtils.isEmpty(kj8Var.a) || (c2 = this.t.c(this.r)) >= this.q.a.size() || c2 < 0) {
             return;
         }
         CustomMessage customMessage = new CustomMessage(2921017);
@@ -328,8 +328,8 @@ public class tv5 extends bz5<lj8> implements zz5 {
         }
         AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
         alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-        lj8 lj8Var = this.q;
-        if (lj8Var != null && !ListUtils.isEmpty(lj8Var.a)) {
+        kj8 kj8Var = this.q;
+        if (kj8Var != null && !ListUtils.isEmpty(kj8Var.a)) {
             for (ThreadData threadData2 : this.q.a) {
                 alaLiveInfoListCoreData.mLiveInfoList.add(F(threadData2));
             }
@@ -340,25 +340,25 @@ public class tv5 extends bz5<lj8> implements zz5 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.bz5
     /* renamed from: E */
-    public void i(lj8 lj8Var) {
+    public void i(kj8 kj8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, lj8Var) == null) || lj8Var == null || lj8Var.a == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, kj8Var) == null) || kj8Var == null || kj8Var.a == null) {
             return;
         }
-        this.q = lj8Var;
+        this.q = kj8Var;
         q(0);
         if (this.t == null) {
-            ov5 ov5Var = new ov5(lj8Var.a, this.u, this.v);
+            ov5 ov5Var = new ov5(kj8Var.a, this.u, this.v);
             this.t = ov5Var;
             ov5Var.i(2);
             this.t.h(6);
             this.t.g(1);
         }
-        this.t.j(lj8Var.a);
+        this.t.j(kj8Var.a);
         this.k.d(this.p);
         this.k.c(this.t.e(), this.z);
         this.j.setCurrentItem(this.t.d(), false);
-        if (lj8Var.a.size() >= 2) {
+        if (kj8Var.a.size() >= 2) {
             this.l.setVisibility(0);
             if (this.m.getCount() != this.t.b()) {
                 this.m.setCount(this.t.b());
@@ -368,8 +368,8 @@ public class tv5 extends bz5<lj8> implements zz5 {
         } else {
             this.l.setVisibility(8);
         }
-        if (lj8Var.a.size() > 0) {
-            this.s.b(lj8Var.a.get(0), "ala_frs_stage_live_feed_back_type");
+        if (kj8Var.a.size() > 0) {
+            this.s.b(kj8Var.a.get(0), "ala_frs_stage_live_feed_back_type");
         }
         B();
         j(g(), TbadkCoreApplication.getInst().getSkinType());

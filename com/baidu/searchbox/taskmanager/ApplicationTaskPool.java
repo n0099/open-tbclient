@@ -24,7 +24,6 @@ import com.baidu.searchbox.task.async.appcreate.PreLoadBaiduClass;
 import com.baidu.searchbox.task.async.appcreate.PreLoadTiebaClass;
 import com.baidu.searchbox.task.async.appcreate.WebViewDataDirectorySuffixTask;
 import com.baidu.searchbox.task.async.homeready.ApplicationAsyncTask;
-import com.baidu.searchbox.task.async.homeready.ApplicationIdleTask;
 import com.baidu.searchbox.task.async.homeready.GetYYCloudTask;
 import com.baidu.searchbox.task.async.homeready.InitCookieTask;
 import com.baidu.searchbox.task.async.homeready.InitCyberPlayerTask;
@@ -150,11 +149,11 @@ public class ApplicationTaskPool extends BaseTaskPool {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             ArrayList arrayList = new ArrayList();
             if (i == 2) {
+                arrayList.add(new PreInitSwanDataTask());
                 arrayList.add(new InitPersonalizePageDataTask());
                 arrayList.add(new InitSapiTask());
                 arrayList.add(new InitSDKAsyncTask());
                 arrayList.add(new InitFaceTask());
-                arrayList.add(new PreInitSwanDataTask());
                 arrayList.add(new PreLoadBaiduClass());
                 arrayList.add(new InitLocationTask());
                 arrayList.add(new InitDiskTask());
@@ -178,7 +177,6 @@ public class ApplicationTaskPool extends BaseTaskPool {
             } else if (i == 3) {
                 arrayList.add(new InitMaintabFragmentTask());
                 arrayList.add(new InitEmotionsTask());
-                arrayList.add(new ApplicationIdleTask());
                 if (LaunchUpApplicationSwitch.getIsOn()) {
                     arrayList.add(new InitDiskStatTask());
                 }

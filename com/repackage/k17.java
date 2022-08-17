@@ -1,77 +1,108 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
+import com.squareup.wire.Wire;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONObject;
+import tbclient.Error;
+import tbclient.ExcFrsPage.DataRes;
+import tbclient.ExcFrsPage.ExcFrsPageResIdl;
+import tbclient.ExcFrsPage.ExcellentTagInfo;
 /* loaded from: classes6.dex */
-public class k17 extends rw<fo4> {
+public class k17 implements n85, t85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s37 f;
-    public int g;
+    public List<Object> a;
+    public List<Object> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k17(Context context, TbPageContext<?> tbPageContext) {
-        super(context);
+    public k17() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.g = 3;
-        this.f = new s37(tbPageContext);
     }
 
-    @Override // com.repackage.rw
-    public View h() {
+    @Override // com.repackage.o85
+    public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f.r() : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.ix
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    @Override // com.repackage.n85
+    public boolean initByByteArray(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.g != i) {
-                this.f.j(tbPageContext, i);
-                n(h(), 3);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            try {
+                initByProtobuf((ExcFrsPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcFrsPageResIdl.class));
+                return true;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
             }
-            this.g = i;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.t85
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.hx
-    /* renamed from: p */
-    public void a(fo4 fo4Var) {
+    @Override // com.repackage.t85
+    public void initByProtobuf(Message message) {
+        ExcFrsPageResIdl excFrsPageResIdl;
+        Error error;
+        DataRes dataRes;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, fo4Var) == null) && (fo4Var instanceof p37)) {
-            this.f.i((p37) fo4Var);
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, message) == null) || !(message instanceof ExcFrsPageResIdl) || (excFrsPageResIdl = (ExcFrsPageResIdl) message) == null || (error = excFrsPageResIdl.error) == null || error.errorno.intValue() != 0 || (dataRes = excFrsPageResIdl.data) == null) {
+            return;
+        }
+        if (dataRes.thread_list != null) {
+            ArrayList arrayList = new ArrayList();
+            this.a = arrayList;
+            arrayList.addAll(excFrsPageResIdl.data.thread_list);
+        }
+        excFrsPageResIdl.data.has_more.intValue();
+        excFrsPageResIdl.data.pn.intValue();
+        if (excFrsPageResIdl.data.tag_list != null) {
+            this.b = new ArrayList();
+            for (ExcellentTagInfo excellentTagInfo : excFrsPageResIdl.data.tag_list) {
+                if (excellentTagInfo != null) {
+                    this.b.add(excellentTagInfo);
+                }
+            }
         }
     }
 
-    public void q(BdUniqueId bdUniqueId) {
+    @Override // com.repackage.n85
+    public byte[] toCacheByteArray() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            this.f.o(bdUniqueId);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
         }
+        return (byte[]) invokeV.objValue;
     }
 }

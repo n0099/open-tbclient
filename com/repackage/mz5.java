@@ -28,7 +28,7 @@ public class mz5 {
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(String str) {
-        dm8 readThreadHistory;
+        cm8 readThreadHistory;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65536, null, str) == null) || StringUtils.isNull(str) || "0".equalsIgnoreCase(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || readThreadHistory.b(str)) {
             return;
@@ -184,7 +184,7 @@ public class mz5 {
 
     public static boolean k(String str) {
         InterceptResult invokeL;
-        dm8 readThreadHistory;
+        cm8 readThreadHistory;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? (StringUtils.isNull(str) || "0".equalsIgnoreCase(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.d(str)) ? false : true : invokeL.booleanValue;
     }

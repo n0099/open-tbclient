@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a67;
-import com.repackage.qb7;
+import com.repackage.pb7;
+import com.repackage.z57;
 /* loaded from: classes3.dex */
-public class MsgReplyCardView extends a67 {
+public class MsgReplyCardView extends z57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout E;
@@ -89,19 +89,19 @@ public class MsgReplyCardView extends a67 {
             if (i == 1) {
                 return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f00c3);
             }
-            return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1445);
+            return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1447);
         }
         return (String) invokeI.objValue;
     }
 
-    public final String V(qb7.a aVar, String str) {
+    public final String V(pb7.a aVar, String str) {
         InterceptResult invokeLL;
         String X;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, str)) == null) {
             StringBuilder sb = new StringBuilder();
             if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-                X = this.mContext.getString(R.string.obfuscated_res_0x7f0f0aa9);
+                X = this.mContext.getString(R.string.obfuscated_res_0x7f0f0aaa);
             } else {
                 X = X(aVar.a);
             }
@@ -117,7 +117,7 @@ public class MsgReplyCardView extends a67 {
         return (String) invokeLL.objValue;
     }
 
-    public final String W(qb7.a aVar, String str) {
+    public final String W(pb7.a aVar, String str) {
         InterceptResult invokeLL;
         String string;
         String X;
@@ -125,9 +125,9 @@ public class MsgReplyCardView extends a67 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, str)) == null) {
             if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
                 string = X(aVar.a);
-                X = this.mContext.getString(R.string.obfuscated_res_0x7f0f1600);
+                X = this.mContext.getString(R.string.obfuscated_res_0x7f0f1603);
             } else {
-                string = this.mContext.getString(R.string.obfuscated_res_0x7f0f1600);
+                string = this.mContext.getString(R.string.obfuscated_res_0x7f0f1603);
                 X = X(aVar.a);
             }
             return String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f00c2), string, getType(aVar.h), X);
@@ -143,9 +143,9 @@ public class MsgReplyCardView extends a67 {
                 return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f083d);
             }
             if (i == 2) {
-                return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1170);
+                return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1172);
             }
-            return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1342);
+            return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1344);
         }
         return (String) invokeI.objValue;
     }
@@ -167,7 +167,7 @@ public class MsgReplyCardView extends a67 {
         if (!(interceptable == null || interceptable.invokeLLL(1048580, this, tbPageContext, chatMessage, view2) == null) || chatMessage == null) {
             return;
         }
-        qb7.a a2 = qb7.a(chatMessage.getContent());
+        pb7.a a2 = pb7.a(chatMessage.getContent());
         String valueOf = String.valueOf(chatMessage.getUserId());
         this.F.setText(W(a2, valueOf));
         this.G.setText(a2.b);

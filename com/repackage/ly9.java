@@ -4,12 +4,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.AbstractQueue;
 /* loaded from: classes6.dex */
-public abstract class ly9<E> extends AbstractQueue<E> {
+public abstract class ly9<E> extends my9<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long producerIndex;
 
     public ly9() {
         Interceptable interceptable = $ic;

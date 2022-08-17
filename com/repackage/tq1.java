@@ -38,13 +38,13 @@ public class tq1 extends qq1 {
 
         /* renamed from: com.repackage.tq1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0591a implements o43.e {
+        public class C0592a implements o43.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ z03 a;
             public final /* synthetic */ a b;
 
-            public C0591a(a aVar, z03 z03Var) {
+            public C0592a(a aVar, z03 z03Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,7 +128,7 @@ public class tq1 extends qq1 {
                         return;
                     }
                     this.a.a();
-                    o43.g(M, this.c, "", new C0591a(this, M), this.d);
+                    o43.g(M, this.c, "", new C0592a(this, M), this.d);
                     return;
                 }
                 this.f.d(this.b, new zs1(1001, "swan activity is null"));

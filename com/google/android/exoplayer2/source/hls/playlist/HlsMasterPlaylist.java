@@ -10,7 +10,7 @@ import com.google.android.exoplayer2.util.MimeTypes;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class HlsMasterPlaylist extends HlsPlaylist {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public final class HlsMasterPlaylist extends HlsPlaylist {
     public final List<HlsUrl> subtitles;
     public final List<HlsUrl> variants;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class HlsUrl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

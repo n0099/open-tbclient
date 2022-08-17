@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.so9;
+import com.repackage.uo9;
 /* loaded from: classes5.dex */
 public final class zzai<E> extends zzag<E> {
     public static /* synthetic */ Interceptable $ic;
@@ -57,7 +57,7 @@ public final class zzai<E> extends zzag<E> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            so9.a(i, this.zzc, "index");
+            uo9.a(i, this.zzc, "index");
             E e = (E) this.zzb[i];
             e.getClass();
             return e;

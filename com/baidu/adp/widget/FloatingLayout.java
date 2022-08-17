@@ -300,7 +300,7 @@ public class FloatingLayout extends LinearLayout {
                 }
             }
             this.a = 0;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04040f});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040410});
             String string = obtainStyledAttributes.getString(0);
             if (string != null) {
                 if ("before".equals(string)) {

@@ -32,13 +32,13 @@ public class m80 {
             }
             long j = i;
             if (j < 10000) {
-                return i + context.getString(R.string.obfuscated_res_0x7f0f0a04);
+                return i + context.getString(R.string.obfuscated_res_0x7f0f0a05);
             }
             if (j < 100000000) {
-                string = context.getString(R.string.obfuscated_res_0x7f0f0a01);
+                string = context.getString(R.string.obfuscated_res_0x7f0f0a02);
                 valueOf = Float.valueOf(i / 10000.0f);
             } else {
-                string = context.getString(R.string.obfuscated_res_0x7f0f09fb);
+                string = context.getString(R.string.obfuscated_res_0x7f0f09fc);
                 valueOf = Float.valueOf(i / 1.0E8f);
             }
             DecimalFormat decimalFormat = new DecimalFormat("####.#");

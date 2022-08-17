@@ -136,7 +136,7 @@ public class w86 extends d95<p66, r66> {
                 return arrayList;
             } else if (this.l.size() >= 9) {
                 List<o66> subList2 = arrayList.subList(0, 9);
-                subList2.add(new o66(this.f.getString(R.string.obfuscated_res_0x7f0f0ae3), R.drawable.obfuscated_res_0x7f08081f));
+                subList2.add(new o66(this.f.getString(R.string.obfuscated_res_0x7f0f0ae4), R.drawable.obfuscated_res_0x7f080821));
                 return subList2;
             } else {
                 return arrayList;
@@ -145,7 +145,7 @@ public class w86 extends d95<p66, r66> {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.zj8
+    @Override // com.repackage.yj8
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

@@ -45,7 +45,7 @@ public final class b {
     public c.e JR;
     public c.h JS;
     public c.b JT;
-    public c.InterfaceC0393c JU;
+    public c.InterfaceC0395c JU;
     public c.d JV;
     public c.a JW;
     public int Jn;
@@ -210,7 +210,7 @@ public final class b {
                 }
             }
         };
-        this.JU = new c.InterfaceC0393c(this) { // from class: com.kwad.components.core.video.b.5
+        this.JU = new c.InterfaceC0395c(this) { // from class: com.kwad.components.core.video.b.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b JX;
@@ -233,7 +233,7 @@ public final class b {
                 this.JX = this;
             }
 
-            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0393c
+            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0395c
             public final boolean j(int i3, int i4) {
                 InterceptResult invokeII;
                 Interceptable interceptable2 = $ic;
@@ -508,7 +508,7 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeV(65559, this) == null) || (cVar = this.JG) == null) {
             return;
         }
-        cVar.a((c.InterfaceC0393c) null);
+        cVar.a((c.InterfaceC0395c) null);
         this.JG.a((c.b) null);
         this.JG.b(null);
         this.JG.a((c.h) null);

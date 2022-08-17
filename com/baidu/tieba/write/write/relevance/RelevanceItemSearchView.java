@@ -343,7 +343,7 @@ public class RelevanceItemSearchView implements hb5, ViewPager.OnPageChangeListe
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.c.setCenterTextTitle(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0fbe));
+            this.c.setCenterTextTitle(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0fbf));
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
             layoutParams.height = qi.f(this.b.getContext(), R.dimen.tbds60);
             layoutParams.topMargin = qi.f(this.b.getContext(), R.dimen.tbds15);

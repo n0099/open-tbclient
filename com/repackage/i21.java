@@ -348,7 +348,7 @@ public class i21 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, intentArr)) == null) {
             Intent intent = new Intent("android.intent.action.CHOOSER");
             intent.putExtra("android.intent.extra.INITIAL_INTENTS", intentArr);
-            intent.putExtra("android.intent.extra.TITLE", dh0.b().getResources().getString(R.string.obfuscated_res_0x7f0f0b73));
+            intent.putExtra("android.intent.extra.TITLE", dh0.b().getResources().getString(R.string.obfuscated_res_0x7f0f0b74));
             return intent;
         }
         return (Intent) invokeL.objValue;

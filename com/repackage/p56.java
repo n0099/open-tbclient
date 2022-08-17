@@ -37,14 +37,14 @@ public class p56 {
     public transient /* synthetic */ FieldHolder $fh;
     public PopupWindow a;
     public Handler b;
-    public ol8 c;
+    public nl8 c;
     public ActivityLifeCycleListener d;
     public BaseWebView e;
-    public ql8 f;
+    public pl8 f;
     public Runnable g;
 
     /* loaded from: classes7.dex */
-    public class a implements ql8 {
+    public class a implements pl8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ p56 a;
@@ -67,7 +67,7 @@ public class p56 {
             this.a = p56Var;
         }
 
-        @Override // com.repackage.ql8
+        @Override // com.repackage.pl8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -531,7 +531,7 @@ public class p56 {
         this.b = new Handler();
         this.f = new a(this);
         this.g = new b(this);
-        this.c = new ol8();
+        this.c = new nl8();
         this.c.a(new EasterEggBridge());
         this.d = new ActivityLifeCycleListener();
     }

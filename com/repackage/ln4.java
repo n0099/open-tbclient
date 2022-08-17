@@ -31,7 +31,7 @@ public class ln4 {
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "Host-Night-Wallet-Flutter" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "Host-Night-Flutter-Wallet" : (String) invokeV.objValue;
     }
 
     @NonNull

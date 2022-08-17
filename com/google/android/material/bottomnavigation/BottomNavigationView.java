@@ -673,7 +673,7 @@ public class BottomNavigationView extends FrameLayout {
         this.menuView.setPresenter(this.presenter);
         this.menu.addMenuPresenter(this.presenter);
         this.presenter.initForMenu(getContext(), this.menu);
-        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f04026d, R.attr.obfuscated_res_0x7f040363, R.attr.obfuscated_res_0x7f040366, R.attr.obfuscated_res_0x7f040368, R.attr.obfuscated_res_0x7f040369, R.attr.obfuscated_res_0x7f04036c, R.attr.obfuscated_res_0x7f040378, R.attr.obfuscated_res_0x7f040379, R.attr.obfuscated_res_0x7f04037a, R.attr.obfuscated_res_0x7f040402, R.attr.obfuscated_res_0x7f0404cb}, i, R.style.obfuscated_res_0x7f100330, 8, 7);
+        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f04026e, R.attr.obfuscated_res_0x7f040364, R.attr.obfuscated_res_0x7f040367, R.attr.obfuscated_res_0x7f040369, R.attr.obfuscated_res_0x7f04036a, R.attr.obfuscated_res_0x7f04036d, R.attr.obfuscated_res_0x7f040379, R.attr.obfuscated_res_0x7f04037a, R.attr.obfuscated_res_0x7f04037b, R.attr.obfuscated_res_0x7f040403, R.attr.obfuscated_res_0x7f0404cc}, i, R.style.obfuscated_res_0x7f100330, 8, 7);
         if (obtainTintedStyledAttributes.hasValue(5)) {
             this.menuView.setIconTintList(obtainTintedStyledAttributes.getColorStateList(5));
         } else {

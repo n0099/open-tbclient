@@ -117,12 +117,12 @@ public class KsRotateView extends b {
     public final void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403a6, R.attr.obfuscated_res_0x7f0403a7, R.attr.obfuscated_res_0x7f0403a8, R.attr.obfuscated_res_0x7f0403af, R.attr.obfuscated_res_0x7f0403b0, R.attr.obfuscated_res_0x7f0403b6, R.attr.obfuscated_res_0x7f0403b7, R.attr.obfuscated_res_0x7f0403ba}, i, 0);
-            this.Aq = obtainStyledAttributes.getResourceId(5, R.drawable.obfuscated_res_0x7f080bfb);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403a7, R.attr.obfuscated_res_0x7f0403a8, R.attr.obfuscated_res_0x7f0403a9, R.attr.obfuscated_res_0x7f0403b0, R.attr.obfuscated_res_0x7f0403b1, R.attr.obfuscated_res_0x7f0403b7, R.attr.obfuscated_res_0x7f0403b8, R.attr.obfuscated_res_0x7f0403bb}, i, 0);
+            this.Aq = obtainStyledAttributes.getResourceId(5, R.drawable.obfuscated_res_0x7f080bfc);
             obtainStyledAttributes.recycle();
             ImageView imageView = new ImageView(getContext());
             this.Ak = imageView;
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080bfa);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080bfb);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 49;
             addView(this.Ak, layoutParams);

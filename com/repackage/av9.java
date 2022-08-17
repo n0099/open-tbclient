@@ -1,182 +1,67 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.su9;
-import java.util.concurrent.TimeUnit;
-import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes5.dex */
-public class av9 extends su9 {
+public class av9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final av9 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Handler a;
 
-    /* loaded from: classes5.dex */
-    public static class a extends su9.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Handler a;
-        public final yu9 b;
-        public volatile boolean c;
-
-        public a(Handler handler) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755843187, "Lcom/repackage/av9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {handler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = handler;
-            this.b = xu9.a().b();
-        }
-
-        @Override // com.repackage.su9.a
-        public wu9 b(cv9 cv9Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cv9Var)) == null) ? c(cv9Var, 0L, TimeUnit.MILLISECONDS) : (wu9) invokeL.objValue;
-        }
-
-        @Override // com.repackage.su9.a
-        public wu9 c(cv9 cv9Var, long j, TimeUnit timeUnit) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{cv9Var, Long.valueOf(j), timeUnit})) == null) {
-                if (this.c) {
-                    return mz9.c();
-                }
-                this.b.c(cv9Var);
-                b bVar = new b(cv9Var, this.a);
-                Message obtain = Message.obtain(this.a, bVar);
-                obtain.obj = this;
-                this.a.sendMessageDelayed(obtain, timeUnit.toMillis(j));
-                if (this.c) {
-                    this.a.removeCallbacks(bVar);
-                    return mz9.c();
-                }
-                return bVar;
-            }
-            return (wu9) invokeCommon.objValue;
-        }
-
-        @Override // com.repackage.wu9
-        public boolean isUnsubscribed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.booleanValue;
-        }
-
-        @Override // com.repackage.wu9
-        public void unsubscribe() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.c = true;
-                this.a.removeCallbacksAndMessages(this);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755843187, "Lcom/repackage/av9;");
+                return;
             }
         }
+        a = new av9();
     }
 
-    /* loaded from: classes5.dex */
-    public static final class b implements Runnable, wu9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final cv9 a;
-        public final Handler b;
-        public volatile boolean c;
-
-        public b(cv9 cv9Var, Handler handler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cv9Var, handler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cv9Var;
-            this.b = handler;
-        }
-
-        @Override // com.repackage.wu9
-        public boolean isUnsubscribed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.booleanValue;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            IllegalStateException illegalStateException;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                try {
-                    this.a.call();
-                } catch (Throwable th) {
-                    if (th instanceof OnErrorNotImplementedException) {
-                        illegalStateException = new IllegalStateException("Exception thrown on Scheduler.Worker thread. Add `onError` handling.", th);
-                    } else {
-                        illegalStateException = new IllegalStateException("Fatal Exception thrown on Scheduler.Worker thread.", th);
-                    }
-                    zy9.c().b().a(illegalStateException);
-                    Thread currentThread = Thread.currentThread();
-                    currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, illegalStateException);
-                }
-            }
-        }
-
-        @Override // com.repackage.wu9
-        public void unsubscribe() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.c = true;
-                this.b.removeCallbacks(this);
-            }
-        }
-    }
-
-    public av9(Looper looper) {
+    public av9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {looper};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new Handler(looper);
     }
 
-    @Override // com.repackage.su9
-    public su9.a createWorker() {
+    public static av9 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this.a) : (su9.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (av9) invokeV.objValue;
+    }
+
+    public uu9 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (uu9) invokeV.objValue;
+    }
+
+    public ev9 c(ev9 ev9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ev9Var)) == null) ? ev9Var : (ev9) invokeL.objValue;
     }
 }

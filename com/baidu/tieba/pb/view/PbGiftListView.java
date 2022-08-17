@@ -186,10 +186,10 @@ public class PbGiftListView extends FrameLayout {
             this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0917df);
             this.e = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0917e0);
             this.f = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0917e1);
-            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120f);
-            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120f);
-            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120f);
-            this.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120f);
+            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081210);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081210);
+            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081210);
+            this.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081210);
             this.c.setDefaultResource(R.drawable.icon_gift_moren);
             this.d.setDefaultResource(R.drawable.icon_gift_moren);
             this.e.setDefaultResource(R.drawable.icon_gift_moren);

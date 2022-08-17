@@ -31,7 +31,7 @@ public class b35 extends s25 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f0809b3;
+        this.d = R.drawable.obfuscated_res_0x7f0809b4;
         this.i = false;
         this.j = true;
         this.p = new int[]{36};

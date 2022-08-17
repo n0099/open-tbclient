@@ -15,7 +15,7 @@ import com.repackage.ab;
 import com.repackage.d9;
 import com.repackage.eq8;
 import com.repackage.gr8;
-import com.repackage.kk8;
+import com.repackage.jk8;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
@@ -150,8 +150,8 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            kk8.h(309371, AvatarPendantListSocketResponseMessage.class, false, false);
-            kk8.c(309371, CmdConfigHttp.CMD_AVATAR_PENDANT_LIST, TbConfig.AVATAR_PENDANT, AvatarPendantListHttpResponseMessage.class, true, true, true, true);
+            jk8.h(309371, AvatarPendantListSocketResponseMessage.class, false, false);
+            jk8.c(309371, CmdConfigHttp.CMD_AVATAR_PENDANT_LIST, TbConfig.AVATAR_PENDANT, AvatarPendantListHttpResponseMessage.class, true, true, true, true);
         }
     }
 }

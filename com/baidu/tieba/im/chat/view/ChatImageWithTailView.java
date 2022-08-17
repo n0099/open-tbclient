@@ -132,7 +132,7 @@ public class ChatImageWithTailView extends LinearLayout {
             ms4 d = ms4.d(this.e);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0205);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080943, R.color.CAM_X0203, null);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080944, R.color.CAM_X0203, null);
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0110);
         }
     }

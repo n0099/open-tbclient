@@ -23,22 +23,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.al8;
 import com.repackage.bn;
 import com.repackage.fo4;
-import com.repackage.gt6;
+import com.repackage.ft6;
 import com.repackage.ir4;
 import com.repackage.on;
-import com.repackage.qb8;
-import com.repackage.ss6;
+import com.repackage.pb8;
+import com.repackage.rs6;
+import com.repackage.ub8;
 import com.repackage.ud5;
-import com.repackage.vb8;
 import com.repackage.xl5;
-import com.repackage.ys6;
+import com.repackage.xs6;
+import com.repackage.zk8;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes3.dex */
-public class FunAdNativeNewAdapter extends bn<on, FunAdNativeViewHolder> implements vb8, qb8 {
+public class FunAdNativeNewAdapter extends bn<on, FunAdNativeViewHolder> implements ub8, pb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isMulDelete;
@@ -53,16 +53,16 @@ public class FunAdNativeNewAdapter extends bn<on, FunAdNativeViewHolder> impleme
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ al8 a;
+        public final /* synthetic */ zk8 a;
         public final /* synthetic */ FunAdNativeViewHolder b;
         public final /* synthetic */ FunAdNativeNewAdapter c;
 
-        public a(FunAdNativeNewAdapter funAdNativeNewAdapter, al8 al8Var, FunAdNativeViewHolder funAdNativeViewHolder) {
+        public a(FunAdNativeNewAdapter funAdNativeNewAdapter, zk8 zk8Var, FunAdNativeViewHolder funAdNativeViewHolder) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {funAdNativeNewAdapter, al8Var, funAdNativeViewHolder};
+                Object[] objArr = {funAdNativeNewAdapter, zk8Var, funAdNativeViewHolder};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -73,7 +73,7 @@ public class FunAdNativeNewAdapter extends bn<on, FunAdNativeViewHolder> impleme
                 }
             }
             this.c = funAdNativeNewAdapter;
-            this.a = al8Var;
+            this.a = zk8Var;
             this.b = funAdNativeViewHolder;
         }
 
@@ -116,19 +116,19 @@ public class FunAdNativeNewAdapter extends bn<on, FunAdNativeViewHolder> impleme
         this.mActivity = baseFragmentActivity;
     }
 
-    private void showVipAdGuideTip(al8 al8Var, FunAdNativeViewHolder funAdNativeViewHolder, String str) {
+    private void showVipAdGuideTip(zk8 zk8Var, FunAdNativeViewHolder funAdNativeViewHolder, String str) {
         int a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, this, al8Var, funAdNativeViewHolder, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65537, this, zk8Var, funAdNativeViewHolder, str) == null) {
             if ("pb_banner".equals(this.sceneKey)) {
-                a2 = al8Var.a();
+                a2 = zk8Var.a();
             } else {
-                a2 = al8Var.a();
+                a2 = zk8Var.a();
                 if (xl5.k().m()) {
                     a2++;
                 }
             }
-            gt6.e(al8Var, funAdNativeViewHolder, str, this.pageType, this.mFromTab, a2);
+            ft6.e(zk8Var, funAdNativeViewHolder, str, this.pageType, this.mFromTab, a2);
         }
     }
 
@@ -138,7 +138,7 @@ public class FunAdNativeNewAdapter extends bn<on, FunAdNativeViewHolder> impleme
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "pb".equals(this.pageType) ? this.mType == AdvertAppInfo.I ? "2" : "1" : "" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.qb8
+    @Override // com.repackage.pb8
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -147,12 +147,12 @@ public class FunAdNativeNewAdapter extends bn<on, FunAdNativeViewHolder> impleme
                 ((FunAdNativeViewHolder) this.viewholder).d().b();
             }
             for (String str : this.sidSet) {
-                ss6.m().c(str);
+                rs6.m().c(str);
             }
         }
     }
 
-    @Override // com.repackage.qb8
+    @Override // com.repackage.pb8
     public void onPause() {
         V v;
         Interceptable interceptable = $ic;
@@ -162,14 +162,14 @@ public class FunAdNativeNewAdapter extends bn<on, FunAdNativeViewHolder> impleme
         ((FunAdNativeViewHolder) this.viewholder).d().b();
     }
 
-    @Override // com.repackage.qb8
+    @Override // com.repackage.pb8
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 
-    @Override // com.repackage.vb8
+    @Override // com.repackage.ub8
     public void setIsFromCDN(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
@@ -246,47 +246,47 @@ public class FunAdNativeNewAdapter extends bn<on, FunAdNativeViewHolder> impleme
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, on onVar, FunAdNativeViewHolder funAdNativeViewHolder) {
         InterceptResult invokeCommon;
         long j;
-        al8 al8Var;
+        zk8 zk8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, onVar, funAdNativeViewHolder})) == null) {
             if (onVar instanceof ir4) {
                 ThreadData threadData = ((ir4) onVar).t;
-                al8Var = threadData.funAdData;
+                zk8Var = threadData.funAdData;
                 j = threadData.getFid();
             } else if (onVar instanceof ThreadData) {
                 ThreadData threadData2 = (ThreadData) onVar;
-                al8Var = threadData2.funAdData;
+                zk8Var = threadData2.funAdData;
                 j = threadData2.getFid();
             } else {
                 j = 0;
-                al8Var = onVar instanceof PostData ? ((PostData) onVar).t0 : null;
+                zk8Var = onVar instanceof PostData ? ((PostData) onVar).t0 : null;
             }
-            if (al8Var == null) {
+            if (zk8Var == null) {
                 funAdNativeViewHolder.d().d(8);
                 return funAdNativeViewHolder.getView();
             }
-            showVipAdGuideTip(al8Var, funAdNativeViewHolder, String.valueOf(j));
+            showVipAdGuideTip(zk8Var, funAdNativeViewHolder, String.valueOf(j));
             funAdNativeViewHolder.d().setFunAdMaskViewVisible(this.isMulDelete);
             if (!"personalize".equals(this.pageType) && !AdvertAppInfo.I.equals(this.mType)) {
-                this.sid = ys6.e().d(this.sceneKey);
+                this.sid = xs6.e().d(this.sceneKey);
             }
             BdUniqueId bdUniqueId = this.mType;
             if (bdUniqueId == AdvertAppInfo.H) {
                 if ("frs".equals(this.pageType)) {
-                    ss6.m().K(this.mActivity, this.sid, ss6.b(this.pageType, UbsABTestHelper.isFrsFunAdSdkTest() ? "1" : "0"), String.valueOf(j), ud5.f());
+                    rs6.m().K(this.mActivity, this.sid, rs6.b(this.pageType, UbsABTestHelper.isFrsFunAdSdkTest() ? "1" : "0"), String.valueOf(j), ud5.f());
                 } else if ("personalize".equals(this.pageType)) {
-                    ss6.m().J(this.mActivity, this.sid, ss6.b(this.pageType, UbsABTestHelper.isPersonalizeFunAdABTest() ? "1" : "0"));
+                    rs6.m().J(this.mActivity, this.sid, rs6.b(this.pageType, UbsABTestHelper.isPersonalizeFunAdABTest() ? "1" : "0"));
                 }
             } else if (bdUniqueId == AdvertAppInfo.I) {
-                ss6.m().L(this.mActivity, this.sid, ss6.b(this.pageType, UbsABTestHelper.isPbCommentFunAdABTest() ? "1" : "0"), al8Var.g(), al8Var.d());
+                rs6.m().L(this.mActivity, this.sid, rs6.b(this.pageType, UbsABTestHelper.isPbCommentFunAdABTest() ? "1" : "0"), zk8Var.g(), zk8Var.d());
             }
-            funAdNativeViewHolder.i(new a(this, al8Var, funAdNativeViewHolder));
+            funAdNativeViewHolder.i(new a(this, zk8Var, funAdNativeViewHolder));
             funAdNativeViewHolder.d().h();
             funAdNativeViewHolder.j(this.pageType);
             funAdNativeViewHolder.d().setCurpage(this.pageType);
             funAdNativeViewHolder.l(this.sid);
             this.sidSet.add(this.sid);
-            funAdNativeViewHolder.m(al8Var, onVar instanceof fo4 ? ((fo4) onVar).position + 1 : -1);
+            funAdNativeViewHolder.m(zk8Var, onVar instanceof fo4 ? ((fo4) onVar).position + 1 : -1);
             return funAdNativeViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

@@ -15,7 +15,7 @@ import com.google.android.exoplayer2.upstream.DataSpec;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class InitializationChunk extends Chunk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

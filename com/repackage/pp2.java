@@ -89,7 +89,7 @@ public class pp2 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements dv9<Boolean> {
+    public class b implements fv9<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ pp2 a;
@@ -113,7 +113,7 @@ public class pp2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.dv9
+        @Override // com.repackage.fv9
         public void call(Boolean bool) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, bool) == null) || bool.booleanValue()) {
@@ -126,7 +126,7 @@ public class pp2 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements hv9<String, Boolean> {
+    public class c implements jv9<String, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ pp2 a;
@@ -150,7 +150,7 @@ public class pp2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.hv9
+        @Override // com.repackage.jv9
         public Boolean call(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -395,7 +395,7 @@ public class pp2 {
                     } else {
                         e(lp2.f, "recorderResume");
                     }
-                    pu9.f("").y(Schedulers.io()).h(new c(this)).k(zu9.b()).w(new b(this));
+                    ru9.f("").y(Schedulers.io()).h(new c(this)).k(bv9.b()).w(new b(this));
                 } catch (IllegalStateException e2) {
                     f();
                     zx1.d("recorder", "can't start", e2);

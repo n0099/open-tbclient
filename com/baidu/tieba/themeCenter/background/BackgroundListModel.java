@@ -23,7 +23,7 @@ import com.repackage.ab;
 import com.repackage.cq8;
 import com.repackage.dq8;
 import com.repackage.gr8;
-import com.repackage.kk8;
+import com.repackage.jk8;
 import com.repackage.ru4;
 import java.util.ArrayList;
 import java.util.List;
@@ -261,8 +261,8 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     public final void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            kk8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-            kk8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+            jk8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+            jk8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -341,8 +341,8 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            kk8.h(309021, BackgroundListSocketResponseMessage.class, false, false);
-            kk8.c(309021, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_LIST, TbConfig.PERSONAL_BACKGROUND_LIST_PAGE, BackgroundListHttpResponseMessage.class, false, false, false, false);
+            jk8.h(309021, BackgroundListSocketResponseMessage.class, false, false);
+            jk8.c(309021, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_LIST, TbConfig.PERSONAL_BACKGROUND_LIST_PAGE, BackgroundListHttpResponseMessage.class, false, false, false, false);
         }
     }
 

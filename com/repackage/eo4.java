@@ -2,6 +2,8 @@ package com.repackage;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
@@ -17,9 +19,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class eo4 {
     public static /* synthetic */ Interceptable $ic;
-    public static eo4 b;
+    public static eo4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Runnable a;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -28,6 +29,39 @@ public class eo4 {
         public final /* synthetic */ eo4 a;
 
         public a(eo4 eo4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eo4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eo4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.d(1);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ eo4 a;
+
+        public b(eo4 eo4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,24 +98,22 @@ public class eo4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new a(this);
     }
 
     public static eo4 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
+            if (a == null) {
                 synchronized (eo4.class) {
-                    if (b == null) {
-                        b = new eo4();
+                    if (a == null) {
+                        a = new eo4();
                     }
                 }
             }
-            return b;
+            return a;
         }
         return (eo4) invokeV.objValue;
     }
@@ -96,8 +128,11 @@ public class eo4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (a() || DeviceInfoUtil.isHonor()) {
-                d(1);
-                rg.a().postDelayed(this.a, 500L);
+                HandlerThread handlerThread = new HandlerThread("clearHonorCorner");
+                handlerThread.start();
+                Handler handler = new Handler(handlerThread.getLooper());
+                handler.post(new a(this));
+                handler.postDelayed(new b(this), 10000L);
             }
         }
     }

@@ -30,7 +30,7 @@ public class f43 extends yr1 {
 
         /* renamed from: com.repackage.f43$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0473a implements Runnable {
+        public class RunnableC0476a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONObject a;
@@ -40,18 +40,18 @@ public class f43 extends yr1 {
 
             /* renamed from: com.repackage.f43$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0474a implements m84 {
+            public class C0477a implements m84 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
-                public final /* synthetic */ RunnableC0473a b;
+                public final /* synthetic */ RunnableC0476a b;
 
-                public C0474a(RunnableC0473a runnableC0473a, String str) {
+                public C0477a(RunnableC0476a runnableC0476a, String str) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0473a, str};
+                        Object[] objArr = {runnableC0476a, str};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -61,7 +61,7 @@ public class f43 extends yr1 {
                             return;
                         }
                     }
-                    this.b = runnableC0473a;
+                    this.b = runnableC0476a;
                     this.a = str;
                 }
 
@@ -73,8 +73,8 @@ public class f43 extends yr1 {
                             zx1.c("PreloadPackageApi", "preloadPackage keyMap null");
                             return;
                         }
-                        RunnableC0473a runnableC0473a = this.b;
-                        runnableC0473a.d.a.z(map.get(this.b.b), this.a, runnableC0473a.c);
+                        RunnableC0476a runnableC0476a = this.b;
+                        runnableC0476a.d.a.z(map.get(this.b.b), this.a, runnableC0476a.c);
                     }
                 }
 
@@ -87,7 +87,7 @@ public class f43 extends yr1 {
                 }
             }
 
-            public RunnableC0473a(a aVar, JSONObject jSONObject, String str, String str2) {
+            public RunnableC0476a(a aVar, JSONObject jSONObject, String str, String str2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public class f43 extends yr1 {
                     if (!g) {
                         this.d.a.z(this.b, optString, this.c);
                     } else {
-                        h84.e(Collections.singletonList(this.b), f43.f.c(), new C0474a(this, optString));
+                        h84.e(Collections.singletonList(this.b), f43.f.c(), new C0477a(this, optString));
                     }
                 }
             }
@@ -151,7 +151,7 @@ public class f43 extends yr1 {
                     if (!f43.f.a(1)) {
                         return new zs1(402, "over single max limit");
                     }
-                    td3.h().execute(new RunnableC0473a(this, jSONObject, optString, str), "PreloadPackageApi");
+                    td3.h().execute(new RunnableC0476a(this, jSONObject, optString, str), "PreloadPackageApi");
                     return zs1.f();
                 }
                 return new zs1(202, "appKey must not empty");

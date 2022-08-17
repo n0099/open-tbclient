@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.d9;
-import com.repackage.kk8;
+import com.repackage.jk8;
 import com.repackage.tw8;
 import com.repackage.ww8;
 import com.repackage.xw8;
@@ -142,8 +142,8 @@ public class AnniversaryEtModel extends BdBaseModel {
     public final void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            kk8.h(309725, AnniversaryEtSocketResMessage.class, false, false);
-            kk8.c(309725, CmdConfigHttp.CMD_HTTP_ET_VIDEO, "c/f/video/videoTemplate", AnniversaryEtHttpResMessage.class, true, true, true, false);
+            jk8.h(309725, AnniversaryEtSocketResMessage.class, false, false);
+            jk8.c(309725, CmdConfigHttp.CMD_HTTP_ET_VIDEO, "c/f/video/videoTemplate", AnniversaryEtHttpResMessage.class, true, true, true, false);
             registerListener(this.c);
         }
     }

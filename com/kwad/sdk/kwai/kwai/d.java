@@ -94,7 +94,7 @@ public final class d implements View.OnClickListener {
         if (ae.length() >= 8) {
             ae = ae.substring(0, 7) + StringHelper.STRING_MORE;
         }
-        this.Ry.setText(this.mContext.getString(this.Ru ? R.string.obfuscated_res_0x7f0f09ab : R.string.obfuscated_res_0x7f0f09ac, ae));
+        this.Ry.setText(this.mContext.getString(this.Ru ? R.string.obfuscated_res_0x7f0f09ac : R.string.obfuscated_res_0x7f0f09ad, ae));
     }
 
     @SuppressLint({"InflateParams"})

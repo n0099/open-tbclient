@@ -1,154 +1,159 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewTopicList.NewTopicList;
-import tbclient.NewTopicList.PkModule;
-import tbclient.TopicModule;
+import tbclient.NewHottopic.PkItem;
+import tbclient.NewHottopic.PkModule;
 /* loaded from: classes7.dex */
-public class p37 extends f06 {
+public class p37 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c0;
-    public static final BdUniqueId d0;
     public transient /* synthetic */ FieldHolder $fh;
-    public int R;
-    public long S;
-    public String T;
-    public String U;
-    public long V;
-    public String W;
-    public q37 X;
-    public PostData Y;
-    public int Z;
-    public String a0;
-    public ThreadData b0;
+    public long a;
+    public long b;
+    public long c;
+    public a d;
+    public a e;
+    public int f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755460771, "Lcom/repackage/p37;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public String b;
+        public String c;
+        public String d;
+        public boolean e;
+        public long f;
+        public String g;
+
+        public a(p37 p37Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755460771, "Lcom/repackage/p37;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p37Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        c0 = BdUniqueId.gen();
-        d0 = BdUniqueId.gen();
     }
 
     public p37() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.Z = 0;
     }
 
-    public static boolean N(ThreadData threadData) {
-        InterceptResult invokeL;
+    public void a(PkModule pkModule) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) ? threadData != null && threadData.getType() == ThreadData.TYPE_TOPIC : invokeL.booleanValue;
-    }
-
-    public void O(NewTopicList newTopicList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, newTopicList) == null) || newTopicList == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, pkModule) == null) || pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
             return;
         }
-        this.S = newTopicList.topic_id.longValue();
-        this.T = newTopicList.topic_name;
-        this.U = newTopicList.topic_desc;
-        this.V = newTopicList.discuss_num.longValue();
-        this.W = newTopicList.topic_image;
-        PkModule pkModule = newTopicList.pk_module;
-        if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            q37 q37Var = new q37();
-            this.X = q37Var;
-            q37Var.a = this.S;
-            q37Var.f = 1;
-            q37Var.b(newTopicList.pk_module);
-        }
-        if (newTopicList.top_agree_post != null) {
-            PostData postData = new PostData();
-            this.Y = postData;
-            postData.u0(newTopicList.top_agree_post);
-        }
+        this.b = pkModule.pk_id.longValue();
+        this.c = pkModule.user_pk_id.longValue();
+        a aVar = new a(this);
+        this.d = aVar;
+        aVar.a = pkModule.agree.pk_num.longValue();
+        this.d.b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f143a) : pkModule.agree.pk_desc;
+        a aVar2 = this.d;
+        PkItem pkItem = pkModule.agree;
+        aVar2.c = pkItem.last_username;
+        aVar2.d = pkItem.pk_icon;
+        aVar2.e = pkItem.has_clicked.longValue() == 1;
+        this.d.f = pkModule.agree.pk_index.longValue();
+        this.d.g = pkModule.agree.pk_icon_after;
+        a aVar3 = new a(this);
+        this.e = aVar3;
+        aVar3.a = pkModule.disagree.pk_num.longValue();
+        this.e.b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1439) : pkModule.disagree.pk_desc;
+        a aVar4 = this.e;
+        PkItem pkItem2 = pkModule.disagree;
+        aVar4.c = pkItem2.last_username;
+        aVar4.d = pkItem2.pk_icon;
+        aVar4.e = pkItem2.has_clicked.longValue() == 1;
+        this.e.f = pkModule.disagree.pk_index.longValue();
+        this.e.g = pkModule.disagree.pk_icon_after;
     }
 
-    public void P(TopicModule topicModule) {
+    public void b(tbclient.NewTopicList.PkModule pkModule) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicModule) == null) || topicModule == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) || pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
             return;
         }
-        this.S = topicModule.topic_id.longValue();
-        this.T = topicModule.topic_name;
-        this.U = topicModule.topic_desc;
-        this.W = topicModule.topic_image;
-        this.a0 = topicModule.topic_avatar;
-        tbclient.PkModule pkModule = topicModule.pk_module;
-        if (pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
+        this.b = pkModule.pk_id.longValue();
+        this.c = pkModule.user_pk_id.longValue();
+        a aVar = new a(this);
+        this.d = aVar;
+        aVar.a = pkModule.agree.pk_num.longValue();
+        this.d.b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f143a) : pkModule.agree.pk_desc;
+        a aVar2 = this.d;
+        tbclient.NewTopicList.PkItem pkItem = pkModule.agree;
+        aVar2.c = pkItem.last_username;
+        aVar2.d = pkItem.pk_icon;
+        aVar2.e = pkItem.has_clicked.longValue() == 1;
+        this.d.f = pkModule.agree.pk_index.longValue();
+        this.d.g = pkModule.agree.pk_icon_after;
+        a aVar3 = new a(this);
+        this.e = aVar3;
+        aVar3.a = pkModule.disagree.pk_num.longValue();
+        this.e.b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1439) : pkModule.disagree.pk_desc;
+        a aVar4 = this.e;
+        tbclient.NewTopicList.PkItem pkItem2 = pkModule.disagree;
+        aVar4.c = pkItem2.last_username;
+        aVar4.d = pkItem2.pk_icon;
+        aVar4.e = pkItem2.has_clicked.longValue() == 1;
+        this.e.f = pkModule.disagree.pk_index.longValue();
+        this.e.g = pkModule.disagree.pk_icon_after;
+    }
+
+    public void c(tbclient.PkModule pkModule) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pkModule) == null) || pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
             return;
         }
-        q37 q37Var = new q37();
-        this.X = q37Var;
-        q37Var.a = this.S;
-        q37Var.f = 3;
-        q37Var.c(topicModule.pk_module);
-    }
-
-    public void Q(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) {
-            this.b0 = threadData;
-        }
-    }
-
-    @Override // com.repackage.f06, com.repackage.fo4
-    public cq4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            cq4 negFeedBackData = super.getNegFeedBackData();
-            if (negFeedBackData != null) {
-                negFeedBackData.q(this.S);
-            }
-            return negFeedBackData;
-        }
-        return (cq4) invokeV.objValue;
-    }
-
-    @Override // com.repackage.f06, com.repackage.fo4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b0 : (ThreadData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.Z == 0 ? c0 : d0 : (BdUniqueId) invokeV.objValue;
+        this.b = pkModule.pk_id.longValue();
+        this.c = pkModule.user_pk_id.longValue();
+        a aVar = new a(this);
+        this.d = aVar;
+        aVar.a = pkModule.agree.pk_num.longValue();
+        this.d.b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f143a) : pkModule.agree.pk_desc;
+        a aVar2 = this.d;
+        tbclient.PkItem pkItem = pkModule.agree;
+        aVar2.c = pkItem.last_username;
+        aVar2.d = pkItem.pk_icon;
+        aVar2.e = pkItem.has_clicked.longValue() == 1;
+        this.d.f = pkModule.agree.pk_index.longValue();
+        this.d.g = pkModule.agree.pk_icon_after;
+        a aVar3 = new a(this);
+        this.e = aVar3;
+        aVar3.a = pkModule.disagree.pk_num.longValue();
+        this.e.b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1439) : pkModule.disagree.pk_desc;
+        a aVar4 = this.e;
+        tbclient.PkItem pkItem2 = pkModule.disagree;
+        aVar4.c = pkItem2.last_username;
+        aVar4.d = pkItem2.pk_icon;
+        aVar4.e = pkItem2.has_clicked.longValue() == 1;
+        this.e.f = pkModule.disagree.pk_index.longValue();
+        this.e.g = pkModule.disagree.pk_icon_after;
     }
 }

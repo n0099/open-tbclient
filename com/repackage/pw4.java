@@ -109,7 +109,7 @@ public class pw4 extends kw4<pw4> {
             if (ie5.g(this.c, f())) {
                 return;
             }
-            EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a27, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+            EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a28, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
             eMRichTextAnyIconSpan.b(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
             eMRichTextAnyIconSpan.d(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
             n(eMRichTextAnyIconSpan, f() + 1, f() + 1 + 4, 33);

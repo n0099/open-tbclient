@@ -157,9 +157,9 @@ public class SwanImageMenuView extends FrameLayout implements j03.g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view2, i) == null) {
                 if (i == 0) {
-                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08113b));
+                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08113c));
                 } else {
-                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08113a));
+                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08113b));
                 }
             }
         }
@@ -251,7 +251,7 @@ public class SwanImageMenuView extends FrameLayout implements j03.g {
             if (gk2.M().a()) {
                 View view2 = new View(this.c);
                 this.f = view2;
-                view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f08113c);
+                view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f08113d);
                 this.f.setVisibility(8);
                 addView(this.f);
             }

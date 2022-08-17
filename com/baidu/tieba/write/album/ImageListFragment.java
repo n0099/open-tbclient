@@ -132,7 +132,7 @@ public class ImageListFragment extends BaseFragment implements pz8.d, AbsListVie
                 return;
             }
             ImageListFragment imageListFragment = this.a;
-            imageListFragment.showToast(String.format(imageListFragment.getPageContext().getString(R.string.obfuscated_res_0x7f0f0aa4), Integer.valueOf(l)));
+            imageListFragment.showToast(String.format(imageListFragment.getPageContext().getString(R.string.obfuscated_res_0x7f0f0aa5), Integer.valueOf(l)));
         }
     }
 
@@ -169,7 +169,7 @@ public class ImageListFragment extends BaseFragment implements pz8.d, AbsListVie
             if ((this.a.F == null || !this.a.F.i()) && view2 == this.a.j) {
                 this.a.k.k(this.a.c.e(), this.a.c.h());
                 this.a.k.n(this.a.p == null ? this.a.o : this.a.p);
-                this.a.j.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080931, R.color.CAM_X0105, null), (Drawable) null);
+                this.a.j.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080932, R.color.CAM_X0105, null), (Drawable) null);
             }
         }
     }
@@ -400,7 +400,7 @@ public class ImageListFragment extends BaseFragment implements pz8.d, AbsListVie
                 if (mediaFileInfo instanceof ImageFileInfo) {
                     ImageFileInfo imageFileInfo = (ImageFileInfo) mediaFileInfo;
                     if (k09.a(imageFileInfo.getFilePath()) == PhotoType.APNG) {
-                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c94);
+                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c95);
                         return false;
                     } else if (l09.a(imageFileInfo)) {
                         this.a.a.showToast(R.string.obfuscated_res_0x7f0f0254);
@@ -665,13 +665,13 @@ public class ImageListFragment extends BaseFragment implements pz8.d, AbsListVie
         if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || (baseFragmentActivity = this.a) == null || this.r == null) {
             return;
         }
-        this.r.setText(baseFragmentActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0d0e));
+        this.r.setText(baseFragmentActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0d0f));
         if (z) {
-            this.r.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080947, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.r.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080948, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL), (Drawable) null, (Drawable) null, (Drawable) null);
             SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0302);
             return;
         }
-        this.r.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080948, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.r.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080949, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL), (Drawable) null, (Drawable) null, (Drawable) null);
         SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0106);
     }
 
@@ -703,12 +703,12 @@ public class ImageListFragment extends BaseFragment implements pz8.d, AbsListVie
                 this.w = new uu4(getPageContext());
             }
             this.w.e(null);
-            this.w.i(R.string.obfuscated_res_0x7f0f0a3c);
+            this.w.i(R.string.obfuscated_res_0x7f0f0a3d);
             this.w.h(true);
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v9, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r0v9, types: [int, boolean] */
     public final void Y1() {
         oz8 oz8Var;
         String string;
@@ -719,11 +719,11 @@ public class ImageListFragment extends BaseFragment implements pz8.d, AbsListVie
         }
         if (oz8Var.p()) {
             ?? p = this.c.p();
-            string = this.a.getString(R.string.obfuscated_res_0x7f0f08d5, new Object[]{Integer.valueOf((int) p), 1});
+            string = this.a.getString(R.string.obfuscated_res_0x7f0f08d6, new Object[]{Integer.valueOf((int) p), 1});
             i2 = p;
         } else {
             int count = ListUtils.getCount(this.c.g());
-            string = this.a.getString(R.string.obfuscated_res_0x7f0f08d5, new Object[]{Integer.valueOf(count), Integer.valueOf(this.c.l())});
+            string = this.a.getString(R.string.obfuscated_res_0x7f0f08d6, new Object[]{Integer.valueOf(count), Integer.valueOf(this.c.l())});
             i2 = count;
         }
         this.i.setText(string);
@@ -753,7 +753,7 @@ public class ImageListFragment extends BaseFragment implements pz8.d, AbsListVie
             if (this.h != null && this.g != null) {
                 qz8 qz8Var = this.b;
                 if (qz8Var != null && qz8Var.q() == 1) {
-                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f0809f3, R.color.CAM_X0105, null);
+                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f0809f4, R.color.CAM_X0105, null);
                     this.h.setVisibility(8);
                 } else {
                     SkinManager.setViewTextColor(this.h, (int) R.color.navi_back_text_color);

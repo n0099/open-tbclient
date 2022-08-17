@@ -54,7 +54,7 @@ public class LcUpdateDialogActivityConfig extends IntentConfig {
             if (Build.VERSION.SDK_INT >= 9) {
                 return true;
             }
-            UtilHelper.showToast(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f09f1));
+            UtilHelper.showToast(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f09f2));
             return false;
         }
         return invokeV.booleanValue;

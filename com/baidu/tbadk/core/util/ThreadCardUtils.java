@@ -246,9 +246,9 @@ public final class ThreadCardUtils {
         }
         ThreadData threadData = fo4Var.getThreadData();
         if (threadData.getType() == ThreadData.TYPE_FAKE_VIDEO) {
-            BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f1511));
+            BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f1514));
             b.f(BdToast.ToastIcon.FAILURE);
-            b.h();
+            b.i();
         } else if (threadData.getThreadVideoInfo() != null && !TextUtils.isEmpty(threadData.getThreadVideoInfo().video_url)) {
             gotoNainiPage(context, i, threadData, rect);
         } else {
@@ -368,7 +368,7 @@ public final class ThreadCardUtils {
     public static void setSendHelpPrefix(SpannableStringBuilder spannableStringBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65570, null, spannableStringBuilder) == null) {
-            setUniversalPrefix(spannableStringBuilder, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1108), R.color.CAM_X0302, R.color.CAM_X0101);
+            setUniversalPrefix(spannableStringBuilder, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1109), R.color.CAM_X0302, R.color.CAM_X0101);
         }
     }
 
@@ -468,7 +468,7 @@ public final class ThreadCardUtils {
         }
         Context context = view2.getContext();
         if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-            qi.N(context, R.string.obfuscated_res_0x7f0f0ea0);
+            qi.M(context, R.string.obfuscated_res_0x7f0f0ea1);
             return;
         }
         ArrayList<String> arrayList = new ArrayList<>();
@@ -542,11 +542,11 @@ public final class ThreadCardUtils {
                 }
                 if (threadData.getTabId() > 0 && !pi.isEmpty(threadData.getTabName()) && isNoThreadTitle(threadData) && (spannableStringBuilder == null || pi.isEmptyStringAfterTrim(spannableStringBuilder.toString()))) {
                     if (threadData.isShareThread && threadData.originalThreadData != null) {
-                        spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f115b));
+                        spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f115d));
                     } else if (threadData.isVoiceThreadType()) {
-                        spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1578));
+                        spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f157b));
                     } else {
-                        spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13c2));
+                        spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13c4));
                     }
                 }
                 if (spannableStringBuilder != null && !pi.isEmptyStringAfterTrim(spannableStringBuilder.toString())) {

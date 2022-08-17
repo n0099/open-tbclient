@@ -41,7 +41,7 @@ public class xo8 extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         zn8 zn8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof an8) && ((an8) customResponsedMessage.getData()).b && this.a.C == 0 && (zn8Var = this.b) != null && zn8Var.a() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof zm8) && ((zm8) customResponsedMessage.getData()).b && this.a.C == 0 && (zn8Var = this.b) != null && zn8Var.a() != null) {
             this.b.a().f();
         }
     }

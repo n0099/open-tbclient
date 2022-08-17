@@ -255,7 +255,7 @@ public interface xk1 {
 
         /* renamed from: com.repackage.xk1$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0617b implements sf3<ISwanApkFetcher> {
+        public class C0619b implements sf3<ISwanApkFetcher> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
@@ -263,7 +263,7 @@ public interface xk1 {
             public final /* synthetic */ String c;
             public final /* synthetic */ boolean d;
 
-            public C0617b(b bVar, String str, String str2, String str3, boolean z) {
+            public C0619b(b bVar, String str, String str2, String str3, boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -641,7 +641,7 @@ public interface xk1 {
                 if (TextUtils.isEmpty(optString)) {
                     r03.g(AppRuntime.getAppContext(), "download url is empty");
                     return false;
-                } else if (p(new C0617b(this, optString, optString2, optString3, optBoolean))) {
+                } else if (p(new C0619b(this, optString, optString2, optString3, optBoolean))) {
                     return true;
                 } else {
                     bw2.e("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new c(this, optString, optString2, optString3, optBoolean, context));

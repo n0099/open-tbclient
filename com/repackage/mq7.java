@@ -7,24 +7,21 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.newinterest.viewholder.InterestedForumStyleAMoreViewHolder;
+import com.baidu.tieba.newinterest.viewholder.InterestedForumStyleATitleViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class mq7 extends bn<vq7, InterestedForumStyleAMoreViewHolder> {
+public class mq7 extends bn<vq7, InterestedForumStyleATitleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public br7 a;
-    public cr7 b;
 
     /* loaded from: classes6.dex */
     public class a implements yn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mq7 a;
 
         public a(mq7 mq7Var) {
             Interceptable interceptable = $ic;
@@ -38,23 +35,14 @@ public class mq7 extends bn<vq7, InterestedForumStyleAMoreViewHolder> {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = mq7Var;
         }
 
         @Override // com.repackage.yn
         public void b(View view2, on onVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, onVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (onVar instanceof vq7)) {
-                vq7 vq7Var = (vq7) onVar;
-                if (this.a.a != null) {
-                    this.a.a.d(vq7Var.a(), vq7Var.b(), i);
-                }
-                if (this.a.b != null) {
-                    this.a.b.a();
-                }
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, onVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(onVar instanceof vq7)) {
             }
         }
     }
@@ -85,64 +73,50 @@ public class mq7 extends bn<vq7, InterestedForumStyleAMoreViewHolder> {
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
     @Override // com.repackage.bn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vq7 vq7Var, InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
-        v(i, view2, viewGroup, vq7Var, interestedForumStyleAMoreViewHolder);
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vq7 vq7Var, InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder) {
+        t(i, view2, viewGroup, vq7Var, interestedForumStyleATitleViewHolder);
         return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.bn
-    /* renamed from: u */
-    public InterestedForumStyleAMoreViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: s */
+    public InterestedForumStyleATitleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new InterestedForumStyleAMoreViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d03eb, viewGroup, false)) : (InterestedForumStyleAMoreViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new InterestedForumStyleATitleViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d03ec, viewGroup, false)) : (InterestedForumStyleATitleViewHolder) invokeL.objValue;
     }
 
-    public View v(int i, View view2, ViewGroup viewGroup, vq7 vq7Var, InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
+    public View t(int i, View view2, ViewGroup viewGroup, vq7 vq7Var, InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vq7Var, interestedForumStyleAMoreViewHolder})) == null) {
-            z(interestedForumStyleAMoreViewHolder);
-            w(interestedForumStyleAMoreViewHolder, vq7Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vq7Var, interestedForumStyleATitleViewHolder})) == null) {
+            if (vq7Var == null) {
+                return view2;
+            }
+            v(interestedForumStyleATitleViewHolder);
+            u(interestedForumStyleATitleViewHolder, vq7Var);
             return view2;
         }
         return (View) invokeCommon.objValue;
     }
 
-    public final void w(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder, vq7 vq7Var) {
+    public final void u(InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder, vq7 vq7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, interestedForumStyleAMoreViewHolder, vq7Var) == null) {
-            interestedForumStyleAMoreViewHolder.c.setText(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0938));
-            if (vq7Var.c()) {
-                interestedForumStyleAMoreViewHolder.b.setVisibility(0);
-            } else {
-                interestedForumStyleAMoreViewHolder.b.setVisibility(8);
-            }
+        if (interceptable == null || interceptable.invokeLL(1048580, this, interestedForumStyleATitleViewHolder, vq7Var) == null) {
+            interestedForumStyleATitleViewHolder.b.setDefaultResource(R.drawable.obfuscated_res_0x7f08076c);
+            interestedForumStyleATitleViewHolder.b.K(vq7Var.a(), 10, false);
+            interestedForumStyleATitleViewHolder.c.setText(vq7Var.b());
         }
     }
 
-    public void x(br7 br7Var) {
+    public final void v(InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, br7Var) == null) {
-            this.a = br7Var;
-        }
-    }
-
-    public void y(cr7 cr7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cr7Var) == null) {
-            this.b = cr7Var;
-        }
-    }
-
-    public final void z(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, interestedForumStyleAMoreViewHolder) == null) {
-            ms4 d = ms4.d(interestedForumStyleAMoreViewHolder.c);
-            d.v(R.color.CAM_X0302);
-            d.z(R.dimen.T_X07);
-            ms4.d(interestedForumStyleAMoreViewHolder.d).f(R.color.CAM_X0206);
+        if (interceptable == null || interceptable.invokeL(1048581, this, interestedForumStyleATitleViewHolder) == null) {
+            ms4 d = ms4.d(interestedForumStyleATitleViewHolder.c);
+            d.v(R.color.CAM_X0105);
+            d.z(R.dimen.T_X06);
+            d.A(R.string.F_X02);
         }
     }
 }

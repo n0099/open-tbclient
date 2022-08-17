@@ -260,7 +260,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
                 wrap.setClickable(false);
                 wrap.removeAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_CLICK);
             }
-            wrap.setRoleDescription(getResources().getString(R.string.obfuscated_res_0x7f0f0998));
+            wrap.setRoleDescription(getResources().getString(R.string.obfuscated_res_0x7f0f0999));
         }
     }
 

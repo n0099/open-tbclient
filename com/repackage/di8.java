@@ -6,14 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class di8 extends th8 {
+public class di8 extends sh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<fi8> c;
+    public ei8 c;
 
     public di8() {
         Interceptable interceptable = $ic;
@@ -25,39 +23,32 @@ public class di8 extends th8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new ArrayList<>();
     }
 
-    @Override // com.repackage.th8
+    @Override // com.repackage.sh8
     public void d(JSONObject jSONObject) throws Exception {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            ArrayList<fi8> arrayList = new ArrayList<>();
-            JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    fi8 fi8Var = new fi8();
-                    fi8Var.a(optJSONArray.getJSONObject(i));
-                    arrayList.add(fi8Var);
-                }
-            }
-            i(arrayList);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || (optJSONObject = jSONObject.optJSONObject("forum_dir")) == null) {
+            return;
         }
+        ei8 ei8Var = new ei8();
+        ei8Var.a(optJSONObject);
+        i(ei8Var);
     }
 
-    public ArrayList<fi8> h() {
+    public ei8 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (ei8) invokeV.objValue;
     }
 
-    public void i(ArrayList<fi8> arrayList) {
+    public void i(ei8 ei8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.c = arrayList;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ei8Var) == null) {
+            this.c = ei8Var;
             g(null);
         }
     }

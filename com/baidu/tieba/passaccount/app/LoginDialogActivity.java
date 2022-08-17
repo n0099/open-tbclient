@@ -35,19 +35,19 @@ import com.repackage.gu4;
 import com.repackage.hb5;
 import com.repackage.jm4;
 import com.repackage.rg;
+import com.repackage.rr7;
 import com.repackage.sn4;
 import com.repackage.sr7;
 import com.repackage.tr7;
 import com.repackage.ug;
 import com.repackage.un4;
-import com.repackage.ur7;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class LoginDialogActivity extends SuspendedActivity implements hb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup k;
-    public sr7 l;
+    public rr7 l;
     public BdAsyncTask<?, ?, ?> m;
     public String n;
     public String o;
@@ -212,9 +212,9 @@ public class LoginDialogActivity extends SuspendedActivity implements hb5 {
             }
             d1();
             if (TextUtils.isEmpty(this.n)) {
-                this.l = new tr7(this.o, this.p, this.q);
+                this.l = new sr7(this.o, this.p, this.q);
             } else {
-                this.l = new ur7(this.n);
+                this.l = new tr7(this.n);
             }
             this.l.a(this, linearLayout);
             return this;
@@ -325,9 +325,9 @@ public class LoginDialogActivity extends SuspendedActivity implements hb5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            sr7 sr7Var = this.l;
-            if (sr7Var != null) {
-                return sr7Var.getResultIntent();
+            rr7 rr7Var = this.l;
+            if (rr7Var != null) {
+                return rr7Var.getResultIntent();
             }
             return null;
         }
@@ -390,7 +390,7 @@ public class LoginDialogActivity extends SuspendedActivity implements hb5 {
             return;
         }
         if (getLoadingDialog() == null || !getLoadingDialog().c()) {
-            showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f1049));
+            showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f104a));
             if (getLoadingDialog() != null) {
                 getLoadingDialog().f(false);
                 getLoadingDialog().g(false);
@@ -403,9 +403,9 @@ public class LoginDialogActivity extends SuspendedActivity implements hb5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             this.k.setBackgroundResource(R.color.transparent);
-            sr7 sr7Var = this.l;
-            if (sr7Var != null) {
-                sr7Var.n(i);
+            rr7 rr7Var = this.l;
+            if (rr7Var != null) {
+                rr7Var.n(i);
             }
         }
     }

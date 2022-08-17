@@ -168,7 +168,7 @@ public class k44 extends f44 {
             if (z(this.b)) {
                 this.k.a.setAlpha(1.0f);
                 this.k.b.setActualImageResource(R.drawable.obfuscated_res_0x7f080168);
-                this.k.c.setText(R.string.obfuscated_res_0x7f0f1335);
+                this.k.c.setText(R.string.obfuscated_res_0x7f0f1337);
                 super.k();
                 return;
             }

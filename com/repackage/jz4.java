@@ -529,7 +529,7 @@ public class jz4 {
         ImMessageCenterPojo i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, aVar)) == null) {
-            if (aVar != null && (i = m87.o().i(aVar.a, aVar.f)) != null && i.getLast_content() != null) {
+            if (aVar != null && (i = l87.o().i(aVar.a, aVar.f)) != null && i.getLast_content() != null) {
                 try {
                     String lastTaskId = i.getLastTaskId();
                     String lastServiceId = i.getLastServiceId();
@@ -975,13 +975,13 @@ public class jz4 {
                     }
                 } else if (i2 == 23) {
                     if (this.h > 0) {
-                        String format = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0cb2), String.valueOf(this.h));
+                        String format = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0cb3), String.valueOf(this.h));
                         P(23, null, format, format);
                     }
                 } else if (i2 == 29) {
                     if (this.b > 0) {
                         StringBuilder sb = new StringBuilder();
-                        sb.append(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0caa), Integer.valueOf(this.b)));
+                        sb.append(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0cab), Integer.valueOf(this.b)));
                         P(29, null, sb.toString(), sb.toString());
                     }
                 } else if (i2 == 24) {
@@ -990,13 +990,13 @@ public class jz4 {
                         if (this.c > 1) {
                             sb2.append(PreferencesUtil.LEFT_MOUNT);
                             sb2.append(String.valueOf(this.c));
-                            sb2.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cb5));
+                            sb2.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cb6));
                             sb2.append(PreferencesUtil.RIGHT_MOUNT);
                         }
                         if (this.n != null) {
                             sb2.append(this.n);
                         } else {
-                            sb2.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cb3));
+                            sb2.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cb4));
                         }
                         P(24, null, sb2.toString(), sb2.toString());
                     }
@@ -1004,7 +1004,7 @@ public class jz4 {
                     if (i2 == 26) {
                         if (this.g > 0) {
                             StringBuilder sb3 = new StringBuilder();
-                            sb3.append(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0cb0), Integer.valueOf(this.g)));
+                            sb3.append(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0cb1), Integer.valueOf(this.g)));
                             P(26, null, sb3.toString(), sb3.toString());
                         }
                     } else if (i2 != 16 && lz4.d().s()) {
@@ -1015,13 +1015,13 @@ public class jz4 {
                     if (this.d > 1) {
                         sb4.append(PreferencesUtil.LEFT_MOUNT);
                         sb4.append(String.valueOf(this.d));
-                        sb4.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cb5));
+                        sb4.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cb6));
                         sb4.append(PreferencesUtil.RIGHT_MOUNT);
                     }
                     if (this.p != null) {
                         sb4.append(this.p);
                     } else {
-                        sb4.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cab));
+                        sb4.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cac));
                     }
                     P(25, null, sb4.toString(), sb4.toString());
                 }
@@ -1069,7 +1069,7 @@ public class jz4 {
             StringBuffer stringBuffer = new StringBuffer();
             if (i2 == 23) {
                 if (this.h > 0) {
-                    String format = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0cb2), String.valueOf(this.h));
+                    String format = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0cb3), String.valueOf(this.h));
                     P(23, null, format, format);
                 }
             } else if (i2 == 29) {
@@ -1078,13 +1078,13 @@ public class jz4 {
                     if (this.b > 1) {
                         sb.append(PreferencesUtil.LEFT_MOUNT);
                         sb.append(String.valueOf(this.b));
-                        sb.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cb5));
+                        sb.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cb6));
                         sb.append(PreferencesUtil.RIGHT_MOUNT);
                     }
                     if (this.m != null) {
                         sb.append(this.m);
                     } else {
-                        sb.append(this.a.getString(R.string.obfuscated_res_0x7f0f0caa));
+                        sb.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cab));
                     }
                     P(29, null, sb.toString(), sb.toString());
                 }
@@ -1094,13 +1094,13 @@ public class jz4 {
                     if (this.c > 1) {
                         sb2.append(PreferencesUtil.LEFT_MOUNT);
                         sb2.append(String.valueOf(this.c));
-                        sb2.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cb5));
+                        sb2.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cb6));
                         sb2.append(PreferencesUtil.RIGHT_MOUNT);
                     }
                     if (this.n != null) {
                         sb2.append(this.n);
                     } else {
-                        sb2.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cb3));
+                        sb2.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cb4));
                     }
                     P(24, null, sb2.toString(), sb2.toString());
                 }
@@ -1110,13 +1110,13 @@ public class jz4 {
                     if (this.d > 1) {
                         sb3.append(PreferencesUtil.LEFT_MOUNT);
                         sb3.append(String.valueOf(this.d));
-                        sb3.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cb5));
+                        sb3.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cb6));
                         sb3.append(PreferencesUtil.RIGHT_MOUNT);
                     }
                     if (this.p != null) {
                         sb3.append(this.p);
                     } else {
-                        sb3.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cab));
+                        sb3.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cac));
                     }
                     P(25, null, sb3.toString(), sb3.toString());
                 }
@@ -1124,9 +1124,9 @@ public class jz4 {
                 if (this.g > 0) {
                     StringBuilder sb4 = new StringBuilder();
                     if (this.g > 1) {
-                        sb4.append(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0cb1), Integer.valueOf(this.g)));
+                        sb4.append(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0cb2), Integer.valueOf(this.g)));
                     }
-                    sb4.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cb0));
+                    sb4.append(this.a.getString(R.string.obfuscated_res_0x7f0f0cb1));
                     P(26, null, sb4.toString(), sb4.toString());
                 }
             } else if (i2 == 16) {
@@ -1136,7 +1136,7 @@ public class jz4 {
                 long j2 = j + w;
                 int i3 = (j2 > 1L ? 1 : (j2 == 1L ? 0 : -1));
                 if (i3 > 0) {
-                    stringBuffer.append(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0caf), Long.valueOf(j2)));
+                    stringBuffer.append(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0cb0), Long.valueOf(j2)));
                     Q(16, null, stringBuffer.toString(), stringBuffer.toString(), z4);
                 } else if (i3 == 0) {
                     uz4Var.i();
@@ -1155,7 +1155,7 @@ public class jz4 {
                         str2 = e;
                     }
                     if (TextUtils.isEmpty(e)) {
-                        stringBuffer.append(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0caf), Long.valueOf(j2)));
+                        stringBuffer.append(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0cb0), Long.valueOf(j2)));
                         str3 = stringBuffer.toString();
                     } else {
                         str3 = e;
@@ -1187,15 +1187,15 @@ public class jz4 {
                             }
                         }
                     } else {
-                        stringBuffer.append(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0cb6), Long.valueOf(n)));
+                        stringBuffer.append(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0cb7), Long.valueOf(n)));
                         z = true;
                         z2 = false;
                         if (uz4Var.q() > 0 || m0()) {
                             z3 = z;
                         } else if (!z) {
-                            stringBuffer.append(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0cb7), Integer.valueOf(uz4Var.q())));
-                        } else {
                             stringBuffer.append(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0cb8), Integer.valueOf(uz4Var.q())));
+                        } else {
+                            stringBuffer.append(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0cb9), Integer.valueOf(uz4Var.q())));
                         }
                         if (z3) {
                             P(17, null, stringBuffer.toString(), stringBuffer.toString());

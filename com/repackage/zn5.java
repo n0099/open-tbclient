@@ -2,7 +2,7 @@ package com.repackage;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.advert.sdk.data.AdLoadState;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface zn5 {
     public static final boolean a;
 

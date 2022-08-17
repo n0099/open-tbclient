@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
-import com.repackage.pz9;
-import com.repackage.qz9;
 import com.repackage.rz9;
+import com.repackage.sz9;
+import com.repackage.tz9;
 import com.yy.mobile.framework.revenuesdk.baseapi.Env;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
@@ -91,7 +91,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
     }
 
     /* loaded from: classes9.dex */
-    public class b extends qz9 {
+    public class b extends sz9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -128,7 +128,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             this.g = arrayList;
         }
 
-        @Override // com.repackage.qz9
+        @Override // com.repackage.sz9
         public void a(Request request, boolean z, Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{request, Boolean.valueOf(z), exc}) == null) {
@@ -150,7 +150,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             }
         }
 
-        @Override // com.repackage.qz9
+        @Override // com.repackage.sz9
         public void b(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
@@ -297,7 +297,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             hashMap2.put("data", jSONObject2.toString());
             hashMap2.put("ticket", pSCIMessageRequest.getTicket());
             RLog.info("HttpDataSenderAdapter", "sendByHttpPost requstUrl:" + str3 + " seq:" + str2 + " sign:" + md5 + " hostId:" + this.hostId + " authType:" + this.authType + " clientVersion:" + this.version);
-            pz9.f().e(str3, hashMap2, i, i2, pSCIMessageRequest.getTraceid(), this.version, this.pakageName, this.hostId, this.authType, new b(this, i, i2, str2, bArr, pSCIMessageRequest, str, arrayList));
+            rz9.f().e(str3, hashMap2, i, i2, pSCIMessageRequest.getTraceid(), this.version, this.pakageName, this.hostId, this.authType, new b(this, i, i2, str2, bArr, pSCIMessageRequest, str, arrayList));
         }
     }
 
@@ -306,8 +306,8 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             RLog.info("HttpDataSenderAdapter", "cancelAllRequest appId:" + i + " useChannel:" + i2);
-            pz9.f().d(i, i2);
-            rz9.g(this.mPayNetReporter);
+            rz9.f().d(i, i2);
+            tz9.g(this.mPayNetReporter);
         }
     }
 
@@ -326,7 +326,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             this.mPayNetReporter = dataSenderConfig.payNetReporter;
             this.sEnableBackupDomain = true ^ Env.instance().isTestEnv();
             if (dataSenderConfig != null && !TextUtils.isEmpty(dataSenderConfig.gslbAppId)) {
-                int h = rz9.c().h(dataSenderConfig.appContext, dataSenderConfig.gslbAppId, dataSenderConfig.hdid);
+                int h = tz9.c().h(dataSenderConfig.appContext, dataSenderConfig.gslbAppId, dataSenderConfig.hdid);
                 String str = "initHttpDns result " + h;
                 RLog.info("HttpDataSenderAdapter", "tryInitHttpDns gslbAppId:" + dataSenderConfig.gslbAppId + " " + str);
                 this.delayDnsInitReportRunnable = new a(this, h, str);
@@ -343,7 +343,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
                 RLog.error("HttpDataSenderAdapter", "init first before sendData", new Object[0]);
                 return;
             }
-            rz9.a(this.mPayNetReporter);
+            tz9.a(this.mPayNetReporter);
             synchronized (this.runnableLock) {
                 if (this.delayDnsInitReportRunnable != null) {
                     this.delayDnsInitReportRunnable.run();

@@ -188,7 +188,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905fc);
             setOnClickListener(this);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04035d});
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040362});
                 this.d = obtainStyledAttributes.getBoolean(0, false);
                 obtainStyledAttributes.recycle();
             }
@@ -277,7 +277,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     return;
                 }
                 this.e = 1;
-                this.a.setText(R.string.obfuscated_res_0x7f0f0c75);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0c76);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
@@ -291,7 +291,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     return;
                 }
                 this.e = 2;
-                this.a.setText(R.string.obfuscated_res_0x7f0f0cdd);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0cde);
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation2.setFillAfter(true);
                 alphaAnimation2.setDuration(500L);

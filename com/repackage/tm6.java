@@ -302,7 +302,7 @@ public class tm6 {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 this.a.m = (String) customResponsedMessage.getData();
                 ItemCardHelper.y(this.a.k, this.a.m);
-                this.a.j.setCustomColorBtn(gj8.f(this.a.m));
+                this.a.j.setCustomColorBtn(fj8.f(this.a.m));
             }
         }
     }
@@ -514,11 +514,11 @@ public class tm6 {
                 this.k.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0101));
                 d2.n(R.string.J_X01);
                 d2.k(R.color.transparent);
-                d2.g(gj8.f(this.m));
+                d2.g(fj8.f(this.m));
             } else if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
-                this.k.setTextColor(gj8.a(gj8.f(this.m), ks4.a(R.string.A_X01)));
+                this.k.setTextColor(fj8.a(fj8.f(this.m), ks4.a(R.string.A_X01)));
                 d2.l(R.dimen.tbds1);
-                d2.t(gj8.a(gj8.f(this.m), ks4.a(R.string.A_X07)));
+                d2.t(fj8.a(fj8.f(this.m), ks4.a(R.string.A_X07)));
                 d2.n(R.string.J_X01);
                 d2.f(R.color.CAM_X0208);
             } else {
@@ -579,7 +579,7 @@ public class tm6 {
             if (ItemCardHelper.w(itemData) && ItemCardHelper.o(itemData)) {
                 this.i.setVisibility(0);
                 this.j.setVisibility(0);
-                this.j.setCustomColorBtn(gj8.f(this.m));
+                this.j.setCustomColorBtn(fj8.f(this.m));
                 this.j.B();
                 this.j.setData(itemData, -1, this.a.e);
                 int objTypeByDownloadMode = this.j.getObjTypeByDownloadMode();
@@ -597,11 +597,11 @@ public class tm6 {
                         this.k.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0101));
                         d2.n(R.string.J_X01);
                         d2.k(R.color.transparent);
-                        d2.g(gj8.f(this.m));
+                        d2.g(fj8.f(this.m));
                     } else if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
-                        this.k.setTextColor(gj8.a(gj8.f(this.m), ks4.a(R.string.A_X01)));
+                        this.k.setTextColor(fj8.a(fj8.f(this.m), ks4.a(R.string.A_X01)));
                         d2.l(R.dimen.tbds1);
-                        d2.t(gj8.a(gj8.f(this.m), ks4.a(R.string.A_X07)));
+                        d2.t(fj8.a(fj8.f(this.m), ks4.a(R.string.A_X07)));
                         d2.n(R.string.J_X01);
                         d2.f(R.color.CAM_X0208);
                     } else {

@@ -227,7 +227,7 @@ public class km6 {
             n16Var.d(i);
         }
         SkinManager.setNavbarIconSrc(this.g, R.drawable.selector_web_topbar_other_black, R.drawable.selector_web_topbar_other_white);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f080a08, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f080a09, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void m() {

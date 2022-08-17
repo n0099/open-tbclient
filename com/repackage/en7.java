@@ -1,19 +1,25 @@
 package com.repackage;
-
-import android.os.Environment;
-import java.io.File;
 /* loaded from: classes6.dex */
 public interface en7 {
-    public static final String a = File.separator;
-    public static final String b = Environment.getExternalStorageDirectory() + a + "tieba";
-    public static final String c = b + a + ".tieba_post_monitor";
-    public static final String d = c + a + "v1";
-    public static final String e;
+    void a(int i, String str);
 
-    static {
-        StringBuilder sb = new StringBuilder();
-        sb.append(d);
-        sb.append(a);
-        e = sb.toString();
-    }
+    void b(int i, String str);
+
+    void c();
+
+    void d();
+
+    void e(String str);
+
+    void f(int i, int i2, String str);
+
+    void g();
+
+    void h(int i, String str);
+
+    void i(int i, String str);
+
+    void j();
+
+    void k(String str);
 }

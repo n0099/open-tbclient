@@ -131,7 +131,7 @@ public class MultiLinkCardView extends RelativeLayout {
                     this.j.setVisibility(0);
                 }
             }
-            this.k.setText(getContext().getString(c ? R.string.obfuscated_res_0x7f0f0b24 : R.string.obfuscated_res_0x7f0f0b25, Integer.valueOf(a.size())));
+            this.k.setText(getContext().getString(c ? R.string.obfuscated_res_0x7f0f0b25 : R.string.obfuscated_res_0x7f0f0b26, Integer.valueOf(a.size())));
         }
     }
 

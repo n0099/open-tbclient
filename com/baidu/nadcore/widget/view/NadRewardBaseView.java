@@ -72,7 +72,7 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
         public void a(List<tm0.a> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0b90, 0).show();
+                Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0b91, 0).show();
                 this.a.p = true;
             }
         }
@@ -111,7 +111,7 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.p) {
-                Toast.makeText(getContext(), (int) R.string.obfuscated_res_0x7f0f0b91, 0).show();
+                Toast.makeText(getContext(), (int) R.string.obfuscated_res_0x7f0f0b92, 0).show();
                 if (this.d != null) {
                     this.d = null;
                     return;

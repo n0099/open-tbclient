@@ -222,9 +222,9 @@ public class qz8 implements hb5, View.OnClickListener {
                         }
                     }
                 }
-                BdToast b = BdToast.b(this.a.f, this.a.f.getString(R.string.obfuscated_res_0x7f0f14cf));
+                BdToast b = BdToast.b(this.a.f, this.a.f.getString(R.string.obfuscated_res_0x7f0f14d1));
                 b.f(BdToast.ToastIcon.FAILURE);
-                b.h();
+                b.i();
                 return false;
             }
             return invokeL.booleanValue;
@@ -675,7 +675,7 @@ public class qz8 implements hb5, View.OnClickListener {
             } else if (k()) {
                 return c(imageFileInfo);
             } else {
-                String format = String.format(this.f.getString(R.string.obfuscated_res_0x7f0f0aa4), Integer.valueOf(l));
+                String format = String.format(this.f.getString(R.string.obfuscated_res_0x7f0f0aa5), Integer.valueOf(l));
                 if (l == M) {
                     BdTopToast bdTopToast = new BdTopToast(this.f);
                     bdTopToast.h(false);

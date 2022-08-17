@@ -59,7 +59,7 @@ public class vn6 extends ue6<ICardInfo, LegoItemHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            kf7 a = pe7.h().a(this.c, this.l, 1);
+            jf7 a = oe7.h().a(this.c, this.l, 1);
             if (a == null) {
                 return null;
             }
@@ -79,7 +79,7 @@ public class vn6 extends ue6<ICardInfo, LegoItemHolder> {
             super.onFillViewHolder(i, view2, viewGroup, iCardInfo, legoItemHolder);
             View view3 = legoItemHolder.getView();
             if (view3 != null && iCardInfo != null) {
-                ((kf7) view3).update(iCardInfo);
+                ((jf7) view3).update(iCardInfo);
             }
             return view3;
         }

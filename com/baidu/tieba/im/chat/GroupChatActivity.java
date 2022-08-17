@@ -30,11 +30,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cf5;
 import com.repackage.gf5;
+import com.repackage.j97;
 import com.repackage.je5;
 import com.repackage.jz4;
-import com.repackage.k97;
 import com.repackage.pi;
-import com.repackage.x57;
+import com.repackage.w57;
 /* loaded from: classes3.dex */
 public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -72,7 +72,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(k97.k().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a.getGroupId()))) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(j97.k().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a.getGroupId()))) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -263,11 +263,11 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public boolean m1(x57 x57Var) {
+    public boolean m1(w57 w57Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, x57Var)) == null) {
-            this.c.loadFirst(x57Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, w57Var)) == null) {
+            this.c.loadFirst(w57Var);
             return true;
         }
         return invokeL.booleanValue;

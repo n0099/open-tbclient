@@ -43,20 +43,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bs8;
 import com.repackage.fg;
 import com.repackage.gg;
-import com.repackage.ka8;
+import com.repackage.ja8;
+import com.repackage.la8;
 import com.repackage.ma8;
 import com.repackage.mr8;
-import com.repackage.na8;
 import com.repackage.oi;
 import com.repackage.rn4;
 import com.repackage.ur4;
-import com.repackage.zd8;
+import com.repackage.yd8;
 /* loaded from: classes4.dex */
 public class PushDialogActivity extends BaseActivity<PushDialogActivity> implements Object {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ma8 a;
-    public ka8 b;
+    public la8 a;
+    public ja8 b;
     public bs8 c;
     public fg<ImageView> d;
     public fg<TextView> e;
@@ -214,7 +214,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                     return;
                 }
                 ur4 ur4Var = new ur4(this.a);
-                ur4Var.setMessage(this.a.getString(R.string.obfuscated_res_0x7f0f0f48));
+                ur4Var.setMessage(this.a.getString(R.string.obfuscated_res_0x7f0f0f49));
                 ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0431, new a(this));
                 ur4Var.create(this.a.getPageContext()).show();
             }
@@ -706,11 +706,11 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ka8 ka8Var = this.b;
-            if (ka8Var == null) {
+            ja8 ja8Var = this.b;
+            if (ja8Var == null) {
                 return null;
             }
-            return ka8Var.d();
+            return ja8Var.d();
         }
         return (String) invokeV.objValue;
     }
@@ -721,17 +721,17 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.id.obfuscated_res_0x7f091ac9 : invokeV.intValue;
     }
 
-    public void C1(boolean z, na8 na8Var) {
+    public void C1(boolean z, ma8 ma8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048579, this, z, na8Var) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048579, this, z, ma8Var) == null) {
             String str = this.m + "_3";
             this.m = str;
             TiebaStatic.eventStat(this, "push_dialog", str);
             this.k = true;
-            if (z && na8Var != null) {
-                ma8 ma8Var = this.a;
-                if (ma8Var != null) {
-                    ma8Var.i(na8Var);
+            if (z && ma8Var != null) {
+                la8 la8Var = this.a;
+                if (la8Var != null) {
+                    la8Var.i(ma8Var);
                     TiebaStatic.log(new StatisticItem("c13197").param("tid", B1()));
                     TiebaStatic.log(new StatisticItem("c13196").param("obj_type", 2).param("obj_source", this.b.c() != 0 ? 2 : 1).param("tid", B1()));
                     return;
@@ -882,7 +882,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             this.m = str;
             TiebaStatic.eventStat(this, "push_dialog", str);
             super.onCreate(bundle);
-            this.c = zd8.j().d;
+            this.c = yd8.j().d;
             if (this.j == null) {
                 this.j = new mr8();
             }
@@ -894,10 +894,10 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 window.addFlags(524288);
             }
             getWindow().getDecorView().setDrawingCacheEnabled(false);
-            this.a = new ma8(this, R.layout.obfuscated_res_0x7f0d005f);
-            ka8 ka8Var = new ka8(this);
-            this.b = ka8Var;
-            ka8Var.e();
+            this.a = new la8(this, R.layout.obfuscated_res_0x7f0d005f);
+            ja8 ja8Var = new ja8(this);
+            this.b = ja8Var;
+            ja8Var.e();
             registerListener(this.n);
             this.l = new HomeWatcherReceiver(this);
             IntentFilter intentFilter = new IntentFilter();

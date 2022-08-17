@@ -1,41 +1,49 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class x28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<on> a;
+    public d38 a;
+    public BdTypeListView b;
+    public List<bn> c;
 
-    public x28() {
+    public x28(TbPageContext tbPageContext, BdTypeListView bdTypeListView, b06<v38> b06Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView, b06Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new ArrayList();
+        this.b = bdTypeListView;
+        d38 d38Var = new d38(tbPageContext, v38.l);
+        this.a = d38Var;
+        d38Var.u(b06Var);
+        this.c.add(this.a);
+        this.b.a(this.c);
     }
 
-    public void a(ArrayList<on> arrayList) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            this.a = arrayList;
-        }
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.notifyDataSetChanged();
         }
     }
 }

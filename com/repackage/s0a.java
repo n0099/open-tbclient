@@ -1,14 +1,33 @@
 package com.repackage;
 
+import android.app.Activity;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
 import tv.athena.revenue.payui.model.PayFlowType;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.IYYPayWayView;
+import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes7.dex */
-public interface s0a {
-    void a(String str, PayFlowType payFlowType);
+public interface s0a extends k0a {
+    boolean b(PayFlowType payFlowType);
 
-    void b(PayFlowType payFlowType);
+    void c(Activity activity);
 
-    void c(String str, PayFlowType payFlowType);
+    void d(Activity activity, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
 
-    void d(PayFlowType payFlowType, PayDialogType payDialogType);
+    void e(PayFlowType payFlowType);
+
+    void f(String str, PayFlowType payFlowType);
+
+    boolean g();
+
+    void h(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+
+    void i(Activity activity, IYYPayAmountView.ViewParams viewParams);
+
+    void j(String str, PayFlowType payFlowType);
+
+    void refreshWindow(WindowParams windowParams);
+
+    void release();
 }

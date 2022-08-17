@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.my7;
+import com.repackage.ly7;
 import com.repackage.rg;
 /* loaded from: classes4.dex */
 public class SuggestEmotionModel extends BdBaseModel {
@@ -37,13 +37,13 @@ public class SuggestEmotionModel extends BdBaseModel {
 
         /* renamed from: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0249a implements Runnable {
+        public class RunnableC0250a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
             public final /* synthetic */ a b;
 
-            public RunnableC0249a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public RunnableC0250a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public class SuggestEmotionModel extends BdBaseModel {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                rg.a().post(new RunnableC0249a(this, customResponsedMessage));
+                rg.a().post(new RunnableC0250a(this, customResponsedMessage));
             }
         }
     }
@@ -150,7 +150,7 @@ public class SuggestEmotionModel extends BdBaseModel {
 
     /* loaded from: classes4.dex */
     public interface c {
-        void a(my7 my7Var);
+        void a(ly7 ly7Var);
 
         void onFail(int i, String str);
     }

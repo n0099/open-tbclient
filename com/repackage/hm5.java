@@ -20,7 +20,7 @@ public class hm5 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AdWebViewActivity a;
-    public ql8 b;
+    public pl8 b;
 
     public hm5(AdWebViewActivity adWebViewActivity) {
         Interceptable interceptable = $ic;
@@ -40,10 +40,10 @@ public class hm5 extends WebChromeClient {
         this.a = adWebViewActivity;
     }
 
-    public void a(ql8 ql8Var) {
+    public void a(pl8 pl8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ql8Var) == null) {
-            this.b = ql8Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, pl8Var) == null) {
+            this.b = pl8Var;
         }
     }
 
@@ -116,8 +116,8 @@ public class hm5 extends WebChromeClient {
         AdWebViewActivity adWebViewActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            ql8 ql8Var = this.b;
-            if ((ql8Var == null || !ql8Var.onJsPrompt(str2, jsPromptResult)) && (adWebViewActivity = this.a) != null && tg.f(adWebViewActivity.getPageContext())) {
+            pl8 pl8Var = this.b;
+            if ((pl8Var == null || !pl8Var.onJsPrompt(str2, jsPromptResult)) && (adWebViewActivity = this.a) != null && tg.f(adWebViewActivity.getPageContext())) {
                 return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
             }
             return true;

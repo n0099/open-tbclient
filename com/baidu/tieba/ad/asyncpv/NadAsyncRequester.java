@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bf7;
+import com.repackage.af7;
 import com.repackage.cl5;
 import com.repackage.dh0;
 import com.repackage.em5;
@@ -249,7 +249,7 @@ public class NadAsyncRequester {
                 jSONArray.put(e("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
             }
             jSONArray.put(e(AdExtParam.KEY_NAD_CORE_VERSION, "5.7.0.18"));
-            if (!bf7.f(map)) {
+            if (!af7.f(map)) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     jSONArray.put(e(entry.getKey(), entry.getValue()));
                 }

@@ -243,7 +243,7 @@ public class TextInputEditText extends AppCompatEditText {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TextInputEditText(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04026c);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04026d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

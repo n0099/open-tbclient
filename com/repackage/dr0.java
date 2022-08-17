@@ -86,12 +86,12 @@ public class dr0 extends vq0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                this.h = R.string.obfuscated_res_0x7f0f0c18;
-                this.i = R.string.obfuscated_res_0x7f0f0c14;
+                this.h = R.string.obfuscated_res_0x7f0f0c19;
+                this.i = R.string.obfuscated_res_0x7f0f0c15;
                 return;
             }
-            this.h = R.string.obfuscated_res_0x7f0f0c15;
-            this.i = R.string.obfuscated_res_0x7f0f0c09;
+            this.h = R.string.obfuscated_res_0x7f0f0c16;
+            this.i = R.string.obfuscated_res_0x7f0f0c0a;
         }
     }
 
@@ -101,8 +101,8 @@ public class dr0 extends vq0 {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
             layoutParams.width = -2;
             layoutParams.height = -2;
-            this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de4));
-            this.b.setText(getContext().getResources().getText(R.string.obfuscated_res_0x7f0f0c18));
+            this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de5));
+            this.b.setText(getContext().getResources().getText(R.string.obfuscated_res_0x7f0f0c19));
             this.b.setPadding(38, 14, 38, 14);
             this.b.setLayoutParams(layoutParams);
         }
@@ -115,8 +115,8 @@ public class dr0 extends vq0 {
             layoutParams.width = -1;
             layoutParams.height = w11.b(35.0f);
             this.b.setPadding(0, 0, w11.b(15.0f), 0);
-            this.b.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c15));
-            this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de2));
+            this.b.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c16));
+            this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de3));
             this.b.setLayoutParams(layoutParams);
         }
     }
@@ -128,7 +128,7 @@ public class dr0 extends vq0 {
                 this.c.bottomMargin = w11.b(7.0f);
             } else {
                 this.c.bottomMargin = 2;
-                this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de2));
+                this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de3));
             }
             this.b.setLayoutParams(this.c);
         }
@@ -172,7 +172,7 @@ public class dr0 extends vq0 {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             TextView textView = new TextView(getContext());
             this.b = textView;
-            textView.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c15));
+            textView.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c16));
             this.b.setTextSize(0, getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705cb));
             this.b.setShadowLayer(0.0f, 0.0f, 1.0f, Color.parseColor("#80000000"));
             this.b.setTextColor(-1);
@@ -180,7 +180,7 @@ public class dr0 extends vq0 {
             this.c = layoutParams;
             layoutParams.gravity = BadgeDrawable.BOTTOM_END;
             this.b.setLayoutParams(layoutParams);
-            this.b.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080e06));
+            this.b.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080e07));
             this.b.setGravity(8388629);
             this.b.setAlpha(0.0f);
             this.b.setPadding(0, 0, w11.b(15.0f), 0);
@@ -264,7 +264,7 @@ public class dr0 extends vq0 {
                 } else if (e2) {
                     if (!TextUtils.isEmpty(this.g)) {
                         this.b.setText(this.g);
-                        this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de2));
+                        this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de3));
                     }
                 } else {
                     this.b.setText(getContext().getResources().getString(this.h));

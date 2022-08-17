@@ -8,9 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ec7;
+import com.repackage.dc7;
 /* loaded from: classes3.dex */
-public class ReplyMeCacheModel extends CacheModel<ec7, ReplyMessageFragment> {
+public class ReplyMeCacheModel extends CacheModel<dc7, ReplyMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,10 +35,10 @@ public class ReplyMeCacheModel extends CacheModel<ec7, ReplyMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<ec7> K() {
+    public Class<dc7> K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ec7.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? dc7.class : (Class) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel

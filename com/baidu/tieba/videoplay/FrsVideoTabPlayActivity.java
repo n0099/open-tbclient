@@ -297,7 +297,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
                 arrayList.addAll(videoTabListByFid);
             }
             if (ListUtils.isEmpty(this.n)) {
-                qi.N(this, R.string.obfuscated_res_0x7f0f0c39);
+                qi.M(this, R.string.obfuscated_res_0x7f0f0c3a);
                 finish();
                 return;
             }
@@ -409,13 +409,13 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             NavigationBar navigationBar = this.p;
             if (navigationBar != null && this.q != null) {
-                navigationBar.setBackgroundResource(R.drawable.obfuscated_res_0x7f08120f);
+                navigationBar.setBackgroundResource(R.drawable.obfuscated_res_0x7f081210);
                 ms4 d = ms4.d(this.q);
                 d.A(R.string.F_X01);
                 d.v(R.color.CAM_X0101);
                 d.z(R.dimen.T_X05);
                 if (this.p.getBackImageView() != null) {
-                    WebPManager.setPureDrawable(this.p.getBackImageView(), R.drawable.obfuscated_res_0x7f080a01, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+                    WebPManager.setPureDrawable(this.p.getBackImageView(), R.drawable.obfuscated_res_0x7f080a02, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
                 }
             }
             if (!UtilHelper.isFlyMeOs()) {

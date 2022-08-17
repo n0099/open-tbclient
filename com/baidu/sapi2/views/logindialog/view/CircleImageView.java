@@ -343,7 +343,7 @@ public class CircleImageView extends ImageView {
         this.e = new Paint();
         this.f = -16777216;
         this.g = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405d9, R.attr.obfuscated_res_0x7f0405da}, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405da, R.attr.obfuscated_res_0x7f0405db}, i, 0);
         this.g = obtainStyledAttributes.getDimensionPixelSize(1, 0);
         this.f = obtainStyledAttributes.getColor(0, -16777216);
         obtainStyledAttributes.recycle();

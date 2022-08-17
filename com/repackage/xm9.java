@@ -1,89 +1,67 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.PendingIntent;
+import android.os.Parcel;
+import android.os.Parcelable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
 /* loaded from: classes7.dex */
-public final class xm9 {
+public final class xm9 implements Parcelable.Creator<Status> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final List<String> a;
-        public final Object b;
-
-        public /* synthetic */ a(Object obj, dn9 dn9Var) {
-            ym9.d(obj);
-            this.b = obj;
-            this.a = new ArrayList();
-        }
-
-        @NonNull
-        public a a(@NonNull String str, @Nullable Object obj) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
-                List<String> list = this.a;
-                ym9.d(str);
-                String valueOf = String.valueOf(obj);
-                StringBuilder sb = new StringBuilder(str.length() + 1 + String.valueOf(valueOf).length());
-                sb.append(str);
-                sb.append("=");
-                sb.append(valueOf);
-                list.add(sb.toString());
-                return this;
+    public xm9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return (a) invokeLL.objValue;
         }
+    }
 
-        @NonNull
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                StringBuilder sb = new StringBuilder(100);
-                sb.append(this.b.getClass().getSimpleName());
-                sb.append('{');
-                int size = this.a.size();
-                for (int i = 0; i < size; i++) {
-                    sb.append(this.a.get(i));
-                    if (i < size - 1) {
-                        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    }
-                }
-                sb.append('}');
-                return sb.toString();
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // android.os.Parcelable.Creator
+    public final /* bridge */ /* synthetic */ Status createFromParcel(Parcel parcel) {
+        int q = SafeParcelReader.q(parcel);
+        String str = null;
+        PendingIntent pendingIntent = null;
+        ConnectionResult connectionResult = null;
+        int i = 0;
+        int i2 = 0;
+        while (parcel.dataPosition() < q) {
+            int k = SafeParcelReader.k(parcel);
+            int h = SafeParcelReader.h(k);
+            if (h == 1) {
+                i2 = SafeParcelReader.m(parcel, k);
+            } else if (h == 2) {
+                str = SafeParcelReader.d(parcel, k);
+            } else if (h == 3) {
+                pendingIntent = (PendingIntent) SafeParcelReader.c(parcel, k, PendingIntent.CREATOR);
+            } else if (h == 4) {
+                connectionResult = (ConnectionResult) SafeParcelReader.c(parcel, k, ConnectionResult.CREATOR);
+            } else if (h != 1000) {
+                SafeParcelReader.p(parcel, k);
+            } else {
+                i = SafeParcelReader.m(parcel, k);
             }
-            return (String) invokeV.objValue;
         }
+        SafeParcelReader.g(parcel, q);
+        return new Status(i, i2, str, pendingIntent, connectionResult);
     }
 
-    public static boolean a(@Nullable Object obj, @Nullable Object obj2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, obj, obj2)) == null) ? obj == obj2 || (obj != null && obj.equals(obj2)) : invokeLL.booleanValue;
-    }
-
-    public static int b(@NonNull Object... objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, objArr)) == null) ? Arrays.hashCode(objArr) : invokeL.intValue;
-    }
-
-    @NonNull
-    public static a c(@NonNull Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) ? new a(obj, null) : (a) invokeL.objValue;
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
+    @Override // android.os.Parcelable.Creator
+    public final /* synthetic */ Status[] newArray(int i) {
+        return new Status[i];
     }
 }

@@ -158,9 +158,9 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
             this.e = a2;
             a2.setVisibility(0);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0920de);
-            this.f.setText(getActivity().getString(R.string.obfuscated_res_0x7f0f0c8e) + this.a + getActivity().getString(R.string.obfuscated_res_0x7f0f0c8f));
+            this.f.setText(getActivity().getString(R.string.obfuscated_res_0x7f0f0c8f) + this.a + getActivity().getString(R.string.obfuscated_res_0x7f0f0c90));
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b4);
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0c8a);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0c8b);
             if (!StringUtils.isNull(string) && this.g != null) {
                 this.g.setText(string.replace("%s", this.a));
             }

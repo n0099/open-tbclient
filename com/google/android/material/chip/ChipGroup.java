@@ -724,7 +724,7 @@ public class ChipGroup extends FlowLayout {
         this.passThroughListener = new PassThroughHierarchyChangeListener(this, null);
         this.checkedId = -1;
         this.protectFromCheckedChange = false;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.obfuscated_res_0x7f040135, R.attr.obfuscated_res_0x7f040147, R.attr.obfuscated_res_0x7f040148, R.attr.obfuscated_res_0x7f040149, R.attr.obfuscated_res_0x7f040609, R.attr.obfuscated_res_0x7f040629, R.attr.obfuscated_res_0x7f04062a}, i, obfuscated_res_0x7f100360, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.obfuscated_res_0x7f040135, R.attr.obfuscated_res_0x7f040147, R.attr.obfuscated_res_0x7f040148, R.attr.obfuscated_res_0x7f040149, R.attr.obfuscated_res_0x7f04060a, R.attr.obfuscated_res_0x7f04062a, R.attr.obfuscated_res_0x7f04062b}, i, obfuscated_res_0x7f100360, new int[0]);
         int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(1, 0);
         setChipSpacingHorizontal(obtainStyledAttributes.getDimensionPixelOffset(2, dimensionPixelOffset));
         setChipSpacingVertical(obtainStyledAttributes.getDimensionPixelOffset(3, dimensionPixelOffset));

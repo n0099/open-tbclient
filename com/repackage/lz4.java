@@ -130,7 +130,7 @@ public class lz4 {
     public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            am8.r();
+            zl8.r();
         }
     }
 
@@ -417,7 +417,7 @@ public class lz4 {
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
-            am8.n();
+            zl8.n();
         }
     }
 

@@ -32,9 +32,9 @@ public class ux extends ly {
     }
 
     @Override // com.repackage.ly
-    public e98 q() {
+    public d98 q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new h98(this.b, this.i) : (e98) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new g98(this.b, this.i) : (d98) invokeV.objValue;
     }
 }

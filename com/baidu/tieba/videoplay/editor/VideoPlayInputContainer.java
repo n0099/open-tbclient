@@ -340,7 +340,7 @@ public class VideoPlayInputContainer extends LinearLayout implements t25 {
                 editText.setFocusable(true);
                 this.b.setFocusableInTouchMode(true);
                 this.b.requestFocus();
-                qi.M(getContext(), this.b);
+                qi.L(getContext(), this.b);
             }
             setVisibility(0);
         }
@@ -413,7 +413,7 @@ public class VideoPlayInputContainer extends LinearLayout implements t25 {
             this.b.setPadding(0, qi.f(context, R.dimen.obfuscated_res_0x7f0701e8), qi.f(context, R.dimen.obfuscated_res_0x7f0702da), qi.f(context, R.dimen.obfuscated_res_0x7f0701e8));
             this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
             this.b.addTextChangedListener(new b(this));
-            this.b.setHint(context.getString(R.string.obfuscated_res_0x7f0f0fe9));
+            this.b.setHint(context.getString(R.string.obfuscated_res_0x7f0f0fea));
             this.b.setOnTouchListener(new c(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
@@ -430,7 +430,7 @@ public class VideoPlayInputContainer extends LinearLayout implements t25 {
             this.c.setIncludeFontPadding(false);
             this.c.setEnabled(false);
             this.c.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b7));
-            this.c.setText(R.string.obfuscated_res_0x7f0f110c);
+            this.c.setText(R.string.obfuscated_res_0x7f0f110d);
             this.c.setOnClickListener(new d(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(0, 0, 0, qi.f(context, R.dimen.tbds18));
@@ -451,7 +451,7 @@ public class VideoPlayInputContainer extends LinearLayout implements t25 {
             if (!this.e || gy4Var.getType() == EmotionGroupType.LOCAL) {
                 String obj = this.b.getText().toString();
                 if (this.j && da6.a(obj) >= 10 && getContext() != null) {
-                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1431);
+                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1433);
                 } else {
                     ea6.b(getContext(), gy4Var, this.b);
                 }
@@ -466,7 +466,7 @@ public class VideoPlayInputContainer extends LinearLayout implements t25 {
         }
         String obj = this.b.getText().toString();
         if (this.j && da6.a(obj) >= 10 && getContext() != null) {
-            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1431);
+            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1433);
         } else {
             ea6.c(getContext(), gy4Var, this.b);
         }

@@ -32,7 +32,7 @@ public class a {
 
     /* renamed from: com.ss.android.downloadlib.addownload.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0652a {
+    public interface InterfaceC0655a {
         void a();
     }
 
@@ -57,7 +57,7 @@ public class a {
         }
     }
 
-    private boolean a(Activity activity, DownloadInfo downloadInfo, boolean z, InterfaceC0652a interfaceC0652a) {
+    private boolean a(Activity activity, DownloadInfo downloadInfo, boolean z, InterfaceC0655a interfaceC0655a) {
         if (downloadInfo == null) {
             try {
                 if (this.c.isEmpty()) {
@@ -70,7 +70,7 @@ public class a {
         if (activity != null && !activity.isFinishing()) {
             boolean z2 = true;
             if (downloadInfo != null && this.c.isEmpty()) {
-                a(activity, new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, interfaceC0652a);
+                a(activity, new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, interfaceC0655a);
                 return true;
             }
             long lastModified = downloadInfo != null ? new File(downloadInfo.getTargetFilePath()).lastModified() : 0L;
@@ -83,9 +83,9 @@ public class a {
                 com.ss.android.downloadlib.addownload.b.a previous = listIterator.previous();
                 if (previous != null && !l.d(j.getContext(), previous.d) && l.a(previous.g)) {
                     if (new File(previous.g).lastModified() >= lastModified) {
-                        a(activity, previous, z, interfaceC0652a);
+                        a(activity, previous, z, interfaceC0655a);
                     } else {
-                        a(activity, new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, interfaceC0652a);
+                        a(activity, new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, interfaceC0655a);
                     }
                 }
             }
@@ -97,16 +97,16 @@ public class a {
     }
 
     @MainThread
-    public boolean a(Activity activity, boolean z, InterfaceC0652a interfaceC0652a) {
+    public boolean a(Activity activity, boolean z, InterfaceC0655a interfaceC0655a) {
         if (j.i().optInt("disable_install_app_dialog") == 1 || this.d) {
             return false;
         }
-        return a(activity, a(activity), z, interfaceC0652a);
+        return a(activity, a(activity), z, interfaceC0655a);
     }
 
-    public void a(Context context, com.ss.android.downloadlib.addownload.b.a aVar, boolean z, InterfaceC0652a interfaceC0652a) {
+    public void a(Context context, com.ss.android.downloadlib.addownload.b.a aVar, boolean z, InterfaceC0655a interfaceC0655a) {
         this.c.clear();
-        a(context, aVar, interfaceC0652a, z);
+        a(context, aVar, interfaceC0655a, z);
         this.d = true;
         g.a(context).c();
         this.f.b("sp_ad_install_back_dialog", "key_uninstalled_list");
@@ -157,7 +157,7 @@ public class a {
         this.f.a("sp_ad_install_back_dialog", "key_uninstalled_list", this.c);
     }
 
-    private void a(final Context context, final com.ss.android.downloadlib.addownload.b.a aVar, final InterfaceC0652a interfaceC0652a, boolean z) {
+    private void a(final Context context, final com.ss.android.downloadlib.addownload.b.a aVar, final InterfaceC0655a interfaceC0655a, boolean z) {
         final com.ss.android.downloadad.api.a.b d = f.a().d(aVar.b);
         if (d == null) {
             com.ss.android.downloadlib.e.c.a().a("showBackInstallDialog nativeModel null");
@@ -167,26 +167,26 @@ public class a {
         b.a a2 = new b.a(context).a(z ? "应用安装确认" : "退出确认");
         Object[] objArr = new Object[1];
         objArr[0] = TextUtils.isEmpty(aVar.e) ? "刚刚下载的应用" : aVar.e;
-        c.b(a2.b(String.format("%1$s下载完成，是否立即安装？", objArr)).c("立即安装").d(z ? "暂不安装" : String.format("退出%1$s", context.getResources().getString(context.getApplicationContext().getApplicationInfo().labelRes))).a(false).a(l.a(context, aVar.g)).a(new b.InterfaceC0647b() { // from class: com.ss.android.downloadlib.addownload.a.a.1
-            @Override // com.ss.android.download.api.model.b.InterfaceC0647b
+        c.b(a2.b(String.format("%1$s下载完成，是否立即安装？", objArr)).c("立即安装").d(z ? "暂不安装" : String.format("退出%1$s", context.getResources().getString(context.getApplicationContext().getApplicationInfo().labelRes))).a(false).a(l.a(context, aVar.g)).a(new b.InterfaceC0650b() { // from class: com.ss.android.downloadlib.addownload.a.a.1
+            @Override // com.ss.android.download.api.model.b.InterfaceC0650b
             public void a(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.d.a.a().b("backdialog_install", d);
                 com.ss.android.socialbase.appdownloader.d.a(context, (int) aVar.a);
                 dialogInterface.dismiss();
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC0647b
+            @Override // com.ss.android.download.api.model.b.InterfaceC0650b
             public void b(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.d.a.a().b("backdialog_exit", d);
-                InterfaceC0652a interfaceC0652a2 = interfaceC0652a;
-                if (interfaceC0652a2 != null) {
-                    interfaceC0652a2.a();
+                InterfaceC0655a interfaceC0655a2 = interfaceC0655a;
+                if (interfaceC0655a2 != null) {
+                    interfaceC0655a2.a();
                 }
                 a.this.b("");
                 dialogInterface.dismiss();
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC0647b
+            @Override // com.ss.android.download.api.model.b.InterfaceC0650b
             public void c(DialogInterface dialogInterface) {
                 a.this.b("");
             }

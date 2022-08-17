@@ -125,7 +125,7 @@ public class jo8 {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new ur4(this.a).setTitle(R.string.obfuscated_res_0x7f0f0439).setCancelable(false).setMessageId(R.string.obfuscated_res_0x7f0f02ce).setPositiveButton(R.string.obfuscated_res_0x7f0f0cc4, new b(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f0c48, new a(this)).create(h9.a(this.a)).show();
+            new ur4(this.a).setTitle(R.string.obfuscated_res_0x7f0f0439).setCancelable(false).setMessageId(R.string.obfuscated_res_0x7f0f02ce).setPositiveButton(R.string.obfuscated_res_0x7f0f0cc5, new b(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f0c49, new a(this)).create(h9.a(this.a)).show();
         }
     }
 

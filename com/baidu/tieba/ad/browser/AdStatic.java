@@ -41,7 +41,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.am5;
 import com.repackage.cf;
 import com.repackage.fm5;
-import com.repackage.nb8;
+import com.repackage.mb8;
 import com.repackage.rf5;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -88,7 +88,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements nb8.c {
+    public static class b implements mb8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -106,8 +106,8 @@ public class AdStatic {
             }
         }
 
-        @Override // com.repackage.nb8.c
-        public int a(Context context, String str, String str2, boolean z, nb8.d dVar, boolean z2, Bundle bundle) {
+        @Override // com.repackage.mb8.c
+        public int a(Context context, String str, String str2, boolean z, mb8.d dVar, boolean z2, Bundle bundle) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
@@ -123,7 +123,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class c implements nb8.a {
+    public static class c implements mb8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -141,7 +141,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.repackage.nb8.a
+        @Override // com.repackage.mb8.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Bundle i;
@@ -203,7 +203,7 @@ public class AdStatic {
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TOPIC)) {
                         AdStatic.p(context, str3, str.substring(6), null);
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_ZB)) {
-                        AdStatic.p(context, str.substring(3), context.getString(R.string.obfuscated_res_0x7f0f0e75), null);
+                        AdStatic.p(context, str.substring(3), context.getString(R.string.obfuscated_res_0x7f0f0e76), null);
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_LIST)) {
                         String substring2 = str.substring(5);
                         if (!TextUtils.isEmpty(substring2)) {
@@ -218,7 +218,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class d implements nb8.a {
+    public static class d implements mb8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -236,7 +236,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.repackage.nb8.a
+        @Override // com.repackage.mb8.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -308,7 +308,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class e implements nb8.a {
+    public static class e implements mb8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -326,7 +326,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.repackage.nb8.a
+        @Override // com.repackage.mb8.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;

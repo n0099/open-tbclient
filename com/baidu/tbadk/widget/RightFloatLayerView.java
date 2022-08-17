@@ -35,12 +35,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ac8;
-import com.repackage.md8;
+import com.repackage.ld8;
 import com.repackage.pi;
 import com.repackage.qx4;
 import com.repackage.ru4;
-import com.repackage.we7;
+import com.repackage.ve7;
+import com.repackage.zb8;
 /* loaded from: classes3.dex */
 public class RightFloatLayerView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -587,7 +587,7 @@ public class RightFloatLayerView extends RelativeLayout {
             String str = qx4Var.l;
             String str2 = qx4Var.o;
             String str3 = qx4Var.m;
-            int a2 = ac8.a(getContext(), str, str2, str3, null);
+            int a2 = zb8.a(getContext(), str, str2, str3, null);
             t(str3, 2);
             v(str3, a2);
             x(qx4Var);
@@ -765,7 +765,7 @@ public class RightFloatLayerView extends RelativeLayout {
     public void s(qx4 qx4Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, qx4Var) == null) {
-            we7.b(qx4Var);
+            ve7.b(qx4Var);
         }
     }
 
@@ -820,7 +820,7 @@ public class RightFloatLayerView extends RelativeLayout {
     public final void t(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048596, this, str, i2) == null) {
-            md8.d("TIEBA_LAYER", str, 0, i2, "layer", null, null, null, null, null);
+            ld8.d("TIEBA_LAYER", str, 0, i2, "layer", null, null, null, null, null);
         }
     }
 
@@ -841,7 +841,7 @@ public class RightFloatLayerView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048598, this, str, i2) == null) {
             boolean z = i2 == 1000;
-            md8.d("TIEBA_LAYER_DEEPLINK", str, 0, 706, z ? "APP" : "URL", null, z ? null : String.valueOf(i2), null, null, null);
+            ld8.d("TIEBA_LAYER_DEEPLINK", str, 0, 706, z ? "APP" : "URL", null, z ? null : String.valueOf(i2), null, null, null);
         }
     }
 
@@ -862,7 +862,7 @@ public class RightFloatLayerView extends RelativeLayout {
     public void x(qx4 qx4Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, qx4Var) == null) {
-            we7.d(qx4Var);
+            ve7.d(qx4Var);
         }
     }
 

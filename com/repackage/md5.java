@@ -42,7 +42,7 @@ public class md5<Q extends oc5, P extends mc5> extends hd5<Q, P> {
     public id5 k;
     public jd5<P> l;
     public BdListView.p m;
-    public p88 n;
+    public o88 n;
     public View.OnClickListener o;
     public final BdListView.p p;
     public final RecyclerView.OnScrollListener q;
@@ -365,23 +365,23 @@ public class md5<Q extends oc5, P extends mc5> extends hd5<Q, P> {
     }
 
     public void A() {
-        p88 p88Var;
+        o88 o88Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (p88Var = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (o88Var = this.n) == null) {
             return;
         }
-        p88Var.r(true);
+        o88Var.r(true);
         B(false);
     }
 
     public final void B(boolean z) {
         BdTypeRecyclerView bdTypeRecyclerView;
-        p88 p88Var;
+        o88 o88Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (bdTypeRecyclerView = this.h) == null || (p88Var = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (bdTypeRecyclerView = this.h) == null || (o88Var = this.n) == null) {
             return;
         }
-        p88Var.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.h.getLastVisiblePosition(), z, true);
+        o88Var.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.h.getLastVisiblePosition(), z, true);
     }
 
     public final void C(lc5 lc5Var) {
@@ -484,12 +484,12 @@ public class md5<Q extends oc5, P extends mc5> extends hd5<Q, P> {
 
     @Override // com.repackage.hd5
     public void e() {
-        p88 p88Var;
+        o88 o88Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (p88Var = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (o88Var = this.n) == null) {
             return;
         }
-        p88Var.h();
+        o88Var.h();
     }
 
     @Override // com.repackage.hd5
@@ -534,9 +534,9 @@ public class md5<Q extends oc5, P extends mc5> extends hd5<Q, P> {
     public void i(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, bdUniqueId) == null) {
-            p88 p88Var = this.n;
-            if (p88Var != null) {
-                p88Var.u(bdUniqueId);
+            o88 o88Var = this.n;
+            if (o88Var != null) {
+                o88Var.u(bdUniqueId);
             }
             uc5 uc5Var = this.d;
             if (uc5Var != null) {
@@ -634,9 +634,9 @@ public class md5<Q extends oc5, P extends mc5> extends hd5<Q, P> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
             if (i == 1 || i == 0 || i == 2) {
-                p88 p88Var = new p88(this.f, this.h);
-                this.n = p88Var;
-                p88Var.p(i);
+                o88 o88Var = new o88(this.f, this.h);
+                this.n = o88Var;
+                o88Var.p(i);
                 this.n.u(this.e);
             }
         }
@@ -727,12 +727,12 @@ public class md5<Q extends oc5, P extends mc5> extends hd5<Q, P> {
     }
 
     public final void y() {
-        p88 p88Var;
+        o88 o88Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048608, this) == null) || (p88Var = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048608, this) == null) || (o88Var = this.n) == null) {
             return;
         }
-        p88Var.y();
+        o88Var.y();
         this.n.r(false);
     }
 

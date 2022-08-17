@@ -120,7 +120,7 @@ public class x86 extends d95<v66, r66> implements m66 {
                     if (currentActivity != null) {
                         BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
                         bdTopToast.h(false);
-                        bdTopToast.g(currentActivity.getString(R.string.obfuscated_res_0x7f0f09e1));
+                        bdTopToast.g(currentActivity.getString(R.string.obfuscated_res_0x7f0f09e2));
                         bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
                     }
                 }
@@ -198,11 +198,11 @@ public class x86 extends d95<v66, r66> implements m66 {
 
         /* renamed from: com.repackage.x86$c$c  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0616c implements ur4.e {
+        public class C0618c implements ur4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0616c(c cVar) {
+            public C0618c(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -269,11 +269,11 @@ public class x86 extends d95<v66, r66> implements m66 {
                             }
                             blockPopInfoData.block_info = z;
                             blockPopInfoData.ahead_info = this.a.b().getString(R.string.obfuscated_res_0x7f0f0473);
-                            blockPopInfoData.ok_info = this.a.b().getString(R.string.obfuscated_res_0x7f0f09a0);
+                            blockPopInfoData.ok_info = this.a.b().getString(R.string.obfuscated_res_0x7f0f09a1);
                             blockPopInfoData.ahead_url = "https://tieba.baidu.com/mo/q/userappeal";
                             AntiHelper.s(this.a.b().getPageActivity(), blockPopInfoData);
                         } else if (A == 2121002) {
-                            g05.b(this.a.b(), null, this.a.b().getString(R.string.obfuscated_res_0x7f0f0475), this.a.b().getString(R.string.obfuscated_res_0x7f0f1423), this.a.b().getString(R.string.obfuscated_res_0x7f0f13bb), new a(this), new b(this)).show();
+                            g05.b(this.a.b(), null, this.a.b().getString(R.string.obfuscated_res_0x7f0f0475), this.a.b().getString(R.string.obfuscated_res_0x7f0f1425), this.a.b().getString(R.string.obfuscated_res_0x7f0f13bd), new a(this), new b(this)).show();
                         }
                         z2 = true;
                     }
@@ -288,7 +288,7 @@ public class x86 extends d95<v66, r66> implements m66 {
                             string = b2.z();
                         }
                     }
-                    g05.b(this.a.b(), null, string, this.a.b().getResources().getString(R.string.obfuscated_res_0x7f0f09a0), null, new C0616c(this), null).show();
+                    g05.b(this.a.b(), null, string, this.a.b().getResources().getString(R.string.obfuscated_res_0x7f0f09a1), null, new C0618c(this), null).show();
                 }
             }
         }
@@ -388,7 +388,7 @@ public class x86 extends d95<v66, r66> implements m66 {
         }
     }
 
-    @Override // com.repackage.zj8
+    @Override // com.repackage.yj8
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

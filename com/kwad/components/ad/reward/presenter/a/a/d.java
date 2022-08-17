@@ -177,7 +177,7 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             if (view2 == this.sO || view2 == this.sN) {
-                com.kwad.components.core.c.a.a.a(new a.C0352a(view2.getContext()).L(this.nM.mAdTemplate).b(this.nM.mApkDownloadHelper).aj(false).ae(2).a(new a.b(this) { // from class: com.kwad.components.ad.reward.presenter.a.a.d.2
+                com.kwad.components.core.c.a.a.a(new a.C0354a(view2.getContext()).L(this.nM.mAdTemplate).b(this.nM.mApkDownloadHelper).aj(false).ae(2).a(new a.b(this) { // from class: com.kwad.components.ad.reward.presenter.a.a.d.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ d sS;

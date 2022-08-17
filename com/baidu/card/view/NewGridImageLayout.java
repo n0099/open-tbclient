@@ -597,7 +597,7 @@ public class NewGridImageLayout extends LinearLayout implements hx<fo4>, View.On
                     TiePlusEventController.o(originalThreadInfo.g());
                 }
             } else {
-                ThreadCardUtils.setAbstract(this.c, this.b, new SpannableString(this.g.getString(R.string.obfuscated_res_0x7f0f0d0d)), threadData, this.a, this.m, this.r);
+                ThreadCardUtils.setAbstract(this.c, this.b, new SpannableString(this.g.getString(R.string.obfuscated_res_0x7f0f0d0e)), threadData, this.a, this.m, this.r);
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
             }
             if (p(originalThreadInfo.G)) {

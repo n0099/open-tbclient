@@ -94,7 +94,7 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
                 attributes.height = -2;
                 window.setAttributes(attributes);
                 if (this.d) {
-                    inflate.findViewById(R.id.obfuscated_res_0x7f091762).setBackgroundResource(R.drawable.obfuscated_res_0x7f080e5c);
+                    inflate.findViewById(R.id.obfuscated_res_0x7f091762).setBackgroundResource(R.drawable.obfuscated_res_0x7f080e5d);
                     textView.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608a6));
                     textView2.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f06089f));
                     findViewById.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608a5));

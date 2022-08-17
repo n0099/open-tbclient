@@ -1,7 +1,8 @@
 package com.repackage;
 
+import android.os.Bundle;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,14 +11,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.CreationData;
 /* loaded from: classes7.dex */
-public class v38 extends BaseCardInfo implements on {
+public class v38 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static BdUniqueId l;
     public transient /* synthetic */ FieldHolder $fh;
-    public CreationData a;
-    public CreationData b;
+    public int a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public String e;
+    public boolean f;
+    public String g;
+    public UserData h;
+    public x38 i;
+    public Bundle j;
+    public int k;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +41,7 @@ public class v38 extends BaseCardInfo implements on {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        l = BdUniqueId.gen();
     }
 
     public v38() {
@@ -49,36 +58,10 @@ public class v38 extends BaseCardInfo implements on {
         }
     }
 
-    public CreationData c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (CreationData) invokeV.objValue;
-    }
-
-    public CreationData f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (CreationData) invokeV.objValue;
-    }
-
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
-    }
-
-    public void h(CreationData creationData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, creationData) == null) {
-            this.a = creationData;
-        }
-    }
-
-    public void j(CreationData creationData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, creationData) == null) {
-            this.b = creationData;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? l : (BdUniqueId) invokeV.objValue;
     }
 }

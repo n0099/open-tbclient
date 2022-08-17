@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.dq8;
-import com.repackage.kk8;
+import com.repackage.jk8;
 /* loaded from: classes4.dex */
 public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -114,8 +114,8 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
         this.c = false;
         this.d = false;
         this.f = new a(this, CmdConfigHttp.CMD_SET_PERSONAL_CARD, 309345);
-        kk8.h(309345, SetPersonalCardSocketResponse.class, false, false);
-        kk8.c(309345, CmdConfigHttp.CMD_SET_PERSONAL_CARD, TbConfig.SET_PERSONAL_CARD, SetPersonalCardHttpResponse.class, false, false, false, false);
+        jk8.h(309345, SetPersonalCardSocketResponse.class, false, false);
+        jk8.c(309345, CmdConfigHttp.CMD_SET_PERSONAL_CARD, TbConfig.SET_PERSONAL_CARD, SetPersonalCardHttpResponse.class, false, false, false, false);
         registerListener(this.f);
     }
 

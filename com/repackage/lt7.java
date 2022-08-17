@@ -11,10 +11,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class lt7 implements on {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +27,7 @@ public class lt7 implements on {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        a = BdUniqueId.gen();
     }
 
     public lt7() {
@@ -50,6 +48,6 @@ public class lt7 implements on {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
     }
 }

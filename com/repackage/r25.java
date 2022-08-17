@@ -30,8 +30,8 @@ public class r25 extends s25 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f0809a5;
-        this.e = R.drawable.obfuscated_res_0x7f080805;
+        this.d = R.drawable.obfuscated_res_0x7f0809a6;
+        this.e = R.drawable.obfuscated_res_0x7f080806;
         this.i = true;
         this.p = new int[]{32};
     }

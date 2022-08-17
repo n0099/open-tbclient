@@ -49,7 +49,7 @@ public class aj {
                     if (i != 1) {
                         if (i != 6) {
                             if (aj.d != null) {
-                                aj.d.error(message.what, hj.a(R.string.obfuscated_res_0x7f0f1565));
+                                aj.d.error(message.what, hj.a(R.string.obfuscated_res_0x7f0f1568));
                             }
                         } else {
                             if (aj.d != null) {
@@ -58,7 +58,7 @@ public class aj {
                             return true;
                         }
                     } else if (aj.d != null) {
-                        aj.d.error(message.what, hj.a(R.string.obfuscated_res_0x7f0f1563));
+                        aj.d.error(message.what, hj.a(R.string.obfuscated_res_0x7f0f1566));
                     }
                 } else if (aj.d != null) {
                     aj.d.c(aj.c, message.arg1);

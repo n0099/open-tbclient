@@ -1,23 +1,23 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pu9;
-import com.repackage.tu9;
+import rx.internal.producers.SingleProducer;
 /* loaded from: classes6.dex */
-public final class hw9<T> implements pu9.a<T> {
+public final class hw9<T> extends wu9<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tu9.c<T> a;
+    public final xu9<? super T> b;
 
-    public hw9(tu9.c<T> cVar) {
+    public hw9(xu9<? super T> xu9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar};
+            Object[] objArr = {xu9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,20 +27,22 @@ public final class hw9<T> implements pu9.a<T> {
                 return;
             }
         }
-        this.a = cVar;
+        this.b = xu9Var;
     }
 
-    @Override // com.repackage.pu9.a, com.repackage.dv9
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((vu9) ((vu9) obj));
-    }
-
-    public void call(vu9<? super T> vu9Var) {
+    @Override // com.repackage.wu9
+    public void b(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, vu9Var) == null) {
-            fw9 fw9Var = new fw9(vu9Var);
-            vu9Var.b(fw9Var);
-            this.a.call(fw9Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+            this.b.onError(th);
+        }
+    }
+
+    @Override // com.repackage.wu9
+    public void c(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            this.b.f(new SingleProducer(this.b, t));
         }
     }
 }

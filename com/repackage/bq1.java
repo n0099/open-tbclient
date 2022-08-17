@@ -181,7 +181,7 @@ public class bq1 extends sp1 {
             this.e.h.n2(this.e.g);
             bq1 bq1Var = this.e;
             SwanAppWebPopWindow swanAppWebPopWindow = new SwanAppWebPopWindow(activity, this.c);
-            swanAppWebPopWindow.r0(R.string.obfuscated_res_0x7f0f122c);
+            swanAppWebPopWindow.r0(R.string.obfuscated_res_0x7f0f122e);
             bq1Var.f = swanAppWebPopWindow;
             if (TextUtils.equals(this.d, "protect")) {
                 SwanAppWebPopWindow swanAppWebPopWindow2 = this.e.f;

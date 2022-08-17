@@ -127,14 +127,14 @@ public class l05 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ti8 ti8Var = new ti8();
+                si8 si8Var = new si8();
                 PostWriteCallBackData postWriteCallBackData = this.a;
                 if (postWriteCallBackData != null) {
                     IconStampData iconStampData = postWriteCallBackData.getIconStampData();
-                    ti8Var.f(iconStampData.stampType);
-                    ti8Var.h(iconStampData.stampTitle);
+                    si8Var.f(iconStampData.stampType);
+                    si8Var.h(iconStampData.stampTitle);
                 }
-                new si8(this.b.getPageActivity(), ti8Var).a();
+                new ri8(this.b.getPageActivity(), si8Var).a();
                 l05.f();
             }
         }

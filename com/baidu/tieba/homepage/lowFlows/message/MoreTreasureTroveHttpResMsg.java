@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.my6;
+import com.repackage.ly6;
 import com.repackage.on;
-import com.repackage.ry6;
+import com.repackage.qy6;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
 /* loaded from: classes3.dex */
-public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements my6 {
+public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements ly6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<on> mMoreTreasureTroveDataList;
@@ -39,7 +39,7 @@ public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements
         }
     }
 
-    @Override // com.repackage.my6
+    @Override // com.repackage.ly6
     public List<on> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -59,6 +59,6 @@ public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements
             setError(error.errorno.intValue());
             setErrorString(moreTreasureTroveResIdl.error.usermsg);
         }
-        this.mMoreTreasureTroveDataList = ry6.b(moreTreasureTroveResIdl);
+        this.mMoreTreasureTroveDataList = qy6.b(moreTreasureTroveResIdl);
     }
 }

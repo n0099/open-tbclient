@@ -43,7 +43,7 @@ public class CommonLikeButton extends AppCompatTextView implements tv4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbd);
         this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ab);
         this.c = false;
         this.e = false;
@@ -150,7 +150,7 @@ public class CommonLikeButton extends AppCompatTextView implements tv4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbd);
         this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ab);
         this.c = false;
         this.e = false;
@@ -176,7 +176,7 @@ public class CommonLikeButton extends AppCompatTextView implements tv4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbd);
         this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ab);
         this.c = false;
         this.e = false;

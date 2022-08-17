@@ -595,8 +595,8 @@ public class eo6 {
         ArrayList arrayList = new ArrayList();
         for (on onVar : list) {
             if (str.equals("ala_frs_stage_live_feed_back_type")) {
-                if (onVar instanceof lj8) {
-                    arrayList.add((lj8) onVar);
+                if (onVar instanceof kj8) {
+                    arrayList.add((kj8) onVar);
                 }
             } else if (str.equals("ala_frs_demo_hell_live_feed_back_type") && (onVar instanceof ir4)) {
                 ThreadData threadData = ((ir4) onVar).t;
@@ -645,7 +645,7 @@ public class eo6 {
             if (str.equals("ala_frs_stage_live_feed_back_type")) {
                 i = 0;
                 while (i2 < bdTypeRecyclerView.getAdapter().getItemCount()) {
-                    if (bdTypeRecyclerView.B(i2) instanceof lj8) {
+                    if (bdTypeRecyclerView.B(i2) instanceof kj8) {
                         i = i2;
                     }
                     i2++;

@@ -35,23 +35,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.av4;
 import com.repackage.bv4;
 import com.repackage.h65;
+import com.repackage.n98;
 import com.repackage.o98;
 import com.repackage.oi;
 import com.repackage.on;
-import com.repackage.p98;
+import com.repackage.q98;
 import com.repackage.qi;
 import com.repackage.r98;
-import com.repackage.s98;
 import java.util.List;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes4.dex */
-public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener, o98 {
+public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener, n98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public BdListView b;
     public NavigationBarShadowView c;
-    public s98 d;
+    public r98 d;
     public boolean e;
     public NoDataView f;
     public h65 g;
@@ -62,7 +62,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     public int l;
     public int m;
     public boolean n;
-    public p98 o;
+    public o98 o;
     public View.OnClickListener p;
     public PersonPostModel.c q;
 
@@ -184,13 +184,13 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
                     this.a.E1(false);
                 }
                 if (personPostModel.getErrorCode() != 0) {
-                    qi.O(this.a.getActivity(), personPostModel.getErrorString());
+                    qi.N(this.a.getActivity(), personPostModel.getErrorString());
                 }
                 int G1 = PersonReplyFragment.G1(personPostModel.postList);
                 if (G1 <= 0) {
                     if (oi.z()) {
                         this.a.k = false;
-                        this.a.i.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09ea));
+                        this.a.i.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09eb));
                         this.a.j.setVisibility(0);
                     } else {
                         this.a.j.setVisibility(8);
@@ -322,27 +322,27 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             }
             hideLoadingView(this.a);
             E1(false);
-            r98.b(this.g, this.p, getActivity(), this.a, getString(R.string.obfuscated_res_0x7f0f0c3c), true);
+            q98.b(this.g, this.p, getActivity(), this.a, getString(R.string.obfuscated_res_0x7f0f0c3d), true);
             this.b.setVisibility(8);
         }
     }
 
-    @Override // com.repackage.o98
+    @Override // com.repackage.n98
     public void G0() {
-        s98 s98Var;
+        r98 r98Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (s98Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (r98Var = this.d) == null) {
             return;
         }
-        s98Var.f(true);
+        r98Var.f(true);
     }
 
     public final void H1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            s98 s98Var = new s98(getPageContext(), getArguments().getString("key_uid"), getArguments().getString(PersonPostActivityConfig.KEY_PORTRAIT_URL), getUniqueId());
-            this.d = s98Var;
-            s98Var.i(this.q);
+            r98 r98Var = new r98(getPageContext(), getArguments().getString("key_uid"), getArguments().getString(PersonPostActivityConfig.KEY_PORTRAIT_URL), getUniqueId());
+            this.d = r98Var;
+            r98Var.i(this.q);
             this.b.setAdapter((ListAdapter) this.d);
             this.b.setOnItemClickListener(new d(this));
         }
@@ -359,10 +359,10 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         F1();
     }
 
-    public void J1(p98 p98Var) {
+    public void J1(o98 o98Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, p98Var) == null) {
-            this.o = p98Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, o98Var) == null) {
+            this.o = o98Var;
         }
     }
 
@@ -386,9 +386,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
                 }
                 this.h.H(i);
                 SkinManager.setBackgroundColor(this.a, this.m, i);
-                s98 s98Var = this.d;
-                if (s98Var != null) {
-                    s98Var.notifyDataSetChanged();
+                r98 r98Var = this.d;
+                if (r98Var != null) {
+                    r98Var.notifyDataSetChanged();
                 }
             }
         }
@@ -422,9 +422,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            s98 s98Var = this.d;
-            if (s98Var != null) {
-                s98Var.e();
+            r98 r98Var = this.d;
+            if (r98Var != null) {
+                r98Var.e();
                 this.d.i(null);
             }
         }

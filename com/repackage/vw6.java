@@ -1,55 +1,65 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.LongSparseArray;
+import android.util.SparseArray;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.RecomVertical.SubClassItem;
+import java.util.List;
+import tbclient.RecomVertical.DataRes;
+import tbclient.RecomVertical.DislikeReason;
+import tbclient.RecomVertical.ThreadPersonalized;
 /* loaded from: classes7.dex */
-public class vw6 extends vo4 {
+public class vw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public int d;
 
-    public vw6() {
+    public static void a(DataRes dataRes, List<on> list) {
+        f06 f06Var;
+        ThreadData threadData;
+        ThreadPersonalized threadPersonalized;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, dataRes, list) == null) || dataRes == null || list == null) {
+            return;
+        }
+        LongSparseArray longSparseArray = new LongSparseArray();
+        for (ThreadPersonalized threadPersonalized2 : dataRes.thread_personalized) {
+            if (threadPersonalized2 != null) {
+                longSparseArray.put(threadPersonalized2.tid.longValue(), threadPersonalized2);
+            }
+        }
+        int count = ListUtils.getCount(list);
+        for (int i = 0; i < count; i++) {
+            on onVar = (on) ListUtils.getItem(list, i);
+            if ((onVar instanceof f06) && (threadData = (f06Var = (f06) onVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(og.g(threadData.getTid(), 0L))) != null) {
+                f06Var.J(threadPersonalized.source);
+                f06Var.M(threadPersonalized.weight);
+                f06Var.F(threadPersonalized.abtest_tag);
+                threadData.mRecomAbTag = threadPersonalized.abtest_tag;
+                threadData.mRecomSource = threadPersonalized.source;
+                threadData.mRecomWeight = threadPersonalized.weight;
+                if (threadData.getThreadVideoInfo() != null) {
+                    f06Var.H(threadData.getThreadVideoInfo().is_vertical);
+                }
+                List<DislikeReason> list2 = threadPersonalized.dislike_resource;
+                if (list2 != null) {
+                    SparseArray<String> sparseArray = new SparseArray<>();
+                    for (DislikeReason dislikeReason : list2) {
+                        int intValue = dislikeReason.dislike_id.intValue();
+                        sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
+                    }
+                    f06Var.feedBackReasonMap = sparseArray;
+                    f06Var.G(threadPersonalized.extra);
+                }
             }
         }
     }
 
-    public void a(SubClassItem subClassItem) {
+    public static void b(DataRes dataRes, List<on> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, subClassItem) == null) || subClassItem == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65537, null, dataRes, list) == null) {
+            a(dataRes, list);
         }
-        this.a = subClassItem.sub_class_id.intValue();
-        this.b = subClassItem.sub_class_name;
-        this.c = subClassItem.sub_class_icon;
-        this.d = subClassItem.enable.intValue();
-    }
-
-    @Override // com.repackage.vo4
-    public void parserJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optInt("sub_class_id");
-        this.b = jSONObject.optString("sub_class_name");
-        this.c = jSONObject.optString("sub_class_icon");
-        this.d = jSONObject.optInt("enable");
     }
 }

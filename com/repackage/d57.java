@@ -1,11 +1,7 @@
 package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
-import com.baidu.tieba.hottopic.data.RelateForumItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,15 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Hottopic.RelateForum;
+import tbclient.TopicList.MediaTopic;
+import tbclient.VideoInfo;
 /* loaded from: classes6.dex */
-public class d57 extends e06 {
+public class d57 implements on {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<on> a;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +30,7 @@ public class d57 extends e06 {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        a = BdUniqueId.gen();
     }
 
     public d57() {
@@ -49,46 +43,45 @@ public class d57 extends e06 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = null;
     }
 
-    public int getCount() {
-        InterceptResult invokeV;
+    public void a(MediaTopic mediaTopic) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<on> list = this.a;
-            if (list == null || list.size() == 0) {
-                return 0;
-            }
-            return this.a.size();
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaTopic) == null) || mediaTopic == null) {
+            return;
         }
-        return invokeV.intValue;
+        mediaTopic.topic_id.longValue();
+        String str = mediaTopic.topic_name;
+        String str2 = mediaTopic.pic_url;
+        VideoInfo videoInfo = mediaTopic.video_info;
+        if (videoInfo == null || videoInfo.video_duration.intValue() <= 0) {
+            return;
+        }
+        b(mediaTopic.video_info);
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
+    public void b(VideoInfo videoInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoInfo) == null) {
+            String str = videoInfo.video_md5;
+            String str2 = videoInfo.video_url;
+            videoInfo.video_duration.intValue();
+            videoInfo.video_width.intValue();
+            videoInfo.video_height.intValue();
+            String str3 = videoInfo.thumbnail_url;
+            videoInfo.thumbnail_width.intValue();
+            videoInfo.thumbnail_height.intValue();
+            videoInfo.video_length.intValue();
+            videoInfo.play_count.intValue();
+        }
+    }
+
+    @Override // com.repackage.on
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
-    }
-
-    public void parserProtobuf(List<RelateForum> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null || list.size() == 0) {
-            return;
-        }
-        this.showTopDivider = true;
-        this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fae);
-        this.a = new ArrayList();
-        for (RelateForum relateForum : list) {
-            if (!StringUtils.isNull(relateForum.forum_name)) {
-                RelateForumItemData relateForumItemData = new RelateForumItemData();
-                relateForumItemData.parserProtobuf(relateForum);
-                this.a.add(relateForumItemData);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
     }
 }

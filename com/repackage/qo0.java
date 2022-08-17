@@ -37,13 +37,13 @@ public class qo0 extends tn0 {
 
         /* renamed from: com.repackage.qo0$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0564a implements Runnable {
+        public class RunnableC0566a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ IOException a;
             public final /* synthetic */ a b;
 
-            public RunnableC0564a(a aVar, IOException iOException) {
+            public RunnableC0566a(a aVar, IOException iOException) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,7 +129,7 @@ public class qo0 extends tn0 {
         public void onFailure(@NonNull Call call, @NonNull IOException iOException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                qh0.b(new RunnableC0564a(this, iOException));
+                qh0.b(new RunnableC0566a(this, iOException));
             }
         }
 
@@ -213,14 +213,14 @@ public class qo0 extends tn0 {
 
         /* renamed from: com.repackage.qo0$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0565b implements Runnable {
+        public class RunnableC0567b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Exception a;
             public final /* synthetic */ int b;
             public final /* synthetic */ b c;
 
-            public RunnableC0565b(b bVar, Exception exc, int i) {
+            public RunnableC0567b(b bVar, Exception exc, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -276,7 +276,7 @@ public class qo0 extends tn0 {
                 return;
             }
             if (this.b.j) {
-                qh0.b(new RunnableC0565b(this, exc, i));
+                qh0.b(new RunnableC0567b(this, exc, i));
             } else {
                 ko0Var.a(exc, i);
             }

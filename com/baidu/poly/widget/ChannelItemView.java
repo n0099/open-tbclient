@@ -277,7 +277,7 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
                 this.d.setImageResource(R.drawable.obfuscated_res_0x7f080448);
                 this.m = true;
             } else {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f081227);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f081228);
                 this.m = false;
             }
             if (1 == enable) {

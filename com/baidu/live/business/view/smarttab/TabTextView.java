@@ -263,7 +263,7 @@ public class TabTextView extends AppCompatTextView {
         }
         this.i = true;
         this.j = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04045e, R.attr.obfuscated_res_0x7f040464, R.attr.obfuscated_res_0x7f040471, R.attr.obfuscated_res_0x7f040474, R.attr.obfuscated_res_0x7f040476, R.attr.obfuscated_res_0x7f040477, R.attr.obfuscated_res_0x7f040478, R.attr.obfuscated_res_0x7f040479, R.attr.obfuscated_res_0x7f040480});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04045f, R.attr.obfuscated_res_0x7f040465, R.attr.obfuscated_res_0x7f040472, R.attr.obfuscated_res_0x7f040475, R.attr.obfuscated_res_0x7f040477, R.attr.obfuscated_res_0x7f040478, R.attr.obfuscated_res_0x7f040479, R.attr.obfuscated_res_0x7f04047a, R.attr.obfuscated_res_0x7f040481});
         this.a = obtainStyledAttributes.getColor(7, 0);
         this.b = obtainStyledAttributes.getColor(1, 0);
         this.d = obtainStyledAttributes.getColor(4, 0);

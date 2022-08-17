@@ -27,8 +27,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hs7;
-import com.repackage.kk8;
+import com.repackage.gs7;
+import com.repackage.jk8;
 import com.repackage.og;
 import com.repackage.rf5;
 /* loaded from: classes3.dex */
@@ -163,10 +163,10 @@ public class BarVoteActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof hs7)) {
-                    hs7 hs7Var = (hs7) customMessage.getData();
-                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(hs7Var.a(), hs7Var.b(), hs7Var.d(), hs7Var.c());
-                    commitVoteReqMsg.setTag(hs7Var.e());
+                if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof gs7)) {
+                    gs7 gs7Var = (gs7) customMessage.getData();
+                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(gs7Var.a(), gs7Var.b(), gs7Var.d(), gs7Var.c());
+                    commitVoteReqMsg.setTag(gs7Var.e());
                     MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                 }
                 return null;
@@ -357,8 +357,8 @@ public class BarVoteActivityStatic {
     public static void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            kk8.h(309642, VoteElectionSocketResMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, kk8.a("c/f/bawu/electionInfo", 309642));
+            jk8.h(309642, VoteElectionSocketResMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, jk8.a("c/f/bawu/electionInfo", 309642));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setIsNeedLogin(true);
             tbHttpMessageTask.setResponsedClass(VoteElectionHttpResMessage.class);

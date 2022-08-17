@@ -1,24 +1,24 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.uu9;
 /* loaded from: classes7.dex */
-public final class tw9<T> implements qu9<T> {
+public class tw9 implements ev9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final dv9<? super T> a;
-    public final dv9<? super Throwable> b;
-    public final cv9 c;
+    public final ev9 a;
+    public final uu9.a b;
+    public final long c;
 
-    public tw9(dv9<? super T> dv9Var, dv9<? super Throwable> dv9Var2, cv9 cv9Var) {
+    public tw9(ev9 ev9Var, uu9.a aVar, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dv9Var, dv9Var2, cv9Var};
+            Object[] objArr = {ev9Var, aVar, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,32 +28,30 @@ public final class tw9<T> implements qu9<T> {
                 return;
             }
         }
-        this.a = dv9Var;
-        this.b = dv9Var2;
-        this.c = cv9Var;
+        this.a = ev9Var;
+        this.b = aVar;
+        this.c = j;
     }
 
-    @Override // com.repackage.qu9
-    public void onCompleted() {
+    @Override // com.repackage.ev9
+    public void call() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.call();
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.isUnsubscribed()) {
+            return;
         }
-    }
-
-    @Override // com.repackage.qu9
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.b.call(th);
+        long a = this.c - this.b.a();
+        if (a > 0) {
+            try {
+                Thread.sleep(a);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                dv9.c(e);
+                throw null;
+            }
         }
-    }
-
-    @Override // com.repackage.qu9
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.a.call(t);
+        if (this.b.isUnsubscribed()) {
+            return;
         }
+        this.a.call();
     }
 }

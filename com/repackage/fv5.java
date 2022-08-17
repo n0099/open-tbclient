@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class fv5 extends ue6<kj8, FrsPageAlaInsertRecLiveHolder> implements zz5 {
+public class fv5 extends ue6<jj8, FrsPageAlaInsertRecLiveHolder> implements zz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String l;
@@ -63,20 +63,20 @@ public class fv5 extends ue6<kj8, FrsPageAlaInsertRecLiveHolder> implements zz5 
         return (FrsPageAlaInsertRecLiveHolder) invokeL.objValue;
     }
 
-    public View F(int i, View view2, ViewGroup viewGroup, kj8 kj8Var, FrsPageAlaInsertRecLiveHolder frsPageAlaInsertRecLiveHolder) {
+    public View F(int i, View view2, ViewGroup viewGroup, jj8 jj8Var, FrsPageAlaInsertRecLiveHolder frsPageAlaInsertRecLiveHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, kj8Var, frsPageAlaInsertRecLiveHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, kj8Var, frsPageAlaInsertRecLiveHolder);
-            if (kj8Var != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jj8Var, frsPageAlaInsertRecLiveHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, jj8Var, frsPageAlaInsertRecLiveHolder);
+            if (jj8Var != null) {
                 FrsViewData frsViewData = this.b;
                 int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
-                List<ThreadData> list = kj8Var.a;
+                List<ThreadData> list = jj8Var.a;
                 if (list != null && list.get(0) != null) {
-                    kj8Var.a.get(0).statFloor = (i + 1) - topThreadSize;
+                    jj8Var.a.get(0).statFloor = (i + 1) - topThreadSize;
                 }
                 frsPageAlaInsertRecLiveHolder.a.a(this.l);
-                frsPageAlaInsertRecLiveHolder.a.i(kj8Var);
+                frsPageAlaInsertRecLiveHolder.a.i(jj8Var);
             }
             return view2;
         }
@@ -93,7 +93,7 @@ public class fv5 extends ue6<kj8, FrsPageAlaInsertRecLiveHolder> implements zz5 
 
     @Override // com.repackage.ue6, com.repackage.bn
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        F(i, view2, viewGroup, (kj8) obj, (FrsPageAlaInsertRecLiveHolder) viewHolder);
+        F(i, view2, viewGroup, (jj8) obj, (FrsPageAlaInsertRecLiveHolder) viewHolder);
         return view2;
     }
 

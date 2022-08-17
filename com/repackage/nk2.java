@@ -47,13 +47,13 @@ public class nk2 implements g84 {
 
         /* renamed from: com.repackage.nk2$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0534a extends t32 {
+        public class C0538a extends t32 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AtomicInteger a;
             public final /* synthetic */ a b;
 
-            public C0534a(a aVar, AtomicInteger atomicInteger) {
+            public C0538a(a aVar, AtomicInteger atomicInteger) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,7 +135,7 @@ public class nk2 implements g84 {
                 if (arrayList.isEmpty()) {
                     return;
                 }
-                pz1.b(arrayList, "3", new C0534a(this, atomicInteger));
+                pz1.b(arrayList, "3", new C0538a(this, atomicInteger));
             }
         }
     }

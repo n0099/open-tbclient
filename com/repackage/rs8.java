@@ -253,7 +253,7 @@ public class rs8 {
         this.a.setVisibility(0);
         this.a.postDelayed(new c(this), 5000L);
         if (this.f) {
-            this.d.setText(R.string.obfuscated_res_0x7f0f14fe);
+            this.d.setText(R.string.obfuscated_res_0x7f0f1501);
         } else if (!StringUtils.isNull(postWriteCallBackData.getErrorString())) {
             this.d.setText(postWriteCallBackData.getErrorString());
         } else {

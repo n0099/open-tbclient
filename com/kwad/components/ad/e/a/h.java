@@ -45,7 +45,7 @@ public final class h extends com.kwad.components.ad.e.kwai.a implements View.OnC
     private void et() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0352a(this.ke.getContext()).L(this.jL.mAdTemplate).ae(2).a(new a.b(this) { // from class: com.kwad.components.ad.e.a.h.2
+            com.kwad.components.core.c.a.a.a(new a.C0354a(this.ke.getContext()).L(this.jL.mAdTemplate).ae(2).a(new a.b(this) { // from class: com.kwad.components.ad.e.a.h.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ h kg;

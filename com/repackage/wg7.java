@@ -1,50 +1,80 @@
 package com.repackage;
 
-import android.content.Intent;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.mutiprocess.location.LocationEvent;
+import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.location.data.SearchLocationActivityConfig;
-import com.baidu.tieba.location.selectpoi.SelectLocationActivity;
-import com.baidu.tieba.tbadkCore.location.LocationData;
-import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
+import com.baidu.tieba.mainentrance.ForumSuggestModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class wg7 implements hb5, View.OnClickListener, AdapterView.OnItemClickListener {
+public class wg7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<SelectLocationActivity> a;
-    public NavigationBar b;
-    public ImageView c;
-    public LinearLayout d;
-    public BdListView e;
-    public vg7 f;
-    public Intent g;
+    public final BaseActivity<?> a;
+    public final boolean b;
+    public ArrayList<ForumSuggestModel.Forum> c;
+    public String d;
 
-    public wg7(TbPageContext tbPageContext, LinearLayout linearLayout, NavigationBar navigationBar) {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public View a;
+        public TextView b;
+        public BarImageView c;
+        public TextView d;
+        public TextView e;
+        public TextView f;
+
+        public b(wg7 wg7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wg7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(wg7 wg7Var, a aVar) {
+            this(wg7Var);
+        }
+    }
+
+    public wg7(BaseActivity<?> baseActivity, ArrayList<ForumSuggestModel.Forum> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, linearLayout, navigationBar};
+            Object[] objArr = {baseActivity, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -54,112 +84,153 @@ public class wg7 implements hb5, View.OnClickListener, AdapterView.OnItemClickLi
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.d = linearLayout;
-        this.b = navigationBar;
-        b();
-        a();
+        this.a = baseActivity;
+        this.b = true;
+        this.c = arrayList;
     }
 
-    @Override // com.repackage.hb5
-    public boolean I0() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public ForumSuggestModel.Forum getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int count = getCount();
+            if (count <= 0 || i >= count) {
+                return null;
+            }
+            return this.c.get(i);
         }
-        return invokeV.booleanValue;
+        return (ForumSuggestModel.Forum) invokeI.objValue;
     }
 
-    public final void a() {
+    public String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0791, (ViewGroup) this.d, true);
-            this.e = (BdListView) this.d.findViewById(R.id.obfuscated_res_0x7f091dfc);
-            vg7 vg7Var = new vg7(this.a);
-            this.f = vg7Var;
-            this.e.setAdapter((ListAdapter) vg7Var);
-            this.e.setOnItemClickListener(this);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i >= 100000) {
+                return String.valueOf(i / 10000) + this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0ab5);
+            }
+            return String.valueOf(i);
         }
+        return (String) invokeI.objValue;
     }
 
-    public final void b() {
+    public void c(TextView textView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f10f2));
-            ImageView imageView = (ImageView) this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0905, (View.OnClickListener) null);
-            this.c = imageView;
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
-            layoutParams.setMargins(0, 0, qi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070230), 0);
-            this.c.setLayoutParams(layoutParams);
-            this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a05, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            this.c.setOnClickListener(this);
-        }
-    }
-
-    @Override // com.repackage.hb5
-    public Intent getResultIntent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (Intent) invokeV.objValue;
-    }
-
-    @Override // com.repackage.hb5
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a05, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            this.f.notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2 == this.c) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002012, new SearchLocationActivityConfig(this.a.getPageActivity(), 23009)));
-        }
-    }
-
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || this.f == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, textView, str) == null) || textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.d)) {
             return;
         }
-        MessageManager messageManager = MessageManager.getInstance();
-        LocationEvent locationEvent = new LocationEvent();
-        locationEvent.setType(1);
-        locationEvent.eventType = 2;
-        if (i == 0) {
-            messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
-            locationEvent.isShowLocation = false;
-            this.a.getOrignalPage().publishEvent(locationEvent);
-            this.a.getOrignalPage().finish();
+        String lowerCase = str.toLowerCase();
+        String lowerCase2 = this.d.toLowerCase();
+        if (!lowerCase.contains(lowerCase2)) {
+            textView.setText(str);
             return;
         }
-        Object item = this.f.getItem(i);
-        if (item instanceof LocationData.NearByAddressData) {
-            LocationData.NearByAddressData nearByAddressData = (LocationData.NearByAddressData) item;
-            messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, nearByAddressData.getName(), nearByAddressData.getAddr(), nearByAddressData.getSn()));
-            locationEvent.locName = nearByAddressData.getName();
-            locationEvent.locAddr = nearByAddressData.getAddr();
-            locationEvent.locSn = nearByAddressData.getSn();
-            locationEvent.isShowLocation = true;
-            this.a.getOrignalPage().publishEvent(locationEvent);
-            this.a.getOrignalPage().finish();
+        int indexOf = lowerCase.indexOf(lowerCase2);
+        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.d.length() + indexOf, 33);
+        textView.setText(spannableStringBuilder);
+    }
+
+    public void d(ArrayList<ForumSuggestModel.Forum> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
+            this.c = arrayList;
+            if (arrayList != null) {
+                notifyDataSetChanged();
+            }
         }
     }
 
-    @Override // com.repackage.hb5
-    public boolean s() {
-        InterceptResult invokeV;
-        View childAt;
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            BdListView bdListView = this.e;
-            return bdListView != null && bdListView.getFirstVisiblePosition() == 0 && (childAt = this.e.getChildAt(0)) != null && childAt.getTop() == 0;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.d = str;
         }
-        return invokeV.booleanValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ArrayList<ForumSuggestModel.Forum> arrayList = this.c;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07cb, (ViewGroup) null);
+                bVar = new b(this, null);
+                BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a30);
+                bVar.c = barImageView;
+                barImageView.setGifIconSupport(false);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915f5);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a6f);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a9b);
+                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eb1);
+                bVar.a = view2.findViewById(R.id.obfuscated_res_0x7f0916e6);
+                view2.setTag(bVar);
+            } else {
+                bVar = (b) view2.getTag();
+            }
+            ForumSuggestModel.Forum item = getItem(i);
+            if (item == null) {
+                return view2;
+            }
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            String str2 = item.avatar;
+            bVar.c.setTag(str2);
+            bVar.c.K(str2, 10, false);
+            bVar.c.invalidate();
+            if (this.b) {
+                str = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f03d2, new Object[]{item.forum_name});
+            } else {
+                str = item.forum_name;
+            }
+            c(bVar.b, str);
+            bVar.c.setTag(item.avatar);
+            TextView textView = bVar.d;
+            textView.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02ab) + " " + b(item.member_num));
+            TextView textView2 = bVar.e;
+            textView2.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f13b4) + " " + b(item.thread_num));
+            if (!this.b && TextUtils.isEmpty(item.slogan)) {
+                bVar.f.setVisibility(8);
+            } else {
+                bVar.f.setVisibility(0);
+                bVar.f.setText(item.slogan);
+            }
+            if (item.is_offical == 1) {
+                bVar.a.setVisibility(0);
+                SkinManager.setBackgroundResource(bVar.a, R.drawable.icon_search_official);
+            } else {
+                bVar.a.setVisibility(8);
+            }
+            this.a.getLayoutMode().l(skinType == 1);
+            this.a.getLayoutMode().k(view2);
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

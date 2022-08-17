@@ -56,7 +56,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m88;
+import com.repackage.l88;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class ak6 extends bz5<ThreadData> implements zz5, Object {
@@ -67,7 +67,7 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
     public TbVideoViewContainer C;
     public TextView D;
     public View E;
-    public w88 F;
+    public v88 F;
     public ThreadData G;
     public View H;
     public TextView I;
@@ -76,9 +76,9 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
     public int L;
     public boolean M;
     public String N;
-    public m88 O;
+    public l88 O;
     public Animation P;
-    public ur6 Q;
+    public tr6 Q;
     public TbImageView R;
     public String S;
     public String T;
@@ -86,7 +86,7 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
     public View V;
     public int W;
     public Handler X;
-    public e98 Y;
+    public d98 Y;
     public VideoLoadingProgressView.c Z;
     public String a0;
     public TbImageView.g b0;
@@ -99,7 +99,7 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
     public ThreadCommentAndPraiseInfoLayout i;
     public final View.OnClickListener i0;
     public ThreadSourceShareAndPraiseLayout j;
-    public m88.b j0;
+    public l88.b j0;
     public ThreadUserInfoLayout k;
     public ThreadGodReplyLayout l;
     public HeadPendantClickableView m;
@@ -373,7 +373,7 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
     }
 
     /* loaded from: classes5.dex */
-    public class h implements m88.b {
+    public class h implements l88.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ak6 a;
@@ -396,7 +396,7 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
             this.a = ak6Var;
         }
 
-        @Override // com.repackage.m88.b
+        @Override // com.repackage.l88.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -495,7 +495,7 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
     }
 
     /* loaded from: classes5.dex */
-    public class k implements e98 {
+    public class k implements d98 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ak6 a;
@@ -518,14 +518,14 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
             this.a = ak6Var;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void changeRenderViewMode(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public int getCurrentPosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -535,7 +535,7 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
             return invokeV.intValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public View getMainView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -545,7 +545,7 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
             return (View) invokeV.objValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public boolean isFullScreen() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -555,7 +555,7 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public boolean isPlaying() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -565,7 +565,7 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public boolean onBackPress() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -575,7 +575,7 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public boolean onBackground(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -637,7 +637,7 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void onScroll() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -658,7 +658,7 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public boolean onVolumeUp() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -668,63 +668,63 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setAfterClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setData(ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setFrom(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setJumpToPbClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048595, this, onClickListener) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setStageType(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             }
         }
 
-        @Override // com.repackage.e98
-        public void setStatistic(z88 z88Var) {
+        @Override // com.repackage.d98
+        public void setStatistic(y88 y88Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048597, this, z88Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048597, this, y88Var) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void setUniqueId(BdUniqueId bdUniqueId) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048598, this, bdUniqueId) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void startPlay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             }
         }
 
-        @Override // com.repackage.e98
+        @Override // com.repackage.d98
         public void stopPlay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
@@ -1059,9 +1059,9 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
         this.o = textView;
         textView.setVisibility(8);
         this.o.setOnClickListener(this.g0);
-        w88 w88Var = new w88((ViewGroup) h2.findViewById(R.id.obfuscated_res_0x7f0902fa));
-        this.F = w88Var;
-        w88Var.f(this.Z);
+        v88 v88Var = new v88((ViewGroup) h2.findViewById(R.id.obfuscated_res_0x7f0902fa));
+        this.F = v88Var;
+        v88Var.f(this.Z);
         this.z = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f0920e0);
         ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) h2.findViewById(R.id.obfuscated_res_0x7f0920b8);
         this.i = threadCommentAndPraiseInfoLayout;
@@ -1113,9 +1113,9 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
         this.C.getControl().setContinuePlayEnable(true);
         this.C.getControl().setOperableVideoContainer(this.Y);
         this.C.getControl().setOnSurfaceDestroyedListener(this.f0);
-        m88 m88Var = new m88();
-        this.O = m88Var;
-        m88Var.l(this.C.getControl());
+        l88 l88Var = new l88();
+        this.O = l88Var;
+        l88Var.l(this.C.getControl());
         this.O.i(this.j0);
         this.H = h2.findViewById(R.id.obfuscated_res_0x7f0902f7);
         this.D = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f0902f9);
@@ -1128,9 +1128,9 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
         this.s = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f0920e5);
         this.I = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f0920e6);
         this.t = (LinearLayout) h2.findViewById(R.id.obfuscated_res_0x7f09084b);
-        ur6 ur6Var = new ur6(tbPageContext, this.x);
-        this.Q = ur6Var;
-        ur6Var.d(f());
+        tr6 tr6Var = new tr6(tbPageContext, this.x);
+        this.Q = tr6Var;
+        tr6Var.d(f());
         ThreadGodReplyLayout threadGodReplyLayout = (ThreadGodReplyLayout) h2.findViewById(R.id.obfuscated_res_0x7f090527);
         this.l = threadGodReplyLayout;
         threadGodReplyLayout.setOnClickListener(this);
@@ -1218,7 +1218,7 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
             }
             if (view2 == this.p) {
                 if (!oi.z()) {
-                    qi.N(this.w.getPageActivity(), R.string.obfuscated_res_0x7f0f0c75);
+                    qi.M(this.w.getPageActivity(), R.string.obfuscated_res_0x7f0f0c76);
                 } else {
                     K(ThreadCardUtils.computeViewArea(this.p));
                 }
@@ -1233,7 +1233,7 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
                 e().a(view2, this.G);
             }
             if (!oi.z()) {
-                qi.N(this.w.getPageActivity(), R.string.obfuscated_res_0x7f0f0c75);
+                qi.M(this.w.getPageActivity(), R.string.obfuscated_res_0x7f0f0c76);
             } else {
                 K(ThreadCardUtils.computeViewArea(this.p));
             }
@@ -1273,7 +1273,7 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
                     str = valueOf;
                 }
                 String str2 = "floor5";
-                if (this.G.getLastReadPid() > 0 && em8.c()) {
+                if (this.G.getLastReadPid() > 0 && dm8.c()) {
                     PbActivityConfig createHistoryCfg = new PbActivityConfig(this.w.getPageActivity()).createHistoryCfg(this.G.getTid(), String.valueOf(this.G.getLastReadPid()), false, true, "frs_page");
                     if (this.W == 501) {
                         str2 = "frs_tab";
@@ -1400,7 +1400,7 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
                 this.k.setUserAfterClickListener(this.h0);
                 b0(G(1));
                 this.s.setText(StringHelper.stringForVideoTime(this.G.getThreadVideoInfo().video_duration.intValue() * 1000));
-                this.I.setText(String.format(this.w.getResources().getString(R.string.obfuscated_res_0x7f0f0e87), StringHelper.numFormatOverWan(this.G.getThreadVideoInfo().play_count.intValue())));
+                this.I.setText(String.format(this.w.getResources().getString(R.string.obfuscated_res_0x7f0f0e88), StringHelper.numFormatOverWan(this.G.getThreadVideoInfo().play_count.intValue())));
                 this.l.setData(this.G.getTopAgreePost());
                 this.l.k();
                 if (mz5.k(this.G.getId())) {
@@ -1467,20 +1467,20 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
         if (this.W == 501) {
             str = "frs_tab";
         }
-        z88 z88Var = new z88();
-        z88Var.a = str;
-        z88Var.c = this.G.getTid();
-        z88Var.d = this.G.getFid() + "";
-        z88Var.e = TbadkCoreApplication.getCurrentAccount();
+        y88 y88Var = new y88();
+        y88Var.a = str;
+        y88Var.c = this.G.getTid();
+        y88Var.d = this.G.getFid() + "";
+        y88Var.e = TbadkCoreApplication.getCurrentAccount();
         ThreadData threadData2 = this.G;
-        z88Var.f = threadData2.mRecomSource;
+        y88Var.f = threadData2.mRecomSource;
         String str2 = threadData2.mRecomAbTag;
-        z88Var.l = str2;
-        z88Var.g = str2;
-        z88Var.h = threadData2.mRecomWeight;
-        z88Var.i = "";
-        z88Var.m = threadData2.getThreadVideoInfo().video_md5;
-        o88.e(this.G.getThreadVideoInfo().video_md5, "", "1", z88Var, this.C.getControl().getPcdnState());
+        y88Var.l = str2;
+        y88Var.g = str2;
+        y88Var.h = threadData2.mRecomWeight;
+        y88Var.i = "";
+        y88Var.m = threadData2.getThreadVideoInfo().video_md5;
+        n88.e(this.G.getThreadVideoInfo().video_md5, "", "1", y88Var, this.C.getControl().getPcdnState());
     }
 
     public final void Y() {
@@ -1559,13 +1559,13 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
         }
     }
 
-    public void a0(z88 z88Var) {
+    public void a0(y88 y88Var) {
         TbVideoViewContainer tbVideoViewContainer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, z88Var) == null) || (tbVideoViewContainer = this.C) == null || tbVideoViewContainer.getControl() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048596, this, y88Var) == null) || (tbVideoViewContainer = this.C) == null || tbVideoViewContainer.getControl() == null) {
             return;
         }
-        this.C.getControl().setVideoStatData(z88Var);
+        this.C.getControl().setVideoStatData(y88Var);
     }
 
     public void b(String str) {
@@ -1601,8 +1601,8 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
         if (threadData == null) {
             tbImageView.setVisibility(8);
         } else if (!StringUtils.isNull(threadData.iconPicUrl)) {
-            ur6 ur6Var = this.Q;
-            if (ur6Var != null && ur6Var.b() && (this.R.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+            tr6 tr6Var = this.Q;
+            if (tr6Var != null && tr6Var.b() && (this.R.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.R.getLayoutParams();
                 layoutParams.rightMargin = qi.f(this.w.getContext(), R.dimen.tbds106);
                 this.R.setLayoutParams(layoutParams);
@@ -1677,7 +1677,7 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
         SkinManager.setBackgroundColor(this.E, R.color.common_color_10014);
         SkinManager.setBackgroundColor(this.u, R.color.CAM_X0204);
         if (this.D != null) {
-            this.D.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080aa9), (Drawable) null, (Drawable) null);
+            this.D.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080aaa), (Drawable) null, (Drawable) null);
         }
         ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = this.j;
         if (threadSourceShareAndPraiseLayout != null && threadSourceShareAndPraiseLayout.getVisibility() == 0) {
@@ -1761,9 +1761,9 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
             }
             this.M = true;
             this.C.getControl().setVideoPath(this.N, this.G.getId());
-            m88 m88Var = this.O;
-            if (m88Var != null) {
-                m88Var.m();
+            l88 l88Var = this.O;
+            if (l88Var != null) {
+                l88Var.m();
             }
             X();
         }
@@ -1778,9 +1778,9 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
             TbVideoViewContainer tbVideoViewContainer = this.C;
             if (tbVideoViewContainer != null && tbVideoViewContainer.getControl() != null) {
                 this.C.getControl().stopPlayback();
-                m88 m88Var = this.O;
-                if (m88Var != null) {
-                    m88Var.n();
+                l88 l88Var = this.O;
+                if (l88Var != null) {
+                    l88Var.n();
                 }
             }
             this.M = false;

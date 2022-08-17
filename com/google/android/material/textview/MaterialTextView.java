@@ -47,7 +47,7 @@ public class MaterialTextView extends AppCompatTextView {
     private void applyLineHeightFromViewAppearance(@NonNull Resources.Theme theme, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, theme, i) == null) {
-            TypedArray obtainStyledAttributes = theme.obtainStyledAttributes(i, new int[]{16844159, R.attr.obfuscated_res_0x7f040431});
+            TypedArray obtainStyledAttributes = theme.obtainStyledAttributes(i, new int[]{16844159, R.attr.obfuscated_res_0x7f040432});
             int readFirstAvailableDimension = readFirstAvailableDimension(getContext(), obtainStyledAttributes, 0, 1);
             obtainStyledAttributes.recycle();
             if (readFirstAvailableDimension >= 0) {
@@ -66,7 +66,7 @@ public class MaterialTextView extends AppCompatTextView {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65542, null, theme, attributeSet, i, i2)) == null) {
-            TypedArray obtainStyledAttributes = theme.obtainStyledAttributes(attributeSet, new int[]{16842804, 16844159, R.attr.obfuscated_res_0x7f040431}, i, i2);
+            TypedArray obtainStyledAttributes = theme.obtainStyledAttributes(attributeSet, new int[]{16842804, 16844159, R.attr.obfuscated_res_0x7f040432}, i, i2);
             int resourceId = obtainStyledAttributes.getResourceId(0, -1);
             obtainStyledAttributes.recycle();
             return resourceId;
@@ -91,7 +91,7 @@ public class MaterialTextView extends AppCompatTextView {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{context, theme, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            TypedArray obtainStyledAttributes = theme.obtainStyledAttributes(attributeSet, new int[]{16842804, 16844159, R.attr.obfuscated_res_0x7f040431}, i, i2);
+            TypedArray obtainStyledAttributes = theme.obtainStyledAttributes(attributeSet, new int[]{16842804, 16844159, R.attr.obfuscated_res_0x7f040432}, i, i2);
             int readFirstAvailableDimension = readFirstAvailableDimension(context, obtainStyledAttributes, 1, 2);
             obtainStyledAttributes.recycle();
             return readFirstAvailableDimension != -1;

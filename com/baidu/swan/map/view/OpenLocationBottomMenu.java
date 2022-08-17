@@ -336,9 +336,9 @@ public class OpenLocationBottomMenu extends LinearLayout implements OpenLocation
                 Log.e("OpenLocationBottomMenu", "addMenuItem run");
             }
             if (!p) {
-                string = this.a.getString(R.string.obfuscated_res_0x7f0f0cff);
+                string = this.a.getString(R.string.obfuscated_res_0x7f0f0d00);
             } else {
-                string = this.a.getString(R.string.obfuscated_res_0x7f0f0cfe);
+                string = this.a.getString(R.string.obfuscated_res_0x7f0f0cff);
             }
             OpenLocationMenuItem openLocationMenuItem = new OpenLocationMenuItem(this.a, string, OpenLocationMenuItem.MenuItemType.OPENLOCATION_PATH);
             this.b = openLocationMenuItem;
@@ -359,7 +359,7 @@ public class OpenLocationBottomMenu extends LinearLayout implements OpenLocation
                 }
             }
             Context context = this.a;
-            OpenLocationMenuItem openLocationMenuItem3 = new OpenLocationMenuItem(context, context.getString(R.string.obfuscated_res_0x7f0f0a8f), OpenLocationMenuItem.MenuItemType.OPENLOCATION_CANCEL);
+            OpenLocationMenuItem openLocationMenuItem3 = new OpenLocationMenuItem(context, context.getString(R.string.obfuscated_res_0x7f0f0a90), OpenLocationMenuItem.MenuItemType.OPENLOCATION_CANCEL);
             this.c = openLocationMenuItem3;
             openLocationMenuItem3.c(this);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.b().getLayoutParams();

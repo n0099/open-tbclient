@@ -82,14 +82,14 @@ public class UserHeadCoverView extends FrameLayout {
                 this.a.setVisibility(0);
                 this.b.setVisibility(0);
                 if (l76Var.a.equals("1")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0810ef, null);
-                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810c9));
-                } else if (l76Var.a.equals("2")) {
                     SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0810f0, null);
-                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810c8));
-                } else if (l76Var.a.equals("3")) {
+                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810ca));
+                } else if (l76Var.a.equals("2")) {
                     SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0810f1, null);
-                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810c7));
+                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810c9));
+                } else if (l76Var.a.equals("3")) {
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0810f2, null);
+                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810c8));
                 }
             }
         } else {

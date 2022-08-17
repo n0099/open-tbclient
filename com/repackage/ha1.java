@@ -85,10 +85,10 @@ public class ha1 {
                 String string2 = this.a.getString("tradeType");
                 z91.g("onWindowFocusChanged panelType=" + string + ", tradeType=" + string2);
                 if (TextUtils.equals(string, HlsPlaylistParser.METHOD_NONE) && TextUtils.equals(string2, "DIRECTPAY")) {
-                    this.c.S(v91.c(da1.a().getString(R.string.obfuscated_res_0x7f0f0d6d) + message), str);
+                    this.c.S(v91.c(da1.a().getString(R.string.obfuscated_res_0x7f0f0d6e) + message), str);
                 } else {
                     ChannelListView channelListView = this.c;
-                    channelListView.S(da1.a().getString(R.string.obfuscated_res_0x7f0f0d6d) + message, str);
+                    channelListView.S(da1.a().getString(R.string.obfuscated_res_0x7f0f0d6e) + message, str);
                 }
                 n91 n91Var = new n91("1");
                 n91Var.b(new SdkException("launchpayment error --> " + str, th).getStackMessage());

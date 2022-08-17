@@ -153,8 +153,8 @@ public class NotificationHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
             if ((UtilHelper.isOppoDevice() || RomTypeUtil.isOnePlus()) && Build.VERSION.SDK_INT >= 26) {
-                NotificationChannel notificationChannel = new NotificationChannel(OPPO_IM_CHANNEL, hj.a(R.string.obfuscated_res_0x7f0f0cad), 4);
-                notificationChannel.setDescription(hj.a(R.string.obfuscated_res_0x7f0f0cae));
+                NotificationChannel notificationChannel = new NotificationChannel(OPPO_IM_CHANNEL, hj.a(R.string.obfuscated_res_0x7f0f0cae), 4);
+                notificationChannel.setDescription(hj.a(R.string.obfuscated_res_0x7f0f0caf));
                 notificationChannel.enableLights(true);
                 ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(notificationChannel);
             }
@@ -252,11 +252,11 @@ public class NotificationHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             NotificationCompat.Builder builder = new NotificationCompat.Builder(context, PRIMARY_CHANNEL);
-            builder.setContentTitle(context.getString(R.string.obfuscated_res_0x7f0f0cb4));
+            builder.setContentTitle(context.getString(R.string.obfuscated_res_0x7f0f0cb5));
             if (RomTypeUtil.isOnePlus()) {
-                builder.setSmallIcon(R.drawable.obfuscated_res_0x7f0811db).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
+                builder.setSmallIcon(R.drawable.obfuscated_res_0x7f0811dc).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
             } else {
-                builder.setSmallIcon(R.drawable.obfuscated_res_0x7f0811da);
+                builder.setSmallIcon(R.drawable.obfuscated_res_0x7f0811db);
             }
             return builder.build();
         }
@@ -270,7 +270,7 @@ public class NotificationHelper {
             try {
                 NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
                 if (Build.VERSION.SDK_INT >= 26) {
-                    NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_2, hj.a(R.string.obfuscated_res_0x7f0f0cac), 3);
+                    NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_2, hj.a(R.string.obfuscated_res_0x7f0f0cad), 3);
                     notificationChannel.setLightColor(-16776961);
                     notificationChannel.setLockscreenVisibility(0);
                     notificationChannel.enableVibration(false);
@@ -296,9 +296,9 @@ public class NotificationHelper {
             return;
         }
         if (RomTypeUtil.isOnePlus()) {
-            builder.setSmallIcon(R.drawable.obfuscated_res_0x7f0811db).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
+            builder.setSmallIcon(R.drawable.obfuscated_res_0x7f0811dc).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
         } else {
-            builder.setSmallIcon(R.drawable.obfuscated_res_0x7f0811da);
+            builder.setSmallIcon(R.drawable.obfuscated_res_0x7f0811db);
         }
     }
 
@@ -309,7 +309,7 @@ public class NotificationHelper {
             try {
                 NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
                 if (Build.VERSION.SDK_INT >= 26) {
-                    NotificationChannel notificationChannel = new NotificationChannel(switchData.isSound ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2, hj.a(R.string.obfuscated_res_0x7f0f0cac), 3);
+                    NotificationChannel notificationChannel = new NotificationChannel(switchData.isSound ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2, hj.a(R.string.obfuscated_res_0x7f0f0cad), 3);
                     notificationChannel.setLightColor(-16776961);
                     notificationChannel.setLockscreenVisibility(0);
                     notificationChannel.enableVibration(switchData.isVibrate);

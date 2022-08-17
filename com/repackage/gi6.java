@@ -233,18 +233,18 @@ public class gi6 {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            bn<?, ?> d = zb8.l().d(this.a, AdvertAppInfo.w);
-            bn<?, ?> d2 = zb8.l().d(this.a, AdvertAppInfo.z);
-            bn<?, ?> d3 = zb8.l().d(this.a, AdvertAppInfo.A);
-            bn<?, ?> d4 = zb8.l().d(this.a, AdvertAppInfo.B);
-            bn<?, ?> d5 = zb8.l().d(this.a, AdvertAppInfo.C);
+            bn<?, ?> d = yb8.l().d(this.a, AdvertAppInfo.w);
+            bn<?, ?> d2 = yb8.l().d(this.a, AdvertAppInfo.z);
+            bn<?, ?> d3 = yb8.l().d(this.a, AdvertAppInfo.A);
+            bn<?, ?> d4 = yb8.l().d(this.a, AdvertAppInfo.B);
+            bn<?, ?> d5 = yb8.l().d(this.a, AdvertAppInfo.C);
             this.d.add(d);
             this.d.add(d2);
             this.d.add(d3);
             this.d.add(d4);
             this.d.add(d5);
-            bn<?, ?> c = ts6.e().c(this.a.getBaseFragmentActivity(), AdvertAppInfo.H);
-            bn<?, ?> c2 = ts6.e().c(this.a.getBaseFragmentActivity(), AdvertAppInfo.G);
+            bn<?, ?> c = ss6.e().c(this.a.getBaseFragmentActivity(), AdvertAppInfo.H);
+            bn<?, ?> c2 = ss6.e().c(this.a.getBaseFragmentActivity(), AdvertAppInfo.G);
             this.d.add(c);
             this.d.add(c2);
         }
@@ -263,8 +263,8 @@ public class gi6 {
             for (bn bnVar : this.d) {
                 if (bnVar instanceof ue6) {
                     ((ue6) bnVar).v();
-                } else if (bnVar instanceof qb8) {
-                    ((qb8) bnVar).onDestroy();
+                } else if (bnVar instanceof pb8) {
+                    ((pb8) bnVar).onDestroy();
                 }
             }
         }

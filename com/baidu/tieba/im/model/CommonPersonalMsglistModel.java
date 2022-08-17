@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ua7;
+import com.repackage.ta7;
 /* loaded from: classes3.dex */
 public abstract class CommonPersonalMsglistModel extends MsglistModel {
     public static /* synthetic */ Interceptable $ic;
@@ -83,7 +83,7 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
                     if (userData == null || userData.getUserId() == null) {
                         return;
                     }
-                    if (this.this$0.mUser.getUserId().equals(String.valueOf(ua7.p(chatMessage)))) {
+                    if (this.this$0.mUser.getUserId().equals(String.valueOf(ta7.p(chatMessage)))) {
                         this.this$0.sendMsgFail(chatMessage);
                     }
                 }
@@ -199,7 +199,7 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
                     if (userData == null || userData.getUserId() == null) {
                         return;
                     }
-                    if (this.this$0.mUser.getUserId().equals(String.valueOf(ua7.p(chatMessage)))) {
+                    if (this.this$0.mUser.getUserId().equals(String.valueOf(ta7.p(chatMessage)))) {
                         this.this$0.sendMsgFail(chatMessage);
                     }
                 }

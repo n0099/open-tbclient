@@ -1,5 +1,6 @@
 package com.repackage;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,6 +9,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import tbclient.UserGrowth;
 import tbclient.UserTaskInfo;
 /* loaded from: classes7.dex */
@@ -66,9 +70,37 @@ public class t15 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.doubleValue;
     }
 
-    public void f(UserGrowth userGrowth) {
+    public void f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, userGrowth) == null) || userGrowth == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt("level_id");
+        this.b = jSONObject.optLong("score");
+        this.c = jSONObject.optLong("target_score");
+        this.d = jSONObject.optDouble("tmoney");
+        this.e.clear();
+        JSONArray optJSONArray = jSONObject.optJSONArray("task_info");
+        if (optJSONArray == null) {
+            return;
+        }
+        int length = optJSONArray.length();
+        for (int i = 0; i < length; i++) {
+            JSONObject jSONObject2 = null;
+            try {
+                jSONObject2 = optJSONArray.getJSONObject(i);
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+            v15 v15Var = new v15();
+            v15Var.g(jSONObject2);
+            this.e.add(v15Var);
+        }
+    }
+
+    public void g(UserGrowth userGrowth) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, userGrowth) == null) || userGrowth == null) {
             return;
         }
         this.a = userGrowth.level_id.intValue();
@@ -78,7 +110,7 @@ public class t15 {
         this.e.clear();
         for (UserTaskInfo userTaskInfo : userGrowth.task_info) {
             v15 v15Var = new v15();
-            v15Var.g(userTaskInfo);
+            v15Var.h(userTaskInfo);
             this.e.add(v15Var);
         }
     }

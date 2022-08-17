@@ -58,7 +58,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gj8;
+import com.repackage.fj8;
 import com.repackage.h9;
 import com.repackage.hw4;
 import com.repackage.ks4;
@@ -425,7 +425,7 @@ public class ItemCardView extends LinearLayout {
                     return spannableStringBuilder;
                 }
                 if (!pi.isEmpty(this.a.o)) {
-                    measuredWidth -= (int) (ItemCardView.P + paint.measureText(((Object) this.a.getContext().getText(R.string.obfuscated_res_0x7f0f0997)) + this.a.o));
+                    measuredWidth -= (int) (ItemCardView.P + paint.measureText(((Object) this.a.getContext().getText(R.string.obfuscated_res_0x7f0f0998)) + this.a.o));
                 }
                 if (ListUtils.getCount(this.a.n) > 0) {
                     for (int i = 0; i < this.a.n.size(); i++) {
@@ -444,7 +444,7 @@ public class ItemCardView extends LinearLayout {
                     if (spannableStringBuilder.length() > 1) {
                         spannableStringBuilder.setSpan(new hw4(ItemCardView.P), spannableStringBuilder.length() - 1, spannableStringBuilder.length(), 33);
                     }
-                    spannableStringBuilder.append(this.a.getContext().getText(R.string.obfuscated_res_0x7f0f0997));
+                    spannableStringBuilder.append(this.a.getContext().getText(R.string.obfuscated_res_0x7f0f0998));
                     spannableStringBuilder.append((CharSequence) this.a.o);
                 }
                 return spannableStringBuilder;
@@ -514,11 +514,11 @@ public class ItemCardView extends LinearLayout {
                     spannableStringBuilder.append((CharSequence) " |");
                     int i = length + 1;
                     spannableStringBuilder.setSpan(new hw4(ItemCardView.Q), length, i, 33);
-                    spannableStringBuilder.setSpan(new TextAppearanceSpan(null, Typeface.DEFAULT.getStyle(), UtilHelper.getDimenPixelSize(R.dimen.T_X10), new ColorStateList(new int[][]{new int[0]}, new int[]{gj8.a(SkinManager.getColor(R.color.CAM_X0108), ks4.a(R.string.A_X10))}), null), i, length + 2, 33);
+                    spannableStringBuilder.setSpan(new TextAppearanceSpan(null, Typeface.DEFAULT.getStyle(), UtilHelper.getDimenPixelSize(R.dimen.T_X10), new ColorStateList(new int[][]{new int[0]}, new int[]{fj8.a(SkinManager.getColor(R.color.CAM_X0108), ks4.a(R.string.A_X10))}), null), i, length + 2, 33);
                     if (!pi.isEmpty(this.b.q)) {
                         int length2 = spannableStringBuilder.length();
                         spannableStringBuilder.append((CharSequence) " ");
-                        spannableStringBuilder.append((CharSequence) this.b.getContext().getString(R.string.obfuscated_res_0x7f0f098a));
+                        spannableStringBuilder.append((CharSequence) this.b.getContext().getString(R.string.obfuscated_res_0x7f0f098b));
                         int i2 = length2 + 1;
                         spannableStringBuilder.setSpan(new hw4(ItemCardView.Q), length2, i2, 33);
                         spannableStringBuilder.setSpan(new h(this.b.getContext(), this.b.q), i2, length2 + 3, 33);
@@ -526,7 +526,7 @@ public class ItemCardView extends LinearLayout {
                     if (!pi.isEmpty(this.b.r)) {
                         int length3 = spannableStringBuilder.length();
                         spannableStringBuilder.append((CharSequence) " ");
-                        spannableStringBuilder.append((CharSequence) this.b.getContext().getString(R.string.obfuscated_res_0x7f0f0984));
+                        spannableStringBuilder.append((CharSequence) this.b.getContext().getString(R.string.obfuscated_res_0x7f0f0985));
                         int i3 = length3 + 1;
                         spannableStringBuilder.setSpan(new hw4(ItemCardView.Q), length3, i3, 33);
                         spannableStringBuilder.setSpan(new h(this.b.getContext(), this.b.r), i3, length3 + 3, 33);
@@ -755,7 +755,7 @@ public class ItemCardView extends LinearLayout {
             double d2 = this.m;
             if (d2 > 0.0d && d2 <= 10.0d) {
                 int length = spannableStringBuilder.length();
-                EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809d5, R.color.CAM_X0305, EMRichTextAnyIconSpan.IconType.WEBP);
+                EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809d6, R.color.CAM_X0305, EMRichTextAnyIconSpan.IconType.WEBP);
                 if (z) {
                     eMRichTextAnyIconSpan.b(-UtilHelper.getDimenPixelSize(R.dimen.tbds2));
                 } else {
@@ -805,7 +805,7 @@ public class ItemCardView extends LinearLayout {
     public final void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            this.H = context.getString(R.string.obfuscated_res_0x7f0f09e5);
+            this.H = context.getString(R.string.obfuscated_res_0x7f0f09e6);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03e4, (ViewGroup) this, true);
             this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090f93);
             this.b = (ItemEllipsisView) findViewById(R.id.obfuscated_res_0x7f0909b3);
@@ -861,7 +861,7 @@ public class ItemCardView extends LinearLayout {
             ms4 d2 = ms4.d(this.d);
             d2.w(R.dimen.M_T_X001);
             d2.v(R.color.CAM_X0109);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f0809c0, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f0809c1, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             this.a.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
             this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             this.a.setPlaceHolder(1);

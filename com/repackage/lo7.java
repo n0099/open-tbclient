@@ -1,110 +1,182 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.newdetail.HotTopicDetailActivity;
+import com.baidu.tieba.newdetail.view.HotTopicDetailSpecialItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lo7 {
+public class lo7 extends bn<bp7, b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<HotTopicDetailActivity> a;
+    public bn4<bp7> b;
 
-    public static void a(String str, Object obj, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65536, null, str, obj, i, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            if (obj instanceof uq4) {
-                statisticItem.param("fid", ((uq4) obj).j());
-            } else if (obj instanceof cp7) {
-                cp7 cp7Var = (cp7) obj;
-                ThreadData threadData = cp7Var.h;
-                if (threadData != null) {
-                    statisticItem.param("tid", threadData.getTid());
+    /* loaded from: classes6.dex */
+    public class a implements bn4<bp7> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lo7 a;
+
+        public a(lo7 lo7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lo7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                statisticItem.param("obj_locate", cp7Var.a());
             }
-            statisticItem.param("topic_id", str2);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.eventStat();
+            this.a = lo7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.bn4
+        /* renamed from: a */
+        public void d(View view2, bp7 bp7Var, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, bp7Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.bn4
+        /* renamed from: b */
+        public void c(View view2, bp7 bp7Var, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, bp7Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || bp7Var == null || this.a.a == null) {
+                return;
+            }
+            ko7.a("c13820", bp7Var, i, ((HotTopicDetailActivity) this.a.a.getOrignalPage()).B1());
         }
     }
 
-    public static void b(oo7 oo7Var, fo4 fo4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, oo7Var, fo4Var) == null) {
-            d(oo7Var, fo4Var, true);
+    /* loaded from: classes6.dex */
+    public static class b extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public HotTopicDetailSpecialItem a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(HotTopicDetailSpecialItem hotTopicDetailSpecialItem) {
+            super(hotTopicDetailSpecialItem);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hotTopicDetailSpecialItem};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hotTopicDetailSpecialItem;
+        }
+
+        public void a(bp7 bp7Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, bp7Var) == null) || bp7Var == null) {
+                return;
+            }
+            this.a.a(bp7Var);
+        }
+
+        public void b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                this.a.c(i);
+            }
+        }
+
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                this.a.setCurrentTopicId(str);
+            }
+        }
+
+        public void d(bn4<bp7> bn4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, bn4Var) == null) {
+                this.a.setOnItemCoverListener(bn4Var);
+            }
         }
     }
 
-    public static void c(oo7 oo7Var, fo4 fo4Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lo7(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), ap7.a);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, oo7Var, fo4Var) == null) {
-            d(oo7Var, fo4Var, false);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.b = new a(this);
+        this.a = tbPageContext;
     }
 
-    public static void d(oo7 oo7Var, fo4 fo4Var, boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: t */
+    public b onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65539, null, oo7Var, fo4Var, z) == null) || fo4Var == null || fo4Var.getThreadData() == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            b bVar = new b(new HotTopicDetailSpecialItem(viewGroup.getContext()));
+            bVar.c(this.a.getOrignalPage().B1());
+            bVar.d(this.b);
+            bVar.b(TbadkCoreApplication.getInst().getSkinType());
+            return bVar;
         }
-        ThreadData threadData = fo4Var.getThreadData();
-        boolean s = oo7Var.s();
-        StatisticItem statisticItem = new StatisticItem(z ? s ? "c13823" : "c13822" : s ? "c13824" : "c13821");
-        statisticItem.param("tid", threadData.getTid());
-        statisticItem.param("fid", threadData.getFid());
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        if (oo7Var.t().getOrignalPage() instanceof HotTopicDetailActivity) {
-            statisticItem.param("topic_id", ((HotTopicDetailActivity) oo7Var.t().getOrignalPage()).B1());
-        }
-        statisticItem.eventStat();
+        return (b) invokeL.objValue;
     }
 
-    public static void e(ThreadData threadData) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, bp7 bp7Var, b bVar) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData) == null) || threadData == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bp7Var, bVar})) == null) {
+            if (bp7Var == null || bVar == null) {
+                return null;
+            }
+            bVar.a(bp7Var);
+            bVar.b(TbadkCoreApplication.getInst().getSkinType());
+            return bVar.getView();
         }
-        new StatisticItem("c13022").addParam("tid", threadData.getTid()).addParam("fid", threadData.getFid()).addParam("fname", threadData.getForum_name()).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.OBJ_TO, UbsABTestHelper.isImgClickToPb() ? 1 : 2).eventStat();
-    }
-
-    public static void f(TbPageContext<HotTopicDetailActivity> tbPageContext, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, tbPageContext, str) == null) || tbPageContext == null || StringUtils.isNull(str)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(str);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        statisticItem.param("topic_id", tbPageContext.getOrignalPage().B1());
-        statisticItem.eventStat();
-    }
-
-    public static void g(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) || StringUtils.isNull(str) || StringUtils.isNull(str2)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(str);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        statisticItem.param("topic_id", str2);
-        statisticItem.eventStat();
-    }
-
-    public static void h(TbPageContext<HotTopicDetailActivity> tbPageContext, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65543, null, tbPageContext, str) == null) || tbPageContext == null || StringUtils.isNull(str)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(str);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        statisticItem.param("topic_id", tbPageContext.getOrignalPage().B1());
-        statisticItem.eventStat();
+        return (View) invokeCommon.objValue;
     }
 }

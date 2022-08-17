@@ -1,40 +1,84 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.GetForumSquare.DataRes;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes7.dex */
-public class wh8 {
+public class wh8 extends kn4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755201270, "Lcom/repackage/wh8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755201270, "Lcom/repackage/wh8;");
+                return;
+            }
+        }
+        c = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
+    }
 
     public wh8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void a(DataRes dataRes) {
+    public long g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getNetContext().getStat().stat.c;
+            }
+            return 0L;
         }
-        String str = dataRes.class_name;
-        Page page = dataRes.page;
-        List<String> list = dataRes.page_structure;
-        List<RecommendForumInfo> list2 = dataRes.forum_info;
+        return invokeV.longValue;
+    }
+
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getNetContext().getStat().stat.d;
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            f(c);
+            return d();
+        }
+        return (String) invokeV.objValue;
     }
 }

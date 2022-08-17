@@ -174,7 +174,7 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
             if (m15Var.h()) {
                 this.b.setVisibility(8);
                 this.g.setVisibility(0);
-                this.h.setText(R.string.obfuscated_res_0x7f0f0cbf);
+                this.h.setText(R.string.obfuscated_res_0x7f0f0cc0);
                 g();
                 return;
             }
@@ -198,8 +198,8 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
         d2.A(R.string.F_X01);
         d2.z(R.dimen.T_X05);
         d2.v(R.color.CAM_X0304);
-        WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f08094f, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
-        WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080897, R.color.CAM_X0319, WebPManager.ResourceStateType.NORMAL);
+        WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080950, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
+        WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080899, R.color.CAM_X0319, WebPManager.ResourceStateType.NORMAL);
     }
 
     public View getNovelCoverPage() {
@@ -309,7 +309,7 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
                     this.c.setVisibility(8);
                 }
                 if (StringUtils.isNull(this.i.e())) {
-                    this.d.setText(R.string.obfuscated_res_0x7f0f0cbd);
+                    this.d.setText(R.string.obfuscated_res_0x7f0f0cbe);
                 } else {
                     this.d.setText(this.i.e());
                 }

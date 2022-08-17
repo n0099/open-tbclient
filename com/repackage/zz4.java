@@ -107,13 +107,13 @@ public class zz4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
             if (i == 3 || i == 2) {
-                return gk8.b(context, "com.tencent.mm");
+                return fk8.b(context, "com.tencent.mm");
             }
             if (i == 8 || i == 4) {
-                return gk8.b(context, "com.tencent.mobileqq");
+                return fk8.b(context, "com.tencent.mobileqq");
             }
             if (i == 6) {
-                return gk8.b(context, "com.sina.weibo");
+                return fk8.b(context, "com.sina.weibo");
             }
             return true;
         }
@@ -125,13 +125,13 @@ public class zz4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, context)) == null) {
             if (i == 3 || i == 2) {
-                return String.format(context.getString(R.string.obfuscated_res_0x7f0f0406), context.getString(R.string.obfuscated_res_0x7f0f1598));
+                return String.format(context.getString(R.string.obfuscated_res_0x7f0f0406), context.getString(R.string.obfuscated_res_0x7f0f159b));
             }
             if (i == 8 || i == 4) {
-                return String.format(context.getString(R.string.obfuscated_res_0x7f0f0406), context.getString(R.string.obfuscated_res_0x7f0f0f5d));
+                return String.format(context.getString(R.string.obfuscated_res_0x7f0f0406), context.getString(R.string.obfuscated_res_0x7f0f0f5e));
             }
             if (i == 6) {
-                return String.format(context.getString(R.string.obfuscated_res_0x7f0f0406), context.getString(R.string.obfuscated_res_0x7f0f119b));
+                return String.format(context.getString(R.string.obfuscated_res_0x7f0f0406), context.getString(R.string.obfuscated_res_0x7f0f119d));
             }
             return null;
         }
@@ -144,7 +144,7 @@ public class zz4 {
         if (interceptable == null || interceptable.invokeIL(65539, null, i, context) == null) {
             if (i == 3 || i == 2) {
                 if (!b(context, i)) {
-                    BdToast.b(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f1165)).h();
+                    BdToast.b(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f1167)).i();
                     return;
                 }
                 intent = new Intent("android.intent.action.MAIN");
@@ -155,7 +155,7 @@ public class zz4 {
                 context.startActivity(intent);
             } else if (i == 8 || i == 4) {
                 if (!b(context, i)) {
-                    BdToast.b(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f1148)).h();
+                    BdToast.b(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f1149)).i();
                     return;
                 }
                 intent = context.getPackageManager().getLaunchIntentForPackage("com.tencent.mobileqq");
@@ -164,7 +164,7 @@ public class zz4 {
             } else if (i != 6) {
                 intent = null;
             } else if (!b(context, i)) {
-                BdToast.b(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f1157)).h();
+                BdToast.b(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f1158)).i();
                 return;
             } else {
                 intent = new Intent();
@@ -184,11 +184,11 @@ public class zz4 {
         if (!(interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, shareItem, context, i, onCancelListener) == null) || shareItem == null || TextUtils.isEmpty(shareItem.v) || TextUtils.isEmpty(shareItem.u) || !(context instanceof Activity)) {
             return;
         }
-        fi.a(shareItem.z0);
+        fi.a(shareItem.A0);
         Activity activity = (Activity) context;
         ur4 ur4Var = new ur4(activity);
         ur4Var.setTitle(context.getString(R.string.obfuscated_res_0x7f0f0407));
-        ur4Var.setMessage(shareItem.z0);
+        ur4Var.setMessage(shareItem.A0);
         ur4Var.setAutoNight(false);
         ur4Var.setCancelable(true);
         ur4Var.setTitleShowCenter(true);

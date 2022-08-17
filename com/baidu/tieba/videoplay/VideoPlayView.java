@@ -37,12 +37,12 @@ import com.repackage.cw8;
 import com.repackage.dv8;
 import com.repackage.iv8;
 import com.repackage.jv8;
-import com.repackage.m88;
-import com.repackage.nc8;
+import com.repackage.l88;
+import com.repackage.mc8;
 import com.repackage.oj5;
 import com.repackage.qi;
 /* loaded from: classes4.dex */
-public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnClickListener, m88.c, cv8, cw8 {
+public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnClickListener, l88.c, cv8, cw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public e A;
@@ -227,7 +227,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     }
 
     /* loaded from: classes4.dex */
-    public class d implements nc8.a {
+    public class d implements mc8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayView a;
@@ -250,7 +250,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
             this.a = videoPlayView;
         }
 
-        @Override // com.repackage.nc8.a
+        @Override // com.repackage.mc8.a
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -535,7 +535,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         }
     }
 
-    @Override // com.repackage.m88.c
+    @Override // com.repackage.l88.c
     public void a(int i, int i2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeII(1048597, this, i, i2) == null) || i - i2 >= 3500 || this.y.equals("from_attention_sub_fragment") || x()) {

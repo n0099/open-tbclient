@@ -408,7 +408,7 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
             this.a.g();
             rb6 rb6Var = this.f;
             if (rb6Var != null && rb6Var.b() > 0) {
-                qi.O(getPageContext().getContext(), str);
+                qi.N(getPageContext().getContext(), str);
             } else {
                 this.a.r();
             }

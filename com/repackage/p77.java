@@ -1,32 +1,359 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteStatement;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.data.UpdatesItemData;
-import com.baidu.tieba.im.data.ValidateItemData;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.model.ModelHelper;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tieba.R;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class p77 {
     public static /* synthetic */ Interceptable $ic;
-    public static p77 a;
+    public static p77 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public final DialogInterface.OnCancelListener b;
+
+    /* loaded from: classes7.dex */
+    public class a implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p77 a;
+
+        public a(p77 p77Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p77Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p77Var;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.c();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends BdAsyncTask<Object, d, Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final n67 a;
+        public final int b;
+        public c c;
+        public final /* synthetic */ p77 d;
+
+        /* loaded from: classes7.dex */
+        public class a implements c {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // com.repackage.p77.c
+            public void a(int i, String str, int i2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+                    if (this.a.isCancelled()) {
+                        this.a.h(i, str, i2);
+                        return;
+                    }
+                    d dVar = new d();
+                    dVar.a = str;
+                    dVar.b = i2;
+                    dVar.c = i;
+                    this.a.publishProgress(dVar);
+                }
+            }
+
+            @Override // com.repackage.p77.c
+            public void b(List<d> list) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                    this.a.i(list);
+                }
+            }
+        }
+
+        /* renamed from: com.repackage.p77$b$b  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class RunnableC0554b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ int a;
+            public final /* synthetic */ String b;
+            public final /* synthetic */ int c;
+            public final /* synthetic */ b d;
+
+            public RunnableC0554b(b bVar, int i, String str, int i2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, Integer.valueOf(i), str, Integer.valueOf(i2)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.d = bVar;
+                this.a = i;
+                this.b = str;
+                this.c = i2;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.d.a == null) {
+                    return;
+                }
+                this.d.a.onProgressUpdate(this.a, this.b, this.c);
+                this.d.a.onCanceled();
+            }
+        }
+
+        /* loaded from: classes7.dex */
+        public class c implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ List a;
+            public final /* synthetic */ b b;
+
+            public c(b bVar, List list) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, list};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = bVar;
+                this.a = list;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null || this.b.a == null) {
+                    return;
+                }
+                for (d dVar : this.a) {
+                    if (dVar != null) {
+                        this.b.a.onProgressUpdate(dVar.c, dVar.a, dVar.b);
+                    }
+                }
+                this.b.a.onCanceled();
+                this.a.clear();
+            }
+        }
+
+        public b(p77 p77Var, int i, n67 n67Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p77Var, Integer.valueOf(i), n67Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = p77Var;
+            this.c = new a(this);
+            this.b = i;
+            this.a = n67Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: f */
+        public Integer doInBackground(Object... objArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
+                if (isCancelled()) {
+                    return -1;
+                }
+                if (objArr != null && objArr.length > 0 && objArr[0] != null) {
+                    Object obj = objArr[0];
+                    if (obj instanceof ArrayList) {
+                        List<ImMessageCenterShowItemData> list = (List) obj;
+                        int i = this.b;
+                        if (i == 4) {
+                            this.d.d(list, this.c);
+                        } else if (i == 2) {
+                            this.d.f(list, this.c);
+                        }
+                    } else if (obj instanceof ImMessageCenterShowItemData) {
+                        this.d.s(((ImMessageCenterShowItemData) obj).getFriendId(), this.b, this.c);
+                    }
+                    return 0;
+                }
+                return -2;
+            }
+            return (Integer) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: g */
+        public void onProgressUpdate(d... dVarArr) {
+            n67 n67Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVarArr) == null) {
+                super.onProgressUpdate(dVarArr);
+                if (dVarArr == null || dVarArr.length <= 0 || dVarArr[0] == null || (n67Var = this.a) == null) {
+                    return;
+                }
+                d dVar = dVarArr[0];
+                n67Var.onProgressUpdate(dVar.c, dVar.a, dVar.b);
+            }
+        }
+
+        public final void h(int i, String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+                rg.a().post(new RunnableC0554b(this, i, str, i2));
+            }
+        }
+
+        public final void i(List<d> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+                rg.a().post(new c(this, list));
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onCancelled() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                super.onCancelled();
+                n67 n67Var = this.a;
+                if (n67Var != null) {
+                    n67Var.onCanceled();
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreExecute() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                super.onPreExecute();
+                n67 n67Var = this.a;
+                if (n67Var != null) {
+                    n67Var.onPreExecute();
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Integer num) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, num) == null) {
+                super.onPostExecute((b) num);
+                if (this.a != null) {
+                    if (isCancelled()) {
+                        this.a.onCanceled();
+                    } else {
+                        this.a.onPostExecute();
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(int i, String str, int i2);
+
+        void b(List<d> list);
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public int b;
+        public int c;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
     public p77() {
         Interceptable interceptable = $ic;
@@ -38,467 +365,436 @@ public class p77 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new a(this);
     }
 
-    public static p77 f() {
+    public static p77 m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = new p77();
+            if (c == null) {
+                synchronized (p77.class) {
+                    if (c == null) {
+                        c = new p77();
+                    }
+                }
             }
-            return a;
+            return c;
         }
         return (p77) invokeV.objValue;
     }
 
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        Boolean bool;
+    public void a(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, n67 n67Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                t77.d().delete("tb_group_news", "notice_id = ?", new String[]{str});
-                bool = Boolean.TRUE;
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.deleteByNoticeId", new Object[0]);
-                e.printStackTrace();
-                bool = Boolean.FALSE;
-            }
-            return bool.booleanValue();
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, imMessageCenterShowItemData, i, n67Var) == null) {
+            b bVar = new b(this, i, n67Var);
+            this.a = bVar;
+            bVar.setParallel(TiebaIMConfig.getParallel());
+            this.a.setPriority(3);
+            this.a.execute(imMessageCenterShowItemData);
         }
-        return invokeL.booleanValue;
     }
 
-    public boolean b(List<UpdatesItemData> list) {
-        InterceptResult invokeL;
+    public void b(List<ImMessageCenterShowItemData> list, int i, n67 n67Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            Boolean bool = Boolean.FALSE;
-            if (list == null || list.isEmpty()) {
-                return false;
-            }
-            try {
-                int size = list.size();
-                for (int i = 0; i < size; i++) {
-                    UpdatesItemData updatesItemData = list.get(i);
-                    if (updatesItemData != null) {
-                        t77.d().delete("tb_group_news", "notice_id=?", new String[]{updatesItemData.getNotice_id()});
-                    }
-                }
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.deleteByUpdatesData", new Object[0]);
-                e.printStackTrace();
-                bool = Boolean.FALSE;
-            }
-            return bool.booleanValue();
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, i, n67Var) == null) {
+            b bVar = new b(this, i, n67Var);
+            this.a = bVar;
+            bVar.setParallel(TiebaIMConfig.getParallel());
+            this.a.setPriority(3);
+            this.a.execute(list);
         }
-        return invokeL.booleanValue;
     }
 
-    public LinkedList<GroupNewsPojo> c(long j, int i, int i2, String str) {
-        InterceptResult invokeCommon;
-        Cursor e;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), str})) == null) {
-            if (i2 < 0) {
-                i2 = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            b bVar = this.a;
+            if (bVar != null && bVar.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
+                this.a.cancel(true);
             }
-            LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
-            if (i <= 0) {
-                i = 20;
-            }
-            Cursor cursor = null;
+            this.a = null;
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(List<ImMessageCenterShowItemData> list, c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, list, cVar) == null) {
             try {
                 try {
-                    if (j <= 0) {
-                        if (TextUtils.isEmpty(str)) {
-                            e = t77.d().e("select * from tb_group_news ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, null);
-                        } else {
-                            e = t77.d().e(String.format("select * from tb_group_news WHERE cmd IN ( '%1$s' ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, str), null);
-                        }
-                    } else if (TextUtils.isEmpty(str)) {
-                        e = t77.d().e("select * from tb_group_news WHERE time <=? ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j)});
-                    } else {
-                        e = t77.d().e("select * from tb_group_news WHERE time <=? AND cmd IN ( ? ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j), str});
-                    }
-                    cursor = e;
-                    if (cursor != null) {
-                        while (cursor.moveToNext()) {
-                            GroupNewsPojo groupNewsPojo = new GroupNewsPojo();
-                            groupNewsPojo.setCmd(cursor.getString(cursor.getColumnIndex("cmd")));
-                            groupNewsPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
-                            groupNewsPojo.setContent_status(cursor.getInt(cursor.getColumnIndex("content_status")));
-                            groupNewsPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
-                            groupNewsPojo.setGid(cursor.getString(cursor.getColumnIndex("gid")));
-                            groupNewsPojo.setNotice_id(cursor.getString(cursor.getColumnIndex("notice_id")));
-                            groupNewsPojo.setTime(cursor.getLong(cursor.getColumnIndex("time")));
-                            linkedList.add(groupNewsPojo);
-                        }
-                    }
-                } catch (Exception e2) {
-                    TiebaStatic.printDBExceptionLog(e2, "GroupNewsDao.getAllByCmd", new Object[0]);
-                    e2.printStackTrace();
-                }
-                ri.a(cursor);
-                return l(linkedList);
-            } catch (Throwable th) {
-                ri.a(cursor);
-                throw th;
-            }
-        }
-        return (LinkedList) invokeCommon.objValue;
-    }
-
-    public GroupNewsPojo d(String str) {
-        InterceptResult invokeL;
-        GroupNewsPojo groupNewsPojo;
-        Exception e;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, str)) != null) {
-            return (GroupNewsPojo) invokeL.objValue;
-        }
-        Cursor cursor2 = null;
-        r1 = null;
-        GroupNewsPojo groupNewsPojo2 = null;
-        try {
-            cursor = t77.d().e("select * from tb_group_news WHERE notice_id = ?", new String[]{str});
-            if (cursor != null) {
-                while (cursor.moveToNext()) {
-                    try {
-                        try {
-                            groupNewsPojo = new GroupNewsPojo();
-                            try {
-                                groupNewsPojo.setCmd(cursor.getString(cursor.getColumnIndex("cmd")));
-                                groupNewsPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
-                                groupNewsPojo.setContent_status(cursor.getInt(cursor.getColumnIndex("content_status")));
-                                groupNewsPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
-                                groupNewsPojo.setGid(cursor.getString(cursor.getColumnIndex("gid")));
-                                groupNewsPojo.setNotice_id(cursor.getString(cursor.getColumnIndex("notice_id")));
-                                groupNewsPojo.setTime(cursor.getLong(cursor.getColumnIndex("time")));
-                                groupNewsPojo2 = groupNewsPojo;
-                            } catch (Exception e2) {
-                                e = e2;
-                                e.printStackTrace();
-                                TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.getByNoticeId", new Object[0]);
-                                ri.a(cursor);
-                                return groupNewsPojo;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            cursor2 = cursor;
-                            ri.a(cursor2);
-                            throw th;
-                        }
-                    } catch (Exception e3) {
-                        groupNewsPojo = groupNewsPojo2;
-                        e = e3;
-                    }
-                }
-            }
-            ri.a(cursor);
-            return groupNewsPojo2;
-        } catch (Exception e4) {
-            groupNewsPojo = null;
-            e = e4;
-            cursor = null;
-        } catch (Throwable th2) {
-            th = th2;
-            ri.a(cursor2);
-            throw th;
-        }
-    }
-
-    public int e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            Cursor cursor = null;
-            int i = 0;
-            try {
-                try {
-                    cursor = t77.d().e(String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' )", str), null);
-                    i = cursor.moveToFirst() ? cursor.getInt(0) : -1;
-                } catch (SQLiteException e) {
-                    TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.getCountByCmd", new Object[0]);
-                    e.printStackTrace();
-                } catch (Exception e2) {
-                    TiebaStatic.printDBExceptionLog(e2, "GroupNewsDao.getCountByCmd", new Object[0]);
-                    e2.printStackTrace();
-                }
-                return i;
-            } finally {
-                ri.a(cursor);
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public int g(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
-            Cursor cursor = null;
-            int i2 = 0;
-            try {
-                try {
-                    try {
-                        cursor = t77.d().e(String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' ) and content_status = %2$s", str, "" + i), null);
-                        i2 = cursor.moveToFirst() ? cursor.getInt(0) : -1;
-                    } catch (Exception e) {
-                        TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.getNewCountByCmd", new Object[0]);
-                        e.printStackTrace();
-                    }
-                } catch (SQLiteException e2) {
-                    TiebaStatic.printDBExceptionLog(e2, "GroupNewsDao.getNewCountByCmd", new Object[0]);
-                    e2.printStackTrace();
-                }
-                return i2;
-            } finally {
-                ri.a(cursor);
-            }
-        }
-        return invokeLI.intValue;
-    }
-
-    public int h(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) {
-            try {
-                if (!TextUtils.isEmpty(str)) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("content_status", (Integer) 3);
-                    return t77.d().update("tb_group_news", contentValues, "notice_id= ?", new String[]{str});
-                }
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.hideByNoticeIdSync", new Object[0]);
-                e.printStackTrace();
-            }
-            return 0;
-        }
-        return invokeLI.intValue;
-    }
-
-    public final long i(GroupNewsPojo groupNewsPojo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, groupNewsPojo)) == null) {
-            try {
-                try {
-                    StringBuffer stringBuffer = new StringBuffer();
-                    stringBuffer.append("INSERT INTO ");
-                    stringBuffer.append("tb_group_news");
-                    stringBuffer.append("(");
-                    stringBuffer.append("cmd");
-                    stringBuffer.append(",");
-                    stringBuffer.append("content");
-                    stringBuffer.append(",");
-                    stringBuffer.append("content_status");
-                    stringBuffer.append(",");
-                    stringBuffer.append("ext");
-                    stringBuffer.append(",");
-                    stringBuffer.append("gid");
-                    stringBuffer.append(",");
-                    stringBuffer.append("notice_id");
-                    stringBuffer.append(",");
-                    stringBuffer.append("time");
-                    stringBuffer.append(") VALUES(?,?,?,?,?,?,?)");
-                    SQLiteStatement a2 = t77.d().a(stringBuffer.toString());
-                    if (a2 == null) {
-                        ri.c(a2);
-                        return -1L;
-                    }
-                    a2.clearBindings();
-                    r77.b(a2, 1, groupNewsPojo.getCmd());
-                    r77.b(a2, 2, groupNewsPojo.getContent());
-                    a2.bindLong(3, groupNewsPojo.getContent_status());
-                    r77.b(a2, 4, groupNewsPojo.getExt());
-                    r77.b(a2, 5, groupNewsPojo.getGid());
-                    r77.b(a2, 6, groupNewsPojo.getNotice_id());
-                    a2.bindLong(7, groupNewsPojo.getTime());
-                    long executeInsert = a2.executeInsert();
-                    ri.c(a2);
-                    return executeInsert;
+                    s77.d().f();
                 } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.insertByStatement", new Object[0]);
-                    ri.c(null);
-                    return -1L;
+                    e.printStackTrace();
                 }
-            } catch (Throwable th) {
-                ri.c(null);
-                throw th;
-            }
-        }
-        return invokeL.longValue;
-    }
-
-    public boolean j(ValidateItemData validateItemData) {
-        InterceptResult invokeL;
-        List<ValidateItemData> convertToValidateItemDataList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, validateItemData)) == null) {
-            if (validateItemData == null || ModelHelper.getInstance().getValidateModel() == null || (convertToValidateItemDataList = ModelHelper.getInstance().getValidateModel().convertToValidateItemDataList(c(0L, Integer.MAX_VALUE, 0, "apply_join_group"))) == null || convertToValidateItemDataList.size() == 0) {
-                return false;
-            }
-            int size = convertToValidateItemDataList.size();
-            LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
-            int i = 0;
-            for (int i2 = 0; i2 < size; i2++) {
-                ValidateItemData validateItemData2 = convertToValidateItemDataList.get(i2);
-                if (validateItemData2.getGroupId().equals(validateItemData.getGroupId()) && validateItemData2.getUserId().equals(validateItemData.getUserId()) && validateItemData.isPass()) {
-                    validateItemData2.setPass(true);
-                    if (validateItemData.isShown()) {
-                        validateItemData2.setShown(true);
+                if (ListUtils.isEmpty(list)) {
+                    return;
+                }
+                int size = list.size();
+                int i = 0;
+                for (int i2 = size - 1; i2 >= 0; i2--) {
+                    if (o()) {
+                        break;
                     }
-                    linkedList.add(validateItemData2.toGroupNewsPojo());
-                    i++;
-                }
-            }
-            BdLog.i("affectCount:" + i);
-            return m(linkedList).booleanValue();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean k(String str, int i) {
-        InterceptResult invokeLI;
-        Cursor e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
-            Cursor cursor = null;
-            cursor = null;
-            if (i < 1000) {
-                i = 1000;
-            }
-            try {
-                try {
-                    t77 d = t77.d();
-                    e = d.e("SELECT * FROM tb_group_news ORDER BY notice_id DESC LIMIT " + i + ", 1", null);
-                } catch (Exception e2) {
-                    e = e2;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                String string = e.moveToNext() ? e.getString(e.getColumnIndex("notice_id")) : null;
-                ri.a(e);
-                if (string != null) {
-                    t77.d().delete("tb_group_news", "notice_id<?", new String[]{string});
-                }
-                ri.a(e);
-                return true;
-            } catch (Exception e3) {
-                e = e3;
-                cursor = e;
-                e.printStackTrace();
-                TiebaStatic.printDBExceptionLog(e, "shrink", new Object[0]);
-                ri.a(cursor);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                cursor = e;
-                ri.a(cursor);
-                throw th;
-            }
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public final LinkedList<GroupNewsPojo> l(LinkedList<GroupNewsPojo> linkedList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, linkedList)) == null) {
-            LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
-            ArrayList arrayList = new ArrayList();
-            int size = linkedList.size();
-            for (int i = 0; i < size; i++) {
-                GroupNewsPojo groupNewsPojo = linkedList.get(i);
-                boolean z = false;
-                for (int i2 = 0; i2 < linkedList2.size(); i2++) {
-                    if (linkedList2.get(i2).getContent().equals(groupNewsPojo.getContent())) {
-                        z = true;
-                    }
-                }
-                if (z) {
-                    arrayList.add(groupNewsPojo.getNotice_id());
-                } else {
-                    linkedList2.add(groupNewsPojo);
-                }
-                int size2 = arrayList.size();
-                for (int i3 = 0; i3 < size2; i3++) {
-                    h((String) arrayList.get(i3), 3);
-                }
-            }
-            return linkedList2;
-        }
-        return (LinkedList) invokeL.objValue;
-    }
-
-    public Boolean m(LinkedList<GroupNewsPojo> linkedList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, linkedList)) == null) {
-            Boolean bool = Boolean.FALSE;
-            if (linkedList != null && linkedList.size() != 0) {
-                try {
-                    try {
-                        t77.d().f();
-                        Iterator<GroupNewsPojo> it = linkedList.iterator();
-                        LinkedList<GroupNewsPojo> linkedList2 = null;
-                        List<ValidateItemData> list = null;
-                        while (it.hasNext()) {
-                            GroupNewsPojo next = it.next();
-                            if (next.getCmd().equals("apply_join_group")) {
-                                if (linkedList2 == null) {
-                                    linkedList2 = c(0L, Integer.MAX_VALUE, 0, "apply_join_group");
-                                    if (ModelHelper.getInstance().getValidateModel() != null) {
-                                        list = ModelHelper.getInstance().getValidateModel().convertToValidateItemDataList(linkedList2);
-                                    }
-                                    if (list == null) {
-                                        list = new LinkedList<>();
-                                    }
-                                }
-                                if (list != null) {
-                                    ValidateItemData convertToValidateItemData = ModelHelper.getInstance().getValidateModel() != null ? ModelHelper.getInstance().getValidateModel().convertToValidateItemData(next) : null;
-                                    if (convertToValidateItemData != null) {
-                                        for (ValidateItemData validateItemData : list) {
-                                            if (convertToValidateItemData.getUserId() != null && convertToValidateItemData.getUserId().equals(validateItemData.getUserId()) && convertToValidateItemData.getGroupId() != null && convertToValidateItemData.getGroupId().equals(validateItemData.getGroupId())) {
-                                                a(validateItemData.getNotice_id());
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            ContentValues contentValues = new ContentValues();
-                            contentValues.put("cmd", next.getCmd());
-                            contentValues.put("content", next.getContent());
-                            contentValues.put("content_status", Integer.valueOf(next.getContent_status()));
-                            contentValues.put("ext", next.getExt());
-                            contentValues.put("gid", next.getGid());
-                            contentValues.put("notice_id", next.getNotice_id());
-                            contentValues.put("time", Long.valueOf(next.getTime()));
-                            if (t77.d().update("tb_group_news", contentValues, "notice_id=?", new String[]{next.getNotice_id()}) == 0) {
-                                i(next);
-                            }
-                            bool = Boolean.valueOf(bool.booleanValue() & true);
+                    ImMessageCenterShowItemData imMessageCenterShowItemData = (ImMessageCenterShowItemData) ListUtils.getItem(list, i2);
+                    if (imMessageCenterShowItemData != null && !TextUtils.isEmpty(imMessageCenterShowItemData.getFriendId())) {
+                        String friendId = imMessageCenterShowItemData.getFriendId();
+                        k(friendId, 4);
+                        w77.w().e(friendId);
+                        i++;
+                        if (cVar != null) {
+                            cVar.a((i * 100) / size, friendId, 4);
                         }
-                    } catch (Exception e) {
-                        TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.updateData", new Object[0]);
-                        e.printStackTrace();
-                        bool = Boolean.FALSE;
                     }
-                    return bool;
-                } finally {
-                    t77.d().b();
                 }
+            } finally {
+                s77.d().b();
             }
-            return Boolean.FALSE;
         }
-        return (Boolean) invokeL.objValue;
+    }
+
+    public void e(c cVar) {
+        List<String> y;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
+            try {
+                try {
+                    s77.d().f();
+                    w77.w();
+                    y = w77.y();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (!ListUtils.isEmpty(y)) {
+                    int size = y.size();
+                    int i = 0;
+                    for (String str : y) {
+                        if (o()) {
+                            break;
+                        }
+                        k(str, 4);
+                        w77.w().e(str);
+                        i++;
+                        if (cVar != null) {
+                            cVar.a((i * 100) / size, str, 4);
+                        }
+                    }
+                    if (!o()) {
+                        k(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8);
+                    }
+                }
+            } finally {
+                s77.d().b();
+            }
+        }
+    }
+
+    public void f(List<ImMessageCenterShowItemData> list, c cVar) {
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, list, cVar) == null) {
+            try {
+                try {
+                    s77.d().f();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (!ListUtils.isEmpty(list)) {
+                    ArrayList arrayList = new ArrayList(list.size());
+                    for (int size = list.size() - 1; size >= 0; size--) {
+                        ImMessageCenterShowItemData imMessageCenterShowItemData = (ImMessageCenterShowItemData) ListUtils.getItem(list, size);
+                        if (imMessageCenterShowItemData != null && !TextUtils.isEmpty(imMessageCenterShowItemData.getFriendId())) {
+                            arrayList.add(imMessageCenterShowItemData.getFriendId());
+                        }
+                    }
+                    int size2 = arrayList.size();
+                    int i3 = size2 / 100;
+                    if (size2 % 100 != 0) {
+                        i3++;
+                    }
+                    int i4 = 0;
+                    while (i4 < i3) {
+                        if (!o()) {
+                            if (i4 == i3 - 1) {
+                                i = 100 * i4;
+                                i2 = size2;
+                            } else {
+                                i = 100 * i4;
+                                i2 = i + 100;
+                            }
+                            i4++;
+                            l(ListUtils.subList(arrayList, i, i2), cVar, (i4 * 100) / i3);
+                        }
+                    }
+                }
+            } finally {
+                s77.d().b();
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0053, code lost:
+        if (o() == false) goto L32;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0056, code lost:
+        k(com.baidu.tbadk.core.util.TbEnum.CustomGroupId.STRANGE_MERGE, -7);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void g(c cVar) {
+        List<String> e;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
+            try {
+                try {
+                    s77.d().f();
+                    e = y77.e();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                if (!ListUtils.isEmpty(e)) {
+                    int size = e.size();
+                    int i3 = size / 100;
+                    if (size % 100 != 0) {
+                        i3++;
+                    }
+                    int i4 = 0;
+                    while (true) {
+                        if (i4 >= i3) {
+                            break;
+                        } else if (o()) {
+                            break;
+                        } else {
+                            if (i4 == i3 - 1) {
+                                i = 100 * i4;
+                                i2 = size;
+                            } else {
+                                i = 100 * i4;
+                                i2 = i + 100;
+                            }
+                            i4++;
+                            l(ListUtils.subList(e, i, i2), cVar, (i4 * 100) / i3);
+                        }
+                    }
+                }
+            } finally {
+                s77.d().b();
+            }
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            try {
+                try {
+                    s77.d().f();
+                    ImMessageCenterPojo i = l87.o().i(str, 1);
+                    i.setIs_hidden(1);
+                    i.setUnread_count(0);
+                    u77.f().l(i, 2);
+                    n77.h().d(str);
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                }
+            } finally {
+                s77.d().b();
+            }
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            try {
+                try {
+                    s77.d().f();
+                    k(str, 4);
+                    w77.w().e(str);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } finally {
+                s77.d().b();
+            }
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            try {
+                try {
+                    s77.d().f();
+                    k(str, 2);
+                    x77.w().e(str);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } finally {
+                s77.d().b();
+            }
+        }
+    }
+
+    public void k(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048586, this, str, i) == null) {
+            u77.f().c(str, i);
+        }
+    }
+
+    public final void l(List<String> list, c cVar, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLI(1048587, this, list, cVar, i) == null) || list == null || cVar == null) {
+            return;
+        }
+        y77.b(t(list));
+        ArrayList arrayList = new ArrayList();
+        for (String str : list) {
+            x77.w().d(str);
+            if (o()) {
+                d dVar = new d();
+                dVar.a = str;
+                dVar.b = 2;
+                dVar.c = i;
+                arrayList.add(dVar);
+            } else {
+                cVar.a(i, str, 2);
+            }
+        }
+        if (arrayList.isEmpty() || cVar == null) {
+            return;
+        }
+        cVar.b(arrayList);
+    }
+
+    public void n(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048588, this, str, i) == null) {
+            try {
+                try {
+                    s77.d().f();
+                    ImMessageCenterPojo i2 = l87.o().i(str, i);
+                    i2.setIs_hidden(1);
+                    i2.setUnread_count(0);
+                    u77.f().l(i2, 2);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } finally {
+                s77.d().b();
+            }
+        }
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            b bVar = this.a;
+            if (bVar != null) {
+                return bVar != null && bVar.isCancelled();
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public xr4 p(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, context)) == null) {
+            xr4 xr4Var = new xr4(context);
+            xr4Var.a(context.getString(R.string.obfuscated_res_0x7f0f04b2));
+            xr4Var.setCanceledOnTouchOutside(false);
+            xr4Var.setCancelable(true);
+            xr4Var.setOnCancelListener(this.b);
+            return xr4Var;
+        }
+        return (xr4) invokeL.objValue;
+    }
+
+    public void q(String str, int i) {
+        ImMessageCenterPojo i2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048591, this, str, i) == null) || (i2 = l87.o().i(str, i)) == null) {
+            return;
+        }
+        if (i == 2) {
+            jz4.h0().r(str);
+        } else if (i == 4) {
+            jz4.h0().q(og.e(str, 0));
+        } else if (i == -4) {
+            jz4.h0().f(1);
+        } else {
+            jz4.h0().d(str);
+        }
+        i2.setIs_hidden(1);
+        i2.setUnread_count(0);
+        if (i == 2 || i == 4 || i == -7 || i == -8) {
+            l87.o().F(str, i);
+        } else if (i == 1) {
+            l87.o().A(str, i, false);
+        } else {
+            l87.o().A(str, i, false);
+        }
+    }
+
+    public void r(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048592, this, str, i) == null) {
+            l87.o().G(str, i);
+        }
+    }
+
+    public void s(String str, int i, c cVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIL(1048593, this, str, i, cVar) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        if (1 == i) {
+            h(str);
+        } else if (-7 == i) {
+            g(cVar);
+        } else if (-8 == i) {
+            e(cVar);
+        } else if (2 == i) {
+            j(str);
+        } else if (4 == i) {
+            i(str);
+        } else if (-4 == i) {
+            n(str, i);
+        } else {
+            n(str, i);
+        }
+    }
+
+    public final String t(List<String> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, list)) == null) {
+            StringBuilder sb = new StringBuilder();
+            boolean z = true;
+            for (String str : list) {
+                if (z) {
+                    z = false;
+                } else {
+                    sb.append(",");
+                }
+                sb.append(str);
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

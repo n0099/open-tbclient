@@ -83,7 +83,7 @@ public class nj6 extends ue6<ir4, ThreadCardViewHolder<ThreadData>> implements z
                             wp6.e(threadData, 3, this.b.mPageId, zp6.p0, this.b.t());
                         }
                     }
-                    ir6.g(threadData, this.b.b, 2);
+                    hr6.g(threadData, this.b.b, 2);
                 } else if (view2 instanceof ThreadGodReplyLayout) {
                     wp6.e(threadData, 15, this.b.mPageId, zp6.p0, this.b.t());
                     if (this.b.b != null && this.b.b.getForum() != null) {
@@ -102,7 +102,7 @@ public class nj6 extends ue6<ir4, ThreadCardViewHolder<ThreadData>> implements z
                 this.b.Z(threadData);
             } else if (view2.getId() != R.id.obfuscated_res_0x7f092450 && view2.getId() != R.id.obfuscated_res_0x7f092422) {
                 if (view2.getId() == R.id.obfuscated_res_0x7f0904f3) {
-                    ir6.a(zp6.p0, threadData.getRecomReason());
+                    hr6.a(zp6.p0, threadData.getRecomReason());
                 } else if (view2 instanceof TbImageView) {
                     if (this.b.o.a instanceof Boolean) {
                         if (((Boolean) this.b.o.a).booleanValue()) {

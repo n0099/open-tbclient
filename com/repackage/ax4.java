@@ -40,19 +40,19 @@ public class ax4 {
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
             switch (i) {
                 case 1:
-                    return hj.a(R.string.obfuscated_res_0x7f0f1557);
-                case 2:
-                    return hj.a(R.string.obfuscated_res_0x7f0f155c);
-                case 3:
-                    return hj.a(R.string.obfuscated_res_0x7f0f0c3c);
-                case 4:
                     return hj.a(R.string.obfuscated_res_0x7f0f155a);
+                case 2:
+                    return hj.a(R.string.obfuscated_res_0x7f0f155f);
+                case 3:
+                    return hj.a(R.string.obfuscated_res_0x7f0f0c3d);
+                case 4:
+                    return hj.a(R.string.obfuscated_res_0x7f0f155d);
                 case 5:
-                    return hj.a(R.string.obfuscated_res_0x7f0f1558);
-                case 6:
                     return hj.a(R.string.obfuscated_res_0x7f0f155b);
+                case 6:
+                    return hj.a(R.string.obfuscated_res_0x7f0f155e);
                 case 7:
-                    return hj.a(R.string.obfuscated_res_0x7f0f1559);
+                    return hj.a(R.string.obfuscated_res_0x7f0f155c);
                 default:
                     return "";
             }

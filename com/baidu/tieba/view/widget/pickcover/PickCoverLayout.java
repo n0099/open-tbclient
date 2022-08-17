@@ -601,7 +601,7 @@ public class PickCoverLayout extends FrameLayout {
     public void setSlideBarMask(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-            this.e.setPickDrawable(z ? R.drawable.obfuscated_res_0x7f080f82 : R.drawable.obfuscated_res_0x7f080f81);
+            this.e.setPickDrawable(z ? R.drawable.obfuscated_res_0x7f080f83 : R.drawable.obfuscated_res_0x7f080f82);
         }
     }
 

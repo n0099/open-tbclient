@@ -137,7 +137,7 @@ public class ua1 extends BaseAdapter {
                 if (item.getIsSelected() == 1) {
                     aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f080448);
                 } else {
-                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f081227);
+                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f081228);
                 }
             }
             return view2;

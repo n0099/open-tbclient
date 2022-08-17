@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hu9;
+import com.repackage.ju9;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -97,7 +97,7 @@ public class VideoFileRenderer implements VideoSink {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.eglBase = hu9.c(this.val$sharedContext, EglBase.CONFIG_PIXEL_BUFFER);
+                        this.this$0.eglBase = ju9.c(this.val$sharedContext, EglBase.CONFIG_PIXEL_BUFFER);
                         this.this$0.eglBase.createDummyPbufferSurface();
                         this.this$0.eglBase.makeCurrent();
                         this.this$0.yuvConverter = new YuvConverter();
@@ -131,7 +131,7 @@ public class VideoFileRenderer implements VideoSink {
             videoFrame.release();
             final VideoFrame.I420Buffer i420 = cropAndScale.toI420();
             cropAndScale.release();
-            this.fileThreadHandler.post(new Runnable() { // from class: com.repackage.cu9
+            this.fileThreadHandler.post(new Runnable() { // from class: com.repackage.eu9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -180,7 +180,7 @@ public class VideoFileRenderer implements VideoSink {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, videoFrame) == null) {
             videoFrame.retain();
-            this.renderThreadHandler.post(new Runnable() { // from class: com.repackage.bu9
+            this.renderThreadHandler.post(new Runnable() { // from class: com.repackage.du9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -199,7 +199,7 @@ public class VideoFileRenderer implements VideoSink {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             final CountDownLatch countDownLatch = new CountDownLatch(1);
-            this.renderThreadHandler.post(new Runnable() { // from class: com.repackage.au9
+            this.renderThreadHandler.post(new Runnable() { // from class: com.repackage.cu9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -212,7 +212,7 @@ public class VideoFileRenderer implements VideoSink {
                 }
             });
             ThreadUtils.awaitUninterruptibly(countDownLatch);
-            this.fileThreadHandler.post(new Runnable() { // from class: com.repackage.zt9
+            this.fileThreadHandler.post(new Runnable() { // from class: com.repackage.bu9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

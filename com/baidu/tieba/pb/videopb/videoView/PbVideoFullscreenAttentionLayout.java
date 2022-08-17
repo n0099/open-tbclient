@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kx7;
+import com.repackage.jx7;
 import com.repackage.ov4;
 import com.repackage.pi;
 import com.repackage.qi;
@@ -26,7 +26,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
     public PbVideoFullscreenLikeBtn b;
-    public kx7 c;
+    public jx7 c;
     public BdUniqueId d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -69,8 +69,8 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            kx7 kx7Var = this.c;
-            return (kx7Var == null || kx7Var.j() == null || !this.c.j().getIsLike()) ? false : true;
+            jx7 jx7Var = this.c;
+            return (jx7Var == null || jx7Var.j() == null || !this.c.j().getIsLike()) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -100,17 +100,17 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
             if (!(getContext() instanceof AbsPbActivity)) {
                 return;
             }
-            kx7 kx7Var = new kx7(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
-            this.c = kx7Var;
-            kx7Var.m("11");
+            jx7 jx7Var = new jx7(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
+            this.c = jx7Var;
+            jx7Var.m("11");
             this.c.l(this.d);
         }
         this.c.n(threadData.getAuthor());
         this.c.x(str);
         this.c.v(threadData);
-        kx7 kx7Var2 = this.c;
-        kx7Var2.p = true;
-        kx7Var2.w(a);
+        jx7 jx7Var2 = this.c;
+        jx7Var2.p = true;
+        jx7Var2.w(a);
     }
 
     public void setData(ThreadData threadData) {

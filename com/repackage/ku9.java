@@ -1,25 +1,27 @@
 package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import javax.annotation.Nullable;
-import org.webrtc.VideoDecoder;
-import org.webrtc.VideoDecoderFactory;
-/* compiled from: VideoDecoderFactory.java */
+import org.webrtc.CalledByNative;
+import org.webrtc.PeerConnection;
+import org.webrtc.RtpTransceiver;
+/* compiled from: PeerConnection.java */
 /* loaded from: classes6.dex */
 public final /* synthetic */ class ku9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    @Deprecated
-    public static VideoDecoder $default$createDecoder(VideoDecoderFactory videoDecoderFactory, String str) {
-        InterceptResult invokeLL;
+    @CalledByNative("Observer")
+    public static void $default$onConnectionChange(PeerConnection.Observer observer, PeerConnection.PeerConnectionState peerConnectionState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, videoDecoderFactory, str)) == null) {
-            throw new UnsupportedOperationException("Deprecated and not implemented.");
+        if (interceptable == null || interceptable.invokeLL(65536, null, observer, peerConnectionState) == null) {
         }
-        return (VideoDecoder) invokeLL.objValue;
+    }
+
+    @CalledByNative("Observer")
+    public static void $default$onTrack(PeerConnection.Observer observer, RtpTransceiver rtpTransceiver) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, observer, rtpTransceiver) == null) {
+        }
     }
 }

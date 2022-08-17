@@ -46,7 +46,7 @@ public final class h extends b implements com.kwad.sdk.widget.c {
     public com.kwad.sdk.core.video.videoview.a dp;
     @Nullable
     public boolean ds;
-    public final a.InterfaceC0363a du;
+    public final a.InterfaceC0365a du;
     public KSFrameLayout gS;
     public c gh;
     public com.kwad.components.core.video.d hz;
@@ -70,7 +70,7 @@ public final class h extends b implements com.kwad.sdk.widget.c {
             }
         }
         this.ds = false;
-        this.du = new a.InterfaceC0363a(this) { // from class: com.kwad.components.ad.interstitial.b.h.3
+        this.du = new a.InterfaceC0365a(this) { // from class: com.kwad.components.ad.interstitial.b.h.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ h hA;
@@ -94,7 +94,7 @@ public final class h extends b implements com.kwad.sdk.widget.c {
             }
 
             /* JADX WARN: Removed duplicated region for block: B:17:0x0032  */
-            @Override // com.kwad.components.core.video.a.InterfaceC0363a
+            @Override // com.kwad.components.core.video.a.InterfaceC0365a
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
@@ -116,7 +116,7 @@ public final class h extends b implements com.kwad.sdk.widget.c {
                         bVar.gL = aVar;
                         bVar.gJ = i4;
                         bVar.abH = ag.cB(this.hA.getContext()) ? 2 : 1;
-                        com.kwad.components.core.c.a.a.a(new a.C0352a(com.kwad.sdk.b.kwai.a.x(this.hA.dp)).L(this.hA.mAdTemplate).b(this.hA.mApkDownloadHelper).ae(i5).aj(z).al(true).a(bVar).a(new a.b(this) { // from class: com.kwad.components.ad.interstitial.b.h.3.1
+                        com.kwad.components.core.c.a.a.a(new a.C0354a(com.kwad.sdk.b.kwai.a.x(this.hA.dp)).L(this.hA.mAdTemplate).b(this.hA.mApkDownloadHelper).ae(i5).aj(z).al(true).a(bVar).a(new a.b(this) { // from class: com.kwad.components.ad.interstitial.b.h.3.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass3 hB;
@@ -155,7 +155,7 @@ public final class h extends b implements com.kwad.sdk.widget.c {
                     bVar2.gL = aVar;
                     bVar2.gJ = i4;
                     bVar2.abH = ag.cB(this.hA.getContext()) ? 2 : 1;
-                    com.kwad.components.core.c.a.a.a(new a.C0352a(com.kwad.sdk.b.kwai.a.x(this.hA.dp)).L(this.hA.mAdTemplate).b(this.hA.mApkDownloadHelper).ae(i5).aj(z).al(true).a(bVar2).a(new a.b(this) { // from class: com.kwad.components.ad.interstitial.b.h.3.1
+                    com.kwad.components.core.c.a.a.a(new a.C0354a(com.kwad.sdk.b.kwai.a.x(this.hA.dp)).L(this.hA.mAdTemplate).b(this.hA.mApkDownloadHelper).ae(i5).aj(z).al(true).a(bVar2).a(new a.b(this) { // from class: com.kwad.components.ad.interstitial.b.h.3.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass3 hB;

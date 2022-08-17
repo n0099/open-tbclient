@@ -1,14 +1,14 @@
 package com.repackage;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.searchbox.live.interfaces.service.FollowStatusService;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ni7 extends uc1<FollowStatusService> {
+public class ni7 implements FollowStatusService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,12 +26,16 @@ public class ni7 extends uc1<FollowStatusService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.uc1
-    /* renamed from: a */
-    public FollowStatusService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.FollowStatusService
+    public void saveFollowStatus(boolean z, String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new oi7() : (FollowStatusService) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
+            UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
+            aVar.a = true;
+            aVar.c = str;
+            aVar.d = z;
+            aVar.e = true;
+            MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(aVar));
+        }
     }
 }

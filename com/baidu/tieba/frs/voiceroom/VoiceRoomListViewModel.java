@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.am4;
-import com.repackage.os6;
+import com.repackage.ns6;
 import com.repackage.zl4;
 import java.util.List;
 import kotlin.Metadata;
@@ -22,7 +22,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class VoiceRoomListViewModel extends ViewModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final os6 a;
+    public final ns6 a;
     public final MutableLiveData<am4<List<VoiceRoomWrapper>>> b;
 
     /* loaded from: classes3.dex */
@@ -73,7 +73,7 @@ public final class VoiceRoomListViewModel extends ViewModel {
                 return;
             }
         }
-        this.a = new os6();
+        this.a = new ns6();
         this.b = new MutableLiveData<>();
     }
 

@@ -21,12 +21,12 @@ public interface c31 {
 
         /* renamed from: com.repackage.c31$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0456a implements View.OnClickListener {
+        public class View$OnClickListenerC0458a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ f21 a;
 
-            public View$OnClickListenerC0456a(a aVar, f21 f21Var) {
+            public View$OnClickListenerC0458a(a aVar, f21 f21Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,8 +72,8 @@ public interface c31 {
         @Override // com.repackage.c31
         public void a(View view2, f21 f21Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, f21Var) == null) && ((Integer) view2.getTag()).intValue() == R.drawable.obfuscated_res_0x7f080e17) {
-                view2.setOnClickListener(new View$OnClickListenerC0456a(this, f21Var));
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, f21Var) == null) && ((Integer) view2.getTag()).intValue() == R.drawable.obfuscated_res_0x7f080e18) {
+                view2.setOnClickListener(new View$OnClickListenerC0458a(this, f21Var));
             }
         }
 
@@ -81,14 +81,14 @@ public interface c31 {
         public int[] b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new int[]{R.drawable.obfuscated_res_0x7f080e17} : (int[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new int[]{R.drawable.obfuscated_res_0x7f080e18} : (int[]) invokeV.objValue;
         }
 
         @Override // com.repackage.c31
         public int[] c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new int[]{R.drawable.obfuscated_res_0x7f080e19} : (int[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new int[]{R.drawable.obfuscated_res_0x7f080e1a} : (int[]) invokeV.objValue;
         }
     }
 

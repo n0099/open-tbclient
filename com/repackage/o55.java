@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class o55 {
     public static /* synthetic */ Interceptable $ic;
     public static final String h;
@@ -36,7 +36,7 @@ public class o55 {
     public n55 f;
     public n55 g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements n55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +102,7 @@ public class o55 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements n55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,7 +140,7 @@ public class o55 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements n55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -310,9 +310,9 @@ public class o55 {
                 n55Var = this.d;
                 str = "正常·图";
             }
-            vm8.s(writeData, imageFileInfo, filePath, FileHelper.getImageFileWH(filePath), FileHelper.getFileSize(filePath), checkIsLongImage, checkIsHeifImage, imageFileInfo.hasActionsWithoutResize(), str);
+            um8.s(writeData, imageFileInfo, filePath, FileHelper.getImageFileWH(filePath), FileHelper.getFileSize(filePath), checkIsLongImage, checkIsHeifImage, imageFileInfo.hasActionsWithoutResize(), str);
             String a2 = n55Var.a(imageFileInfo);
-            vm8.j(writeData, imageFileInfo, a2, FileHelper.getImageFileWH(a2), FileHelper.getFileSize(a2));
+            um8.j(writeData, imageFileInfo, a2, FileHelper.getImageFileWH(a2), FileHelper.getFileSize(a2));
             return a2;
         }
         return (String) invokeLLZ.objValue;

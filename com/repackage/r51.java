@@ -94,7 +94,7 @@ public class r51 extends o51 {
                 ((GradientDrawable) this.f.getBackground()).setStroke(2, getResources().getColor(R.color.obfuscated_res_0x7f0602ee));
                 return;
             }
-            this.f.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd1));
+            this.f.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd2));
         }
     }
 

@@ -72,9 +72,9 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            BdToast b = BdToast.b(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f1511));
+            BdToast b = BdToast.b(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f1514));
             b.f(BdToast.ToastIcon.FAILURE);
-            b.h();
+            b.i();
         }
     }
 

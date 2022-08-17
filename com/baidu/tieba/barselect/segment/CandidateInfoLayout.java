@@ -164,7 +164,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
                     layoutParams.setMargins(layoutParams.leftMargin - f3, layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
                     this.e.setLayoutParams(layoutParams);
                     this.e.o(true);
-                    this.e.setBawuLogoView(R.drawable.obfuscated_res_0x7f080f02);
+                    this.e.setBawuLogoView(R.drawable.obfuscated_res_0x7f080f03);
                     this.e.setPendantView(R.drawable.obfuscated_res_0x7f0806cb);
                     this.g.setTextSize(0, qi.f(this.d, R.dimen.tbfontsize46));
                     setGravity(16);

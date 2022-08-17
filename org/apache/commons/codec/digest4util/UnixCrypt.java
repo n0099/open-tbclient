@@ -1,7 +1,6 @@
 package org.apache.commons.codec.digest4util;
 
 import android.annotation.SuppressLint;
-import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
@@ -159,7 +158,7 @@ public class UnixCrypt {
                 int i11 = iArr3[7][((i6 >>> 21) & 15) | ((i6 >>> 22) & 48)] | iArr3[4][i6 & 63] | iArr3[5][((i6 >>> 7) & 3) | ((i6 >>> 8) & 60)] | iArr3[6][(i6 >>> 15) & 63];
                 int i12 = i9 + 1;
                 iArr[i9] = (i11 << 16) | (65535 & i10);
-                int i13 = (i10 >>> 16) | (i11 & SupportMenu.CATEGORY_MASK);
+                int i13 = (i10 >>> 16) | (i11 & (-65536));
                 iArr[i12] = (i13 >>> 28) | (i13 << 4);
                 i8++;
                 i9 = i12 + 1;

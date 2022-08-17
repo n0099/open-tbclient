@@ -91,7 +91,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
                 if (DownloadManager.ACTION_DOWNLOAD_PROGRESS_CHANGE.equals(intent.getAction())) {
                     int intExtra = intent.getIntExtra("progress", 0);
                     this.this$0.j.setVisibility(0);
-                    this.this$0.j.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09cf), String.valueOf(intExtra)));
+                    this.this$0.j.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09d2), String.valueOf(intExtra)));
                 } else if (DownloadManager.ACTION_DOWNLOAD_STATUS_CHANGE.equals(intent.getAction())) {
                     LcUpdateDialogActivity lcUpdateDialogActivity2 = this.this$0;
                     TbadkCoreApplication.saveClientId(lcUpdateDialogActivity2, String.valueOf(lcUpdateDialogActivity2.m));

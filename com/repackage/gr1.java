@@ -28,14 +28,14 @@ public class gr1 extends fr1 {
 
         /* renamed from: com.repackage.gr1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0484a implements la3.a {
+        public class C0488a implements la3.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ rr1 b;
             public final /* synthetic */ a c;
 
-            public C0484a(a aVar, String str, rr1 rr1Var) {
+            public C0488a(a aVar, String str, rr1 rr1Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,7 +104,7 @@ public class gr1 extends fr1 {
                 rr1 rr1Var = new rr1("accelerometerChange", jSONObject, str);
                 la3 a = la3.a();
                 a.b(this.a.getContext(), b.a(jSONObject.optString("interval")));
-                a.e(new C0484a(this, str, rr1Var));
+                a.e(new C0488a(this, str, rr1Var));
                 a.f();
                 rr1Var.b(this.a);
                 return zs1.f();

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.y85;
 /* loaded from: classes6.dex */
-public abstract class g95<D, S extends y85> implements zj8 {
+public abstract class g95<D, S extends y85> implements yj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public D a;

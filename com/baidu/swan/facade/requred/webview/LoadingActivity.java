@@ -51,12 +51,12 @@ public class LoadingActivity extends Activity implements sf3<d13.a> {
 
         /* renamed from: com.baidu.swan.facade.requred.webview.LoadingActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0184a implements Runnable {
+        public class RunnableC0185a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0184a(a aVar) {
+            public RunnableC0185a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,7 +107,7 @@ public class LoadingActivity extends Activity implements sf3<d13.a> {
         public void a(qa2 qa2Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qa2Var) == null) {
-                te3.e0(new RunnableC0184a(this));
+                te3.e0(new RunnableC0185a(this));
             }
         }
     }

@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b87;
 import com.repackage.er4;
 import com.repackage.og;
+import com.repackage.z77;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -341,23 +341,23 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
                     }
                     if (pbContentPojo.item != null) {
                         Item.Builder builder8 = new Item.Builder();
-                        b87 b87Var = pbContentPojo.item;
-                        builder8.item_id = b87Var.a;
-                        builder8.item_name = b87Var.b;
-                        builder8.icon_size = b87Var.c;
-                        builder8.icon_url = b87Var.d;
+                        z77 z77Var = pbContentPojo.item;
+                        builder8.item_id = z77Var.a;
+                        builder8.item_name = z77Var.b;
+                        builder8.icon_size = z77Var.c;
+                        builder8.icon_url = z77Var.d;
                         builder8.tags = new ArrayList(pbContentPojo.item.e);
-                        b87 b87Var2 = pbContentPojo.item;
-                        builder8.score = b87Var2.f;
-                        builder8.star = b87Var2.g;
-                        builder8.button_name = b87Var2.h;
-                        builder8.button_link = b87Var2.i;
-                        builder8.item_appid = b87Var2.j;
-                        builder8.category_id = b87Var2.k;
-                        builder8.button_link_type = b87Var2.l;
-                        builder8.apk_name = b87Var2.m;
-                        builder8.forum_name = b87Var2.n;
-                        if (b87Var2.o != null) {
+                        z77 z77Var2 = pbContentPojo.item;
+                        builder8.score = z77Var2.f;
+                        builder8.star = z77Var2.g;
+                        builder8.button_name = z77Var2.h;
+                        builder8.button_link = z77Var2.i;
+                        builder8.item_appid = z77Var2.j;
+                        builder8.category_id = z77Var2.k;
+                        builder8.button_link_type = z77Var2.l;
+                        builder8.apk_name = z77Var2.m;
+                        builder8.forum_name = z77Var2.n;
+                        if (z77Var2.o != null) {
                             ApkDetail.Builder builder9 = new ApkDetail.Builder();
                             ApkDetailPojo apkDetailPojo = pbContentPojo.item.o;
                             builder9.developer = apkDetailPojo.developer;

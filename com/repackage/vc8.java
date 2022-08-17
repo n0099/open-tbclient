@@ -1,6 +1,5 @@
 package com.repackage;
 
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,10 +36,9 @@ public class vc8 {
                 return null;
             }
             vc8 vc8Var = new vc8();
-            jSONObject.optString("brand_name");
-            vc8Var.a = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-            vc8Var.b = jSONObject.optString("button_scheme");
-            vc8Var.c = jSONObject.optString("cmd_scheme");
+            vc8Var.a = jSONObject.optString("apk_name");
+            vc8Var.b = jSONObject.optString("apk_url");
+            vc8Var.c = jSONObject.optString("download_key");
             return vc8Var;
         }
         return (vc8) invokeL.objValue;

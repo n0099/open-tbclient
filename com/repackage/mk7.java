@@ -1,52 +1,88 @@
 package com.repackage;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetVipInfo.VipBannerItem;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipBasicList;
+import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes6.dex */
-public class mk7 implements rs4 {
+public class mk7 implements on {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public nk7 a;
+    public List<VipSpecialItem> b;
+    public int c;
+    public String d;
 
-    public mk7(VipBannerItem vipBannerItem) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755496328, "Lcom/repackage/mk7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755496328, "Lcom/repackage/mk7;");
+                return;
+            }
+        }
+        e = BdUniqueId.gen();
+    }
+
+    public mk7(VipBasicList vipBasicList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipBannerItem};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {vipBasicList};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (vipBannerItem == null) {
+        this.c = 0;
+        this.d = "";
+        if (vipBasicList == null || vipBasicList.item.size() <= 0) {
             return;
         }
-        this.a = vipBannerItem.img_url;
-        this.b = vipBannerItem.link;
+        this.d = vipBasicList.card_id;
+        this.c = vipBasicList.card_type.intValue();
+        nk7 nk7Var = new nk7();
+        this.a = nk7Var;
+        nk7Var.e(5);
+        this.a.d(vipBasicList.class_name);
+        this.a.f(vipBasicList.class_url_name);
+        this.a.g(vipBasicList.class_url);
+        this.b = new ArrayList();
+        for (VipSpecialItem vipSpecialItem : vipBasicList.item) {
+            this.b.add(vipSpecialItem);
+        }
     }
 
-    @Override // com.repackage.rs4
-    public String a() {
+    public List<VipSpecialItem> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.rs4
-    public String b() {
+    @Override // com.repackage.on
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
     }
 }

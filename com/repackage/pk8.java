@@ -1,17 +1,20 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ActHot;
+import tbclient.ActPost;
 import tbclient.LinkInfo;
 /* loaded from: classes7.dex */
 public class pk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public ArrayList<nk8> a;
+    public ArrayList<ok8> b;
 
     public pk8() {
         Interceptable interceptable = $ic;
@@ -23,23 +26,33 @@ public class pk8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
     }
 
-    public void a(LinkInfo linkInfo) {
+    public void a(ActPost actPost) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, linkInfo) == null) || linkInfo == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, actPost) == null) || actPost == null) {
             return;
         }
-        String str = linkInfo.desc;
-        String str2 = linkInfo.link;
-        this.a = linkInfo.type;
-    }
-
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+        String str = actPost.list_head;
+        for (ActHot actHot : actPost.act_hot) {
+            if (actHot != null) {
+                nk8 nk8Var = new nk8();
+                nk8Var.g(actHot);
+                this.a.add(nk8Var);
+            }
+        }
+        List<LinkInfo> list = actPost.link_info;
+        for (LinkInfo linkInfo : list) {
+            if (list != null) {
+                ok8 ok8Var = new ok8();
+                ok8Var.a(linkInfo);
+                this.b.add(ok8Var);
+            }
+        }
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pd7;
+import com.repackage.od7;
 import com.repackage.te5;
 import tbclient.CommonReq;
 import tbclient.GetTagList.DataReq;
@@ -22,7 +22,7 @@ public class RequestGetLabelMessage extends NetMessage {
     /* renamed from: common  reason: collision with root package name */
     public CommonReq f1055common;
     public int from;
-    public pd7 mLabelDataSet;
+    public od7 mLabelDataSet;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestGetLabelMessage() {
@@ -49,7 +49,7 @@ public class RequestGetLabelMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1247common = this.f1055common;
+            builder.f1248common = this.f1055common;
             builder.from = Integer.valueOf(this.from);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
                 te5.a(builder, true);
@@ -61,10 +61,10 @@ public class RequestGetLabelMessage extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public pd7 getLabelDataSet() {
+    public od7 getLabelDataSet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLabelDataSet : (pd7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLabelDataSet : (od7) invokeV.objValue;
     }
 
     public void setCommon(CommonReq commonReq) {
@@ -81,10 +81,10 @@ public class RequestGetLabelMessage extends NetMessage {
         }
     }
 
-    public void setLabelDataSet(pd7 pd7Var) {
+    public void setLabelDataSet(od7 od7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, pd7Var) == null) {
-            this.mLabelDataSet = pd7Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, od7Var) == null) {
+            this.mLabelDataSet = od7Var;
         }
     }
 }

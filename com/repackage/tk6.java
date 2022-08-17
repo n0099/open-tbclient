@@ -681,7 +681,7 @@ public class tk6 implements View.OnClickListener {
             this.y.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f069f));
             EMTextView eMTextView = new EMTextView(this.a.getPageActivity());
             this.z = eMTextView;
-            eMTextView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1529));
+            eMTextView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f152c));
             this.z.setGravity(16);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
             layoutParams.gravity = 17;
@@ -690,7 +690,7 @@ public class tk6 implements View.OnClickListener {
             this.y.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.z, this);
             EMTextView eMTextView2 = new EMTextView(this.a.getPageActivity());
             this.A = eMTextView2;
-            eMTextView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0f47));
+            eMTextView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0f48));
             this.A.setEnabled(false);
             this.A.setGravity(16);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -1);
@@ -742,11 +742,11 @@ public class tk6 implements View.OnClickListener {
                 fs4Var.q(this.a.getString(R.string.obfuscated_res_0x7f0f06a5));
                 this.J = new ds4(this.a, this.K);
                 ArrayList arrayList = new ArrayList();
-                bs4 bs4Var = new bs4(this.a.getString(R.string.obfuscated_res_0x7f0f1081), this.K);
+                bs4 bs4Var = new bs4(this.a.getString(R.string.obfuscated_res_0x7f0f1082), this.K);
                 bs4Var.q(R.color.CAM_X0302);
                 bs4Var.m(this.N);
                 arrayList.add(bs4Var);
-                bs4 bs4Var2 = new bs4(this.a.getString(R.string.obfuscated_res_0x7f0f0ca5), this.K);
+                bs4 bs4Var2 = new bs4(this.a.getString(R.string.obfuscated_res_0x7f0f0ca6), this.K);
                 bs4Var2.m(this.O);
                 arrayList.add(bs4Var2);
                 this.K.m(new j(this));
@@ -797,7 +797,7 @@ public class tk6 implements View.OnClickListener {
             this.k.setEnabled(false);
             this.t.setEnabled(false);
             this.H = false;
-            this.n.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080927, gj8.a(SkinManager.getColor(R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.n.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080928, fj8.a(SkinManager.getColor(R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_PRESS));
             ms4 d2 = ms4.d(this.k);
             d2.k(R.color.CAM_X0902);
             d2.l(R.dimen.L_X02);
@@ -810,7 +810,7 @@ public class tk6 implements View.OnClickListener {
         this.k.setEnabled(true);
         this.t.setEnabled(true);
         this.H = true;
-        this.n.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080927, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+        this.n.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080928, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
         ms4 d3 = ms4.d(this.k);
         d3.k(R.color.CAM_X0902);
         d3.l(R.dimen.L_X02);
@@ -930,7 +930,7 @@ public class tk6 implements View.OnClickListener {
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.a.getPageActivity());
             tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f06aa);
             tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f06a9);
-            tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0c48, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04a6, TBAlertConfig.OperateBtnStyle.MAIN, new b(this, onClickListener)));
+            tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0c49, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04a6, TBAlertConfig.OperateBtnStyle.MAIN, new b(this, onClickListener)));
             tBAlertBuilder.g();
             tBAlertBuilder.h(false);
             tBAlertBuilder.w();
@@ -1130,12 +1130,12 @@ public class tk6 implements View.OnClickListener {
         this.u.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         this.v.setHintTextColor(SkinManager.getColor(R.color.CAM_X0111));
         this.v.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-        this.l.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080936, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+        this.l.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080937, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
         this.m.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_list_arrow16_right, SkinManager.getColor(R.color.CAM_X0107), WebPManager.ResourceStateType.NORMAL_PRESS));
         if (this.H) {
-            this.n.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080927, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.n.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080928, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
         } else {
-            this.n.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080927, gj8.a(SkinManager.getColor(R.color.CAM_X0304), SkinManager.RESOURCE_ALPHA_PRESS), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.n.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080928, fj8.a(SkinManager.getColor(R.color.CAM_X0304), SkinManager.RESOURCE_ALPHA_PRESS), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
         NavigationBar navigationBar = this.y;
         if (navigationBar != null) {

@@ -112,7 +112,7 @@ public class bi6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ai6Var) == null) {
             if (!oi.z()) {
-                this.b.showToast(R.string.obfuscated_res_0x7f0f0c74);
+                this.b.showToast(R.string.obfuscated_res_0x7f0f0c75);
             } else if (ai6Var == null || ai6Var.m == null || this.c == null || !ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
             } else {
                 pz4 pz4Var = this.c;
@@ -126,7 +126,7 @@ public class bi6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ai6Var) == null) {
             if (!oi.z()) {
-                this.b.showToast(R.string.obfuscated_res_0x7f0f0c74);
+                this.b.showToast(R.string.obfuscated_res_0x7f0f0c75);
             } else if (ai6Var == null || this.a == null || !ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
             } else {
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);

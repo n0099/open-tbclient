@@ -598,7 +598,7 @@ public class kz5 extends az5<m06> implements ol5 {
                         String latitude = ((m06) this.k).a.getLatitude();
                         String longtitude = ((m06) this.k).a.getLongtitude();
                         if (UtilHelper.isDecimal(latitude) && UtilHelper.isDecimal(longtitude) && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
-                            AppPosInfo c2 = id8.e().c();
+                            AppPosInfo c2 = hd8.e().c();
                             String str2 = c2.latitude;
                             String str3 = c2.longitude;
                             if (UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3) && qi.g(Double.parseDouble(str2), Double.parseDouble(str3), Double.parseDouble(latitude), Double.parseDouble(longtitude)) <= 50.0d) {

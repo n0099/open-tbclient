@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g28;
+import com.repackage.f28;
 import com.repackage.qi;
 import com.repackage.rn4;
 import com.repackage.te5;
@@ -29,7 +29,7 @@ public class ProfileRequestMessage extends NetMessage {
     public boolean isSelf;
     public Integer is_from_usercenter;
     public Integer is_guest;
-    public g28 mPersonCenterData;
+    public f28 mPersonCenterData;
     public Integer need_post_count;
     public Integer page;
     public Integer pn;
@@ -100,10 +100,10 @@ public class ProfileRequestMessage extends NetMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.page : (Integer) invokeV.objValue;
     }
 
-    public g28 getPersonCenterData() {
+    public f28 getPersonCenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPersonCenterData : (g28) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPersonCenterData : (f28) invokeV.objValue;
     }
 
     public Long get_friend_uid() {
@@ -198,10 +198,10 @@ public class ProfileRequestMessage extends NetMessage {
         }
     }
 
-    public void setPersonCenterData(g28 g28Var) {
+    public void setPersonCenterData(f28 f28Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, g28Var) == null) {
-            this.mPersonCenterData = g28Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, f28Var) == null) {
+            this.mPersonCenterData = f28Var;
         }
     }
 

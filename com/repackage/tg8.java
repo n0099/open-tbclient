@@ -1,97 +1,34 @@
 package com.repackage;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tbadk.core.data.SignData;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class tg8 {
+public class tg8 implements PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int A;
-    public ArrayList<ug8> B;
-    public ArrayList<ug8> C;
-    public ArrayList<ug8> D;
-    public HashMap<String, ug8> E;
-    public rg8 F;
-    public int G;
-    public wg8 H;
-    public bh8 I;
-    public BlockPopInfoData J;
     public int a;
     public String b;
     public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public int i;
-    public String j;
-    public int k;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public boolean i;
+    public boolean j;
+    public boolean k;
     public boolean l;
     public int m;
-    public int n;
-    public int o;
-    public int p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
-    public int u;
-    public String v;
-    public String w;
-    public int x;
-    public boolean y;
-    public int z;
-
-    /* loaded from: classes7.dex */
-    public class a implements Comparator<ug8> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(tg8 tg8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tg8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(ug8 ug8Var, ug8 ug8Var2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ug8Var, ug8Var2)) == null) ? ug8Var2.i() - ug8Var.i() : invokeLL.intValue;
-        }
-    }
 
     public tg8() {
         Interceptable interceptable = $ic;
@@ -103,426 +40,183 @@ public class tg8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = "0";
-        this.B = new ArrayList<>();
-        this.C = new ArrayList<>();
-        this.D = new ArrayList<>();
-        this.E = new HashMap<>();
-        this.F = new rg8();
-        this.H = new wg8();
-        this.I = new bh8();
     }
 
-    public boolean A() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.y : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public boolean B() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    public boolean C() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            wg8 wg8Var = this.H;
-            if (wg8Var == null) {
-                return false;
-            }
-            return !StringUtils.isNull(wg8Var.a);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void D(yg8 yg8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, yg8Var) == null) {
-            this.z = 0;
-            this.A = 0;
-            ArrayList<zg8> d = yg8Var.d();
-            int size = d.size();
-            for (int i = 0; i < size; i++) {
-                zg8 zg8Var = d.get(i);
-                ug8 ug8Var = this.E.get(zg8Var.c() + "");
-                if (ug8Var != null) {
-                    if (zg8Var.e() != 0) {
-                        this.z++;
-                        ug8Var.r(1);
-                        ug8Var.o(zg8Var.d());
-                        ug8Var.q(zg8Var.a());
-                        ug8Var.u(true);
-                        ug8Var.s(false);
-                        ug8Var.t(false);
-                        c(ug8Var);
-                    } else {
-                        this.A++;
-                        ug8Var.u(false);
-                        ug8Var.s(true);
-                        ug8Var.t(false);
-                        ug8Var.p(zg8Var.b().b());
-                    }
-                }
-            }
-            b();
-            a(true);
-        }
-    }
-
-    public void E(SignData signData) {
-        ug8 ug8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, signData) == null) || signData == null || (ug8Var = this.E.get(signData.forumId)) == null) {
-            return;
-        }
-        ug8Var.r(1);
-        ug8Var.o(signData.count_sign_num);
-        ug8Var.q(signData.sign_bonus_point);
-        ug8Var.u(true);
-        ug8Var.s(false);
-        ug8Var.t(false);
-        c(ug8Var);
-        b();
-        a(true);
-    }
-
-    public void F(JSONObject jSONObject) throws Exception {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.F.c(jSONObject.optJSONObject("error"));
-        this.a = jSONObject.optInt(PollingModel.LEVEL, 7);
-        this.b = jSONObject.optString("sign_new");
-        this.c = jSONObject.optString("title");
-        this.d = jSONObject.optString("text_pre");
-        this.e = jSONObject.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
-        this.f = jSONObject.optString("text_mid");
-        this.g = jSONObject.optString("text_suf");
-        this.h = jSONObject.optString("num_notice");
-        this.i = jSONObject.optInt("show_dialog");
-        this.j = jSONObject.optString("sign_notice");
-        this.k = jSONObject.optInt("valid", 0);
-        this.G = jSONObject.optInt("sign_max_num", 50);
-        this.u = jSONObject.optInt("can_use", 0);
-        this.w = jSONObject.optString("content");
-        this.v = jSONObject.optString("button_content");
-        JSONObject optJSONObject = jSONObject.optJSONObject("anti_info");
-        if (optJSONObject != null) {
-            BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
-            this.J = blockPopInfoData;
-            blockPopInfoData.block_info = optJSONObject.optString("block_content");
-            this.J.ahead_info = optJSONObject.optString("block_confirm");
-            this.J.ahead_url = optJSONObject.optString("block_dealurl");
-            this.J.ok_info = optJSONObject.optString("block_cancel");
-            this.J.appeal_status = optJSONObject.optInt("appeal_status");
-            this.J.appeal_msg = optJSONObject.optString("appeal_msg");
-        }
-        if (this.u == 1) {
-            this.l = true;
-        } else {
-            this.l = false;
-        }
-        this.r = this.a + this.c;
-        this.q = "1-" + (this.a - 1) + TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f117d);
-        ah8.o = this.G;
-        JSONArray optJSONArray = jSONObject.optJSONArray("forum_info");
-        if (optJSONArray != null) {
-            int min = Math.min(optJSONArray.length(), ah8.o);
-            for (int i = 0; i < min; i++) {
-                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                if (jSONObject2 != null) {
-                    ug8 ug8Var = new ug8();
-                    ug8Var.n(jSONObject2);
-                    if (ug8Var.f() == 0) {
-                        if (this.k == 0) {
-                            if (this.l) {
-                                ug8Var.s(true);
-                            } else if (ug8Var.i() > this.a) {
-                                ug8Var.s(true);
-                            }
-                        }
-                        if (ug8Var.i() >= this.a) {
-                            this.p++;
-                        } else {
-                            this.n++;
-                        }
-                        this.D.add(ug8Var);
-                        this.E.put(ug8Var.c() + "", ug8Var);
-                    } else {
-                        if (ug8Var.i() >= this.a) {
-                            this.o++;
-                        } else {
-                            this.m++;
-                        }
-                        this.C.add(ug8Var);
-                        TbadkApplication.getInst().addSignedForum(ug8Var.d(), ug8Var.e(), -1);
-                    }
-                    this.B.add(ug8Var);
-                    Collections.sort(this.B, new a(this));
-                }
-            }
-        }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("advert");
-        if (this.H == null) {
-            this.H = new wg8();
-        }
-        this.H.a(optJSONObject2);
-        JSONObject optJSONObject3 = jSONObject.optJSONObject("wefan");
-        if (this.I == null) {
-            this.I = new bh8();
-        }
-        this.I.a(optJSONObject3);
-        a(false);
-    }
-
-    public final void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (z) {
-                ArrayList arrayList = new ArrayList();
-                Iterator<ug8> it = this.B.iterator();
-                while (it.hasNext()) {
-                    ug8 next = it.next();
-                    if (next instanceof sg8) {
-                        arrayList.add(next);
-                    }
-                }
-                this.B.removeAll(arrayList);
-            }
-            int i = this.p;
-            int i2 = this.o;
-            if (i + i2 > 0) {
-                if (i2 > 0) {
-                    this.t = TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1193, Integer.valueOf(this.o), Integer.valueOf(this.p));
-                } else {
-                    this.t = TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f118d, Integer.valueOf(this.p + this.o));
-                }
-                if (this.B.size() > 0) {
-                    this.B.add(0, new sg8(this.r, this.t));
-                }
-            }
-            int i3 = this.n;
-            int i4 = this.m;
-            if (i3 + i4 > 0) {
-                if (i4 > 0) {
-                    this.s = TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1193, Integer.valueOf(this.m), Integer.valueOf(this.n));
-                } else {
-                    this.s = TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f118d, Integer.valueOf(this.n + this.m));
-                }
-                if (this.p + this.o > 0) {
-                    if (this.B.size() > this.p + this.o + 1) {
-                        this.B.add(this.p + this.o + 1, new sg8(this.q, this.s));
-                    }
-                } else if (this.B.size() > 0) {
-                    this.B.add(0, new sg8(this.q, this.s));
-                }
-            }
-            if (this.B.size() <= 0) {
-                this.x = 3;
-            } else if (this.l) {
-                if (this.k == 1 && this.D.size() > 0) {
-                    this.x = 0;
-                } else {
-                    this.x = 2;
-                }
-            } else if (this.k == 1 && this.p > 0) {
-                this.x = 0;
-            } else {
-                int i5 = this.p;
-                int i6 = this.o;
-                if (i5 + i6 > 0) {
-                    this.x = 2;
-                } else if (i5 + i6 <= 0) {
-                    this.x = 3;
-                }
-            }
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.l) {
-                if (this.p + this.n <= 0) {
-                    this.y = true;
-                } else {
-                    this.y = false;
-                }
-            } else if (this.p <= 0) {
-                this.y = true;
-            } else {
-                this.y = false;
-            }
-        }
-    }
-
-    public final void c(ug8 ug8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ug8Var) == null) {
-            if (ug8Var.i() >= this.a) {
-                this.o++;
-                this.p--;
-            } else {
-                this.m++;
-                this.n--;
-            }
-            this.E.remove(String.valueOf(ug8Var.c()));
-            this.D.remove(ug8Var);
-            if (ug8Var.h() + ug8Var.e() >= ug8Var.g()) {
-                ug8Var.w(ug8Var.i() + 1);
-                ug8Var.v(true);
-                if (ug8Var.i() == this.a) {
-                    this.o++;
-                    this.m--;
-                }
-            }
-            this.C.add(ug8Var);
-            TbadkApplication.getInst().addSignedForum(ug8Var.d(), ug8Var.e(), -1);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.H.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public String e() {
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.H.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.m : invokeV.intValue;
     }
 
-    public BlockPopInfoData f() {
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.J : (BlockPopInfoData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : invokeV.intValue;
     }
 
-    public String g() {
+    public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.v : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.h : invokeV.intValue;
     }
 
-    public String h() {
+    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
+    public ArrayList<PreLoadImageInfo> getImages() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.w : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
+            PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
+            preLoadImageInfo.imgUrl = this.c;
+            preLoadImageInfo.procType = 10;
+            arrayList.add(preLoadImageInfo);
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
-    public rg8 i() {
+    public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.F : (rg8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.g : invokeV.intValue;
     }
 
-    public int j() {
+    public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.A : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f : invokeV.intValue;
     }
 
-    public ArrayList<ug8> k() {
+    public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.B : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.k : invokeV.booleanValue;
     }
 
-    public int l() {
+    public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.l : invokeV.booleanValue;
     }
 
-    public String m() {
+    public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.i : invokeV.booleanValue;
     }
 
-    public boolean n() {
+    public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? !StringUtils.isNull(this.b) && this.b.equals("1") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.j : invokeV.booleanValue;
     }
 
-    public int o() {
-        InterceptResult invokeV;
+    public void n(JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.i : invokeV.intValue;
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt("forum_id");
+        this.b = jSONObject.optString("forum_name");
+        this.c = jSONObject.optString("avatar");
+        this.d = jSONObject.optInt("is_sign_in");
+        this.e = jSONObject.optInt("cont_sign_num");
+        this.f = jSONObject.optInt(IntentConfig.USER_LEVEL);
+        this.g = jSONObject.optInt("user_exp");
+        this.h = jSONObject.optInt("need_exp");
+        if (this.d != 0) {
+            this.i = true;
+            this.k = false;
+        }
     }
 
-    public String p() {
-        InterceptResult invokeV;
+    public void o(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.j : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.e = i;
+        }
     }
 
-    public int q() {
-        InterceptResult invokeV;
+    public void p(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.x : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+        }
     }
 
-    public ArrayList<ug8> r() {
-        InterceptResult invokeV;
+    public void q(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.C : (ArrayList) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.m = i;
+        }
     }
 
-    public int s() {
-        InterceptResult invokeV;
+    public void r(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.z : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.d = i;
+        }
     }
 
-    public String t() {
-        InterceptResult invokeV;
+    public void s(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.e : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            this.k = z;
+            this.d = 0;
+        }
     }
 
-    public String u() {
-        InterceptResult invokeV;
+    public void t(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.l = z;
+        }
     }
 
-    public String v() {
-        InterceptResult invokeV;
+    public void u(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.d : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+            this.i = z;
+            this.d = 1;
+        }
     }
 
-    public String w() {
-        InterceptResult invokeV;
+    public void v(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.g : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+            this.j = z;
+        }
     }
 
-    public ArrayList<ug8> x() {
-        InterceptResult invokeV;
+    public void w(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.D : (ArrayList) invokeV.objValue;
-    }
-
-    public String y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.I.a : (String) invokeV.objValue;
-    }
-
-    public String z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.I.b : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.f = i;
+        }
     }
 }

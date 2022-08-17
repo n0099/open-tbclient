@@ -204,6 +204,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_UPDATE_OFFLINE_PACK = "c14055";
     public static final String KEY_USER_BAN_PAY_HINT_CLICK = "c14685";
     public static final String KEY_USER_BAN_PAY_HINT_SHOW = "c14684";
+    public static final String KEY_USER_GROWUP_LEVEL_DIALOG_SHOW = "c14925";
     public static final String KEY_VIDEO_ACCOUNT_ADD_COLLECTION_CLICK = "c14182";
     public static final String KEY_VIDEO_ACCOUNT_ATTENTION_CLICK = "c14185";
     public static final String KEY_VIDEO_ACCOUNT_ATTENTION_LIST_PAGE = "c14262";

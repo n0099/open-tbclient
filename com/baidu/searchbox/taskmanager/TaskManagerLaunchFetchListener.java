@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dt4;
-import com.repackage.pu7;
+import com.repackage.ou7;
 import com.repackage.qe5;
 import com.repackage.rb;
 import java.util.Set;
@@ -54,13 +54,13 @@ public class TaskManagerLaunchFetchListener implements AppLaunchInfoFetcher.a {
             if (TextUtils.equals(className, SchemaRouteActivity.class.getName())) {
                 String dataString = intent.getDataString();
                 if (!TextUtils.isEmpty(dataString) && dataString.contains(PbModel.UNIDISPATCH_PB)) {
-                    z = pu7.a().b();
+                    z = ou7.a().b();
                     dt4.a().a = z;
                 }
             }
             if (TextUtils.equals(className, YunPushProxyActivity.class.getName())) {
                 if (Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(intent.getDataString()).find()) {
-                    z = pu7.a().b();
+                    z = ou7.a().b();
                     dt4.a().a = z;
                 }
             }

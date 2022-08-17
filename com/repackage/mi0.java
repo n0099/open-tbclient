@@ -26,13 +26,13 @@ public class mi0 extends uc1<c21> {
 
         /* renamed from: com.repackage.mi0$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0523a extends fk0<ti0> {
+        public class C0525a extends fk0<ti0> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c21.b b;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0523a(a aVar, Class cls, c21.b bVar) {
+            public C0525a(a aVar, Class cls, c21.b bVar) {
                 super(cls);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -90,7 +90,7 @@ public class mi0 extends uc1<c21> {
         public void a(Object obj, c21.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, obj, bVar) == null) {
-                bk0.a().b(obj, new C0523a(this, ti0.class, bVar));
+                bk0.a().b(obj, new C0525a(this, ti0.class, bVar));
             }
         }
 

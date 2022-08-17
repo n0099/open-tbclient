@@ -124,10 +124,10 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                T(0, -1, 0, 1.0f, true, this.e.D());
+                T(0, -1, 0, 1.0f, true, this.e.E());
                 return;
             }
-            T(-2, -1, qi.f(getContext(), R.dimen.tbds78), 0.0f, false, this.e.D());
+            T(-2, -1, qi.f(getContext(), R.dimen.tbds78), 0.0f, false, this.e.E());
         }
     }
 
@@ -158,12 +158,12 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            boolean D = this.e.D();
+            boolean E = this.e.E();
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.e.getLayoutParams();
             int i = layoutParams.width;
             float f = layoutParams.weight;
             if (z) {
-                return (f == (D ? 1.0f : 2.0f) && i == 0) ? false : true;
+                return (f == (E ? 1.0f : 2.0f) && i == 0) ? false : true;
             }
             return (f == 0.0f && i == -2) ? false : true;
         }
@@ -201,7 +201,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
             super.r(view2);
             this.e.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
-            this.e.H(true);
+            this.e.I(true);
         }
     }
 
@@ -209,7 +209,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            R(W(), this.e.D());
+            R(W(), this.e.E());
         }
     }
 

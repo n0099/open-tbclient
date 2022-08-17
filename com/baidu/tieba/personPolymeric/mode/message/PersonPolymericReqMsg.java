@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g28;
+import com.repackage.f28;
 import com.repackage.qi;
 import com.repackage.rn4;
 import com.repackage.te5;
@@ -64,13 +64,13 @@ public class PersonPolymericReqMsg extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public g28 getPersonCenterData() {
+    public f28 getPersonCenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (g28) invokeV.objValue;
+        return (f28) invokeV.objValue;
     }
 
     public int getPn() {

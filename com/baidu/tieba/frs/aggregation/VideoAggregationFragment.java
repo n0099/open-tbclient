@@ -241,7 +241,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
                 if (this.a.m != null) {
                     this.a.i.e();
                 } else if (oi.x() && this.a.h != null && this.a.h.e()) {
-                    this.a.getPageContext().showToast((int) R.string.obfuscated_res_0x7f0f151b);
+                    this.a.getPageContext().showToast((int) R.string.obfuscated_res_0x7f0f151e);
                 }
             }
         }
@@ -346,9 +346,9 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, view2, z) == null) {
             if (this.m == null) {
                 if (z) {
-                    this.m = NoDataViewFactory.a(getPageContext().getPageActivity(), view2, NoDataViewFactory.d.c(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_08, 0, qi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0702cc), qi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0702aa)), NoDataViewFactory.e.d(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c3c), getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0fb9)), NoDataViewFactory.c.a(new NoDataViewFactory.b(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0fb8), new c(this))));
+                    this.m = NoDataViewFactory.a(getPageContext().getPageActivity(), view2, NoDataViewFactory.d.c(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_08, 0, qi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0702cc), qi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0702aa)), NoDataViewFactory.e.d(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c3d), getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0fba)), NoDataViewFactory.c.a(new NoDataViewFactory.b(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0fb9), new c(this))));
                 } else {
-                    this.m = NoDataViewFactory.a(getPageContext().getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, qi.f(getActivity(), R.dimen.obfuscated_res_0x7f07027a)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f151e), null);
+                    this.m = NoDataViewFactory.a(getPageContext().getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, qi.f(getActivity(), R.dimen.obfuscated_res_0x7f07027a)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f1521), null);
                 }
             }
             this.m.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
@@ -525,7 +525,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             this.g = pbListView;
             pbListView.a();
             this.g.z();
-            this.g.C(getResources().getString(R.string.obfuscated_res_0x7f0f09e8));
+            this.g.C(getResources().getString(R.string.obfuscated_res_0x7f0f09e9));
             this.g.Q();
             this.e.setNextPage(this.g);
             this.e.setOnScrollListener(new b(this));
@@ -547,9 +547,9 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             if (VideoAggregationActivityConfig.TYPE_FROM_FRS.equals(this.b)) {
-                this.j.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f1503));
+                this.j.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f1506));
             } else {
-                this.j.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f1514));
+                this.j.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f1517));
             }
             this.j.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d(this));
         }

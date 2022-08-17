@@ -329,7 +329,7 @@ public class SendNoLaunchView extends FrameLayout implements t25 {
             tBSpecificationBtn.setPadding(i, i2, 0, i2);
             this.f.setEnabled(false);
             this.f.setTextSize(R.dimen.T_X08);
-            this.f.setText(getContext().getString(R.string.obfuscated_res_0x7f0f110a));
+            this.f.setText(getContext().getString(R.string.obfuscated_res_0x7f0f110b));
             addView(this.f);
             this.f.setVisibility(8);
         }
@@ -369,7 +369,7 @@ public class SendNoLaunchView extends FrameLayout implements t25 {
                 pv4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
                 this.f.setConfig(pv4Var);
             }
-            WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f08099e, R.color.CAM_X0105, null);
+            WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f08099f, R.color.CAM_X0105, null);
         }
     }
 

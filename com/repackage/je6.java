@@ -103,7 +103,7 @@ public class je6 extends bz5<ee6> {
         this.i.K(ee6Var.c(), 10, false);
         this.j.setText(s(ee6Var.j(), ee6Var.r()));
         this.k.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f0424), ee6Var.f()));
-        this.l.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f10b5), ee6Var.n()));
+        this.l.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f10b6), ee6Var.n()));
         j(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 

@@ -475,7 +475,7 @@ public final class m63 {
             return;
         }
         if (bitmap == null) {
-            r03.f(context, R.string.obfuscated_res_0x7f0f1308).G();
+            r03.f(context, R.string.obfuscated_res_0x7f0f130a).G();
         } else if (z03.b0() == null) {
         } else {
             ExecutorUtilsExt.postOnElastic(new b(z03.b0().W(), context, i, wl2Var, bitmap, xl2Var), "add quick app shortcut", 2);

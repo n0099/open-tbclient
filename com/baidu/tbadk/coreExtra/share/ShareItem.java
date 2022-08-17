@@ -38,21 +38,22 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ShareItem {
     public static /* synthetic */ Interceptable $ic;
-    public static final String G0;
+    public static final String H0;
     public transient /* synthetic */ FieldHolder $fh;
     public String A;
-    public JSONArray A0;
+    public String A0;
     public int B;
-    public JSONObject B0;
+    public JSONArray B0;
     public String C;
-    public List<Integer> C0;
+    public JSONObject C0;
     public Bundle D;
-    public String D0;
+    public List<Integer> D0;
     public Location E;
     public String E0;
     public String F;
-    public Uri F0;
+    public String F0;
     public String G;
+    public Uri G0;
     public int H;
     public int I;
     public int J;
@@ -141,7 +142,7 @@ public class ShareItem {
                 return;
             }
         }
-        G0 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
+        H0 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
     }
 
     public ShareItem() {
@@ -208,7 +209,7 @@ public class ShareItem {
     public List<Integer> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.C0 : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.D0 : (List) invokeV.objValue;
     }
 
     public byte[] b() {
@@ -275,7 +276,7 @@ public class ShareItem {
         try {
             try {
                 if (FileHelper.checkSD()) {
-                    File file = new File(G0);
+                    File file = new File(H0);
                     if (file.exists()) {
                         file.delete();
                     }
@@ -332,7 +333,7 @@ public class ShareItem {
     public void h(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.C0 = list;
+            this.D0 = list;
         }
     }
 

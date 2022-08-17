@@ -305,7 +305,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
                         }
                     }
                     if (adTemplate != null) {
-                        AdWebViewActivityProxy.launch(this.rc.getContext(), new AdWebViewActivityProxy.a.C0359a().ao(bVar.title).ap(bVar.url).N(adTemplate).nx());
+                        AdWebViewActivityProxy.launch(this.rc.getContext(), new AdWebViewActivityProxy.a.C0361a().ao(bVar.title).ap(bVar.url).N(adTemplate).nx());
                     }
                 }
             }));

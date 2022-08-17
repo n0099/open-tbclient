@@ -15,15 +15,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cl4;
 import com.repackage.dl4;
+import com.repackage.ge7;
 import com.repackage.he7;
 import com.repackage.ie7;
 import com.repackage.je7;
 import com.repackage.ke7;
 import com.repackage.le7;
-import com.repackage.me7;
+import com.repackage.oe7;
 import com.repackage.pe7;
-import com.repackage.qe7;
-import com.repackage.yf7;
+import com.repackage.xf7;
 /* loaded from: classes3.dex */
 public class LegoListActivityStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -75,19 +75,19 @@ public class LegoListActivityStatic {
                 return;
             }
         }
-        yf7.a.set(new he7());
+        xf7.a.set(new ge7());
         TbConfig.setLegoLibVersion("3.0.0");
-        pe7.h().g(qe7.f());
+        oe7.h().g(pe7.f());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016447, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerStickyMode(2016470);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016470, Boolean.TRUE));
-        je7.a().b(new me7());
-        ie7.a().b(new ke7());
         ie7.a().b(new le7());
-        dl4.a.set(je7.a());
-        cl4.a.set(ie7.a());
+        he7.a().b(new je7());
+        he7.a().b(new ke7());
+        dl4.a.set(ie7.a());
+        cl4.a.set(he7.a());
     }
 
     public LegoListActivityStatic() {

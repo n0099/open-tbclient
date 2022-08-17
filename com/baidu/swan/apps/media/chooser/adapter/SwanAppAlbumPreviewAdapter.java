@@ -149,12 +149,12 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
 
             /* renamed from: com.baidu.swan.apps.media.chooser.adapter.SwanAppAlbumPreviewAdapter$c$a$a  reason: collision with other inner class name */
             /* loaded from: classes2.dex */
-            public class RunnableC0178a implements Runnable {
+            public class RunnableC0179a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0178a(a aVar) {
+                public RunnableC0179a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -204,7 +204,7 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
             public void onPrepared(MediaPlayer mediaPlayer) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                    this.a.a.d.postDelayed(new RunnableC0178a(this), 300L);
+                    this.a.a.d.postDelayed(new RunnableC0179a(this), 300L);
                 }
             }
         }
@@ -248,12 +248,12 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
 
         /* renamed from: com.baidu.swan.apps.media.chooser.adapter.SwanAppAlbumPreviewAdapter$c$c  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0179c implements MediaPlayer.OnCompletionListener {
+        public class C0180c implements MediaPlayer.OnCompletionListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
 
-            public C0179c(c cVar) {
+            public C0180c(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -320,7 +320,7 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
             this.a.d.setVideoPath(this.b.getPath());
             this.a.d.setOnPreparedListener(new a(this));
             this.a.d.setOnErrorListener(new b(this));
-            this.a.d.setOnCompletionListener(new C0179c(this));
+            this.a.d.setOnCompletionListener(new C0180c(this));
             this.a.d.start();
             this.c.f = this.a;
         }

@@ -65,8 +65,8 @@ public class cd9 extends zc9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                this.c = rp9.b();
-                this.d = rp9.a(this.a);
+                this.c = tp9.b();
+                this.d = tp9.a(this.a);
                 this.g = 0;
             } catch (Exception e) {
                 if (i) {

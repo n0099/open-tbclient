@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.no9;
+import com.repackage.po9;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.AbstractCollection;
@@ -162,7 +162,7 @@ public abstract class zzac<E> extends AbstractCollection<E> implements Serializa
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
     /* renamed from: zze */
-    public abstract no9<E> iterator();
+    public abstract po9<E> iterator();
 
     public abstract boolean zzf();
 

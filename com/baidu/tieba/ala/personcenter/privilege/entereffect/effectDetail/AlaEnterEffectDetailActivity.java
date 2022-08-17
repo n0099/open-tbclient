@@ -77,7 +77,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.a.a == null) {
                 return;
             }
-            this.a.showToast(R.string.obfuscated_res_0x7f0f0d05);
+            this.a.showToast(R.string.obfuscated_res_0x7f0f0d06);
             Intent intent = new Intent();
             if (z != (this.a.a.use_status == 1)) {
                 intent.putExtra("key_selected_effect_id", this.a.a.id);
@@ -352,7 +352,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             this.e = new rx5(this.h);
             Serializable serializableExtra = getIntent().getSerializableExtra("key_effect_data");
             if (!(serializableExtra instanceof AlaEnterEffectData)) {
-                showToast(R.string.obfuscated_res_0x7f0f1389);
+                showToast(R.string.obfuscated_res_0x7f0f138b);
                 setResult(0);
                 finish();
                 return;

@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cm5;
 import com.repackage.p65;
-import com.repackage.ss6;
+import com.repackage.rs6;
 import java.io.PrintStream;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
@@ -40,7 +40,7 @@ public class jn5 implements zn5 {
     public static /* synthetic */ Interceptable $ic;
     public static String m;
     public static volatile boolean n;
-    public static volatile ss6.h o;
+    public static volatile rs6.h o;
     public transient /* synthetic */ FieldHolder $fh;
     public WeakReference<ViewGroup> b;
     public ViewGroup c;
@@ -52,10 +52,10 @@ public class jn5 implements zn5 {
     public boolean i;
     public long j;
     public final SplashNativePolicy k;
-    public final ss6.i l;
+    public final rs6.i l;
 
     /* loaded from: classes6.dex */
-    public class a extends ss6.k {
+    public class a extends rs6.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ jn5 a;
@@ -78,7 +78,7 @@ public class jn5 implements zn5 {
             this.a = jn5Var;
         }
 
-        @Override // com.repackage.ss6.i
+        @Override // com.repackage.rs6.i
         public void onAdClicked(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
@@ -93,7 +93,7 @@ public class jn5 implements zn5 {
             }
         }
 
-        @Override // com.repackage.ss6.i
+        @Override // com.repackage.rs6.i
         public void onAdClose(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -109,7 +109,7 @@ public class jn5 implements zn5 {
             }
         }
 
-        @Override // com.repackage.ss6.i
+        @Override // com.repackage.rs6.i
         public void onAdError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -125,7 +125,7 @@ public class jn5 implements zn5 {
             }
         }
 
-        @Override // com.repackage.ss6.i
+        @Override // com.repackage.rs6.i
         public void onAdShow(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
@@ -173,7 +173,7 @@ public class jn5 implements zn5 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements ss6.h {
+    public class c implements rs6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ jn5 a;
@@ -196,7 +196,7 @@ public class jn5 implements zn5 {
             this.a = jn5Var;
         }
 
-        @Override // com.repackage.ss6.h
+        @Override // com.repackage.rs6.h
         public void a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
@@ -211,7 +211,7 @@ public class jn5 implements zn5 {
                     this.a.g.f(eo5.c, true);
                 }
                 FunAdRecordHttpMessage.uploadRequestRecord("a064", "0", null, null, null);
-                if (ss6.m().v(str)) {
+                if (rs6.m().v(str)) {
                     this.a.f = AdLoadState.SUCCEED;
                     eo5.k(eo5.c, "0", null, null, 0, i, this.a.i, this.a.j);
                 } else {
@@ -226,7 +226,7 @@ public class jn5 implements zn5 {
             }
         }
 
-        @Override // com.repackage.ss6.h
+        @Override // com.repackage.rs6.h
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -285,7 +285,7 @@ public class jn5 implements zn5 {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements ss6.h {
+    public class e implements rs6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ jn5 a;
@@ -378,7 +378,7 @@ public class jn5 implements zn5 {
             this.a = jn5Var;
         }
 
-        @Override // com.repackage.ss6.h
+        @Override // com.repackage.rs6.h
         public void a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
@@ -395,7 +395,7 @@ public class jn5 implements zn5 {
             }
         }
 
-        @Override // com.repackage.ss6.h
+        @Override // com.repackage.rs6.h
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -466,7 +466,7 @@ public class jn5 implements zn5 {
                 return;
             }
         }
-        m = ss6.p();
+        m = rs6.p();
         n = false;
     }
 
@@ -492,13 +492,13 @@ public class jn5 implements zn5 {
         this.j = -1L;
         this.l = new a(this);
         this.k = splashNativePolicy;
-        m = ru4.k().l("splash_bear_sid_type_key", 0) == 1 ? ss6.q() : ss6.p();
+        m = ru4.k().l("splash_bear_sid_type_key", 0) == 1 ? rs6.q() : rs6.p();
     }
 
     public static void x(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65549, null, i) == null) {
-            m = i == 1 ? ss6.q() : ss6.p();
+            m = i == 1 ? rs6.q() : rs6.p();
             ru4.k().w("splash_bear_sid_type_key", i);
         }
     }
@@ -509,7 +509,7 @@ public class jn5 implements zn5 {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Context context = TbadkCoreApplication.getInst().getContext();
             e eVar = new e(this);
-            ss6.m().w(context, m, (int) (qi.i(context) * 0.85d), eVar, ss6.b("spalsh", yn5.d().c() + ""));
+            rs6.m().w(context, m, (int) (qi.i(context) * 0.85d), eVar, rs6.b("spalsh", yn5.d().c() + ""));
             n = true;
         }
     }
@@ -546,7 +546,7 @@ public class jn5 implements zn5 {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ss6.m().d(m);
+            rs6.m().d(m);
             o = null;
         }
     }
@@ -581,12 +581,12 @@ public class jn5 implements zn5 {
                 u();
                 n = false;
             } else {
-                ss6 m2 = ss6.m();
+                rs6 m2 = rs6.m();
                 Activity activity = (Activity) context;
                 String str = m;
                 int i = (int) (qi.i(context) * 0.85d);
-                ss6.h hVar = o;
-                m2.w(activity, str, i, hVar, ss6.b("spalsh", yn5.d().c() + ""));
+                rs6.h hVar = o;
+                m2.w(activity, str, i, hVar, rs6.b("spalsh", yn5.d().c() + ""));
             }
             if (this.f == AdLoadState.INIT) {
                 this.f = AdLoadState.LOADING;
@@ -613,7 +613,7 @@ public class jn5 implements zn5 {
             ms4 d3 = ms4.d((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091ee3));
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0101);
-            WebPManager.setPureDrawable((ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091ee2), R.drawable.obfuscated_res_0x7f08093c, R.color.CAM_X0201, null);
+            WebPManager.setPureDrawable((ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091ee2), R.drawable.obfuscated_res_0x7f08093d, R.color.CAM_X0201, null);
         }
     }
 
@@ -677,7 +677,7 @@ public class jn5 implements zn5 {
     public boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? ss6.m().v(m) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? rs6.m().v(m) : invokeV.booleanValue;
     }
 
     public final void w() {
@@ -710,7 +710,7 @@ public class jn5 implements zn5 {
                             PrintStream printStream = System.out;
                             printStream.println("IAdSdkSplash BEAR ad showSplash: " + m);
                         }
-                        ss6.m().G((Activity) context, m, this.d, this.l, ss6.b("spalsh", yn5.d().c() + ""));
+                        rs6.m().G((Activity) context, m, this.d, this.l, rs6.b("spalsh", yn5.d().c() + ""));
                         SkinManager.setBackgroundColor(this.c, R.color.CAM_X0101, 0);
                         return true;
                     }

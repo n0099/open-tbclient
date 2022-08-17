@@ -1,77 +1,90 @@
 package com.repackage;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
+import com.baidu.tieba.pb.pb.adapter.PbNoDataItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yw7 extends PostData {
+public class yw7 extends aw7<ot7, PbNoDataItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId W0;
     public transient /* synthetic */ FieldHolder $fh;
-    public jq4 T0;
-    public jq4 U0;
-    public jq4 V0;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755127304, "Lcom/repackage/yw7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755127304, "Lcom/repackage/yw7;");
-                return;
-            }
-        }
-        W0 = BdUniqueId.gen();
-    }
-
-    public yw7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yw7(s08 s08Var, BdUniqueId bdUniqueId) {
+        super(s08Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {s08Var, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((s08) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.repackage.on
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? W0 : (BdUniqueId) invokeV.objValue;
+    @Override // com.repackage.aw7, com.repackage.bn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        v(i, view2, viewGroup, (ot7) obj, (PbNoDataItemViewHolder) viewHolder);
+        return view2;
     }
 
-    public boolean i1() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: u */
+    public PbNoDataItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            jq4 jq4Var = this.T0;
-            if (jq4Var == null || StringUtils.isNull(jq4Var.b)) {
-                jq4 jq4Var2 = this.U0;
-                if (jq4Var2 == null || StringUtils.isNull(jq4Var2.b)) {
-                    jq4 jq4Var3 = this.V0;
-                    return (jq4Var3 == null || StringUtils.isNull(jq4Var3.b)) ? false : true;
-                }
-                return true;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbNoDataItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06c1, viewGroup, false), this.mContext) : (PbNoDataItemViewHolder) invokeL.objValue;
+    }
+
+    public View v(int i, View view2, ViewGroup viewGroup, ot7 ot7Var, PbNoDataItemViewHolder pbNoDataItemViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ot7Var, pbNoDataItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, ot7Var, pbNoDataItemViewHolder);
+            this.d = TbadkCoreApplication.getInst().getSkinType();
+            pbNoDataItemViewHolder.a.setText(ot7Var.U0);
+            int i2 = ot7Var.T0;
+            if (i2 != 0) {
+                SkinManager.setImageResource(pbNoDataItemViewHolder.b, i2);
+            } else {
+                SkinManager.setImageResource(pbNoDataItemViewHolder.b, R.drawable.new_pic_emotion_06);
             }
-            return true;
+            SkinManager.setViewTextColor(pbNoDataItemViewHolder.a, (int) R.color.CAM_X0109);
+            if (ot7Var.V0 != 0 && view2.getLayoutParams() != null) {
+                view2.getLayoutParams().height = ot7Var.V0;
+            }
+            if (ot7Var.W0 != 0) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) pbNoDataItemViewHolder.b.getLayoutParams();
+                marginLayoutParams.setMargins(marginLayoutParams.leftMargin, ot7Var.W0, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
+            }
+            if (ot7Var.X0 != 0) {
+                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) pbNoDataItemViewHolder.a.getLayoutParams();
+                int i3 = marginLayoutParams2.leftMargin;
+                marginLayoutParams2.setMargins(i3, i3, marginLayoutParams2.rightMargin, ot7Var.X0);
+            }
+            pbNoDataItemViewHolder.b.setVisibility(ot7Var.Y0);
+            return view2;
         }
-        return invokeV.booleanValue;
+        return (View) invokeCommon.objValue;
     }
 }

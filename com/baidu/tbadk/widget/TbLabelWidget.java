@@ -27,8 +27,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fj8;
 import com.repackage.fo4;
-import com.repackage.gj8;
 import com.repackage.ms4;
 import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
@@ -339,16 +339,16 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, themeElement, themeElement2, themeElement3, themeElement4) == null) {
             if (f(themeElement)) {
-                this.g.setTextColor(gj8.f(themeElement.common_color));
+                this.g.setTextColor(fj8.f(themeElement.common_color));
             }
             if (f(themeElement2)) {
-                this.h.setBackgroundColor(gj8.f(themeElement2.common_color));
+                this.h.setBackgroundColor(fj8.f(themeElement2.common_color));
             }
             if (f(themeElement3)) {
-                this.i.setTextColor(gj8.f(themeElement3.common_color));
+                this.i.setTextColor(fj8.f(themeElement3.common_color));
             }
             if (f(themeElement4)) {
-                this.o.g(gj8.f(themeElement4.common_color));
+                this.o.g(fj8.f(themeElement4.common_color));
             }
         }
     }

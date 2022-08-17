@@ -48,7 +48,7 @@ public class MsgRecForumNetMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1213common = this.f1054common;
+            builder.f1214common = this.f1054common;
             builder.pn = this.mPn;
             builder.rn = this.mRn;
             builder.user_id = this.userId;

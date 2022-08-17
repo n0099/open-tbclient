@@ -2,8 +2,8 @@ package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,15 +13,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.User;
-import tbclient.Userlike.ConcernData;
+import tbclient.AlaLiveInfo;
+import tbclient.Userlike.UserFollowLive;
 /* loaded from: classes7.dex */
-public class sv6 extends zq4 {
+public class sv6 extends fo4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Integer h;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean f;
-    public List<MetaData> g;
+    public final List<AlaLiveInfo> a;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +35,7 @@ public class sv6 extends zq4 {
                 return;
             }
         }
-        h = 6;
+        b = BdUniqueId.gen();
     }
 
     public sv6() {
@@ -52,50 +51,37 @@ public class sv6 extends zq4 {
                 return;
             }
         }
-        this.g = new ArrayList();
+        this.a = new ArrayList();
     }
 
-    public static boolean j(ConcernData concernData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, concernData)) == null) {
-            if (concernData == null) {
-                return false;
-            }
-            return concernData.recom_type.equals(h);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.zq4
-    public List<MetaData> c() {
+    public List<AlaLiveInfo> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.zq4
-    public void f(List<User> list) {
+    public void f(UserFollowLive userFollowLive) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null) {
-            return;
-        }
-        int min = Math.min(list.size(), 10);
-        for (int i = 0; i < min; i++) {
-            MetaData metaData = new MetaData();
-            metaData.parserProtobuf(list.get(i));
-            this.g.add(metaData);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, userFollowLive) == null) {
+            this.a.clear();
+            if (userFollowLive == null || ListUtils.isEmpty(userFollowLive.user_follow_live)) {
+                return;
+            }
+            this.a.addAll(userFollowLive.user_follow_live);
         }
     }
 
-    @Override // com.repackage.zq4, com.repackage.fo4
+    @Override // com.repackage.fo4
     public cq4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new cq4() : (cq4) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (cq4) invokeV.objValue;
     }
 
-    @Override // com.repackage.zq4, com.repackage.fo4
+    @Override // com.repackage.fo4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -105,23 +91,10 @@ public class sv6 extends zq4 {
         return (ThreadData) invokeV.objValue;
     }
 
-    @Override // com.repackage.zq4, com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? zq4.e : (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f = z;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
     }
 }

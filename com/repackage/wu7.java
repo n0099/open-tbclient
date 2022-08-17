@@ -3,6 +3,7 @@ package com.repackage;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -139,10 +140,10 @@ public class wu7 extends bn<n06, ThreadCardViewHolder<n06>> {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             dy.b bVar = new dy.b(this.b.getPageActivity(), false);
             bVar.l().j(true);
-            nx nxVar = new nx(this.b.getPageActivity());
-            nxVar.t("pb");
-            nxVar.u(this.c);
-            bVar.n(nxVar);
+            qx qxVar = new qx(this.b.getPageActivity());
+            qxVar.r("pb");
+            qxVar.s(this.c);
+            bVar.n(qxVar);
             dy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.d);
             k.r(0);
             ThreadCardViewHolder<n06> threadCardViewHolder = new ThreadCardViewHolder<>(k);
@@ -168,7 +169,14 @@ public class wu7 extends bn<n06, ThreadCardViewHolder<n06>> {
             threadCardViewHolder.e(n06Var);
             threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
             threadCardViewHolder.a().p(this.e);
-            i08.n(n06Var, this.b);
+            qx qxVar = (qx) threadCardViewHolder.a().g();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) qxVar.f.d.getLayoutParams();
+            layoutParams.width = n06Var.j;
+            layoutParams.height = n06Var.k;
+            if (qxVar.f.d.getVisibility() != 8) {
+                qxVar.f.d.setLayoutParams(layoutParams);
+            }
+            h08.n(n06Var, this.b);
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
@@ -178,11 +186,11 @@ public class wu7 extends bn<n06, ThreadCardViewHolder<n06>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, view2, n06Var) == null) {
             if (view2.getId() == R.id.obfuscated_res_0x7f09212a) {
-                i08.m(n06Var, 1, this.b);
+                h08.m(n06Var, 1, this.b);
             } else if (view2 instanceof TbImageView) {
-                i08.m(n06Var, 3, this.b);
+                h08.m(n06Var, 3, this.b);
             } else if (view2.getId() == R.id.obfuscated_res_0x7f09212b || view2.getId() == R.id.obfuscated_res_0x7f09211d) {
-                i08.m(n06Var, 1, this.b);
+                h08.m(n06Var, 1, this.b);
             }
         }
     }

@@ -232,8 +232,8 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
             this.t = (ImageView) findViewById(R.id.obfuscated_res_0x7f09249c);
             this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f09249d);
             this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09249e);
-            this.s.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e14));
-            this.t.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e13));
+            this.s.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e15));
+            this.t.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e14));
             this.x.setOnClickListener(this);
         }
     }

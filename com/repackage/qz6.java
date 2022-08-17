@@ -11,12 +11,9 @@ import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
@@ -35,177 +32,14 @@ public class qz6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
     public TbPageContext<?> b;
     public boolean c;
     public NEGFeedBackView.b d;
-    public fg<ConstrainImageLayout> e;
-    public fg<TbImageView> f;
-    public b06<n06> g;
+    public b06<n06> e;
 
     /* loaded from: classes7.dex */
-    public class a implements gg<ConstrainImageLayout> {
+    public class a implements uw.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qz6 a;
 
         public a(qz6 qz6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qz6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qz6Var;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.gg
-        public /* bridge */ /* synthetic */ ConstrainImageLayout a(ConstrainImageLayout constrainImageLayout) {
-            ConstrainImageLayout constrainImageLayout2 = constrainImageLayout;
-            e(constrainImageLayout2);
-            return constrainImageLayout2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.gg
-        public /* bridge */ /* synthetic */ ConstrainImageLayout c(ConstrainImageLayout constrainImageLayout) {
-            ConstrainImageLayout constrainImageLayout2 = constrainImageLayout;
-            h(constrainImageLayout2);
-            return constrainImageLayout2;
-        }
-
-        public ConstrainImageLayout e(ConstrainImageLayout constrainImageLayout) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, constrainImageLayout)) == null) ? constrainImageLayout : (ConstrainImageLayout) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.gg
-        /* renamed from: f */
-        public void b(ConstrainImageLayout constrainImageLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, constrainImageLayout) == null) {
-                constrainImageLayout.removeAllViews();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.gg
-        /* renamed from: g */
-        public ConstrainImageLayout d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.a.b.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
-        }
-
-        public ConstrainImageLayout h(ConstrainImageLayout constrainImageLayout) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, constrainImageLayout)) == null) ? constrainImageLayout : (ConstrainImageLayout) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements gg<TbImageView> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qz6 a;
-
-        public b(qz6 qz6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qz6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qz6Var;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.gg
-        public /* bridge */ /* synthetic */ TbImageView a(TbImageView tbImageView) {
-            TbImageView tbImageView2 = tbImageView;
-            e(tbImageView2);
-            return tbImageView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.gg
-        public /* bridge */ /* synthetic */ TbImageView c(TbImageView tbImageView) {
-            TbImageView tbImageView2 = tbImageView;
-            h(tbImageView2);
-            return tbImageView2;
-        }
-
-        public TbImageView e(TbImageView tbImageView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tbImageView)) == null) ? tbImageView : (TbImageView) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.gg
-        /* renamed from: f */
-        public void b(TbImageView tbImageView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, tbImageView) == null) {
-                tbImageView.setOnClickListener(null);
-                tbImageView.setForegroundColor(0);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.gg
-        /* renamed from: g */
-        public TbImageView d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                TbImageView tbImageView = new TbImageView(this.a.b.getPageActivity());
-                tbImageView.setDrawBorder(true);
-                tbImageView.setBorderColor(SkinManager.getColor(R.color.common_color_10264));
-                tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198));
-                return tbImageView;
-            }
-            return (TbImageView) invokeV.objValue;
-        }
-
-        public TbImageView h(TbImageView tbImageView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, tbImageView)) == null) {
-                tbImageView.setOnClickListener(null);
-                tbImageView.setForegroundColor(0);
-                return tbImageView;
-            }
-            return (TbImageView) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements uw.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(qz6 qz6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -238,12 +72,12 @@ public class qz6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
     }
 
     /* loaded from: classes7.dex */
-    public class d implements yn {
+    public class b implements yn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ qz6 a;
 
-        public d(qz6 qz6Var) {
+        public b(qz6 qz6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -266,23 +100,23 @@ public class qz6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
             n06 n06Var;
             ThreadData threadData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, onVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) || (n06Var = (n06) onVar) == null || (threadData = n06Var.a) == null || threadData.getSmartApp() == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, onVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) || !(onVar instanceof n06) || (n06Var = (n06) onVar) == null || (threadData = n06Var.a) == null || threadData.getSmartApp() == null) {
                 return;
             }
-            this.a.B(n06Var.a, view2);
+            this.a.A(n06Var.a, view2);
             TiebaStatic.log(n06Var.A());
             TiebaStatic.log(n06Var.j());
-            this.a.w(n06Var.a, n06Var.n());
+            this.a.v(n06Var.a, n06Var.n());
         }
     }
 
     /* loaded from: classes7.dex */
-    public class e extends b06<n06> {
+    public class c extends b06<n06> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ qz6 b;
 
-        public e(qz6 qz6Var) {
+        public c(qz6 qz6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -311,10 +145,10 @@ public class qz6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
                 if (n06Var == null || (threadData = n06Var.a) == null || threadData.getSmartApp() == null) {
                     return false;
                 }
-                this.b.B(n06Var.a, view2);
+                this.b.A(n06Var.a, view2);
                 TiebaStatic.log(n06Var.A());
                 TiebaStatic.log(n06Var.j());
-                this.b.w(n06Var.a, n06Var.n());
+                this.b.v(n06Var.a, n06Var.n());
                 return true;
             }
             return invokeLLL.booleanValue;
@@ -342,23 +176,14 @@ public class qz6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
         }
         this.c = true;
         this.d = null;
-        this.e = new fg<>(new a(this), 6, 0);
-        this.f = new fg<>(new b(this), 12, 0);
-        this.g = new e(this);
+        this.e = new c(this);
         this.b = tbPageContext;
-        v();
+        u();
     }
 
-    public void A(NEGFeedBackView.b bVar) {
+    public final void A(ThreadData threadData, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.d = bVar;
-        }
-    }
-
-    public final void B(ThreadData threadData, View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData, view2) == null) || threadData == null || threadData.getSmartApp() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, threadData, view2) == null) || threadData == null || threadData.getSmartApp() == null) {
             return;
         }
         String str = threadData.getSmartApp().id;
@@ -366,8 +191,8 @@ public class qz6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
         String str3 = threadData.getSmartApp().h5_url;
         Long l = threadData.getSmartApp().swan_app_id;
         long parseLong = Long.parseLong(threadData.getTid());
-        String str4 = threadData.getSmartApp().name;
         long fid = threadData.getFid();
+        String str4 = threadData.getSmartApp().name;
         ru4.k().x("smart_app_tid", parseLong);
         ru4.k().y("smart_app_name", str4);
         ru4.k().y("smart_app_id", str);
@@ -387,16 +212,24 @@ public class qz6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
     @Override // com.repackage.pl5
     public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
         }
     }
 
-    public final void v() {
+    public final void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             n06.c0 = "c13388";
             n06.d0 = "c13389";
         }
+    }
+
+    public final void v(ThreadData threadData, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048581, this, threadData, i) == null) || threadData == null || threadData.getSmartApp() == null) {
+            return;
+        }
+        cj8.g().c(this.a, aj8.g(threadData, "a002", "common_click", 1, i, threadData.getSmartApp().id));
     }
 
     public final void w(ThreadData threadData, int i) {
@@ -404,43 +237,33 @@ public class qz6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
         if (!(interceptable == null || interceptable.invokeLI(1048582, this, threadData, i) == null) || threadData == null || threadData.getSmartApp() == null) {
             return;
         }
-        dj8.g().c(this.a, bj8.g(threadData, "a002", "common_click", 1, i, threadData.getSmartApp().id));
-    }
-
-    public final void x(ThreadData threadData, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048583, this, threadData, i) == null) || threadData == null || threadData.getSmartApp() == null) {
-            return;
-        }
         String str = threadData.getSmartApp().id;
-        dj8.g().d(this.a, bj8.b(threadData.getTid(), "", str, null), bj8.h(threadData, "a002", "common_exp", i, str));
+        cj8.g().d(this.a, aj8.b(threadData.getTid(), "", str, null), aj8.h(threadData, "a002", "common_exp", i, str));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.bn
-    /* renamed from: y */
+    /* renamed from: x */
     public ThreadCardViewHolder<n06> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
             dy.b bVar = new dy.b(this.b.getPageActivity());
             uw uwVar = new uw(this.b.getPageActivity());
             uwVar.u(this.a);
             uwVar.s(false);
             uwVar.x(false);
             uwVar.d(1024);
-            uwVar.t(new c(this));
+            uwVar.t(new a(this));
             bVar.o(uwVar);
-            ox oxVar = new ox(this.b.getPageActivity());
-            oxVar.u("index");
-            oxVar.t(this.e);
-            oxVar.s(this.f);
-            oxVar.v(this.c);
-            bVar.n(oxVar);
+            px pxVar = new px(this.b.getPageActivity());
+            pxVar.q("index");
+            pxVar.r(this.c);
+            bVar.n(pxVar);
             bVar.m(new ay(this.b.getPageActivity()));
             ThreadCardViewHolder<n06> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.j(BaseCardInfo.SupportType.FULL, viewGroup));
             threadCardViewHolder.i(this.a);
-            setOnAdapterItemClickListener(new d(this));
+            setOnAdapterItemClickListener(new b(this));
             return threadCardViewHolder;
         }
         return (ThreadCardViewHolder) invokeL.objValue;
@@ -448,11 +271,11 @@ public class qz6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.bn
-    /* renamed from: z */
+    /* renamed from: y */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, n06 n06Var, ThreadCardViewHolder<n06> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), view2, viewGroup, n06Var, threadCardViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), view2, viewGroup, n06Var, threadCardViewHolder})) == null) {
             if (n06Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || n06Var.a == null) {
                 return null;
             }
@@ -461,12 +284,19 @@ public class qz6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
             threadCardViewHolder.o(false).u(this.d);
             threadCardViewHolder.e(n06Var);
             threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.a().p(this.g);
+            threadCardViewHolder.a().p(this.e);
             uz5.b().a(n06Var.B());
             nl5.c().i("page_recommend", "show_", n06Var.B());
-            x(n06Var.a, n06Var.n());
+            w(n06Var.a, n06Var.n());
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
+    }
+
+    public void z(NEGFeedBackView.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
+            this.d = bVar;
+        }
     }
 }

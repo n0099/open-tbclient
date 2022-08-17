@@ -91,7 +91,7 @@ public class eb6 {
                         kVar.a(4, 0, 0, null);
                         return;
                     } else {
-                        qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1086);
+                        qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1087);
                         return;
                     }
                 }
@@ -142,7 +142,7 @@ public class eb6 {
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
                 k kVar = this.a;
                 if (kVar == null) {
-                    qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1085);
+                    qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1086);
                 } else {
                     kVar.a(4, 0, 0, null);
                 }
@@ -156,7 +156,7 @@ public class eb6 {
                 if (list == null || list.isEmpty()) {
                     k kVar = this.a;
                     if (kVar == null) {
-                        qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1085);
+                        qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1086);
                     } else {
                         kVar.a(4, 0, 0, null);
                     }
@@ -275,7 +275,7 @@ public class eb6 {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921028));
                     k kVar = this.c;
                     if (kVar == null) {
-                        qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f00bb);
+                        qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f00bb);
                         return;
                     } else {
                         kVar.a(4, 1, 0, this.a);
@@ -284,7 +284,7 @@ public class eb6 {
                 }
                 k kVar2 = this.c;
                 if (kVar2 == null) {
-                    qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1085);
+                    qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1086);
                 } else {
                     kVar2.a(4, 0, 0, null);
                 }
@@ -524,7 +524,7 @@ public class eb6 {
                     m55Var.e = diyEmotionData.getThumbnail();
                     m55Var.b = diyEmotionData.getWidth();
                     m55Var.c = diyEmotionData.getHeight();
-                    fp7.a("【表情云同步】：4 - 开始：重新下载数据库中有数据但是没文件的表情，" + m55Var.d);
+                    ep7.a("【表情云同步】：4 - 开始：重新下载数据库中有数据但是没文件的表情，" + m55Var.d);
                     new j(this.a, null).execute(m55Var);
                 }
             }
@@ -724,8 +724,8 @@ public class eb6 {
     public void g(String str, String str2, k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, kVar) == null) {
-            if (ip7.o().p()) {
-                qi.N(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f05e4);
+            if (hp7.o().p()) {
+                qi.M(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f05e4);
                 return;
             }
             m55 m55Var = new m55();
@@ -749,7 +749,7 @@ public class eb6 {
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, Boolean.valueOf(z), kVar}) == null) {
             if (list == null || list.isEmpty()) {
                 if (kVar == null) {
-                    qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1085);
+                    qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1086);
                 } else {
                     kVar.a(4, 0, 0, null);
                 }
@@ -795,7 +795,7 @@ public class eb6 {
             if (o == null || o.isEmpty()) {
                 return true;
             }
-            fp7.a("【表情云同步】：4 - 收藏表情：检查数据库中表情文件是否存在");
+            ep7.a("【表情云同步】：4 - 收藏表情：检查数据库中表情文件是否存在");
             if (z) {
                 t(o, false, new h(this));
             }
@@ -820,7 +820,7 @@ public class eb6 {
         if (interceptable == null || interceptable.invokeLLZ(1048582, this, list, kVar, z) == null) {
             if (list.size() == 0) {
                 if (kVar == null) {
-                    qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f00bb);
+                    qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f00bb);
                     return;
                 } else {
                     kVar.a(4, 1, 0, null);

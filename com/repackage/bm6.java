@@ -236,7 +236,7 @@ public class bm6 {
         if (pbListView.b().getParent() == null) {
             this.f.setNextPage(this.h);
         }
-        this.h.C(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f09ea));
+        this.h.C(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f09eb));
         this.h.f();
     }
 }

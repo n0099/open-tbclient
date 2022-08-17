@@ -24,10 +24,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.fv5;
 import com.repackage.hv5;
 import com.repackage.iv5;
+import com.repackage.jj8;
 import com.repackage.jv5;
 import com.repackage.kj8;
 import com.repackage.kv5;
-import com.repackage.lj8;
 import com.repackage.mv5;
 import com.repackage.pf6;
 import com.repackage.qf6;
@@ -71,8 +71,8 @@ public class Static {
                 absDelegateAdapterList.add(new hv5(null, ThreadData.TYPE_ALA_LIVE_EMPTY, null));
                 absDelegateAdapterList.add(new kv5(null, ThreadData.TYPE_VIDEO_ALA_ONLIVE, null));
                 absDelegateAdapterList.add(new FrsSplitAlaShareItemAdapter(null, ThreadData.TYPE_ALA_SHARE_THREAD, null));
-                absDelegateAdapterList.add(new fv5(null, kj8.c, null));
-                absDelegateAdapterList.add(new iv5(null, lj8.b, null));
+                absDelegateAdapterList.add(new fv5(null, jj8.c, null));
+                absDelegateAdapterList.add(new iv5(null, kj8.b, null));
             }
         }
     }
@@ -111,7 +111,7 @@ public class Static {
                 absDelegateAdapterList.add(new hv5(null, ThreadData.TYPE_ALA_LIVE_EMPTY, null));
                 absDelegateAdapterList.add(new jv5(null, ThreadData.TYPE_VIDEO_ALA_ONLIVE, null));
                 absDelegateAdapterList.add(new FrsAlaShareItemAdapter(null, ThreadData.TYPE_ALA_SHARE_THREAD, null));
-                absDelegateAdapterList.add(new jv5(null, lj8.b, null));
+                absDelegateAdapterList.add(new jv5(null, kj8.b, null));
             }
         }
     }

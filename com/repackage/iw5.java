@@ -366,7 +366,7 @@ public class iw5 implements cx5, bx5 {
             this.e.onChangeSkinType(this.d, i);
             this.e.getBackground().mutate().setAlpha(0);
             SkinManager.setNavbarTitleColor(this.e.mTextTitle, R.color.CAM_X0101, R.color.CAM_X0101);
-            SkinManager.setNavbarIconSrc(this.m, R.drawable.selector_topbar_return_white, R.drawable.obfuscated_res_0x7f0810a6);
+            SkinManager.setNavbarIconSrc(this.m, R.drawable.selector_topbar_return_white, R.drawable.obfuscated_res_0x7f0810a7);
             this.f.setDivider(SkinManager.getDrawable(i, (int) R.color.CAM_X0204));
             this.f.setDividerHeight(this.d.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4));
             SkinManager.setBackgroundColor(this.g, R.color.CAM_X0201);
@@ -557,7 +557,7 @@ public class iw5 implements cx5, bx5 {
                 this.q.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }
             this.q.m(null);
-            this.q.n(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0fb9));
+            this.q.n(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0fba));
             this.q.onChangeSkinType();
             if (!this.r) {
                 ((ViewGroup) this.g).addView(this.q.b(), 0);

@@ -1,81 +1,45 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewStub;
-import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ws7;
 import java.util.List;
-import tbclient.PbContent;
 import tbclient.Post;
 import tbclient.User;
 /* loaded from: classes7.dex */
 public class vs7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HeadImageView a;
-    public TextView b;
-    public TbRichTextView c;
-    public ViewStub d;
-    public View e;
-    public ImageView f;
+    public View a;
+    public View b;
+    public TextView c;
+    public us7 d;
+    public us7 e;
+    public us7 f;
     public View g;
-    public ws7.a h;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Post a;
-        public final /* synthetic */ vs7 b;
-
-        public a(vs7 vs7Var, Post post) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vs7Var, post};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = vs7Var;
-            this.a = post;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Post post;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (post = this.a) == null || post.id == null || this.b.h == null) {
-                return;
-            }
-            this.b.h.a(String.valueOf(this.a.id));
-        }
+    public interface a {
+        void a(String str);
     }
 
-    public vs7(ViewStub viewStub, ws7.a aVar) {
+    public vs7(Context context, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {viewStub, aVar};
+            Object[] objArr = {context, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,65 +49,103 @@ public class vs7 {
                 return;
             }
         }
-        this.d = viewStub;
-        this.h = aVar;
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01d2, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090619);
+        this.g = this.b.findViewById(R.id.obfuscated_res_0x7f090616);
+        this.a = this.b.findViewById(R.id.obfuscated_res_0x7f090674);
+        this.d = new us7((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f09061a), aVar);
+        this.e = new us7((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f09061b), aVar);
+        this.f = new us7((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f09061c), aVar);
     }
 
-    public final void b() {
+    public final User a(Post post, List<User> list) {
+        InterceptResult invokeLL;
+        Long l;
+        Long l2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.e == null) {
-            View inflate = this.d.inflate();
-            this.e = inflate;
-            this.a = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090615);
-            this.b = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f090617);
-            this.c = (TbRichTextView) this.e.findViewById(R.id.obfuscated_res_0x7f090614);
-            this.f = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090618);
-            this.g = this.e.findViewById(R.id.obfuscated_res_0x7f090616);
-            this.c.setTextSize(TbConfig.getContentSize());
-            c();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, post, list)) == null) {
+            if (post == null || list == null || list.isEmpty() || (l = post.author_id) == null) {
+                return null;
+            }
+            long longValue = l.longValue();
+            for (User user : list) {
+                if (user != null && (l2 = user.id) != null && l2.longValue() == longValue) {
+                    return user;
+                }
+            }
+            return null;
         }
+        return (User) invokeLL.objValue;
+    }
+
+    public View b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setViewTextColor(this.b, R.color.CAM_X0106, 1);
-            SkinManager.setImageResource(this.f, R.drawable.btn_comment_list);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setBackgroundResource(this.b, R.color.common_color_10187);
+            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
             SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-            TbRichTextView tbRichTextView = this.c;
-            if (tbRichTextView != null) {
-                tbRichTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            }
+            this.d.c();
+            this.e.c();
+            this.f.c();
         }
     }
 
-    public void d(boolean z) {
-        View view2;
+    public void d(List<Post> list, List<User> list2) {
+        boolean z;
+        boolean update;
+        boolean update2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (view2 = this.e) == null) {
-            return;
-        }
-        view2.setVisibility(z ? 0 : 8);
-    }
-
-    public boolean update(Post post, User user) {
-        InterceptResult invokeLL;
-        List<PbContent> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, post, user)) == null) {
-            if (post != null && user != null && (list = post.content) != null && !list.isEmpty()) {
-                b();
-                d(true);
-                this.b.setText(user.name_show);
-                this.f.setOnClickListener(new a(this, post));
-                this.a.K(user.portrait, 12, false);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) {
+            if (list != null && !list.isEmpty()) {
+                this.g.setVisibility(0);
+                int size = list.size();
+                if (size != 1) {
+                    if (size == 2) {
+                        boolean update3 = this.d.update(list.get(0), a(list.get(0), list2));
+                        boolean update4 = this.e.update(list.get(1), a(list.get(1), list2));
+                        this.f.d(false);
+                        update = update4;
+                        z = update3;
+                        update2 = false;
+                    } else if (size >= 3) {
+                        boolean update5 = this.d.update(list.get(0), a(list.get(0), list2));
+                        update = this.e.update(list.get(1), a(list.get(1), list2));
+                        update2 = this.f.update(list.get(2), a(list.get(2), list2));
+                        z = update5;
+                    } else {
+                        z = false;
+                    }
+                    if (z && !update && !update2) {
+                        this.c.setVisibility(8);
+                        return;
+                    } else {
+                        this.c.setVisibility(0);
+                        return;
+                    }
+                }
+                z = this.d.update(list.get(0), a(list.get(0), list2));
+                this.e.d(false);
+                this.f.d(false);
+                update2 = false;
+                update = false;
+                if (z) {
+                }
                 this.c.setVisibility(0);
-                this.c.setText(TbRichTextView.X(post.content, false));
-                return true;
+                return;
             }
-            d(false);
-            return false;
+            this.c.setVisibility(8);
+            this.d.d(false);
+            this.e.d(false);
+            this.f.d(false);
+            this.g.setVisibility(8);
         }
-        return invokeLL.booleanValue;
     }
 }

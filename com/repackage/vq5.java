@@ -75,7 +75,7 @@ public class vq5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, context, threadData, str) == null) {
             if (!oi.z()) {
-                qi.L(context, context.getString(R.string.obfuscated_res_0x7f0f0c75));
+                qi.K(context, context.getString(R.string.obfuscated_res_0x7f0f0c76));
             } else if (context == null || threadData == null || threadData.getAuthor() == null || threadData.getThreadAlaInfo() == null) {
             } else {
                 if (TbadkCoreApplication.getCurrentAccount() != null) {

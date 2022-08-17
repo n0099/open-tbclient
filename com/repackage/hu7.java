@@ -1,39 +1,84 @@
 package com.repackage;
 
-import android.view.GestureDetector;
-import android.view.MotionEvent;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.util.DisplayMetrics;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.EditText;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.R;
+import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.nu7;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class hu7 implements View.OnTouchListener, GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener {
+public abstract class hu7<V extends nu7, D extends IBaseDialogData> implements mu7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public GestureDetector a;
-    public a b;
-    public View c;
+    public AlertDialog a;
+    public TbPageContext b;
+    public Context c;
+    public DialogInterface.OnKeyListener d;
+    public DialogInterface.OnCancelListener e;
+    public int f;
+    public boolean g;
+    public V h;
 
     /* loaded from: classes6.dex */
-    public interface a {
-        boolean a(View view2, MotionEvent motionEvent);
+    public class a implements ViewHelper.ViewCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AtomicBoolean a;
 
-        boolean b(View view2, MotionEvent motionEvent);
+        public a(hu7 hu7Var, AtomicBoolean atomicBoolean) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hu7Var, atomicBoolean};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = atomicBoolean;
+        }
 
-        boolean c(View view2, MotionEvent motionEvent);
+        @Override // com.baidu.tbadk.core.util.ViewHelper.ViewCallback
+        public boolean onViewFound(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                if (view2 instanceof EditText) {
+                    this.a.set(true);
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
     }
 
-    public hu7(a aVar) {
+    public hu7(TbPageContext tbPageContext, V v, D d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {tbPageContext, v, d};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,123 +88,84 @@ public class hu7 implements View.OnTouchListener, GestureDetector.OnDoubleTapLis
                 return;
             }
         }
-        this.b = aVar;
-        this.a = new GestureDetector(TbadkCoreApplication.getInst(), this);
+        this.f = -1;
+        this.g = false;
+        this.b = tbPageContext;
+        this.c = tbPageContext.getPageActivity();
+        this.h = v;
+        d(d);
     }
 
-    public void a(View view2) {
+    public void d(D d) {
+        V v;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            this.c = view2;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, d) == null) || (v = this.h) == null) {
+            return;
         }
+        v.b(d);
     }
 
-    @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onDoubleTap(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    @Override // com.repackage.mu7
+    public void dismiss() {
+        AlertDialog alertDialog;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            a aVar = this.b;
-            if (aVar != null) {
-                return aVar.c(this.c, motionEvent);
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (alertDialog = this.a) == null) {
+            return;
+        }
+        tg.a(alertDialog, this.b.getPageActivity());
+    }
+
+    @Override // com.repackage.mu7
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            AlertDialog alertDialog = this.a;
+            if (alertDialog != null) {
+                tg.i(alertDialog, this.b.getPageActivity());
+                return;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            a aVar = this.b;
-            if (aVar != null) {
-                return aVar.a(this.c, motionEvent);
+            if (this.g) {
+                this.a = new AlertDialog.Builder(this.c, R.style.obfuscated_res_0x7f1003ed).create();
+            } else {
+                this.a = new AlertDialog.Builder(this.c).create();
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onDown(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public void onLongPress(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, motionEvent) == null) {
-        }
-    }
-
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public void onShowPress(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, motionEvent) == null) {
-        }
-    }
-
-    @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
-            a aVar = this.b;
-            if (aVar != null) {
-                return aVar.b(this.c, motionEvent);
+            this.a.setCanceledOnTouchOutside(c());
+            this.a.setCancelable(b());
+            this.a.setOnKeyListener(this.d);
+            DialogInterface.OnCancelListener onCancelListener = this.e;
+            if (onCancelListener != null) {
+                this.a.setOnCancelListener(onCancelListener);
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onSingleTapUp(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, view2, motionEvent)) == null) {
-            this.c = view2;
-            GestureDetector gestureDetector = this.a;
-            if (gestureDetector != null) {
-                return gestureDetector.onTouchEvent(motionEvent);
+            tg.i(this.a, this.b.getPageActivity());
+            if (this.a.getWindow().getDecorView().getParent() == null) {
+                return;
             }
-            return true;
+            Window window = this.a.getWindow();
+            if (this.f == -1) {
+                this.f = 17;
+            }
+            window.setGravity(this.f);
+            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f081210);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.dimAmount = 0.7f;
+            attributes.width = -1;
+            DisplayMetrics r = qi.r(this.b.getPageActivity());
+            if (r != null) {
+                int a2 = a();
+                if (UtilHelper.getRealScreenOrientation(this.c) == 2) {
+                    attributes.width = r.heightPixels - (a2 * 2);
+                } else {
+                    attributes.width = r.widthPixels - (a2 * 2);
+                }
+            }
+            attributes.height = -2;
+            window.setAttributes(attributes);
+            window.setContentView(this.h.getViewGroup());
+            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+            ViewHelper.processAllViewsIn(this.h.getViewGroup(), false, new a(this, atomicBoolean));
+            if (atomicBoolean.get()) {
+                window.clearFlags(131080);
+            }
         }
-        return invokeLL.booleanValue;
     }
 }

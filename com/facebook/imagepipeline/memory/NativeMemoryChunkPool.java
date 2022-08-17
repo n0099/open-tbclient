@@ -6,8 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import javax.annotation.concurrent.ThreadSafe;
+@DoNotStrip
 @ThreadSafe
 /* loaded from: classes4.dex */
 public class NativeMemoryChunkPool extends MemoryChunkPool {
@@ -15,6 +17,7 @@ public class NativeMemoryChunkPool extends MemoryChunkPool {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @DoNotStrip
     public NativeMemoryChunkPool(MemoryTrimmableRegistry memoryTrimmableRegistry, PoolParams poolParams, PoolStatsTracker poolStatsTracker) {
         super(memoryTrimmableRegistry, poolParams, poolStatsTracker);
         Interceptable interceptable = $ic;

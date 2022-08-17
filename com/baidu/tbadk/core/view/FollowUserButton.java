@@ -113,7 +113,7 @@ public class FollowUserButton extends TBSpecificationBtn implements sw4 {
                 pv4Var.t(R.color.CAM_X0109);
                 pv4Var.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
                 setConfig(pv4Var);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbd));
             } else {
                 setVisibility(0);
                 pv4 pv4Var2 = new pv4();

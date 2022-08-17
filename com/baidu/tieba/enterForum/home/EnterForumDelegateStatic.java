@@ -62,10 +62,10 @@ import com.repackage.g76;
 import com.repackage.gf;
 import com.repackage.gf5;
 import com.repackage.hf;
+import com.repackage.il8;
 import com.repackage.je5;
-import com.repackage.jl8;
+import com.repackage.jk8;
 import com.repackage.k16;
-import com.repackage.kk8;
 import com.repackage.m65;
 import com.repackage.n65;
 import com.repackage.o65;
@@ -897,14 +897,14 @@ public class EnterForumDelegateStatic extends m65 {
     public static void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            kk8.e(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST, TbConfig.URL_ENTER_FORUM_AD, EnterForumAdResponsedMessage.class, false, false, true, false);
+            jk8.e(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST, TbConfig.URL_ENTER_FORUM_AD, EnterForumAdResponsedMessage.class, false, false, true, false);
         }
     }
 
     public static void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, null) == null) {
-            jl8.d();
+            il8.d();
             if (d == null) {
                 EnterForumModel enterForumModel = new EnterForumModel(null);
                 d = enterForumModel;
@@ -923,20 +923,20 @@ public class EnterForumDelegateStatic extends m65 {
     public static void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            kk8.h(309651, TabFeedListSocketResponsedMessage.class, false, false);
-            kk8.c(309651, CmdConfigHttp.CMD_TAB_FEED_LIST, TbConfig.URL_TAB_FEED_LIST, TabFeedListHttpResponsedMessage.class, false, false, true, false);
+            jk8.h(309651, TabFeedListSocketResponsedMessage.class, false, false);
+            jk8.c(309651, CmdConfigHttp.CMD_TAB_FEED_LIST, TbConfig.URL_TAB_FEED_LIST, TabFeedListHttpResponsedMessage.class, false, false, true, false);
         }
     }
 
     public static void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            kk8.h(303011, forumRecommendSocketResponseMessage.class, false, false);
-            kk8.c(303011, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, "c/f/forum/forumrecommend", forumRecommendHttpResponseMessage.class, false, false, false, false);
-            kk8.h(309683, ForumGuideSocketResponseMessage.class, false, false);
-            kk8.c(309683, CmdConfigHttp.CMD_ENTER_FORUM_DATA, "c/f/forum/forumGuide", ForumGuideHttpResponseMessage.class, false, false, true, false);
-            kk8.h(309685, SetLikeForumSocketResponseMessage.class, false, false);
-            kk8.c(309685, CmdConfigHttp.CMD_SET_LIKE_FORUM, "c/c/forum/setLikeForumSort", SetLikeForumHttpResponseMessage.class, false, false, false, false);
+            jk8.h(303011, forumRecommendSocketResponseMessage.class, false, false);
+            jk8.c(303011, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, "c/f/forum/forumrecommend", forumRecommendHttpResponseMessage.class, false, false, false, false);
+            jk8.h(309683, ForumGuideSocketResponseMessage.class, false, false);
+            jk8.c(309683, CmdConfigHttp.CMD_ENTER_FORUM_DATA, "c/f/forum/forumGuide", ForumGuideHttpResponseMessage.class, false, false, true, false);
+            jk8.h(309685, SetLikeForumSocketResponseMessage.class, false, false);
+            jk8.c(309685, CmdConfigHttp.CMD_SET_LIKE_FORUM, "c/c/forum/setLikeForumSort", SetLikeForumHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -962,9 +962,9 @@ public class EnterForumDelegateStatic extends m65 {
     public static void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            kk8.h(309601, RecentlyVisitedForumSocketResponseMessage.class, false, false);
-            kk8.c(309601, CmdConfigHttp.CMD_GET_HISTORY_FORUM, "c/f/forum/gethistoryforum", RecentlyVisitedForumHttpResponseMessage.class, false, false, false, false);
-            kk8.e(CmdConfigHttp.CMD_DELETE_HISTORY_FORUM, "c/c/forum/delHistoryForum", null, false, false, false, false);
+            jk8.h(309601, RecentlyVisitedForumSocketResponseMessage.class, false, false);
+            jk8.c(309601, CmdConfigHttp.CMD_GET_HISTORY_FORUM, "c/f/forum/gethistoryforum", RecentlyVisitedForumHttpResponseMessage.class, false, false, false, false);
+            jk8.e(CmdConfigHttp.CMD_DELETE_HISTORY_FORUM, "c/c/forum/delHistoryForum", null, false, false, false, false);
         }
     }
 

@@ -98,7 +98,7 @@ public class kv8 extends l25 {
                 this.a.q();
                 this.a.p();
                 if (writeData2 != null) {
-                    String string = this.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0fdb);
+                    String string = this.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0fdc);
                     if (postWriteCallBackData != null) {
                         str2 = postWriteCallBackData.getPreMsg();
                         String colorMsg = postWriteCallBackData.getColorMsg();
@@ -424,7 +424,7 @@ public class kv8 extends l25 {
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
             ur4 ur4Var = new ur4(getContext().getPageActivity());
             ur4Var.setMessage(str);
-            ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f09a0, new b(this));
+            ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f09a1, new b(this));
             ur4Var.create(getContext()).show();
         }
     }

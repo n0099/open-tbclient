@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class ri6 extends ue6<ek8, a> implements View.OnClickListener {
+public class ri6 extends ue6<dk8, a> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean l;
@@ -126,14 +126,14 @@ public class ri6 extends ue6<ek8, a> implements View.OnClickListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ue6, com.repackage.bn
     /* renamed from: G */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ek8 ek8Var, a aVar) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, dk8 dk8Var, a aVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ek8Var, aVar})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, ek8Var, aVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dk8Var, aVar})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, dk8Var, aVar);
             boolean z = true;
-            if (ek8Var.h()) {
-                String c = ek8Var.c();
+            if (dk8Var.h()) {
+                String c = dk8Var.c();
                 if (c != null) {
                     aVar.b.setText(c);
                 } else {
@@ -154,7 +154,7 @@ public class ri6 extends ue6<ek8, a> implements View.OnClickListener {
                 aVar.a.setVisibility(8);
                 aVar.h.setVisibility(8);
             }
-            xj8 f = ek8Var.f();
+            wj8 f = dk8Var.f();
             if (f != null && f.b() && !TextUtils.isEmpty(f.a())) {
                 aVar.d.setText(f.a());
                 aVar.c.setTag(Integer.valueOf(i));
@@ -183,7 +183,7 @@ public class ri6 extends ue6<ek8, a> implements View.OnClickListener {
                 aVar.f.setVisibility(8);
                 aVar.j.setVisibility(8);
             }
-            if (this.l || ek8Var.h()) {
+            if (this.l || dk8Var.h()) {
                 return view2;
             }
             if (z) {

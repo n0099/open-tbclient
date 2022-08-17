@@ -29,12 +29,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.qi;
-import com.repackage.wp7;
-import com.repackage.yp7;
+import com.repackage.vp7;
+import com.repackage.xp7;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class NativeEmotionManagerActivity extends BaseFragmentActivity implements yp7<Boolean> {
+public class NativeEmotionManagerActivity extends BaseFragmentActivity implements xp7<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FragmentPagerAdapter a;
@@ -233,7 +233,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.yp7
+    @Override // com.repackage.xp7
     /* renamed from: N0 */
     public void onUpdate(Boolean bool) {
         Interceptable interceptable = $ic;
@@ -271,8 +271,8 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             super.onClick(view2);
             if (view2 == this.i) {
-                boolean z = !wp7.b().a();
-                wp7.b().d(z);
+                boolean z = !vp7.b().a();
+                vp7.b().d(z);
                 if (z) {
                     this.i.setText(R.string.obfuscated_res_0x7f0f0561);
                 } else {

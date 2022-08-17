@@ -246,7 +246,7 @@ public class UnifyTextView extends TextView {
         Intrinsics.checkNotNullParameter(context, "context");
         this.a = "UnifyTextView";
         this.c = a(context, R.dimen.obfuscated_res_0x7f070575);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040642, R.attr.obfuscated_res_0x7f040643});
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040643, R.attr.obfuscated_res_0x7f040644});
         this.f = obtainStyledAttributes.getDimensionPixelSize(1, this.c);
         this.g = obtainStyledAttributes.getDimensionPixelSize(0, this.c);
         obtainStyledAttributes.recycle();

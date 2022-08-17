@@ -50,7 +50,7 @@ public class RequestSubLabelMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1365common = this.f1056common;
+            builder.f1366common = this.f1056common;
             builder.arr_tag_id = this.labelList;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
                 te5.a(builder, true);

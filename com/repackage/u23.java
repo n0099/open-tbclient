@@ -45,12 +45,12 @@ public class u23 extends w23 {
 
         /* renamed from: com.repackage.u23$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0592a implements Runnable {
+        public class RunnableC0594a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0592a(a aVar) {
+            public RunnableC0594a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public class u23 extends w23 {
                     x53.q(c63Var, this.a, this.b);
                     return;
                 }
-                td3.k(new RunnableC0592a(this), "SaveImageAction");
+                td3.k(new RunnableC0594a(this), "SaveImageAction");
             }
         }
     }

@@ -9,13 +9,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes6.dex */
 public class mh7 implements on {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public Long a;
     public String b;
+    public String c;
+    public Integer d;
+    public Integer e;
+    public String f;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +35,7 @@ public class mh7 implements on {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        g = BdUniqueId.gen();
     }
 
     public mh7() {
@@ -43,43 +48,62 @@ public class mh7 implements on {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = "";
-        this.b = "";
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public String b() {
+    public Long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (Long) invokeV.objValue;
     }
 
-    public void c(String str) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.b = str;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public void f(String str) {
+    public Integer f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (Integer) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (String) invokeV.objValue;
     }
 
     @Override // com.repackage.on
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? g : (BdUniqueId) invokeV.objValue;
+    }
+
+    public Integer h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (Integer) invokeV.objValue;
+    }
+
+    public void j(RecommendForumInfo recommendForumInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, recommendForumInfo) == null) {
+            this.c = recommendForumInfo.avatar;
+            this.a = recommendForumInfo.forum_id;
+            this.b = recommendForumInfo.forum_name;
+            this.d = recommendForumInfo.thread_count;
+            this.e = recommendForumInfo.member_count;
+            this.f = recommendForumInfo.slogan;
+        }
     }
 }

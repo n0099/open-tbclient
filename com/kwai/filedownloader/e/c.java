@@ -28,7 +28,7 @@ public final class c {
 
     /* renamed from: com.kwai.filedownloader.e.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0409c {
+    public interface InterfaceC0411c {
         com.kwai.filedownloader.a.a EK();
     }
 

@@ -185,7 +185,7 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements hx<fo4> 
         originalThreadInfo.r.video_duration.intValue();
         long j = originalThreadInfo.e;
         this.i.setText(StringHelper.stringForVideoTime(originalThreadInfo.r.video_duration.intValue() * 1000));
-        this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e88), StringHelper.numFormatOverWan(originalThreadInfo.r.play_count.intValue())));
+        this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e89), StringHelper.numFormatOverWan(originalThreadInfo.r.play_count.intValue())));
         this.h.setVisibility(8);
         this.c.K(originalThreadInfo.r.thumbnail_url, 10, false);
     }
@@ -207,7 +207,7 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements hx<fo4> 
                 SkinManager.setBackgroundColor(this.k, R.color.CAM_X0206);
                 SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
                 this.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
-                this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a22, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
+                this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a23, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
             }
             this.b = i;
         }

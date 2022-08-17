@@ -1,19 +1,21 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class lp7 {
+public class lp7 implements Comparable<lp7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
     public String b;
     public String c;
     public String d;
-    public List<mp7> e;
+    public int e;
+    public int f;
 
     public lp7() {
         Interceptable interceptable = $ic;
@@ -27,5 +29,26 @@ public class lp7 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(lp7 lp7Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lp7Var)) == null) {
+            if (this == lp7Var) {
+                return 0;
+            }
+            return (lp7Var == null || this.a <= lp7Var.a) ? -1 : 1;
+        }
+        return invokeL.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? (obj instanceof lp7) && compareTo((lp7) obj) == 0 : invokeL.booleanValue;
     }
 }

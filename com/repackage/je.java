@@ -63,7 +63,7 @@ public class je extends le<byte[]> {
         return invokeV.intValue;
     }
 
-    /* JADX WARN: Type inference failed for: r0v14, types: [byte[], T] */
+    /* JADX WARN: Type inference failed for: r0v14, types: [T, byte[]] */
     @Override // com.repackage.le
     public pe<byte[]> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         InterceptResult invokeLL;

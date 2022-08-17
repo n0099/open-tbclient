@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ix;
 import com.repackage.ms4;
-import com.repackage.o17;
+import com.repackage.n17;
 import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class HomeLocalCompleteInfoLayout extends LinearLayout implements ix {
@@ -60,7 +60,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements ix {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.getContext() == null) {
                 return;
             }
-            o17.h();
+            n17.h();
             PersonChangeActivityConfig personChangeActivityConfig = new PersonChangeActivityConfig(this.a.getContext());
             personChangeActivityConfig.setIsCompleteLocalInfo(true);
             personChangeActivityConfig.start();

@@ -472,7 +472,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
             x96 x96Var = this.e;
             if (x96Var != null && x96Var.g()) {
                 this.k = true;
-                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f0b29);
+                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f0b2a);
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
@@ -532,8 +532,8 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
             ms4 d3 = ms4.d(textView);
             d3.A(R.string.F_X02);
             d3.y(R.array.S_O_X001);
-            this.p.add(0, new ty8(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b2a), new MusicData(MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0b2a)), R.drawable.obfuscated_res_0x7f080b07));
-            this.p.add(1, new ty8(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b28), new MusicData(MusicData.MUSIC_CLOUD_ID, 2, getResources().getString(R.string.obfuscated_res_0x7f0f0b28)), R.drawable.obfuscated_res_0x7f080af1));
+            this.p.add(0, new ty8(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b2b), new MusicData(MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0b2b)), R.drawable.obfuscated_res_0x7f080b08));
+            this.p.add(1, new ty8(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b29), new MusicData(MusicData.MUSIC_CLOUD_ID, 2, getResources().getString(R.string.obfuscated_res_0x7f0f0b29)), R.drawable.obfuscated_res_0x7f080af2));
             return true;
         }
         return invokeV.booleanValue;

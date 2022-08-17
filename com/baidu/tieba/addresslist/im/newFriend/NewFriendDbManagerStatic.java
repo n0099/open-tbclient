@@ -28,12 +28,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cb;
 import com.repackage.cf5;
+import com.repackage.g77;
 import com.repackage.gf5;
-import com.repackage.h77;
 import com.repackage.je5;
 import com.repackage.ru4;
 import com.repackage.vm5;
-import com.repackage.z77;
+import com.repackage.x77;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class NewFriendDbManagerStatic {
@@ -45,14 +45,14 @@ public class NewFriendDbManagerStatic {
     public class a extends cf5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h77 a;
+        public final /* synthetic */ g77 a;
 
-        public a(NewFriendDbManagerStatic newFriendDbManagerStatic, h77 h77Var) {
+        public a(NewFriendDbManagerStatic newFriendDbManagerStatic, g77 g77Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, h77Var};
+                Object[] objArr = {newFriendDbManagerStatic, g77Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,7 +62,7 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = h77Var;
+            this.a = g77Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -116,14 +116,14 @@ public class NewFriendDbManagerStatic {
     public class c extends cf5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h77 a;
+        public final /* synthetic */ g77 a;
 
-        public c(NewFriendDbManagerStatic newFriendDbManagerStatic, h77 h77Var) {
+        public c(NewFriendDbManagerStatic newFriendDbManagerStatic, g77 g77Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, h77Var};
+                Object[] objArr = {newFriendDbManagerStatic, g77Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -133,7 +133,7 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = h77Var;
+            this.a = g77Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -155,16 +155,16 @@ public class NewFriendDbManagerStatic {
     public class d implements je5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h77 a;
+        public final /* synthetic */ g77 a;
         public final /* synthetic */ String b;
         public final /* synthetic */ String c;
 
-        public d(NewFriendDbManagerStatic newFriendDbManagerStatic, h77 h77Var, String str, String str2) {
+        public d(NewFriendDbManagerStatic newFriendDbManagerStatic, g77 g77Var, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, h77Var, str, str2};
+                Object[] objArr = {newFriendDbManagerStatic, g77Var, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -174,7 +174,7 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = h77Var;
+            this.a = g77Var;
             this.b = str;
             this.c = str2;
         }
@@ -263,14 +263,14 @@ public class NewFriendDbManagerStatic {
     public class g extends cf5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h77 a;
+        public final /* synthetic */ g77 a;
 
-        public g(NewFriendDbManagerStatic newFriendDbManagerStatic, h77 h77Var) {
+        public g(NewFriendDbManagerStatic newFriendDbManagerStatic, g77 g77Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, h77Var};
+                Object[] objArr = {newFriendDbManagerStatic, g77Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -280,7 +280,7 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = h77Var;
+            this.a = g77Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -336,14 +336,14 @@ public class NewFriendDbManagerStatic {
     public class i extends cf5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h77 a;
+        public final /* synthetic */ g77 a;
 
-        public i(NewFriendDbManagerStatic newFriendDbManagerStatic, h77 h77Var) {
+        public i(NewFriendDbManagerStatic newFriendDbManagerStatic, g77 g77Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, h77Var};
+                Object[] objArr = {newFriendDbManagerStatic, g77Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -353,7 +353,7 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = h77Var;
+            this.a = g77Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -458,14 +458,14 @@ public class NewFriendDbManagerStatic {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
-            public final /* synthetic */ h77 b;
+            public final /* synthetic */ g77 b;
 
-            public a(l lVar, long j, h77 h77Var) {
+            public a(l lVar, long j, g77 g77Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {lVar, Long.valueOf(j), h77Var};
+                    Object[] objArr = {lVar, Long.valueOf(j), g77Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -476,7 +476,7 @@ public class NewFriendDbManagerStatic {
                     }
                 }
                 this.a = j;
-                this.b = h77Var;
+                this.b = g77Var;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -532,14 +532,14 @@ public class NewFriendDbManagerStatic {
                 requestAddFriendMessage.setMessage(content);
                 requestAddFriendMessage.setSt_type(st_type);
                 MessageManager.getInstance().sendMessage(requestAddFriendMessage);
-                h77 h77Var = new h77();
-                h77Var.h(id);
-                h77Var.j(name);
-                h77Var.l(0);
-                h77Var.k(portrait);
-                h77Var.g(content);
-                h77Var.i(0);
-                gf5.c(new a(this, id, h77Var), null);
+                g77 g77Var = new g77();
+                g77Var.h(id);
+                g77Var.j(name);
+                g77Var.l(0);
+                g77Var.k(portrait);
+                g77Var.g(content);
+                g77Var.i(0);
+                gf5.c(new a(this, id, g77Var), null);
             }
         }
     }
@@ -548,14 +548,14 @@ public class NewFriendDbManagerStatic {
     public class m extends cf5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h77 a;
+        public final /* synthetic */ g77 a;
 
-        public m(NewFriendDbManagerStatic newFriendDbManagerStatic, h77 h77Var) {
+        public m(NewFriendDbManagerStatic newFriendDbManagerStatic, g77 g77Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, h77Var};
+                Object[] objArr = {newFriendDbManagerStatic, g77Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -565,7 +565,7 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = h77Var;
+            this.a = g77Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -627,14 +627,14 @@ public class NewFriendDbManagerStatic {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
-            public final /* synthetic */ h77 b;
+            public final /* synthetic */ g77 b;
 
-            public a(o oVar, long j, h77 h77Var) {
+            public a(o oVar, long j, g77 g77Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {oVar, Long.valueOf(j), h77Var};
+                    Object[] objArr = {oVar, Long.valueOf(j), g77Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -645,7 +645,7 @@ public class NewFriendDbManagerStatic {
                     }
                 }
                 this.a = j;
-                this.b = h77Var;
+                this.b = g77Var;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -655,7 +655,7 @@ public class NewFriendDbManagerStatic {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    h77 e = vm5.f().e(this.a);
+                    g77 e = vm5.f().e(this.a);
                     if (e == null) {
                         return null;
                     }
@@ -739,11 +739,11 @@ public class NewFriendDbManagerStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     if (0 != this.a && vm5.f().n(this.a)) {
-                        h77 h77Var = new h77();
-                        h77Var.h(this.a);
-                        h77Var.l(3);
-                        h77Var.i(0);
-                        vm5.f().q(h77Var);
+                        g77 g77Var = new g77();
+                        g77Var.h(this.a);
+                        g77Var.l(3);
+                        g77Var.i(0);
+                        vm5.f().q(g77Var);
                     }
                     return null;
                 }
@@ -815,13 +815,13 @@ public class NewFriendDbManagerStatic {
                 RequestAddFriendMessage requestAddFriendMessage = (RequestAddFriendMessage) responseAddFriendMessage.getOrginalMessage();
                 int error = responseAddFriendMessage.getError();
                 long friendId = responseAddFriendMessage.getFriendId();
-                h77 h77Var = new h77();
-                h77Var.h(friendId);
-                h77Var.i(0);
-                h77Var.g(requestAddFriendMessage.getMessage());
+                g77 g77Var = new g77();
+                g77Var.h(friendId);
+                g77Var.i(0);
+                g77Var.g(requestAddFriendMessage.getMessage());
                 if (error == 0) {
-                    h77Var.l(3);
-                    gf5.c(new a(this, friendId, h77Var), new b(this, friendId, requestAddFriendMessage));
+                    g77Var.l(3);
+                    gf5.c(new a(this, friendId, g77Var), new b(this, friendId, requestAddFriendMessage));
                 } else if (error == 3100097) {
                     Message<?> orginalMessage = responseAddFriendMessage.getOrginalMessage();
                     if (orginalMessage instanceof RequestAddFriendMessage) {
@@ -873,7 +873,7 @@ public class NewFriendDbManagerStatic {
                         return null;
                     }
                     vm5.f().b(this.a);
-                    z77.w().p(String.valueOf(this.a));
+                    x77.w().p(String.valueOf(this.a));
                     return null;
                 }
                 return (Void) invokeV.objValue;
@@ -960,14 +960,14 @@ public class NewFriendDbManagerStatic {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
-            public final /* synthetic */ h77 b;
+            public final /* synthetic */ g77 b;
 
-            public a(q qVar, long j, h77 h77Var) {
+            public a(q qVar, long j, g77 g77Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {qVar, Long.valueOf(j), h77Var};
+                    Object[] objArr = {qVar, Long.valueOf(j), g77Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -978,7 +978,7 @@ public class NewFriendDbManagerStatic {
                     }
                 }
                 this.a = j;
-                this.b = h77Var;
+                this.b = g77Var;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -986,7 +986,7 @@ public class NewFriendDbManagerStatic {
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
-                h77 e;
+                g77 e;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     if (0 == this.a || (e = vm5.f().e(this.a)) == null) {
@@ -1077,11 +1077,11 @@ public class NewFriendDbManagerStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     if (0 != this.a && vm5.f().n(this.a)) {
-                        h77 h77Var = new h77();
-                        h77Var.h(this.a);
-                        h77Var.l(2);
-                        h77Var.i(0);
-                        vm5.f().q(h77Var);
+                        g77 g77Var = new g77();
+                        g77Var.h(this.a);
+                        g77Var.l(2);
+                        g77Var.i(0);
+                        vm5.f().q(g77Var);
                     }
                     return null;
                 }
@@ -1156,12 +1156,12 @@ public class NewFriendDbManagerStatic {
                 String portrait = responsePassFriendMessage.getPortrait();
                 String key = responsePassFriendMessage.getKey();
                 String quanpin = responsePassFriendMessage.getQuanpin();
-                h77 h77Var = new h77();
-                h77Var.h(friendId);
-                h77Var.l(2);
-                h77Var.i(0);
+                g77 g77Var = new g77();
+                g77Var.h(friendId);
+                g77Var.l(2);
+                g77Var.i(0);
                 if (error == 0) {
-                    gf5.c(new a(this, friendId, h77Var), new b(this, friendId, portrait, name, key, quanpin));
+                    gf5.c(new a(this, friendId, g77Var), new b(this, friendId, portrait, name, key, quanpin));
                 } else if (error == 3100098) {
                     Message<?> orginalMessage = responsePassFriendMessage.getOrginalMessage();
                     if (orginalMessage instanceof RequestPassFriendMessage) {
@@ -1397,7 +1397,7 @@ public class NewFriendDbManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<h77> run(CustomMessage<Long> customMessage) {
+        public CustomResponsedMessage<g77> run(CustomMessage<Long> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
@@ -1471,18 +1471,18 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                h77 h77Var = new h77();
+                g77 g77Var = new g77();
                 long optLong = optJSONObject.optLong("user_id");
                 String optString = optJSONObject.optString("user_name");
                 String optString2 = optJSONObject.optString("portrait");
                 String optString3 = optJSONObject.optString("message");
-                h77Var.l(3);
-                h77Var.g(optString3);
-                h77Var.h(optLong);
-                h77Var.i(1);
-                h77Var.j(optString);
-                h77Var.k(optString2);
-                gf5.c(new i(this, h77Var), new j(this, optLong));
+                g77Var.l(3);
+                g77Var.g(optString3);
+                g77Var.h(optLong);
+                g77Var.i(1);
+                g77Var.j(optString);
+                g77Var.k(optString2);
+                gf5.c(new i(this, g77Var), new j(this, optLong));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1497,14 +1497,14 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                h77 h77Var = new h77();
-                h77Var.h(optJSONObject.optLong("user_id"));
-                h77Var.j(optJSONObject.optString("user_name"));
-                h77Var.k(optJSONObject.optString("portrait"));
-                h77Var.g(optJSONObject.optString("message"));
-                h77Var.i(0);
-                h77Var.l(1);
-                gf5.c(new a(this, h77Var), new b(this));
+                g77 g77Var = new g77();
+                g77Var.h(optJSONObject.optLong("user_id"));
+                g77Var.j(optJSONObject.optString("user_name"));
+                g77Var.k(optJSONObject.optString("portrait"));
+                g77Var.g(optJSONObject.optString("message"));
+                g77Var.i(0);
+                g77Var.l(1);
+                gf5.c(new a(this, g77Var), new b(this));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1534,18 +1534,18 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                h77 h77Var = new h77();
+                g77 g77Var = new g77();
                 long optLong = optJSONObject.optLong("user_id");
                 String optString = optJSONObject.optString("user_name");
                 String optString2 = optJSONObject.optString("portrait");
                 String optString3 = optJSONObject.optString("message");
-                h77Var.l(2);
-                h77Var.g(optString3);
-                h77Var.h(optLong);
-                h77Var.i(1);
-                h77Var.j(optString);
-                h77Var.k(optString2);
-                gf5.c(new m(this, h77Var), new n(this, optLong));
+                g77Var.l(2);
+                g77Var.g(optString3);
+                g77Var.h(optLong);
+                g77Var.i(1);
+                g77Var.j(optString);
+                g77Var.k(optString2);
+                gf5.c(new m(this, g77Var), new n(this, optLong));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1560,16 +1560,16 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                h77 h77Var = new h77();
-                h77Var.h(optJSONObject.optLong("user_id"));
-                h77Var.j(optJSONObject.optString("user_name"));
-                h77Var.k(optJSONObject.optString("portrait"));
-                h77Var.g(optJSONObject.optString("message"));
+                g77 g77Var = new g77();
+                g77Var.h(optJSONObject.optLong("user_id"));
+                g77Var.j(optJSONObject.optString("user_name"));
+                g77Var.k(optJSONObject.optString("portrait"));
+                g77Var.g(optJSONObject.optString("message"));
                 String optString = optJSONObject.optString("key");
                 String optString2 = optJSONObject.optString("pinyin");
-                h77Var.i(0);
-                h77Var.l(4);
-                gf5.c(new c(this, h77Var), new d(this, h77Var, optString, optString2));
+                g77Var.i(0);
+                g77Var.l(4);
+                gf5.c(new c(this, g77Var), new d(this, g77Var, optString, optString2));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1584,23 +1584,23 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                h77 h77Var = new h77();
+                g77 g77Var = new g77();
                 long optLong = optJSONObject.optLong("user_id");
                 String optString = optJSONObject.optString("user_name");
                 String optString2 = optJSONObject.optString("portrait");
                 String optString3 = optJSONObject.optString("message");
                 int optInt = optJSONObject.optInt("type");
                 if (optInt == 1) {
-                    h77Var.l(3);
+                    g77Var.l(3);
                 } else if (optInt == 2) {
-                    h77Var.l(1);
+                    g77Var.l(1);
                 }
-                h77Var.g(optString3);
-                h77Var.h(optLong);
-                h77Var.i(1);
-                h77Var.j(optString);
-                h77Var.k(optString2);
-                gf5.c(new g(this, h77Var), new h(this, optLong));
+                g77Var.g(optString3);
+                g77Var.h(optLong);
+                g77Var.i(1);
+                g77Var.j(optString);
+                g77Var.k(optString2);
+                gf5.c(new g(this, g77Var), new h(this, optLong));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

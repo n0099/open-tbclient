@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class zt5 extends bz5<iq5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class zt5 extends bz5<iq5> {
     public View.OnClickListener q;
     public View.OnClickListener r;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,12 +73,12 @@ public class zt5 extends bz5<iq5> {
                     this.a.l.a(this.a.n, this.a.o, this.a.m);
                     return;
                 }
-                qi.L(this.a.j.getPageActivity(), this.a.j.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c75));
+                qi.K(this.a.j.getPageActivity(), this.a.j.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c76));
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public class zt5 extends bz5<iq5> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -237,7 +237,7 @@ public class zt5 extends bz5<iq5> {
                 this.n = iq5Var.a;
                 this.o = !TextUtils.isEmpty(iq5Var.c) ? iq5Var.c : iq5Var.b;
                 this.k.b.K(this.m.getThreadAlaInfo().cover, 10, false);
-                this.k.d.setText(this.j.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11d9, StringHelper.numberUniformFormatExtra(this.m.getThreadAlaInfo().audience_count)));
+                this.k.d.setText(this.j.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11db, StringHelper.numberUniformFormatExtra(this.m.getThreadAlaInfo().audience_count)));
                 this.k.f.setData(this.m, false);
                 this.k.h.setText(this.m.getTitle());
                 if (this.m.getAuthor() != null) {
@@ -255,7 +255,7 @@ public class zt5 extends bz5<iq5> {
                     this.k.c.setVisibility(8);
                 }
                 if (iq5Var.e) {
-                    this.k.i.setText(this.j.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11d8, StringHelper.numberUniformFormatExtra((long) (this.m.getThreadAlaInfo().distance / 1000.0d))));
+                    this.k.i.setText(this.j.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11da, StringHelper.numberUniformFormatExtra((long) (this.m.getThreadAlaInfo().distance / 1000.0d))));
                     this.k.i.setVisibility(0);
                 } else {
                     this.k.i.setVisibility(8);

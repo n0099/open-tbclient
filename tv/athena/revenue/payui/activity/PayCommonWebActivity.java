@@ -19,17 +19,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a2a;
+import com.repackage.b0a;
 import com.repackage.b2a;
-import com.repackage.h0a;
-import com.repackage.m2a;
-import com.repackage.n1a;
-import com.repackage.o1a;
+import com.repackage.c2a;
+import com.repackage.d2a;
+import com.repackage.j0a;
 import com.repackage.o2a;
-import com.repackage.t2a;
-import com.repackage.u2a;
-import com.repackage.z1a;
-import com.repackage.zz9;
+import com.repackage.p1a;
+import com.repackage.q1a;
+import com.repackage.q2a;
+import com.repackage.v2a;
+import com.repackage.w2a;
 import com.yy.mobile.framework.revenuesdk.baseapi.Env;
 import com.yy.mobile.framework.revenuesdk.baseapi.IToken;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
@@ -65,7 +65,7 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
     public int j;
     public int k;
     public YYPayWebView l;
-    public zz9 m;
+    public b0a m;
     public int n;
     public TextView o;
     public TextView p;
@@ -197,12 +197,12 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            h0a h0aVar;
+            j0a j0aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (h0aVar = YYPayUIKit.mTestFunListenerr) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (j0aVar = YYPayUIKit.mTestFunListenerr) == null) {
                 return;
             }
-            h0aVar.b(view2);
+            j0aVar.b(view2);
         }
     }
 
@@ -232,12 +232,12 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            h0a h0aVar;
+            j0a j0aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (h0aVar = YYPayUIKit.mTestFunListenerr) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (j0aVar = YYPayUIKit.mTestFunListenerr) == null) {
                 return;
             }
-            h0aVar.a(view2);
+            j0aVar.a(view2);
         }
     }
 
@@ -306,7 +306,7 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, currencyChargeMessage, payCallBackBean) == null) {
                 RLog.debug(this.a.a, "onSuccess");
-                if (!u2a.a.a(this.a)) {
+                if (!w2a.a.a(this.a)) {
                     RLog.info(this.a.a, "onSuccess activity not valid");
                 } else {
                     this.a.runOnUiThread(new a(this));
@@ -358,7 +358,7 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
     public static void v(Context context, PayFlowType payFlowType, Intent intent, int i, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, payFlowType, intent, Integer.valueOf(i), Integer.valueOf(i2), str}) == null) {
-            o1a.b(str, i, i2, payFlowType);
+            q1a.b(str, i, i2, payFlowType);
             intent.putExtra(H5PayConstant.EXTRA_PAY_FLOW_TYPE_ID, payFlowType.getTypeId());
             context.startActivity(intent);
         }
@@ -404,47 +404,47 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
             if (i == 4) {
                 r(nativeOperationParams);
             } else if (i == 5) {
-                n1a.a(this.j, this.k, this.q, nativeOperationParams);
+                p1a.a(this.j, this.k, this.q, nativeOperationParams);
             } else if (i == 6) {
-                n1a.d(this.j, this.k, this.q, nativeOperationParams);
+                p1a.d(this.j, this.k, this.q, nativeOperationParams);
             } else if (i == 7) {
-                n1a.b(this.j, this.k);
+                p1a.b(this.j, this.k);
             }
         }
     }
 
     @Override // tv.athena.revenue.payui.view.impl.YYPayWebView.c
-    public void b(a2a a2aVar, z1a z1aVar) {
+    public void b(c2a c2aVar, b2a b2aVar) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, a2aVar, z1aVar) == null) {
-            RLog.info(this.a, "onOpenNewUrl: urlParams:%s, topUiParams:%s", a2aVar, z1aVar);
-            if (a2aVar == null || (str = a2aVar.a) == null || str.isEmpty()) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, c2aVar, b2aVar) == null) {
+            RLog.info(this.a, "onOpenNewUrl: urlParams:%s, topUiParams:%s", c2aVar, b2aVar);
+            if (c2aVar == null || (str = c2aVar.a) == null || str.isEmpty()) {
                 return;
             }
             Intent intent = new Intent(this, PayCommonWebActivity.class);
-            String str2 = z1aVar.a;
+            String str2 = b2aVar.a;
             if (str2 != null && !str2.isEmpty()) {
-                intent.putExtra(H5PayConstant.EXTRA_TITLE, z1aVar.a);
+                intent.putExtra(H5PayConstant.EXTRA_TITLE, b2aVar.a);
             }
-            String str3 = z1aVar.b;
+            String str3 = b2aVar.b;
             if (str3 != null && !str3.isEmpty()) {
-                intent.putExtra(H5PayConstant.EXTRA_RIGHT, z1aVar.b);
+                intent.putExtra(H5PayConstant.EXTRA_RIGHT, b2aVar.b);
             }
-            intent.putExtra(H5PayConstant.EXTRA_URL, a2aVar.a);
-            String str4 = z1aVar.c;
+            intent.putExtra(H5PayConstant.EXTRA_URL, c2aVar.a);
+            String str4 = b2aVar.c;
             if (str4 != null && !str4.isEmpty()) {
-                intent.putExtra(H5PayConstant.EXTRA_RIGHT_URL, z1aVar.c);
+                intent.putExtra(H5PayConstant.EXTRA_RIGHT_URL, b2aVar.c);
             }
             intent.putExtra(H5PayConstant.EXTRA_APP_ID, this.j);
             intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, this.k);
-            b2a.b(this.j, this.k, PayUIEventType.wallet_secondpage_title);
+            d2a.b(this.j, this.k, PayUIEventType.wallet_secondpage_title);
             RLog.warn(this.a, PayUIEventType.wallet_secondpage_title);
-            if (a2aVar.b == UrlPageType.WALLET_DETAIL_PAGE.ordinal()) {
-                b2a.b(this.j, this.k, PayUIEventType.walletclickdetail);
+            if (c2aVar.b == UrlPageType.WALLET_DETAIL_PAGE.ordinal()) {
+                d2a.b(this.j, this.k, PayUIEventType.walletclickdetail);
                 RLog.warn(this.a, PayUIEventType.walletclickClose);
             }
-            v(this, this.q, intent, this.j, this.k, TextUtils.isEmpty(z1aVar.a) ? t2a.a(a2aVar.a) : z1aVar.a);
+            v(this, this.q, intent, this.j, this.k, TextUtils.isEmpty(b2aVar.a) ? v2a.a(c2aVar.a) : b2aVar.a);
         }
     }
 
@@ -460,22 +460,22 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
     }
 
     @Override // tv.athena.revenue.payui.view.impl.YYPayWebView.c
-    public void d(z1a z1aVar) {
+    public void d(b2a b2aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, z1aVar) == null) {
-            RLog.info(this.a, "onUpdateTopUi: %s", z1aVar);
-            if (z1aVar != null) {
-                String str = z1aVar.b;
+        if (interceptable == null || interceptable.invokeL(1048581, this, b2aVar) == null) {
+            RLog.info(this.a, "onUpdateTopUi: %s", b2aVar);
+            if (b2aVar != null) {
+                String str = b2aVar.b;
                 if (str != null && !str.isEmpty()) {
-                    this.g = z1aVar.b;
+                    this.g = b2aVar.b;
                 }
-                String str2 = z1aVar.c;
+                String str2 = b2aVar.c;
                 if (str2 != null && !str2.isEmpty()) {
-                    this.f = z1aVar.c;
+                    this.f = b2aVar.c;
                 }
-                String str3 = z1aVar.a;
+                String str3 = b2aVar.a;
                 if (str3 != null && !str3.isEmpty()) {
-                    this.h = z1aVar.a;
+                    this.h = b2aVar.a;
                 }
                 t(this.h, this.g);
             }
@@ -521,7 +521,7 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
         this.j = intent.getIntExtra(H5PayConstant.EXTRA_APP_ID, -1);
         this.k = intent.getIntExtra(H5PayConstant.EXTRA_USER_CHANNEL, -1);
         this.n = intent.getIntExtra(H5PayConstant.EXTRA_LOCAL_PAGE_TYPE, 0);
-        PayFlowType a2 = m2a.a(intent.getIntExtra(H5PayConstant.EXTRA_PAY_FLOW_TYPE_ID, 0));
+        PayFlowType a2 = o2a.a(intent.getIntExtra(H5PayConstant.EXTRA_PAY_FLOW_TYPE_ID, 0));
         this.q = a2;
         if (a2 == null) {
             Toast.makeText(this, "error payFlowTypeId!", 1).show();
@@ -558,7 +558,7 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
             setContentView(R.layout.obfuscated_res_0x7f0d0688);
             this.a = this.b + "@" + hashCode();
             if (Build.VERSION.SDK_INT >= 19) {
-                zz9 H = zz9.H(this);
+                b0a H = b0a.H(this);
                 H.g(true);
                 H.F();
                 H.z(17170443);
@@ -590,19 +590,19 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
             super.onDestroy();
             String str = this.a;
             RLog.info(str, "onDestroy mAllPayFlowRelease:" + this.r);
-            zz9 zz9Var = this.m;
-            if (zz9Var != null) {
-                zz9Var.f();
+            b0a b0aVar = this.m;
+            if (b0aVar != null) {
+                b0aVar.f();
             }
             AbsPayMessageReceiver absPayMessageReceiver = this.e;
             if (absPayMessageReceiver != null) {
-                o2a.e(this, absPayMessageReceiver);
+                q2a.e(this, absPayMessageReceiver);
                 this.e = null;
             }
             if (this.r) {
                 return;
             }
-            o1a.a(TextUtils.isEmpty(this.h) ? t2a.a(this.i) : this.h, this.j, this.k, this.q);
+            q1a.a(TextUtils.isEmpty(this.h) ? v2a.a(this.i) : this.h, this.j, this.k, this.q);
         }
     }
 
@@ -630,7 +630,7 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
     public final void r(NativeOperationParams nativeOperationParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, nativeOperationParams) == null) {
-            n1a.c(this.j, this.k, this, nativeOperationParams, new e(this));
+            p1a.c(this.j, this.k, this, nativeOperationParams, new e(this));
         }
     }
 
@@ -639,7 +639,7 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             b bVar = new b(this, this.q);
             this.e = bVar;
-            o2a.d(this, bVar);
+            q2a.d(this, bVar);
         }
     }
 
@@ -659,7 +659,7 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
         }
         String stringExtra = intent.getStringExtra(H5PayConstant.EXTRA_URL);
         this.i = stringExtra;
-        RLog.info(this.a, "startLoadWebView: %s", t2a.a(stringExtra));
+        RLog.info(this.a, "startLoadWebView: %s", v2a.a(stringExtra));
         String str = this.i;
         if (str == null || str.isEmpty()) {
             return;
@@ -674,7 +674,7 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
     public final void w() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && q()) {
-            b2a.b(this.j, this.k, PayUIEventType.walletclickClose);
+            d2a.b(this.j, this.k, PayUIEventType.walletclickClose);
             RLog.info(this.a, PayUIEventType.walletclickClose);
         }
     }
@@ -682,7 +682,7 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
     public final void x() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && q()) {
-            b2a.b(this.j, this.k, PayUIEventType.walletshowhelp);
+            d2a.b(this.j, this.k, PayUIEventType.walletshowhelp);
             RLog.info(this.a, PayUIEventType.walletshowhelp);
         }
     }
@@ -699,7 +699,7 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
         intent.putExtra(H5PayConstant.EXTRA_TITLE, this.g);
         intent.putExtra(H5PayConstant.EXTRA_APP_ID, this.j);
         intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, this.k);
-        v(this, this.q, intent, this.j, this.k, TextUtils.isEmpty(this.g) ? t2a.a(this.f) : this.g);
+        v(this, this.q, intent, this.j, this.k, TextUtils.isEmpty(this.g) ? v2a.a(this.f) : this.g);
     }
 
     public final void z() {

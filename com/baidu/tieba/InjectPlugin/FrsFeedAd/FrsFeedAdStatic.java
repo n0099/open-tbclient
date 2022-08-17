@@ -23,7 +23,7 @@ import com.repackage.ik5;
 import com.repackage.jk5;
 import com.repackage.ok5;
 import com.repackage.on;
-import com.repackage.wb8;
+import com.repackage.vb8;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -60,8 +60,8 @@ public class FrsFeedAdStatic {
             ok5 ok5Var;
             gk5 c;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ok5) && (c = (ok5Var = (ok5) customResponsedMessage.getData()).c()) != null && (c instanceof wb8)) {
-                wb8 wb8Var = (wb8) c;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ok5) && (c = (ok5Var = (ok5) customResponsedMessage.getData()).c()) != null && (c instanceof vb8)) {
+                vb8 vb8Var = (vb8) c;
                 fk5 Q0 = c.Q0(1);
                 if (Q0 == null) {
                     ik5 a = jk5.b().a(1);
@@ -70,7 +70,7 @@ public class FrsFeedAdStatic {
                     }
                     Q0 = a.a();
                     c.p0(1, Q0);
-                    Q0.f(new hk5(wb8Var), ok5Var.i());
+                    Q0.f(new hk5(vb8Var), ok5Var.i());
                 }
                 if (Q0 instanceof ck5) {
                     ck5 ck5Var = (ck5) Q0;
@@ -78,8 +78,8 @@ public class FrsFeedAdStatic {
                         List list = (List) ok5Var.f();
                         ak5.b(ck5Var.d());
                         for (BdUniqueId bdUniqueId : ak5.c()) {
-                            FrsFeedAdAdapter frsFeedAdAdapter = new FrsFeedAdAdapter(wb8Var, bdUniqueId);
-                            frsFeedAdAdapter.setPageContext(wb8Var.o());
+                            FrsFeedAdAdapter frsFeedAdAdapter = new FrsFeedAdAdapter(vb8Var, bdUniqueId);
+                            frsFeedAdAdapter.setPageContext(vb8Var.o());
                             list.add(frsFeedAdAdapter);
                         }
                     } else if (ok5Var.a() == 2) {

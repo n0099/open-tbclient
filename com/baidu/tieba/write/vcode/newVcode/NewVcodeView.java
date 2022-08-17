@@ -121,7 +121,7 @@ public class NewVcodeView {
             this.e = findViewById;
             TextView textView = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f09073e);
             this.g = textView;
-            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1112));
+            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1113));
             wu4 wu4Var = new wu4();
             this.h = wu4Var;
             wu4Var.a = 1000L;
@@ -176,7 +176,7 @@ public class NewVcodeView {
                             if (interceptable2 == null || interceptable2.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i, str, str2) == null) {
                                 super.onReceivedError(webView, i, str, str2);
                                 this.a.h(false);
-                                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                                 this.a.a.finish();
                             }
                         }
@@ -317,9 +317,9 @@ public class NewVcodeView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z, str) == null) {
             if (z) {
-                this.h.c(str);
+                this.h.d(str);
             } else {
-                this.h.b(str);
+                this.h.c(str);
             }
         }
     }

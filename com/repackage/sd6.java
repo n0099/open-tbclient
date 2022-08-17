@@ -212,7 +212,7 @@ public class sd6 {
             this.g.setNextPage(this.i);
             this.i.j();
             this.i.b().setPadding(0, 0, 0, 0);
-            this.i.C(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0dd6));
+            this.i.C(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0dd7));
             this.i.f();
         }
     }

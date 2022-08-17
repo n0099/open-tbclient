@@ -65,22 +65,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bf6;
 import com.repackage.cf6;
 import com.repackage.gg6;
+import com.repackage.gr6;
 import com.repackage.hr6;
 import com.repackage.ir6;
-import com.repackage.jr6;
+import com.repackage.jk8;
 import com.repackage.ki6;
-import com.repackage.kk8;
 import com.repackage.ml4;
 import com.repackage.nl4;
 import com.repackage.og;
 import com.repackage.ol4;
 import com.repackage.qi;
+import com.repackage.qj8;
 import com.repackage.rf5;
-import com.repackage.rj8;
 import com.repackage.sf5;
 import com.repackage.sg;
 import com.repackage.ue6;
-import com.repackage.zb8;
+import com.repackage.yb8;
 import java.net.URLDecoder;
 import java.util.Map;
 import org.json.JSONException;
@@ -469,11 +469,11 @@ public class FrsActivityStatic {
                             tbPageContext.sendMessage(new CustomMessage(2003000, createNormalCfg3));
                             return 1;
                         } else if (z2 && !TextUtils.isEmpty(r4)) {
-                            sg.startService(TbadkCoreApplication.getInst(), jr6.d(TbadkCoreApplication.getInst(), r4));
-                            ir6.e(lowerCase, 2, 2);
+                            sg.startService(TbadkCoreApplication.getInst(), ir6.d(TbadkCoreApplication.getInst(), r4));
+                            hr6.e(lowerCase, 2, 2);
                             return 1;
                         } else if (z) {
-                            tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f0d31);
+                            tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f0d32);
                             return 1;
                         }
                     }
@@ -596,11 +596,11 @@ public class FrsActivityStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001012) {
-                if (zb8.l().b() != null) {
-                    zb8.l().b().f();
+                if (yb8.l().b() != null) {
+                    yb8.l().b().f();
                 }
-                if (zb8.l().i() != null) {
-                    zb8.l().i().c();
+                if (yb8.l().i() != null) {
+                    yb8.l().i().c();
                 }
             }
         }
@@ -636,7 +636,7 @@ public class FrsActivityStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && customResponsedMessage.getCmd() == 2016501 && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                hr6.a();
+                gr6.a();
             }
         }
     }
@@ -704,7 +704,7 @@ public class FrsActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                sf5.a(rj8.WIRE, FrsPageResIdl.class);
+                sf5.a(qj8.WIRE, FrsPageResIdl.class);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -810,8 +810,8 @@ public class FrsActivityStatic {
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            kk8.h(309602, FrsDynamicSocketResponsedMessage.class, false, false).setPriority(4);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRS_DYNAMIC, kk8.a(TbConfig.FRS_DYNAMIC_ADDRESS, 309602));
+            jk8.h(309602, FrsDynamicSocketResponsedMessage.class, false, false).setPriority(4);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRS_DYNAMIC, jk8.a(TbConfig.FRS_DYNAMIC_ADDRESS, 309602));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -837,8 +837,8 @@ public class FrsActivityStatic {
     public static void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            kk8.f(301002, LoadMoreResponseSocketMessage.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_LOAD_MORE_CMD, kk8.a(FrsLoadMoreModel.LOAD_MORE_URL, 301002));
+            jk8.f(301002, LoadMoreResponseSocketMessage.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_LOAD_MORE_CMD, jk8.a(FrsLoadMoreModel.LOAD_MORE_URL, 301002));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -851,8 +851,8 @@ public class FrsActivityStatic {
     public static void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            kk8.h(301001, FRSPageSocketResponsedMessage.class, false, false).setPriority(4);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_HTTP_CMD, kk8.a(TbConfig.FRS_ADDRESS, 301001));
+            jk8.h(301001, FRSPageSocketResponsedMessage.class, false, false).setPriority(4);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_HTTP_CMD, jk8.a(TbConfig.FRS_ADDRESS, 301001));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -890,8 +890,8 @@ public class FrsActivityStatic {
     public static void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            kk8.h(309667, GetLiveHorseRaceSocketResponseMessage.class, false, false);
-            kk8.c(309667, CmdConfigHttp.CMD_FRS_LIVE_HORSE_RACE_LIST, TbConfig.URL_FRS_LIVE_HORSERACE_LIST, GetLiveHorseRaceHttpResponseMessage.class, true, false, true, false);
+            jk8.h(309667, GetLiveHorseRaceSocketResponseMessage.class, false, false);
+            jk8.c(309667, CmdConfigHttp.CMD_FRS_LIVE_HORSE_RACE_LIST, TbConfig.URL_FRS_LIVE_HORSERACE_LIST, GetLiveHorseRaceHttpResponseMessage.class, true, false, true, false);
         }
     }
 

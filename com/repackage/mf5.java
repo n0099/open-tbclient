@@ -67,7 +67,7 @@ public class mf5 {
                     Bitmap p = zmVar.p();
                     this.a.thumbData = mf5.a(p);
                 } else {
-                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f080f7b);
+                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f080f7c);
                     this.a.thumbData = mf5.a(cashBitmap);
                 }
                 this.b.sendReq(this.c);
@@ -81,7 +81,7 @@ public class mf5 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bitmap)) == null) {
             if (bitmap == null) {
                 try {
-                    bitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f080f7b);
+                    bitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f080f7c);
                 } catch (Exception e) {
                     e.printStackTrace();
                     return null;

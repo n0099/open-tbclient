@@ -169,7 +169,7 @@ public class NovelWebViewActivity extends TbWebViewActivity {
             k95.e(f, new ReadRecordsData(f));
             BdTopToast bdTopToast = new BdTopToast(getPageContext().getPageActivity());
             bdTopToast.h(true);
-            bdTopToast.g(getPageContext().getString(R.string.obfuscated_res_0x7f0f0cb9));
+            bdTopToast.g(getPageContext().getString(R.string.obfuscated_res_0x7f0f0cba));
             bdTopToast.i((ViewGroup) getPageContext().getPageActivity().findViewById(16908290));
         }
     }

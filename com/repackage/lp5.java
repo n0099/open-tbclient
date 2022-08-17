@@ -34,25 +34,25 @@ public class lp5 extends ShareItem {
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.z0 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.A0 : (String) invokeV.objValue;
     }
 
     public String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.y0 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.z0 : (String) invokeV.objValue;
     }
 
     public String n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.x0 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.y0 : (String) invokeV.objValue;
     }
 
     public JSONArray o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.A0 : (JSONArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.B0 : (JSONArray) invokeV.objValue;
     }
 
     public void p(JSONObject jSONObject) throws JSONException {
@@ -63,7 +63,7 @@ public class lp5 extends ShareItem {
             this.w = jSONObject.getString("linkUrl");
             this.v = jSONObject.optString("content");
             this.z = jSONObject.optString("imageUrl");
-            this.x0 = jSONObject.optString("mediaType");
+            this.y0 = jSONObject.optString("mediaType");
             String optString = StringUtils.isNull(this.z) ? jSONObject.optString("iconUrl") : this.z;
             this.z = optString;
             this.y = Uri.parse(optString);
@@ -75,12 +75,12 @@ public class lp5 extends ShareItem {
             JSONObject optJSONObject2 = jSONObject.optJSONObject("command");
             if (optJSONObject2 != null) {
                 this.u0 = 2;
-                this.A0 = optJSONObject2.optJSONArray("cmd_pannel");
+                this.B0 = optJSONObject2.optJSONArray("cmd_pannel");
                 JSONObject optJSONObject3 = optJSONObject2.optJSONObject("info");
-                this.B0 = optJSONObject3;
+                this.C0 = optJSONObject3;
                 if (optJSONObject3 != null) {
-                    this.y0 = optJSONObject3.optString("key");
-                    this.z0 = this.B0.optString("content");
+                    this.z0 = optJSONObject3.optString("key");
+                    this.A0 = this.C0.optString("content");
                     return;
                 }
                 return;

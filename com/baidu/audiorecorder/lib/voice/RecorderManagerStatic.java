@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oo;
 import com.repackage.qo;
+import com.repackage.rm8;
 import com.repackage.ro;
 import com.repackage.s25;
-import com.repackage.sm8;
 import com.repackage.so;
 /* loaded from: classes.dex */
 public class RecorderManagerStatic {
@@ -44,7 +44,7 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<sm8> run(CustomMessage<Activity> customMessage) {
+        public CustomResponsedMessage<rm8> run(CustomMessage<Activity> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001271, oo.o()) : (CustomResponsedMessage) invokeL.objValue;

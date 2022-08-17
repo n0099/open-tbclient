@@ -272,13 +272,13 @@ public class SwanAppAdLandingFragment extends n02 implements jp3 {
 
         /* renamed from: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0173a implements Runnable {
+        public class RunnableC0174a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ a b;
 
-            public RunnableC0173a(a aVar, String str) {
+            public RunnableC0174a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -354,7 +354,7 @@ public class SwanAppAdLandingFragment extends n02 implements jp3 {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 SwanAppAdLandingFragment swanAppAdLandingFragment = this.c;
                 swanAppAdLandingFragment.Z3(swanAppAdLandingFragment.G0.canGoBack());
-                this.c.f0.post(new RunnableC0173a(this, str));
+                this.c.f0.post(new RunnableC0174a(this, str));
             }
         }
 
@@ -1412,7 +1412,7 @@ public class SwanAppAdLandingFragment extends n02 implements jp3 {
             } else {
                 simpleDraweeView2.setVisibility(8);
             }
-            simpleDraweeView.getHierarchy().setPlaceholderImage(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081144));
+            simpleDraweeView.getHierarchy().setPlaceholderImage(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081145));
             String str = this.p1.booleanValue() ? this.A1 : this.g1;
             if (!TextUtils.isEmpty(str)) {
                 simpleDraweeView.setImageURI(xd3.m(str));
@@ -1638,9 +1638,9 @@ public class SwanAppAdLandingFragment extends n02 implements jp3 {
             int optInt = jSONObject.optInt("act", ActionType.LP.value());
             this.b1 = optInt;
             if (optInt == ActionType.DL.value()) {
-                G = G(R.string.obfuscated_res_0x7f0f1274);
+                G = G(R.string.obfuscated_res_0x7f0f1276);
             } else {
-                G = G(R.string.obfuscated_res_0x7f0f127d);
+                G = G(R.string.obfuscated_res_0x7f0f127f);
             }
             this.c1 = G;
             this.d1 = jSONObject.optString("appname", "");

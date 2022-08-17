@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
 import com.repackage.gu4;
-import com.repackage.tg8;
+import com.repackage.sg8;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +34,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
     public static /* synthetic */ Interceptable $ic;
     public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public tg8 a;
+    public sg8 a;
     public b b;
     public HttpMessage c;
     public boolean d;
@@ -89,7 +89,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
                         } else {
                             String errorString = httpResponsedMessage.getErrorString();
                             if (StringUtils.isNull(errorString)) {
-                                errorString = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0c3c);
+                                errorString = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0c3d);
                             }
                             this.a.b.d(errorString);
                         }
@@ -104,7 +104,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(tg8 tg8Var);
+        void a(sg8 sg8Var);
 
         void d(String str);
     }
@@ -149,7 +149,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
         this.g = new a(this, CmdConfigHttp.SIGNALL_GET_FOURMS);
         this.d = signAllForumActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         MessageManager messageManager = MessageManager.getInstance();
-        this.a = new tg8();
+        this.a = new sg8();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SIGNALL_GET_FOURMS, h);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(GetForumResponsed.class);

@@ -73,7 +73,7 @@ public class PermissionRequestDialog extends ur4 {
             textView.setText(R.string.obfuscated_res_0x7f0f03f3);
             TextView textView2 = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092381);
             this.mContinueView = textView2;
-            textView2.setText(R.string.obfuscated_res_0x7f0f07ce);
+            textView2.setText(R.string.obfuscated_res_0x7f0f0265);
             onChangeSkinType();
             setContentView(this.mRootView);
         }
@@ -107,16 +107,16 @@ public class PermissionRequestDialog extends ur4 {
             }
             String str2 = null;
             if (c == 0) {
-                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f1004);
-                string = d9Var.getString(R.string.obfuscated_res_0x7f0f0ffe);
+                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f1005);
+                string = d9Var.getString(R.string.obfuscated_res_0x7f0f0fff);
             } else if (c == 1) {
-                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f1006);
-                string = d9Var.getString(R.string.obfuscated_res_0x7f0f1000);
+                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f1007);
+                string = d9Var.getString(R.string.obfuscated_res_0x7f0f1001);
             } else if (c != 2) {
                 string = null;
             } else {
-                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f1005);
-                string = d9Var.getString(R.string.obfuscated_res_0x7f0f0fff);
+                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f1006);
+                string = d9Var.getString(R.string.obfuscated_res_0x7f0f1000);
             }
             this.mTitleView.setText(str2);
             this.mDetailView.setText(string);

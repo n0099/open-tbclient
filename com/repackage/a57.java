@@ -1,95 +1,93 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Hottopic.PkModule;
-import tbclient.Hottopic.PkView;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.TopicList.DataRes;
+import tbclient.TopicList.NewTopicList;
+import tbclient.TopicList.TabList;
+import tbclient.TopicList.TopicList;
+import tbclient.TopicList.TopicListModule;
 /* loaded from: classes5.dex */
-public class a57 implements on {
+public class a57 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId k;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public long c;
-    public String d;
-    public long e;
-    public int f;
-    public long g;
-    public long h;
-    public long i;
-    public long j;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755905714, "Lcom/repackage/a57;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755905714, "Lcom/repackage/a57;");
-                return;
-            }
-        }
-        k = BdUniqueId.gen();
-    }
+    public List<e57> b;
+    public d57 c;
+    public List<t47> d;
+    public List<s47> e;
+    public List<TopicList> f;
+    public List<NewTopicList> g;
 
     public a57() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void a(PkModule pkModule) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, pkModule) == null) || pkModule == null) {
-            return;
-        }
-        String str = pkModule.module_name;
-        this.a = pkModule.ques_desc;
-        PkView pkView = pkModule.pk_1;
-        this.b = pkView.pk_desc;
-        this.c = pkView.pk_num.longValue();
-        pkModule.pk_1.pk_index.intValue();
-        PkView pkView2 = pkModule.pk_2;
-        this.d = pkView2.pk_desc;
-        this.e = pkView2.pk_num.longValue();
-        pkModule.pk_2.pk_index.intValue();
-        this.f = pkModule.pk_1.has_clicked.intValue() == 1 ? 1 : pkModule.pk_2.has_clicked.intValue() == 1 ? 2 : 0;
-        pkModule.pk_type.intValue();
-        pkModule.user_pk_index.intValue();
-        this.g = pkModule.pk_id.longValue();
-        this.h = pkModule.user_pk_id.longValue();
-        int i = this.f;
-        long j = this.c;
-        if (i == 1) {
-            j--;
-        }
-        this.i = j;
-        this.j = this.f == 2 ? this.e - 1 : this.e;
-    }
-
-    @Override // com.repackage.on
-    public BdUniqueId getType() {
+    public List<TopicList> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? k : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (List) invokeV.objValue;
+    }
+
+    public void b(DataRes dataRes) {
+        List<TopicList> list;
+        List<TopicList> list2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
+            return;
+        }
+        List<TabList> list3 = dataRes.tab_list;
+        if (list3 != null && !ListUtils.isEmpty(list3)) {
+            this.b = new ArrayList();
+            for (TabList tabList : dataRes.tab_list) {
+                e57 e57Var = new e57();
+                e57Var.a(tabList);
+                this.b.add(e57Var);
+            }
+        }
+        if (dataRes.media_topic != null) {
+            d57 d57Var = new d57();
+            this.c = d57Var;
+            d57Var.a(dataRes.media_topic);
+        }
+        TopicListModule topicListModule = dataRes.topic_manual;
+        if (topicListModule != null && (list2 = topicListModule.topic_list) != null && list2.size() > 0) {
+            this.e = new ArrayList();
+            for (int i = 0; i < dataRes.topic_manual.topic_list.size(); i++) {
+                s47 s47Var = new s47();
+                s47Var.b(dataRes.topic_manual);
+                s47Var.a(dataRes.topic_manual.topic_list.get(i));
+                this.e.add(s47Var);
+            }
+        }
+        TopicListModule topicListModule2 = dataRes.topic_bang;
+        if (topicListModule2 != null && (list = topicListModule2.topic_list) != null && list.size() > 0) {
+            this.d = new ArrayList();
+            for (int i2 = 0; i2 < dataRes.topic_bang.topic_list.size(); i2++) {
+                t47 t47Var = new t47();
+                t47Var.b(dataRes.topic_bang);
+                t47Var.a(dataRes.topic_bang.topic_list.get(i2));
+                this.d.add(t47Var);
+            }
+        }
+        this.f = dataRes.frs_tab_topic;
+        this.g = dataRes.topic_list;
     }
 }

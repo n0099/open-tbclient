@@ -213,7 +213,7 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
             this.e.setBorderWidth(qi.f(context, R.dimen.tbds1));
             this.e.setDefaultResource(R.color.CAM_X0205);
             this.e.setRadius(qi.f(context, R.dimen.obfuscated_res_0x7f070266));
-            this.h.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f5a);
+            this.h.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f5b);
             this.n = (qi.k(getContext()) - qi.f(getContext(), R.dimen.tbds516)) / qi.f(getContext(), R.dimen.tbds45);
             this.q = qi.f(getContext(), R.dimen.tbds27);
             this.r = qi.f(getContext(), R.dimen.tbds11);
@@ -288,7 +288,7 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
                 ((ViewGroup) getParent()).removeView(this);
                 return;
             }
-            this.c.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1153), d09Var.f));
+            this.c.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1154), d09Var.f));
             this.e.K(d09Var.d, 10, false);
             this.f.setText(d09Var.c);
             if (StringUtils.isNull(d09Var.h)) {

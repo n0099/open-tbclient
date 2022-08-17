@@ -29,8 +29,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.g98;
 import com.repackage.ge5;
-import com.repackage.h98;
 import com.repackage.pi;
 import com.repackage.qi;
 import java.text.MessageFormat;
@@ -39,7 +39,7 @@ import java.util.ArrayList;
 public class OperableVideoShareView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h98 a;
+    public g98 a;
     public View b;
     public ImageView c;
     public View d;
@@ -212,9 +212,9 @@ public class OperableVideoShareView extends LinearLayout {
             this.d.setOnClickListener(this.m);
             this.f.setOnClickListener(this.m);
             setOnClickListener(this.m);
-            this.c.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f080819, 1, false));
-            this.e.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f080815, 1, false));
-            this.g.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f080816, 1, false));
+            this.c.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f08081a, 1, false));
+            this.e.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f080816, 1, false));
+            this.g.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f080817, 1, false));
             this.j.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f08061d, R.color.CAM_X0105, null, false));
             this.j.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(qi.f(getContext(), R.dimen.tbds52), getResources().getColor(R.color.CAM_X0622)));
         }
@@ -239,7 +239,7 @@ public class OperableVideoShareView extends LinearLayout {
         String f = f(this.k);
         Uri parse = f == null ? null : Uri.parse(f);
         String str2 = this.k.getAbstract();
-        String format = MessageFormat.format(getResources().getString(R.string.obfuscated_res_0x7f0f112d), title, str2);
+        String format = MessageFormat.format(getResources().getString(R.string.obfuscated_res_0x7f0f112e), title, str2);
         ShareItem shareItem = new ShareItem();
         shareItem.u = title;
         shareItem.v = format;
@@ -325,11 +325,11 @@ public class OperableVideoShareView extends LinearLayout {
         }
     }
 
-    public void setVideoContainer(h98 h98Var) {
+    public void setVideoContainer(g98 g98Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h98Var) == null) {
-            this.a = h98Var;
-            this.i.setOnClickListener(h98Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, g98Var) == null) {
+            this.a = g98Var;
+            this.i.setOnClickListener(g98Var);
         }
     }
 

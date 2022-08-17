@@ -1,22 +1,17 @@
 package com.repackage;
 
-import androidx.annotation.ColorRes;
-import androidx.annotation.DimenRes;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface ud8 {
-    void a();
+public class ud8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b();
+    public abstract void a();
 
-    void setButtonText(String str, int i);
+    public abstract void b();
 
-    void setButtonTextColor(@ColorRes int i);
+    public abstract void c();
 
-    void setButtonTextNightColor(int i);
-
-    void setButtonTextSize(@DimenRes int i);
-
-    void setInitText(String str);
-
-    void setRatio(int i);
+    public abstract void d();
 }

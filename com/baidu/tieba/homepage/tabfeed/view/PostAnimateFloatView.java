@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ix;
 import com.repackage.ms4;
-import com.repackage.o17;
+import com.repackage.n17;
 import com.repackage.rg;
 /* loaded from: classes3.dex */
 public class PostAnimateFloatView extends FrameLayout implements ix {
@@ -104,7 +104,7 @@ public class PostAnimateFloatView extends FrameLayout implements ix {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                o17.g();
+                n17.g();
                 new LocalChannelTopicListActivityConfig(this.a.getContext()).start();
             }
         }
@@ -368,7 +368,7 @@ public class PostAnimateFloatView extends FrameLayout implements ix {
             this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a03);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091a1a);
             this.c = textView;
-            this.f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0edc));
+            this.f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0edd));
             j();
             this.a.setOnClickListener(new b(this));
         }
@@ -418,7 +418,7 @@ public class PostAnimateFloatView extends FrameLayout implements ix {
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
             ImageView imageView = this.b;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08094b, R.color.CAM_X0101, null);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08094c, R.color.CAM_X0101, null);
             }
             TextView textView = this.c;
             if (textView != null) {

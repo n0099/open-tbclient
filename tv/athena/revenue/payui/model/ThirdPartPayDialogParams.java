@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o0a;
+import com.repackage.q0a;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 import java.util.Map;
 import tv.athena.revenue.payui.view.AbsViewEventHandler;
@@ -21,7 +21,7 @@ public class ThirdPartPayDialogParams {
     public PayType defaultType;
     public String payWayDialogTitle;
     public double targetAmount;
-    public o0a thirdPartOrderRequest;
+    public q0a thirdPartOrderRequest;
     public AbsViewEventHandler viewEventListener;
 
     public ThirdPartPayDialogParams() {

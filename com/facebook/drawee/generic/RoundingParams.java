@@ -19,6 +19,7 @@ public class RoundingParams {
     public transient /* synthetic */ FieldHolder $fh;
     public int mBorderColor;
     public float mBorderWidth;
+    @Nullable
     public float[] mCornersRadii;
     public int mOverlayColor;
     public float mPadding;
@@ -172,6 +173,7 @@ public class RoundingParams {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBorderWidth : invokeV.floatValue;
     }
 
+    @Nullable
     public float[] getCornersRadii() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

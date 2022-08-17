@@ -66,7 +66,7 @@ public class ux5 extends bz5<kw5> {
             if (!TextUtils.isEmpty(this.k)) {
                 UtilHelper.copyToClipBoard(this.k);
             }
-            BdToast.b(getContext(), getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0239)).h();
+            BdToast.b(getContext(), getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0239)).i();
         }
     }
 

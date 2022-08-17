@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gg8;
+import com.repackage.fg8;
 @Autowired
 /* loaded from: classes2.dex */
 public class HostAbilityRuntime {
@@ -32,6 +32,6 @@ public class HostAbilityRuntime {
     public static IHostStateAbiltiy getHostAbility() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new gg8() : (IHostStateAbiltiy) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new fg8() : (IHostStateAbiltiy) invokeV.objValue;
     }
 }

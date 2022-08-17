@@ -155,10 +155,10 @@ public class gs4 extends BaseAdapter {
                 bVar.b.setVisibility(0);
             }
             if (hs4Var.d()) {
-                bVar.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080814, WebPManager.ResourceStateType.NORMAL));
+                bVar.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080815, WebPManager.ResourceStateType.NORMAL));
                 bVar.c.setVisibility(0);
             } else if (this.c) {
-                WebPManager.setPureDrawable(bVar.c, R.drawable.obfuscated_res_0x7f0809dc, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(bVar.c, R.drawable.obfuscated_res_0x7f0809dd, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
                 bVar.c.setVisibility(0);
             } else {
                 bVar.c.setVisibility(4);

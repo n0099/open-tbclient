@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.ReflectedParcelable;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.repackage.an9;
-import com.repackage.um9;
-import com.repackage.ym9;
+import com.repackage.cn9;
+import com.repackage.wm9;
 /* loaded from: classes5.dex */
 public final class Scope extends AbstractSafeParcelable implements ReflectedParcelable {
     public static /* synthetic */ Interceptable $ic;
@@ -39,7 +39,7 @@ public final class Scope extends AbstractSafeParcelable implements ReflectedParc
                 return;
             }
         }
-        CREATOR = new um9();
+        CREATOR = new wm9();
     }
 
     public Scope(int i, String str) {
@@ -57,7 +57,7 @@ public final class Scope extends AbstractSafeParcelable implements ReflectedParc
                 return;
             }
         }
-        ym9.b(str, "scopeUri must not be null or empty");
+        an9.b(str, "scopeUri must not be null or empty");
         this.zza = i;
         this.zzb = str;
     }
@@ -101,10 +101,10 @@ public final class Scope extends AbstractSafeParcelable implements ReflectedParc
     public void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
-            int a = an9.a(parcel);
-            an9.g(parcel, 1, this.zza);
-            an9.k(parcel, 2, getScopeUri(), false);
-            an9.b(parcel, a);
+            int a = cn9.a(parcel);
+            cn9.g(parcel, 1, this.zza);
+            cn9.k(parcel, 2, getScopeUri(), false);
+            cn9.b(parcel, a);
         }
     }
 

@@ -13,6 +13,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Supplier;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
@@ -35,6 +36,8 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
         public ArrayList<DataSource<T>> mDataSources;
         @Nullable
         public Throwable mDelayedError;
+        @Nullable
+        public Map<String, Object> mDelayedExtras;
         public AtomicInteger mFinishedDataSources;
         @GuardedBy("IncreasingQualityDataSource.this")
         public int mIndexOfDataSourceWithResult;
@@ -205,7 +208,7 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
             Throwable th;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(65544, this) == null) && this.mFinishedDataSources.incrementAndGet() == this.mNumberOfDataSources && (th = this.mDelayedError) != null) {
-                setFailure(th);
+                setFailure(th, this.mDelayedExtras);
             }
         }
 
@@ -240,6 +243,7 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
                 closeSafely(tryGetAndClearDataSource(i, dataSource));
                 if (i == 0) {
                     this.mDelayedError = dataSource.getFailureCause();
+                    this.mDelayedExtras = dataSource.getExtras();
                 }
                 maybeSetFailure();
             }
@@ -251,7 +255,7 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
             if (interceptable == null || interceptable.invokeIL(65547, this, i, dataSource) == null) {
                 maybeSetIndexOfDataSourceWithResult(i, dataSource, dataSource.isFinished());
                 if (dataSource == getDataSourceWithResult()) {
-                    setResult(null, i == 0 && dataSource.isFinished());
+                    setResult(null, i == 0 && dataSource.isFinished(), dataSource.getExtras());
                 }
                 maybeSetFailure();
             }

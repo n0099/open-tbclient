@@ -604,7 +604,7 @@ public final class k extends com.kwad.components.core.g.a {
     public final void a(Context context, int i, int i2, long j, boolean z, com.kwad.sdk.core.report.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Boolean.valueOf(z), fVar}) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0352a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(i2).l(j).a(new a.b(this, i, fVar) { // from class: com.kwad.components.ad.reward.k.2
+            com.kwad.components.core.c.a.a.a(new a.C0354a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(i2).l(j).a(new a.b(this, i, fVar) { // from class: com.kwad.components.ad.reward.k.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int gB;

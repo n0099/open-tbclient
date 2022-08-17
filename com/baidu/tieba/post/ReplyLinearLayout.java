@@ -61,12 +61,12 @@ public class ReplyLinearLayout extends LinearLayout {
 
         /* renamed from: com.baidu.tieba.post.ReplyLinearLayout$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0253a implements View.OnClickListener {
+        public class View$OnClickListenerC0254a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0253a(a aVar) {
+            public View$OnClickListenerC0254a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -173,7 +173,7 @@ public class ReplyLinearLayout extends LinearLayout {
             this.a.e.u(this.a.b.getString(R.string.obfuscated_res_0x7f0f04a7));
             this.a.e.o(this.a.b.getString(R.string.obfuscated_res_0x7f0f04a8));
             this.a.e.m(true);
-            this.a.e.r(new TBAlertConfig.a(this.a.b.getString(R.string.obfuscated_res_0x7f0f0370), TBAlertConfig.OperateBtnStyle.SECONDARY, new View$OnClickListenerC0253a(this)), new TBAlertConfig.a(this.a.b.getString(R.string.obfuscated_res_0x7f0f04ab), TBAlertConfig.OperateBtnStyle.MAIN, new b(this)));
+            this.a.e.r(new TBAlertConfig.a(this.a.b.getString(R.string.obfuscated_res_0x7f0f0370), TBAlertConfig.OperateBtnStyle.SECONDARY, new View$OnClickListenerC0254a(this)), new TBAlertConfig.a(this.a.b.getString(R.string.obfuscated_res_0x7f0f04ab), TBAlertConfig.OperateBtnStyle.MAIN, new b(this)));
             this.a.e.c().setCanceledOnTouchOutside(false);
             this.a.e.w();
         }
@@ -301,7 +301,7 @@ public class ReplyLinearLayout extends LinearLayout {
         d.z(R.dimen.T_X05);
         d.v(R.color.CAM_X0105);
         d.A(R.string.F_X01);
-        WebPManager.setPureDrawable((ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091baf), R.drawable.obfuscated_res_0x7f080965, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL_PRESS);
+        WebPManager.setPureDrawable((ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091baf), R.drawable.obfuscated_res_0x7f080966, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL_PRESS);
         ms4 d2 = ms4.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091bb3));
         d2.z(R.dimen.T_X09);
         d2.v(R.color.CAM_X0109);
@@ -373,7 +373,7 @@ public class ReplyLinearLayout extends LinearLayout {
                 ImageView imageView = new ImageView(getContext());
                 imageView.setLayoutParams(layoutParams2);
                 imageView.setId(R.id.obfuscated_res_0x7f091baf);
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080965, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080966, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
                 relativeLayout.addView(imageView);
                 RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
                 layoutParams3.addRule(0, R.id.obfuscated_res_0x7f091baf);

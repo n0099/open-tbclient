@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ri8;
+import com.repackage.qi8;
 /* loaded from: classes7.dex */
 public class wp8 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
@@ -22,7 +22,7 @@ public class wp8 extends PriorityOrganizer.Task {
     public MainTabActivity n;
 
     /* loaded from: classes7.dex */
-    public class a implements ri8.d {
+    public class a implements qi8.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ wp8 a;
@@ -45,7 +45,7 @@ public class wp8 extends PriorityOrganizer.Task {
             this.a = wp8Var;
         }
 
-        @Override // com.repackage.ri8.d
+        @Override // com.repackage.qi8.d
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -53,7 +53,7 @@ public class wp8 extends PriorityOrganizer.Task {
             }
         }
 
-        @Override // com.repackage.ri8.d
+        @Override // com.repackage.qi8.d
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -61,7 +61,7 @@ public class wp8 extends PriorityOrganizer.Task {
             }
         }
 
-        @Override // com.repackage.ri8.d
+        @Override // com.repackage.qi8.d
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -95,9 +95,9 @@ public class wp8 extends PriorityOrganizer.Task {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (PollingModel.J()) {
                 IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
-                ri8 ri8Var = new ri8();
-                ri8Var.i(iconPopData);
-                ri8Var.k(new a(this));
+                qi8 qi8Var = new qi8();
+                qi8Var.i(iconPopData);
+                qi8Var.k(new a(this));
                 return;
             }
             u();

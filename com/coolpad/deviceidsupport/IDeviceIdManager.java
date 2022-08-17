@@ -20,13 +20,13 @@ public interface IDeviceIdManager extends IInterface {
 
         /* renamed from: com.coolpad.deviceidsupport.IDeviceIdManager$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C0291a implements IDeviceIdManager {
+        public static class C0293a implements IDeviceIdManager {
             public static /* synthetic */ Interceptable $ic;
             public static IDeviceIdManager b;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C0291a(IBinder iBinder) {
+            public C0293a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -232,7 +232,7 @@ public interface IDeviceIdManager extends IInterface {
         public static IDeviceIdManager a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? C0291a.b : (IDeviceIdManager) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? C0293a.b : (IDeviceIdManager) invokeV.objValue;
         }
 
         public static IDeviceIdManager a(IBinder iBinder) {
@@ -243,7 +243,7 @@ public interface IDeviceIdManager extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.coolpad.deviceidsupport.IDeviceIdManager");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof IDeviceIdManager)) ? new C0291a(iBinder) : (IDeviceIdManager) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof IDeviceIdManager)) ? new C0293a(iBinder) : (IDeviceIdManager) queryLocalInterface;
             }
             return (IDeviceIdManager) invokeL.objValue;
         }

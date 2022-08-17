@@ -61,7 +61,7 @@ public class TitleBarView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.isDarkMode = true;
-            setBackgroundResource(R.drawable.obfuscated_res_0x7f081072);
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f081073);
             this.leftBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060981));
             this.titleTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060987));
             this.rightBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060984));

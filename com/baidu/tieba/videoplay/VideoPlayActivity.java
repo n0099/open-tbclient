@@ -37,8 +37,8 @@ import com.repackage.cj4;
 import com.repackage.dj4;
 import com.repackage.pi;
 import com.repackage.qi;
+import com.repackage.rs6;
 import com.repackage.sk5;
-import com.repackage.ss6;
 import com.repackage.uf5;
 import com.repackage.z8;
 import java.util.ArrayList;
@@ -116,7 +116,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 arrayList.addAll(VideoPlayActivityConfig.bigDataList);
             }
             if (ListUtils.isEmpty(this.c)) {
-                qi.N(this, R.string.obfuscated_res_0x7f0f0c39);
+                qi.M(this, R.string.obfuscated_res_0x7f0f0c3a);
                 finish();
                 return;
             }
@@ -228,10 +228,10 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 sk5Var.h();
             }
             if (UbsABTestHelper.isVideoAdDrawABTestA()) {
-                ss6.m().d("6061002332-203360688");
+                rs6.m().d("6061002332-203360688");
             }
             if (UbsABTestHelper.isVideoAdDrawABTestB()) {
-                ss6.m().c(ss6.s());
+                rs6.m().c(rs6.s());
             }
         }
     }

@@ -324,12 +324,12 @@ public class lo3 {
             AdElementInfo adElementInfo3 = this.b;
             if (adElementInfo3 != null && adElementInfo3.getActionType() == 1) {
                 this.n.setVisibility(0);
-                this.n.setText(resources.getString(R.string.obfuscated_res_0x7f0f10df));
+                this.n.setText(resources.getString(R.string.obfuscated_res_0x7f0f10e0));
             }
             AdElementInfo adElementInfo4 = this.b;
             if (adElementInfo4 != null && adElementInfo4.getActionType() == 2) {
                 this.n.setVisibility(0);
-                this.n.setText(resources.getString(R.string.obfuscated_res_0x7f0f1274));
+                this.n.setText(resources.getString(R.string.obfuscated_res_0x7f0f1276));
             }
             if (this.b == null) {
                 this.j.setVisibility(8);

@@ -40,12 +40,12 @@ public class pb3 extends cp1 {
 
         /* renamed from: com.repackage.pb3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0554a implements sf3<zb3<yb3>> {
+        public class C0556a implements sf3<zb3<yb3>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0554a(a aVar) {
+            public C0556a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public class pb3 extends cp1 {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                wb3.s(this.a).a(this.b, new C0554a(this));
+                wb3.s(this.a).a(this.b, new C0556a(this));
             }
         }
 

@@ -71,7 +71,7 @@ public class qm4 {
     public boolean t;
     public boolean u;
     public boolean v;
-    public j28 w;
+    public i28 w;
     public ds4 x;
     public boolean y;
     public View z;
@@ -105,7 +105,7 @@ public class qm4 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 new StatisticItem(CommonStatisticKey.KEY_QUESTION_DETAIL_HELP).addParam("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.a, "", qi.Q(TbConfig.QUESTION_THREAD_RULE, "refer=1"), true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.a, "", qi.P(TbConfig.QUESTION_THREAD_RULE, "refer=1"), true)));
             }
         }
     }
@@ -392,7 +392,7 @@ public class qm4 {
                 return;
             }
             this.a.w.dismiss();
-            FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.a.a).createNormalCfg(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f14d9), null);
+            FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.a.a).createNormalCfg(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f14db), null);
             createNormalCfg.setCallFrom(12);
             this.a.a.sendMessage(new CustomMessage(2003000, createNormalCfg));
         }
@@ -533,7 +533,6 @@ public class qm4 {
                     layoutParams2.width = qi.f(this.a.getActivity(), R.dimen.tbds42);
                     this.e.setLayoutParams(layoutParams2);
                     this.e.setVisibility(0);
-                    WebPManager.setMaskDrawable(this.e, R.drawable.obfuscated_res_0x7f0811e6, null);
                 }
             }
             mm4 mm4Var = this.A;
@@ -580,7 +579,7 @@ public class qm4 {
             }
             navigationBar.setBackgroundDrawable(null);
             this.c.setBackgroundColor(R.color.transparent);
-            this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f08120f);
+            this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f081210);
             this.j.setVisibility(8);
             this.k.setVisibility(0);
             this.k.setOnClickListener(this.a);
@@ -588,9 +587,9 @@ public class qm4 {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.k.getLayoutParams();
             layoutParams.width = qi.f(this.a, R.dimen.tbds100);
             layoutParams.height = qi.f(this.a, R.dimen.tbds100);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f0809f3, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f0809f4, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f080612, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.obfuscated_res_0x7f080a08, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.obfuscated_res_0x7f080a09, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 
@@ -614,14 +613,14 @@ public class qm4 {
             if (this.w == null) {
                 kw8 kw8Var = new kw8(this.a);
                 ArrayList arrayList = new ArrayList();
-                kw8.b bVar = new kw8.b(this.a.getString(R.string.obfuscated_res_0x7f0f0ff6), kw8Var);
+                kw8.b bVar = new kw8.b(this.a.getString(R.string.obfuscated_res_0x7f0f0ff7), kw8Var);
                 bVar.h(new i(this));
                 arrayList.add(bVar);
                 kw8Var.g(new j(this));
                 kw8Var.f(arrayList);
-                j28 j28Var = new j28(this.a, kw8Var.b());
-                this.w = j28Var;
-                j28Var.a(0.7f);
+                i28 i28Var = new i28(this.a, kw8Var.b());
+                this.w = i28Var;
+                i28Var.a(0.7f);
             }
             this.w.show();
         }
@@ -642,7 +641,7 @@ public class qm4 {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             int a2 = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
             if (this.o == null) {
-                this.o = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, a2), NoDataViewFactory.e.d(null, this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f14d3)), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fb6), this.p)));
+                this.o = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, a2), NoDataViewFactory.e.d(null, this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f14d5)), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fb7), this.p)));
             }
             if (!oi.A()) {
                 this.o.g(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NETERROR, a2), this.a.getPageContext());
@@ -663,7 +662,7 @@ public class qm4 {
                 ArrayList arrayList = new ArrayList();
                 if (this.r) {
                     bs4 bs4Var = new bs4(fs4Var);
-                    bs4Var.n(this.a.getString(R.string.obfuscated_res_0x7f0f115e));
+                    bs4Var.n(this.a.getString(R.string.obfuscated_res_0x7f0f1160));
                     bs4Var.m(new f(this));
                     arrayList.add(bs4Var);
                 }
@@ -672,7 +671,7 @@ public class qm4 {
                 bs4Var2.m(new g(this));
                 arrayList.add(bs4Var2);
                 bs4 bs4Var3 = new bs4(fs4Var);
-                bs4Var3.n(this.a.getString(R.string.obfuscated_res_0x7f0f0cfa));
+                bs4Var3.n(this.a.getString(R.string.obfuscated_res_0x7f0f0cfb));
                 bs4Var3.m(new h(this));
                 arrayList.add(bs4Var3);
                 fs4Var.j(arrayList);
@@ -826,7 +825,7 @@ public class qm4 {
             this.k = (ImageView) this.q.findViewById(R.id.obfuscated_res_0x7f092617);
             mm4 mm4Var = new mm4(this.c, this.l);
             this.A = mm4Var;
-            mm4Var.a(new lm4(this.g, R.drawable.obfuscated_res_0x7f080612), new lm4(this.i, R.drawable.obfuscated_res_0x7f0809f3), new lm4(this.j, R.drawable.icon_pure_topbar_more44_svg), new lm4(this.k, R.drawable.obfuscated_res_0x7f080a08), new lm4(this.c.getCenterText(), 0));
+            mm4Var.a(new lm4(this.g, R.drawable.obfuscated_res_0x7f080612), new lm4(this.i, R.drawable.obfuscated_res_0x7f0809f4), new lm4(this.j, R.drawable.icon_pure_topbar_more44_svg), new lm4(this.k, R.drawable.obfuscated_res_0x7f080a09), new lm4(this.c.getCenterText(), 0));
         }
     }
 
@@ -878,15 +877,19 @@ public class qm4 {
                     navigationBar.onChangeSkinType(this.a.getPageContext(), i2);
                 }
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f080612, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f0809f3, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f0809f4, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.icon_pure_topbar_more44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.obfuscated_res_0x7f080a08, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.obfuscated_res_0x7f080a09, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             } else if (i2 == 1) {
                 this.z.setVisibility(0);
             }
             mm4 mm4Var = this.A;
             if (mm4Var != null) {
                 mm4Var.f(i2);
+            }
+            ImageView imageView = this.e;
+            if (imageView != null) {
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0811e7, R.color.CAM_X0105, null);
             }
         }
     }

@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bf7;
-import com.repackage.zc8;
+import com.repackage.af7;
+import com.repackage.yc8;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AdCardMultiPicView extends AdCardBaseView {
@@ -88,13 +88,13 @@ public class AdCardMultiPicView extends AdCardBaseView {
     public void O(AdCard adCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
-            zc8 zc8Var = adCard.picInfo;
-            List<String> list = zc8Var == null ? null : zc8Var.c;
-            if (!bf7.e(list) && zc8Var != null) {
-                int i = bf7.i(zc8Var.c);
+            yc8 yc8Var = adCard.picInfo;
+            List<String> list = yc8Var == null ? null : yc8Var.c;
+            if (!af7.e(list) && yc8Var != null) {
+                int i = af7.i(yc8Var.c);
                 int dimensionPixelSize = (int) ((this.B - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002) * 2)) / 3.0f);
-                int i2 = zc8Var.e;
-                int i3 = zc8Var.d;
+                int i2 = yc8Var.e;
+                int i3 = yc8Var.d;
                 int max = (int) (dimensionPixelSize * Math.max(Math.min((i2 == 0 || i3 == 0) ? 1.0f : i2 / i3, 1.0f), 0.0f));
                 this.b0.setVisibility(4);
                 this.d0.setVisibility(4);
@@ -106,21 +106,21 @@ public class AdCardMultiPicView extends AdCardBaseView {
                 o0(this.d0, dimensionPixelSize, max);
                 o0(this.f0, dimensionPixelSize, max);
                 if (i == 1) {
-                    this.b0.g((String) bf7.d(list, 0));
+                    this.b0.g((String) af7.d(list, 0));
                     this.b0.setVisibility(0);
                     p0(this.a0, 4);
                 } else if (i == 2) {
-                    this.b0.g((String) bf7.d(list, 0));
+                    this.b0.g((String) af7.d(list, 0));
                     this.b0.setVisibility(0);
-                    this.d0.g((String) bf7.d(list, 1));
+                    this.d0.g((String) af7.d(list, 1));
                     this.d0.setVisibility(0);
                     p0(this.c0, 3);
                 } else if (i >= 3) {
-                    this.b0.g((String) bf7.d(list, 0));
+                    this.b0.g((String) af7.d(list, 0));
                     this.b0.setVisibility(0);
-                    this.d0.g((String) bf7.d(list, 1));
+                    this.d0.g((String) af7.d(list, 1));
                     this.d0.setVisibility(0);
-                    this.f0.g((String) bf7.d(list, 2));
+                    this.f0.g((String) af7.d(list, 2));
                     this.f0.setVisibility(0);
                 }
                 this.o.setVisibility(0);

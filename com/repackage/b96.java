@@ -608,7 +608,7 @@ public class b96 {
                 if (r66Var == null || !r66Var.a) {
                     i2 = R.color.CAM_X0107;
                 }
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f08090b, i2, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f08090c, i2, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             } else {
                 this.k.setVisibility(8);
                 this.l.setVisibility(0);
@@ -616,7 +616,7 @@ public class b96 {
                 if (r66Var2 == null || !r66Var2.a) {
                     i2 = R.color.CAM_X0107;
                 }
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f08090a, i2, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f08090b, i2, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
             j jVar = this.t;
             if (jVar != null) {

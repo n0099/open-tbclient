@@ -1,45 +1,194 @@
 package com.repackage;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class ak8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str, Boolean bool) {
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? oi.H() ? TbadkCoreApplication.getInst().getAutoPlaySwitch() != 3 : rj5.a().i() && oi.x() && TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 : invokeV.booleanValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            nx4 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
+            if (!(adAdSense != null && adAdSense.f())) {
+                return oi.H();
+            } else if (oi.x() && TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2) {
+                return true;
+            } else {
+                return oi.H() && TbadkCoreApplication.getInst().getAutoPlaySwitch() != 3;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int c(TbPageContext tbPageContext, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, bool)) == null) {
-            if (SwitchManager.getInstance().findType("voice") != 0 || ((str != null && b(str)) || bool == null)) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbPageContext, str)) == null) {
+            if (tbPageContext == null || TextUtils.isEmpty(str)) {
+                return 0;
             }
-            return bool.booleanValue();
+            if (!str.startsWith("tieba://deeplink?")) {
+                return d(tbPageContext, str) ? 3 : 0;
+            }
+            Uri parse = Uri.parse(str);
+            if (zb8.j(tbPageContext.getPageActivity(), Uri.parse(parse.getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT))) != 1000) {
+                return d(tbPageContext, parse.getQueryParameter("wap")) ? 2 : 0;
+            }
+            return 1;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static boolean d(TbPageContext tbPageContext, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, tbPageContext, str)) == null) {
+            String[] strArr = {str};
+            if (UrlManager.getInstance().UrlValidated(str)) {
+                UrlManager.getInstance().dealOneLink((TbPageContext<?>) tbPageContext, strArr, true);
+                return true;
+            }
+            return UrlManager.getInstance().dealOneLink(tbPageContext, strArr);
         }
         return invokeLL.booleanValue;
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0075  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x007b A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void e(List<Object> list, int i) {
+        int i2;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String[] stringArray = TbadkCoreApplication.getInst().getApp().getResources().getStringArray(R.array.obfuscated_res_0x7f030013);
-            String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f065a);
-            int length = stringArray.length;
-            for (int i = 0; i < length; i++) {
-                if (stringArray[i].equals(str)) {
-                    return true;
-                }
-                if (str.equals(stringArray[i] + string)) {
-                    return true;
-                }
-            }
-            return false;
+        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, list, i) == null) || list == null || list.size() == 0) {
+            return;
         }
-        return invokeL.booleanValue;
+        boolean z2 = MessageManager.getInstance().findTask(2016447) != null;
+        int i3 = 0;
+        while (i3 < list.size()) {
+            if (list.get(i3) instanceof ICardInfo) {
+                if (z2) {
+                    ICardInfo iCardInfo = (ICardInfo) list.get(i3);
+                    int viewCount = iCardInfo.getViewCount();
+                    ArrayList arrayList = new ArrayList();
+                    for (int i4 = 0; i4 < viewCount; i4++) {
+                        ICardInfo viewItem = iCardInfo.getViewItem(i4, i);
+                        if (viewItem != null) {
+                            viewItem.setBdUniqueId(qe7.b.get(viewItem.getCardType()));
+                            arrayList.add(viewItem);
+                        }
+                    }
+                    if (arrayList.size() != 0) {
+                        list.remove(i3);
+                        list.addAll(i3, arrayList);
+                        i2 = arrayList.size();
+                        z = false;
+                        if (!z) {
+                            list.remove(i3);
+                            i2 = 0;
+                        }
+                    }
+                }
+                i2 = 1;
+                z = true;
+                if (!z) {
+                }
+            } else {
+                i2 = 1;
+            }
+            i3 += i2;
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:36:0x009b  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00a1 A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void f(List<on> list, int i) {
+        int i2;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65541, null, list, i) == null) || list == null || list.size() == 0) {
+            return;
+        }
+        boolean z2 = MessageManager.getInstance().findTask(2016447) != null;
+        int i3 = 0;
+        while (i3 < list.size()) {
+            if (list.get(i3) instanceof vp4) {
+                if (z2) {
+                    if (!((vp4) list.get(i3)).isValid()) {
+                        ((vp4) list.get(i3)).f();
+                    }
+                    if (((vp4) list.get(i3)).isValid()) {
+                        ICardInfo c = ((vp4) list.get(i3)).c();
+                        int viewCount = c.getViewCount();
+                        ArrayList arrayList = new ArrayList();
+                        for (int i4 = 0; i4 < viewCount; i4++) {
+                            ICardInfo viewItem = c.getViewItem(i4, i);
+                            if (viewItem != null) {
+                                viewItem.setBdUniqueId(qe7.b.get(viewItem.getCardType()));
+                                arrayList.add(viewItem);
+                            }
+                        }
+                        if (arrayList.size() != 0) {
+                            list.remove(i3);
+                            list.addAll(i3, arrayList);
+                            i2 = arrayList.size();
+                            z = false;
+                            if (!z) {
+                                list.remove(i3);
+                                i2 = 0;
+                            }
+                        }
+                    }
+                }
+                i2 = 1;
+                z = true;
+                if (!z) {
+                }
+            } else {
+                i2 = 1;
+            }
+            i3 += i2;
+        }
+    }
+
+    public static ArrayList<BdUniqueId> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            int size = qe7.b.size();
+            ArrayList<BdUniqueId> arrayList = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                arrayList.add(qe7.b.valueAt(i));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 }

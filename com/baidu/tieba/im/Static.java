@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cb;
-import com.repackage.s87;
-import com.repackage.ta7;
+import com.repackage.r87;
+import com.repackage.sa7;
 /* loaded from: classes3.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
@@ -101,14 +101,14 @@ public class Static {
                 RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                 imMessageCenterPojo.setGroup_name(requestAddGroupMessage.getName());
-                imMessageCenterPojo.setCustomGroupType(s87.a(requestAddGroupMessage.getGroupType()));
+                imMessageCenterPojo.setCustomGroupType(r87.a(requestAddGroupMessage.getGroupType()));
                 AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
                 if (addGroupInfo == null) {
                     return;
                 }
                 imMessageCenterPojo.setGroup_head(addGroupInfo.getPortrait());
                 imMessageCenterPojo.setGid(String.valueOf(addGroupInfo.getGroupId()));
-                imMessageCenterPojo.setPulled_msgId(ta7.a(1L));
+                imMessageCenterPojo.setPulled_msgId(sa7.a(1L));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016016, imMessageCenterPojo));
             }
         }

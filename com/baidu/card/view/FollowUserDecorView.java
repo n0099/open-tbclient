@@ -60,7 +60,7 @@ public class FollowUserDecorView extends FollowUserButton {
             }
             pv4 pv4Var = new pv4();
             if (this.u) {
-                pv4Var.i(R.drawable.obfuscated_res_0x7f080932, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                pv4Var.i(R.drawable.obfuscated_res_0x7f080933, 0, TBSpecificationButtonConfig.IconType.WEBP);
                 pv4Var.h(R.color.CAM_X0304);
                 pv4Var.g(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26));
                 pv4Var.f(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));

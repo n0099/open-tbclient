@@ -113,7 +113,7 @@ public class h56 extends d56 implements NetModel.k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             for (b56 b56Var : list) {
-                PackageInfo a = tq6.a(b56Var.a.pkgName);
+                PackageInfo a = sq6.a(b56Var.a.pkgName);
                 if (a != null) {
                     if (a.versionCode < b56Var.a.apkDetail.version_code.intValue()) {
                         List<b56> list2 = this.g;

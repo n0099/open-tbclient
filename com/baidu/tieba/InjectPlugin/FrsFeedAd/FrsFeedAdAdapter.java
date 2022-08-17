@@ -16,21 +16,21 @@ import com.repackage.ck5;
 import com.repackage.fk5;
 import com.repackage.gk5;
 import com.repackage.kk5;
-import com.repackage.wb8;
+import com.repackage.vb8;
 /* loaded from: classes3.dex */
 public class FrsFeedAdAdapter extends kk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wb8 mRecAppContext;
+    public vb8 mRecAppContext;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsFeedAdAdapter(wb8 wb8Var, BdUniqueId bdUniqueId) {
-        super(wb8Var.o().getPageActivity(), bdUniqueId);
+    public FrsFeedAdAdapter(vb8 vb8Var, BdUniqueId bdUniqueId) {
+        super(vb8Var.o().getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wb8Var, bdUniqueId};
+            Object[] objArr = {vb8Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,7 +42,7 @@ public class FrsFeedAdAdapter extends kk5 {
                 return;
             }
         }
-        this.mRecAppContext = wb8Var;
+        this.mRecAppContext = vb8Var;
     }
 
     @Override // com.repackage.kk5, com.repackage.bn

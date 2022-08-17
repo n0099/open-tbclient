@@ -84,7 +84,7 @@ public final class a extends com.kwad.components.core.i.d {
 
     @Override // com.kwad.components.core.i.d
     public final void u(View view2) {
-        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910a3)).setText(this.mContext.getString(R.string.obfuscated_res_0x7f0f09ab, com.kwad.sdk.core.response.a.a.ae(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate))));
+        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910a3)).setText(this.mContext.getString(R.string.obfuscated_res_0x7f0f09ac, com.kwad.sdk.core.response.a.a.ae(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate))));
         ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910a1)).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.kwai.kwai.a.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view3) {

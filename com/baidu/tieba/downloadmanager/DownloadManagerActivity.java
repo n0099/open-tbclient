@@ -227,11 +227,11 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_DOWNLOAD_MANAGER_SHOW);
                 statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-                if (this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0993).contentEquals(fVar.g())) {
+                if (this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0994).contentEquals(fVar.g())) {
                     statisticItem.addParam("obj_locate", 1);
                 } else if (this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0517).contentEquals(fVar.g())) {
                     statisticItem.addParam("obj_locate", 3);
-                } else if (this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0905).contentEquals(fVar.g())) {
+                } else if (this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0906).contentEquals(fVar.g())) {
                     statisticItem.addParam("obj_locate", 2);
                 }
                 statisticItem.addParam("obj_source", this.a.d);
@@ -387,7 +387,7 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
             DownloadManagerFragment C1 = DownloadManagerFragment.C1();
             n65Var.a = C1;
             C1.setArguments(bundle);
-            n65Var.c = getResources().getString(R.string.obfuscated_res_0x7f0f0993);
+            n65Var.c = getResources().getString(R.string.obfuscated_res_0x7f0f0994);
             this.e.add(n65Var);
             Bundle bundle2 = new Bundle();
             bundle2.putInt("tab_id", 2);
@@ -396,7 +396,7 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
             DownloadManagerFragment C12 = DownloadManagerFragment.C1();
             n65Var2.a = C12;
             C12.setArguments(bundle2);
-            n65Var2.c = getResources().getString(R.string.obfuscated_res_0x7f0f0905);
+            n65Var2.c = getResources().getString(R.string.obfuscated_res_0x7f0f0906);
             this.e.add(n65Var2);
             Bundle bundle3 = new Bundle();
             bundle3.putInt("tab_id", 3);

@@ -1,11 +1,13 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 import tbclient.UserTaskInfo;
 /* loaded from: classes7.dex */
 public class v15 {
@@ -68,9 +70,26 @@ public class v15 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    public void g(UserTaskInfo userTaskInfo) {
+    public void g(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, userTaskInfo) == null) || userTaskInfo == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        jSONObject.optLong("id");
+        this.a = jSONObject.optString("name");
+        this.b = jSONObject.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
+        this.c = jSONObject.optString("task_icon_url");
+        this.d = jSONObject.optInt("status");
+        jSONObject.optInt("target_num");
+        jSONObject.optInt("curr_num");
+        jSONObject.optInt("task_type");
+        this.e = jSONObject.optInt("weight");
+        this.f = jSONObject.optString("act_type");
+    }
+
+    public void h(UserTaskInfo userTaskInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, userTaskInfo) == null) || userTaskInfo == null) {
             return;
         }
         userTaskInfo.id.longValue();

@@ -435,7 +435,7 @@ public class ur4 {
                     this.mDialogGravity = 17;
                 }
                 window.setGravity(this.mDialogGravity);
-                window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f08120f);
+                window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f081210);
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.7f;
                 attributes.width = -1;
@@ -483,7 +483,7 @@ public class ur4 {
             }
             ViewGroup viewGroup = this.mRootView;
             if (viewGroup != null) {
-                viewGroup.setBackgroundResource(R.drawable.obfuscated_res_0x7f08120f);
+                viewGroup.setBackgroundResource(R.drawable.obfuscated_res_0x7f081210);
             }
             if (this.mRealView != null && ((i = this.dialogSize) == 2 || i == 5 || i == 10 || i == 9)) {
                 this.mRealView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08048f);
@@ -544,7 +544,7 @@ public class ur4 {
                 this.mCloseButton.setOnClickListener(new d(this, this, this.mCloseButtonListener));
                 int skinType = isAutoNight() ? TbadkCoreApplication.getInst().getSkinType() : 0;
                 if (this.dialogSize == 10) {
-                    SkinManager.setBackgroundResource(this.mCloseButton, R.drawable.obfuscated_res_0x7f0807f7);
+                    SkinManager.setBackgroundResource(this.mCloseButton, R.drawable.obfuscated_res_0x7f0807f8);
                 } else {
                     SkinManager.setBackgroundResource(this.mCloseButton, R.drawable.icon_popup_close_n, skinType);
                 }

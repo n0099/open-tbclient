@@ -165,7 +165,7 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
             }
             if ((this.h && q(i)) || p(i)) {
                 this.j.q();
-                qi.M(getContext(), ((Activity) getContext()).getCurrentFocus());
+                qi.L(getContext(), ((Activity) getContext()).getCurrentFocus());
                 return;
             }
             boolean z = this.i;

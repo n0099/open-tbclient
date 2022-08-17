@@ -74,7 +74,7 @@ public class PayConfigModel extends BdBaseModel {
                     }
                 }
                 String errorString = responsedMessage.getErrorString();
-                String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c3c);
+                String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c3d);
                 if (StringUtils.isNull(errorString)) {
                     errorString = string;
                 }

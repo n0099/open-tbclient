@@ -14,7 +14,7 @@ import com.fun.ad.sdk.internal.api.Module;
 import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.kwad.sdk.api.KsAdSDK;
 import com.kwad.sdk.api.SdkConfig;
-import com.repackage.yj9;
+import com.repackage.ak9;
 /* loaded from: classes4.dex */
 public class KsModule implements Module {
     public static /* synthetic */ Interceptable $ic;
@@ -76,7 +76,7 @@ public class KsModule implements Module {
                 KsAdSDK.init(funAdConfig.appContext, new SdkConfig.Builder().appId(str).appName(funAdConfig.appName).showNotification(true).debug(funAdConfig.logEnabled).canReadICCID(moduleConfigKs.ksCanReadICCID).canReadNearbyWifiList(moduleConfigKs.ksCanReadNearbyWifiList).canReadMacAddress(moduleConfigKs.ksCanReadMacAddress).customController(moduleConfigKs.ksCustomCtr).build());
                 KsAdSDK.setPersonalRecommend(funAdConfig.runtimeAdConfig.personalRecommendStatus);
                 funAdConfig.runtimeAdConfig.registerPersonalRecommendObserver(new a());
-                return new yj9(moduleConfigKs);
+                return new ak9(moduleConfigKs);
             }
             throw new RuntimeException("The ks config need ModuleConfigKs!");
         }

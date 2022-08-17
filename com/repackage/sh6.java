@@ -43,7 +43,7 @@ public class sh6 implements ix {
     public RoundRelativeLayout f;
     public TextView g;
     public ur4 h;
-    public mj8 i;
+    public lj8 i;
     public ForumData j;
     public View k;
     public LinearLayout l;
@@ -180,13 +180,13 @@ public class sh6 implements ix {
     }
 
     public final void g() {
-        mj8 mj8Var;
+        lj8 lj8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (mj8Var = this.i) == null || StringUtils.isNull(mj8Var.o())) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (lj8Var = this.i) == null || StringUtils.isNull(lj8Var.o())) {
             return;
         }
         if (!wh5.a(this.a.getPageActivity(), this.i.h())) {
-            cr6.b(this.a, this.i.j(), this.i.o(), this.i.i());
+            br6.b(this.a, this.i.j(), this.i.o(), this.i.i());
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_BUSSINESS_PROMOT_CLICK);
         httpMessage.addParam("id", this.i.c());
@@ -196,8 +196,8 @@ public class sh6 implements ix {
         if (xj4Var != null) {
             xj4Var.c();
         }
-        FrsFragment.m2 = true;
-        ar6.a("common_click", this.i, this.j, 1, null);
+        FrsFragment.n2 = true;
+        zq6.a("common_click", this.i, this.j, 1, null);
     }
 
     public final void h() {
@@ -235,9 +235,9 @@ public class sh6 implements ix {
             TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090ac6);
             this.d = textView;
             textView.setOnClickListener(this.p);
-            mj8 mj8Var = this.i;
-            if (mj8Var != null) {
-                this.c.K(mj8Var.e(), 10, false);
+            lj8 lj8Var = this.i;
+            if (lj8Var != null) {
+                this.c.K(lj8Var.e(), 10, false);
             }
             new di6(this.f, this.m).g();
         }
@@ -263,23 +263,23 @@ public class sh6 implements ix {
             TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090ac6);
             this.d = textView;
             textView.setOnClickListener(this.p);
-            mj8 mj8Var = this.i;
-            if (mj8Var != null) {
-                this.c.K(mj8Var.e(), 10, false);
+            lj8 lj8Var = this.i;
+            if (lj8Var != null) {
+                this.c.K(lj8Var.e(), 10, false);
             }
         }
     }
 
-    public boolean j(rj8 rj8Var) {
+    public boolean j(qj8 qj8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, rj8Var)) == null) {
-            if (rj8Var == null || rj8Var.getForum() == null || rj8Var.getBusinessPromot() == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, qj8Var)) == null) {
+            if (qj8Var == null || qj8Var.getForum() == null || qj8Var.getBusinessPromot() == null) {
                 return false;
             }
-            this.j = rj8Var.getForum();
-            this.i = rj8Var.getBusinessPromot();
-            String str = "key_frs_dialog_ad_last_show_time" + rj8Var.getForum().getId();
+            this.j = qj8Var.getForum();
+            this.i = qj8Var.getBusinessPromot();
+            String str = "key_frs_dialog_ad_last_show_time" + qj8Var.getForum().getId();
             long m = ru4.k().m(str, 0L);
             if (m < 0 || !TimeHelper.isSameDay(new Date(m), new Date(System.currentTimeMillis()))) {
                 ru4.k().x(str, System.currentTimeMillis());
@@ -294,8 +294,8 @@ public class sh6 implements ix {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            mj8 mj8Var = this.i;
-            if (mj8Var != null && mj8Var.q()) {
+            lj8 lj8Var = this.i;
+            if (lj8Var != null && lj8Var.q()) {
                 h();
             } else {
                 i();
@@ -319,8 +319,8 @@ public class sh6 implements ix {
                 viewGroup.removeAllViews();
                 viewGroup.addView(this.b);
             }
-            mj8 mj8Var2 = this.i;
-            if (mj8Var2 != null && mj8Var2.f()) {
+            lj8 lj8Var2 = this.i;
+            if (lj8Var2 != null && lj8Var2.f()) {
                 ms4 d = ms4.d(this.g);
                 d.n(R.string.J_X01);
                 d.f(R.color.CAM_X0602);
@@ -329,7 +329,7 @@ public class sh6 implements ix {
             } else {
                 this.g.setVisibility(8);
             }
-            ar6.k("common_exp", this.i, this.j, 1, null);
+            zq6.k("common_exp", this.i, this.j, 1, null);
         }
     }
 

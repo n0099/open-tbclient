@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.r16;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class o16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,20 +72,20 @@ public class o16 {
     public boolean y;
     public boolean z;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ o16 a;
 
         /* renamed from: com.repackage.o16$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0542a implements ff {
+        /* loaded from: classes7.dex */
+        public class C0545a implements ff {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0542a(a aVar) {
+            public C0545a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -222,7 +222,7 @@ public class o16 {
                     hfVar.i(true);
                     hfVar.d(this.a.K);
                     hfVar.g(this.a.L);
-                    hfVar.a(new C0542a(this));
+                    hfVar.a(new C0545a(this));
                     this.a.b = hfVar.b();
                     this.a.b.k(false);
                     this.a.b.l(this.a.z);
@@ -236,7 +236,7 @@ public class o16 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

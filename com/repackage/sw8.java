@@ -487,7 +487,7 @@ public class sw8 {
             textStyleEntity.mTextInfoList = new ArrayList();
             textStyleEntity.mStrokeInfoList = new ArrayList();
             TextWordsEntity.StyleTextInfoEntity styleTextInfoEntity = new TextWordsEntity.StyleTextInfoEntity();
-            if (!gj8.e(gj8.f(str2)) && str2 != null && str2.startsWith("#") && str2.length() >= 7) {
+            if (!fj8.e(fj8.f(str2)) && str2 != null && str2.startsWith("#") && str2.length() >= 7) {
                 styleTextInfoEntity.mTextAlpha = String.format(Locale.CHINA, "%.1f", Double.valueOf(((f >>> 24) * 1.0d) / 255.0d));
                 styleTextInfoEntity.mTextColor = str2.substring(str2.length() - 6, str2.length());
             } else {

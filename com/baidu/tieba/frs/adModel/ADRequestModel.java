@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.d9;
-import com.repackage.kk8;
+import com.repackage.jk8;
 /* loaded from: classes3.dex */
 public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -93,8 +93,8 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
             }
         }
         this.b = new a(this, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, 309611);
-        kk8.h(309611, ADSocketResponseMessage.class, false, false);
-        kk8.c(309611, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, "c/f/frs/getadlist", ADHttpResponseMessage.class, false, false, true, false);
+        jk8.h(309611, ADSocketResponseMessage.class, false, false);
+        jk8.c(309611, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, "c/f/frs/getadlist", ADHttpResponseMessage.class, false, false, true, false);
         registerListener(this.b);
     }
 

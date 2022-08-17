@@ -57,7 +57,7 @@ public class lv8 extends j25 {
             if (i == 4) {
                 this.a.u((String) h25Var.c);
             } else if (i == 7) {
-                this.a.getContext().showToast((int) R.string.obfuscated_res_0x7f0f0d19);
+                this.a.getContext().showToast((int) R.string.obfuscated_res_0x7f0f0d1a);
             } else if (i != 8) {
             } else {
                 this.a.y();

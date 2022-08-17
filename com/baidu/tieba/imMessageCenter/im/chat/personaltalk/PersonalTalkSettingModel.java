@@ -37,9 +37,9 @@ import com.repackage.cb;
 import com.repackage.cf5;
 import com.repackage.gf5;
 import com.repackage.je5;
-import com.repackage.n97;
+import com.repackage.m97;
 import com.repackage.pz4;
-import com.repackage.v77;
+import com.repackage.u77;
 import com.repackage.vm4;
 import java.util.ArrayList;
 import protobuf.QueryUserInfos.DataRes;
@@ -96,7 +96,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         public PersonalSettingItemData doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? n97.j().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a)) : (PersonalSettingItemData) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? m97.j().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a)) : (PersonalSettingItemData) invokeV.objValue;
         }
     }
 
@@ -311,7 +311,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
                     if (this.a.c) {
                         this.a.m.showToast(R.string.obfuscated_res_0x7f0f00d2);
                     } else {
-                        this.a.m.showToast(R.string.obfuscated_res_0x7f0f0fd4);
+                        this.a.m.showToast(R.string.obfuscated_res_0x7f0f0fd5);
                     }
                 }
                 if (this.a.n != null) {
@@ -358,7 +358,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
                     return;
                 }
                 this.a.k = iMUserListHttpResponseMsg.getUserDataResultList().get(0);
-                this.a.l = v77.f().g(String.valueOf(this.a.getUid()), 2);
+                this.a.l = u77.f().g(String.valueOf(this.a.getUid()), 2);
                 if (this.a.n != null) {
                     this.a.n.K();
                 }

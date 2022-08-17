@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.df8;
+import com.repackage.cf8;
 import com.repackage.oi;
 import com.repackage.ru4;
 /* loaded from: classes4.dex */
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public df8 a;
+    public cf8 a;
     public HttpMessageListener b;
 
     /* loaded from: classes4.dex */
@@ -75,9 +75,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                     this.a.a.s();
                 }
                 if (httpResponsedMessage.getError() != -1 && oi.z()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0f05);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0f06);
                 } else {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                 }
             }
         }
@@ -121,9 +121,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
             if (intExtra2 != 1 && intExtra2 != 3) {
                 intExtra2 = 1;
             }
-            df8 df8Var = new df8(getPageContext(), (intExtra << 2) | intExtra2);
-            this.a = df8Var;
-            setContentView(df8Var.o());
+            cf8 cf8Var = new cf8(getPageContext(), (intExtra << 2) | intExtra2);
+            this.a = cf8Var;
+            setContentView(cf8Var.o());
             registerListener(this.b);
         }
     }

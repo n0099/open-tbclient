@@ -108,7 +108,7 @@ public class tn4 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                am8.a("", 7);
+                zl8.a("", 7);
             }
         }
     }
@@ -322,7 +322,7 @@ public class tn4 {
     public void H(AccountData accountData, Application application) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, accountData, application) == null) {
-            pa7.a("onAccountChanged()");
+            oa7.a("onAccountChanged()");
             BdLog.e("账号切换");
             ru4 k2 = ru4.k();
             String q = k2.q("current_used_theme_" + h(), null);
@@ -338,7 +338,7 @@ public class tn4 {
             }
             f();
             MessageManager.getInstance().sendMessageFromBackground(new CustomMessage(2005006, accountData));
-            pa7.a("send METHOD_ACCOUNT_CHANGE");
+            oa7.a("send METHOD_ACCOUNT_CHANGE");
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005016, accountData));
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2005019, accountData);
             MessageManager.getInstance().registerStickyMode(2005019);
@@ -393,15 +393,15 @@ public class tn4 {
             if (!this.b) {
                 if (accountData == null && this.a != null) {
                     this.b = true;
-                    pa7.a("account == null && mAccount != null");
+                    oa7.a("account == null && mAccount != null");
                 } else if (this.a == null && accountData != null) {
                     this.b = true;
-                    pa7.a("mAccount == null && account != null 初始化");
+                    oa7.a("mAccount == null && account != null 初始化");
                 } else {
                     AccountData accountData2 = this.a;
                     if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
                         this.b = true;
-                        pa7.a("mAccount != null && account != null");
+                        oa7.a("mAccount != null && account != null");
                     }
                 }
             }
@@ -432,7 +432,7 @@ public class tn4 {
     public final void N(AccountData accountData, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, accountData, context) == null) {
-            am8.n();
+            zl8.n();
             if (context != null) {
                 if (TbadkCoreApplication.getInst().isPushServiceOpen()) {
                     UtilHelper.startPushService(context);

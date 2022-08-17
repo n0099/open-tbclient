@@ -401,7 +401,7 @@ public class vk5 {
                 pv4Var.r(R.color.CAM_X0304);
                 this.n.setConfig(this.o);
                 this.n.setOnClickListener(this.C);
-                this.n.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c9f));
+                this.n.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ca0));
                 this.n.setTextSize(R.dimen.T_X08);
                 ViewGroup viewGroup2 = this.d;
                 int i = this.k;
@@ -463,11 +463,11 @@ public class vk5 {
             }
         }
         h();
-        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fb5);
+        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fb6);
         if (j != null && "7".equals(j.optString("dislike_ids"))) {
             string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0653);
         }
-        qi.O(this.a, string);
+        qi.N(this.a, string);
         NEGFeedBackView.b bVar = this.u;
         if (bVar != null) {
             bVar.a(arrayList, i(), this.e);

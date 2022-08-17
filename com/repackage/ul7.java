@@ -1,146 +1,51 @@
 package com.repackage;
 
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.tail.data.TailData;
-import com.baidu.tieba.memberCenter.tail.message.AddTailHttpResponseMessage;
-import com.baidu.tieba.memberCenter.tail.message.AddTailNetMessage;
-import com.baidu.tieba.memberCenter.tail.message.AddTailSocketResponseMessage;
-import com.baidu.tieba.memberCenter.tail.message.SetTailNetMessage;
-import com.baidu.tieba.memberCenter.tail.message.UpdateTailHttpResponseMessage;
-import com.baidu.tieba.memberCenter.tail.message.UpdateTailNetMessage;
-import com.baidu.tieba.memberCenter.tail.message.UpdateTailSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
 public class ul7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public TailData c;
-    public TailData d;
-    public TbPageContext<?> e;
-    public qm7<Integer> f;
-    public qm7<Integer> g;
-    public ab h;
-    public ab i;
+    public EditText a;
+    public ImageView b;
+    public TextView c;
+    public ViewGroup d;
+    public BaseActivity<?> e;
+    public Window f;
+    public ImageView g;
+    public EditorTools h;
+    public FrameLayout i;
+    public ProgressBar j;
 
-    /* loaded from: classes7.dex */
-    public class a extends ab {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ul7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ul7 ul7Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ul7Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ul7Var;
-        }
-
-        @Override // com.repackage.ab
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            ol7 resultData;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.a = false;
-                if (this.a.f != null) {
-                    Integer num = null;
-                    if (responsedMessage instanceof AddTailHttpResponseMessage) {
-                        resultData = ((AddTailHttpResponseMessage) responsedMessage).getResultData();
-                    } else {
-                        resultData = responsedMessage instanceof AddTailSocketResponseMessage ? ((AddTailSocketResponseMessage) responsedMessage).getResultData() : null;
-                    }
-                    if (resultData != null) {
-                        num = Integer.valueOf(resultData.a());
-                        if (this.a.b) {
-                            this.a.p(num.intValue());
-                        }
-                    }
-                    this.a.f.a(responsedMessage.hasError(), responsedMessage.getErrorString(), num);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends ab {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ul7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ul7 ul7Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ul7Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ul7Var;
-        }
-
-        @Override // com.repackage.ab
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            tl7 resultData;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.a = false;
-                if (this.a.g != null) {
-                    if (responsedMessage instanceof UpdateTailHttpResponseMessage) {
-                        resultData = ((UpdateTailHttpResponseMessage) responsedMessage).getResultData();
-                    } else {
-                        resultData = responsedMessage instanceof UpdateTailSocketResponseMessage ? ((UpdateTailSocketResponseMessage) responsedMessage).getResultData() : null;
-                    }
-                    this.a.g.a(responsedMessage.hasError(), responsedMessage.getErrorString(), resultData != null ? Integer.valueOf(resultData.a()) : null);
-                }
-            }
-        }
-    }
-
-    public ul7(TbPageContext<?> tbPageContext) {
+    public ul7(BaseActivity<?> baseActivity, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {baseActivity, onClickListener, onClickListener2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -150,158 +55,187 @@ public class ul7 {
                 return;
             }
         }
-        this.a = false;
-        this.b = false;
-        this.h = new a(this, CmdConfigHttp.CMD_TAIL_ADD, 305101);
-        this.i = new b(this, CmdConfigHttp.CMD_TAIL_UPDATE, 305102);
-        this.e = tbPageContext;
-        tbPageContext.registerListener(this.h);
-        this.e.registerListener(this.i);
-        this.d = new TailData();
+        this.e = baseActivity;
+        Window window = baseActivity.getWindow();
+        this.f = window;
+        this.d = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f092051);
+        this.a = (EditText) this.f.findViewById(R.id.obfuscated_res_0x7f09204f);
+        ImageView imageView = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f092052);
+        this.b = imageView;
+        imageView.setOnClickListener(onClickListener);
+        ImageView imageView2 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09204a);
+        this.g = imageView2;
+        imageView2.setOnClickListener(onClickListener2);
+        this.c = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092053);
+        this.i = (FrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f09204e);
+        this.j = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f092050);
     }
 
-    public int e(String str) {
-        InterceptResult invokeL;
+    public void a(i25 i25Var, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? Pattern.compile("#\\([^#\\)\\(]+\\)").matcher(str).replaceAll(" ").length() : invokeL.intValue;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, i25Var, str) == null) {
+            this.h = new EditorTools(this.e.getPageContext().getPageActivity());
+            d();
+            c(i25Var);
+            b(i25Var, str);
+            this.h.f();
+            this.h.A(new h25(35, 5, Boolean.FALSE));
+            this.h.j();
+            o(this.h);
+        }
     }
 
-    public String f(String str) {
-        InterceptResult invokeL;
+    public final void b(i25 i25Var, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? (str == null || str.length() <= 0) ? "" : str.substring(0, str.length() - 1) : (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i25Var, str) == null) {
+            this.h.d(new yl7(this.e.getPageContext(), 2, str));
+            this.h.setActionListener(26, i25Var);
+            this.h.setActionListener(3, i25Var);
+        }
+    }
+
+    public final void c(i25 i25Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i25Var) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(5);
+            this.h.h(arrayList);
+            s25 n = this.h.n(5);
+            if (n != null) {
+                n.l = 1;
+                n.e(false);
+            }
+            this.h.setActionListener(24, i25Var);
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.h.setBarMaxLauCount(4);
+            this.h.setBarLauncherType(1);
+            this.h.C(true);
+            this.h.setBackgroundColorId(R.color.CAM_X0201);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.a.getSelectionStart() <= 0) {
+            return;
+        }
+        String substring = this.a.getText().toString().substring(0, this.a.getSelectionStart());
+        Matcher matcher = Pattern.compile("#\\([^#\\)\\(]+\\)$").matcher(substring);
+        int i = 1;
+        if (matcher.find()) {
+            i = substring.length() - matcher.replaceFirst("").length();
+        }
+        this.a.getText().delete(this.a.getSelectionStart() - i, this.a.getSelectionStart());
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.e.ShowSoftKeyPadDelay(this.a);
+            EditText editText = this.a;
+            editText.setSelection(editText.length());
+        }
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d.getFontColor() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.getText().toString() : (String) invokeV.objValue;
     }
 
-    public String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            while (e(str) > 50) {
-                str = f(str);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public TailData i() {
+    public EditText h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (TailData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (EditText) invokeV.objValue;
     }
 
-    public void j(int i, String str, String str2, boolean z) {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, str2, Boolean.valueOf(z)}) == null) {
-            TailData tailData = new TailData();
-            this.d = tailData;
-            if (i != 0) {
-                TailData tailData2 = new TailData();
-                this.c = tailData2;
-                tailData2.setId(i);
-                this.c.setContent(str);
-                this.c.setFontColor(str2);
-                this.d.setId(i);
-                this.d.setContent(str);
-                this.d.setFontColor(str2);
-                return;
-            }
-            tailData.setContent("");
-            this.d.setFontColor("7a7c80");
-            this.b = z;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.j.setVisibility(8);
         }
     }
 
-    public boolean k() {
-        InterceptResult invokeV;
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            TailData tailData = this.d;
-            if (tailData != null && tailData.getFontColor() != null) {
-                TailData tailData2 = this.c;
-                if (tailData2 == null) {
-                    if (!StringUtils.isNull(this.d.getContent()) || !this.d.getFontColor().equals("7a7c80")) {
-                        return true;
-                    }
-                } else if (tailData2.getContent() != null && this.c.getFontColor() != null && (!this.c.getContent().equals(this.d.getContent()) || !this.c.getFontColor().equals(this.d.getFontColor()))) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i == 50 : invokeI.booleanValue;
-    }
-
-    public boolean m(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i > 50 : invokeI.booleanValue;
-    }
-
-    public void n(qm7<Integer> qm7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, qm7Var) == null) {
-            this.f = qm7Var;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.h.q();
+            this.h.A(new h25(5, -1, null));
         }
     }
 
-    public void o(String str) {
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.d.setFontColor(str);
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            EditText editText = this.a;
+            editText.setSelection(editText.length());
         }
     }
 
-    public void p(int i) {
+    public void l(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            MessageManager.getInstance().sendMessage(new SetTailNetMessage(i, 1));
+            this.e.getLayoutMode().l(i == 1);
+            this.e.getLayoutMode().k(this.d);
+            this.h.w(i);
         }
     }
 
-    public void q(qm7<Integer> qm7Var) {
+    public void m(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, qm7Var) == null) {
-            this.g = qm7Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.a.setTextColor(rm7.a(str));
         }
     }
 
-    public void r(String str) {
+    public void n(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || this.a) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.a.setText(TbFaceManager.i().t(this.e.getPageContext().getPageActivity(), str, null));
+        }
+    }
+
+    public void o(EditorTools editorTools) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, editorTools) == null) {
+            this.i.addView(editorTools, new LinearLayout.LayoutParams(-1, -2));
+        }
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.b.setEnabled(z);
+        }
+    }
+
+    public void q(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) {
+            TextView textView = this.c;
+            textView.setText(i + "/" + i2);
+            SkinManager.setViewTextColor(this.c, i == i2 ? R.color.CAM_X0301 : R.color.CAM_X0109, 1);
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.j.setVisibility(0);
+        }
+    }
+
+    public void s(TailData tailData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, tailData) == null) || tailData == null) {
             return;
         }
-        String f = tm7.f(str);
-        if (!StringUtils.isNull(f)) {
-            this.e.showToast(f);
-            return;
-        }
-        String b2 = tm7.b(str);
-        this.d.setContent(b2);
-        this.a = true;
-        TailData tailData = this.c;
-        if (tailData != null && tailData.getId() > 0) {
-            this.e.sendMessage(new UpdateTailNetMessage(this.c.getId(), b2, this.d.getFontColor(), this.e.getString(R.string.obfuscated_res_0x7f0f135d)));
-        } else {
-            this.e.sendMessage(new AddTailNetMessage(b2, this.d.getFontColor(), this.e.getString(R.string.obfuscated_res_0x7f0f135d)));
-        }
-    }
-
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? !StringUtils.isNull(this.d.getContent()) && k() && StringUtils.isNull(tm7.f(this.d.getContent())) : invokeV.booleanValue;
+        n(tailData.getContent());
+        m(tailData.getFontColor());
     }
 }

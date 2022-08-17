@@ -395,9 +395,9 @@ public final class f extends KSFrameLayout implements com.kwad.sdk.widget.c {
         String al;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, adTemplate, adInfo) == null) {
-            this.iN.setImageResource(R.drawable.obfuscated_res_0x7f080be6);
+            this.iN.setImageResource(R.drawable.obfuscated_res_0x7f080be7);
             if (com.kwad.sdk.core.response.a.a.bD(adInfo)) {
-                KSImageLoader.loadCircleIcon(this.iN, com.kwad.sdk.core.response.a.a.bI(adInfo), getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080be6));
+                KSImageLoader.loadCircleIcon(this.iN, com.kwad.sdk.core.response.a.a.bI(adInfo), getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080be7));
                 this.iP.setText(com.kwad.sdk.core.response.a.a.bm(adInfo));
                 this.iQ.setText(com.kwad.sdk.core.response.a.a.ad(adInfo));
                 if (com.kwad.sdk.core.response.a.a.bE(adInfo)) {

@@ -1,29 +1,22 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class yg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public String b;
+    public int b;
     public int c;
-    public String d;
-    public int e;
-    public String f;
-    public rg8 g;
-    public ArrayList<zg8> h;
+    public int d;
+    public qg8 e;
 
     public yg8() {
         Interceptable interceptable = $ic;
@@ -38,93 +31,53 @@ public class yg8 {
                 return;
             }
         }
-        this.g = new rg8();
-        this.h = new ArrayList<>();
+        this.e = new qg8();
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
     }
 
-    public rg8 b() {
+    public qg8 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (rg8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (qg8) invokeV.objValue;
     }
 
-    public String c() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public ArrayList<zg8> d() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public String f() {
-        InterceptResult invokeV;
+    public void f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
-            j(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void j(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.g.c(jSONObject.optJSONObject("error"));
-            this.a = jSONObject.optInt("show_dialog");
-            this.b = jSONObject.optString("sign_notice");
-            this.c = jSONObject.optInt("is_timeout");
-            this.d = jSONObject.optString("timeout_notice");
-            this.e = jSONObject.optInt("error_code");
-            this.f = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-            JSONArray optJSONArray = jSONObject.optJSONArray("info");
-            if (optJSONArray != null) {
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                    zg8 zg8Var = new zg8();
-                    zg8Var.f(jSONObject2);
-                    this.h.add(zg8Var);
-                }
-            }
+            this.e.c(jSONObject.optJSONObject("error"));
+            this.a = jSONObject.optInt("forum_id");
+            jSONObject.optString("forum_name");
+            this.b = jSONObject.optInt("signed");
+            jSONObject.optInt("is_on");
+            jSONObject.optInt("is_filter");
+            this.c = jSONObject.optInt("sign_day_count");
+            this.d = jSONObject.optInt("cur_score");
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }

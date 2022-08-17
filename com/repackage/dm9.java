@@ -1,115 +1,153 @@
 package com.repackage;
 
+import android.os.Debug;
+import android.os.SystemClock;
+import android.util.Printer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
 /* loaded from: classes6.dex */
-public class dm9 extends vl9 {
+public class dm9 implements Printer {
     public static /* synthetic */ Interceptable $ic;
-    public static final LinkedHashMap<Long, String> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int d;
-    public Thread e;
+    public long a;
+    public long b;
+    public long c;
+    public b d;
+    public final boolean e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755762463, "Lcom/repackage/dm9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ long c;
+        public final /* synthetic */ long d;
+        public final /* synthetic */ dm9 e;
+
+        public a(dm9 dm9Var, long j, long j2, long j3, long j4) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dm9Var, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755762463, "Lcom/repackage/dm9;");
-                return;
+            this.e = dm9Var;
+            this.a = j;
+            this.b = j2;
+            this.c = j3;
+            this.d = j4;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e.d.a(this.a, this.b, this.c, this.d);
             }
         }
-        f = new LinkedHashMap<>();
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public dm9(Thread thread, long j) {
-        this(thread, 100, j);
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(long j, long j2, long j3, long j4);
+    }
+
+    public dm9(b bVar, long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {thread, Long.valueOf(j)};
-            interceptable.invokeUnInit(65538, newInitContext);
+            Object[] objArr = {bVar, Long.valueOf(j), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Thread) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Long) objArr2[2]).longValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = 3000L;
+        this.b = 0L;
+        this.c = 0L;
+        this.d = null;
+        if (bVar != null) {
+            this.d = bVar;
+            this.a = j;
+            this.e = z;
+            return;
+        }
+        throw new IllegalArgumentException("blockListener should not be null.");
     }
 
-    @Override // com.repackage.vl9
-    public void b() {
+    public final boolean b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (StackTraceElement stackTraceElement : this.e.getStackTrace()) {
-                sb.append(stackTraceElement.toString());
-                sb.append("\r\n");
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? j - this.b > this.a : invokeJ.booleanValue;
+    }
+
+    public final void c(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            bm9.b().post(new a(this, this.b, j, this.c, SystemClock.currentThreadTimeMillis()));
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (zl9.e().b != null) {
+                zl9.e().b.c();
             }
-            synchronized (f) {
-                if (f.size() == this.d && this.d > 0) {
-                    f.remove(f.keySet().iterator().next());
-                }
-                f.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            if (zl9.e().c != null) {
+                zl9.e().c.c();
             }
         }
     }
 
-    public ArrayList<String> e(long j, long j2) {
-        InterceptResult invokeCommon;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            synchronized (f) {
-                for (Long l : f.keySet()) {
-                    if (j < l.longValue() && l.longValue() < j2) {
-                        arrayList.add(em9.x.format(l) + "\r\n\r\n" + f.get(l));
-                    }
-                }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (zl9.e().b != null) {
+                zl9.e().b.d();
             }
-            return arrayList;
+            if (zl9.e().c != null) {
+                zl9.e().c.d();
+            }
         }
-        return (ArrayList) invokeCommon.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dm9(Thread thread, int i, long j) {
-        super(j);
+    @Override // android.util.Printer
+    public void println(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {thread, Integer.valueOf(i), Long.valueOf(j)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Long) newInitContext.callArgs[0]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (this.e && Debug.isDebuggerConnected()) {
                 return;
             }
+            if (str.charAt(0) == '>') {
+                this.b = System.currentTimeMillis();
+                this.c = SystemClock.currentThreadTimeMillis();
+                d();
+                return;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            if (b(currentTimeMillis)) {
+                c(currentTimeMillis);
+            }
+            e();
         }
-        this.d = 100;
-        this.e = thread;
-        this.d = i;
     }
 }

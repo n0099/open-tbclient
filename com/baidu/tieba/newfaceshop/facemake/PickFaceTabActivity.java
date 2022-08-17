@@ -29,12 +29,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.qi;
-import com.repackage.sp7;
+import com.repackage.rp7;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class PickFaceTabActivity extends BaseFragmentActivity implements sp7 {
+public class PickFaceTabActivity extends BaseFragmentActivity implements rp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -218,7 +218,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements sp7 {
             }
             K0(this.f, 1, this.j.getText(R.string.obfuscated_res_0x7f0f05ef).toString());
             K0(this.h, 3, this.j.getText(R.string.obfuscated_res_0x7f0f05eb).toString());
-            K0(this.g, 2, this.j.getText(R.string.obfuscated_res_0x7f0f0b4e).toString());
+            K0(this.g, 2, this.j.getText(R.string.obfuscated_res_0x7f0f0b4f).toString());
             this.e.n(1);
             this.e.setCurrentTab(0);
             this.e.getFragmentTabWidget().getLayoutParams().height = qi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070236);
@@ -253,7 +253,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements sp7 {
             this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f0250).toString());
         } else if (i != 2) {
         } else {
-            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f0b4e).toString());
+            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f0b4f).toString());
         }
     }
 
@@ -270,7 +270,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements sp7 {
         }
     }
 
-    @Override // com.repackage.sp7
+    @Override // com.repackage.rp7
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -282,7 +282,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements sp7 {
         }
     }
 
-    @Override // com.repackage.sp7
+    @Override // com.repackage.rp7
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -324,7 +324,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements sp7 {
         }
     }
 
-    @Override // com.repackage.sp7
+    @Override // com.repackage.rp7
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {

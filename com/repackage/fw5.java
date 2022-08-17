@@ -207,11 +207,11 @@ public class fw5 extends bn<vw5, CardViewHolder<sx5>> {
             if (Build.VERSION.SDK_INT < 21) {
                 ur4 ur4Var = new ur4(this.a.getPageActivity());
                 ur4Var.setAutoNight(false);
-                ur4Var.setTitle(R.string.obfuscated_res_0x7f0f0f2b);
+                ur4Var.setTitle(R.string.obfuscated_res_0x7f0f0f2c);
                 ur4Var.setMessage(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f04f2));
                 ur4Var.setTitleShowCenter(true);
                 ur4Var.setMessageShowCenter(true);
-                ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f09a0, new b(this));
+                ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f09a1, new b(this));
                 ur4Var.create(this.a).show();
             } else if (ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
                 if (this.b == null) {

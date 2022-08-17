@@ -54,7 +54,7 @@ public class LocationExtendLayout extends LinearLayout implements ix {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080952, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080953, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);

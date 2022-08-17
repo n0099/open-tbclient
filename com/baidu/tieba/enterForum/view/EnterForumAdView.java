@@ -25,8 +25,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bj8;
-import com.repackage.dj8;
+import com.repackage.aj8;
+import com.repackage.cj8;
 import com.repackage.jm4;
 import com.repackage.q66;
 import com.repackage.r66;
@@ -166,10 +166,10 @@ public class EnterForumAdView extends FrameLayout {
         if (context != null) {
             jm4.o(context, str);
         }
-        if (bdUniqueId == null || (i = bj8.i(true, "a025", "common_click", 3, 1, true, String.valueOf(E.b), String.valueOf(E.b), 5)) == null) {
+        if (bdUniqueId == null || (i = aj8.i(true, "a025", "common_click", 3, 1, true, String.valueOf(E.b), String.valueOf(E.b), 5)) == null) {
             return;
         }
-        dj8.g().c(bdUniqueId, i);
+        cj8.g().c(bdUniqueId, i);
     }
 
     public final void d(Context context) {
@@ -248,11 +248,11 @@ public class EnterForumAdView extends FrameLayout {
                     this.g.dispatchMvcEvent(w85Var);
                 }
                 setVisibility(0);
-                if (this.l != E && (i = bj8.i(false, "a025", "common_exp", 0, 1, true, String.valueOf(E.b), String.valueOf(E.b), 5)) != null) {
-                    dj8 g = dj8.g();
+                if (this.l != E && (i = aj8.i(false, "a025", "common_exp", 0, 1, true, String.valueOf(E.b), String.valueOf(E.b), 5)) != null) {
+                    cj8 g = cj8.g();
                     BdUniqueId bdUniqueId = this.h;
-                    g.d(bdUniqueId, bj8.a("" + E.b), i);
-                    dj8.g().h(this.h, false);
+                    g.d(bdUniqueId, aj8.a("" + E.b), i);
+                    cj8.g().h(this.h, false);
                 }
             } else {
                 if (this.g != null) {

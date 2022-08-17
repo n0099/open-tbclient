@@ -375,7 +375,7 @@ public class PermissionUtil {
             }
             try {
                 if (ApiUtil.shouldCheckPermission() && ContextCompat.checkPermissionDenied(providerContext, PermissionRequest.RESOURCE_AUDIO_CAPTURE)) {
-                    qi.N(providerContext, R.string.obfuscated_res_0x7f0f0fb3);
+                    qi.M(providerContext, R.string.obfuscated_res_0x7f0f0fb4);
                     return true;
                 }
                 return false;
@@ -432,7 +432,7 @@ public class PermissionUtil {
             }
             try {
                 if (ApiUtil.shouldCheckPermission() && ContextCompat.checkPermissionDenied(providerContext, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                    qi.N(providerContext, R.string.obfuscated_res_0x7f0f15cb);
+                    qi.M(providerContext, R.string.obfuscated_res_0x7f0f15ce);
                     return true;
                 }
                 return false;

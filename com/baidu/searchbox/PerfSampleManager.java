@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ec1;
 import com.repackage.gc1;
 import com.repackage.ic1;
-import com.repackage.mg8;
+import com.repackage.lg8;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -61,7 +61,7 @@ public class PerfSampleManager {
                 arrayList.add(new FpsPerfSampleCallback());
                 arrayList.add(new ExceptionPerfSampleCallback());
                 arrayList.add(new LooperPerfSampleCallback());
-                arrayList.add(new mg8());
+                arrayList.add(new lg8());
                 return arrayList;
             }
             return invokeV.objValue;

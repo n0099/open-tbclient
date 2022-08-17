@@ -80,7 +80,7 @@ public abstract class ip6 implements kp6 {
             }
         }
         this.h = true;
-        gj8.b();
+        fj8.b();
     }
 
     @Override // com.repackage.kp6

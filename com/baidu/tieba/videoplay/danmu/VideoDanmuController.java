@@ -48,13 +48,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b26;
 import com.repackage.b36;
+import com.repackage.bx7;
 import com.repackage.c36;
-import com.repackage.cx7;
 import com.repackage.da6;
 import com.repackage.e36;
+import com.repackage.et7;
 import com.repackage.f36;
 import com.repackage.f46;
-import com.repackage.ft7;
 import com.repackage.gq4;
 import com.repackage.gw4;
 import com.repackage.h26;
@@ -158,7 +158,7 @@ public final class VideoDanmuController {
                 Intrinsics.checkNotNullParameter(item, "item");
                 this.a.u++;
                 if ((((float) this.a.u) * 1.0f) / ((float) this.a.t) >= 0.5f) {
-                    ft7 k0 = this.a.H.k0();
+                    et7 k0 = this.a.H.k0();
                     if ((k0 == null || (y = k0.y()) == null || y.b() != 1) ? false : true) {
                         this.a.H.q0(false);
                     }
@@ -173,7 +173,7 @@ public final class VideoDanmuController {
 
     /* loaded from: classes4.dex */
     public interface b {
-        boolean a(PostData postData, ft7 ft7Var);
+        boolean a(PostData postData, et7 et7Var);
     }
 
     /* loaded from: classes4.dex */
@@ -261,14 +261,14 @@ public final class VideoDanmuController {
         }
 
         @Override // com.baidu.tieba.videoplay.danmu.PbDanmuModel.g
-        public void b(ft7 ft7Var) {
+        public void b(et7 et7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ft7Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, et7Var) == null) {
             }
         }
 
         @Override // com.baidu.tieba.videoplay.danmu.PbDanmuModel.g
-        public void c(boolean z, int i, int i2, int i3, ft7 pbData, String str, int i4) {
+        public void c(boolean z, int i, int i2, int i3, et7 pbData, String str, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), pbData, str, Integer.valueOf(i4)}) == null) {
                 Intrinsics.checkNotNullParameter(pbData, "pbData");
@@ -350,7 +350,7 @@ public final class VideoDanmuController {
                     return;
                 }
                 PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = (PbPageReadLocalResponseMessage) responsedMessage;
-                ft7 pbData = pbPageReadLocalResponseMessage.getPbData();
+                et7 pbData = pbPageReadLocalResponseMessage.getPbData();
                 if (pbData == null) {
                     this.a.w = false;
                     return;
@@ -521,15 +521,15 @@ public final class VideoDanmuController {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.p : (c) invokeV.objValue;
     }
 
-    public final ft7 F() {
+    public final et7 F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ft7 ft7Var = this.H.C;
-            Intrinsics.checkNotNullExpressionValue(ft7Var, "pbDanmuModel.mPbData");
-            return ft7Var;
+            et7 et7Var = this.H.C;
+            Intrinsics.checkNotNullExpressionValue(et7Var, "pbDanmuModel.mPbData");
+            return et7Var;
         }
-        return (ft7) invokeV.objValue;
+        return (et7) invokeV.objValue;
     }
 
     public final f46 G() {
@@ -553,7 +553,7 @@ public final class VideoDanmuController {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.H.setUniqueId(this.b);
             K();
-            cx7.b().p(this.H.b0(), this.H.g0());
+            bx7.b().p(this.H.b0(), this.H.g0());
             J();
         }
     }
@@ -601,10 +601,10 @@ public final class VideoDanmuController {
         }
     }
 
-    public final void N(ft7 ft7Var) {
+    public final void N(et7 et7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, ft7Var) == null) {
-            this.H.s0(ft7Var, 3, "");
+        if (interceptable == null || interceptable.invokeL(1048589, this, et7Var) == null) {
+            this.H.s0(et7Var, 3, "");
         }
     }
 
@@ -676,7 +676,7 @@ public final class VideoDanmuController {
             }
             this.r = this.h;
             this.D.x(this.G);
-            cx7.b().p(this.H.b0(), this.H.g0());
+            bx7.b().p(this.H.b0(), this.H.g0());
         }
     }
 
@@ -736,12 +736,12 @@ public final class VideoDanmuController {
         }
     }
 
-    public final void b0(ft7 ft7Var) {
+    public final void b0(et7 et7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, ft7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, et7Var) == null) {
             this.G.D();
             this.r = this.h;
-            N(ft7Var);
+            N(et7Var);
         }
     }
 
@@ -808,7 +808,7 @@ public final class VideoDanmuController {
                             str2 = spannableStringBuilder;
                         } else if (postData.q().agreeNum >= this.n) {
                             SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(Intrinsics.stringPlus(" ", A));
-                            spannableStringBuilder2.setSpan(new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f08082e, R.color.CAM_X0201, EMRichTextAnyIconSpan.IconType.PIC), i2, i, 17);
+                            spannableStringBuilder2.setSpan(new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080830, R.color.CAM_X0201, EMRichTextAnyIconSpan.IconType.PIC), i2, i, 17);
                             dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds42);
                             dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
                             str2 = spannableStringBuilder2;

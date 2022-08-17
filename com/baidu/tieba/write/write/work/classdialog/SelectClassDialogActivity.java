@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
-import com.repackage.gj8;
+import com.repackage.fj8;
 import com.repackage.hb5;
 import com.repackage.m29;
 import com.repackage.ms4;
@@ -57,12 +57,12 @@ public class SelectClassDialogActivity extends SuspendedActivity {
 
         /* renamed from: com.baidu.tieba.write.write.work.classdialog.SelectClassDialogActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0265a implements View.OnClickListener {
+        public class View$OnClickListenerC0267a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0265a(a aVar) {
+            public View$OnClickListenerC0267a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +123,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
             }
             if (responsedMessage.hasError()) {
                 SelectClassDialogActivity selectClassDialogActivity = this.a;
-                selectClassDialogActivity.showNetRefreshView(selectClassDialogActivity.l, null, this.a.getString(R.string.obfuscated_res_0x7f0f0488), null, true, new View$OnClickListenerC0265a(this));
+                selectClassDialogActivity.showNetRefreshView(selectClassDialogActivity.l, null, this.a.getString(R.string.obfuscated_res_0x7f0f0488), null, true, new View$OnClickListenerC0267a(this));
                 this.a.setNetRefreshViewEmotionMarginTop(UtilHelper.getDimenPixelSize(R.dimen.tbds0));
                 return;
             }
@@ -226,7 +226,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
                     ms4.d(this.a.k).x(R.color.CAM_X0302);
                 } else {
                     this.a.n = false;
-                    this.a.k.setTextColor(gj8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                    this.a.k.setTextColor(fj8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
                     if (str.equals(this.a.s) && str2.equals(this.a.t)) {
                         this.a.s = "";
                         this.a.t = "";
@@ -304,8 +304,8 @@ public class SelectClassDialogActivity extends SuspendedActivity {
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.n) {
                 if (this.a.u && this.a.o > 0 && (this.a.o != this.a.q || this.a.p != this.a.r)) {
                     TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.a.getPageContext().getPageActivity());
-                    tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f10e5);
-                    tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f10e4);
+                    tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f10e6);
+                    tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f10e5);
                     tBAlertBuilder.m(true);
                     tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04e9, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0431, TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
                     tBAlertBuilder.g();
@@ -375,7 +375,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
             this.l = linearLayout;
-            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f10e6));
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f10e7));
             TextView addTextButton = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.obfuscated_res_0x7f0f04f8));
             this.k = addTextButton;
             addTextButton.setOnClickListener(new d(this));
@@ -415,7 +415,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
             if (this.n) {
                 ms4.d(this.k).x(R.color.CAM_X0302);
             } else {
-                this.k.setTextColor(gj8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.k.setTextColor(fj8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
         }
     }

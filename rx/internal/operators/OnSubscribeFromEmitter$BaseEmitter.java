@@ -7,28 +7,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fv9;
-import com.repackage.kv9;
-import com.repackage.lz9;
-import com.repackage.ru9;
-import com.repackage.vu9;
-import com.repackage.wu9;
+import com.repackage.hv9;
+import com.repackage.mv9;
+import com.repackage.nz9;
+import com.repackage.tu9;
+import com.repackage.xu9;
+import com.repackage.yu9;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.internal.subscriptions.CancellableSubscription;
 /* loaded from: classes8.dex */
-public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong implements Object<T>, ru9, wu9 {
+public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong implements Object<T>, tu9, yu9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7326289992464377023L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vu9<? super T> actual;
-    public final lz9 serial;
+    public final xu9<? super T> actual;
+    public final nz9 serial;
 
-    public OnSubscribeFromEmitter$BaseEmitter(vu9<? super T> vu9Var) {
+    public OnSubscribeFromEmitter$BaseEmitter(xu9<? super T> xu9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vu9Var};
+            Object[] objArr = {xu9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,11 +38,11 @@ public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong i
                 return;
             }
         }
-        this.actual = vu9Var;
-        this.serial = new lz9();
+        this.actual = xu9Var;
+        this.serial = new nz9();
     }
 
-    @Override // com.repackage.wu9
+    @Override // com.repackage.yu9
     public final boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,11 +87,11 @@ public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong i
         }
     }
 
-    @Override // com.repackage.ru9
+    @Override // com.repackage.tu9
     public final void request(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && kv9.h(j)) {
-            kv9.b(this, j);
+        if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && mv9.h(j)) {
+            mv9.b(this, j);
             onRequested();
         }
     }
@@ -102,21 +102,21 @@ public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong i
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? get() : invokeV.longValue;
     }
 
-    public final void setCancellation(fv9 fv9Var) {
+    public final void setCancellation(hv9 hv9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fv9Var) == null) {
-            setSubscription(new CancellableSubscription(fv9Var));
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hv9Var) == null) {
+            setSubscription(new CancellableSubscription(hv9Var));
         }
     }
 
-    public final void setSubscription(wu9 wu9Var) {
+    public final void setSubscription(yu9 yu9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, wu9Var) == null) {
-            this.serial.a(wu9Var);
+        if (interceptable == null || interceptable.invokeL(1048585, this, yu9Var) == null) {
+            this.serial.a(yu9Var);
         }
     }
 
-    @Override // com.repackage.wu9
+    @Override // com.repackage.yu9
     public final void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {

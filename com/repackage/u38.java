@@ -10,12 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.CreationData;
 /* loaded from: classes7.dex */
 public class u38 extends BaseCardInfo implements on {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public t15 a;
+    public CreationData a;
+    public CreationData b;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +32,7 @@ public class u38 extends BaseCardInfo implements on {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
     public u38() {
@@ -47,23 +49,36 @@ public class u38 extends BaseCardInfo implements on {
         }
     }
 
-    public t15 c() {
+    public CreationData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (t15) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (CreationData) invokeV.objValue;
     }
 
-    public void f(t15 t15Var) {
+    public CreationData f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t15Var) == null) {
-            this.a = t15Var;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (CreationData) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
+    }
+
+    public void h(CreationData creationData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, creationData) == null) {
+            this.a = creationData;
+        }
+    }
+
+    public void j(CreationData creationData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, creationData) == null) {
+            this.b = creationData;
+        }
     }
 }

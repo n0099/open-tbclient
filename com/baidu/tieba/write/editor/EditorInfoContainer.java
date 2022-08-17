@@ -463,8 +463,8 @@ public class EditorInfoContainer extends LinearLayout implements t25 {
     public final void B(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1178));
-            this.d.getStyleConfig().i(z ? R.drawable.obfuscated_res_0x7f080997 : R.drawable.obfuscated_res_0x7f080996, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f117a));
+            this.d.getStyleConfig().i(z ? R.drawable.obfuscated_res_0x7f080998 : R.drawable.obfuscated_res_0x7f080997, 0, TBSpecificationButtonConfig.IconType.WEBP);
             this.d.getStyleConfig().h(z ? R.color.CAM_X0302 : R.color.CAM_X0110);
             this.d.a = Boolean.valueOf(z);
         }
@@ -801,10 +801,10 @@ public class EditorInfoContainer extends LinearLayout implements t25 {
             ur4Var.setNegativeButton((String) null, (ur4.e) null);
             ur4Var.setContentViewSize(6);
             CustomPrivacyDialogView customPrivacyDialogView = new CustomPrivacyDialogView(context);
-            customPrivacyDialogView.setMessageTextViewMessage(context.getString(R.string.obfuscated_res_0x7f0f15d5));
+            customPrivacyDialogView.setMessageTextViewMessage(context.getString(R.string.obfuscated_res_0x7f0f15d8));
             customPrivacyDialogView.setMessageTextViewColor(SkinManager.getColor(R.color.CAM_X0107));
-            customPrivacyDialogView.setPrivacyDialogCancelButtonText(context.getString(R.string.obfuscated_res_0x7f0f15d3));
-            customPrivacyDialogView.setPrivacyDialogConfirmButtonText(context.getString(R.string.obfuscated_res_0x7f0f15d4));
+            customPrivacyDialogView.setPrivacyDialogCancelButtonText(context.getString(R.string.obfuscated_res_0x7f0f15d6));
+            customPrivacyDialogView.setPrivacyDialogConfirmButtonText(context.getString(R.string.obfuscated_res_0x7f0f15d7));
             customPrivacyDialogView.setPrivacyDialogCancelButtonListener(new c(this, iVar, ur4Var));
             customPrivacyDialogView.setPrivacyDialogConfirmButtonListener(new d(this, iVar, ur4Var));
             ur4Var.setContentView(customPrivacyDialogView);
@@ -816,8 +816,8 @@ public class EditorInfoContainer extends LinearLayout implements t25 {
     public final void z(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0f32));
-            this.b.getStyleConfig().i(i2 == 0 ? R.drawable.obfuscated_res_0x7f080997 : R.drawable.obfuscated_res_0x7f080996, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0f33));
+            this.b.getStyleConfig().i(i2 == 0 ? R.drawable.obfuscated_res_0x7f080998 : R.drawable.obfuscated_res_0x7f080997, 0, TBSpecificationButtonConfig.IconType.WEBP);
             this.b.getStyleConfig().h(i2 == 0 ? R.color.CAM_X0302 : R.color.CAM_X0110);
             this.b.a = Integer.valueOf(i2);
         }

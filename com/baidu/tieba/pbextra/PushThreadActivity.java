@@ -78,12 +78,12 @@ public class PushThreadActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && ((z = httpResponsedMessage instanceof PbPushHttpResponseMessage))) {
                 if (httpResponsedMessage.hasError()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                 } else if (z) {
                     if (this.a.b == ((PbPushHttpResponseMessage) httpResponsedMessage).getPushType()) {
                         this.a.setResult(-1, new Intent());
                     } else {
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                     }
                     this.a.finish();
                 }
@@ -197,12 +197,12 @@ public class PushThreadActivity extends BaseActivity {
             this.a.setOnItemClickListener(this);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091ac7);
             this.d = textView;
-            SkinManager.setBackgroundResource(textView, R.drawable.obfuscated_res_0x7f080fa2);
+            SkinManager.setBackgroundResource(textView, R.drawable.obfuscated_res_0x7f080fa3);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
             this.d.setOnClickListener(this);
             ImageButton imageButton = (ImageButton) findViewById(R.id.obfuscated_res_0x7f090dff);
             this.e = imageButton;
-            SkinManager.setBackgroundResource(imageButton, R.drawable.obfuscated_res_0x7f080fa1);
+            SkinManager.setBackgroundResource(imageButton, R.drawable.obfuscated_res_0x7f080fa2);
             this.e.setOnClickListener(this);
         }
     }
@@ -240,7 +240,7 @@ public class PushThreadActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             if (view2 == this.d) {
                 if (this.b == 0) {
-                    showToast(R.string.obfuscated_res_0x7f0f10e3);
+                    showToast(R.string.obfuscated_res_0x7f0f10e4);
                     return;
                 }
                 long longExtra = getIntent().getLongExtra("forum_id", 0L);

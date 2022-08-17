@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ge7;
+import com.repackage.fe7;
 /* loaded from: classes3.dex */
-public class LegoBottomView extends RelativeLayout implements ge7 {
+public class LegoBottomView extends RelativeLayout implements fe7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ObjectAnimator a;
@@ -175,7 +175,7 @@ public class LegoBottomView extends RelativeLayout implements ge7 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.ge7
+    @Override // com.repackage.fe7
     public void onScrollStateChanged(AbsListView absListView, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, absListView, i) == null) {

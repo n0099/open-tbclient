@@ -81,10 +81,23 @@ public class DownsampleUtil {
         return invokeLLLI.intValue;
     }
 
+    public static int determineSampleSizeJPEG(EncodedImage encodedImage, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, encodedImage, i, i2)) == null) {
+            int sampleSize = encodedImage.getSampleSize();
+            while ((((encodedImage.getWidth() * encodedImage.getHeight()) * i) / sampleSize) / sampleSize > i2) {
+                sampleSize *= 2;
+            }
+            return sampleSize;
+        }
+        return invokeLII.intValue;
+    }
+
     public static int getRotationAngle(RotationOptions rotationOptions, EncodedImage encodedImage) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, rotationOptions, encodedImage)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, rotationOptions, encodedImage)) == null) {
             boolean z = false;
             if (rotationOptions.useImageMetadata()) {
                 int rotationAngle = encodedImage.getRotationAngle();
@@ -100,7 +113,7 @@ public class DownsampleUtil {
     public static int ratioToSampleSize(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f)) != null) {
+        if (interceptable != null && (invokeF = interceptable.invokeF(65541, null, f)) != null) {
             return invokeF.intValue;
         }
         if (f > 0.6666667f) {
@@ -120,7 +133,7 @@ public class DownsampleUtil {
     public static int ratioToSampleSizeJPEG(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeF = interceptable.invokeF(65541, null, f)) != null) {
+        if (interceptable != null && (invokeF = interceptable.invokeF(65542, null, f)) != null) {
             return invokeF.intValue;
         }
         if (f > 0.6666667f) {
@@ -141,7 +154,7 @@ public class DownsampleUtil {
     public static int roundToPowerOfTwo(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
             int i2 = 1;
             while (i2 < i) {
                 i2 *= 2;

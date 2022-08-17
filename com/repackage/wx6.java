@@ -1,40 +1,40 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
+import android.app.Activity;
+import android.view.ActionMode;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.SearchEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tieba.R;
-import com.baidu.tieba.frs.FrsTabInfoData;
-import com.baidu.tieba.frs.FrsTabItemData;
+import com.baidu.tbadk.widget.floatball.FullScreenLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.tabs.TabLayout;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class wx6 implements TabLayout.OnTabSelectedListener {
+public class wx6 implements Window.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TabLayout.OnTabSelectedListener a;
-    public Context b;
-    public TabLayout c;
-    public int d;
+    public final Activity a;
+    public final FullScreenLayout b;
+    public long c;
 
-    public wx6(Context context) {
+    public wx6(@NonNull Activity activity, @NonNull FullScreenLayout fullScreenLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {activity, fullScreenLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,180 +44,189 @@ public class wx6 implements TabLayout.OnTabSelectedListener {
                 return;
             }
         }
-        this.b = context;
-        b();
+        this.a = activity;
+        this.b = fullScreenLayout;
     }
 
-    public TabLayout a() {
+    @Override // android.view.Window.Callback
+    public boolean dispatchGenericMotionEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) ? this.a.dispatchGenericMotionEvent(motionEvent) : invokeL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, keyEvent)) == null) {
+            if (4 == keyEvent.getKeyCode()) {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (currentTimeMillis - this.c > 500 && this.b.N()) {
+                    this.c = currentTimeMillis;
+                    return false;
+                }
+            }
+            return this.a.dispatchKeyEvent(keyEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean dispatchKeyShortcutEvent(KeyEvent keyEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, keyEvent)) == null) ? this.a.dispatchKeyShortcutEvent(keyEvent) : invokeL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, accessibilityEvent)) == null) ? this.a.dispatchPopulateAccessibilityEvent(accessibilityEvent) : invokeL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) ? this.a.dispatchTouchEvent(motionEvent) : invokeL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean dispatchTrackballEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) ? this.a.dispatchTrackballEvent(motionEvent) : invokeL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public void onActionModeFinished(ActionMode actionMode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, actionMode) == null) {
+            this.a.onActionModeFinished(actionMode);
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    public void onActionModeStarted(ActionMode actionMode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, actionMode) == null) {
+            this.a.onActionModeStarted(actionMode);
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.a.onAttachedToWindow();
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    public void onContentChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.a.onContentChanged();
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean onCreatePanelMenu(int i, @NonNull Menu menu) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, menu)) == null) ? this.a.onCreatePanelMenu(i, menu) : invokeIL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    @Nullable
+    public View onCreatePanelView(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? this.a.onCreatePanelView(i) : (View) invokeI.objValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.a.onDetachedFromWindow();
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean onMenuItemSelected(int i, @NonNull MenuItem menuItem) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i, menuItem)) == null) ? this.a.onMenuItemSelected(i, menuItem) : invokeIL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean onMenuOpened(int i, @NonNull Menu menu) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048590, this, i, menu)) == null) ? this.a.onMenuOpened(i, menu) : invokeIL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public void onPanelClosed(int i, @NonNull Menu menu) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048591, this, i, menu) == null) {
+            this.a.onPanelClosed(i, menu);
+        }
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean onPreparePanel(int i, @Nullable View view2, @NonNull Menu menu) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048592, this, i, view2, menu)) == null) ? this.a.onPreparePanel(i, view2, menu) : invokeILL.booleanValue;
+    }
+
+    @Override // android.view.Window.Callback
+    public boolean onSearchRequested() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (TabLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.a.onSearchRequested() : invokeV.booleanValue;
     }
 
-    public final void b() {
+    @Override // android.view.Window.Callback
+    public void onWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TabLayout tabLayout = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d020c, (ViewGroup) null);
-            this.c = tabLayout;
-            tabLayout.setOnTabSelectedListener((TabLayout.OnTabSelectedListener) this);
-            this.c.setTabGravity(2);
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            for (int i2 = 0; i2 < this.c.getTabCount(); i2++) {
-                TabLayout.Tab tabAt = this.c.getTabAt(i2);
-                if (tabAt != null) {
-                    if (tabAt.isSelected()) {
-                        f(tabAt);
-                    } else {
-                        g(tabAt);
-                    }
-                    if (tabAt.getCustomView() instanceof TBSpecificationBtn) {
-                        ((TBSpecificationBtn) tabAt.getCustomView()).l(i);
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048595, this, layoutParams) == null) {
+            this.a.onWindowAttributesChanged(layoutParams);
         }
     }
 
-    public void d(TabLayout.OnTabSelectedListener onTabSelectedListener) {
+    @Override // android.view.Window.Callback
+    public void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onTabSelectedListener) == null) {
-            this.a = onTabSelectedListener;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.a.onWindowFocusChanged(z);
         }
     }
 
-    public void e(FrsTabInfoData frsTabInfoData) {
+    @Override // android.view.Window.Callback
+    @Nullable
+    public ActionMode onWindowStartingActionMode(ActionMode.Callback callback) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, frsTabInfoData) == null) {
-            h(this.d, frsTabInfoData.tabList, this.c);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, callback)) == null) ? this.a.onWindowStartingActionMode(callback) : (ActionMode) invokeL.objValue;
     }
 
-    public final void f(TabLayout.Tab tab) {
+    @Override // android.view.Window.Callback
+    public boolean onSearchRequested(SearchEvent searchEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, tab) == null) || tab.getCustomView() == null) {
-            return;
-        }
-        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) tab.getCustomView();
-        if (tBSpecificationBtn.getStyleConfig() instanceof pv4) {
-            ((pv4) tBSpecificationBtn.getStyleConfig()).u(R.color.CAM_X0304);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, searchEvent)) == null) ? this.a.onSearchRequested(searchEvent) : invokeL.booleanValue;
     }
 
-    public final void g(TabLayout.Tab tab) {
+    @Override // android.view.Window.Callback
+    @Nullable
+    public ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, tab) == null) || tab == null || tab.getCustomView() == null) {
-            return;
-        }
-        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) tab.getCustomView();
-        if (tBSpecificationBtn.getStyleConfig() instanceof pv4) {
-            ((pv4) tBSpecificationBtn.getStyleConfig()).u(R.color.CAM_X0108);
-        }
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (Context) invokeV.objValue;
-    }
-
-    public final void h(int i, List<FrsTabItemData> list, TabLayout tabLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, list, tabLayout) == null) {
-            int min = Math.min(list.size(), 9);
-            if (tabLayout.getTabCount() > min) {
-                int tabCount = tabLayout.getTabCount() - min;
-                for (int i2 = 0; i2 < tabCount; i2++) {
-                    tabLayout.removeTabAt(0);
-                }
-            }
-            LinearLayout linearLayout = (LinearLayout) tabLayout.getChildAt(0);
-            if (linearLayout == null) {
-                return;
-            }
-            ViewGroup.LayoutParams layoutParams = linearLayout.getLayoutParams();
-            layoutParams.width = -1;
-            layoutParams.height = -2;
-            linearLayout.requestLayout();
-            int f = qi.f(getContext(), R.dimen.M_W_X006) / 2;
-            int f2 = qi.f(getContext(), R.dimen.M_H_X003);
-            int f3 = qi.f(getContext(), R.dimen.M_H_X001);
-            for (int i3 = 0; i3 < min; i3++) {
-                TabLayout.Tab tabAt = tabLayout.getTabAt(i3);
-                if (tabAt == null) {
-                    tabAt = tabLayout.newTab();
-                    tabLayout.addTab(tabAt, false);
-                    View childAt = linearLayout.getChildAt(i3);
-                    ViewGroup.LayoutParams layoutParams2 = childAt.getLayoutParams();
-                    layoutParams2.width = -2;
-                    layoutParams2.height = -2;
-                    childAt.requestLayout();
-                    if (childAt != null) {
-                        childAt.setPadding(0, 0, 0, 0);
-                    }
-                }
-                FrsTabItemData frsTabItemData = list.get(i3);
-                tabAt.setTag(frsTabItemData);
-                if (!(tabAt.getCustomView() instanceof TBSpecificationBtn)) {
-                    TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
-                    pv4 pv4Var = new pv4();
-                    pv4Var.u(R.color.CAM_X0108);
-                    tBSpecificationBtn.setConfig(pv4Var);
-                    LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds177), UtilHelper.getDimenPixelSize(R.dimen.tbds75));
-                    layoutParams3.setMargins(f, f2, f, f3);
-                    tBSpecificationBtn.setLayoutParams(layoutParams3);
-                    tabAt.setCustomView(tBSpecificationBtn);
-                }
-                ((TBSpecificationBtn) tabAt.getCustomView()).setText(StringHelper.cutForumNameWithSuffix(frsTabItemData.name, 10, StringHelper.STRING_MORE));
-                tabAt.f1075view.setBackgroundColor(0);
-                if (!tabAt.isSelected() && i == frsTabItemData.tabId) {
-                    tabAt.select();
-                }
-            }
-            linearLayout.setPadding(0, 0, 0, 0);
-        }
-    }
-
-    @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
-    public void onTabReselected(TabLayout.Tab tab) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, tab) == null) {
-            f(tab);
-            TabLayout.OnTabSelectedListener onTabSelectedListener = this.a;
-            if (onTabSelectedListener != null) {
-                onTabSelectedListener.onTabReselected(tab);
-            }
-        }
-    }
-
-    @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
-    public void onTabSelected(TabLayout.Tab tab) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, tab) == null) {
-            if (tab != null && (tab.getTag() instanceof FrsTabItemData)) {
-                this.d = ((FrsTabItemData) tab.getTag()).tabId;
-            }
-            f(tab);
-            TabLayout.OnTabSelectedListener onTabSelectedListener = this.a;
-            if (onTabSelectedListener != null) {
-                onTabSelectedListener.onTabSelected(tab);
-            }
-        }
-    }
-
-    @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
-    public void onTabUnselected(TabLayout.Tab tab) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, tab) == null) {
-            g(tab);
-            TabLayout.OnTabSelectedListener onTabSelectedListener = this.a;
-            if (onTabSelectedListener != null) {
-                onTabSelectedListener.onTabUnselected(tab);
-            }
-        }
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048598, this, callback, i)) == null) ? this.a.onWindowStartingActionMode(callback, i) : (ActionMode) invokeLI.objValue;
     }
 }

@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 /* loaded from: classes2.dex */
 public class ad extends Handler {
     public static /* synthetic */ Interceptable $ic;
@@ -122,7 +123,7 @@ public class ad extends Handler {
                                     int i4 = ac.a;
                                     if (i3 < i4) {
                                         int i5 = a[(i4 * i2) + i3];
-                                        iArr2[(((ac.b - i2) - 1) * ac.a) + i3] = (i5 & (-16711936)) | ((i5 << 16) & 16711680) | ((i5 >> 16) & 255);
+                                        iArr2[(((ac.b - i2) - 1) * ac.a) + i3] = (i5 & DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK) | ((i5 << 16) & 16711680) | ((i5 >> 16) & 255);
                                         i3++;
                                     }
                                 }

@@ -194,7 +194,7 @@ public class ImMessageCenterDelegateStatic extends m65 {
             n65 n65Var = new n65();
             n65Var.a = new MessageCenterFragment();
             n65Var.e = 3;
-            n65Var.b = R.string.obfuscated_res_0x7f0f0b4f;
+            n65Var.b = R.string.obfuscated_res_0x7f0f0b50;
             n65Var.f = R.raw.lottie_tab_msg;
             n65Var.i = n65.l;
             n65Var.h = s65.d().c("message");

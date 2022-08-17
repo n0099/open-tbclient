@@ -146,12 +146,12 @@ public class m09 implements n09 {
             } else if (str.contains("objc:finish")) {
                 if (U != null && U.getVideoReviewType() == 1) {
                     NewVcodeView newVcodeView = this.a;
-                    newVcodeView.showToast(true, newVcodeView.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1530));
+                    newVcodeView.showToast(true, newVcodeView.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1533));
                 } else if (U != null && U.getVideoReviewType() == 2) {
                     NewVcodeView newVcodeView2 = this.a;
-                    newVcodeView2.showToast(true, newVcodeView2.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f152f));
-                } else {
-                    String string = this.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f110f);
+                    newVcodeView2.showToast(true, newVcodeView2.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1532));
+                } else if (U.getType() == 9) {
+                    String string = this.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1110);
                     PostWriteCallBackData postWriteCallBackData = this.d;
                     String str3 = null;
                     if (postWriteCallBackData != null) {
@@ -210,7 +210,7 @@ public class m09 implements n09 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             if (!qi.D()) {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c3d);
                 this.a.getContext().finish();
             } else if (!StringUtils.isNull(str)) {
                 this.a.showPostThreadLoadingView(true);
@@ -218,7 +218,7 @@ public class m09 implements n09 {
                 this.b.U().setVcodeType("5");
                 this.b.g0();
             } else {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c3d);
                 this.a.getContext().finish();
             }
         }

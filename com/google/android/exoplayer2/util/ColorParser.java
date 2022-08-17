@@ -1,7 +1,6 @@
 package com.google.android.exoplayer2.util;
 
 import android.text.TextUtils;
-import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.spswitch.utils.BDEmotionPanelManager;
@@ -12,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -127,7 +127,7 @@ public final class ColorParser {
         COLOR_MAP.put("lightslategrey", -8943463);
         COLOR_MAP.put("lightsteelblue", -5192482);
         COLOR_MAP.put("lightyellow", -32);
-        COLOR_MAP.put("lime", -16711936);
+        COLOR_MAP.put("lime", Integer.valueOf((int) DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK));
         COLOR_MAP.put("limegreen", -13447886);
         COLOR_MAP.put("linen", -331546);
         COLOR_MAP.put("magenta", -65281);
@@ -165,7 +165,7 @@ public final class ColorParser {
         COLOR_MAP.put("powderblue", -5185306);
         COLOR_MAP.put("purple", -8388480);
         COLOR_MAP.put("rebeccapurple", -10079335);
-        COLOR_MAP.put("red", Integer.valueOf((int) SupportMenu.CATEGORY_MASK));
+        COLOR_MAP.put("red", -65536);
         COLOR_MAP.put("rosybrown", -4419697);
         COLOR_MAP.put("royalblue", -12490271);
         COLOR_MAP.put("saddlebrown", -7650029);

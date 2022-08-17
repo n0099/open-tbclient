@@ -111,11 +111,11 @@ public class p09 implements n09 {
             if (z) {
                 this.a.g = true;
                 if (writeData != null && writeData.getVideoReviewType() == 1) {
-                    this.a.a.showToast(true, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1530));
+                    this.a.a.showToast(true, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1533));
                 } else if (writeData != null && writeData.getVideoReviewType() == 2) {
-                    this.a.a.showToast(true, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f152f));
-                } else if (writeData != null) {
-                    String string = this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f110f);
+                    this.a.a.showToast(true, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1532));
+                } else if (writeData != null && writeData.getType() == 9) {
+                    String string = this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1110);
                     String str2 = null;
                     if (postWriteCallBackData != null) {
                         str2 = postWriteCallBackData.getPreMsg();
@@ -144,7 +144,7 @@ public class p09 implements n09 {
             } else if (postWriteCallBackData == null) {
             } else {
                 if (StringUtils.isNull(postWriteCallBackData.getErrorString())) {
-                    this.a.a.showToast(false, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f08fc));
+                    this.a.a.showToast(false, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f08fd));
                 } else {
                     this.a.a.showToast(false, postWriteCallBackData.getErrorString());
                 }
@@ -267,7 +267,7 @@ public class p09 implements n09 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             if (!qi.D()) {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c3d);
                 this.a.getContext().finish();
             } else if (!StringUtils.isNull(str)) {
                 this.a.showPostThreadLoadingView(true);
@@ -275,7 +275,7 @@ public class p09 implements n09 {
                 this.b.U().setVcodeType("4");
                 this.b.g0();
             } else {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c3d);
                 this.a.getContext().finish();
             }
         }

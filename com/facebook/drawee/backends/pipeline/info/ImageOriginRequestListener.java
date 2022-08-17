@@ -48,6 +48,6 @@ public class ImageOriginRequestListener extends BaseRequestListener {
         if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) == null) || (imageOriginListener = this.mImageOriginLister) == null) {
             return;
         }
-        imageOriginListener.onImageLoaded(this.mControllerId, ImageOriginUtils.mapProducerNameToImageOrigin(str2), z);
+        imageOriginListener.onImageLoaded(this.mControllerId, ImageOriginUtils.mapProducerNameToImageOrigin(str2), z, str2);
     }
 }

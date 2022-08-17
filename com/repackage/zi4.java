@@ -33,12 +33,12 @@ public final class zi4 implements wd4 {
 
         /* renamed from: com.repackage.zi4$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0637a implements Runnable {
+        public class RunnableC0643a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0637a(a aVar) {
+            public RunnableC0643a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,7 +107,7 @@ public final class zi4 implements wd4 {
                             z = false;
                         }
                     }
-                    if (z && y03.M().postDelayed(new RunnableC0637a(this), 1000L)) {
+                    if (z && y03.M().postDelayed(new RunnableC0643a(this), 1000L)) {
                         return;
                     }
                 }

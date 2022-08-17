@@ -14,7 +14,7 @@ public class t57 {
     public static ImMessageCenterPojo a(ImMessageCenterPojo imMessageCenterPojo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imMessageCenterPojo)) == null) ? (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -8 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : b(imMessageCenterPojo, m87.o().l()) : (ImMessageCenterPojo) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imMessageCenterPojo)) == null) ? (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -7 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : b(imMessageCenterPojo, l87.o().m()) : (ImMessageCenterPojo) invokeL.objValue;
     }
 
     public static ImMessageCenterPojo b(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
@@ -26,6 +26,7 @@ public class t57 {
             imMessageCenterPojo2.setGroup_name(imMessageCenterPojo.getGroup_name());
             imMessageCenterPojo2.setNameShow(imMessageCenterPojo.getNameShow());
             imMessageCenterPojo2.setGroup_head(imMessageCenterPojo.getGroup_head());
+            imMessageCenterPojo2.setBjhAvatar(imMessageCenterPojo.getBjhAvatar());
             imMessageCenterPojo2.setIs_hidden(imMessageCenterPojo.getIs_hidden());
             imMessageCenterPojo2.setUnread_count(imMessageCenterPojo.getUnread_count());
             imMessageCenterPojo2.setLast_rid(imMessageCenterPojo.getLast_rid());
@@ -39,18 +40,20 @@ public class t57 {
             imMessageCenterPojo2.setFollowStatus(imMessageCenterPojo.getFollowStatus());
             imMessageCenterPojo2.setCustomGroupType(imMessageCenterPojo.getCustomGroupType());
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            boolean z = true;
             for (ImMessageCenterPojo imMessageCenterPojo3 : list) {
-                if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 4) {
+                if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 2 && imMessageCenterPojo3.getIsFriend() == 0) {
                     if (!m97.j().c(currentAccount, imMessageCenterPojo3.getGid())) {
                         imMessageCenterPojo2.setUnread_count(imMessageCenterPojo2.getUnread_count() - imMessageCenterPojo3.getUnread_count());
                     } else {
-                        l97.a().c(true);
+                        n97.a().c(true);
+                        z = false;
                     }
                 }
             }
-            if (imMessageCenterPojo2.getUnread_count() <= 0) {
+            if (z) {
                 imMessageCenterPojo2.setUnread_count(1);
-                l97.a().c(false);
+                n97.a().c(false);
             }
             return imMessageCenterPojo2;
         }

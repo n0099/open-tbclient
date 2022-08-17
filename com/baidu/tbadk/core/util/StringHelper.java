@@ -86,13 +86,13 @@ public class StringHelper extends pi {
         long j2 = j * 60;
         MS_TO_HOUR = j2;
         MS_TO_DAY = j2 * 24;
-        HOUR_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13f0);
-        MIN_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13f5);
-        SEC_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13f7);
+        HOUR_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13f2);
+        MIN_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13f7);
+        SEC_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13f9);
         TIME_DAY = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f048a);
-        TIME_HOUR = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13ef);
-        TIME_MINUTE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13f6);
-        TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13f8);
+        TIME_HOUR = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13f1);
+        TIME_MINUTE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13f8);
+        TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13fa);
         ALA_CARD_DAY_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0203);
         ALA_CARD_HOUR_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0204);
         ALA_CARD_MIN_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0205);
@@ -511,9 +511,9 @@ public class StringHelper extends pi {
                     float f = ((float) j) / 10000.0f;
                     long j2 = j / 10000;
                     if (j % 10000000 > 999) {
-                        return String.format("%.2f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a7);
+                        return String.format("%.2f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a9);
                     }
-                    return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a7);
+                    return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a9);
                 }
                 return valueOf;
             }
@@ -522,13 +522,13 @@ public class StringHelper extends pi {
                 double d = ((float) j) / 1.0E8f;
                 double d2 = j / 100000000;
                 if (j3 > 999999.0d) {
-                    str = String.format("%.2f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a8);
+                    str = String.format("%.2f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14aa);
                 } else {
-                    str = d2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a8);
+                    str = d2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14aa);
                 }
                 return str;
             }
-            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a8);
+            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14aa);
         }
         return (String) invokeJ.objValue;
     }
@@ -547,9 +547,9 @@ public class StringHelper extends pi {
                     float f = ((float) j) / 10000.0f;
                     long j2 = j / 10000;
                     if (j % 1000000 > 999) {
-                        return String.format("%.2f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a7);
+                        return String.format("%.2f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a9);
                     }
-                    return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a7);
+                    return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a9);
                 }
                 return valueOf;
             }
@@ -558,13 +558,13 @@ public class StringHelper extends pi {
                 double d = ((float) j) / 1.0E8f;
                 double d2 = j / 100000000;
                 if (j3 > 999999.0d) {
-                    str = String.format("%.2f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a8);
+                    str = String.format("%.2f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14aa);
                 } else {
-                    str = d2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a8);
+                    str = d2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14aa);
                 }
                 return str;
             }
-            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a8);
+            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14aa);
         }
         return (String) invokeJ.objValue;
     }
@@ -580,16 +580,16 @@ public class StringHelper extends pi {
             if (f >= 1.0E8f) {
                 if (f % 1.0E8f != 0.0f) {
                     double d = f / 1.0E8f;
-                    return String.format("%.1f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a8);
+                    return String.format("%.1f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14aa);
                 }
-                return (f / 1.0E8f) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a8);
+                return (f / 1.0E8f) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14aa);
             } else if (f >= 1000000.0f) {
                 float f2 = f / 10000.0f;
                 long j = f2;
                 if (f2 > ((float) j)) {
-                    return String.format("%.1f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a7);
+                    return String.format("%.1f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a9);
                 }
-                return j + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a7);
+                return j + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a9);
             } else {
                 return valueOf;
             }
@@ -630,9 +630,9 @@ public class StringHelper extends pi {
             if (f >= 1.0E8f) {
                 if (f % 1.0E8f != 0.0f) {
                     double d = f / 1.0E8f;
-                    return String.format("%.2f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a8);
+                    return String.format("%.2f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14aa);
                 }
-                return (f / 1.0E8f) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a8);
+                return (f / 1.0E8f) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14aa);
             } else if (f < 1000000.0f) {
                 int i = (int) f;
                 if (f > i) {
@@ -642,9 +642,9 @@ public class StringHelper extends pi {
             } else {
                 long j = f / 10000;
                 if (f / 10000.0f > ((float) j)) {
-                    return String.format("%.2f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a7);
+                    return String.format("%.2f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a9);
                 }
-                return j + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a7);
+                return j + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a9);
             }
         }
         return (String) invokeF.objValue;
@@ -1015,7 +1015,7 @@ public class StringHelper extends pi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65592, null, j)) == null) {
             float f = (float) j;
-            return f >= SIZE_FLOAT_G ? String.format(Locale.getDefault(), "%.1fG", Float.valueOf(f / SIZE_FLOAT_G)) : f >= SIZE_FLOAT_M ? String.format(Locale.getDefault(), "%.1fM", Float.valueOf(f / SIZE_FLOAT_M)) : f >= SIZE_FLOAT_K / 10.0f ? String.format(Locale.getDefault(), "%.1fK", Float.valueOf(f / SIZE_FLOAT_K)) : TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09d4);
+            return f >= SIZE_FLOAT_G ? String.format(Locale.getDefault(), "%.1fG", Float.valueOf(f / SIZE_FLOAT_G)) : f >= SIZE_FLOAT_M ? String.format(Locale.getDefault(), "%.1fM", Float.valueOf(f / SIZE_FLOAT_M)) : f >= SIZE_FLOAT_K / 10.0f ? String.format(Locale.getDefault(), "%.1fK", Float.valueOf(f / SIZE_FLOAT_K)) : TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09d5);
         }
         return (String) invokeJ.objValue;
     }
@@ -1097,7 +1097,7 @@ public class StringHelper extends pi {
                 }
                 return String.valueOf(time / MS_TO_HOUR) + HOUR_BEFORE;
             }
-            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0aeb);
+            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0aec);
         }
         return (String) invokeL.objValue;
     }
@@ -1330,7 +1330,7 @@ public class StringHelper extends pi {
                 if (i != 2) {
                     return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f083d);
                 }
-                return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1170);
+                return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1172);
             }
             return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f083d);
         }
@@ -2128,7 +2128,7 @@ public class StringHelper extends pi {
             } else {
                 valueOf = String.valueOf(date2.getMinutes());
             }
-            return date2.getHours() > 12 ? TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13f9, new Object[]{String.valueOf(date2.getHours() - 12), valueOf}) : date2.getHours() == 12 ? TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13f9, new Object[]{String.valueOf(date2.getHours()), valueOf}) : date2.getHours() == 0 ? TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13fa, new Object[]{String.valueOf(12), valueOf}) : TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13fa, new Object[]{String.valueOf(date2.getHours()), valueOf});
+            return date2.getHours() > 12 ? TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13fb, new Object[]{String.valueOf(date2.getHours() - 12), valueOf}) : date2.getHours() == 12 ? TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13fb, new Object[]{String.valueOf(date2.getHours()), valueOf}) : date2.getHours() == 0 ? TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13fc, new Object[]{String.valueOf(12), valueOf}) : TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13fc, new Object[]{String.valueOf(date2.getHours()), valueOf});
         }
         return (String) invokeJ.objValue;
     }
@@ -2520,16 +2520,16 @@ public class StringHelper extends pi {
             String valueOf = String.valueOf(j);
             if (j >= 100000000) {
                 if (j % 100000000 != 0) {
-                    return String.format("%.1f", Double.valueOf(((float) j) / 1.0E8f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a8);
+                    return String.format("%.1f", Double.valueOf(((float) j) / 1.0E8f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14aa);
                 }
-                return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a8);
+                return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14aa);
             } else if (j >= 1000000) {
                 float f = ((float) j) / 10000.0f;
                 long j2 = j / 10000;
                 if (f > ((float) j2)) {
-                    return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a7);
+                    return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a9);
                 }
-                return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a7);
+                return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14a9);
             } else {
                 return valueOf;
             }

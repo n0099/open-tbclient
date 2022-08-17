@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cl7;
+import com.repackage.bl7;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<ImgInfo> mImageList;
-    public List<cl7> mTaskList;
+    public List<bl7> mTaskList;
     public UserPointInfo mUserPointInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -71,7 +71,7 @@ public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
                 int size = getMemberTaskListResIdl.data.task_list.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     if (getMemberTaskListResIdl.data.task_list.get(i2) != null) {
-                        this.mTaskList.add(new cl7(getMemberTaskListResIdl.data.task_list.get(i2)));
+                        this.mTaskList.add(new bl7(getMemberTaskListResIdl.data.task_list.get(i2)));
                     }
                 }
             }
@@ -86,7 +86,7 @@ public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mImageList : (List) invokeV.objValue;
     }
 
-    public List<cl7> getTaskList() {
+    public List<bl7> getTaskList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTaskList : (List) invokeV.objValue;

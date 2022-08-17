@@ -147,7 +147,7 @@ public final class k extends a implements View.OnClickListener {
                 i = 1;
             }
             g(false);
-            com.kwad.components.core.c.a.a.a(new a.C0352a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.dk ? 1 : 2).aj(view2 == this.dk).a(new a.b(this, i) { // from class: com.kwad.components.ad.feed.a.k.1
+            com.kwad.components.core.c.a.a.a(new a.C0354a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.dk ? 1 : 2).aj(view2 == this.dk).a(new a.b(this, i) { // from class: com.kwad.components.ad.feed.a.k.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ k dK;

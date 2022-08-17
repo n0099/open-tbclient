@@ -236,12 +236,12 @@ public class tz4 {
             TbSingleton.getInstance().setPcdnConfigData(jSONObject.optJSONObject("pcdn_config"));
             JSONArray y = y(jSONObject, "offpack");
             if (y != null && y.length() > 0 && (jSONObject2 = y.getJSONObject(0)) != null) {
-                ab8 ab8Var = new ab8();
-                ab8Var.e(jSONObject2.optString("mod_name"));
-                ab8Var.f(jSONObject2.optInt("upload_offline_web_cache") == 1);
-                ab8Var.d(jSONObject2.optInt("clear_offline_web_cache") == 1);
-                if (!TextUtils.isEmpty(ab8Var.a())) {
-                    TbSingleton.getInstance().setUploadAndClearModule(ab8Var);
+                za8 za8Var = new za8();
+                za8Var.e(jSONObject2.optString("mod_name"));
+                za8Var.f(jSONObject2.optInt("upload_offline_web_cache") == 1);
+                za8Var.d(jSONObject2.optInt("clear_offline_web_cache") == 1);
+                if (!TextUtils.isEmpty(za8Var.a())) {
+                    TbSingleton.getInstance().setUploadAndClearModule(za8Var);
                 }
             }
             String optString2 = jSONObject.optString("proxy_ip");
@@ -275,16 +275,16 @@ public class tz4 {
                 this.D.e(z);
                 TbSingleton.getInstance().setHomepageInterestConfig(this.D);
             }
-            md7 md7Var = new md7();
+            ld7 ld7Var = new ld7();
             JSONObject optJSONObject4 = jSONObject.optJSONObject("recent_client_info");
             if (optJSONObject4 != null) {
-                md7Var.d(RecentClientInfo.parseJson(optJSONObject4));
+                ld7Var.d(RecentClientInfo.parseJson(optJSONObject4));
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("new_user_interest_board_config");
             if (optJSONObject5 != null) {
-                md7Var.c(kd7.e(optJSONObject5));
+                ld7Var.c(jd7.e(optJSONObject5));
             }
-            InterestPanelShowManager.a().c(md7Var);
+            InterestPanelShowManager.a().c(ld7Var);
             JSONObject optJSONObject6 = jSONObject.optJSONObject("bottom_bubble_config");
             if (optJSONObject6 != null) {
                 s65.d().h(optJSONObject6);
@@ -295,17 +295,17 @@ public class tz4 {
             ru4.k().y("key_sync_extra_field", jSONObject.optString("extra"));
             int optInt3 = jSONObject.optInt("icon_task_flag");
             TbSingleton.getInstance().showStampMissionDialog = optInt3 == 1;
-            ee8.d().h(jSONObject.optInt("afSearch_tab", 0) == 1);
+            de8.d().h(jSONObject.optInt("afSearch_tab", 0) == 1);
             TbSingleton.getInstance().setIsNeedRemindLiveRoom(jSONObject.optInt("is_need_remind_live_rooms") == 1);
             JSONObject optJSONObject7 = jSONObject.optJSONObject("search_guide");
-            js7.b().a();
+            is7.b().a();
             if (optJSONObject7 != null && (optJSONObject = optJSONObject7.optJSONObject("pb")) != null) {
                 boolean z2 = optJSONObject.optInt("is_show", 0) == 1;
                 int optInt4 = optJSONObject.optInt("pos", -1);
-                kt7 kt7Var = new kt7();
-                kt7Var.a = z2;
-                kt7Var.b = optInt4;
-                js7.b().d(kt7Var);
+                jt7 jt7Var = new jt7();
+                jt7Var.a = z2;
+                jt7Var.b = optInt4;
+                is7.b().d(jt7Var);
             }
             g25.g().a(AgreeMaterial.B(jSONObject.optJSONObject("agree_material")));
             JSONObject optJSONObject8 = jSONObject.optJSONObject("live_activity_guide");

@@ -316,10 +316,10 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
                 } else {
                     this.h.setTextColor(getResources().getColor(R.color.CAM_X0201));
                 }
-                this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1492, Float.valueOf(f)));
+                this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1494, Float.valueOf(f)));
                 return;
             }
-            this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1495, Float.valueOf(f)));
+            this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1497, Float.valueOf(f)));
             this.h.setTextColor(getResources().getColor(R.color.CAM_X0201));
         }
     }
@@ -786,9 +786,9 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
             return;
         }
         if (z) {
-            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809ff, getResources().getColor(R.color.CAM_X0302), null));
+            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a00, getResources().getColor(R.color.CAM_X0302), null));
         } else {
-            imageView.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809ff));
+            imageView.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a00));
         }
     }
 
@@ -797,9 +797,9 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
         if (!(interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f == null) {
             return;
         }
-        int i = R.drawable.obfuscated_res_0x7f0809e3;
+        int i = R.drawable.obfuscated_res_0x7f0809e4;
         if (z) {
-            i = R.drawable.obfuscated_res_0x7f0809e4;
+            i = R.drawable.obfuscated_res_0x7f0809e5;
         }
         if (z2) {
             this.f.setImageDrawable(WebPManager.getPureDrawable(i, getResources().getColor(R.color.CAM_X0302), null));

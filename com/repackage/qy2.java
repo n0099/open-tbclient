@@ -204,7 +204,7 @@ public class qy2 extends BaseAdapter {
                 layoutParams.width = i4;
                 layoutParams.height = i4;
                 bVar.a.setLayoutParams(layoutParams);
-                bVar.a.setBackground(ContextCompat.getDrawable(this.e, R.drawable.obfuscated_res_0x7f081197));
+                bVar.a.setBackground(ContextCompat.getDrawable(this.e, R.drawable.obfuscated_res_0x7f081198));
                 view3.setTag(bVar);
             } else {
                 view3 = view2;
@@ -212,22 +212,22 @@ public class qy2 extends BaseAdapter {
             }
             int o2 = qe3.o(this.e) / 3;
             int o3 = qe3.o(this.e) / 3;
-            bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f081196);
+            bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f081197);
             bVar.b.setVisibility(8);
             if (e(i)) {
                 bVar.c.setVisibility(8);
-                bVar.a.setBackground(ContextCompat.getDrawable(this.e, R.drawable.obfuscated_res_0x7f081193));
-                bVar.a.setImageResource(R.drawable.obfuscated_res_0x7f081191);
+                bVar.a.setBackground(ContextCompat.getDrawable(this.e, R.drawable.obfuscated_res_0x7f081194));
+                bVar.a.setImageResource(R.drawable.obfuscated_res_0x7f081192);
             } else {
                 bVar.b.setVisibility(0);
                 String item = getItem(i);
                 if (!TextUtils.isEmpty(item)) {
                     if (ke3.c(item)) {
                         bVar.c.setVisibility(0);
-                        bVar.d.setText(this.e.getString(R.string.obfuscated_res_0x7f0f128b));
+                        bVar.d.setText(this.e.getString(R.string.obfuscated_res_0x7f0f128d));
                     } else if (ke3.f(item)) {
                         bVar.c.setVisibility(0);
-                        bVar.d.setText(this.e.getString(R.string.obfuscated_res_0x7f0f128c));
+                        bVar.d.setText(this.e.getString(R.string.obfuscated_res_0x7f0f128e));
                     } else {
                         bVar.c.setVisibility(8);
                     }

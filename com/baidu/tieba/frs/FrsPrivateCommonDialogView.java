@@ -121,20 +121,20 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             a(e(privateForumPopInfoData.C()));
             if (privateForumPopInfoData.C().equals("left_time")) {
                 this.g.setText(R.string.obfuscated_res_0x7f0f0733);
-                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080f13);
+                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080f14);
             } else if (!privateForumPopInfoData.C().equals("clear_forum") && !privateForumPopInfoData.C().equals("task_fail")) {
                 if (privateForumPopInfoData.C().equals("task_complete")) {
                     this.g.setText(R.string.obfuscated_res_0x7f0f0733);
-                    SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080f14);
+                    SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080f15);
                 } else {
                     this.g.setText(R.string.obfuscated_res_0x7f0f0733);
                     f();
-                    SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f080f10);
-                    SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080f11);
+                    SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f080f11);
+                    SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080f12);
                 }
             } else {
                 this.g.setText(R.string.obfuscated_res_0x7f0f0735);
-                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080f12);
+                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080f13);
             }
             this.g.setTag(R.id.obfuscated_res_0x7f090f6d, Boolean.valueOf(z));
             this.g.setTag(R.id.obfuscated_res_0x7f091a4d, privateForumPopInfoData);

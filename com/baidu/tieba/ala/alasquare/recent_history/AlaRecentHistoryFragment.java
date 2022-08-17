@@ -137,7 +137,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
                     this.a.z1(false, null, null);
                     return;
                 }
-                String string = this.a.c == 0 ? this.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11c6) : this.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11c7);
+                String string = this.a.c == 0 ? this.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11c8) : this.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11c9);
                 AlaRecentHistoryFragment alaRecentHistoryFragment2 = this.a;
                 alaRecentHistoryFragment2.z1(true, alaRecentHistoryFragment2.b.g(), string);
             }
@@ -149,7 +149,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
                 this.a.b.e();
                 if (z) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f11d0);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f11d2);
                 } else {
                     AlaRecentHistoryFragment alaRecentHistoryFragment = this.a;
                     alaRecentHistoryFragment.showNetRefreshView(alaRecentHistoryFragment.b.g(), str, false);

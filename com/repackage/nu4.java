@@ -143,19 +143,19 @@ public class nu4 {
         }
     }
 
-    public void d(AgreeData agreeData, sk8 sk8Var) {
+    public void d(AgreeData agreeData, rk8 rk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, agreeData, sk8Var) == null) {
-            sk8Var.b = agreeData;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, agreeData, rk8Var) == null) {
+            rk8Var.b = agreeData;
             if (agreeData.isInThread) {
                 BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
                 if (baijiahaoData != null) {
                     agreeData.nid = baijiahaoData.oriUgcNid;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, sk8Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, rk8Var));
                 a(agreeData, AgreeEvent.IS_THREAD);
             } else if (agreeData.isInPost) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, sk8Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, rk8Var));
                 a(agreeData, AgreeEvent.IS_POST);
             }
         }

@@ -51,8 +51,8 @@ import com.repackage.aa5;
 import com.repackage.ba5;
 import com.repackage.da5;
 import com.repackage.fy4;
+import com.repackage.kl7;
 import com.repackage.ll7;
-import com.repackage.ml7;
 import com.repackage.ms4;
 import com.repackage.qi;
 import com.repackage.ru4;
@@ -196,7 +196,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                     ResponseMemberPayMessage responseMemberPayMessage = (ResponseMemberPayMessage) httpResponsedMessage;
                     if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                         if (responseMemberPayMessage.getMemberPayResult() != null) {
-                            ll7 memberPayResult = responseMemberPayMessage.getMemberPayResult();
+                            kl7 memberPayResult = responseMemberPayMessage.getMemberPayResult();
                             this.a.b1(memberPayResult);
                             if (this.a.r != null) {
                                 int count = this.a.r.getCount();
@@ -207,12 +207,12 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                             }
                             return;
                         }
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                         return;
                     }
                     String errorString = responseMemberPayMessage.getErrorString();
                     if (StringUtils.isNull(errorString)) {
-                        errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3c);
+                        errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3d);
                     }
                     this.a.showToast(errorString);
                 }
@@ -257,7 +257,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                 for (int i = 0; i < count; i++) {
                     this.a.r.getItem(i).r1(bool);
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f1410);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f1412);
             }
         }
     }
@@ -575,9 +575,9 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             if (i2 != 2) {
-                return getResources().getString(R.string.obfuscated_res_0x7f0f1393);
+                return getResources().getString(R.string.obfuscated_res_0x7f0f1395);
             }
-            return getResources().getString(R.string.obfuscated_res_0x7f0f1396);
+            return getResources().getString(R.string.obfuscated_res_0x7f0f1398);
         }
         return (String) invokeI.objValue;
     }
@@ -624,13 +624,13 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void b1(ll7 ll7Var) {
+    public final void b1(kl7 kl7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, ll7Var) == null) || this.u) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, kl7Var) == null) || this.u) {
             return;
         }
         this.u = true;
-        boolean z = ll7Var.a.a.a == 2 || this.a == 2;
+        boolean z = kl7Var.a.a.a == 2 || this.a == 2;
         ArrayList arrayList = new ArrayList();
         Bundle bundle = new Bundle();
         bundle.putString("member_refer_page", this.f);
@@ -640,7 +640,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         bundle.putInt("member_from_scene", this.d);
         bundle.putString("member_fid", this.B);
         if (!z) {
-            ll7.c cVar = ll7Var.b;
+            kl7.c cVar = kl7Var.b;
             if (cVar.a != null) {
                 if (cVar.b == null) {
                     MemberPayFragment memberPayFragment = new MemberPayFragment();
@@ -817,7 +817,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             this.p.setPosition(this.t);
             this.n.setText(W0(this.s));
             if (this.s == 2) {
-                SkinManager.setImageResource(this.m, R.drawable.obfuscated_res_0x7f080a95, TbadkCoreApplication.getInst().getSkinType());
+                SkinManager.setImageResource(this.m, R.drawable.obfuscated_res_0x7f080a96, TbadkCoreApplication.getInst().getSkinType());
             } else {
                 SkinManager.setImageResource(this.m, R.drawable.icon_tbvip_commonvip, TbadkCoreApplication.getInst().getSkinType());
             }
@@ -832,10 +832,10 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             ur4Var.setCancelable(true);
             ur4Var.setTitleShowCenter(true);
             ur4Var.setMessageShowCenter(true);
-            ur4Var.setTitle(getString(R.string.obfuscated_res_0x7f0f138f));
-            ur4Var.setMessage(getString(R.string.obfuscated_res_0x7f0f138d));
+            ur4Var.setTitle(getString(R.string.obfuscated_res_0x7f0f1391));
+            ur4Var.setMessage(getString(R.string.obfuscated_res_0x7f0f138f));
             ur4Var.setPositiveButton(getString(R.string.obfuscated_res_0x7f0f07ce), new h(this));
-            ur4Var.setNegativeButton(getString(R.string.obfuscated_res_0x7f0f138e), new i(this));
+            ur4Var.setNegativeButton(getString(R.string.obfuscated_res_0x7f0f1390), new i(this));
             ur4Var.create(getPageContext()).show();
         }
     }
@@ -844,16 +844,16 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            WebPManager.setPureDrawable(this.l, R.drawable.obfuscated_res_0x7f080a2a, R.color.CAM_X0626, null);
+            WebPManager.setPureDrawable(this.l, R.drawable.obfuscated_res_0x7f080a2b, R.color.CAM_X0626, null);
             ms4 d2 = ms4.d(this.n);
             d2.v(R.color.CAM_X0311);
             d2.z(R.dimen.T_X05);
             d2.A(R.string.F_X02);
             this.A.f();
-            SkinManager.setImageResource(this.C, R.drawable.obfuscated_res_0x7f080e1e);
-            SkinManager.setImageResource(this.F, R.drawable.obfuscated_res_0x7f081250);
+            SkinManager.setImageResource(this.C, R.drawable.obfuscated_res_0x7f080e1f);
+            SkinManager.setImageResource(this.F, R.drawable.obfuscated_res_0x7f081251);
             if (this.s == 2) {
-                SkinManager.setImageResource(this.m, R.drawable.obfuscated_res_0x7f080a95, i2);
+                SkinManager.setImageResource(this.m, R.drawable.obfuscated_res_0x7f080a96, i2);
             } else {
                 SkinManager.setImageResource(this.m, R.drawable.icon_tbvip_commonvip, i2);
             }
@@ -896,7 +896,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             if (TbSingleton.getInstance().isUserBan()) {
                 aa5.a(this);
             }
-            ml7.a(this.d, this.B);
+            ll7.a(this.d, this.B);
         }
     }
 

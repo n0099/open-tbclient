@@ -106,7 +106,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements sw4
                 pv4Var.p(R.color.CAM_X0613, R.color.CAM_X0103);
                 setConfig(pv4Var);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbd));
             } else {
                 pv4 pv4Var2 = new pv4();
                 pv4Var2.p(R.color.CAM_X0302, R.color.CAM_X0101);

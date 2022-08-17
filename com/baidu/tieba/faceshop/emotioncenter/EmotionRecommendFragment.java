@@ -32,7 +32,7 @@ import com.repackage.mb6;
 import com.repackage.ob6;
 import com.repackage.oi;
 import com.repackage.qi;
-import com.repackage.rp7;
+import com.repackage.qp7;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class EmotionRecommendFragment extends BaseFragment implements mb6 {
@@ -176,14 +176,14 @@ public class EmotionRecommendFragment extends BaseFragment implements mb6 {
                     if (this.a.a != null) {
                         String str = (String) hashMap.get("upload_msg");
                         if (!TextUtils.isEmpty(str)) {
-                            qi.L(this.a.getActivity(), str);
+                            qi.K(this.a.getActivity(), str);
                         } else {
-                            qi.L(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0557));
+                            qi.K(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0557));
                         }
                         this.a.a.w();
                     }
                 } else {
-                    BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f05f5)).h();
+                    BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f05f5)).i();
                     if (this.a.a != null) {
                         this.a.a.n();
                     }
@@ -413,7 +413,7 @@ public class EmotionRecommendFragment extends BaseFragment implements mb6 {
     public final void v1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (rp7.l().r()) {
+            if (qp7.l().r()) {
                 ob6 ob6Var = this.a;
                 if (ob6Var != null) {
                     ob6Var.r();

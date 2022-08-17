@@ -99,7 +99,7 @@ public class ud5 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? ru4.k().l("key_fun_ks_init", 1) == 0 : invokeV.booleanValue;
     }
 
-    @Modify(description = "广告-FRS页面混排广告条数", type = 100)
+    @Modify(description = "广告-FRS页面混排广告条数")
     public static int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -110,14 +110,14 @@ public class ud5 {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
-            List<rs6> j = ss6.m().j(str);
+            List<qs6> j = rs6.m().j(str);
             JSONArray jSONArray = new JSONArray();
-            for (rs6 rs6Var : j) {
-                for (int i2 = 0; i2 < rs6Var.e && jSONArray.length() < i; i2++) {
+            for (qs6 qs6Var : j) {
+                for (int i2 = 0; i2 < qs6Var.e && jSONArray.length() < i; i2++) {
                     try {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("id", rs6Var.d + i2);
-                        jSONObject.put("ecpm", String.valueOf(rs6Var.f));
+                        jSONObject.put("id", qs6Var.d + i2);
+                        jSONObject.put("ecpm", String.valueOf(qs6Var.f));
                         jSONArray.put(jSONObject);
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -213,8 +213,8 @@ public class ud5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
             int i = 0;
-            for (rs6 rs6Var : ss6.m().j(str)) {
-                i += rs6Var.e;
+            for (qs6 qs6Var : rs6.m().j(str)) {
+                i += qs6Var.e;
             }
             return i;
         }
@@ -223,25 +223,24 @@ public class ud5 {
 
     public static boolean p(Object obj) {
         InterceptResult invokeL;
-        al8 al8Var;
+        zk8 zk8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, obj)) == null) {
             if (obj instanceof tp4) {
                 return true;
             }
             if (obj instanceof ir4) {
-                al8Var = ((ir4) obj).t.funAdData;
+                zk8Var = ((ir4) obj).t.funAdData;
             } else if (obj instanceof ThreadData) {
-                al8Var = ((ThreadData) obj).funAdData;
+                zk8Var = ((ThreadData) obj).funAdData;
             } else {
-                al8Var = obj instanceof PostData ? ((PostData) obj).t0 : null;
+                zk8Var = obj instanceof PostData ? ((PostData) obj).t0 : null;
             }
-            return al8Var != null;
+            return zk8Var != null;
         }
         return invokeL.booleanValue;
     }
 
-    @Modify(description = "小熊广告-开屏是否展示", type = 33)
     public static boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -264,21 +263,21 @@ public class ud5 {
         return invokeV.booleanValue;
     }
 
-    @Modify(description = "广告-开屏广告第一次超时时间(新)", type = 100)
+    @Modify(description = "广告-开屏广告第一次超时时间(新)")
     public static int s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? ru4.k().l("key_splash_new_policy_first_timeout", 1000) : invokeV.intValue;
     }
 
-    @Modify(description = "广告-开屏广告第二次超时时间(新)", type = 100)
+    @Modify(description = "广告-开屏广告第二次超时时间(新)")
     public static int t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? ru4.k().l("key_splash_new_policy_second_timeout", 1400) : invokeV.intValue;
     }
 
-    @Modify(description = "小熊广告-开屏是否展示小熊开关(新)", type = 100)
+    @Modify(description = "广告-开屏是否展示小熊开关(新)", type = 100)
     public static boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

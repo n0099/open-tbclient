@@ -230,7 +230,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, i19.b, BdL
             this.b.getActivity().finish();
             return;
         }
-        qi.N(this.b.getContext(), R.string.obfuscated_res_0x7f0f15cc);
+        qi.M(this.b.getContext(), R.string.obfuscated_res_0x7f0f15cf);
     }
 
     @Override // com.repackage.i19.b
@@ -254,7 +254,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, i19.b, BdL
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.g = false;
             this.d.setNextPage(this.e);
-            this.e.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f09ea));
+            this.e.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f09eb));
             this.e.f();
             this.e.L(qi.f(this.d.getContext(), R.dimen.tbds44));
         }
@@ -318,7 +318,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, i19.b, BdL
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.e.J();
             this.e.Q();
-            this.e.C(this.d.getContext().getString(R.string.obfuscated_res_0x7f0f09e9));
+            this.e.C(this.d.getContext().getString(R.string.obfuscated_res_0x7f0f09ea));
             this.e.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
     }

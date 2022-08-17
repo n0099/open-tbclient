@@ -24,11 +24,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hr6;
+import com.repackage.gr6;
 import com.repackage.og;
 import com.repackage.pi;
 import com.repackage.qi;
-import com.repackage.zb8;
+import com.repackage.yb8;
 import com.repackage.ze5;
 /* loaded from: classes3.dex */
 public class FrsActivityConfig extends IntentConfig {
@@ -201,9 +201,9 @@ public class FrsActivityConfig extends IntentConfig {
                 i = 6;
             }
             if (UbsABTestHelper.isFrsNewAreaTabSortTestA() && FrsTabTestHelper.HAVE_NOT_RECORD_SORT != FrsTabTestHelper.getFrsNewAreaTabSort()) {
-                frsRequestData.L(hr6.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
+                frsRequestData.L(gr6.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
             }
-            frsRequestData.setSortType(hr6.d(i));
+            frsRequestData.setSortType(gr6.d(i));
             if (i == 5) {
                 frsRequestData.O(1);
             } else {
@@ -213,7 +213,7 @@ public class FrsActivityConfig extends IntentConfig {
             frsRequestData.z("client_type", "2");
             frsRequestData.setPn(1);
             frsRequestData.setCallFrom(intExtra);
-            hr6.e(i, frsRequestData);
+            gr6.e(i, frsRequestData);
             frsRequestData.W("2");
             frsRequestData.X("-2");
             frsRequestData.Q(stringExtra);
@@ -234,11 +234,11 @@ public class FrsActivityConfig extends IntentConfig {
             frsRequestData.setNeedCache(true);
             frsRequestData.setUpdateType(3);
             frsRequestData.M(longExtra);
-            hr6.e(i, frsRequestData);
+            gr6.e(i, frsRequestData);
             frsRequestData.U(1);
-            if (ThreadData.isRecAppLoaded.get() && zb8.l().b() != null) {
-                int d = zb8.l().b().d(stringExtra, false);
-                int e = zb8.l().b().e(stringExtra, false);
+            if (ThreadData.isRecAppLoaded.get() && yb8.l().b() != null) {
+                int d = yb8.l().b().d(stringExtra, false);
+                int e = yb8.l().b().e(stringExtra, false);
                 if (frsRequestData.E() == 1) {
                     d++;
                 } else if (frsRequestData.E() == 2) {

@@ -372,11 +372,11 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
             TextView textView = this.n;
             if (textView != null) {
                 textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0602a5));
-                this.n.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dab));
+                this.n.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dac));
             }
             ImageView imageView = this.o;
             if (imageView != null) {
-                imageView.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080daa));
+                imageView.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dab));
             }
             E();
         }

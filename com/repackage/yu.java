@@ -28,14 +28,14 @@ public final class yu extends ws<vp> {
 
         /* renamed from: com.repackage.yu$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static final class C0631a implements zu.a {
+        public static final class C0637a implements zu.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ TaskToastViewData b;
             public final /* synthetic */ a c;
 
-            public C0631a(String str, TaskToastViewData taskToastViewData, a aVar, TaskToastViewData taskToastViewData2) {
+            public C0637a(String str, TaskToastViewData taskToastViewData, a aVar, TaskToastViewData taskToastViewData2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -159,7 +159,7 @@ public final class yu extends ws<vp> {
             }
             String backBtnSchema = taskToastViewData.getBackBtnSchema();
             if (backBtnSchema != null) {
-                this.a.a.c(new C0631a(backBtnSchema, taskToastViewData, this, taskToastViewData));
+                this.a.a.c(new C0637a(backBtnSchema, taskToastViewData, this, taskToastViewData));
             }
             String backBtnTxt = taskToastViewData.getBackBtnTxt();
             if (backBtnTxt != null) {

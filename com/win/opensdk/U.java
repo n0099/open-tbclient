@@ -46,7 +46,7 @@ public class U {
             e1.a(this.b.getApplicationContext()).b(new f1(this.a), 2).a();
             Info info = this.a;
             WDownLoadService wDownLoadService = this.b;
-            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.obfuscated_res_0x7f0f15aa), this.b.getString(R.string.obfuscated_res_0x7f0f15ab), 0);
+            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.obfuscated_res_0x7f0f15ad), this.b.getString(R.string.obfuscated_res_0x7f0f15ae), 0);
             try {
                 WDownLoadService.a(this.b);
             } catch (Exception e) {
@@ -91,7 +91,7 @@ public class U {
             N.d.c = false;
             Info info = this.a;
             WDownLoadService wDownLoadService = this.b;
-            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.obfuscated_res_0x7f0f15aa), this.b.getString(R.string.obfuscated_res_0x7f0f15ab), 0);
+            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.obfuscated_res_0x7f0f15ad), this.b.getString(R.string.obfuscated_res_0x7f0f15ae), 0);
             WDownLoadService.a(this.b);
             this.b.stopSelf();
             e1.a(this.b.getApplicationContext()).b(new f1(this.a), 1).a();
@@ -104,7 +104,7 @@ public class U {
             N.d.c = true;
             Info info = this.a;
             WDownLoadService wDownLoadService = this.b;
-            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.obfuscated_res_0x7f0f15ae), this.b.getString(R.string.obfuscated_res_0x7f0f15ae), i);
+            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.obfuscated_res_0x7f0f15b1), this.b.getString(R.string.obfuscated_res_0x7f0f15b1), i);
         }
     }
 }

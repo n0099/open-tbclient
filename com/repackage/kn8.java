@@ -207,7 +207,7 @@ public class kn8 {
             this.f.setOnClickListener(this.k);
         }
         this.g.setText(StringHelper.cutHotTopicShow(str, 24, StringHelper.STRING_MORE));
-        this.h.setText(R.string.obfuscated_res_0x7f0f143a);
+        this.h.setText(R.string.obfuscated_res_0x7f0f143c);
         if (this.b == null) {
             this.b = new PopupWindow(this.f, -2, -2);
         } else {

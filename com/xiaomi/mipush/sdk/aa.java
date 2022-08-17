@@ -10,17 +10,17 @@ import com.xiaomi.push.hn;
 public class aa implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ MiTinyDataClient.a.C0703a a;
+    public final /* synthetic */ MiTinyDataClient.a.C0706a a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ hn f48a;
 
-    public aa(MiTinyDataClient.a.C0703a c0703a, hn hnVar) {
+    public aa(MiTinyDataClient.a.C0706a c0706a, hn hnVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c0703a, hnVar};
+            Object[] objArr = {c0706a, hnVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,7 +30,7 @@ public class aa implements Runnable {
                 return;
             }
         }
-        this.a = c0703a;
+        this.a = c0706a;
         this.f48a = hnVar;
     }
 

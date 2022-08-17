@@ -51,7 +51,7 @@ public class GroupChatView extends CommonGroupMsglistView {
         if (interceptable == null || interceptable.invokeLZ(1048576, this, talkableActivity, z) == null) {
             super.initHeader(talkableActivity, z);
             this.c = (GroupChatActivity) talkableActivity;
-            String string = talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0af6);
+            String string = talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0af7);
             if (string != null) {
                 String stringExtra = talkableActivity.getIntent().getStringExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID);
                 View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d037e, talkableActivity);

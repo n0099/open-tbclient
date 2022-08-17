@@ -8,7 +8,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.core.internal.view.SupportMenu;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -154,12 +153,12 @@ public abstract class zy8 {
 
         /* renamed from: com.repackage.zy8$b$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class View$OnClickListenerC0643b implements View.OnClickListener {
+        public class View$OnClickListenerC0646b implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public View$OnClickListenerC0643b(b bVar) {
+            public View$OnClickListenerC0646b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -420,16 +419,16 @@ public abstract class zy8 {
             this.u.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0861));
             this.v.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0224));
             this.w.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f076a));
-            this.x.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1108));
+            this.x.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1109));
             this.e.setOnClickListener(this.d);
             this.g.setOnClickListener(new a(this));
-            this.h.setOnClickListener(new View$OnClickListenerC0643b(this));
+            this.h.setOnClickListener(new View$OnClickListenerC0646b(this));
             this.i.setOnClickListener(new c(this));
             this.j.setOnClickListener(new d(this));
             this.k.setOnClickListener(new e(this));
             yd5 c2 = yd5.c(this.b.getPageActivity());
             c2.h(BadgeDrawable.TOP_END);
-            c2.g(SupportMenu.CATEGORY_MASK);
+            c2.g(-65536);
             c2.m(R.dimen.tbds30, false);
             c2.k(R.dimen.tbds24, true);
             c2.i(R.dimen.tbds9);
@@ -455,13 +454,13 @@ public abstract class zy8 {
                 super.c(i);
                 SkinManager.setBackgroundColor(this.e, R.color.CAM_X0603);
                 TBSelector.makeDrawableSelector().setShape(0).setType(1).radius(this.D).defaultColor(R.color.CAM_X0701).into(this.f);
-                this.m.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08080a, WebPManager.ResourceStateType.NORMAL));
-                this.n.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0807ff, WebPManager.ResourceStateType.NORMAL));
-                this.o.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080806, WebPManager.ResourceStateType.NORMAL));
-                this.F.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080834, WebPManager.ResourceStateType.NORMAL));
-                this.p.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080803, WebPManager.ResourceStateType.NORMAL));
-                this.q.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080810, WebPManager.ResourceStateType.NORMAL));
-                this.r.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080808, WebPManager.ResourceStateType.NORMAL));
+                this.m.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08080b, WebPManager.ResourceStateType.NORMAL));
+                this.n.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080800, WebPManager.ResourceStateType.NORMAL));
+                this.o.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080807, WebPManager.ResourceStateType.NORMAL));
+                this.F.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080836, WebPManager.ResourceStateType.NORMAL));
+                this.p.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080804, WebPManager.ResourceStateType.NORMAL));
+                this.q.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080811, WebPManager.ResourceStateType.NORMAL));
+                this.r.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080809, WebPManager.ResourceStateType.NORMAL));
                 SkinManager.setViewTextColor(this.s, (int) R.color.CAM_X0101);
                 SkinManager.setViewTextColor(this.t, (int) R.color.CAM_X0101);
                 SkinManager.setViewTextColor(this.u, (int) R.color.CAM_X0101);
@@ -616,12 +615,12 @@ public abstract class zy8 {
 
         /* renamed from: com.repackage.zy8$c$c  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class View$OnClickListenerC0644c implements View.OnClickListener {
+        public class View$OnClickListenerC0647c implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
 
-            public View$OnClickListenerC0644c(c cVar) {
+            public View$OnClickListenerC0647c(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -939,12 +938,12 @@ public abstract class zy8 {
             this.e.setClickable(true);
             this.k.setOnClickListener(new a(this));
             this.h.setOnClickListener(new b(this));
-            this.n.setOnClickListener(new View$OnClickListenerC0644c(this));
+            this.n.setOnClickListener(new View$OnClickListenerC0647c(this));
             this.q.setOnClickListener(new d(this));
             this.x.setOnClickListener(new e(this));
             yd5 c = yd5.c(this.b.getPageActivity());
             c.h(BadgeDrawable.TOP_END);
-            c.g(SupportMenu.CATEGORY_MASK);
+            c.g(-65536);
             c.m(R.dimen.tbds15, false);
             c.k(R.dimen.tbds15, false);
             c.i(R.dimen.tbds12);
@@ -1018,14 +1017,14 @@ public abstract class zy8 {
                 this.G.e(i2);
                 SkinManager.setLottieAnimation(this.I, R.raw.bottom_bar_bg);
                 SkinManager.setBackgroundResource(this.f, R.drawable.write_tab_background);
-                SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080807);
-                SkinManager.setImageResource(this.k, R.drawable.obfuscated_res_0x7f08080b);
-                SkinManager.setImageResource(this.n, R.drawable.obfuscated_res_0x7f080800);
-                SkinManager.setImageResource(this.q, R.drawable.obfuscated_res_0x7f080804);
-                SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080835);
-                SkinManager.setImageResource(this.y, R.drawable.obfuscated_res_0x7f080811);
-                SkinManager.setImageResource(this.B, R.drawable.obfuscated_res_0x7f080809);
-                SkinManager.setImageResource(this.E, R.drawable.obfuscated_res_0x7f0807fe);
+                SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080808);
+                SkinManager.setImageResource(this.k, R.drawable.obfuscated_res_0x7f08080c);
+                SkinManager.setImageResource(this.n, R.drawable.obfuscated_res_0x7f080801);
+                SkinManager.setImageResource(this.q, R.drawable.obfuscated_res_0x7f080805);
+                SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080837);
+                SkinManager.setImageResource(this.y, R.drawable.obfuscated_res_0x7f080812);
+                SkinManager.setImageResource(this.B, R.drawable.obfuscated_res_0x7f08080a);
+                SkinManager.setImageResource(this.E, R.drawable.obfuscated_res_0x7f0807ff);
                 SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0107);
                 SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0107);
                 SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0107);

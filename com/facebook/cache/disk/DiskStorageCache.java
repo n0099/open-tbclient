@@ -1,6 +1,5 @@
 package com.facebook.cache.disk;
 
-import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -43,7 +42,6 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long FILECACHE_SIZE_UPDATE_PERIOD_MS;
     public static final long FUTURE_TIMESTAMP_THRESHOLD_MS;
-    public static final String SHARED_PREFS_FILENAME_PREFIX = "disk_entries_list";
     public static final int START_OF_VERSIONING = 1;
     public static final Class<?> TAG;
     public static final double TRIMMING_LOWER_BOUND = 0.02d;
@@ -217,12 +215,12 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
         FILECACHE_SIZE_UPDATE_PERIOD_MS = TimeUnit.MINUTES.toMillis(30L);
     }
 
-    public DiskStorageCache(DiskStorage diskStorage, EntryEvictionComparatorSupplier entryEvictionComparatorSupplier, Params params, CacheEventListener cacheEventListener, CacheErrorLogger cacheErrorLogger, @Nullable DiskTrimmableRegistry diskTrimmableRegistry, Context context, Executor executor, boolean z) {
+    public DiskStorageCache(DiskStorage diskStorage, EntryEvictionComparatorSupplier entryEvictionComparatorSupplier, Params params, CacheEventListener cacheEventListener, CacheErrorLogger cacheErrorLogger, @Nullable DiskTrimmableRegistry diskTrimmableRegistry, Executor executor, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {diskStorage, entryEvictionComparatorSupplier, params, cacheEventListener, cacheErrorLogger, diskTrimmableRegistry, context, executor, Boolean.valueOf(z)};
+            Object[] objArr = {diskStorage, entryEvictionComparatorSupplier, params, cacheEventListener, cacheErrorLogger, diskTrimmableRegistry, executor, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {

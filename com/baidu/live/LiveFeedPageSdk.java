@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab0;
 import com.repackage.ea0;
 import com.repackage.q90;
-import com.repackage.wq9;
+import com.repackage.yq9;
 /* loaded from: classes2.dex */
 public class LiveFeedPageSdk {
     public static /* synthetic */ Interceptable $ic = null;
@@ -186,7 +186,7 @@ public class LiveFeedPageSdk {
     public String getYYHDID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? wq9.a(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? yq9.a(context) : (String) invokeL.objValue;
     }
 
     public void initHostInfo(String str, String str2) {

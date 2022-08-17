@@ -22,7 +22,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
     public DrawCardApp bC;
     public DrawCardH5 bD;
     public ViewGroup bh;
-    public a.InterfaceC0303a bz;
+    public a.InterfaceC0305a bz;
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;
 
@@ -39,7 +39,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
                 return;
             }
         }
-        this.bz = new a.InterfaceC0303a(this) { // from class: com.kwad.components.ad.draw.a.a.b.1
+        this.bz = new a.InterfaceC0305a(this) { // from class: com.kwad.components.ad.draw.a.a.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b bE;
@@ -62,7 +62,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
                 this.bE = this;
             }
 
-            @Override // com.kwad.components.ad.draw.a.a.a.InterfaceC0303a
+            @Override // com.kwad.components.ad.draw.a.a.a.InterfaceC0305a
             public final void ax() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -224,7 +224,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
             super.onUnbind();
             this.bC.release();
             this.bD.release();
-            this.aK.ba.a((a.InterfaceC0303a) null);
+            this.aK.ba.a((a.InterfaceC0305a) null);
         }
     }
 }

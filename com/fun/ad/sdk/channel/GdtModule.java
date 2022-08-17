@@ -12,8 +12,8 @@ import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.fun.ad.sdk.internal.api.channel.GdtHelper;
 import com.qq.e.comm.managers.GDTAdSdk;
 import com.qq.e.comm.managers.setting.GlobalSetting;
-import com.repackage.ni9;
 import com.repackage.pi9;
+import com.repackage.ri9;
 /* loaded from: classes4.dex */
 public class GdtModule implements Module {
     public static /* synthetic */ Interceptable $ic;
@@ -69,9 +69,9 @@ public class GdtModule implements Module {
             GDTAdSdk.init(funAdConfig.appContext, str);
             GlobalSetting.setChannel(3);
             GlobalSetting.setPersonalizedState(!funAdConfig.runtimeAdConfig.personalRecommendStatus ? 1 : 0);
-            GdtHelper.sGdtNativeContainerCreator = ni9.b;
+            GdtHelper.sGdtNativeContainerCreator = pi9.b;
             funAdConfig.runtimeAdConfig.registerPersonalRecommendObserver(new a());
-            return new pi9();
+            return new ri9();
         }
         return (PidLoaderCreator) invokeLL.objValue;
     }

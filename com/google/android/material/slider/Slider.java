@@ -349,7 +349,7 @@ public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchLi
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Slider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040632);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040633);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

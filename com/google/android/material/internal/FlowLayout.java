@@ -65,7 +65,7 @@ public class FlowLayout extends ViewGroup {
     private void loadFromAttributes(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040201, R.attr.obfuscated_res_0x7f040326, R.attr.obfuscated_res_0x7f040374, R.attr.obfuscated_res_0x7f040433, R.attr.obfuscated_res_0x7f04050f, R.attr.obfuscated_res_0x7f04075f}, 0, 0);
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040202, R.attr.obfuscated_res_0x7f040327, R.attr.obfuscated_res_0x7f040375, R.attr.obfuscated_res_0x7f040434, R.attr.obfuscated_res_0x7f040510, R.attr.obfuscated_res_0x7f04075f}, 0, 0);
             this.lineSpacing = obtainStyledAttributes.getDimensionPixelSize(3, 0);
             this.itemSpacing = obtainStyledAttributes.getDimensionPixelSize(2, 0);
             obtainStyledAttributes.recycle();

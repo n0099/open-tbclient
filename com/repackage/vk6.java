@@ -85,7 +85,7 @@ public class vk6 extends b9<ForumRulesShowActivity> implements View.OnClickListe
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 fi.a(this.a.w);
-                qi.O(this.b.a, this.b.a.getResources().getString(R.string.obfuscated_res_0x7f0f0450));
+                qi.N(this.b.a, this.b.a.getResources().getString(R.string.obfuscated_res_0x7f0f0450));
             }
         }
     }
@@ -214,8 +214,8 @@ public class vk6 extends b9<ForumRulesShowActivity> implements View.OnClickListe
             if (this.b == i) {
                 this.e.getCenterText().setTextSize((float) R.dimen.L_X06);
                 SkinManager.setNavbarTitleColor(this.e.getCenterText(), R.color.CAM_X0611, R.color.CAM_X0611);
-                WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f080a01, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
-                WebPManager.setPureDrawable(this.i, R.drawable.obfuscated_res_0x7f0809fd, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f080a02, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(this.i, R.drawable.obfuscated_res_0x7f0809fe, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
                 this.k.c(i);
                 this.l.c(i);
                 this.j.b(i);

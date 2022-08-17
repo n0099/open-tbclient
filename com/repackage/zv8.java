@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* compiled from: lambda */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final /* synthetic */ class zv8 implements View.OnLongClickListener {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ zv8 a = new zv8();

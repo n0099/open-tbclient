@@ -1,102 +1,127 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dy;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.User;
+import tbclient.Userlike.ConcernData;
 /* loaded from: classes7.dex */
-public class rv6 extends bn<vv6, ThreadCardViewHolder<vv6>> implements pl5 {
+public class rv6 extends zq4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Integer h;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public BdUniqueId b;
-    public un c;
-    public String d;
-    public byte e;
+    public boolean f;
+    public List<MetaData> g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rv6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, Byte.valueOf(b)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755336833, "Lcom/repackage/rv6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755336833, "Lcom/repackage/rv6;");
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.e = b;
+        h = 6;
     }
 
-    @Override // com.repackage.pl5
-    public void g(String str) {
+    public rv6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.d = str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.g = new ArrayList();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bn
-    /* renamed from: s */
-    public ThreadCardViewHolder<vv6> onCreateViewHolder(ViewGroup viewGroup) {
+    public static boolean j(ConcernData concernData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            dy.b bVar = new dy.b(this.a.getPageActivity(), false);
-            bVar.n(new aw6(this.a, this.b, this.e));
-            bVar.l().c(0);
-            bVar.l().f(0);
-            bVar.l().e(0);
-            bVar.l().h(0);
-            ThreadCardViewHolder<vv6> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
-            threadCardViewHolder.i(this.b);
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vv6 vv6Var, ThreadCardViewHolder<vv6> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vv6Var, threadCardViewHolder})) == null) {
-            threadCardViewHolder.e(vv6Var);
-            if (threadCardViewHolder.a() != null) {
-                threadCardViewHolder.a().q(i);
-                threadCardViewHolder.a().b(this.d);
-                threadCardViewHolder.a().onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, concernData)) == null) {
+            if (concernData == null) {
+                return false;
             }
-            return threadCardViewHolder.getView();
+            return concernData.recom_type.equals(h);
         }
-        return (View) invokeCommon.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void u(un unVar) {
+    @Override // com.repackage.zq4
+    public List<MetaData> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, unVar) == null) {
-            this.c = unVar;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (List) invokeV.objValue;
+    }
+
+    @Override // com.repackage.zq4
+    public void f(List<User> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null) {
+            return;
+        }
+        int min = Math.min(list.size(), 10);
+        for (int i = 0; i < min; i++) {
+            MetaData metaData = new MetaData();
+            metaData.parserProtobuf(list.get(i));
+            this.g.add(metaData);
+        }
+    }
+
+    @Override // com.repackage.zq4, com.repackage.fo4
+    public cq4 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new cq4() : (cq4) invokeV.objValue;
+    }
+
+    @Override // com.repackage.zq4, com.repackage.fo4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.repackage.zq4, com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? zq4.e : (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.f = z;
         }
     }
 }

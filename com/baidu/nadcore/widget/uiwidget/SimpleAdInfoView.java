@@ -183,7 +183,7 @@ public class SimpleAdInfoView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(65539, this, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04040a});
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04040b});
         this.h = obtainStyledAttributes.getResourceId(0, -1);
         obtainStyledAttributes.recycle();
     }

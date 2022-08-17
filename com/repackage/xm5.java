@@ -68,7 +68,7 @@ public class xm5 {
                         this.a.i(charSequence2String.trim());
                         this.a.b.setClickable(false);
                     } else if (charSequence2String.length() > 0) {
-                        this.a.g.showToast(R.string.obfuscated_res_0x7f0f08f2);
+                        this.a.g.showToast(R.string.obfuscated_res_0x7f0f08f3);
                     }
                 } else if (view2 == this.a.c) {
                     this.a.k("");

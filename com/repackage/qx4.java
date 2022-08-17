@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ve7;
+import com.repackage.ue7;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qx4 implements ve7 {
+public class qx4 implements ue7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -35,7 +35,7 @@ public class qx4 implements ve7 {
     public String m;
     public int n;
     public String o;
-    public ve7.a p;
+    public ue7.a p;
     public int q;
     public String r;
 
@@ -115,7 +115,7 @@ public class qx4 implements ve7 {
         this.m = jSONObject.optString("ext_info");
         this.o = jSONObject.optString(LegoListActivityConfig.AD_ID);
         this.r = jSONObject.optString("display_ad_icon");
-        ve7.a aVar = new ve7.a();
+        ue7.a aVar = new ue7.a();
         this.p = aVar;
         aVar.a = jSONObject.optString("parallel_charge_url");
         this.p.c = f(d(jSONObject, "show_urls"));
@@ -160,10 +160,10 @@ public class qx4 implements ve7 {
         return (ArrayList) invokeL.objValue;
     }
 
-    @Override // com.repackage.ve7
-    public ve7.a getParallelCharge() {
+    @Override // com.repackage.ue7
+    public ue7.a getParallelCharge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.p : (ve7.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.p : (ue7.a) invokeV.objValue;
     }
 }

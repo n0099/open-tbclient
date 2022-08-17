@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.d9;
-import com.repackage.kk8;
+import com.repackage.jk8;
 /* loaded from: classes3.dex */
 public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -143,8 +143,8 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            kk8.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
-            kk8.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
+            jk8.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
+            jk8.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

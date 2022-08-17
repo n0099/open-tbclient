@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ce8;
+import com.repackage.be8;
 import com.repackage.pi;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -32,7 +32,7 @@ public class ScreenLockHeaderView extends LinearLayout {
     public TextView e;
     public TextView f;
     public View g;
-    public ce8 h;
+    public be8 h;
     public TextView i;
     public EditText j;
     public RelativeLayout k;
@@ -64,7 +64,7 @@ public class ScreenLockHeaderView extends LinearLayout {
         this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09240c);
         this.g = findViewById(R.id.obfuscated_res_0x7f0912e6);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f08107c);
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f08107d);
         setOrientation(1);
         this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091d75);
         this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091d76);
@@ -103,21 +103,21 @@ public class ScreenLockHeaderView extends LinearLayout {
         }
     }
 
-    public void d(ce8 ce8Var) {
+    public void d(be8 be8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ce8Var) == null) {
-            this.h = ce8Var;
-            this.a.setText(ce8Var.a);
-            this.d.setText(a(ce8Var.l));
-            this.e.setText(ce8Var.e);
-            this.f.setText(b(ce8Var.i));
+        if (interceptable == null || interceptable.invokeL(1048579, this, be8Var) == null) {
+            this.h = be8Var;
+            this.a.setText(be8Var.a);
+            this.d.setText(a(be8Var.l));
+            this.e.setText(be8Var.e);
+            this.f.setText(b(be8Var.i));
         }
     }
 
-    public ce8 getData() {
+    public be8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (ce8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (be8) invokeV.objValue;
     }
 
     public View getEditText() {

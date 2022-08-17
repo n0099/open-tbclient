@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class Cue {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANCHOR_TYPE_END = 2;
@@ -34,12 +34,12 @@ public class Cue {
     public final boolean windowColorSet;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public @interface AnchorType {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public @interface LineType {
     }
 

@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.u1a;
-import com.repackage.v2a;
+import com.repackage.w1a;
+import com.repackage.x2a;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +18,7 @@ import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayScene;
 @Keep
 /* loaded from: classes9.dex */
-public interface IYYPayAmountView extends v2a {
+public interface IYYPayAmountView extends x2a {
 
     @Keep
     /* loaded from: classes9.dex */
@@ -29,7 +29,7 @@ public interface IYYPayAmountView extends v2a {
 
         void toHelpCenterPage();
 
-        void toPayWayDialog(u1a u1aVar, List<PayWayInfo> list, String str);
+        void toPayWayDialog(w1a w1aVar, List<PayWayInfo> list, String str);
     }
 
     @Keep
@@ -74,16 +74,16 @@ public interface IYYPayAmountView extends v2a {
         }
     }
 
-    @Override // com.repackage.v2a
+    @Override // com.repackage.x2a
     /* synthetic */ void attachWindow(Window window);
 
-    @Override // com.repackage.v2a
+    @Override // com.repackage.x2a
     /* synthetic */ View getContentView();
 
-    @Override // com.repackage.v2a
+    @Override // com.repackage.x2a
     /* synthetic */ void refreshView();
 
-    @Override // com.repackage.v2a
+    @Override // com.repackage.x2a
     /* synthetic */ void refreshWindow(WindowParams windowParams);
 
     void setCallback(Callback callback);

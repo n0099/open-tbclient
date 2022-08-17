@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bj8;
+import com.repackage.aj8;
 import com.repackage.fo4;
 import com.repackage.ms4;
 import com.repackage.qi;
@@ -166,7 +166,7 @@ public class ForumEnterLayout extends RelativeLayout {
         if (str == null || i <= 0) {
             return;
         }
-        TiebaStatic.log(bj8.k(str, threadData, i));
+        TiebaStatic.log(aj8.k(str, threadData, i));
     }
 
     public final void i(Context context) {
@@ -249,7 +249,7 @@ public class ForumEnterLayout extends RelativeLayout {
                 this.d.setTextSize(0, qi.f(getContext(), R.dimen.tbds32));
                 this.d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-                this.d.setText(R.string.obfuscated_res_0x7f0f0f0d);
+                this.d.setText(R.string.obfuscated_res_0x7f0f0f0e);
                 this.d.setOnClickListener(null);
                 z = true;
             } else {

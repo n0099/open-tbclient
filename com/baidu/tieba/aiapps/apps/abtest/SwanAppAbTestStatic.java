@@ -136,7 +136,7 @@ public class SwanAppAbTestStatic {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && !StringUtils.isNull(customMessage.getData())) {
                     if (Build.VERSION.SDK_INT <= 21) {
-                        qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f00ea);
+                        qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f00ea);
                         return null;
                     }
                     String data = customMessage.getData();

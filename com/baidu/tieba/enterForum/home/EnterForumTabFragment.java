@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.f76;
 import com.repackage.nn4;
-import com.repackage.q77;
+import com.repackage.p77;
 import com.repackage.v95;
 import com.repackage.x95;
 import com.repackage.y95;
@@ -332,7 +332,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements nn4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            q77.m().c();
+            p77.m().c();
             MessageManager.getInstance().unRegisterListener(this.i);
             f76 f76Var = this.g;
             if (f76Var != null) {

@@ -48,7 +48,7 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
                 setConfig(pv4Var);
                 setClickable(true);
                 if (i == 1) {
-                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc));
+                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbd));
                 } else if (i == 2) {
                     setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0521));
                 }

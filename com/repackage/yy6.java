@@ -1,16 +1,18 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
 public class yy6 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile List<Long> a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static HashMap<String, Integer> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,22 +28,44 @@ public class yy6 {
                 return;
             }
         }
-        a = new ArrayList();
+        b = new HashMap<>();
     }
 
-    public static void a(long j) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65537, null, j) == null) {
-            if (a.size() > 300) {
-                a.remove(0);
-            }
-            a.add(Long.valueOf(j));
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            b.clear();
         }
     }
 
-    public static boolean b(long j) {
-        InterceptResult invokeJ;
+    public static int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? a.contains(Long.valueOf(j)) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.size() : invokeV.intValue;
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        b.put(str, 0);
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a : invokeV.booleanValue;
+    }
+
+    public static void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
+            a = z;
+            if (z) {
+                return;
+            }
+            b.clear();
+        }
     }
 }

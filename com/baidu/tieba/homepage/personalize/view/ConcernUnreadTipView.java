@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k07;
+import com.repackage.j07;
 import com.repackage.qi;
 import com.repackage.ru4;
 import java.util.List;
@@ -104,27 +104,27 @@ public class ConcernUnreadTipView extends RelativeLayout {
         }
     }
 
-    public void setData(k07 k07Var) {
+    public void setData(j07 j07Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, k07Var) == null) || k07Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, j07Var) == null) || j07Var == null) {
             return;
         }
-        if (!k07Var.a()) {
+        if (!j07Var.a()) {
             setVisibility(8);
             return;
         }
-        if (k07Var.c > 0) {
-            ru4.k().x(ru4.o("concern_unread_tip_next_show_time"), System.currentTimeMillis() + k07Var.c);
+        if (j07Var.c > 0) {
+            ru4.k().x(ru4.o("concern_unread_tip_next_show_time"), System.currentTimeMillis() + j07Var.c);
         }
-        if (this.d != null && !StringUtils.isNull(k07Var.d)) {
-            this.d.setText(k07Var.d);
+        if (this.d != null && !StringUtils.isNull(j07Var.d)) {
+            this.d.setText(j07Var.d);
         }
         LinearLayout linearLayout = this.c;
-        if (linearLayout == null || k07Var.b == null) {
+        if (linearLayout == null || j07Var.b == null) {
             return;
         }
         linearLayout.removeAllViews();
-        List<String> list = k07Var.b;
+        List<String> list = j07Var.b;
         for (int i = 0; i < list.size(); i++) {
             String str = list.get(i);
             if (!StringUtils.isNull(str)) {

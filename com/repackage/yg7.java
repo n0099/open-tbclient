@@ -1,14 +1,19 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.HotForum.ForumInfo;
+import tbclient.HotForum.HotTopicList;
 /* loaded from: classes7.dex */
 public class yg7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public int c;
 
     public yg7() {
         Interceptable interceptable = $ic;
@@ -24,16 +29,31 @@ public class yg7 {
         }
     }
 
-    public void a(ForumInfo forumInfo) {
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, forumInfo) == null) || forumInfo == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public void d(HotTopicList hotTopicList) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, hotTopicList) == null) || hotTopicList == null) {
             return;
         }
-        String str = forumInfo.avatar;
-        forumInfo.forum_id.longValue();
-        String str2 = forumInfo.forum_name;
-        forumInfo.time_out.longValue();
-        forumInfo.member_count.longValue();
-        forumInfo.thread_count.longValue();
+        this.a = hotTopicList.topic_id.longValue();
+        this.b = hotTopicList.topic_name;
+        this.c = hotTopicList.tag.intValue();
     }
 }

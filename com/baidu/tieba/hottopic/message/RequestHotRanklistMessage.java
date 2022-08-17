@@ -52,7 +52,7 @@ public class RequestHotRanklistMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f1373common = getCommon();
+                builder.f1374common = getCommon();
                 builder.call_from = getCallFrom();
                 builder.list_type = getListType();
                 builder.need_tab_list = getNeedTabList();

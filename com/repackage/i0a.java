@@ -1,8 +1,7 @@
 package com.repackage;
 
-import tv.athena.revenue.payui.model.PayFlowModel;
-import tv.athena.revenue.payui.model.PayFlowType;
+import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 /* loaded from: classes6.dex */
 public interface i0a {
-    PayFlowModel a(PayFlowType payFlowType);
+    void a(int i, String str, PayCallBackBean payCallBackBean);
 }

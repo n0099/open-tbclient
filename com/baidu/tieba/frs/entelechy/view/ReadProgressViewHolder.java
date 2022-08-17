@@ -76,7 +76,7 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0304);
-            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080916, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
+            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080917, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
             pureDrawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds42), UtilHelper.getDimenPixelSize(R.dimen.tbds42));
             this.b.setCompoundDrawables(pureDrawable, null, null, null);
         }
@@ -87,7 +87,7 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ef6Var) == null) || ef6Var == null) {
             return;
         }
-        this.b.setText(R.string.obfuscated_res_0x7f0f0f7c);
+        this.b.setText(R.string.obfuscated_res_0x7f0f0f7d);
         a();
     }
 }

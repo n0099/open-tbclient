@@ -73,7 +73,7 @@ public class yj6 {
                 boolean z = false;
                 if (!le6.f().i() && !ke6.h().j()) {
                     if (!oi.A()) {
-                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                         return false;
                     }
                     if (this.a.b instanceof FrsNewAreaFragment) {
@@ -91,9 +91,9 @@ public class yj6 {
                     this.a.e = i;
                     if (this.a.e != 7) {
                         ze5.c();
-                        em8.a();
+                        dm8.a();
                     } else {
-                        em8.b();
+                        dm8.b();
                     }
                     if (this.a.b instanceof FrsNewAreaFragment) {
                         ((FrsNewAreaFragment) this.a.b).b2().P(this.a.d.w(this.a.e));
@@ -102,7 +102,7 @@ public class yj6 {
                         }
                         ((FrsNewAreaFragment) this.a.b).X1().O();
                     } else {
-                        ((FrsCommonTabFragment) this.a.b).Q1(hr6.d(this.a.d.w(this.a.e)));
+                        ((FrsCommonTabFragment) this.a.b).Q1(gr6.d(this.a.d.w(this.a.e)));
                         ((FrsCommonTabFragment) this.a.b).H1().x(true);
                     }
                     this.a.f();
@@ -160,7 +160,7 @@ public class yj6 {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.d == null) {
             return;
         }
-        this.d.t(hr6.f(i));
+        this.d.t(gr6.f(i));
         this.e = this.d.getState();
     }
 

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b78;
+import com.repackage.a78;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetRecommendGodList.GetRecommendGodListResIdl;
@@ -15,7 +15,7 @@ import tbclient.GetRecommendGodList.GetRecommendGodListResIdl;
 public class RecommendGodHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b78 recommendGodData;
+    public a78 recommendGodData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecommendGodHttpResponseMessage() {
@@ -51,8 +51,8 @@ public class RecommendGodHttpResponseMessage extends HttpResponsedMessage {
             }
             setErrorString(getRecommendGodListResIdl.error.usermsg);
         }
-        b78 b78Var = new b78();
-        this.recommendGodData = b78Var;
-        b78Var.b(getRecommendGodListResIdl.data);
+        a78 a78Var = new a78();
+        this.recommendGodData = a78Var;
+        a78Var.b(getRecommendGodListResIdl.data);
     }
 }

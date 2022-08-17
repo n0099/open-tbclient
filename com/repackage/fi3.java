@@ -25,13 +25,13 @@ public class fi3 extends cp1 {
 
         /* renamed from: com.repackage.fi3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0476a implements sf3<c63<e63.e>> {
+        public class C0478a implements sf3<c63<e63.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ bp1.b a;
             public final /* synthetic */ a b;
 
-            public C0476a(a aVar, bp1.b bVar) {
+            public C0478a(a aVar, bp1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,7 +97,7 @@ public class fi3 extends cp1 {
                 if (b0 == null) {
                     return new zs1(1001, "null swan runtime");
                 }
-                b0.e0().g(y03.K(), "mapp_i_get_bduss", new C0476a(this, bVar));
+                b0.e0().g(y03.K(), "mapp_i_get_bduss", new C0478a(this, bVar));
                 return zs1.f();
             }
             return (zs1) invokeLL.objValue;

@@ -1,240 +1,63 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Properties;
-import java.util.concurrent.atomic.AtomicReference;
+import com.repackage.ru9;
 /* loaded from: classes8.dex */
-public class zy9 {
+public abstract class zy9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final zy9 f;
-    public static final vy9 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<vy9> a;
-    public final AtomicReference<xy9> b;
-    public final AtomicReference<bz9> c;
-    public final AtomicReference<uy9> d;
-    public final AtomicReference<az9> e;
-
-    /* loaded from: classes8.dex */
-    public static class a extends vy9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends uy9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(zy9 zy9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zy9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755095529, "Lcom/repackage/zy9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755095529, "Lcom/repackage/zy9;");
-                return;
-            }
-        }
-        f = new zy9();
-        g = new a();
-    }
 
     public zy9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new AtomicReference<>();
-        this.b = new AtomicReference<>();
-        this.c = new AtomicReference<>();
-        this.d = new AtomicReference<>();
-        this.e = new AtomicReference<>();
     }
 
     @Deprecated
-    public static zy9 c() {
-        InterceptResult invokeV;
+    public <T> ru9.a<T> a(ru9.a<T> aVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f : (zy9) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? aVar : (ru9.a) invokeL.objValue;
     }
 
-    public static Object e(Class<?> cls, Properties properties) {
+    @Deprecated
+    public <T, R> ru9.b<? extends R, ? super T> b(ru9.b<? extends R, ? super T> bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) ? bVar : (ru9.b) invokeL.objValue;
+    }
+
+    @Deprecated
+    public <T> Throwable c(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th)) == null) ? th : (Throwable) invokeL.objValue;
+    }
+
+    @Deprecated
+    public <T> yu9 d(yu9 yu9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, yu9Var)) == null) ? yu9Var : (yu9) invokeL.objValue;
+    }
+
+    @Deprecated
+    public <T> ru9.a<T> e(ru9<? extends T> ru9Var, ru9.a<T> aVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, properties)) == null) {
-            Properties properties2 = (Properties) properties.clone();
-            String simpleName = cls.getSimpleName();
-            String property = properties2.getProperty("rxjava.plugin." + simpleName + ".implementation");
-            if (property == null) {
-                Iterator it = properties2.entrySet().iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    Map.Entry entry = (Map.Entry) it.next();
-                    String obj = entry.getKey().toString();
-                    if (obj.startsWith("rxjava.plugin.") && obj.endsWith(".class") && simpleName.equals(entry.getValue().toString())) {
-                        String str = "rxjava.plugin." + obj.substring(0, obj.length() - 6).substring(14) + ".impl";
-                        String property2 = properties2.getProperty(str);
-                        if (property2 == null) {
-                            throw new IllegalStateException("Implementing class declaration for " + simpleName + " missing: " + str);
-                        }
-                        property = property2;
-                    }
-                }
-            }
-            if (property != null) {
-                try {
-                    return Class.forName(property).asSubclass(cls).newInstance();
-                } catch (ClassCastException e) {
-                    throw new IllegalStateException(simpleName + " implementation is not an instance of " + simpleName + ": " + property, e);
-                } catch (ClassNotFoundException e2) {
-                    throw new IllegalStateException(simpleName + " implementation class not found: " + property, e2);
-                } catch (IllegalAccessException e3) {
-                    throw new IllegalStateException(simpleName + " implementation not able to be accessed: " + property, e3);
-                } catch (InstantiationException e4) {
-                    throw new IllegalStateException(simpleName + " implementation not able to be instantiated: " + property, e4);
-                }
-            }
-            return null;
-        }
-        return invokeLL.objValue;
-    }
-
-    public uy9 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.d.get() == null) {
-                Object e = e(uy9.class, System.getProperties());
-                if (e == null) {
-                    this.d.compareAndSet(null, new b(this));
-                } else {
-                    this.d.compareAndSet(null, (uy9) e);
-                }
-            }
-            return this.d.get();
-        }
-        return (uy9) invokeV.objValue;
-    }
-
-    public vy9 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a.get() == null) {
-                Object e = e(vy9.class, System.getProperties());
-                if (e == null) {
-                    this.a.compareAndSet(null, g);
-                } else {
-                    this.a.compareAndSet(null, (vy9) e);
-                }
-            }
-            return this.a.get();
-        }
-        return (vy9) invokeV.objValue;
-    }
-
-    public xy9 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b.get() == null) {
-                Object e = e(xy9.class, System.getProperties());
-                if (e == null) {
-                    this.b.compareAndSet(null, yy9.f());
-                } else {
-                    this.b.compareAndSet(null, (xy9) e);
-                }
-            }
-            return this.b.get();
-        }
-        return (xy9) invokeV.objValue;
-    }
-
-    public az9 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.e.get() == null) {
-                Object e = e(az9.class, System.getProperties());
-                if (e == null) {
-                    this.e.compareAndSet(null, az9.h());
-                } else {
-                    this.e.compareAndSet(null, (az9) e);
-                }
-            }
-            return this.e.get();
-        }
-        return (az9) invokeV.objValue;
-    }
-
-    public bz9 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.c.get() == null) {
-                Object e = e(bz9.class, System.getProperties());
-                if (e == null) {
-                    this.c.compareAndSet(null, cz9.e());
-                } else {
-                    this.c.compareAndSet(null, (bz9) e);
-                }
-            }
-            return this.c.get();
-        }
-        return (bz9) invokeV.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, ru9Var, aVar)) == null) ? aVar : (ru9.a) invokeLL.objValue;
     }
 }

@@ -119,7 +119,7 @@ public class ViewPagerIndicator extends View {
     private void a(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65542, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04039a, R.attr.obfuscated_res_0x7f04039b, R.attr.obfuscated_res_0x7f04039c, R.attr.obfuscated_res_0x7f04039d, R.attr.obfuscated_res_0x7f04039e, R.attr.obfuscated_res_0x7f0403a5}, i, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04039b, R.attr.obfuscated_res_0x7f04039c, R.attr.obfuscated_res_0x7f04039d, R.attr.obfuscated_res_0x7f04039e, R.attr.obfuscated_res_0x7f04039f, R.attr.obfuscated_res_0x7f0403a6}, i, 0);
             this.jk = obtainStyledAttributes.getDimension(1, com.kwad.sdk.b.kwai.a.a(this.mContext, 5.0f));
             this.jm = obtainStyledAttributes.getDimension(2, com.kwad.sdk.b.kwai.a.a(this.mContext, 6.0f));
             this.jn = obtainStyledAttributes.getDimension(3, com.kwad.sdk.b.kwai.a.a(this.mContext, 50.0f));

@@ -39,7 +39,7 @@ public class ux8 extends View {
             }
         }
         this.a = (int) TypedValue.applyDimension(1, 15.0f, context.getResources().getDisplayMetrics());
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f081226);
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f081227);
     }
 
     public boolean a(int i, int i2) {

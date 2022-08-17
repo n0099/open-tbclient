@@ -1,8 +1,10 @@
 package com.facebook.imagepipeline.producers;
 
 import android.content.ContentResolver;
+import android.content.res.AssetFileDescriptor;
 import android.media.ExifInterface;
 import android.net.Uri;
+import android.os.Build;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,7 +27,9 @@ import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imageutils.BitmapUtil;
 import com.facebook.imageutils.JfifUtil;
+import com.facebook.soloader.DoNotOptimize;
 import java.io.File;
+import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.Executor;
@@ -41,6 +45,44 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImag
     public final ContentResolver mContentResolver;
     public final Executor mExecutor;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
+
+    @DoNotOptimize
+    /* loaded from: classes4.dex */
+    public class Api24Utils {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LocalExifThumbnailProducer this$0;
+
+        public Api24Utils(LocalExifThumbnailProducer localExifThumbnailProducer) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {localExifThumbnailProducer};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = localExifThumbnailProducer;
+        }
+
+        public ExifInterface getExifInterface(FileDescriptor fileDescriptor) throws IOException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fileDescriptor)) == null) {
+                if (Build.VERSION.SDK_INT >= 24) {
+                    return new ExifInterface(fileDescriptor);
+                }
+                return null;
+            }
+            return (ExifInterface) invokeL.objValue;
+        }
+    }
 
     public LocalExifThumbnailProducer(Executor executor, PooledByteBufferFactory pooledByteBufferFactory, ContentResolver contentResolver) {
         Interceptable interceptable = $ic;
@@ -123,16 +165,20 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImag
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
             String realPathFromUri = UriUtil.getRealPathFromUri(this.mContentResolver, uri);
             try {
-                if (canReadAsFile(realPathFromUri)) {
-                    return new ExifInterface(realPathFromUri);
-                }
-                return null;
             } catch (IOException unused) {
-                return null;
             } catch (StackOverflowError unused2) {
                 FLog.e(LocalExifThumbnailProducer.class, "StackOverflowError in ExifInterface constructor");
-                return null;
             }
+            if (canReadAsFile(realPathFromUri)) {
+                return new ExifInterface(realPathFromUri);
+            }
+            AssetFileDescriptor assetFileDescriptor = UriUtil.getAssetFileDescriptor(this.mContentResolver, uri);
+            if (assetFileDescriptor != null && Build.VERSION.SDK_INT >= 24) {
+                ExifInterface exifInterface = new Api24Utils().getExifInterface(assetFileDescriptor.getFileDescriptor());
+                assetFileDescriptor.close();
+                return exifInterface;
+            }
+            return null;
         }
         return (ExifInterface) invokeL.objValue;
     }
@@ -141,7 +187,10 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImag
     public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, consumer, producerContext) == null) {
-            StatefulProducerRunnable<EncodedImage> statefulProducerRunnable = new StatefulProducerRunnable<EncodedImage>(this, consumer, producerContext.getListener(), PRODUCER_NAME, producerContext.getId(), producerContext.getImageRequest()) { // from class: com.facebook.imagepipeline.producers.LocalExifThumbnailProducer.1
+            ProducerListener2 producerListener = producerContext.getProducerListener();
+            ImageRequest imageRequest = producerContext.getImageRequest();
+            producerContext.putOriginExtra("local", "exif");
+            StatefulProducerRunnable<EncodedImage> statefulProducerRunnable = new StatefulProducerRunnable<EncodedImage>(this, consumer, producerListener, producerContext, PRODUCER_NAME, imageRequest) { // from class: com.facebook.imagepipeline.producers.LocalExifThumbnailProducer.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LocalExifThumbnailProducer this$0;
@@ -149,25 +198,25 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImag
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
-                    super(consumer, r12, r13, r14);
+                    super(consumer, producerListener, producerContext, r14);
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, consumer, r12, r13, r14, r15};
+                        Object[] objArr = {this, consumer, producerListener, producerContext, r14, imageRequest};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
                             int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
-                            super((Consumer) objArr2[0], (ProducerListener) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
+                            super((Consumer) objArr2[0], (ProducerListener2) objArr2[1], (ProducerContext) objArr2[2], (String) objArr2[3]);
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$imageRequest = r15;
+                    this.val$imageRequest = imageRequest;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */

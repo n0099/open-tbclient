@@ -13,6 +13,7 @@ import com.coremedia.iso.boxes.ChunkOffset64BitBox;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
 import com.coremedia.iso.boxes.EditBox;
 import com.coremedia.iso.boxes.EditListBox;
+import com.coremedia.iso.boxes.FileTypeBox;
 import com.coremedia.iso.boxes.HandlerBox;
 import com.coremedia.iso.boxes.MediaBox;
 import com.coremedia.iso.boxes.MediaHeaderBox;
@@ -323,7 +324,7 @@ public abstract class Atom {
                 return;
             }
         }
-        TYPE_ftyp = Util.getIntegerCodeForString("ftyp");
+        TYPE_ftyp = Util.getIntegerCodeForString(FileTypeBox.TYPE);
         TYPE_avc1 = Util.getIntegerCodeForString("avc1");
         TYPE_avc3 = Util.getIntegerCodeForString(VisualSampleEntry.TYPE4);
         TYPE_hvc1 = Util.getIntegerCodeForString(MediaCodecUtil.CODEC_ID_HVC1);

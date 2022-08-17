@@ -149,7 +149,7 @@ public class m51 extends Dialog {
                         wx0.j(this.b, this.a);
                     }
                     if (this.b.size() == 0) {
-                        this.c.setText(view2.getContext().getResources().getText(R.string.obfuscated_res_0x7f0f0b8e));
+                        this.c.setText(view2.getContext().getResources().getText(R.string.obfuscated_res_0x7f0f0b8f));
                     }
                     this.d.setTextColor(view2.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060263));
                     return;
@@ -159,7 +159,7 @@ public class m51 extends Dialog {
                     wx0.b(this.b, this.a);
                 }
                 this.d.setTextColor(view2.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060271));
-                this.c.setText(view2.getContext().getResources().getText(R.string.obfuscated_res_0x7f0f0b8f));
+                this.c.setText(view2.getContext().getResources().getText(R.string.obfuscated_res_0x7f0f0b90));
             }
         }
     }
@@ -200,9 +200,9 @@ public class m51 extends Dialog {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05cf, (ViewGroup) null);
             TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092311);
             View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0912e6);
-            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0b8e));
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0b8f));
             textView.setOnClickListener(new a(this, arrayList, adBaseModel));
-            inflate.setBackground(inflate.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d81));
+            inflate.setBackground(inflate.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d82));
             Resources resources = inflate.getContext().getResources();
             int i2 = R.color.obfuscated_res_0x7f060263;
             textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060263));

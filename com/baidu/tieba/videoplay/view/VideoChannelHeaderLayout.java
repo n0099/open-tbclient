@@ -368,7 +368,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (z) {
                 if (!oi.z()) {
-                    qi.L(getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0c3c));
+                    qi.K(getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0c3d));
                     return;
                 }
                 d dVar = this.i;

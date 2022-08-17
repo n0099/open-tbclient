@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
 import com.repackage.oi;
+import com.repackage.sg8;
 import com.repackage.tg8;
 import com.repackage.ug8;
-import com.repackage.vg8;
-import com.repackage.yg8;
+import com.repackage.xg8;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
@@ -22,24 +22,24 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public yg8 b;
+    public xg8 b;
     public a c;
-    public tg8 d;
+    public sg8 d;
     public String e;
     public boolean isRunning;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void a(yg8 yg8Var);
+        void a(xg8 xg8Var);
 
         void d(String str);
     }
 
     /* loaded from: classes4.dex */
-    public class b extends BdAsyncTask<String, Integer, yg8> {
+    public class b extends BdAsyncTask<String, Integer, xg8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public vg8 a;
+        public ug8 a;
         public boolean b;
         public final /* synthetic */ SignAllForumModel c;
 
@@ -67,16 +67,16 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public yg8 doInBackground(String... strArr) {
+        public xg8 doInBackground(String... strArr) {
             InterceptResult invokeL;
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 if (c() || !(strArr == null || strArr.length == 0 || strArr[0] == null)) {
                     if (c()) {
-                        vg8 vg8Var = new vg8();
-                        this.a = vg8Var;
-                        vg8Var.d(this.c.e);
+                        ug8 ug8Var = new ug8();
+                        this.a = ug8Var;
+                        ug8Var.d(this.c.e);
                         if (oi.z()) {
                             e();
                         }
@@ -93,9 +93,9 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                                     sb.append(split[i] + ",");
                                 }
                             }
-                            vg8 vg8Var2 = new vg8();
-                            this.a = vg8Var2;
-                            vg8Var2.d(this.c.e);
+                            ug8 ug8Var2 = new ug8();
+                            this.a = ug8Var2;
+                            ug8Var2.d(this.c.e);
                             if (oi.z()) {
                                 d(sb.toString());
                             }
@@ -105,7 +105,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                 }
                 return null;
             }
-            return (yg8) invokeL.objValue;
+            return (xg8) invokeL.objValue;
         }
 
         public boolean c() {
@@ -126,7 +126,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
             }
         }
 
-        public final yg8 d(String str) {
+        public final xg8 d(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
@@ -139,10 +139,10 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                 AuthTokenData.parse(e);
                 return null;
             }
-            return (yg8) invokeL.objValue;
+            return (xg8) invokeL.objValue;
         }
 
-        public final yg8 e() {
+        public final xg8 e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -155,15 +155,15 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                 AuthTokenData.parse(f);
                 return null;
             }
-            return (yg8) invokeV.objValue;
+            return (xg8) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: f */
-        public void onPostExecute(yg8 yg8Var) {
+        public void onPostExecute(xg8 xg8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, yg8Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048582, this, xg8Var) == null) {
                 SignAllForumModel signAllForumModel = this.c;
                 signAllForumModel.isRunning = false;
                 signAllForumModel.a = null;
@@ -172,8 +172,8 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                         this.c.c.a(this.c.b);
                         return;
                     }
-                    vg8 vg8Var = this.a;
-                    this.c.c.d(vg8Var != null ? vg8Var.b() : null);
+                    ug8 ug8Var = this.a;
+                    this.c.c.d(ug8Var != null ? ug8Var.b() : null);
                 }
             }
         }
@@ -216,22 +216,22 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
         this.a = null;
         this.b = null;
         this.c = null;
-        this.b = new yg8();
+        this.b = new xg8();
     }
 
     public final String E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList<ug8> x = this.d.x();
+            ArrayList<tg8> x = this.d.x();
             if (x == null) {
                 return "";
             }
             if (!this.d.B()) {
                 ArrayList arrayList = new ArrayList();
-                Iterator<ug8> it = x.iterator();
+                Iterator<tg8> it = x.iterator();
                 while (it.hasNext()) {
-                    ug8 next = it.next();
+                    tg8 next = it.next();
                     if (next.i() < this.d.l()) {
                         arrayList.add(next);
                     }
@@ -241,32 +241,32 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
             int size = x.size();
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < size; i++) {
-                ug8 ug8Var = x.get(i);
-                if (ug8Var.j()) {
-                    if (!ug8Var.k()) {
-                        ug8Var.t(true);
+                tg8 tg8Var = x.get(i);
+                if (tg8Var.j()) {
+                    if (!tg8Var.k()) {
+                        tg8Var.t(true);
                     }
                 }
                 if (i > 0) {
                     sb.append(",");
                 }
-                sb.append(ug8Var.c());
+                sb.append(tg8Var.c());
             }
             return sb.toString();
         }
         return (String) invokeV.objValue;
     }
 
-    public tg8 F() {
+    public sg8 F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (tg8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (sg8) invokeV.objValue;
     }
 
-    public void G(tg8 tg8Var) {
+    public void G(sg8 sg8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tg8Var) == null) {
-            this.d = tg8Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sg8Var) == null) {
+            this.d = sg8Var;
         }
     }
 

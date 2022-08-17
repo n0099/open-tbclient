@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.d9;
 import com.repackage.gr8;
-import com.repackage.kk8;
+import com.repackage.jk8;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -266,8 +266,8 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            kk8.h(309031, BubbleListSocketResponseMessage.class, false, false);
-            kk8.c(309031, CmdConfigHttp.CMD_BUBBLE_LIST, TbConfig.BUBBLE_LIST_PAGE, BubbleListHttpResponseMessage.class, false, false, false, false);
+            jk8.h(309031, BubbleListSocketResponseMessage.class, false, false);
+            jk8.c(309031, CmdConfigHttp.CMD_BUBBLE_LIST, TbConfig.BUBBLE_LIST_PAGE, BubbleListHttpResponseMessage.class, false, false, false, false);
         }
     }
 

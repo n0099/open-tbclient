@@ -25,6 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import com.vivo.push.d.r;
 import com.vivo.push.model.InsideNotificationItem;
 import java.text.SimpleDateFormat;
@@ -106,7 +107,7 @@ public class NotifyAdapterUtil {
                         }
                     }
                     NotificationChannel notificationChannel2 = new NotificationChannel(PRIMARY_CHANNEL, isZh(context) ? PUSH_ZH : PUSH_EN, 4);
-                    notificationChannel2.setLightColor(-16711936);
+                    notificationChannel2.setLightColor(DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK);
                     notificationChannel2.enableVibration(true);
                     notificationChannel2.setLockscreenVisibility(1);
                     sNotificationManager.createNotificationChannel(notificationChannel2);

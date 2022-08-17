@@ -108,7 +108,7 @@ public class yr4 {
                 tbPageContext.getLayoutMode().l(skinType == 1);
                 tbPageContext.getLayoutMode().k(this.d);
             }
-            this.d.setBackgroundResource(R.drawable.obfuscated_res_0x7f08120f);
+            this.d.setBackgroundResource(R.drawable.obfuscated_res_0x7f081210);
         }
     }
 

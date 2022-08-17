@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bw7;
+import com.repackage.aw7;
 import com.repackage.ms4;
-import com.repackage.t08;
+import com.repackage.s08;
 import com.repackage.y06;
 /* loaded from: classes3.dex */
-public class PbRecomChildTitleAdapter extends bw7<y06, ViewHolder> {
+public class PbRecomChildTitleAdapter extends aw7<y06, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder g;
@@ -83,19 +83,19 @@ public class PbRecomChildTitleAdapter extends bw7<y06, ViewHolder> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbRecomChildTitleAdapter(t08 t08Var, BdUniqueId bdUniqueId) {
-        super(t08Var, bdUniqueId);
+    public PbRecomChildTitleAdapter(s08 s08Var, BdUniqueId bdUniqueId) {
+        super(s08Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t08Var, bdUniqueId};
+            Object[] objArr = {s08Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((t08) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((s08) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -103,7 +103,7 @@ public class PbRecomChildTitleAdapter extends bw7<y06, ViewHolder> {
         }
     }
 
-    @Override // com.repackage.bw7, com.repackage.bn
+    @Override // com.repackage.aw7, com.repackage.bn
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         w(i, view2, viewGroup, (y06) obj, (ViewHolder) viewHolder);
         return view2;

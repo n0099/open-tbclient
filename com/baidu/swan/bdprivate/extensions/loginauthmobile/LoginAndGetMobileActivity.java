@@ -203,7 +203,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             wi3.a().onResult(i);
             if (i != 0) {
-                r03.f(this, R.string.obfuscated_res_0x7f0f12c3).H(true);
+                r03.f(this, R.string.obfuscated_res_0x7f0f12c5).H(true);
             } else {
                 finish();
             }

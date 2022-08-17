@@ -21,9 +21,11 @@ import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.producers.AddImageTransformMetaDataProducer;
 import com.facebook.imagepipeline.producers.DiskCacheReadProducer;
 import com.facebook.imagepipeline.producers.DiskCacheWriteProducer;
+import com.facebook.imagepipeline.producers.EncodedMemoryCacheProducer;
 import com.facebook.imagepipeline.producers.NetworkFetcher;
 import com.facebook.imagepipeline.producers.Producer;
 import com.facebook.imagepipeline.producers.RemoveImageTransformMetaDataProducer;
+import com.facebook.imagepipeline.producers.ThreadHandoffProducer;
 import com.facebook.imagepipeline.producers.ThreadHandoffProducerQueue;
 import com.facebook.imagepipeline.producers.ThumbnailProducer;
 import com.facebook.imagepipeline.request.ImageRequest;
@@ -35,6 +37,8 @@ import java.util.Map;
 public class ProducerSequenceFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @VisibleForTesting
+    public Producer<EncodedImage> mBackgroundLocalContentUriFetchToEncodedMemorySequence;
     @VisibleForTesting
     public Producer<EncodedImage> mBackgroundLocalFileFetchToEncodedMemorySequence;
     @VisibleForTesting
@@ -50,8 +54,12 @@ public class ProducerSequenceFactory {
     public final boolean mDiskCacheEnabled;
     public final boolean mDownsampleEnabled;
     public final ImageTranscoderFactory mImageTranscoderFactory;
+    public final boolean mIsDiskCacheProbingEnabled;
+    public final boolean mIsEncodedMemoryCacheProbingEnabled;
     @VisibleForTesting
     public Producer<CloseableReference<CloseableImage>> mLocalAssetFetchSequence;
+    @VisibleForTesting
+    public Producer<CloseableReference<PooledByteBuffer>> mLocalContentUriEncodedImageProducerSequence;
     @VisibleForTesting
     public Producer<CloseableReference<CloseableImage>> mLocalContentUriFetchSequence;
     @VisibleForTesting
@@ -82,12 +90,12 @@ public class ProducerSequenceFactory {
     public final boolean mUseBitmapPrepareToDraw;
     public final boolean mWebpSupportEnabled;
 
-    public ProducerSequenceFactory(ContentResolver contentResolver, ProducerFactory producerFactory, NetworkFetcher networkFetcher, boolean z, boolean z2, ThreadHandoffProducerQueue threadHandoffProducerQueue, boolean z3, boolean z4, boolean z5, boolean z6, ImageTranscoderFactory imageTranscoderFactory) {
+    public ProducerSequenceFactory(ContentResolver contentResolver, ProducerFactory producerFactory, NetworkFetcher networkFetcher, boolean z, boolean z2, ThreadHandoffProducerQueue threadHandoffProducerQueue, boolean z3, boolean z4, boolean z5, boolean z6, ImageTranscoderFactory imageTranscoderFactory, boolean z7, boolean z8) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {contentResolver, producerFactory, networkFetcher, Boolean.valueOf(z), Boolean.valueOf(z2), threadHandoffProducerQueue, Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), imageTranscoderFactory};
+            Object[] objArr = {contentResolver, producerFactory, networkFetcher, Boolean.valueOf(z), Boolean.valueOf(z2), threadHandoffProducerQueue, Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), imageTranscoderFactory, Boolean.valueOf(z7), Boolean.valueOf(z8)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -111,13 +119,43 @@ public class ProducerSequenceFactory {
         this.mPartialImageCachingEnabled = z5;
         this.mDiskCacheEnabled = z6;
         this.mImageTranscoderFactory = imageTranscoderFactory;
+        this.mIsEncodedMemoryCacheProbingEnabled = z7;
+        this.mIsDiskCacheProbingEnabled = z8;
+    }
+
+    private synchronized Producer<EncodedImage> getBackgroundLocalContentUriFetchToEncodeMemorySequence() {
+        InterceptResult invokeV;
+        Producer<EncodedImage> producer;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            synchronized (this) {
+                if (FrescoSystrace.isTracing()) {
+                    FrescoSystrace.beginSection("ProducerSequenceFactory#getBackgroundLocalContentUriFetchToEncodeMemorySequence");
+                }
+                if (this.mBackgroundLocalContentUriFetchToEncodedMemorySequence == null) {
+                    if (FrescoSystrace.isTracing()) {
+                        FrescoSystrace.beginSection("ProducerSequenceFactory#getBackgroundLocalContentUriFetchToEncodeMemorySequence:init");
+                    }
+                    this.mBackgroundLocalContentUriFetchToEncodedMemorySequence = this.mProducerFactory.newBackgroundThreadHandoffProducer(newEncodedCacheMultiplexToTranscodeSequence(this.mProducerFactory.newLocalContentUriFetchProducer()), this.mThreadHandoffProducerQueue);
+                    if (FrescoSystrace.isTracing()) {
+                        FrescoSystrace.endSection();
+                    }
+                }
+                if (FrescoSystrace.isTracing()) {
+                    FrescoSystrace.endSection();
+                }
+                producer = this.mBackgroundLocalContentUriFetchToEncodedMemorySequence;
+            }
+            return producer;
+        }
+        return (Producer) invokeV.objValue;
     }
 
     private synchronized Producer<EncodedImage> getBackgroundLocalFileFetchToEncodeMemorySequence() {
         InterceptResult invokeV;
         Producer<EncodedImage> producer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             synchronized (this) {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("ProducerSequenceFactory#getBackgroundLocalFileFetchToEncodeMemorySequence");
@@ -145,7 +183,7 @@ public class ProducerSequenceFactory {
         InterceptResult invokeV;
         Producer<EncodedImage> producer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             synchronized (this) {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("ProducerSequenceFactory#getBackgroundNetworkFetchToEncodedMemorySequence");
@@ -173,7 +211,7 @@ public class ProducerSequenceFactory {
     private Producer<CloseableReference<CloseableImage>> getBasicDecodedImageSequence(ImageRequest imageRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, imageRequest)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, imageRequest)) == null) {
             try {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("ProducerSequenceFactory#getBasicDecodedImageSequence");
@@ -251,7 +289,7 @@ public class ProducerSequenceFactory {
         InterceptResult invokeL;
         Producer<CloseableReference<CloseableImage>> producer2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, producer)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, producer)) == null) {
             synchronized (this) {
                 producer2 = this.mBitmapPrepareSequences.get(producer);
                 if (producer2 == null) {
@@ -268,7 +306,7 @@ public class ProducerSequenceFactory {
         InterceptResult invokeV;
         Producer<EncodedImage> producer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             synchronized (this) {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("ProducerSequenceFactory#getCommonNetworkFetchToEncodedMemorySequence");
@@ -298,7 +336,7 @@ public class ProducerSequenceFactory {
         InterceptResult invokeV;
         Producer<CloseableReference<CloseableImage>> producer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             synchronized (this) {
                 if (this.mDataFetchSequence == null) {
                     Producer<EncodedImage> newDataFetchProducer = this.mProducerFactory.newDataFetchProducer();
@@ -318,7 +356,7 @@ public class ProducerSequenceFactory {
         InterceptResult invokeL;
         Producer<Void> producer2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, producer)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, producer)) == null) {
             synchronized (this) {
                 if (!this.mCloseableImagePrefetchSequences.containsKey(producer)) {
                     this.mCloseableImagePrefetchSequences.put(producer, ProducerFactory.newSwallowResultProducer(producer));
@@ -334,7 +372,7 @@ public class ProducerSequenceFactory {
         InterceptResult invokeV;
         Producer<CloseableReference<CloseableImage>> producer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
             synchronized (this) {
                 if (this.mLocalAssetFetchSequence == null) {
                     this.mLocalAssetFetchSequence = newBitmapCacheGetToLocalTransformSequence(this.mProducerFactory.newLocalAssetFetchProducer());
@@ -350,7 +388,7 @@ public class ProducerSequenceFactory {
         InterceptResult invokeV;
         Producer<CloseableReference<CloseableImage>> producer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             synchronized (this) {
                 if (this.mLocalContentUriFetchSequence == null) {
                     this.mLocalContentUriFetchSequence = newBitmapCacheGetToLocalTransformSequence(this.mProducerFactory.newLocalContentUriFetchProducer(), new ThumbnailProducer[]{this.mProducerFactory.newLocalContentUriThumbnailFetchProducer(), this.mProducerFactory.newLocalExifThumbnailProducer()});
@@ -366,7 +404,7 @@ public class ProducerSequenceFactory {
         InterceptResult invokeV;
         Producer<Void> producer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
             synchronized (this) {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("ProducerSequenceFactory#getLocalFileFetchToEncodedMemoryPrefetchSequence");
@@ -394,7 +432,7 @@ public class ProducerSequenceFactory {
         InterceptResult invokeV;
         Producer<CloseableReference<CloseableImage>> producer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
             synchronized (this) {
                 if (this.mLocalImageFileFetchSequence == null) {
                     this.mLocalImageFileFetchSequence = newBitmapCacheGetToLocalTransformSequence(this.mProducerFactory.newLocalFileFetchProducer());
@@ -410,7 +448,7 @@ public class ProducerSequenceFactory {
         InterceptResult invokeV;
         Producer<CloseableReference<CloseableImage>> producer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
             synchronized (this) {
                 if (this.mLocalResourceFetchSequence == null) {
                     this.mLocalResourceFetchSequence = newBitmapCacheGetToLocalTransformSequence(this.mProducerFactory.newLocalResourceFetchProducer());
@@ -426,7 +464,7 @@ public class ProducerSequenceFactory {
         InterceptResult invokeV;
         Producer<CloseableReference<CloseableImage>> producer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
             synchronized (this) {
                 if (this.mLocalVideoFileFetchSequence == null) {
                     this.mLocalVideoFileFetchSequence = newBitmapCacheGetToBitmapCacheSequence(this.mProducerFactory.newLocalVideoThumbnailProducer());
@@ -442,7 +480,7 @@ public class ProducerSequenceFactory {
         InterceptResult invokeV;
         Producer<CloseableReference<CloseableImage>> producer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
             synchronized (this) {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("ProducerSequenceFactory#getNetworkFetchSequence");
@@ -470,7 +508,7 @@ public class ProducerSequenceFactory {
         InterceptResult invokeV;
         Producer<Void> producer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
             synchronized (this) {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("ProducerSequenceFactory#getNetworkFetchToEncodedMemoryPrefetchSequence");
@@ -498,7 +536,7 @@ public class ProducerSequenceFactory {
         InterceptResult invokeL;
         Producer<CloseableReference<CloseableImage>> producer2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, this, producer)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, this, producer)) == null) {
             synchronized (this) {
                 if (!this.mPostprocessorSequences.containsKey(producer)) {
                     this.mPostprocessorSequences.put(producer, this.mProducerFactory.newPostprocessorBitmapMemoryCacheProducer(this.mProducerFactory.newPostprocessorProducer(producer)));
@@ -514,7 +552,7 @@ public class ProducerSequenceFactory {
         InterceptResult invokeV;
         Producer<CloseableReference<CloseableImage>> producer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
             synchronized (this) {
                 if (this.mQualifiedResourceFetchSequence == null) {
                     this.mQualifiedResourceFetchSequence = newBitmapCacheGetToLocalTransformSequence(this.mProducerFactory.newQualifiedResourceFetchProducer());
@@ -529,7 +567,7 @@ public class ProducerSequenceFactory {
     public static String getShortenedUriString(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, uri)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, uri)) == null) {
             String valueOf = String.valueOf(uri);
             if (valueOf.length() > 30) {
                 return valueOf.substring(0, 30) + StringHelper.STRING_MORE;
@@ -542,13 +580,20 @@ public class ProducerSequenceFactory {
     private Producer<CloseableReference<CloseableImage>> newBitmapCacheGetToBitmapCacheSequence(Producer<CloseableReference<CloseableImage>> producer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65555, this, producer)) == null) ? this.mProducerFactory.newBitmapMemoryCacheGetProducer(this.mProducerFactory.newBackgroundThreadHandoffProducer(this.mProducerFactory.newBitmapMemoryCacheKeyMultiplexProducer(this.mProducerFactory.newBitmapMemoryCacheProducer(producer)), this.mThreadHandoffProducerQueue)) : (Producer) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, this, producer)) == null) {
+            ThreadHandoffProducer newBackgroundThreadHandoffProducer = this.mProducerFactory.newBackgroundThreadHandoffProducer(this.mProducerFactory.newBitmapMemoryCacheKeyMultiplexProducer(this.mProducerFactory.newBitmapMemoryCacheProducer(producer)), this.mThreadHandoffProducerQueue);
+            if (!this.mIsEncodedMemoryCacheProbingEnabled && !this.mIsDiskCacheProbingEnabled) {
+                return this.mProducerFactory.newBitmapMemoryCacheGetProducer(newBackgroundThreadHandoffProducer);
+            }
+            return this.mProducerFactory.newBitmapProbeProducer(this.mProducerFactory.newBitmapMemoryCacheGetProducer(newBackgroundThreadHandoffProducer));
+        }
+        return (Producer) invokeL.objValue;
     }
 
     private Producer<CloseableReference<CloseableImage>> newBitmapCacheGetToDecodeSequence(Producer<EncodedImage> producer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65556, this, producer)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, this, producer)) == null) {
             if (FrescoSystrace.isTracing()) {
                 FrescoSystrace.beginSection("ProducerSequenceFactory#newBitmapCacheGetToDecodeSequence");
             }
@@ -564,14 +609,14 @@ public class ProducerSequenceFactory {
     private Producer<CloseableReference<CloseableImage>> newBitmapCacheGetToLocalTransformSequence(Producer<EncodedImage> producer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65557, this, producer)) == null) ? newBitmapCacheGetToLocalTransformSequence(producer, new ThumbnailProducer[]{this.mProducerFactory.newLocalExifThumbnailProducer()}) : (Producer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65558, this, producer)) == null) ? newBitmapCacheGetToLocalTransformSequence(producer, new ThumbnailProducer[]{this.mProducerFactory.newLocalExifThumbnailProducer()}) : (Producer) invokeL.objValue;
     }
 
     private Producer<EncodedImage> newDiskCacheSequence(Producer<EncodedImage> producer) {
         InterceptResult invokeL;
         DiskCacheWriteProducer newDiskCacheWriteProducer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65559, this, producer)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65560, this, producer)) == null) {
             if (FrescoSystrace.isTracing()) {
                 FrescoSystrace.beginSection("ProducerSequenceFactory#newDiskCacheSequence");
             }
@@ -592,14 +637,18 @@ public class ProducerSequenceFactory {
     private Producer<EncodedImage> newEncodedCacheMultiplexToTranscodeSequence(Producer<EncodedImage> producer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65560, this, producer)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, this, producer)) == null) {
             if (WebpSupportStatus.sIsWebpSupportRequired && (!this.mWebpSupportEnabled || WebpSupportStatus.sWebpBitmapFactory == null)) {
                 producer = this.mProducerFactory.newWebpTranscodeProducer(producer);
             }
             if (this.mDiskCacheEnabled) {
                 producer = newDiskCacheSequence(producer);
             }
-            return this.mProducerFactory.newEncodedCacheKeyMultiplexProducer(this.mProducerFactory.newEncodedMemoryCacheProducer(producer));
+            EncodedMemoryCacheProducer newEncodedMemoryCacheProducer = this.mProducerFactory.newEncodedMemoryCacheProducer(producer);
+            if (this.mIsDiskCacheProbingEnabled) {
+                return this.mProducerFactory.newEncodedCacheKeyMultiplexProducer(this.mProducerFactory.newEncodedProbeProducer(newEncodedMemoryCacheProducer));
+            }
+            return this.mProducerFactory.newEncodedCacheKeyMultiplexProducer(newEncodedMemoryCacheProducer);
         }
         return (Producer) invokeL.objValue;
     }
@@ -607,18 +656,18 @@ public class ProducerSequenceFactory {
     private Producer<EncodedImage> newLocalThumbnailProducer(ThumbnailProducer<EncodedImage>[] thumbnailProducerArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65561, this, thumbnailProducerArr)) == null) ? this.mProducerFactory.newResizeAndRotateProducer(this.mProducerFactory.newThumbnailBranchProducer(thumbnailProducerArr), true, this.mImageTranscoderFactory) : (Producer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65562, this, thumbnailProducerArr)) == null) ? this.mProducerFactory.newResizeAndRotateProducer(this.mProducerFactory.newThumbnailBranchProducer(thumbnailProducerArr), true, this.mImageTranscoderFactory) : (Producer) invokeL.objValue;
     }
 
     private Producer<EncodedImage> newLocalTransformationsSequence(Producer<EncodedImage> producer, ThumbnailProducer<EncodedImage>[] thumbnailProducerArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65562, this, producer, thumbnailProducerArr)) == null) ? ProducerFactory.newBranchOnSeparateImagesProducer(newLocalThumbnailProducer(thumbnailProducerArr), this.mProducerFactory.newThrottlingProducer(this.mProducerFactory.newResizeAndRotateProducer(ProducerFactory.newAddImageTransformMetaDataProducer(producer), true, this.mImageTranscoderFactory))) : (Producer) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65563, this, producer, thumbnailProducerArr)) == null) ? ProducerFactory.newBranchOnSeparateImagesProducer(newLocalThumbnailProducer(thumbnailProducerArr), this.mProducerFactory.newThrottlingProducer(this.mProducerFactory.newResizeAndRotateProducer(ProducerFactory.newAddImageTransformMetaDataProducer(producer), true, this.mImageTranscoderFactory))) : (Producer) invokeLL.objValue;
     }
 
     public static void validateEncodedImageRequest(ImageRequest imageRequest) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65563, null, imageRequest) == null) {
+        if (interceptable == null || interceptable.invokeL(65564, null, imageRequest) == null) {
             Preconditions.checkNotNull(imageRequest);
             Preconditions.checkArgument(imageRequest.getLowestPermittedRequestLevel().getValue() <= ImageRequest.RequestLevel.ENCODED_MEMORY_CACHE.getValue());
         }
@@ -689,17 +738,23 @@ public class ProducerSequenceFactory {
                 validateEncodedImageRequest(imageRequest);
                 Uri sourceUri = imageRequest.getSourceUri();
                 int sourceUriType = imageRequest.getSourceUriType();
-                if (sourceUriType != 0) {
-                    if (sourceUriType != 2 && sourceUriType != 3) {
-                        throw new IllegalArgumentException("Unsupported uri scheme for encoded image fetch! Uri is: " + getShortenedUriString(sourceUri));
+                if (sourceUriType == 0) {
+                    Producer<CloseableReference<PooledByteBuffer>> networkFetchEncodedImageProducerSequence = getNetworkFetchEncodedImageProducerSequence();
+                    if (FrescoSystrace.isTracing()) {
+                        FrescoSystrace.endSection();
                     }
-                    return getLocalFileFetchEncodedImageProducerSequence();
+                    return networkFetchEncodedImageProducerSequence;
+                } else if (sourceUriType == 2 || sourceUriType == 3) {
+                    Producer<CloseableReference<PooledByteBuffer>> localFileFetchEncodedImageProducerSequence = getLocalFileFetchEncodedImageProducerSequence();
+                    if (FrescoSystrace.isTracing()) {
+                        FrescoSystrace.endSection();
+                    }
+                    return localFileFetchEncodedImageProducerSequence;
+                } else if (sourceUriType == 4) {
+                    return getLocalContentUriFetchEncodedImageProducerSequence();
+                } else {
+                    throw new IllegalArgumentException("Unsupported uri scheme for encoded image fetch! Uri is: " + getShortenedUriString(sourceUri));
                 }
-                Producer<CloseableReference<PooledByteBuffer>> networkFetchEncodedImageProducerSequence = getNetworkFetchEncodedImageProducerSequence();
-                if (FrescoSystrace.isTracing()) {
-                    FrescoSystrace.endSection();
-                }
-                return networkFetchEncodedImageProducerSequence;
             } finally {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.endSection();
@@ -709,10 +764,36 @@ public class ProducerSequenceFactory {
         return (Producer) invokeL.objValue;
     }
 
-    public Producer<CloseableReference<PooledByteBuffer>> getLocalFileFetchEncodedImageProducerSequence() {
+    public Producer<CloseableReference<PooledByteBuffer>> getLocalContentUriFetchEncodedImageProducerSequence() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                if (FrescoSystrace.isTracing()) {
+                    FrescoSystrace.beginSection("ProducerSequenceFactory#getLocalContentUriFetchEncodedImageProducerSequence");
+                }
+                if (this.mLocalContentUriEncodedImageProducerSequence == null) {
+                    if (FrescoSystrace.isTracing()) {
+                        FrescoSystrace.beginSection("ProducerSequenceFactory#getLocalContentUriFetchEncodedImageProducerSequence:init");
+                    }
+                    this.mLocalContentUriEncodedImageProducerSequence = new RemoveImageTransformMetaDataProducer(getBackgroundLocalContentUriFetchToEncodeMemorySequence());
+                    if (FrescoSystrace.isTracing()) {
+                        FrescoSystrace.endSection();
+                    }
+                }
+                if (FrescoSystrace.isTracing()) {
+                    FrescoSystrace.endSection();
+                }
+            }
+            return this.mLocalContentUriEncodedImageProducerSequence;
+        }
+        return (Producer) invokeV.objValue;
+    }
+
+    public Producer<CloseableReference<PooledByteBuffer>> getLocalFileFetchEncodedImageProducerSequence() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("ProducerSequenceFactory#getLocalFileFetchEncodedImageProducerSequence");
@@ -738,7 +819,7 @@ public class ProducerSequenceFactory {
     public Producer<CloseableReference<PooledByteBuffer>> getNetworkFetchEncodedImageProducerSequence() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("ProducerSequenceFactory#getNetworkFetchEncodedImageProducerSequence");
@@ -764,6 +845,6 @@ public class ProducerSequenceFactory {
     private Producer<CloseableReference<CloseableImage>> newBitmapCacheGetToLocalTransformSequence(Producer<EncodedImage> producer, ThumbnailProducer<EncodedImage>[] thumbnailProducerArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65558, this, producer, thumbnailProducerArr)) == null) ? newBitmapCacheGetToDecodeSequence(newLocalTransformationsSequence(newEncodedCacheMultiplexToTranscodeSequence(producer), thumbnailProducerArr)) : (Producer) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65559, this, producer, thumbnailProducerArr)) == null) ? newBitmapCacheGetToDecodeSequence(newLocalTransformationsSequence(newEncodedCacheMultiplexToTranscodeSequence(producer), thumbnailProducerArr)) : (Producer) invokeLL.objValue;
     }
 }

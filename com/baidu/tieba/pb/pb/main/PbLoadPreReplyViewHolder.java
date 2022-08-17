@@ -51,7 +51,7 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ms4.d(this.b).v(R.color.CAM_X0304);
-            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080a30, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080a31, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
         }
     }
 
@@ -59,14 +59,14 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == 0) {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0f7d);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0f7e);
                 this.c.setVisibility(0);
             } else if (i == 1) {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0a41);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0a42);
                 this.c.setVisibility(8);
             } else if (i != 2) {
             } else {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0a3f);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0a40);
                 this.c.setVisibility(8);
             }
         }

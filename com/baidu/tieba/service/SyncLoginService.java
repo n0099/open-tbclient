@@ -26,7 +26,7 @@ import com.repackage.jl5;
 import com.repackage.lz4;
 import com.repackage.qi;
 import com.repackage.rn4;
-import com.repackage.xm7;
+import com.repackage.wm7;
 /* loaded from: classes4.dex */
 public class SyncLoginService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
@@ -156,7 +156,7 @@ public class SyncLoginService extends BdBaseService {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends BdAsyncTask<String, Integer, xm7> {
+    public class b extends BdAsyncTask<String, Integer, wm7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -184,13 +184,13 @@ public class SyncLoginService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public xm7 doInBackground(String... strArr) {
+        public wm7 doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, strArr)) != null) {
-                return (xm7) invokeL.objValue;
+                return (wm7) invokeL.objValue;
             }
-            xm7 xm7Var = null;
+            wm7 wm7Var = null;
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/switch");
                 this.a = netWork;
@@ -238,16 +238,16 @@ public class SyncLoginService extends BdBaseService {
                 netWork4.addPostData("support_abi", str2);
                 String postNetData = this.a.postNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    xm7 xm7Var2 = new xm7();
+                    wm7 wm7Var2 = new wm7();
                     try {
-                        xm7Var2.a(postNetData);
+                        wm7Var2.a(postNetData);
                         String unused = SyncLoginService.mStatistics = null;
-                        return xm7Var2;
+                        return wm7Var2;
                     } catch (Exception e) {
                         e = e;
-                        xm7Var = xm7Var2;
+                        wm7Var = wm7Var2;
                         BdLog.e(e.getMessage());
-                        return xm7Var;
+                        return wm7Var;
                     }
                 }
                 return null;
@@ -259,10 +259,10 @@ public class SyncLoginService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(xm7 xm7Var) {
+        public void onPostExecute(wm7 wm7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xm7Var) == null) {
-                super.onPostExecute(xm7Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wm7Var) == null) {
+                super.onPostExecute(wm7Var);
                 this.b.mSyncTask = null;
             }
         }

@@ -1,203 +1,67 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RankingParam;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Item;
+import tbclient.RecommendForumInfo;
+import tbclient.SearchSug.DataRes;
+import tbclient.SugLiveInfo;
 import tbclient.SugRankingInfo;
 /* loaded from: classes7.dex */
-public class qh7 implements on {
+public class qh7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public a d;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Integer a;
-        public Integer b;
-        public String c;
-        public Integer d;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static List<on> a(DataRes dataRes, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
+            if (dataRes == null) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            RecommendForumInfo recommendForumInfo = dataRes.forum_card;
+            if (recommendForumInfo != null) {
+                mh7 mh7Var = new mh7();
+                mh7Var.j(recommendForumInfo);
+                arrayList.add(mh7Var);
+            }
+            Item item = dataRes.item_card;
+            if (item != null) {
+                nh7 nh7Var = new nh7();
+                nh7Var.j(item);
+                arrayList.add(nh7Var);
+            }
+            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
+                oh7 oh7Var = new oh7();
+                oh7Var.o(str);
+                oh7Var.n(sugLiveInfo);
+                arrayList.add(oh7Var);
+            }
+            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
+            if (sugRankingInfo != null) {
+                ph7 ph7Var = new ph7();
+                ph7Var.h(str);
+                ph7Var.g(sugRankingInfo);
+                arrayList.add(ph7Var);
+            }
+            int size = arrayList.size();
+            for (String str2 : dataRes.list) {
+                lh7 lh7Var = new lh7();
+                lh7Var.c(str);
+                lh7Var.f(str2);
+                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
+                    arrayList.add(size, lh7Var);
+                } else {
+                    arrayList.add(lh7Var);
                 }
             }
+            return arrayList;
         }
-
-        public Integer a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Integer) invokeV.objValue;
-        }
-
-        public Integer b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (Integer) invokeV.objValue;
-        }
-
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
-        }
-
-        public Integer d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (Integer) invokeV.objValue;
-        }
-
-        public void e(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, num) == null) {
-            }
-        }
-
-        public void f(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, num) == null) {
-                this.b = num;
-            }
-        }
-
-        public void g(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, num) == null) {
-                this.a = num;
-            }
-        }
-
-        public void h(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, num) == null) {
-            }
-        }
-
-        public void i(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-                this.c = str;
-            }
-        }
-
-        public void j(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, num) == null) {
-                this.d = num;
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755380047, "Lcom/repackage/qh7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755380047, "Lcom/repackage/qh7;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
-    }
-
-    public qh7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = "";
-        this.b = "";
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public a b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (a) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void g(SugRankingInfo sugRankingInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sugRankingInfo) == null) {
-            String str = sugRankingInfo.rank_title;
-            this.a = str;
-            this.c = str;
-            RankingParam rankingParam = sugRankingInfo.rank_param;
-            if (rankingParam != null) {
-                a aVar = new a();
-                aVar.g(rankingParam.rank_type);
-                aVar.f(rankingParam.rank_code);
-                aVar.i(rankingParam.sort_type);
-                aVar.j(rankingParam.tab_id);
-                aVar.e(rankingParam.pn);
-                aVar.h(rankingParam.rn);
-                this.d = aVar;
-            }
-        }
-    }
-
-    @Override // com.repackage.on
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.b = str;
-        }
+        return (List) invokeLL.objValue;
     }
 }

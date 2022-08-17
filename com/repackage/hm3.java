@@ -222,7 +222,7 @@ public class hm3 extends rj1 {
     public final void r(List<f74> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) && list != null && te3.Q() && fp1.y(AppRuntime.getAppContext())) {
-            list.add(new f74(45, R.string.obfuscated_res_0x7f0f1246, R.drawable.obfuscated_res_0x7f0800de, true));
+            list.add(new f74(45, R.string.obfuscated_res_0x7f0f1248, R.drawable.obfuscated_res_0x7f0800de, true));
         }
     }
 

@@ -25,13 +25,13 @@ public class jr1 extends fr1 {
 
         /* renamed from: com.repackage.jr1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0513a implements ya3.c {
+        public class C0516a implements ya3.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ rr1 a;
             public final /* synthetic */ a b;
 
-            public C0513a(a aVar, rr1 rr1Var) {
+            public C0516a(a aVar, rr1 rr1Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,7 +93,7 @@ public class jr1 extends fr1 {
                 rr1 rr1Var = new rr1("compassChange", jSONObject, str);
                 ya3 i = ya3.i();
                 i.l(this.a.getContext());
-                i.o(new C0513a(this, rr1Var));
+                i.o(new C0516a(this, rr1Var));
                 zx1.i("CompassApi", "start listen compass");
                 i.p();
                 rr1Var.b(this.a);

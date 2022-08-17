@@ -100,8 +100,8 @@ public class fk4 {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            kk8.h(309689, BackUserSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BACK_USER, kk8.a(TbConfig.URL_BACK_USER, 309689));
+            jk8.h(309689, BackUserSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BACK_USER, jk8.a(TbConfig.URL_BACK_USER, 309689));
             tbHttpMessageTask.setResponsedClass(BackUserHTTPResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

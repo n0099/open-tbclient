@@ -177,11 +177,11 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
             this.d = findViewById(R.id.obfuscated_res_0x7f0903f7);
             this.f = findViewById(R.id.obfuscated_res_0x7f091a69);
             this.e = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.r);
-            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f1d));
+            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f1e));
             TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091a68);
             this.i = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f080f0c);
+            this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f080f0d);
             this.h = findViewById(R.id.obfuscated_res_0x7f091a67);
             this.g = findViewById(R.id.obfuscated_res_0x7f091a74);
             this.l = findViewById(R.id.obfuscated_res_0x7f091a6a);

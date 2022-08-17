@@ -228,9 +228,9 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             return;
         }
         if (z) {
-            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08091f, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
-        } else {
             imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080920, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+        } else {
+            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080921, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
         }
     }
 
@@ -473,7 +473,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
     public void onShowErr(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048599, this, i, str) == null) {
-            qi.L(getContext(), str);
+            qi.K(getContext(), str);
         }
     }
 
@@ -582,7 +582,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             }
         }
         this.h = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040558});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040559});
         obtainStyledAttributes.getInteger(0, 0);
         obtainStyledAttributes.recycle();
         h(context);

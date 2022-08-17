@@ -25,6 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import com.qq.e.comm.constants.Constants;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.open.a;
@@ -40,13 +41,13 @@ import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class c extends com.tencent.open.b implements a.InterfaceC0699a {
+public class c extends com.tencent.open.b implements a.InterfaceC0702a {
     public static /* synthetic */ Interceptable $ic;
     public static Toast c;
     public transient /* synthetic */ FieldHolder $fh;
     public String d;
     public IUiListener e;
-    public C0700c f;
+    public C0703c f;
     public Handler g;
     public com.tencent.open.b.a h;
     public com.tencent.open.b.b i;
@@ -175,7 +176,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0699a {
 
     /* renamed from: com.tencent.open.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0700c extends DefaultUiListener {
+    public static class C0703c extends DefaultUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -184,7 +185,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0699a {
         public String d;
         public IUiListener e;
 
-        public C0700c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
+        public C0703c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -271,16 +272,16 @@ public class c extends com.tencent.open.b implements a.InterfaceC0699a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
-        public C0700c b;
+        public C0703c b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(c cVar, C0700c c0700c, Looper looper) {
+        public d(c cVar, C0703c c0703c, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cVar, c0700c, looper};
+                Object[] objArr = {cVar, c0703c, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -292,7 +293,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0699a {
                 }
             }
             this.a = cVar;
-            this.b = c0700c;
+            this.b = c0703c;
         }
 
         @Override // android.os.Handler
@@ -354,7 +355,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0699a {
         }
         this.j = new WeakReference<>(context);
         this.d = str2;
-        this.f = new C0700c(context, str, str2, qQToken.getAppId(), iUiListener);
+        this.f = new C0703c(context, str, str2, qQToken.getAppId(), iUiListener);
         this.g = new d(this, this.f, context.getMainLooper());
         this.e = iUiListener;
         this.k = Math.round(context.getResources().getDisplayMetrics().density * 185.0f);
@@ -435,7 +436,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0699a {
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             com.tencent.open.b.a aVar = new com.tencent.open.b.a(this.j.get());
             this.h = aVar;
-            aVar.setBackgroundColor(1711276032);
+            aVar.setBackgroundColor(DebugControllerOverlayDrawable.TEXT_BACKGROUND_COLOR);
             this.h.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
             com.tencent.open.b.b bVar = new com.tencent.open.b.b(this.j.get());
             this.i = bVar;
@@ -457,7 +458,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0699a {
         }
     }
 
-    @Override // com.tencent.open.b.a.InterfaceC0699a
+    @Override // com.tencent.open.b.a.InterfaceC0702a
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
@@ -473,7 +474,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0699a {
         }
     }
 
-    @Override // com.tencent.open.b.a.InterfaceC0699a
+    @Override // com.tencent.open.b.a.InterfaceC0702a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {

@@ -1,142 +1,44 @@
 package com.repackage;
 
-import android.content.Intent;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.content.ComponentName;
+import android.content.pm.PackageManager;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.pushdialog.PushDialogActivity;
-import com.baidu.tieba.pushdialog.data.PushDialogHttpResMsg;
-import com.baidu.tieba.pushdialog.data.PushDialogReqNetMsg;
-import com.baidu.tieba.pushdialog.data.PushDialogSocketResMsg;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class ka8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PushDialogActivity a;
-    public String b;
-    public long c;
 
-    /* loaded from: classes6.dex */
-    public class a extends ab {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ka8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ka8 ka8Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ka8Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ka8Var;
-        }
-
-        @Override // com.repackage.ab
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (responsedMessage instanceof PushDialogHttpResMsg) {
-                    this.a.f((PushDialogHttpResMsg) responsedMessage);
-                } else if (responsedMessage instanceof PushDialogSocketResMsg) {
-                    this.a.g((PushDialogSocketResMsg) responsedMessage);
-                }
-            }
-        }
-    }
-
-    public ka8(PushDialogActivity pushDialogActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pushDialogActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = pushDialogActivity;
-        pushDialogActivity.registerListener(new a(this, CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614));
-        Intent intent = this.a.getIntent();
-        if (intent != null) {
-            this.b = intent.getStringExtra("thread_id");
-            this.c = intent.getLongExtra("task_id", 0L);
-            if (StringUtils.isNull(this.b)) {
-                this.a.finish();
-            }
-        }
-    }
-
-    public long c() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String systemProperty = UtilHelper.getSystemProperty("ro.miui.ui.version.name");
+            return !StringUtils.isNull(systemProperty) && og.e(systemProperty.replace("V", ""), 0) >= 9;
+        }
+        return invokeV.booleanValue;
     }
 
-    public String d() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long g = og.g(this.b, 0L);
-            if (g == 0) {
-                PushDialogActivity pushDialogActivity = this.a;
-                if (pushDialogActivity != null) {
-                    pushDialogActivity.C1(false, null);
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            PackageManager packageManager = TbadkCoreApplication.getInst().getPackageManager();
+            try {
+                try {
+                } catch (PackageManager.NameNotFoundException unused) {
+                    if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.StartBgActivityControlActivity"), 0) != null) {
+                        return true;
+                    }
                 }
-                return;
+            } catch (PackageManager.NameNotFoundException unused2) {
             }
-            PushDialogReqNetMsg pushDialogReqNetMsg = new PushDialogReqNetMsg();
-            pushDialogReqNetMsg.setTask_id(this.c);
-            pushDialogReqNetMsg.setTid(g);
-            MessageManager.getInstance().sendMessage(pushDialogReqNetMsg);
+            return packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.ScreenLockedActionControlActivity"), 0) != null;
         }
-    }
-
-    public final void f(PushDialogHttpResMsg pushDialogHttpResMsg) {
-        PushDialogActivity pushDialogActivity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, pushDialogHttpResMsg) == null) || (pushDialogActivity = this.a) == null) {
-            return;
-        }
-        pushDialogActivity.C1(pushDialogHttpResMsg.getError() == 0, pushDialogHttpResMsg.getData());
-    }
-
-    public final void g(PushDialogSocketResMsg pushDialogSocketResMsg) {
-        PushDialogActivity pushDialogActivity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, pushDialogSocketResMsg) == null) || (pushDialogActivity = this.a) == null) {
-            return;
-        }
-        pushDialogActivity.C1(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
+        return invokeV.booleanValue;
     }
 }

@@ -41,7 +41,7 @@ public final class c {
             public final void run() {
                 OutputStream outputStream = null;
                 try {
-                    a.C0384a by = com.kwad.sdk.core.diskcache.kwai.a.this.by(str2);
+                    a.C0386a by = com.kwad.sdk.core.diskcache.kwai.a.this.by(str2);
                     if (by != null) {
                         outputStream = by.au(0);
                         if (c.a(str, outputStream, new a())) {
@@ -64,7 +64,7 @@ public final class c {
         OutputStream outputStream = null;
         try {
             try {
-                a.C0384a by = aVar.by(str2);
+                a.C0386a by = aVar.by(str2);
                 if (by != null) {
                     outputStream = by.au(0);
                     if (a(str, outputStream, aVar2)) {

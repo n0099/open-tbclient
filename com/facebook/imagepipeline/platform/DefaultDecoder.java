@@ -31,7 +31,7 @@ import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-@TargetApi(21)
+@TargetApi(11)
 /* loaded from: classes4.dex */
 public abstract class DefaultDecoder implements PlatformDecoder {
     public static /* synthetic */ Interceptable $ic = null;
@@ -85,50 +85,47 @@ public abstract class DefaultDecoder implements PlatformDecoder {
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: com.facebook.imagepipeline.platform.DefaultDecoder */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x00ad A[Catch: all -> 0x00d0, RuntimeException -> 0x00d2, IllegalArgumentException -> 0x00db, TRY_LEAVE, TryCatch #2 {RuntimeException -> 0x00d2, blocks: (B:31:0x0071, B:37:0x008a, B:52:0x00ad, B:44:0x009e, B:48:0x00a6, B:49:0x00a9), top: B:86:0x0071, outer: #0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x00b8 A[ADDED_TO_REGION] */
-    /* JADX WARN: Type inference failed for: r0v10 */
-    /* JADX WARN: Type inference failed for: r0v3, types: [int] */
-    /* JADX WARN: Type inference failed for: r0v9 */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00ac A[Catch: all -> 0x00d6, RuntimeException -> 0x00d8, IllegalArgumentException -> 0x00e1, TryCatch #8 {IllegalArgumentException -> 0x00e1, RuntimeException -> 0x00d8, blocks: (B:32:0x0071, B:40:0x0090, B:55:0x00b3, B:47:0x00a4, B:51:0x00ac, B:52:0x00af), top: B:91:0x0071, outer: #4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x00b3 A[Catch: all -> 0x00d6, RuntimeException -> 0x00d8, IllegalArgumentException -> 0x00e1, TRY_LEAVE, TryCatch #8 {IllegalArgumentException -> 0x00e1, RuntimeException -> 0x00d8, blocks: (B:32:0x0071, B:40:0x0090, B:55:0x00b3, B:47:0x00a4, B:51:0x00ac, B:52:0x00af), top: B:91:0x0071, outer: #4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x00be A[ADDED_TO_REGION] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private CloseableReference<Bitmap> decodeFromStream(InputStream inputStream, BitmapFactory.Options options, @Nullable Rect rect, boolean z) {
-        InterceptResult invokeCommon;
+    private CloseableReference<Bitmap> decodeFromStream(InputStream inputStream, BitmapFactory.Options options, @Nullable Rect rect, @Nullable ColorSpace colorSpace) {
+        InterceptResult invokeLLLL;
         Bitmap bitmap;
+        Bitmap bitmap2;
         BitmapRegionDecoder bitmapRegionDecoder;
-        Bitmap decodeRegion;
         PreverificationHelper preverificationHelper;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{inputStream, options, rect, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, this, inputStream, options, rect, colorSpace)) == null) {
             Preconditions.checkNotNull(inputStream);
             int i = options.outWidth;
             int i2 = options.outHeight;
-            ?? r0 = i;
             if (rect != null) {
-                int width = rect.width() / options.inSampleSize;
+                i = rect.width() / options.inSampleSize;
                 i2 = rect.height() / options.inSampleSize;
-                r0 = width;
             }
-            boolean z2 = Build.VERSION.SDK_INT >= 26 && (preverificationHelper = this.mPreverificationHelper) != null && preverificationHelper.shouldUseHardwareBitmapConfig(options.inPreferredConfig);
+            boolean z = Build.VERSION.SDK_INT >= 26 && (preverificationHelper = this.mPreverificationHelper) != null && preverificationHelper.shouldUseHardwareBitmapConfig(options.inPreferredConfig);
             BitmapRegionDecoder bitmapRegionDecoder2 = null;
-            if (rect == null && z2) {
+            if (rect == null && z) {
                 options.inMutable = false;
                 bitmap = null;
             } else {
-                if (rect != null && z2) {
+                if (rect != null && z) {
                     options.inPreferredConfig = Bitmap.Config.ARGB_8888;
                 }
-                bitmap = this.mBitmapPool.get(getBitmapSize(r0, i2, options));
+                bitmap = this.mBitmapPool.get(getBitmapSize(i, i2, options));
                 if (bitmap == null) {
                     throw new NullPointerException("BitmapPool.get returned null");
                 }
             }
             options.inBitmap = bitmap;
-            if (Build.VERSION.SDK_INT >= 26 && z) {
-                options.inPreferredColorSpace = ColorSpace.get(ColorSpace.Named.SRGB);
+            if (Build.VERSION.SDK_INT >= 26) {
+                if (colorSpace == null) {
+                    colorSpace = ColorSpace.get(ColorSpace.Named.SRGB);
+                }
+                options.inPreferredColorSpace = colorSpace;
             }
             ByteBuffer acquire = this.mDecodeBuffers.acquire();
             if (acquire == null) {
@@ -136,93 +133,92 @@ public abstract class DefaultDecoder implements PlatformDecoder {
             }
             try {
                 try {
-                    try {
-                        options.inTempStorage = acquire.array();
-                        if (rect != null) {
+                    options.inTempStorage = acquire.array();
+                    if (Build.VERSION.SDK_INT >= 19 && rect != null && bitmap != null) {
+                        try {
+                            bitmap.reconfigure(i, i2, options.inPreferredConfig);
+                            bitmapRegionDecoder = BitmapRegionDecoder.newInstance(inputStream, true);
                             try {
-                                if (bitmap != null) {
-                                    try {
-                                        bitmap.reconfigure(r0, i2, options.inPreferredConfig);
-                                        bitmapRegionDecoder = BitmapRegionDecoder.newInstance(inputStream, true);
-                                        try {
-                                            decodeRegion = bitmapRegionDecoder.decodeRegion(rect, options);
-                                            if (bitmapRegionDecoder != null) {
-                                                bitmapRegionDecoder.recycle();
-                                            }
-                                        } catch (IOException unused) {
-                                            FLog.e(TAG, "Could not decode region %s, decoding full bitmap instead.", rect);
-                                            if (bitmapRegionDecoder != null) {
-                                                bitmapRegionDecoder.recycle();
-                                            }
-                                            decodeRegion = null;
-                                            if (decodeRegion == null) {
-                                            }
-                                            this.mDecodeBuffers.release(acquire);
-                                            if (bitmap == 0) {
-                                            }
-                                            return CloseableReference.of(decodeRegion, this.mBitmapPool);
-                                        }
-                                    } catch (IOException unused2) {
-                                        bitmapRegionDecoder = null;
-                                    } catch (Throwable th) {
-                                        th = th;
-                                        if (bitmapRegionDecoder2 != null) {
-                                            bitmapRegionDecoder2.recycle();
-                                        }
-                                        throw th;
+                                try {
+                                    bitmap2 = bitmapRegionDecoder.decodeRegion(rect, options);
+                                    if (bitmapRegionDecoder != null) {
+                                        bitmapRegionDecoder.recycle();
                                     }
-                                    if (decodeRegion == null) {
-                                        decodeRegion = BitmapFactory.decodeStream(inputStream, null, options);
+                                } catch (IOException unused) {
+                                    FLog.e(TAG, "Could not decode region %s, decoding full bitmap instead.", rect);
+                                    if (bitmapRegionDecoder != null) {
+                                        bitmapRegionDecoder.recycle();
+                                    }
+                                    bitmap2 = null;
+                                    if (bitmap2 == null) {
                                     }
                                     this.mDecodeBuffers.release(acquire);
-                                    if (bitmap == 0 && bitmap != decodeRegion) {
-                                        this.mBitmapPool.release(bitmap);
-                                        decodeRegion.recycle();
-                                        throw new IllegalStateException();
+                                    if (bitmap == null) {
                                     }
-                                    return CloseableReference.of(decodeRegion, this.mBitmapPool);
+                                    return CloseableReference.of(bitmap2, this.mBitmapPool);
                                 }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                bitmapRegionDecoder2 = r0;
+                            } catch (Throwable th) {
+                                th = th;
+                                bitmapRegionDecoder2 = bitmapRegionDecoder;
+                                if (bitmapRegionDecoder2 != null) {
+                                    bitmapRegionDecoder2.recycle();
+                                }
+                                throw th;
                             }
+                        } catch (IOException unused2) {
+                            bitmapRegionDecoder = null;
+                        } catch (Throwable th2) {
+                            th = th2;
+                            if (bitmapRegionDecoder2 != null) {
+                            }
+                            throw th;
                         }
-                        decodeRegion = null;
-                        if (decodeRegion == null) {
+                        if (bitmap2 == null) {
+                            bitmap2 = BitmapFactory.decodeStream(inputStream, null, options);
                         }
                         this.mDecodeBuffers.release(acquire);
-                        if (bitmap == 0) {
+                        if (bitmap == null && bitmap != bitmap2) {
+                            this.mBitmapPool.release(bitmap);
+                            bitmap2.recycle();
+                            throw new IllegalStateException();
                         }
-                        return CloseableReference.of(decodeRegion, this.mBitmapPool);
-                    } catch (Throwable th3) {
-                        this.mDecodeBuffers.release(acquire);
-                        throw th3;
+                        return CloseableReference.of(bitmap2, this.mBitmapPool);
                     }
-                } catch (RuntimeException e) {
+                    bitmap2 = null;
+                    if (bitmap2 == null) {
+                    }
+                    this.mDecodeBuffers.release(acquire);
+                    if (bitmap == null) {
+                    }
+                    return CloseableReference.of(bitmap2, this.mBitmapPool);
+                } catch (IllegalArgumentException e) {
                     if (bitmap != null) {
                         this.mBitmapPool.release(bitmap);
                     }
-                    throw e;
-                }
-            } catch (IllegalArgumentException e2) {
-                if (bitmap != null) {
-                    this.mBitmapPool.release(bitmap);
-                }
-                try {
-                    inputStream.reset();
-                    Bitmap decodeStream = BitmapFactory.decodeStream(inputStream);
-                    if (decodeStream != null) {
-                        CloseableReference<Bitmap> of = CloseableReference.of(decodeStream, SimpleBitmapReleaser.getInstance());
-                        this.mDecodeBuffers.release(acquire);
-                        return of;
+                    try {
+                        inputStream.reset();
+                        Bitmap decodeStream = BitmapFactory.decodeStream(inputStream);
+                        if (decodeStream != null) {
+                            CloseableReference<Bitmap> of = CloseableReference.of(decodeStream, SimpleBitmapReleaser.getInstance());
+                            this.mDecodeBuffers.release(acquire);
+                            return of;
+                        }
+                        throw e;
+                    } catch (IOException unused3) {
+                        throw e;
+                    }
+                } catch (RuntimeException e2) {
+                    if (bitmap != null) {
+                        this.mBitmapPool.release(bitmap);
                     }
                     throw e2;
-                } catch (IOException unused3) {
-                    throw e2;
                 }
+            } catch (Throwable th3) {
+                this.mDecodeBuffers.release(acquire);
+                throw th3;
             }
         }
-        return (CloseableReference) invokeCommon.objValue;
+        return (CloseableReference) invokeLLLL.objValue;
     }
 
     public static BitmapFactory.Options getDecodeOptionsForStream(EncodedImage encodedImage, Bitmap.Config config) {
@@ -249,40 +245,40 @@ public abstract class DefaultDecoder implements PlatformDecoder {
     public CloseableReference<Bitmap> decodeFromEncodedImage(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, encodedImage, config, rect)) == null) ? decodeFromEncodedImageWithColorSpace(encodedImage, config, rect, false) : (CloseableReference) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, encodedImage, config, rect)) == null) ? decodeFromEncodedImageWithColorSpace(encodedImage, config, rect, null) : (CloseableReference) invokeLLL.objValue;
     }
 
     @Override // com.facebook.imagepipeline.platform.PlatformDecoder
-    public CloseableReference<Bitmap> decodeFromEncodedImageWithColorSpace(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, boolean z) {
-        InterceptResult invokeCommon;
+    public CloseableReference<Bitmap> decodeFromEncodedImageWithColorSpace(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, @Nullable ColorSpace colorSpace) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{encodedImage, config, rect, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, encodedImage, config, rect, colorSpace)) == null) {
             BitmapFactory.Options decodeOptionsForStream = getDecodeOptionsForStream(encodedImage, config);
-            boolean z2 = decodeOptionsForStream.inPreferredConfig != Bitmap.Config.ARGB_8888;
+            boolean z = decodeOptionsForStream.inPreferredConfig != Bitmap.Config.ARGB_8888;
             try {
-                return decodeFromStream(encodedImage.getInputStream(), decodeOptionsForStream, rect, z);
+                return decodeFromStream(encodedImage.getInputStream(), decodeOptionsForStream, rect, colorSpace);
             } catch (RuntimeException e) {
-                if (z2) {
-                    return decodeFromEncodedImageWithColorSpace(encodedImage, Bitmap.Config.ARGB_8888, rect, z);
+                if (z) {
+                    return decodeFromEncodedImageWithColorSpace(encodedImage, Bitmap.Config.ARGB_8888, rect, colorSpace);
                 }
                 throw e;
             }
         }
-        return (CloseableReference) invokeCommon.objValue;
+        return (CloseableReference) invokeLLLL.objValue;
     }
 
     @Override // com.facebook.imagepipeline.platform.PlatformDecoder
     public CloseableReference<Bitmap> decodeJPEGFromEncodedImage(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, encodedImage, config, rect, i)) == null) ? decodeJPEGFromEncodedImageWithColorSpace(encodedImage, config, rect, i, false) : (CloseableReference) invokeLLLI.objValue;
+        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, encodedImage, config, rect, i)) == null) ? decodeJPEGFromEncodedImageWithColorSpace(encodedImage, config, rect, i, null) : (CloseableReference) invokeLLLI.objValue;
     }
 
     @Override // com.facebook.imagepipeline.platform.PlatformDecoder
-    public CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i, boolean z) {
+    public CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i, @Nullable ColorSpace colorSpace) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{encodedImage, config, rect, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{encodedImage, config, rect, Integer.valueOf(i), colorSpace})) == null) {
             boolean isCompleteAt = encodedImage.isCompleteAt(i);
             BitmapFactory.Options decodeOptionsForStream = getDecodeOptionsForStream(encodedImage, config);
             TailAppendingInputStream inputStream = encodedImage.getInputStream();
@@ -293,12 +289,12 @@ public abstract class DefaultDecoder implements PlatformDecoder {
             if (!isCompleteAt) {
                 inputStream = new TailAppendingInputStream(inputStream, EOI_TAIL);
             }
-            boolean z2 = decodeOptionsForStream.inPreferredConfig != Bitmap.Config.ARGB_8888;
+            boolean z = decodeOptionsForStream.inPreferredConfig != Bitmap.Config.ARGB_8888;
             try {
-                return decodeFromStream(inputStream, decodeOptionsForStream, rect, z);
+                return decodeFromStream(inputStream, decodeOptionsForStream, rect, colorSpace);
             } catch (RuntimeException e) {
-                if (z2) {
-                    return decodeJPEGFromEncodedImageWithColorSpace(encodedImage, Bitmap.Config.ARGB_8888, rect, i, z);
+                if (z) {
+                    return decodeJPEGFromEncodedImageWithColorSpace(encodedImage, Bitmap.Config.ARGB_8888, rect, i, colorSpace);
                 }
                 throw e;
             }
@@ -309,7 +305,7 @@ public abstract class DefaultDecoder implements PlatformDecoder {
     public CloseableReference<Bitmap> decodeStaticImageFromStream(InputStream inputStream, BitmapFactory.Options options, @Nullable Rect rect) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, inputStream, options, rect)) == null) ? decodeFromStream(inputStream, options, rect, false) : (CloseableReference) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, inputStream, options, rect)) == null) ? decodeFromStream(inputStream, options, rect, null) : (CloseableReference) invokeLLL.objValue;
     }
 
     public abstract int getBitmapSize(int i, int i2, BitmapFactory.Options options);

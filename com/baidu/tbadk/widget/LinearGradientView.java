@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cf7;
+import com.repackage.bf7;
 import java.util.ArrayList;
 import tbclient.ThemeElement;
 /* loaded from: classes3.dex */
@@ -152,12 +152,12 @@ public class LinearGradientView extends View {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = cf7.b("#2BB8FF");
-            this.c = cf7.b("#2BB8FF");
-            this.d = cf7.b("#249BD6");
-            this.e = cf7.b("#246CD6");
-            this.f = cf7.b("#249BD6");
-            this.g = cf7.b("#246CD6");
+            this.b = bf7.b("#2BB8FF");
+            this.c = bf7.b("#2BB8FF");
+            this.d = bf7.b("#249BD6");
+            this.e = bf7.b("#246CD6");
+            this.f = bf7.b("#249BD6");
+            this.g = bf7.b("#246CD6");
             this.h = c();
         }
     }
@@ -272,15 +272,15 @@ public class LinearGradientView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, str2, str3, str4, str5, str6}) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
-                if (this.b == cf7.b(str) && this.c == cf7.b(str2) && this.d == cf7.b(str3) && this.e == cf7.b(str4) && this.f == cf7.b(str5) && this.g == cf7.b(str6)) {
+                if (this.b == bf7.b(str) && this.c == bf7.b(str2) && this.d == bf7.b(str3) && this.e == bf7.b(str4) && this.f == bf7.b(str5) && this.g == bf7.b(str6)) {
                     return;
                 }
-                this.b = cf7.b(str);
-                this.c = cf7.b(str2);
-                this.d = cf7.b(str3);
-                this.e = cf7.b(str4);
-                this.f = cf7.b(str5);
-                this.g = cf7.b(str6);
+                this.b = bf7.b(str);
+                this.c = bf7.b(str2);
+                this.d = bf7.b(str3);
+                this.e = bf7.b(str4);
+                this.f = bf7.b(str5);
+                this.g = bf7.b(str6);
                 this.h = c();
                 invalidate();
                 return;
@@ -325,26 +325,26 @@ public class LinearGradientView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048588, this, themeElement, themeElement2, themeElement3) == null) {
             if (themeElement == null) {
-                b = cf7.b("#2BB8FF");
-                b2 = cf7.b("#2BB8FF");
+                b = bf7.b("#2BB8FF");
+                b2 = bf7.b("#2BB8FF");
             } else {
-                b = cf7.b(themeElement.common_color);
-                b2 = cf7.b(themeElement.common_color);
+                b = bf7.b(themeElement.common_color);
+                b2 = bf7.b(themeElement.common_color);
             }
             if (themeElement2 == null) {
-                i = cf7.b("#249BD6");
-                b3 = cf7.b("#246CD6");
+                i = bf7.b("#249BD6");
+                b3 = bf7.b("#246CD6");
             } else {
-                int b5 = cf7.b(themeElement2.common_color);
-                b3 = cf7.b(themeElement2.common_color);
+                int b5 = bf7.b(themeElement2.common_color);
+                b3 = bf7.b(themeElement2.common_color);
                 i = b5;
             }
             if (themeElement3 == null) {
-                i2 = cf7.b("#249BD6");
-                b4 = cf7.b("#246CD6");
+                i2 = bf7.b("#249BD6");
+                b4 = bf7.b("#246CD6");
             } else {
-                int b6 = cf7.b(themeElement3.common_color);
-                b4 = cf7.b(themeElement3.common_color);
+                int b6 = bf7.b(themeElement3.common_color);
+                b4 = bf7.b(themeElement3.common_color);
                 i2 = b6;
             }
             this.b = b;

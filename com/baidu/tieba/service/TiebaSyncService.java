@@ -56,9 +56,9 @@ import com.repackage.sy4;
 import com.repackage.td5;
 import com.repackage.tz4;
 import com.repackage.ud5;
-import com.repackage.vd7;
+import com.repackage.ud7;
 import com.repackage.wg;
-import com.repackage.ys6;
+import com.repackage.xs6;
 import java.util.Date;
 import java.util.Random;
 /* loaded from: classes4.dex */
@@ -207,7 +207,7 @@ public class TiebaSyncService extends BdBaseService {
     public void onPostExecuteUpdateData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65559, this) == null) {
-            vd7.b().a(false);
+            ud7.b().a(false);
             VersionData t = this.mModel.t();
             if (t != null && t.hasNewVer() && TbConfig.COULD_UPDATE) {
                 TbadkCoreApplication.getInst().setVersionData(t);
@@ -593,7 +593,7 @@ public class TiebaSyncService extends BdBaseService {
                     }
                     ABTestSwitchManager.getInstance().parseJSONArray(this.b.mModel.c());
                     UbsABTestDataManager.getInstance().parseJSONArray(this.b.mModel.r());
-                    ys6.e().k(this.b.mModel.l());
+                    xs6.e().k(this.b.mModel.l());
                     TbSingleton.getInstance().setAdFloatViewData(this.b.mModel.f());
                     SyncDataEvent syncDataEvent = new SyncDataEvent();
                     syncDataEvent.sampleId = this.b.mModel.u() != null ? this.b.mModel.u().M() : "";

@@ -50,7 +50,7 @@ public class CommonUserLikeButton extends TextView implements sw4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbd);
         this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ab);
         this.c = false;
         this.f = false;
@@ -186,7 +186,7 @@ public class CommonUserLikeButton extends TextView implements sw4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbd);
         this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ab);
         this.c = false;
         this.f = false;
@@ -212,7 +212,7 @@ public class CommonUserLikeButton extends TextView implements sw4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbd);
         this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ab);
         this.c = false;
         this.f = false;

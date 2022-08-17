@@ -366,7 +366,7 @@ public class RecordPreviewContainer extends FrameLayout {
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.s == null) {
             ImageView imageView = new ImageView(getContext());
             this.s = imageView;
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080a3e);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080a3f);
             if (this.s != null) {
                 int width = getWidth();
                 int width2 = this.s.getWidth();

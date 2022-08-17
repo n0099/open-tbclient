@@ -113,7 +113,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
             d2.n(R.string.J_X01);
             d2.l(R.dimen.L_X02);
             d2.k(R.color.CAM_X0304);
-            Drawable maskDrawable = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0808a7, WebPManager.ResourceStateType.NORMAL_PRESS);
+            Drawable maskDrawable = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0808a9, WebPManager.ResourceStateType.NORMAL_PRESS);
             setCompoundDrawablePadding(b);
             if (maskDrawable != null) {
                 int i = c;

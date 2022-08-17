@@ -14,16 +14,16 @@ public class qg9 implements TTRewardVideoAd.RewardAdInteractionListener {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public boolean b;
-    public final /* synthetic */ yh9 c;
+    public final /* synthetic */ ai9 c;
     public final /* synthetic */ String d;
-    public final /* synthetic */ hi9 e;
+    public final /* synthetic */ ji9 e;
 
-    public qg9(hi9 hi9Var, yh9 yh9Var, String str) {
+    public qg9(ji9 ji9Var, ai9 ai9Var, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hi9Var, yh9Var, str};
+            Object[] objArr = {ji9Var, ai9Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,8 +33,8 @@ public class qg9 implements TTRewardVideoAd.RewardAdInteractionListener {
                 return;
             }
         }
-        this.e = hi9Var;
-        this.c = yh9Var;
+        this.e = ji9Var;
+        this.c = ai9Var;
         this.d = str;
     }
 
@@ -42,7 +42,7 @@ public class qg9 implements TTRewardVideoAd.RewardAdInteractionListener {
     public void onAdClose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
+            LogPrinter.d("second adClose", new Object[0]);
             this.e.onAdClose(this.c);
         }
     }
@@ -51,7 +51,7 @@ public class qg9 implements TTRewardVideoAd.RewardAdInteractionListener {
     public void onAdShow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
+            LogPrinter.d("second adshow", new Object[0]);
             this.e.onAdShow(this.c, this.a, this.d);
             this.a = true;
         }
@@ -61,7 +61,7 @@ public class qg9 implements TTRewardVideoAd.RewardAdInteractionListener {
     public void onAdVideoBarClick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.d();
+            LogPrinter.d("second Adclick", new Object[0]);
             this.e.onAdClicked(this.c, this.b, this.d);
             this.b = true;
         }
@@ -71,6 +71,7 @@ public class qg9 implements TTRewardVideoAd.RewardAdInteractionListener {
     public void onRewardArrived(boolean z, int i, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), bundle}) == null) {
+            LogPrinter.d("onRewardArrived", new Object[0]);
         }
     }
 
@@ -78,7 +79,7 @@ public class qg9 implements TTRewardVideoAd.RewardAdInteractionListener {
     public void onRewardVerify(boolean z, int i, String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str, Integer.valueOf(i2), str2}) == null) {
-            LogPrinter.d("onRewardVerify rewardVerify:%b rewardAmount:%d rewardName:%s errCode:%d errMsg:%s", Boolean.valueOf(z), Integer.valueOf(i), str, Integer.valueOf(i2), str2);
+            LogPrinter.d("second onRewardVerify rewardVerify:%b rewardAmount:%d rewardName:%s errCode:%d errMsg:%s", Boolean.valueOf(z), Integer.valueOf(i), str, Integer.valueOf(i2), str2);
             this.e.onRewardedVideo(this.c, z, i2, this.d);
         }
     }
@@ -87,7 +88,7 @@ public class qg9 implements TTRewardVideoAd.RewardAdInteractionListener {
     public void onSkippedVideo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LogPrinter.e("CSJRewardVideoAd onSkippedVideo", new Object[0]);
+            LogPrinter.e("CSJRewardVideoAd secondVideo onSkippedVideo", new Object[0]);
         }
     }
 
@@ -95,7 +96,7 @@ public class qg9 implements TTRewardVideoAd.RewardAdInteractionListener {
     public void onVideoComplete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            LogPrinter.d();
+            LogPrinter.d("second onVideoComplete", new Object[0]);
         }
     }
 
@@ -103,8 +104,8 @@ public class qg9 implements TTRewardVideoAd.RewardAdInteractionListener {
     public void onVideoError() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            LogPrinter.d();
-            this.e.onAdError(this.c, 0, "F:onVideoError");
+            LogPrinter.d("second onVideoError", new Object[0]);
+            this.e.onAdError(this.c, 0, "second:onVideoError");
         }
     }
 }

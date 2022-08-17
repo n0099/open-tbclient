@@ -41,7 +41,7 @@ public class MaxHeightScrollView extends ScrollView {
     public final void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404be, R.attr.obfuscated_res_0x7f0404bf, R.attr.obfuscated_res_0x7f0404cf});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404bf, R.attr.obfuscated_res_0x7f0404c0, R.attr.obfuscated_res_0x7f0404d0});
             this.a = obtainStyledAttributes.getDimensionPixelSize(0, -1);
             obtainStyledAttributes.recycle();
         }

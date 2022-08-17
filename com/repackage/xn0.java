@@ -119,7 +119,7 @@ public class xn0 {
 
         /* renamed from: com.repackage.xn0$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0618b {
+        public static class C0620b {
             public static /* synthetic */ Interceptable $ic;
             public static final b a;
             public transient /* synthetic */ FieldHolder $fh;
@@ -161,7 +161,7 @@ public class xn0 {
         public static b b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0618b.a : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0620b.a : (b) invokeV.objValue;
         }
 
         public fo0 a(String str) {

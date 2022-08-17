@@ -149,14 +149,14 @@ public class KsShakeView extends KSFrameLayout {
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403a6, R.attr.obfuscated_res_0x7f0403a7, R.attr.obfuscated_res_0x7f0403a8, R.attr.obfuscated_res_0x7f0403af, R.attr.obfuscated_res_0x7f0403b0, R.attr.obfuscated_res_0x7f0403b6, R.attr.obfuscated_res_0x7f0403b7, R.attr.obfuscated_res_0x7f0403ba}, i, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403a7, R.attr.obfuscated_res_0x7f0403a8, R.attr.obfuscated_res_0x7f0403a9, R.attr.obfuscated_res_0x7f0403b0, R.attr.obfuscated_res_0x7f0403b1, R.attr.obfuscated_res_0x7f0403b7, R.attr.obfuscated_res_0x7f0403b8, R.attr.obfuscated_res_0x7f0403bb}, i, 0);
             this.As = obtainStyledAttributes.getDimension(4, 1.0f);
             this.At = obtainStyledAttributes.getColor(3, Color.parseColor("#4DFFFFFF"));
             this.Au = obtainStyledAttributes.getColor(7, Color.parseColor("#66000000"));
             this.Ar = obtainStyledAttributes.getInteger(6, 1);
             this.Av = obtainStyledAttributes.getColor(1, Color.parseColor("#B3FFFFFF"));
             this.Aw = obtainStyledAttributes.getDimension(2, 1.0f);
-            this.Ay = obtainStyledAttributes.getResourceId(5, R.drawable.obfuscated_res_0x7f080bfc);
+            this.Ay = obtainStyledAttributes.getResourceId(5, R.drawable.obfuscated_res_0x7f080bfd);
             this.Ax = obtainStyledAttributes.getDimension(0, com.kwad.sdk.b.kwai.a.a(context, 10.0f));
             obtainStyledAttributes.recycle();
             this.nC = new ImageView(getContext());
@@ -231,7 +231,7 @@ public class KsShakeView extends KSFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             this.Ar = i;
-            setIconDrawableRes(i != 2 ? R.drawable.obfuscated_res_0x7f080bfc : R.drawable.obfuscated_res_0x7f080bfd);
+            setIconDrawableRes(i != 2 ? R.drawable.obfuscated_res_0x7f080bfd : R.drawable.obfuscated_res_0x7f080bfe);
         }
     }
 

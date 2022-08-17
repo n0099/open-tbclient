@@ -169,7 +169,7 @@ public class or8 {
                 BdToast b2 = BdToast.b(this.a.getPageActivity(), blockPopInfo.appeal_msg);
                 b2.f(BdToast.ToastIcon.FAILURE);
                 b2.c(3000);
-                b2.h();
+                b2.i();
                 return true;
             } else if (blockPopInfo == null || blockPopInfo.can_post.intValue() != 0) {
                 return false;
@@ -184,7 +184,7 @@ public class or8 {
                             BdToast b3 = BdToast.b(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0828));
                             b3.f(BdToast.ToastIcon.FAILURE);
                             b3.c(3000);
-                            b3.h();
+                            b3.i();
                         }
                     } else if (blockPopInfo.ahead_type.intValue() == 2) {
                         e(blockPopInfo);

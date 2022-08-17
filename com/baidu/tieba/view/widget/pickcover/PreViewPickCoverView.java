@@ -229,7 +229,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
                     }
                     this.b.setVisibility(0);
                     this.b.setRotation(0.0f);
-                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f081225);
+                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f081226);
                 } else {
                     this.b.setVisibility(4);
                 }
@@ -248,7 +248,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
                 if (this.c.isRunning()) {
                     return;
                 }
-                this.b.setImageResource(R.drawable.obfuscated_res_0x7f081224);
+                this.b.setImageResource(R.drawable.obfuscated_res_0x7f081225);
                 this.c.start();
             }
         }
@@ -560,7 +560,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
             f(i);
         } else if (!styleBackgroudInfoEntity.isNeedDown() && !styleBackgroudInfoEntity.isLoaded()) {
             if (!oi.z()) {
-                zb9.a(R.string.obfuscated_res_0x7f0f1493);
+                zb9.a(R.string.obfuscated_res_0x7f0f1495);
                 return;
             }
             String str = styleBackgroudInfoEntity.mBackgroudImageUrl;

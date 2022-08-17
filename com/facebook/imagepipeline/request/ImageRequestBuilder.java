@@ -355,7 +355,7 @@ public class ImageRequestBuilder {
         return (ImageRequestBuilder) invokeL.objValue;
     }
 
-    public ImageRequestBuilder setPostprocessor(Postprocessor postprocessor) {
+    public ImageRequestBuilder setPostprocessor(@Nullable Postprocessor postprocessor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, postprocessor)) == null) {

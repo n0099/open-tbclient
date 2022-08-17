@@ -1,7 +1,7 @@
 package com.repackage;
 
 import com.baidu.swan.game.ad.downloader.model.DownloadState;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface zo3 {
     void a(int i);
 

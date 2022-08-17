@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b87;
+import com.repackage.z77;
 import protobuf.NativeApp;
 import tbclient.PbContent;
 /* loaded from: classes3.dex */
@@ -34,7 +34,7 @@ public class PbContentPojo extends OrmObject {
     public Integer isLongPic;
     public Integer isNativeApp;
     public Integer isSub;
-    public b87 item;
+    public z77 item;
     public String itemForumName;
     public Long itemId;
     public String link;
@@ -115,7 +115,7 @@ public class PbContentPojo extends OrmObject {
         this.itemId = pbContent.item_id;
         this.itemForumName = pbContent.item_forum_name;
         this.tiebaplusInfo = TiebaPlusInfoPojo.A(pbContent.tiebaplus_info);
-        this.item = b87.b(pbContent.item);
+        this.item = z77.b(pbContent.item);
         this.picId = pbContent.pic_id;
     }
 
@@ -169,7 +169,7 @@ public class PbContentPojo extends OrmObject {
         this.itemId = pbContent.itemId;
         this.itemForumName = pbContent.itemForumName;
         this.tiebaplusInfo = TiebaPlusInfoPojo.z(pbContent.tiebaplusInfo);
-        this.item = b87.a(pbContent.item);
+        this.item = z77.a(pbContent.item);
         this.picId = pbContent.picId;
     }
 }

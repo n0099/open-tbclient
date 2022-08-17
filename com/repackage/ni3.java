@@ -49,12 +49,12 @@ public class ni3 extends bs2 {
 
         /* renamed from: com.repackage.ni3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0533a implements sf3<String> {
+        public class C0536a implements sf3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0533a(a aVar) {
+            public C0536a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,7 +115,7 @@ public class ni3 extends bs2 {
                 if (!x53.h(c63Var)) {
                     x53.q(c63Var, this.a, this.b);
                 } else {
-                    ni3.z(this.c, new C0533a(this));
+                    ni3.z(this.c, new C0536a(this));
                 }
             }
         }

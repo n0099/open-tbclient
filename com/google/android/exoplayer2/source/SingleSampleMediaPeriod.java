@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callback<SourceLoadable> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INITIAL_SAMPLE_SIZE = 1024;
@@ -46,7 +46,7 @@ public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callba
     public final boolean treatLoadErrorsAsEndOfStream;
     public final Uri uri;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class SampleStreamImpl implements SampleStream {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STREAM_STATE_END_OF_STREAM = 2;
@@ -150,7 +150,7 @@ public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callba
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class SourceLoadable implements Loader.Loadable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

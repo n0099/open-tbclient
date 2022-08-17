@@ -57,7 +57,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ck6 extends bz5<ThreadData> implements zz5, Object {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class ck6 extends bz5<ThreadData> implements zz5, Object {
     public View B;
     public TbImageView C;
     public String D;
-    public ur6 E;
+    public tr6 E;
     public View F;
     public AppletsCellView G;
     public View.OnClickListener H;
@@ -90,7 +90,7 @@ public class ck6 extends bz5<ThreadData> implements zz5, Object {
     public TextView y;
     public ConstrainImageGroup z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +125,7 @@ public class ck6 extends bz5<ThreadData> implements zz5, Object {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements ThreadCommentAndPraiseInfoLayout.l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -159,7 +159,7 @@ public class ck6 extends bz5<ThreadData> implements zz5, Object {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c implements bh5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -211,7 +211,7 @@ public class ck6 extends bz5<ThreadData> implements zz5, Object {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -249,7 +249,7 @@ public class ck6 extends bz5<ThreadData> implements zz5, Object {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -284,7 +284,7 @@ public class ck6 extends bz5<ThreadData> implements zz5, Object {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -328,7 +328,7 @@ public class ck6 extends bz5<ThreadData> implements zz5, Object {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class g implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -364,7 +364,7 @@ public class ck6 extends bz5<ThreadData> implements zz5, Object {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class h implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -484,9 +484,9 @@ public class ck6 extends bz5<ThreadData> implements zz5, Object {
         }
         RelativeLayout relativeLayout = (RelativeLayout) h2.findViewById(R.id.obfuscated_res_0x7f090535);
         this.o = relativeLayout;
-        ur6 ur6Var = new ur6(this.w, relativeLayout);
-        this.E = ur6Var;
-        ur6Var.d(f());
+        tr6 tr6Var = new tr6(this.w, relativeLayout);
+        this.E = tr6Var;
+        tr6Var.d(f());
         ThreadGodReplyLayout threadGodReplyLayout = (ThreadGodReplyLayout) h2.findViewById(R.id.obfuscated_res_0x7f090523);
         this.m = threadGodReplyLayout;
         threadGodReplyLayout.setOnClickListener(this.H);
@@ -641,8 +641,8 @@ public class ck6 extends bz5<ThreadData> implements zz5, Object {
         }
         if (this.q != null && threadData != null) {
             if (!StringUtils.isNull(threadData.iconPicUrl) && this.q.getVisibility() != 0) {
-                ur6 ur6Var = this.E;
-                if (ur6Var != null && ur6Var.b() && (this.C.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+                tr6 tr6Var = this.E;
+                if (tr6Var != null && tr6Var.b() && (this.C.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
                     RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.C.getLayoutParams();
                     layoutParams.rightMargin = qi.f(this.w.getPageActivity(), R.dimen.tbds106);
                     this.C.setLayoutParams(layoutParams);
@@ -663,7 +663,7 @@ public class ck6 extends bz5<ThreadData> implements zz5, Object {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048586, this, view2, list, i, threadData) == null) {
             if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-                qi.N(this.w.getPageActivity(), R.string.obfuscated_res_0x7f0f0ea0);
+                qi.M(this.w.getPageActivity(), R.string.obfuscated_res_0x7f0f0ea1);
                 return;
             }
             ArrayList<String> arrayList = new ArrayList<>();

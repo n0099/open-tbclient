@@ -560,17 +560,17 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
                 if (f2 < getLoadingPointRatio()) {
                     this.J.setAlpha(1.0f);
                     this.t.setAlpha(0.0f);
-                    this.J.setText(R.string.obfuscated_res_0x7f0f1228);
+                    this.J.setText(R.string.obfuscated_res_0x7f0f122a);
                     return;
                 } else if (f2 < getShowAdPointRatio()) {
                     this.J.setAlpha(1.0f);
                     this.t.setAlpha(0.0f);
-                    this.J.setText(R.string.obfuscated_res_0x7f0f1227);
+                    this.J.setText(R.string.obfuscated_res_0x7f0f1229);
                     return;
                 } else {
                     this.J.setAlpha(1.0f);
                     this.t.setAlpha(0.0f);
-                    this.J.setText(R.string.obfuscated_res_0x7f0f1229);
+                    this.J.setText(R.string.obfuscated_res_0x7f0f122b);
                     return;
                 }
             }
@@ -724,7 +724,7 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         ImageView imageView = (ImageView) this.F.findViewById(R.id.obfuscated_res_0x7f090142);
         this.H = imageView;
         imageView.setOnClickListener(new h(this));
-        WebPManager.setPureDrawable(this.H, R.drawable.obfuscated_res_0x7f0809f2, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+        WebPManager.setPureDrawable(this.H, R.drawable.obfuscated_res_0x7f0809f3, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921586, Boolean.TRUE));
         if (getContext() instanceof BaseActivity) {
             this.O = Boolean.valueOf(((BaseActivity) getContext()).isSwipeBackEnabled());
@@ -760,7 +760,7 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
                 setEnable(false);
                 this.J.setAlpha(1.0f);
                 this.t.setAlpha(0.0f);
-                this.J.setText(R.string.obfuscated_res_0x7f0f1228);
+                this.J.setText(R.string.obfuscated_res_0x7f0f122a);
                 this.M.setStartDelay(0L);
                 this.N.setStartDelay(0L);
                 this.L = 0;

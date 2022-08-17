@@ -896,6 +896,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             this.a = 4;
+            this.d = false;
             this.v.getView().clearAnimation();
             this.v.onFinish();
         }

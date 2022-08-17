@@ -36,7 +36,7 @@ public class ResultTB implements Serializable, Cloneable {
     public long updateTime;
 
     /* renamed from: view  reason: collision with root package name */
-    public String f1085view;
+    public String f1086view;
 
     public ResultTB() {
         Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class ResultTB implements Serializable, Cloneable {
         this.endTime = -1L;
         this.cmd = null;
         this.updateTime = -1L;
-        this.f1085view = null;
+        this.f1086view = null;
         this.uip = null;
         this.source = 0;
     }
@@ -133,7 +133,7 @@ public class ResultTB implements Serializable, Cloneable {
     public String getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f1085view : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f1086view : (String) invokeV.objValue;
     }
 
     public void setCmd(String str) {
@@ -209,7 +209,7 @@ public class ResultTB implements Serializable, Cloneable {
     public void setView(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
-            this.f1085view = str;
+            this.f1086view = str;
         }
     }
 }

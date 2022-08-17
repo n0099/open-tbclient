@@ -131,7 +131,7 @@ public class EmotionDetailImageView extends FrameLayout {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             ProgressBar progressBar = new ProgressBar(getContext(), null, 16843399);
             this.b = progressBar;
-            progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f9f));
+            progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fa0));
             layoutParams.gravity = 17;
             this.b.setLayoutParams(layoutParams);
             this.b.setIndeterminate(true);

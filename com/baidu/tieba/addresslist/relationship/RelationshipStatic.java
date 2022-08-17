@@ -23,8 +23,8 @@ import com.repackage.cb;
 import com.repackage.cn5;
 import com.repackage.gn5;
 import com.repackage.hn5;
+import com.repackage.r57;
 import com.repackage.ru4;
-import com.repackage.s57;
 import com.repackage.wz4;
 import com.repackage.zm5;
 /* loaded from: classes3.dex */
@@ -233,14 +233,14 @@ public class RelationshipStatic {
     public static void a(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65538, null, i, cls) == null) {
-            s57.a(i, cls);
+            r57.a(i, cls);
         }
     }
 
     public static void b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)}) == null) {
-            s57.b(i, cls, z);
+            r57.b(i, cls, z);
         }
     }
 }

@@ -1,16 +1,5 @@
 package com.repackage;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import rx.internal.operators.CachedObservable$ReplayProducer;
 /* loaded from: classes6.dex */
-public final class lv9<T> extends vw9 implements qu9<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void c(CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer);
-
-    public abstract void d();
-
-    public abstract void e(CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer);
+public interface lv9<R> {
+    R call(Object... objArr);
 }

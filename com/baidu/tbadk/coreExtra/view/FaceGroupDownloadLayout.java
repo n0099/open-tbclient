@@ -259,7 +259,7 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
                 if (!TextUtils.isEmpty(this.f.getCover())) {
                     this.b.K(this.f.getCover(), 10, false);
                 } else {
-                    this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0808bd);
+                    this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0808be);
                 }
                 int f = (((getResources().getDisplayMetrics().widthPixels - qi.f(TbadkApplication.getInst(), R.dimen.tbds94)) - qi.f(TbadkApplication.getInst(), R.dimen.tbds180)) - qi.f(TbadkApplication.getInst(), R.dimen.tbds75)) - qi.f(TbadkApplication.getInst(), R.dimen.tbds200);
                 TextPaint paint = this.c.getPaint();
@@ -293,7 +293,7 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
             this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f04fc));
         } else {
             this.e.setProgress(this.f.getProgress());
-            this.e.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f098b), Integer.valueOf(this.f.getProgress())));
+            this.e.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f098c), Integer.valueOf(this.f.getProgress())));
         }
     }
 

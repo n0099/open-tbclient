@@ -83,7 +83,7 @@ public class RichImageItem extends FrameLayout {
                     }
                     return;
                 }
-                qi.K(this.a.getContext(), R.string.obfuscated_res_0x7f0f053b);
+                qi.J(this.a.getContext(), R.string.obfuscated_res_0x7f0f053b);
             }
         }
     }
@@ -286,7 +286,7 @@ public class RichImageItem extends FrameLayout {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080801, WebPManager.ResourceStateType.NORMAL));
+            this.b.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080802, WebPManager.ResourceStateType.NORMAL));
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 this.a.setTagColor(getContext().getResources().getColor(R.color.CAM_X0101));
             } else {

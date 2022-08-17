@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.d9;
-import com.repackage.kk8;
+import com.repackage.jk8;
 import com.repackage.vm4;
 import tbclient.RelateRecThread.DataRes;
 /* loaded from: classes4.dex */
@@ -129,8 +129,8 @@ public class RelateRecThreadListModel extends BdBaseModel {
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            kk8.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
-            kk8.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
+            jk8.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
+            jk8.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
             this.d.getHttpMessageListener().setSelfListener(true);
             this.d.getSocketMessageListener().setSelfListener(true);
             registerListener(this.d);

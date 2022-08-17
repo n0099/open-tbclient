@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a28;
+import com.repackage.c28;
 import com.repackage.d28;
-import com.repackage.e28;
 import com.repackage.pi;
 import com.repackage.se5;
+import com.repackage.z18;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements d28.b, View.OnClickListener, AdapterView.OnItemClickListener {
+public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements c28.b, View.OnClickListener, AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public e28 b;
-    public d28 c;
+    public d28 b;
+    public c28 c;
 
     public PraiseListActivity() {
         Interceptable interceptable = $ic;
@@ -49,8 +49,8 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         this.c = null;
     }
 
-    @Override // com.repackage.d28.b
-    public void Q0(int i, List<a28> list, int i2, int i3) {
+    @Override // com.repackage.c28.b
+    public void Q0(int i, List<z18> list, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), list, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             this.b.r(i, list, i2, i3);
@@ -65,12 +65,12 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         }
     }
 
-    @Override // com.repackage.d28.b
+    @Override // com.repackage.c28.b
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             if (pi.isEmpty(str)) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f0c3c);
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f0c3d);
             }
             this.b.q();
             this.b.o(str, this.a);
@@ -113,23 +113,23 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
             if (bundle != null) {
                 this.a = bundle.getInt(IntentConfig.LIST_TYPE, 0);
                 z = bundle.getBoolean(PraiseListActivityConfig.IS_AUTHOR);
-                d28 d28Var = new d28(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
-                this.c = d28Var;
-                d28Var.u(bundle.getInt("KeyIntentPraiseId"));
+                c28 c28Var = new c28(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
+                this.c = c28Var;
+                c28Var.u(bundle.getInt("KeyIntentPraiseId"));
             } else if (getIntent() != null) {
                 this.a = getIntent().getIntExtra(IntentConfig.LIST_TYPE, 0);
                 z = getIntent().getBooleanExtra(PraiseListActivityConfig.IS_AUTHOR, false);
-                this.c = new d28(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
+                this.c = new c28(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
             } else {
                 z = false;
             }
             if (this.c == null) {
-                this.c = new d28();
+                this.c = new c28();
             }
             this.c.t(z);
-            e28 e28Var = new e28(this, this.c.i());
-            this.b = e28Var;
-            e28Var.p(false);
+            d28 d28Var = new d28(this, this.c.i());
+            this.b = d28Var;
+            d28Var.p(false);
             this.c.m(this.a);
         }
     }
@@ -145,7 +145,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        a28 j2;
+        z18 j2;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (j2 = this.c.j(i)) == null) {
             return;
@@ -176,11 +176,11 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     }
 
     public final void z1() {
-        d28 d28Var;
+        c28 c28Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (d28Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (c28Var = this.c) == null) {
             return;
         }
-        d28Var.v();
+        c28Var.v();
     }
 }

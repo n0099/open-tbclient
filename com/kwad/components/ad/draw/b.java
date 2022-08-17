@@ -89,7 +89,7 @@ public final class b extends KSFrameLayout {
             public final void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                    com.kwad.components.core.c.a.a.a(new a.C0352a(this.aR.aK.mRootContainer.getContext()).L(this.aR.aK.mAdTemplate).b(this.aR.aK.mApkDownloadHelper).aj(false).ae(3).a(new a.b(this) { // from class: com.kwad.components.ad.draw.b.1.1
+                    com.kwad.components.core.c.a.a.a(new a.C0354a(this.aR.aK.mRootContainer.getContext()).L(this.aR.aK.mAdTemplate).b(this.aR.aK.mApkDownloadHelper).aj(false).ae(3).a(new a.b(this) { // from class: com.kwad.components.ad.draw.b.1.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass1 aS;

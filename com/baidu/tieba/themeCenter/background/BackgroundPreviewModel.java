@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
-import com.repackage.kk8;
+import com.repackage.jk8;
 /* loaded from: classes4.dex */
 public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> {
     public static /* synthetic */ Interceptable $ic;
@@ -144,8 +144,8 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            kk8.h(309023, BackgroundGetSocketResponseMessage.class, false, false);
-            kk8.c(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
+            jk8.h(309023, BackgroundGetSocketResponseMessage.class, false, false);
+            jk8.c(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

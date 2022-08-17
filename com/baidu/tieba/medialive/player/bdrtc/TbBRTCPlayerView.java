@@ -60,14 +60,14 @@ public class TbBRTCPlayerView extends FrameLayout {
 
         /* renamed from: com.baidu.tieba.medialive.player.bdrtc.TbBRTCPlayerView$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0228a implements Runnable {
+        public class RunnableC0229a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ String b;
             public final /* synthetic */ a c;
 
-            public RunnableC0228a(a aVar, int i, String str) {
+            public RunnableC0229a(a aVar, int i, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -126,7 +126,7 @@ public class TbBRTCPlayerView extends FrameLayout {
                 }
                 if (this.a.i != null) {
                     if (TbBRTCPlayerView.o) {
-                        e16.b(new RunnableC0228a(this, i, str));
+                        e16.b(new RunnableC0229a(this, i, str));
                     }
                     this.a.i.onError(i, str);
                 }

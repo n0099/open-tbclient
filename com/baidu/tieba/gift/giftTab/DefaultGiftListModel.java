@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.d9;
-import com.repackage.kk8;
-import com.repackage.kt6;
-import com.repackage.ot6;
+import com.repackage.jk8;
+import com.repackage.jt6;
+import com.repackage.nt6;
 import com.repackage.pp4;
 import com.repackage.qp4;
 import java.util.ArrayList;
@@ -22,9 +22,9 @@ import java.util.ArrayList;
 public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<kt6> a;
+    public ArrayList<jt6> a;
     public ArrayList<pp4> b;
-    public ArrayList<ot6> c;
+    public ArrayList<nt6> c;
     public String d;
     public int e;
     public b f;
@@ -113,7 +113,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(int i, String str, int i2, String str2, int i3, qp4 qp4Var, ArrayList<kt6> arrayList, ArrayList<pp4> arrayList2, ArrayList<ot6> arrayList3);
+        void a(int i, String str, int i2, String str2, int i3, qp4 qp4Var, ArrayList<jt6> arrayList, ArrayList<pp4> arrayList2, ArrayList<nt6> arrayList3);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -186,8 +186,8 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            kk8.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
-            kk8.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
+            jk8.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
+            jk8.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

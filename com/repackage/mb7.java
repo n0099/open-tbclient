@@ -1,51 +1,52 @@
 package com.repackage;
 
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class mb7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755504977, "Lcom/repackage/mb7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755504977, "Lcom/repackage/mb7;");
-                return;
-            }
-        }
-        a = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
-    }
-
-    public static void a(String str) {
+    public static String a(UserData userData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            b(str, null);
-        }
-    }
-
-    public static void b(String str, BdSwitchView.SwitchState switchState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, switchState) == null) {
-            StatisticItem param = new StatisticItem(str).param("uid", a);
-            if (switchState != null) {
-                param.param("obj_type", switchState == BdSwitchView.SwitchState.OFF ? 1 : 2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, userData)) == null) {
+            if (userData == null) {
+                return "";
             }
-            TiebaStatic.log(param);
+            if (UtilHelper.isFllowByPriorty(userData)) {
+                if (userData.getAuthType() == 1) {
+                    if (userData.isOfficial()) {
+                        return "";
+                    }
+                } else if (userData.getAuthType() == 2) {
+                    if (userData.isOriginal()) {
+                        return userData.getCreatorInfo().authDesc;
+                    }
+                } else if (userData.getAuthType() == 3) {
+                    if (userData.isNewGod()) {
+                        return userData.getNewGodData().getFieldName() + nf5.c(userData.isVideoGod());
+                    }
+                } else if (userData.getAuthType() == 4 && userData.showBazhuGrade()) {
+                    return StringHelper.cutChineseAndEnglishWithSuffix(userData.getBazhuGradeData().getDesc(), 16, StringHelper.STRING_MORE);
+                }
+            }
+            if (TextUtils.isEmpty("") && userData.isOfficial()) {
+                return "";
+            }
+            if (TextUtils.isEmpty("") && userData.isOriginal()) {
+                return userData.getCreatorInfo().authDesc;
+            }
+            if (!TextUtils.isEmpty("") || !userData.isNewGod()) {
+                return (TextUtils.isEmpty("") && userData.showBazhuGrade()) ? StringHelper.cutChineseAndEnglishWithSuffix(userData.getBazhuGradeData().getDesc(), 16, StringHelper.STRING_MORE) : "";
+            }
+            return userData.getNewGodData().getFieldName() + nf5.c(userData.isVideoGod());
         }
+        return (String) invokeL.objValue;
     }
 }

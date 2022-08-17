@@ -16,6 +16,7 @@ import java.util.List;
 public final class DefaultImageFormats {
     public static /* synthetic */ Interceptable $ic;
     public static final ImageFormat BMP;
+    public static final ImageFormat DNG;
     public static final ImageFormat GIF;
     public static final ImageFormat HEIF;
     public static final ImageFormat ICO;
@@ -53,6 +54,7 @@ public final class DefaultImageFormats {
         WEBP_EXTENDED_WITH_ALPHA = new ImageFormat("WEBP_EXTENDED_WITH_ALPHA", "webp");
         WEBP_ANIMATED = new ImageFormat("WEBP_ANIMATED", "webp");
         HEIF = new ImageFormat("HEIF", "heif");
+        DNG = new ImageFormat("DNG", "dng");
     }
 
     public DefaultImageFormats() {

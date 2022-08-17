@@ -177,26 +177,26 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             }
             ThreadData threadData = (ThreadData) customResponsedMessage.getData();
             PbModel pbModel = this.a.a;
-            if (pbModel == null || pbModel.Q1() == null || this.a.a.Q1().O() == null || threadData == null) {
+            if (pbModel == null || pbModel.S1() == null || this.a.a.S1().O() == null || threadData == null) {
                 return;
             }
             this.a.E1();
             String str = threadData.getBaijiahaoData() != null ? threadData.getBaijiahaoData().oriUgcNid : "";
-            String str2 = this.a.a.Q1().O().getBaijiahaoData() != null ? this.a.a.Q1().O().getBaijiahaoData().oriUgcNid : "";
+            String str2 = this.a.a.S1().O().getBaijiahaoData() != null ? this.a.a.S1().O().getBaijiahaoData().oriUgcNid : "";
             if (!"0".equals(str) && !TextUtils.isEmpty(str)) {
                 if (str.equals(str2)) {
-                    this.a.a.Q1().O().setReply_num(threadData.getReply_num());
+                    this.a.a.S1().O().setReply_num(threadData.getReply_num());
                     this.a.J1();
                     return;
                 }
                 return;
             }
             String id = threadData.getId();
-            String id2 = this.a.a.Q1().O().getId();
+            String id2 = this.a.a.S1().O().getId();
             if ("0".equals(id2) || TextUtils.isEmpty(id2) || !id2.equals(id)) {
                 return;
             }
-            this.a.a.Q1().O().setReply_num(threadData.getReply_num());
+            this.a.a.S1().O().setReply_num(threadData.getReply_num());
             this.a.J1();
         }
     }
@@ -269,9 +269,9 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK);
                 statisticItem.param("fid", this.a.b1().getForumId());
-                statisticItem.param("tid", this.a.b1().i2());
+                statisticItem.param("tid", this.a.b1().m2());
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("post_id", this.a.b1().o1());
+                statisticItem.param("post_id", this.a.b1().q1());
                 statisticItem.param("obj_source", 1);
                 statisticItem.param("obj_type", 5);
                 if (this.a.getIntent() != null) {
@@ -359,19 +359,19 @@ public class PbCommentFloatActivity extends AbsPbActivity {
         PbModel pbModel;
         TiebaPlusInfo tiebaPlusInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (pbModel = this.a) == null || pbModel.Q1() == null || this.a.Q1().O() == null || this.a.Q1().F() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (pbModel = this.a) == null || pbModel.S1() == null || this.a.S1().O() == null || this.a.S1().F() == null) {
             return;
         }
-        PostData postData = (PostData) ListUtils.getItem(this.a.Q1().F(), 0);
+        PostData postData = (PostData) ListUtils.getItem(this.a.S1().F(), 0);
         PbContent pbContent = (PbContent) ListUtils.getItem(TiePlusHelper.q(postData != null ? postData.g0 : null), 0);
         if (pbContent == null || (tiebaPlusInfo = pbContent.tiebaplus_info) == null) {
             return;
         }
         Integer num = pbContent.type;
         this.I = tiebaPlusInfo.jump_type.intValue();
-        oi5 c2 = oi5.c(num.intValue(), tiebaPlusInfo, this.a.Q1().O());
+        oi5 c2 = oi5.c(num.intValue(), tiebaPlusInfo, this.a.S1().O());
         this.H = c2;
-        c2.b(this.a.Q1().O().statFloor);
+        c2.b(this.a.S1().O().statFloor);
         this.H.q(TiePlusStat.StatType.EXPOSE);
         this.G.n(this.H);
         this.D.setText(tiebaPlusInfo.desc);
@@ -422,10 +422,10 @@ public class PbCommentFloatActivity extends AbsPbActivity {
     public final void J1() {
         PbModel pbModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (pbModel = this.a) == null || pbModel.Q1() == null || this.a.Q1().O() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (pbModel = this.a) == null || pbModel.S1() == null || this.a.S1().O() == null) {
             return;
         }
-        this.w.setCenterTextTitle(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1214), Integer.valueOf(this.a.Q1().O().getReply_num())));
+        this.w.setCenterTextTitle(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1216), Integer.valueOf(this.a.S1().O().getReply_num())));
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
@@ -519,7 +519,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             this.w.onChangeSkinType(getPageContext(), i);
             SkinManager.setBackgroundColor(this.F, R.color.CAM_X0208);
             v1();
-            WebPManager.setPureDrawable(this.y, R.drawable.obfuscated_res_0x7f0809f2, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.y, R.drawable.obfuscated_res_0x7f0809f3, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
             this.x.d(getPageContext(), i);
             this.u.p(i);
             SkinManager.setBackgroundColor(this.u, R.color.CAM_X0608);
@@ -602,15 +602,15 @@ public class PbCommentFloatActivity extends AbsPbActivity {
                 return;
             }
             if (i == 3 || i == 7) {
-                WebPManager.setPureDrawable(this.E, R.drawable.obfuscated_res_0x7f080a2d, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(this.E, R.drawable.obfuscated_res_0x7f080a2e, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL_PRESS);
             } else if (i == 2) {
                 WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0807cb, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL_PRESS);
             } else if (i == 6) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0807f3, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0807f4, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL_PRESS);
             } else if (i == 5) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0807f1, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0807f2, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL_PRESS);
             } else {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0809a1, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0809a2, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL_PRESS);
             }
         }
     }

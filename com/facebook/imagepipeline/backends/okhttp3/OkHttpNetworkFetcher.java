@@ -309,10 +309,10 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, okHttpNetworkFetchState, i)) == null) {
             HashMap hashMap = new HashMap(4);
-            hashMap.put(QUEUE_TIME, Long.toString(okHttpNetworkFetchState.responseTime - okHttpNetworkFetchState.submitTime));
-            hashMap.put(FETCH_TIME, Long.toString(okHttpNetworkFetchState.fetchCompleteTime - okHttpNetworkFetchState.responseTime));
-            hashMap.put(TOTAL_TIME, Long.toString(okHttpNetworkFetchState.fetchCompleteTime - okHttpNetworkFetchState.submitTime));
-            hashMap.put(IMAGE_SIZE, Integer.toString(i));
+            hashMap.put("queue_time", Long.toString(okHttpNetworkFetchState.responseTime - okHttpNetworkFetchState.submitTime));
+            hashMap.put("fetch_time", Long.toString(okHttpNetworkFetchState.fetchCompleteTime - okHttpNetworkFetchState.responseTime));
+            hashMap.put("total_time", Long.toString(okHttpNetworkFetchState.fetchCompleteTime - okHttpNetworkFetchState.submitTime));
+            hashMap.put("image_size", Integer.toString(i));
             return hashMap;
         }
         return (Map) invokeLI.objValue;

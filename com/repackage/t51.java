@@ -92,9 +92,9 @@ public class t51 extends Dialog implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeL(1048576, this, adBaseModel) == null) {
             mn0.b bVar = (adBaseModel == null || (mn0Var = adBaseModel.p) == null) ? null : mn0Var.f;
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05f8, (ViewGroup) null);
-            String string = (bVar == null || TextUtils.isEmpty(bVar.a)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bdd) : bVar.a;
-            String string2 = (bVar == null || TextUtils.isEmpty(bVar.b)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bdc) : bVar.b;
-            String string3 = (bVar == null || TextUtils.isEmpty(bVar.c)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bdb) : bVar.c;
+            String string = (bVar == null || TextUtils.isEmpty(bVar.a)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bde) : bVar.a;
+            String string2 = (bVar == null || TextUtils.isEmpty(bVar.b)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bdd) : bVar.b;
+            String string3 = (bVar == null || TextUtils.isEmpty(bVar.c)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bdc) : bVar.c;
             ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915e6)).setText(string);
             TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915e7);
             textView.setText(string2);

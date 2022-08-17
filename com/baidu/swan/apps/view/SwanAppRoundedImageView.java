@@ -359,7 +359,7 @@ public class SwanAppRoundedImageView extends ImageView {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843037, R.attr.obfuscated_res_0x7f0400ee, R.attr.obfuscated_res_0x7f0400ef, R.attr.obfuscated_res_0x7f0401ab, R.attr.obfuscated_res_0x7f0405d7}, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843037, R.attr.obfuscated_res_0x7f0400ee, R.attr.obfuscated_res_0x7f0400ef, R.attr.obfuscated_res_0x7f0401ab, R.attr.obfuscated_res_0x7f0405d8}, i, 0);
         int i4 = obtainStyledAttributes.getInt(0, -1);
         if (i4 >= 0) {
             setScaleType(h[i4]);

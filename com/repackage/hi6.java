@@ -45,7 +45,7 @@ public class hi6 {
     public PbListView c;
     public gi6 d;
     public ji6 e;
-    public p88 f;
+    public o88 f;
     public RelativeLayout g;
     public yj6 h;
     public boolean i;
@@ -132,7 +132,7 @@ public class hi6 {
                         this.a.a.L1();
                         return;
                     }
-                    this.a.c.C(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e8));
+                    this.a.c.C(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e9));
                     this.a.c.f();
                     this.a.c.B(null);
                     return;
@@ -292,7 +292,7 @@ public class hi6 {
         this.d = new gi6(frsCommonTabFragment2, this.b, frsViewData, frsCommonTabFragment2.h == 16);
         x(false);
         if (this.f == null) {
-            this.f = new p88(this.a.getPageContext(), this.b);
+            this.f = new o88(this.a.getPageContext(), this.b);
         }
         this.f.p(2);
         this.f.u(this.a.getUniqueId());
@@ -345,10 +345,10 @@ public class hi6 {
         return (List) invokeV.objValue;
     }
 
-    public p88 i() {
+    public o88 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (p88) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (o88) invokeV.objValue;
     }
 
     public BdTypeRecyclerView j() {
@@ -433,9 +433,9 @@ public class hi6 {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            p88 p88Var = this.f;
-            if (p88Var != null) {
-                p88Var.h();
+            o88 o88Var = this.f;
+            if (o88Var != null) {
+                o88Var.h();
             }
             gi6 gi6Var = this.d;
             if (gi6Var != null) {
@@ -470,11 +470,11 @@ public class hi6 {
             } else {
                 this.c.M();
                 this.c.B(this.l);
-                this.c.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e7));
+                this.c.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e8));
             }
         } else {
             this.b.setNextPage(null);
-            this.c.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e8));
+            this.c.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e9));
             this.c.B(null);
             this.c.f();
         }
@@ -500,12 +500,12 @@ public class hi6 {
     }
 
     public void p() {
-        p88 p88Var;
+        o88 o88Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (p88Var = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (o88Var = this.f) == null) {
             return;
         }
-        p88Var.y();
+        o88Var.y();
     }
 
     public void q() {
@@ -526,12 +526,12 @@ public class hi6 {
     }
 
     public void s() {
-        p88 p88Var;
+        o88 o88Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (p88Var = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (o88Var = this.f) == null) {
             return;
         }
-        p88Var.o();
+        o88Var.o();
     }
 
     public void t(int i) {

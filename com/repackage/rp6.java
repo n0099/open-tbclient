@@ -112,9 +112,9 @@ public class rp6 {
         }
         if (this.c != null) {
             if (i > 0) {
-                string = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa3), Integer.valueOf(i));
+                string = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa4), Integer.valueOf(i));
             } else {
-                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11a8);
+                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11aa);
             }
             this.c.setText(string);
         }

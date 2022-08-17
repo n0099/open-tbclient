@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ld8;
+import com.repackage.kd8;
 import com.repackage.on;
 import com.repackage.vp4;
 import com.squareup.wire.Wire;
@@ -127,13 +127,13 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                                 this.threadList.add(vp4Var);
                             } else {
                                 this.threadList.add(threadData);
-                                JSONObject b = ld8.b(threadInfo);
+                                JSONObject b = kd8.b(threadInfo);
                                 if (b != null) {
                                     arrayList.add(b);
                                 }
                             }
                         }
-                        ld8.f().h("FRS", arrayList);
+                        kd8.f().h("FRS", arrayList);
                     }
                 }
                 this.bannerListData = null;

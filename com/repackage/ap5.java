@@ -111,7 +111,7 @@ public class ap5 extends ActivityDelegation {
             }
             Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
             if (!da5.c().d()) {
-                qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0eb0);
+                qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0eb1);
                 return false;
             } else if (getAgent() instanceof Activity) {
                 wo5 wo5Var = new wo5();

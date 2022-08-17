@@ -8,15 +8,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class kl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public long d;
+    public boolean a;
+    public String b;
+    public String c;
+    public jl8 d;
+    public jl8 e;
+    public jl8 f;
 
-    public kl8() {
+    public kl8(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,19 +30,14 @@ public class kl8 {
                 return;
             }
         }
-        this.a = 0L;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = 0L;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = 0L;
-            this.b = 0L;
-            this.c = 0L;
-            this.d = 0L;
-        }
+        this.a = false;
+        this.b = null;
+        this.c = null;
+        this.d = new jl8();
+        this.e = new jl8();
+        this.f = new jl8();
+        this.c = str;
+        this.b = str2;
+        this.a = z;
     }
 }

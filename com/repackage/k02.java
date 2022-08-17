@@ -243,7 +243,7 @@ public class k02 extends f02 implements g03.a {
             J2(false);
             t2(-1);
             C2(-16777216);
-            v2(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1259));
+            v2(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f125b));
             x2(true);
             b3();
         }
@@ -299,7 +299,7 @@ public class k02 extends f02 implements g03.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             TextView textView = new TextView(getContext());
-            textView.setText(R.string.obfuscated_res_0x7f0f1258);
+            textView.setText(R.string.obfuscated_res_0x7f0f125a);
             textView.setTextColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060256));
             textView.setOnClickListener(new b(this));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);

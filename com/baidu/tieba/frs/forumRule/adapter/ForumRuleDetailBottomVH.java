@@ -106,7 +106,7 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
             ms4 d4 = ms4.d(this.h);
             d4.A(R.string.F_X01);
             d4.v(R.color.CAM_X0109);
-            this.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0807f4, WebPManager.ResourceStateType.NORMAL));
+            this.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0807f5, WebPManager.ResourceStateType.NORMAL));
             this.f.setSkinType(i);
             SkinManager.setBackgroundColor(this.i, R.color.CAM_X0111);
         }

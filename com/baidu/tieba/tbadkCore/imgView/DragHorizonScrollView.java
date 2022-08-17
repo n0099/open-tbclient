@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ml8;
+import com.repackage.ll8;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class DragHorizonScrollView extends ViewGroup implements View.OnLongClickListener {
@@ -32,7 +32,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     public Runnable D;
     public BaseAdapter a;
     public View b;
-    public ml8 c;
+    public ll8 c;
     public int d;
     public int e;
     public int f;
@@ -193,14 +193,14 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
 
     @Override // android.view.View
     public void computeScroll() {
-        ml8 ml8Var;
+        ll8 ll8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.j.computeScrollOffset()) {
                 scrollTo(this.j.getCurrX(), 0);
                 postInvalidateDelayed(16L);
-                if ((this.o || this.p) && (ml8Var = this.c) != null) {
-                    ml8Var.d();
+                if ((this.o || this.p) && (ll8Var = this.c) != null) {
+                    ll8Var.d();
                     return;
                 }
                 return;
@@ -702,10 +702,10 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         }
     }
 
-    public void setDragController(ml8 ml8Var) {
+    public void setDragController(ll8 ll8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, ml8Var) == null) {
-            this.c = ml8Var;
+        if (interceptable == null || interceptable.invokeL(1048599, this, ll8Var) == null) {
+            this.c = ll8Var;
         }
     }
 

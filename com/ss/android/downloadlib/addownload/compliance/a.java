@@ -55,7 +55,7 @@ public class a extends Dialog {
         setContentView(R.layout.obfuscated_res_0x7f0d0887);
         Window window = getWindow();
         if (window != null) {
-            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f08121c);
+            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f08121d);
         }
         setCancelable(true);
         setCanceledOnTouchOutside(true);

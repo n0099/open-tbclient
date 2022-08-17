@@ -474,7 +474,7 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
             View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091329);
             this.r = findViewById;
             findViewById.getLayoutParams().height = m80.b(getContext(), 35.0f);
-            this.r.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080ccc, null));
+            this.r.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080ccd, null));
             r();
             q();
             this.j.setOnClickListener(new a(this));

@@ -1,49 +1,40 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class mg7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    public mg7() {
+    public static void a(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, str, map) == null) || pi.isEmpty(str)) {
             return;
         }
-        JSONObject optJSONObject = jSONObject.optJSONObject("error");
-        if (optJSONObject != null) {
-            optJSONObject.optInt("errno");
-            String optString = optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
-            this.a = optString;
-            if (!StringUtils.isNull(optString)) {
-                this.a = optJSONObject.optString("errmsg");
+        StatisticItem statisticItem = new StatisticItem(str);
+        if (map != null) {
+            for (String str2 : map.keySet()) {
+                statisticItem.param(str2, map.get(str2));
             }
         }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
-        if (optJSONObject2 != null) {
-            optJSONObject2.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+        TiebaStatic.log(statisticItem);
+    }
+
+    public static void b(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, map) == null) || map == null) {
+            return;
         }
+        HashMap hashMap = new HashMap();
+        String remove = map.remove("key");
+        for (String str : map.keySet()) {
+            hashMap.put(str, map.get(str));
+        }
+        a(remove, hashMap);
     }
 }

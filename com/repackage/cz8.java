@@ -364,7 +364,7 @@ public class cz8 extends gz8 {
                 this.a.u.G.setTranslationX(0.0f);
                 this.a.u.G.setTranslationY(0.0f);
                 this.a.u.G.setRotation(-90.0f);
-                this.a.u.G.setEndIcon(R.drawable.obfuscated_res_0x7f080935, this.a.t, "webp");
+                this.a.u.G.setEndIcon(R.drawable.obfuscated_res_0x7f080936, this.a.t, "webp");
                 this.a.u.G.setCrossFade(1.0f, false);
             }
         }
@@ -385,7 +385,7 @@ public class cz8 extends gz8 {
                     view2.setVisibility(4);
                     this.a.c.setAlpha(0.0f);
                 }
-                this.a.u.G.setEndIcon(R.drawable.obfuscated_res_0x7f080935, this.a.t, "webp");
+                this.a.u.G.setEndIcon(R.drawable.obfuscated_res_0x7f080936, this.a.t, "webp");
             }
         }
     }
@@ -483,7 +483,7 @@ public class cz8 extends gz8 {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.a.u.G.setEndIcon(R.drawable.obfuscated_res_0x7f080935, this.a.t, "webp");
+                this.a.u.G.setEndIcon(R.drawable.obfuscated_res_0x7f080936, this.a.t, "webp");
             }
         }
     }

@@ -871,7 +871,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
             if (!TextUtils.isEmpty(str2)) {
                 n0(str2);
             } else {
-                n0(getResources().getString(R.string.obfuscated_res_0x7f0f0ec8));
+                n0(getResources().getString(R.string.obfuscated_res_0x7f0f0ec9));
             }
             Z(3, str, "0");
             setIsPreparePaying(false);
@@ -1270,7 +1270,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f0ec8);
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f0ec9);
             }
             if (this.N == null) {
                 View inflate = View.inflate(this.e.getContext(), R.layout.obfuscated_res_0x7f0d020a, null);
@@ -1398,7 +1398,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                 m91.f(System.currentTimeMillis());
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 17;
-                this.I = wa1.c(this, layoutParams, getResources().getString(R.string.obfuscated_res_0x7f0f0ec9), -1L);
+                this.I = wa1.c(this, layoutParams, getResources().getString(R.string.obfuscated_res_0x7f0f0eca), -1L);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(DI.PAY_CHANNEL, str);

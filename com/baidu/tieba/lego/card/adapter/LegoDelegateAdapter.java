@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kf7;
-import com.repackage.pe7;
-import com.repackage.te7;
+import com.repackage.jf7;
+import com.repackage.oe7;
+import com.repackage.se7;
 /* loaded from: classes3.dex */
-public class LegoDelegateAdapter extends te7<LegoDelegateViewHolder> {
+public class LegoDelegateAdapter extends se7<LegoDelegateViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId b;
@@ -29,13 +29,13 @@ public class LegoDelegateAdapter extends te7<LegoDelegateViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LegoDelegateViewHolder(kf7<?> kf7Var) {
-            super((View) kf7Var);
+        public LegoDelegateViewHolder(jf7<?> jf7Var) {
+            super((View) jf7Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kf7Var};
+                Object[] objArr = {jf7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -72,7 +72,7 @@ public class LegoDelegateAdapter extends te7<LegoDelegateViewHolder> {
         this.a = i;
     }
 
-    @Override // com.repackage.be7
+    @Override // com.repackage.ae7
     public final void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
@@ -100,7 +100,7 @@ public class LegoDelegateAdapter extends te7<LegoDelegateViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            kf7 a = pe7.h().a(this.c, this.d, this.a);
+            jf7 a = oe7.h().a(this.c, this.d, this.a);
             if (a == null) {
                 return null;
             }
@@ -117,13 +117,13 @@ public class LegoDelegateAdapter extends te7<LegoDelegateViewHolder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iCardInfo, legoDelegateViewHolder})) == null) {
-            kf7 kf7Var = (kf7) legoDelegateViewHolder.getView();
+            jf7 jf7Var = (jf7) legoDelegateViewHolder.getView();
             ICardInfo iCardInfo2 = this.d;
-            if (kf7Var != null && iCardInfo2 != null) {
-                kf7Var.setPosition(i);
-                kf7Var.update(iCardInfo2);
+            if (jf7Var != null && iCardInfo2 != null) {
+                jf7Var.setPosition(i);
+                jf7Var.update(iCardInfo2);
             }
-            return (View) kf7Var;
+            return (View) jf7Var;
         }
         return (View) invokeCommon.objValue;
     }

@@ -313,17 +313,17 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (gk2.y0().d()) {
                 this.e.setText(R.string.obfuscated_res_0x7f0f015f);
-                this.e.setBackground(af4.d(getContext(), R.drawable.obfuscated_res_0x7f08118f));
+                this.e.setBackground(af4.d(getContext(), R.drawable.obfuscated_res_0x7f081190));
                 this.e.setTextColor(af4.b(getContext(), R.color.obfuscated_res_0x7f060a98));
             } else if (!z) {
                 this.e.setText(R.string.obfuscated_res_0x7f0f015f);
                 this.e.setTypeface(Typeface.create("sans-serif-medium", 1));
-                this.e.setBackground(af4.d(getContext(), R.drawable.obfuscated_res_0x7f081163));
+                this.e.setBackground(af4.d(getContext(), R.drawable.obfuscated_res_0x7f081164));
                 this.e.setTextColor(af4.c(getContext(), R.color.obfuscated_res_0x7f060a87));
             } else {
-                this.e.setText(R.string.obfuscated_res_0x7f0f12b6);
+                this.e.setText(R.string.obfuscated_res_0x7f0f12b8);
                 this.e.setTypeface(Typeface.create("sans-serif", 0));
-                this.e.setBackground(af4.d(getContext(), R.drawable.obfuscated_res_0x7f08116a));
+                this.e.setBackground(af4.d(getContext(), R.drawable.obfuscated_res_0x7f08116b));
                 this.e.setTextColor(af4.c(getContext(), R.color.obfuscated_res_0x7f060a88));
             }
         }

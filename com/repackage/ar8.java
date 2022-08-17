@@ -66,7 +66,7 @@ public class ar8 {
         NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f09255c);
         this.d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e6f);
+        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e70);
         this.e = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f09255e);
         MemberRecommendView memberRecommendView = (MemberRecommendView) this.c.findViewById(R.id.obfuscated_res_0x7f09059d);
         this.f = memberRecommendView;
@@ -206,7 +206,7 @@ public class ar8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.i.setVisibility(8);
-            String string = this.b.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c56);
+            String string = this.b.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c57);
             this.b.setNetRefreshViewTopMargin(this.k);
             this.b.showNetRefreshView(this.c, string, false);
         }

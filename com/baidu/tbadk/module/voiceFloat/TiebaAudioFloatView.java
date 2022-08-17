@@ -107,11 +107,11 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09064a);
             this.d = imageView;
             if (imageView != null) {
-                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a2b, SkinManager.getColor(0, (int) R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a2c, SkinManager.getColor(0, (int) R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             }
             ImageView imageView2 = this.a;
             if (imageView2 != null) {
-                imageView2.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080b1c, false));
+                imageView2.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080b1d, false));
             }
             SkinManager.setLottieAnimation(this.c, R.raw.obfuscated_res_0x7f110062);
             TBLottieAnimationView tBLottieAnimationView = this.c;

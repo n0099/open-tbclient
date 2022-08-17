@@ -70,7 +70,7 @@ public class j45 extends m45 {
                 }
                 TiebaStatic.eventStat(this.b.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
             } else if (i == 7) {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0d19);
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0d1a);
             } else if (i == 8) {
                 if (this.c.k(this.a.getContext(), 11001)) {
                     this.a.M(null, null);

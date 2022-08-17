@@ -573,7 +573,7 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                         com.kwad.sdk.core.report.a.r(this.FF.mAdTemplate, Cea708Decoder.COMMAND_DF0);
-                        this.FF.mApkDownloadHelper.m(new a.C0352a(this.FF.getActivity()).aj(true).ak(false).L(this.FF.mAdTemplate).am(false));
+                        this.FF.mApkDownloadHelper.m(new a.C0354a(this.FF.getActivity()).aj(true).ak(false).L(this.FF.mAdTemplate).am(false));
                         if (this.FF.mIsRewardLandPage) {
                             com.kwad.sdk.core.report.a.a(this.FF.mAdTemplate, new com.kwad.sdk.core.report.f(), (JSONObject) null);
                         }

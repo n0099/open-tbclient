@@ -175,8 +175,8 @@ public class c55 {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            kk8.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
-            TbHttpMessageTask c2 = kk8.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
+            jk8.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
+            TbHttpMessageTask c2 = jk8.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
             this.b = c2;
             c2.setTimeOut(jb.d().b());
             this.b.setRetry(jb.d().a());

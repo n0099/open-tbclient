@@ -478,18 +478,18 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                 this.a.setVisibility(8);
                 this.d.setVisibility(8);
             } else if (i == 3) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f081231);
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080af2);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f081232);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080af3);
             } else if (i == 4) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f081231);
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f081234);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f081232);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f081235);
             } else if (i == 5) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f081235);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f081236);
                 nu8 nu8Var = this.e;
                 if (nu8Var != null && nu8Var.g() >= 3000.0f) {
-                    this.d.setImageResource(R.drawable.obfuscated_res_0x7f081234);
+                    this.d.setImageResource(R.drawable.obfuscated_res_0x7f081235);
                 } else {
-                    this.d.setImageResource(R.drawable.obfuscated_res_0x7f080af2);
+                    this.d.setImageResource(R.drawable.obfuscated_res_0x7f080af3);
                 }
             }
         }
@@ -559,7 +559,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             nu8 nu8Var = this.e;
             if (nu8Var != null && nu8Var.i()) {
                 this.l = true;
-                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f0b29);
+                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f0b2a);
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
@@ -627,8 +627,8 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906b7);
             this.d = imageView2;
             imageView2.setOnClickListener(this);
-            this.p.add(0, new ju8(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b2a), new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0b2a)), R.drawable.obfuscated_res_0x7f080b07));
-            this.p.add(1, new ju8(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b28), new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_CLOUD_ID, 2, getResources().getString(R.string.obfuscated_res_0x7f0f0b28)), R.drawable.obfuscated_res_0x7f080af1));
+            this.p.add(0, new ju8(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b2b), new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0b2b)), R.drawable.obfuscated_res_0x7f080b08));
+            this.p.add(1, new ju8(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b29), new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_CLOUD_ID, 2, getResources().getString(R.string.obfuscated_res_0x7f0f0b29)), R.drawable.obfuscated_res_0x7f080af2));
         }
     }
 
@@ -747,7 +747,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             }
             B(false);
             this.c.getLayer1().setVisibility(8);
-            this.c.getTvTip().setText(getResources().getText(R.string.obfuscated_res_0x7f0f152c));
+            this.c.getTvTip().setText(getResources().getText(R.string.obfuscated_res_0x7f0f152f));
             this.c.getTvTip().setVisibility(0);
             f fVar = this.k;
             if (fVar != null) {
@@ -847,7 +847,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                 this.c.setAlpha(1.0f);
                 this.a.setVisibility(8);
                 this.d.setVisibility(8);
-                this.c.getTvTip().setText(getResources().getString(R.string.obfuscated_res_0x7f0f152d));
+                this.c.getTvTip().setText(getResources().getString(R.string.obfuscated_res_0x7f0f1530));
                 nu8 nu8Var = this.e;
                 if (nu8Var != null) {
                     nu8Var.n();

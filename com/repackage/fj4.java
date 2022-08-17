@@ -121,8 +121,8 @@ public class fj4 {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            kk8.h(309608, GetTokenSocketResponsedMessage.class, false, false);
-            kk8.c(309608, CmdConfigHttp.CMD_GET_TOKEN, TbConfig.URL_GET_TOKEN, GetTokenHttpResponsedMessage.class, false, false, false, false);
+            jk8.h(309608, GetTokenSocketResponsedMessage.class, false, false);
+            jk8.c(309608, CmdConfigHttp.CMD_GET_TOKEN, TbConfig.URL_GET_TOKEN, GetTokenHttpResponsedMessage.class, false, false, false, false);
         }
     }
 

@@ -265,7 +265,7 @@ public class PersonConstellationActivity extends BaseActivity {
                 return;
             }
             if (date.getTime() > System.currentTimeMillis()) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0e1a);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0e1b);
                 return;
             }
             this.a.i.setText(StringHelper.dateToConstellation(date));
@@ -385,13 +385,13 @@ public class PersonConstellationActivity extends BaseActivity {
             this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0918e5);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255c);
             this.a = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0e36)).setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0e37)).setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
             View addCustomView = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0612, (View.OnClickListener) null);
             this.c = addCustomView;
             TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091bf8);
             this.b = textView;
             textView.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
-            this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0e32));
+            this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0e33));
             SkinManager.setViewTextColor(this.b, R.color.navi_op_text, 1);
             this.c.setOnClickListener(this.q);
             ImageView imageView = (ImageView) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d08d8, (View.OnClickListener) null);

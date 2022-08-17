@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p57;
+import com.repackage.o57;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class SelectTopicSuggestLayout extends LinearLayout {
@@ -55,10 +55,10 @@ public class SelectTopicSuggestLayout extends LinearLayout {
         }
 
         @Override // com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter.a
-        public void a(p57 p57Var) {
+        public void a(o57 o57Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, p57Var) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, p57Var));
+            if (interceptable == null || interceptable.invokeL(1048576, this, o57Var) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, o57Var));
             }
         }
     }
@@ -100,7 +100,7 @@ public class SelectTopicSuggestLayout extends LinearLayout {
         b();
     }
 
-    public void a(String str, List<p57> list) {
+    public void a(String str, List<o57> list) {
         VideoHotTopicSearchAdapter videoHotTopicSearchAdapter;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) || (videoHotTopicSearchAdapter = this.b) == null) {

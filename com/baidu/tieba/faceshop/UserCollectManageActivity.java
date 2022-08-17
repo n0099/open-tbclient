@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab6;
-import com.repackage.ip7;
+import com.repackage.hp7;
 import com.repackage.j55;
 import com.repackage.la6;
 import com.repackage.qa6;
@@ -226,8 +226,8 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (ip7.o().p()) {
-                    qi.N(view2.getContext(), R.string.obfuscated_res_0x7f0f05e4);
+                if (hp7.o().p()) {
+                    qi.M(view2.getContext(), R.string.obfuscated_res_0x7f0f05e4);
                     return;
                 }
                 UserCollectManageActivity userCollectManageActivity = this.a;
@@ -406,7 +406,7 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
             navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f03fb));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
             if (this.a.getBackImageView() != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.getBackImageView(), R.drawable.obfuscated_res_0x7f0809f3, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.getBackImageView(), R.drawable.obfuscated_res_0x7f0809f4, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
             TextView addTextButton = this.a.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f03fa), new d(this));
             this.b = addTextButton;
@@ -459,7 +459,7 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
             return;
         }
         TiebaStatic.log(new StatisticItem("c12491").param("obj_param1", arrayList.size()));
-        showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f1112), this.o);
+        showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f1113), this.o);
         this.m.a(arrayList, this);
     }
 
@@ -559,21 +559,21 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048588, this, i, i2, i3) == null) {
             if (i == 1) {
-                qi.O(TbadkCoreApplication.getInst().getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0d05));
+                qi.N(TbadkCoreApplication.getInst().getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0d06));
             } else if (i == 2) {
-                qi.O(TbadkCoreApplication.getInst().getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0d05));
+                qi.N(TbadkCoreApplication.getInst().getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0d06));
             } else if (i == 3) {
-                String format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1082), Integer.valueOf(i2));
+                String format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1083), Integer.valueOf(i2));
                 if (i3 != 0) {
-                    format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1083), Integer.valueOf(i2), Integer.valueOf(i3));
+                    format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1084), Integer.valueOf(i2), Integer.valueOf(i3));
                 }
-                qi.O(TbadkCoreApplication.getInst().getContext(), format);
+                qi.N(TbadkCoreApplication.getInst().getContext(), format);
             } else if (i == 4) {
                 closeLoadingDialog();
                 if (i2 > 0) {
-                    qi.O(TbadkCoreApplication.getInst().getContext(), getPageContext().getString(R.string.obfuscated_res_0x7f0f05f5));
+                    qi.N(TbadkCoreApplication.getInst().getContext(), getPageContext().getString(R.string.obfuscated_res_0x7f0f05f5));
                 } else {
-                    qi.O(TbadkCoreApplication.getInst().getContext(), getPageContext().getString(R.string.obfuscated_res_0x7f0f05f4));
+                    qi.N(TbadkCoreApplication.getInst().getContext(), getPageContext().getString(R.string.obfuscated_res_0x7f0f05f4));
                 }
             }
             initData();

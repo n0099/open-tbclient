@@ -110,7 +110,7 @@ public class qv4 extends TBSpecificationButtonConfig {
             if (this.u) {
                 gradientDrawable.setStroke(qi.f(TbadkCoreApplication.getInst().getContext(), this.v), SkinManager.getColor(this.r, this.c));
             } else {
-                gradientDrawable.setStroke(qi.f(TbadkCoreApplication.getInst().getContext(), this.v), gj8.a(this.q ? SkinManager.getColor(this.r, this.b) : this.b, ks4.a(this.w)));
+                gradientDrawable.setStroke(qi.f(TbadkCoreApplication.getInst().getContext(), this.v), fj8.a(this.q ? SkinManager.getColor(this.r, this.b) : this.b, ks4.a(this.w)));
             }
             gradientDrawable.setShape(0);
             gradientDrawable.setCornerRadius(f);

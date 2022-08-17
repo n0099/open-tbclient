@@ -15,7 +15,7 @@ import com.repackage.ru4;
 /* loaded from: classes3.dex */
 public class NewWriteProtobufSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String NEW_WRITE_PROTOBUF_ENABLE = "new_write_protobuf_12_26";
+    public static final String NEW_WRITE_PROTOBUF_ENABLE = "new_write_protobuf_12_275";
     public static final int TYPE_FORCE_ON = 2;
     public static final int TYPE_OFF = 0;
     public static final int TYPE_ON = 1;
@@ -55,7 +55,7 @@ public class NewWriteProtobufSwitch extends BaseNormalSwitch {
         }
     }
 
-    @Modify(description = "12.26 发帖接口转 protobuf 的开关", type = 100)
+    @Modify(description = "12.27.5 发帖接口转 protobuf 的开关", type = 100)
     public static boolean getIsOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

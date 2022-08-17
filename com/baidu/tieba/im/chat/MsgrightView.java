@@ -14,6 +14,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
@@ -26,14 +29,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a67;
+import com.repackage.h87;
 import com.repackage.ms4;
-import com.repackage.oz7;
+import com.repackage.nz7;
 import com.repackage.pi;
 import com.repackage.qi;
-import com.repackage.y77;
+import com.repackage.z57;
 /* loaded from: classes3.dex */
-public class MsgrightView extends a67 {
+public class MsgrightView extends z57 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String O = "com.baidu.tieba.im.chat.MsgrightView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +49,7 @@ public class MsgrightView extends a67 {
     public TextView K;
     public CenterTextView L;
     public RelativeLayout M;
-    public oz7 N;
+    public nz7 N;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -83,7 +86,7 @@ public class MsgrightView extends a67 {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements y77.d {
+    public class b implements h87.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatMessage a;
@@ -108,17 +111,21 @@ public class MsgrightView extends a67 {
             this.a = chatMessage;
         }
 
-        @Override // com.repackage.y77.d
+        @Override // com.repackage.h87.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 if (!str.contains(TbConfig.URL_UEG_REPORT)) {
                     UrlManager.getInstance().dealOneLink((TbPageContext) this.b.mContext, new String[]{str}, true);
+                    if (this.a.getError() == 220907) {
+                        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_USER_GROWUP_LEVEL_DIALOG_SHOW).param("obj_type", "2").param("obj_locate", "1"));
+                        return;
+                    }
                     return;
                 }
-                oz7 oz7Var = this.b.N;
-                if (oz7Var != null) {
-                    oz7Var.c(String.valueOf(this.a.getUserInfo().getUserId()));
+                nz7 nz7Var = this.b.N;
+                if (nz7Var != null) {
+                    nz7Var.c(String.valueOf(this.a.getUserInfo().getUserId()));
                 }
             }
         }
@@ -174,13 +181,13 @@ public class MsgrightView extends a67 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext, oz7 oz7Var) {
+    public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext, nz7 nz7Var) {
         super(tbPageContext, R.layout.obfuscated_res_0x7f0d0585);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, oz7Var};
+            Object[] objArr = {tbPageContext, nz7Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -193,7 +200,7 @@ public class MsgrightView extends a67 {
             }
         }
         this.N = null;
-        this.N = oz7Var;
+        this.N = nz7Var;
         q();
         this.G = (TextView) j(R.id.obfuscated_res_0x7f090ed8);
         this.E = (ProgressBar) j(R.id.obfuscated_res_0x7f091a78);
@@ -220,7 +227,7 @@ public class MsgrightView extends a67 {
         this.o.setIsLeft(false);
     }
 
-    @Override // com.repackage.a67
+    @Override // com.repackage.z57
     public void E(View view2, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view2, chatMessage) == null) {
@@ -241,7 +248,7 @@ public class MsgrightView extends a67 {
         }
     }
 
-    @Override // com.repackage.a67
+    @Override // com.repackage.z57
     public void s() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.D == TbadkCoreApplication.getInst().getSkinType()) {
@@ -257,7 +264,7 @@ public class MsgrightView extends a67 {
         this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0610));
     }
 
-    @Override // com.repackage.a67
+    @Override // com.repackage.z57
     public void u(View view2, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, chatMessage) == null) {
@@ -285,7 +292,7 @@ public class MsgrightView extends a67 {
             try {
                 M(chatMessage);
                 S(chatMessage);
-                this.H.setDefaultResource(R.drawable.obfuscated_res_0x7f080ee3);
+                this.H.setDefaultResource(R.drawable.obfuscated_res_0x7f080ee4);
                 if (chatMessage.getUserInfo() != null) {
                     this.H.setUserId(chatMessage.getUserInfo().getUserId());
                     String currentAvatar = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAvatar() : null;
@@ -321,7 +328,7 @@ public class MsgrightView extends a67 {
                         case 2:
                             this.F.setVisibility(0);
                             this.M.setVisibility(0);
-                            this.L.setText(R.string.obfuscated_res_0x7f0f0ace);
+                            this.L.setText(R.string.obfuscated_res_0x7f0f0acf);
                             break;
                         case 3:
                             this.E.setVisibility(8);
@@ -340,46 +347,50 @@ public class MsgrightView extends a67 {
                         case 4:
                             this.F.setVisibility(0);
                             this.M.setVisibility(0);
-                            this.L.setText(R.string.obfuscated_res_0x7f0f0ad0);
+                            this.L.setText(R.string.obfuscated_res_0x7f0f0ad1);
                             break;
                         case 5:
                             this.F.setVisibility(0);
                             this.M.setVisibility(0);
-                            this.L.setText(R.string.obfuscated_res_0x7f0f0ad1);
+                            this.L.setText(R.string.obfuscated_res_0x7f0f0ad2);
                             break;
                         case 6:
                             this.F.setVisibility(0);
                             this.M.setVisibility(0);
-                            this.L.setText(R.string.obfuscated_res_0x7f0f0acf);
+                            this.L.setText(R.string.obfuscated_res_0x7f0f0ad0);
                             break;
                         case 7:
                             this.F.setVisibility(0);
                             this.M.setVisibility(0);
-                            this.L.setText(R.string.obfuscated_res_0x7f0f0acd);
+                            this.L.setText(R.string.obfuscated_res_0x7f0f0ace);
                             break;
                         case 8:
                             this.F.setVisibility(0);
                             this.M.setVisibility(0);
-                            this.L.setText(R.string.obfuscated_res_0x7f0f0acc);
+                            this.L.setText(R.string.obfuscated_res_0x7f0f0acd);
                             break;
                         case 9:
                             this.F.setVisibility(0);
                             this.M.setVisibility(0);
                             if (pi.isEmpty(chatMessage.getLocalData().getErrorString())) {
-                                this.L.setText(R.string.obfuscated_res_0x7f0f0ace);
+                                this.L.setText(R.string.obfuscated_res_0x7f0f0acf);
                                 break;
                             } else {
-                                y77 f = y77.f(this.L.getContext());
+                                h87 f = h87.f(this.L.getContext());
                                 if (f.i(chatMessage.getLocalData().getErrorString())) {
                                     f.g(chatMessage.getLocalData().getErrorString());
                                     f.h(this.L);
                                     f.j(new b(this, chatMessage));
-                                    break;
+                                    if (chatMessage.getError() == 220907) {
+                                        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_USER_GROWUP_LEVEL_DIALOG_SHOW).param("obj_type", "1").param("obj_locate", "1"));
+                                        break;
+                                    }
                                 } else {
                                     this.L.setText(chatMessage.getLocalData().getErrorString());
                                     break;
                                 }
                             }
+                            break;
                     }
                 }
                 if (this.F.getVisibility() == 0) {

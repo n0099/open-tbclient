@@ -12,11 +12,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
+import com.facebook.common.internal.Suppliers;
 import com.facebook.common.memory.ByteArrayPool;
 import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.common.memory.PooledByteBufferFactory;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory;
+import com.facebook.imagepipeline.cache.BoundedLinkedHashSet;
 import com.facebook.imagepipeline.cache.BufferedDiskCache;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.cache.MemoryCache;
@@ -29,6 +31,7 @@ import com.facebook.imagepipeline.producers.BitmapMemoryCacheGetProducer;
 import com.facebook.imagepipeline.producers.BitmapMemoryCacheKeyMultiplexProducer;
 import com.facebook.imagepipeline.producers.BitmapMemoryCacheProducer;
 import com.facebook.imagepipeline.producers.BitmapPrepareProducer;
+import com.facebook.imagepipeline.producers.BitmapProbeProducer;
 import com.facebook.imagepipeline.producers.BranchOnSeparateImagesProducer;
 import com.facebook.imagepipeline.producers.DataFetchProducer;
 import com.facebook.imagepipeline.producers.DecodeProducer;
@@ -36,6 +39,7 @@ import com.facebook.imagepipeline.producers.DiskCacheReadProducer;
 import com.facebook.imagepipeline.producers.DiskCacheWriteProducer;
 import com.facebook.imagepipeline.producers.EncodedCacheKeyMultiplexProducer;
 import com.facebook.imagepipeline.producers.EncodedMemoryCacheProducer;
+import com.facebook.imagepipeline.producers.EncodedProbeProducer;
 import com.facebook.imagepipeline.producers.LocalAssetFetchProducer;
 import com.facebook.imagepipeline.producers.LocalContentUriFetchProducer;
 import com.facebook.imagepipeline.producers.LocalContentUriThumbnailFetchProducer;
@@ -76,10 +80,13 @@ public class ProducerFactory {
     public ContentResolver mContentResolver;
     public final boolean mDecodeCancellationEnabled;
     public final BufferedDiskCache mDefaultBufferedDiskCache;
+    public final BoundedLinkedHashSet<CacheKey> mDiskCacheHistory;
     public final boolean mDownsampleEnabled;
     public final MemoryCache<CacheKey, PooledByteBuffer> mEncodedMemoryCache;
+    public final BoundedLinkedHashSet<CacheKey> mEncodedMemoryCacheHistory;
     public final ExecutorSupplier mExecutorSupplier;
     public final ImageDecoder mImageDecoder;
+    public final boolean mKeepCancelledFetchAsLowPriority;
     public final int mMaxBitmapSize;
     public final PlatformBitmapFactory mPlatformBitmapFactory;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
@@ -88,16 +95,16 @@ public class ProducerFactory {
     public Resources mResources;
     public final BufferedDiskCache mSmallImageBufferedDiskCache;
 
-    public ProducerFactory(Context context, ByteArrayPool byteArrayPool, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, ExecutorSupplier executorSupplier, PooledByteBufferFactory pooledByteBufferFactory, MemoryCache<CacheKey, CloseableImage> memoryCache, MemoryCache<CacheKey, PooledByteBuffer> memoryCache2, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, PlatformBitmapFactory platformBitmapFactory, int i, int i2, boolean z4, int i3, CloseableReferenceFactory closeableReferenceFactory) {
+    public ProducerFactory(Context context, ByteArrayPool byteArrayPool, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, ExecutorSupplier executorSupplier, PooledByteBufferFactory pooledByteBufferFactory, MemoryCache<CacheKey, CloseableImage> memoryCache, MemoryCache<CacheKey, PooledByteBuffer> memoryCache2, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, PlatformBitmapFactory platformBitmapFactory, int i, int i2, boolean z4, int i3, CloseableReferenceFactory closeableReferenceFactory, boolean z5, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, byteArrayPool, imageDecoder, progressiveJpegConfig, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), executorSupplier, pooledByteBufferFactory, memoryCache, memoryCache2, bufferedDiskCache, bufferedDiskCache2, cacheKeyFactory, platformBitmapFactory, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z4), Integer.valueOf(i3), closeableReferenceFactory};
+            Object[] objArr = {context, byteArrayPool, imageDecoder, progressiveJpegConfig, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), executorSupplier, pooledByteBufferFactory, memoryCache, memoryCache2, bufferedDiskCache, bufferedDiskCache2, cacheKeyFactory, platformBitmapFactory, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z4), Integer.valueOf(i3), closeableReferenceFactory, Boolean.valueOf(z5), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -120,11 +127,14 @@ public class ProducerFactory {
         this.mSmallImageBufferedDiskCache = bufferedDiskCache2;
         this.mCacheKeyFactory = cacheKeyFactory;
         this.mPlatformBitmapFactory = platformBitmapFactory;
+        this.mEncodedMemoryCacheHistory = new BoundedLinkedHashSet<>(i4);
+        this.mDiskCacheHistory = new BoundedLinkedHashSet<>(i4);
         this.mBitmapPrepareToDrawMinSizeBytes = i;
         this.mBitmapPrepareToDrawMaxSizeBytes = i2;
         this.mBitmapPrepareToDrawForPrefetch = z4;
         this.mMaxBitmapSize = i3;
         this.mCloseableReferenceFactory = closeableReferenceFactory;
+        this.mKeepCancelledFetchAsLowPriority = z5;
     }
 
     public static AddImageTransformMetaDataProducer newAddImageTransformMetaDataProducer(Producer<EncodedImage> producer) {
@@ -181,135 +191,147 @@ public class ProducerFactory {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, producer)) == null) ? new BitmapPrepareProducer(producer, this.mBitmapPrepareToDrawMinSizeBytes, this.mBitmapPrepareToDrawMaxSizeBytes, this.mBitmapPrepareToDrawForPrefetch) : (BitmapPrepareProducer) invokeL.objValue;
     }
 
+    public BitmapProbeProducer newBitmapProbeProducer(Producer<CloseableReference<CloseableImage>> producer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, producer)) == null) ? new BitmapProbeProducer(this.mEncodedMemoryCache, this.mDefaultBufferedDiskCache, this.mSmallImageBufferedDiskCache, this.mCacheKeyFactory, this.mEncodedMemoryCacheHistory, this.mDiskCacheHistory, producer) : (BitmapProbeProducer) invokeL.objValue;
+    }
+
     public DataFetchProducer newDataFetchProducer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new DataFetchProducer(this.mPooledByteBufferFactory) : (DataFetchProducer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new DataFetchProducer(this.mPooledByteBufferFactory) : (DataFetchProducer) invokeV.objValue;
     }
 
     public DecodeProducer newDecodeProducer(Producer<EncodedImage> producer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, producer)) == null) ? new DecodeProducer(this.mByteArrayPool, this.mExecutorSupplier.forDecode(), this.mImageDecoder, this.mProgressiveJpegConfig, this.mDownsampleEnabled, this.mResizeAndRotateEnabledForNetwork, this.mDecodeCancellationEnabled, producer, this.mMaxBitmapSize, this.mCloseableReferenceFactory) : (DecodeProducer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, producer)) == null) ? new DecodeProducer(this.mByteArrayPool, this.mExecutorSupplier.forDecode(), this.mImageDecoder, this.mProgressiveJpegConfig, this.mDownsampleEnabled, this.mResizeAndRotateEnabledForNetwork, this.mDecodeCancellationEnabled, producer, this.mMaxBitmapSize, this.mCloseableReferenceFactory, null, Suppliers.BOOLEAN_FALSE) : (DecodeProducer) invokeL.objValue;
     }
 
     public DiskCacheReadProducer newDiskCacheReadProducer(Producer<EncodedImage> producer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, producer)) == null) ? new DiskCacheReadProducer(this.mDefaultBufferedDiskCache, this.mSmallImageBufferedDiskCache, this.mCacheKeyFactory, producer) : (DiskCacheReadProducer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, producer)) == null) ? new DiskCacheReadProducer(this.mDefaultBufferedDiskCache, this.mSmallImageBufferedDiskCache, this.mCacheKeyFactory, producer) : (DiskCacheReadProducer) invokeL.objValue;
     }
 
     public DiskCacheWriteProducer newDiskCacheWriteProducer(Producer<EncodedImage> producer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, producer)) == null) ? new DiskCacheWriteProducer(this.mDefaultBufferedDiskCache, this.mSmallImageBufferedDiskCache, this.mCacheKeyFactory, producer) : (DiskCacheWriteProducer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, producer)) == null) ? new DiskCacheWriteProducer(this.mDefaultBufferedDiskCache, this.mSmallImageBufferedDiskCache, this.mCacheKeyFactory, producer) : (DiskCacheWriteProducer) invokeL.objValue;
     }
 
     public EncodedCacheKeyMultiplexProducer newEncodedCacheKeyMultiplexProducer(Producer<EncodedImage> producer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, producer)) == null) ? new EncodedCacheKeyMultiplexProducer(this.mCacheKeyFactory, producer) : (EncodedCacheKeyMultiplexProducer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, producer)) == null) ? new EncodedCacheKeyMultiplexProducer(this.mCacheKeyFactory, this.mKeepCancelledFetchAsLowPriority, producer) : (EncodedCacheKeyMultiplexProducer) invokeL.objValue;
     }
 
     public EncodedMemoryCacheProducer newEncodedMemoryCacheProducer(Producer<EncodedImage> producer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, producer)) == null) ? new EncodedMemoryCacheProducer(this.mEncodedMemoryCache, this.mCacheKeyFactory, producer) : (EncodedMemoryCacheProducer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, producer)) == null) ? new EncodedMemoryCacheProducer(this.mEncodedMemoryCache, this.mCacheKeyFactory, producer) : (EncodedMemoryCacheProducer) invokeL.objValue;
+    }
+
+    public EncodedProbeProducer newEncodedProbeProducer(Producer<EncodedImage> producer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, producer)) == null) ? new EncodedProbeProducer(this.mDefaultBufferedDiskCache, this.mSmallImageBufferedDiskCache, this.mCacheKeyFactory, this.mEncodedMemoryCacheHistory, this.mDiskCacheHistory, producer) : (EncodedProbeProducer) invokeL.objValue;
     }
 
     public LocalAssetFetchProducer newLocalAssetFetchProducer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? new LocalAssetFetchProducer(this.mExecutorSupplier.forLocalStorageRead(), this.mPooledByteBufferFactory, this.mAssetManager) : (LocalAssetFetchProducer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? new LocalAssetFetchProducer(this.mExecutorSupplier.forLocalStorageRead(), this.mPooledByteBufferFactory, this.mAssetManager) : (LocalAssetFetchProducer) invokeV.objValue;
     }
 
     public LocalContentUriFetchProducer newLocalContentUriFetchProducer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new LocalContentUriFetchProducer(this.mExecutorSupplier.forLocalStorageRead(), this.mPooledByteBufferFactory, this.mContentResolver) : (LocalContentUriFetchProducer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? new LocalContentUriFetchProducer(this.mExecutorSupplier.forLocalStorageRead(), this.mPooledByteBufferFactory, this.mContentResolver) : (LocalContentUriFetchProducer) invokeV.objValue;
     }
 
     public LocalContentUriThumbnailFetchProducer newLocalContentUriThumbnailFetchProducer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? new LocalContentUriThumbnailFetchProducer(this.mExecutorSupplier.forLocalStorageRead(), this.mPooledByteBufferFactory, this.mContentResolver) : (LocalContentUriThumbnailFetchProducer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? new LocalContentUriThumbnailFetchProducer(this.mExecutorSupplier.forLocalStorageRead(), this.mPooledByteBufferFactory, this.mContentResolver) : (LocalContentUriThumbnailFetchProducer) invokeV.objValue;
     }
 
     public LocalExifThumbnailProducer newLocalExifThumbnailProducer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? new LocalExifThumbnailProducer(this.mExecutorSupplier.forLocalStorageRead(), this.mPooledByteBufferFactory, this.mContentResolver) : (LocalExifThumbnailProducer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? new LocalExifThumbnailProducer(this.mExecutorSupplier.forThumbnailProducer(), this.mPooledByteBufferFactory, this.mContentResolver) : (LocalExifThumbnailProducer) invokeV.objValue;
     }
 
     public LocalFileFetchProducer newLocalFileFetchProducer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? new LocalFileFetchProducer(this.mExecutorSupplier.forLocalStorageRead(), this.mPooledByteBufferFactory) : (LocalFileFetchProducer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? new LocalFileFetchProducer(this.mExecutorSupplier.forLocalStorageRead(), this.mPooledByteBufferFactory) : (LocalFileFetchProducer) invokeV.objValue;
     }
 
     public LocalResourceFetchProducer newLocalResourceFetchProducer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? new LocalResourceFetchProducer(this.mExecutorSupplier.forLocalStorageRead(), this.mPooledByteBufferFactory, this.mResources) : (LocalResourceFetchProducer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? new LocalResourceFetchProducer(this.mExecutorSupplier.forLocalStorageRead(), this.mPooledByteBufferFactory, this.mResources) : (LocalResourceFetchProducer) invokeV.objValue;
     }
 
     public LocalVideoThumbnailProducer newLocalVideoThumbnailProducer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? new LocalVideoThumbnailProducer(this.mExecutorSupplier.forLocalStorageRead(), this.mContentResolver) : (LocalVideoThumbnailProducer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? new LocalVideoThumbnailProducer(this.mExecutorSupplier.forLocalStorageRead(), this.mContentResolver) : (LocalVideoThumbnailProducer) invokeV.objValue;
     }
 
-    public NetworkFetchProducer newNetworkFetchProducer(NetworkFetcher networkFetcher) {
+    public Producer<EncodedImage> newNetworkFetchProducer(NetworkFetcher networkFetcher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, networkFetcher)) == null) ? new NetworkFetchProducer(this.mPooledByteBufferFactory, this.mByteArrayPool, networkFetcher) : (NetworkFetchProducer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, networkFetcher)) == null) ? new NetworkFetchProducer(this.mPooledByteBufferFactory, this.mByteArrayPool, networkFetcher) : (Producer) invokeL.objValue;
     }
 
     public PartialDiskCacheProducer newPartialDiskCacheProducer(Producer<EncodedImage> producer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, producer)) == null) ? new PartialDiskCacheProducer(this.mDefaultBufferedDiskCache, this.mCacheKeyFactory, this.mPooledByteBufferFactory, this.mByteArrayPool, producer) : (PartialDiskCacheProducer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, producer)) == null) ? new PartialDiskCacheProducer(this.mDefaultBufferedDiskCache, this.mCacheKeyFactory, this.mPooledByteBufferFactory, this.mByteArrayPool, producer) : (PartialDiskCacheProducer) invokeL.objValue;
     }
 
     public PostprocessedBitmapMemoryCacheProducer newPostprocessorBitmapMemoryCacheProducer(Producer<CloseableReference<CloseableImage>> producer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, producer)) == null) ? new PostprocessedBitmapMemoryCacheProducer(this.mBitmapMemoryCache, this.mCacheKeyFactory, producer) : (PostprocessedBitmapMemoryCacheProducer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, producer)) == null) ? new PostprocessedBitmapMemoryCacheProducer(this.mBitmapMemoryCache, this.mCacheKeyFactory, producer) : (PostprocessedBitmapMemoryCacheProducer) invokeL.objValue;
     }
 
     public PostprocessorProducer newPostprocessorProducer(Producer<CloseableReference<CloseableImage>> producer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, producer)) == null) ? new PostprocessorProducer(producer, this.mPlatformBitmapFactory, this.mExecutorSupplier.forBackgroundTasks()) : (PostprocessorProducer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, producer)) == null) ? new PostprocessorProducer(producer, this.mPlatformBitmapFactory, this.mExecutorSupplier.forBackgroundTasks()) : (PostprocessorProducer) invokeL.objValue;
     }
 
     public QualifiedResourceFetchProducer newQualifiedResourceFetchProducer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? new QualifiedResourceFetchProducer(this.mExecutorSupplier.forLocalStorageRead(), this.mPooledByteBufferFactory, this.mContentResolver) : (QualifiedResourceFetchProducer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? new QualifiedResourceFetchProducer(this.mExecutorSupplier.forLocalStorageRead(), this.mPooledByteBufferFactory, this.mContentResolver) : (QualifiedResourceFetchProducer) invokeV.objValue;
     }
 
     public ResizeAndRotateProducer newResizeAndRotateProducer(Producer<EncodedImage> producer, boolean z, ImageTranscoderFactory imageTranscoderFactory) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{producer, Boolean.valueOf(z), imageTranscoderFactory})) == null) ? new ResizeAndRotateProducer(this.mExecutorSupplier.forBackgroundTasks(), this.mPooledByteBufferFactory, producer, z, imageTranscoderFactory) : (ResizeAndRotateProducer) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{producer, Boolean.valueOf(z), imageTranscoderFactory})) == null) ? new ResizeAndRotateProducer(this.mExecutorSupplier.forBackgroundTasks(), this.mPooledByteBufferFactory, producer, z, imageTranscoderFactory) : (ResizeAndRotateProducer) invokeCommon.objValue;
     }
 
     public <T> ThrottlingProducer<T> newThrottlingProducer(Producer<T> producer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, producer)) == null) ? new ThrottlingProducer<>(5, this.mExecutorSupplier.forLightweightBackgroundTasks(), producer) : (ThrottlingProducer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, producer)) == null) ? new ThrottlingProducer<>(5, this.mExecutorSupplier.forLightweightBackgroundTasks(), producer) : (ThrottlingProducer) invokeL.objValue;
     }
 
     public ThumbnailBranchProducer newThumbnailBranchProducer(ThumbnailProducer<EncodedImage>[] thumbnailProducerArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, thumbnailProducerArr)) == null) ? new ThumbnailBranchProducer(thumbnailProducerArr) : (ThumbnailBranchProducer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, thumbnailProducerArr)) == null) ? new ThumbnailBranchProducer(thumbnailProducerArr) : (ThumbnailBranchProducer) invokeL.objValue;
     }
 
     public WebpTranscodeProducer newWebpTranscodeProducer(Producer<EncodedImage> producer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, producer)) == null) ? new WebpTranscodeProducer(this.mExecutorSupplier.forBackgroundTasks(), this.mPooledByteBufferFactory, producer) : (WebpTranscodeProducer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, producer)) == null) ? new WebpTranscodeProducer(this.mExecutorSupplier.forBackgroundTasks(), this.mPooledByteBufferFactory, producer) : (WebpTranscodeProducer) invokeL.objValue;
     }
 }

@@ -58,13 +58,13 @@ public final class ay2 {
 
         /* renamed from: com.repackage.ay2$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0445a implements sf3<wx2> {
+        public class C0443a implements sf3<wx2> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ yx2 b;
 
-            public C0445a(a aVar, String str, yx2 yx2Var) {
+            public C0443a(a aVar, String str, yx2 yx2Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public final class ay2 {
                     Log.i("SwanPuppetManager", "onEvent: to=" + this.a.g.size() + " event=" + str + " client=" + yx2Var.b);
                 }
                 synchronized (this.a.g) {
-                    rf3.a(y03.M(), new C0445a(this, str, yx2Var), this.a.g);
+                    rf3.a(y03.M(), new C0443a(this, str, yx2Var), this.a.g);
                 }
             }
         }

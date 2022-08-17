@@ -32,12 +32,12 @@ public class SystemMessageHandler extends Handler {
 
         /* renamed from: com.baidu.turbonet.base.SystemMessageHandler$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C0268a implements c {
+        public static class C0270a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public Method a;
 
-            public C0268a() {
+            public C0270a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,7 +136,7 @@ public class SystemMessageHandler extends Handler {
             if (Build.VERSION.SDK_INT >= 22) {
                 a = new b();
             } else {
-                a = new C0268a();
+                a = new C0270a();
             }
         }
 

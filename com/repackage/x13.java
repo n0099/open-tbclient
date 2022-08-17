@@ -68,14 +68,14 @@ public class x13 extends w23 {
                 if (a != null && context != null) {
                     JSONObject optJSONObject = a.optJSONObject("abtest");
                     if (optJSONObject != null) {
-                        Toast.makeText(context, l(optJSONObject) ? R.string.obfuscated_res_0x7f0f12a4 : R.string.obfuscated_res_0x7f0f12a2, 1).show();
+                        Toast.makeText(context, l(optJSONObject) ? R.string.obfuscated_res_0x7f0f12a6 : R.string.obfuscated_res_0x7f0f12a4, 1).show();
                     } else {
                         j();
-                        Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f12a5, 1).show();
+                        Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f12a7, 1).show();
                     }
                     return true;
                 }
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f12a3, 1).show();
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f12a5, 1).show();
                 return false;
             }
             return false;

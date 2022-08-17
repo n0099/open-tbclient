@@ -1,30 +1,84 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.util.DataExt;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.frs.voiceroom.data.VoiceRoomListNetModel;
 import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
+import com.repackage.am4;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.ThreadInfo;
-import tbclient.VoiceRoom;
-import tbclient.VoiceRoomListPage.VoiceRoomListPageResIdl;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class ns6 implements t85 {
+public final class ns6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public List<ThreadInfo> a;
+    public final VoiceRoomListNetModel a;
+
+    /* loaded from: classes6.dex */
+    public static final class a implements NetModel.k<ls6, ms6> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zl4<List<VoiceRoomWrapper>> a;
+
+        public a(zl4<List<VoiceRoomWrapper>> zl4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zl4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zl4Var;
+        }
+
+        @Override // com.baidu.tbadk.mvc.model.NetModel.m
+        public void n(MvcSocketResponsedMessage<ms6, ?> mvcSocketResponsedMessage, MvcSocketMessage<ls6, ms6> mvcSocketMessage, MvcNetMessage<ls6, ms6> mvcNetMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) || mvcSocketResponsedMessage == null || mvcSocketResponsedMessage.hasError()) {
+                return;
+            }
+            if (mvcSocketResponsedMessage.getError() == 0) {
+                this.a.a(new am4.c(mvcSocketResponsedMessage.getData().a()));
+                return;
+            }
+            zl4<List<VoiceRoomWrapper>> zl4Var = this.a;
+            String errorString = mvcSocketResponsedMessage.getErrorString();
+            Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
+            zl4Var.a(new am4.a(errorString, null, 2, null));
+        }
+
+        @Override // com.baidu.tbadk.mvc.model.NetModel.l
+        public void s(MvcHttpResponsedMessage<ms6> mvcHttpResponsedMessage, MvcHttpMessage<ls6, ms6> mvcHttpMessage, MvcNetMessage<ls6, ms6> mvcNetMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) || mvcHttpResponsedMessage == null || mvcHttpResponsedMessage.hasError()) {
+                return;
+            }
+            if (mvcHttpResponsedMessage.getError() == 0) {
+                this.a.a(new am4.c(mvcHttpResponsedMessage.getData().a()));
+                return;
+            }
+            zl4<List<VoiceRoomWrapper>> zl4Var = this.a;
+            String errorString = mvcHttpResponsedMessage.getErrorString();
+            Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
+            zl4Var.a(new am4.a(errorString, null, 2, null));
+        }
+    }
 
     public ns6() {
         Interceptable interceptable = $ic;
@@ -39,61 +93,20 @@ public class ns6 implements t85 {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.a = new VoiceRoomListNetModel();
     }
 
-    @NonNull
-    public List<VoiceRoomWrapper> a() {
-        InterceptResult invokeV;
+    public final void a(TbPageContext<?> tbPageContext, long j, long j2, zl4<List<VoiceRoomWrapper>> callback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (ThreadInfo threadInfo : this.a) {
-                VoiceRoom voiceRoom = threadInfo.voice_room;
-                if (voiceRoom != null && b(voiceRoom)) {
-                    String str = threadInfo.fname;
-                    if (str == null) {
-                        str = "";
-                    }
-                    arrayList.add(new VoiceRoomWrapper(voiceRoom, str));
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final boolean b(@NonNull VoiceRoom voiceRoom) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voiceRoom)) == null) {
-            Long l = voiceRoom.room_id;
-            return (l == null || l.longValue() == 0 || TextUtils.isEmpty(voiceRoom.room_name)) ? false : true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.t85
-    public void initByJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            try {
-                JSONArray optJSONArray = jSONObject.optJSONArray("voice_room_list");
-                if (optJSONArray != null) {
-                    this.a = DataExt.toEntityList(optJSONArray.toString(), ThreadInfo.class);
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    @Override // com.repackage.t85
-    public void initByProtobuf(Message message) {
-        List<ThreadInfo> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && (message instanceof VoiceRoomListPageResIdl) && (list = ((VoiceRoomListPageResIdl) message).data.voice_room_list) != null) {
-            this.a = list;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, Long.valueOf(j), Long.valueOf(j2), callback}) == null) {
+            Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            ls6 ls6Var = new ls6(j, j2);
+            this.a.setUniqueId(tbPageContext.getUniqueId());
+            this.a.c0(ls6Var);
+            this.a.b0(new a(callback));
+            this.a.loadData();
+            callback.a(new am4.b(null, 1, null));
         }
     }
 }

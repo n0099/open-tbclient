@@ -17,11 +17,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr7;
+import com.repackage.er7;
 import com.repackage.on;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements fr7 {
+public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements er7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotTopicListModel a;
@@ -42,7 +42,7 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         }
     }
 
-    @Override // com.repackage.fr7
+    @Override // com.repackage.er7
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -70,7 +70,7 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "a078" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.fr7
+    @Override // com.repackage.er7
     public void j(int i, List<on> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, list) == null) {

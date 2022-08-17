@@ -18,22 +18,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.od7;
 import com.repackage.pd7;
-import com.repackage.qd7;
+import com.repackage.rd7;
 import com.repackage.ru4;
-import com.repackage.sd7;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LabelSettingModel a;
-    public sd7 b;
+    public rd7 b;
     public int c;
-    public qd7 d;
+    public pd7 d;
 
     /* loaded from: classes3.dex */
-    public class a implements qd7 {
+    public class a implements pd7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LabelRecommendActivity a;
@@ -56,10 +56,10 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
             this.a = labelRecommendActivity;
         }
 
-        @Override // com.repackage.qd7
-        public void a(LabelRequestEnum labelRequestEnum, pd7 pd7Var, int i) {
+        @Override // com.repackage.pd7
+        public void a(LabelRequestEnum labelRequestEnum, od7 od7Var, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, pd7Var, i) == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, od7Var, i) == null) {
                 int i2 = b.a[labelRequestEnum.ordinal()];
                 if (i2 != 1) {
                     if (i2 == 2 && i == 0) {
@@ -72,14 +72,14 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                 }
                 LabelRecommendActivity labelRecommendActivity = this.a;
                 labelRecommendActivity.hideLoadingView(labelRecommendActivity.b.c());
-                if (pd7Var != null && !ListUtils.isEmpty(pd7Var.b()) && !ListUtils.isEmpty(pd7Var.a())) {
+                if (od7Var != null && !ListUtils.isEmpty(od7Var.b()) && !ListUtils.isEmpty(od7Var.a())) {
                     LabelRecommendActivity labelRecommendActivity2 = this.a;
                     labelRecommendActivity2.hideNetRefreshView(labelRecommendActivity2.b.c());
-                    this.a.b.j(pd7Var);
+                    this.a.b.j(od7Var);
                     return;
                 }
                 LabelRecommendActivity labelRecommendActivity3 = this.a;
-                labelRecommendActivity3.showNetRefreshView(labelRecommendActivity3.b.c(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c3c), true);
+                labelRecommendActivity3.showNetRefreshView(labelRecommendActivity3.b.c(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c3d), true);
             }
         }
     }
@@ -180,9 +180,9 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            sd7 sd7Var = new sd7(this);
-            this.b = sd7Var;
-            sd7Var.k(this);
+            rd7 rd7Var = new rd7(this);
+            this.b = rd7Var;
+            rd7Var.k(this);
             LabelSettingModel labelSettingModel = new LabelSettingModel(getPageContext());
             this.a = labelSettingModel;
             labelSettingModel.G(this.d);

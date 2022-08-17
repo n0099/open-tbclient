@@ -501,13 +501,13 @@ public class TbRichTextItem extends OrmObject {
                     gi5Var.j(-1);
                 }
                 if (z) {
-                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809a1, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809a2, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
                     eMRichTextAnyIconSpan.c(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
                     spannableString.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
                     spannableString.setSpan(gi5Var, 1, (str.length() + 1) - 1, 33);
                     return spannableString;
                 } else if (z2) {
-                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan2 = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080adc, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan2 = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080add, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
                     eMRichTextAnyIconSpan2.c(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
                     eMRichTextAnyIconSpan2.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006));
                     spannableString.setSpan(eMRichTextAnyIconSpan2, str.length() - 1, str.length() + 1, 33);
@@ -608,7 +608,7 @@ public class TbRichTextItem extends OrmObject {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, arrayList)) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             if (this.a == 32 && this.b != null) {
-                spannableStringBuilder.append((CharSequence) TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1537));
+                spannableStringBuilder.append((CharSequence) TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f153a));
                 CharSequence D = D(arrayList);
                 if (D != null) {
                     spannableStringBuilder.append(D);

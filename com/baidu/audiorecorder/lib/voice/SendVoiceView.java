@@ -27,10 +27,10 @@ import com.repackage.ms4;
 import com.repackage.qi;
 import com.repackage.rg;
 import com.repackage.t25;
-import com.repackage.w57;
-import com.repackage.wa7;
+import com.repackage.v57;
+import com.repackage.va7;
 /* loaded from: classes.dex */
-public class SendVoiceView extends LinearLayout implements t25, w57, ISendVoiceView {
+public class SendVoiceView extends LinearLayout implements t25, v57, ISendVoiceView {
     public static /* synthetic */ Interceptable $ic;
     public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class SendVoiceView extends LinearLayout implements t25, w57, ISendVoiceV
     public EditorTools e;
     public FloatNewRecordView f;
     public PopupWindow g;
-    public wa7 h;
+    public va7 h;
     public boolean i;
     public long j;
 
@@ -161,9 +161,9 @@ public class SendVoiceView extends LinearLayout implements t25, w57, ISendVoiceV
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                this.b.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0af7));
-            } else {
                 this.b.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0af8));
+            } else {
+                this.b.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0af9));
             }
         }
     }
@@ -177,7 +177,7 @@ public class SendVoiceView extends LinearLayout implements t25, w57, ISendVoiceV
         this.f.d();
     }
 
-    @Override // com.repackage.w57
+    @Override // com.repackage.v57
     public void closeRecordCancel() {
         FloatNewRecordView floatNewRecordView;
         Interceptable interceptable = $ic;
@@ -187,7 +187,7 @@ public class SendVoiceView extends LinearLayout implements t25, w57, ISendVoiceV
         this.f.closeRecordCancel();
     }
 
-    @Override // com.repackage.w57
+    @Override // com.repackage.v57
     public void closeRecordTooShort() {
         FloatNewRecordView floatNewRecordView;
         Interceptable interceptable = $ic;
@@ -245,7 +245,7 @@ public class SendVoiceView extends LinearLayout implements t25, w57, ISendVoiceV
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.d : invokeV.intValue;
     }
 
-    @Override // com.repackage.w57
+    @Override // com.repackage.v57
     public void h() {
         PopupWindow popupWindow;
         Interceptable interceptable = $ic;
@@ -293,7 +293,7 @@ public class SendVoiceView extends LinearLayout implements t25, w57, ISendVoiceV
             }
             ImageView imageView = this.c;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080942, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080943, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
             }
             ms4 d = ms4.d(this);
             d.n(R.string.J_X01);
@@ -382,8 +382,8 @@ public class SendVoiceView extends LinearLayout implements t25, w57, ISendVoiceV
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
-                wa7 wa7Var = this.h;
-                if (wa7Var != null && wa7Var.a()) {
+                va7 va7Var = this.h;
+                if (va7Var != null && va7Var.a()) {
                     this.j = System.currentTimeMillis();
                     this.h.startRecord();
                     closeRecordCancel();
@@ -401,21 +401,21 @@ public class SendVoiceView extends LinearLayout implements t25, w57, ISendVoiceV
                 }
             } else {
                 if (motionEvent.getY() < -1.0f && Math.abs(motionEvent.getY()) > qi.d(this.a, 67.0f)) {
-                    wa7 wa7Var2 = this.h;
-                    if (wa7Var2 != null) {
-                        wa7Var2.b();
+                    va7 va7Var2 = this.h;
+                    if (va7Var2 != null) {
+                        va7Var2.b();
                     }
                     closeRecordCancel();
                     h();
                 } else {
-                    wa7 wa7Var3 = this.h;
-                    if (wa7Var3 != null && !wa7Var3.isForeground()) {
+                    va7 va7Var3 = this.h;
+                    if (va7Var3 != null && !va7Var3.isForeground()) {
                         this.h.b();
                         h();
                     } else {
-                        wa7 wa7Var4 = this.h;
-                        if (wa7Var4 != null) {
-                            wa7Var4.stopRecord();
+                        va7 va7Var4 = this.h;
+                        if (va7Var4 != null) {
+                            va7Var4.stopRecord();
                         }
                         if (System.currentTimeMillis() > 0 && System.currentTimeMillis() - this.j < 1000) {
                             d();
@@ -459,10 +459,10 @@ public class SendVoiceView extends LinearLayout implements t25, w57, ISendVoiceV
     }
 
     @Override // com.baidu.tieba.im.chat.ISendVoiceView
-    public void setTouchCallBack(wa7 wa7Var) {
+    public void setTouchCallBack(va7 va7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, wa7Var) == null) {
-            this.h = wa7Var;
+        if (interceptable == null || interceptable.invokeL(1048605, this, va7Var) == null) {
+            this.h = va7Var;
         }
     }
 }

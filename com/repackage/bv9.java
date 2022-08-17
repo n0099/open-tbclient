@@ -1,141 +1,78 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.os.Looper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
-import java.util.List;
-import rx.exceptions.CompositeException;
-import rx.exceptions.OnCompletedFailedException;
-import rx.exceptions.OnErrorFailedException;
-import rx.exceptions.OnErrorNotImplementedException;
-import rx.exceptions.OnErrorThrowable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class bv9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicReference<bv9> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final uu9 a;
 
-    public static void a(Throwable th, Throwable th2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, th, th2) == null) {
-            HashSet hashSet = new HashSet();
-            int i = 0;
-            while (th.getCause() != null) {
-                int i2 = i + 1;
-                if (i >= 25) {
-                    return;
-                }
-                th = th.getCause();
-                if (!hashSet.contains(th.getCause())) {
-                    hashSet.add(th.getCause());
-                    i = i2;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755813396, "Lcom/repackage/bv9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            try {
-                th.initCause(th2);
-            } catch (Throwable unused) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755813396, "Lcom/repackage/bv9;");
+                return;
             }
         }
+        b = new AtomicReference<>();
     }
 
-    public static Throwable b(Throwable th) {
-        InterceptResult invokeL;
+    public bv9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, th)) == null) {
-            int i = 0;
-            while (th.getCause() != null) {
-                int i2 = i + 1;
-                if (i >= 25) {
-                    return new RuntimeException("Stack too deep to get final cause");
-                }
-                th = th.getCause();
-                i = i2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return th;
         }
-        return (Throwable) invokeL.objValue;
+        uu9 b2 = zu9.a().b().b();
+        if (b2 != null) {
+            this.a = b2;
+        } else {
+            this.a = new cv9(Looper.getMainLooper());
+        }
     }
 
-    public static RuntimeException c(Throwable th) {
-        InterceptResult invokeL;
+    public static bv9 a() {
+        bv9 bv9Var;
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
-            if (!(th instanceof RuntimeException)) {
-                if (th instanceof Error) {
-                    throw ((Error) th);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            do {
+                bv9 bv9Var2 = b.get();
+                if (bv9Var2 != null) {
+                    return bv9Var2;
                 }
-                throw new RuntimeException(th);
-            }
-            throw ((RuntimeException) th);
+                bv9Var = new bv9();
+            } while (!b.compareAndSet(null, bv9Var));
+            return bv9Var;
         }
-        return (RuntimeException) invokeL.objValue;
+        return (bv9) invokeV.objValue;
     }
 
-    public static void d(List<? extends Throwable> list) {
+    public static uu9 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, list) == null) || list == null || list.isEmpty()) {
-            return;
-        }
-        if (list.size() == 1) {
-            Throwable th = list.get(0);
-            if (!(th instanceof RuntimeException)) {
-                if (th instanceof Error) {
-                    throw ((Error) th);
-                }
-                throw new RuntimeException(th);
-            }
-            throw ((RuntimeException) th);
-        }
-        throw new CompositeException(list);
-    }
-
-    public static void e(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) {
-            if (!(th instanceof OnErrorNotImplementedException)) {
-                if (!(th instanceof OnErrorFailedException)) {
-                    if (!(th instanceof OnCompletedFailedException)) {
-                        if (!(th instanceof VirtualMachineError)) {
-                            if (!(th instanceof ThreadDeath)) {
-                                if (th instanceof LinkageError) {
-                                    throw ((LinkageError) th);
-                                }
-                                return;
-                            }
-                            throw ((ThreadDeath) th);
-                        }
-                        throw ((VirtualMachineError) th);
-                    }
-                    throw ((OnCompletedFailedException) th);
-                }
-                throw ((OnErrorFailedException) th);
-            }
-            throw ((OnErrorNotImplementedException) th);
-        }
-    }
-
-    public static void f(Throwable th, qu9<?> qu9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, th, qu9Var) == null) {
-            e(th);
-            qu9Var.onError(th);
-        }
-    }
-
-    public static void g(Throwable th, qu9<?> qu9Var, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, th, qu9Var, obj) == null) {
-            e(th);
-            qu9Var.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
-        }
-    }
-
-    public static void h(Throwable th, uu9<?> uu9Var, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, th, uu9Var, obj) == null) {
-            e(th);
-            uu9Var.b(OnErrorThrowable.addValueAsLastCause(th, obj));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a().a : (uu9) invokeV.objValue;
     }
 }

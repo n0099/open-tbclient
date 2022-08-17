@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.repackage.z87;
+import com.repackage.y87;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -117,7 +117,7 @@ public class MessageSyncMessage extends TbSocketMessage {
             if (builder.groupMids == null) {
                 builder.groupMids = new ArrayList();
             }
-            long d = z87.e().d();
+            long d = y87.e().d();
             boolean z = false;
             for (int i = 0; i < this.mMids.size(); i++) {
                 long keyAt = this.mMids.keyAt(i);
@@ -127,17 +127,17 @@ public class MessageSyncMessage extends TbSocketMessage {
                     builder2.groupId = Long.valueOf(keyAt);
                     builder2.lastMsgId = valueAt;
                     if (d == keyAt) {
-                        builder2.excludeMid = z87.e().g();
+                        builder2.excludeMid = y87.e().g();
                         z = true;
                     }
                     builder.groupMids.add(builder2.build(false));
                 }
             }
-            if (!z && z87.e().i()) {
+            if (!z && y87.e().i()) {
                 GroupLastId.Builder builder3 = new GroupLastId.Builder();
                 builder3.groupId = Long.valueOf(d);
-                builder3.lastMsgId = z87.e().f();
-                builder3.excludeMid = z87.e().g();
+                builder3.lastMsgId = y87.e().f();
+                builder3.excludeMid = y87.e().g();
                 builder.groupMids.add(builder3.build(false));
             }
             builder.newpushRepire = getNewpushRepire();

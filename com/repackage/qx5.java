@@ -144,14 +144,14 @@ public class qx5 {
                 this.i.setCompoundDrawables(normalSkinMoneyIcon2, null, null, null);
             } else {
                 this.d.setVisibility(0);
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2e);
+                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2f);
                 this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f06079a));
             }
         }
         AlaEnterEffectData alaEnterEffectData2 = this.k;
         if (alaEnterEffectData2.isOwn) {
             if (alaEnterEffectData2.isUsing()) {
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2b);
+                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2c);
                 this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f060799));
                 this.e.setText(R.string.obfuscated_res_0x7f0f024a);
                 if (2 == this.k.categoryType) {

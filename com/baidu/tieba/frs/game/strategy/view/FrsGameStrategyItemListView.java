@@ -37,8 +37,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.al6;
 import com.repackage.av4;
 import com.repackage.bv4;
+import com.repackage.cm8;
 import com.repackage.dm6;
-import com.repackage.dm8;
 import com.repackage.fl6;
 import com.repackage.g65;
 import com.repackage.gl6;
@@ -78,12 +78,12 @@ public class FrsGameStrategyItemListView extends FrameLayout implements gl6 {
 
         /* renamed from: com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0207a implements Runnable {
+        public class RunnableC0208a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
 
-            public RunnableC0207a(a aVar, String str) {
+            public RunnableC0208a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -152,7 +152,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements gl6 {
             }
             if (threadData.getAnchorInfoData() == null || threadData.getAnchorInfoData().getGroup_id() == 0 || ViewHelper.checkUpIsLogin(this.a.a.getPageActivity())) {
                 if (threadData.getActInfoType() != 1 || ViewHelper.checkUpIsLogin(this.a.a.getPageActivity())) {
-                    dm8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+                    cm8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
                     if (readThreadHistory != null && !readThreadHistory.d(threadData.getId())) {
                         readThreadHistory.a(threadData.getId());
                         this.a.h.b();
@@ -161,7 +161,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements gl6 {
                     if (ad_url == null || ad_url.equals("")) {
                         z = false;
                     } else {
-                        new Thread(new RunnableC0207a(this, ad_url)).start();
+                        new Thread(new RunnableC0208a(this, ad_url)).start();
                         z = true;
                     }
                     String tid = threadData.getTid();
@@ -355,7 +355,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements gl6 {
                 l();
                 this.d.z();
                 if (ListUtils.isEmpty(list) && ListUtils.isEmpty(this.k)) {
-                    w(getContext().getString(R.string.obfuscated_res_0x7f0f0c56));
+                    w(getContext().getString(R.string.obfuscated_res_0x7f0f0c57));
                     k();
                     this.n = false;
                     return;
@@ -439,7 +439,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements gl6 {
             this.d.setDividerHeight(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198));
             this.d.setCacheColorHint(getContext().getResources().getColor(17170445));
             this.d.setFadingEdgeLength(0);
-            this.d.setSelector(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cc2));
+            this.d.setSelector(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cc3));
             this.d.setOnSrollToBottomListener(new c(this));
             this.d.setOnTouchListener(new d(this));
             addView(this.d);
@@ -559,7 +559,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements gl6 {
                 int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023c);
                 int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702cc);
                 int dimensionPixelSize3 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702aa);
-                this.e = NoDataViewFactory.a(getContext(), this, NoDataViewFactory.d.c(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_08, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.e.c(str), NoDataViewFactory.c.b(new NoDataViewFactory.b(getContext().getString(R.string.obfuscated_res_0x7f0f0fb8), new e(this)), getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5)));
+                this.e = NoDataViewFactory.a(getContext(), this, NoDataViewFactory.d.c(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_08, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.e.c(str), NoDataViewFactory.c.b(new NoDataViewFactory.b(getContext().getString(R.string.obfuscated_res_0x7f0f0fb9), new e(this)), getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5)));
             }
             this.e.f(this.a, TbadkCoreApplication.getInst().getSkinType());
             this.e.setVisibility(0);
@@ -573,7 +573,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements gl6 {
             this.n = false;
             this.d.setNextPage(this.g);
             this.g.f();
-            this.g.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09ea));
+            this.g.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09eb));
         }
     }
 }

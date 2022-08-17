@@ -1,38 +1,157 @@
 package com.repackage;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.widget.MediaController;
-import com.baidu.tieba.play.TbVideoViewContainer;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface l88 extends MediaController.MediaPlayerControl {
-    void a(long j, long j2, long j3);
+public class l88 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public MediaController.MediaPlayerControl c;
+    public b d;
+    public d e;
+    public c f;
+    public Handler g;
 
-    int getCurrentPositionSync();
+    /* loaded from: classes6.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l88 a;
 
-    m88 getMediaProgressObserver();
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(l88 l88Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l88Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l88Var;
+        }
 
-    int getPcdnState();
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message != null && message.what == 1 && this.a.c != null && this.a.c.isPlaying()) {
+                int currentPosition = this.a.c.getCurrentPosition();
+                int duration = this.a.c.getDuration();
+                if (currentPosition < this.a.b) {
+                    if (this.a.d != null) {
+                        this.a.d.a();
+                    }
+                } else if (currentPosition == this.a.b && this.a.e != null) {
+                    this.a.e.a();
+                }
+                if (this.a.f != null) {
+                    this.a.f.a(duration, currentPosition);
+                }
+                this.a.b = currentPosition;
+                this.a.h();
+            }
+        }
+    }
 
-    int getPlayerHeight();
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a();
+    }
 
-    int getPlayerWidth();
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(int i, int i2);
+    }
 
-    void setLooping(boolean z);
+    /* loaded from: classes6.dex */
+    public interface d {
+        void a();
+    }
 
-    void setOnSurfaceDestroyedListener(TbVideoViewContainer.a aVar);
+    public l88() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 1000;
+        this.b = 0;
+        this.g = new a(this, Looper.getMainLooper());
+    }
 
-    void setOperableVideoContainer(e98 e98Var);
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g.removeMessages(1);
+            Handler handler = this.g;
+            handler.sendMessageDelayed(handler.obtainMessage(1), this.a);
+        }
+    }
 
-    void setPlayMode(String str);
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.d = bVar;
+        }
+    }
 
-    void setStageType(String str);
+    public void j(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+            this.f = cVar;
+        }
+    }
 
-    void setVideoPath(String str);
+    public void k(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
+            this.e = dVar;
+        }
+    }
 
-    void setVideoPath(String str, String str2);
+    public void l(MediaController.MediaPlayerControl mediaPlayerControl) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mediaPlayerControl) == null) {
+            this.c = mediaPlayerControl;
+        }
+    }
 
-    void setVideoStatData(z88 z88Var);
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = 0;
+            h();
+        }
+    }
 
-    void setVolume(float f, float f2);
-
-    void stopPlayback();
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.g.removeMessages(1);
+        }
+    }
 }

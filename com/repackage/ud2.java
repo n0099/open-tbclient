@@ -60,9 +60,9 @@ public final class ud2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.size() > 0) {
-                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f081113));
+                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f081114));
                 } else {
-                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f081112));
+                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f081113));
                 }
             }
         }

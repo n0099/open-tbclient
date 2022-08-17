@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.hv8;
 /* loaded from: classes6.dex */
-public class iw8 extends h98 {
+public class iw8 extends g98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int N0;
@@ -51,7 +51,7 @@ public class iw8 extends h98 {
     public boolean Y0;
     public ObjectAnimator Z0;
     public ObjectAnimator a1;
-    public ft7 b1;
+    public et7 b1;
     public VideoDanmuController c1;
     public hv8 d1;
     public d e1;
@@ -207,7 +207,7 @@ public class iw8 extends h98 {
         this.c0 = false;
     }
 
-    public ft7 D0() {
+    public et7 D0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -217,7 +217,7 @@ public class iw8 extends h98 {
             }
             return null;
         }
-        return (ft7) invokeV.objValue;
+        return (et7) invokeV.objValue;
     }
 
     public final void E0() {
@@ -262,10 +262,10 @@ public class iw8 extends h98 {
         }
     }
 
-    public void I0(ft7 ft7Var) {
+    public void I0(et7 et7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ft7Var) == null) {
-            this.b1 = ft7Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, et7Var) == null) {
+            this.b1 = et7Var;
         }
     }
 
@@ -293,7 +293,7 @@ public class iw8 extends h98 {
         }
     }
 
-    @Override // com.repackage.h98
+    @Override // com.repackage.g98
     public void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -339,7 +339,7 @@ public class iw8 extends h98 {
         }
     }
 
-    @Override // com.repackage.h98
+    @Override // com.repackage.g98
     public void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -360,7 +360,7 @@ public class iw8 extends h98 {
         }
     }
 
-    @Override // com.repackage.h98
+    @Override // com.repackage.g98
     public void V(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
@@ -391,14 +391,14 @@ public class iw8 extends h98 {
         }
     }
 
-    @Override // com.repackage.h98
+    @Override // com.repackage.g98
     public int a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? R.layout.obfuscated_res_0x7f0d0676 : invokeV.intValue;
     }
 
-    @Override // com.repackage.h98
+    @Override // com.repackage.g98
     public void d0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -410,7 +410,7 @@ public class iw8 extends h98 {
         }
     }
 
-    @Override // com.repackage.h98
+    @Override // com.repackage.g98
     public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
@@ -418,14 +418,14 @@ public class iw8 extends h98 {
         }
     }
 
-    @Override // com.repackage.h98
+    @Override // com.repackage.g98
     public boolean f0(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, motionEvent)) == null) ? this.Y || motionEvent.getX() > ((float) this.N0) : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.h98
+    @Override // com.repackage.g98
     public boolean g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -435,7 +435,7 @@ public class iw8 extends h98 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.h98
+    @Override // com.repackage.g98
     public void o0(int i) {
         View findViewById;
         Interceptable interceptable = $ic;
@@ -490,7 +490,7 @@ public class iw8 extends h98 {
         }
     }
 
-    @Override // com.repackage.h98, android.view.View.OnClickListener
+    @Override // com.repackage.g98, android.view.View.OnClickListener
     public void onClick(View view2) {
         hv8 hv8Var;
         Interceptable interceptable = $ic;
@@ -510,7 +510,7 @@ public class iw8 extends h98 {
         super.onClick(view2);
     }
 
-    @Override // com.repackage.h98, com.repackage.e98
+    @Override // com.repackage.g98, com.repackage.d98
     public boolean onVolumeUp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -527,19 +527,19 @@ public class iw8 extends h98 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.h98, com.repackage.e98
+    @Override // com.repackage.g98, com.repackage.d98
     public void setData(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048595, this, threadData) == null) || threadData == null) {
             return;
         }
-        z88 z88Var = new z88();
-        z88Var.a = "6";
-        z88Var.c = threadData.getTid();
-        z88Var.d = Long.toString(threadData.getFid());
-        z88Var.e = TbadkCoreApplication.getCurrentAccount();
-        z88Var.x = this.T0.getChannelMidRequestNum();
-        z88Var.y = this.T0.getChannelMidRequestVideoNum();
+        y88 y88Var = new y88();
+        y88Var.a = "6";
+        y88Var.c = threadData.getTid();
+        y88Var.d = Long.toString(threadData.getFid());
+        y88Var.e = TbadkCoreApplication.getCurrentAccount();
+        y88Var.x = this.T0.getChannelMidRequestNum();
+        y88Var.y = this.T0.getChannelMidRequestVideoNum();
         Context context = this.O;
         if (context instanceof BaseFragmentActivity) {
             Intent intent = ((BaseFragmentActivity) context).getIntent();
@@ -552,20 +552,20 @@ public class iw8 extends h98 {
                 String stringExtra = intent.getStringExtra("last_tid");
                 this.P0 = stringExtra;
                 if (!StringUtils.isNull(stringExtra)) {
-                    z88Var.k = this.P0;
+                    y88Var.k = this.P0;
                 }
-                z88Var.i = Integer.toString(this.O0);
+                y88Var.i = Integer.toString(this.O0);
             } else {
                 String stringExtra2 = intent.getStringExtra(PbActivityConfig.KEY_VIDEO_SOURCE);
                 this.Q0 = stringExtra2;
-                z88Var.i = stringExtra2;
+                y88Var.i = stringExtra2;
             }
         }
         if (threadData.getThreadVideoInfo() != null) {
-            z88Var.m = threadData.getThreadVideoInfo().video_md5;
-            z88Var.p = String.valueOf(threadData.getThreadVideoInfo().is_vertical);
+            y88Var.m = threadData.getThreadVideoInfo().video_md5;
+            y88Var.p = String.valueOf(threadData.getThreadVideoInfo().is_vertical);
         }
-        setStatistic(z88Var);
+        setStatistic(y88Var);
         if (this.Y && threadData.getThreadVideoInfo() != null) {
             if (this.T != (threadData.getThreadVideoInfo().is_vertical.intValue() == 1)) {
                 U();
@@ -612,22 +612,22 @@ public class iw8 extends h98 {
         }
     }
 
-    @Override // com.repackage.h98
+    @Override // com.repackage.g98
     public void t0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.h98
+    @Override // com.repackage.g98
     public void u0() {
-        z88 z88Var;
+        y88 y88Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (z88Var = this.Z) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (y88Var = this.Z) == null) {
             return;
         }
-        z88 b2 = z88Var.b();
+        y88 b2 = y88Var.b();
         b2.a = "pb";
-        o88.e(b2.m, "", "2", b2, this.t.getControl().getPcdnState());
+        n88.e(b2.m, "", "2", b2, this.t.getControl().getPcdnState());
     }
 }

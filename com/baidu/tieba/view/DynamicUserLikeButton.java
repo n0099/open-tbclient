@@ -111,7 +111,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements sw4 {
                     pv4Var.q();
                     setConfig(pv4Var);
                     setClickable(true);
-                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc));
+                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbd));
                 } else {
                     pv4 pv4Var2 = new pv4();
                     pv4Var2.u(R.color.CAM_X0105);
@@ -127,7 +127,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements sw4 {
                 pv4Var3.t(R.color.CAM_X0109);
                 setConfig(pv4Var3);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbd));
             } else {
                 pv4 pv4Var4 = new pv4();
                 pv4Var4.r(R.color.CAM_X0302);

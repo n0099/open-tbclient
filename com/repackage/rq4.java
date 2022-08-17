@@ -64,14 +64,14 @@ public class rq4 {
         intent.putExtra(TiebaStatic.Params.RECOM_EXTRA, this.d);
     }
 
-    public void d(z88 z88Var) {
+    public void d(y88 y88Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, z88Var) == null) || z88Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, y88Var) == null) || y88Var == null) {
             return;
         }
-        z88Var.g = this.a;
-        z88Var.f = this.b;
-        z88Var.l = this.c;
-        z88Var.o = this.d;
+        y88Var.g = this.a;
+        y88Var.f = this.b;
+        y88Var.l = this.c;
+        y88Var.o = this.d;
     }
 }

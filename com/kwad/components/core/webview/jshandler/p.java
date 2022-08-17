@@ -173,7 +173,7 @@ public final class p implements com.kwad.sdk.core.webview.kwai.a {
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.kwad.components.core.c.a.a.a(new a.C0352a(this.LW.Lk.Gl.getContext()).L(this.LW.mAdTemplate).b(this.LW.mApkDownloadHelper).a(new a.b(this) { // from class: com.kwad.components.core.webview.jshandler.p.1.1
+                        com.kwad.components.core.c.a.a.a(new a.C0354a(this.LW.Lk.Gl.getContext()).L(this.LW.mAdTemplate).b(this.LW.mApkDownloadHelper).a(new a.b(this) { // from class: com.kwad.components.core.webview.jshandler.p.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass1 LX;

@@ -150,12 +150,12 @@ public class av {
 
             /* renamed from: com.repackage.av$d$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0441a implements Runnable {
+            public class RunnableC0440a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0441a(a aVar) {
+                public RunnableC0440a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -208,7 +208,7 @@ public class av {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    ct.c(new RunnableC0441a(this));
+                    ct.c(new RunnableC0440a(this));
                     return Unit.INSTANCE;
                 }
                 return (Unit) invokeV.objValue;
@@ -333,7 +333,7 @@ public class av {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
             RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d077c, (ViewGroup) null);
-            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f081083);
+            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f081084);
             gradientDrawable.setColor(fv.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060ac9)));
             gradientDrawable.setAlpha(204);
             relativeLayout.setBackground(gradientDrawable);
@@ -354,7 +354,7 @@ public class av {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d077d, (ViewGroup) null);
-            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f081083);
+            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f081084);
             gradientDrawable.setColor(fv.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060ac9)));
             gradientDrawable.setAlpha(204);
             linearLayout.setBackground(gradientDrawable);
@@ -365,7 +365,7 @@ public class av {
                 textView.setTextSize(1, i);
             }
             TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091be8);
-            GradientDrawable gradientDrawable2 = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f081084);
+            GradientDrawable gradientDrawable2 = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f081085);
             gradientDrawable2.setColor(fv.a.a(str4, resources.getColor(R.color.obfuscated_res_0x7f060ac9)));
             textView2.setBackground(gradientDrawable2);
             if (!TextUtils.isEmpty(charSequence2)) {

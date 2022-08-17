@@ -74,13 +74,13 @@ public class da5 {
         if (interceptable == null || interceptable.invokeLL(1048576, this, payConfig, context) == null) {
             if (payConfig != null && context != null) {
                 if (!d()) {
-                    e(R.string.obfuscated_res_0x7f0f0eb0);
+                    e(R.string.obfuscated_res_0x7f0f0eb1);
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PayWalletActivityConfig(context, payConfig)));
                 return;
             }
-            e(R.string.obfuscated_res_0x7f0f0eaf);
+            e(R.string.obfuscated_res_0x7f0f0eb0);
         }
     }
 
@@ -101,7 +101,7 @@ public class da5 {
     public final void e(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            qi.N(TbadkCoreApplication.getInst().getContext(), i);
+            qi.M(TbadkCoreApplication.getInst().getContext(), i);
         }
     }
 }

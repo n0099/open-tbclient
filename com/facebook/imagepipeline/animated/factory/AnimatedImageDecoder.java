@@ -1,10 +1,11 @@
 package com.facebook.imagepipeline.animated.factory;
 
 import com.facebook.imagepipeline.animated.base.AnimatedImage;
+import com.facebook.imagepipeline.common.ImageDecodeOptions;
 import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
 public interface AnimatedImageDecoder {
-    AnimatedImage decode(long j, int i);
+    AnimatedImage decodeFromByteBuffer(ByteBuffer byteBuffer, ImageDecodeOptions imageDecodeOptions);
 
-    AnimatedImage decode(ByteBuffer byteBuffer);
+    AnimatedImage decodeFromNativeMemory(long j, int i, ImageDecodeOptions imageDecodeOptions);
 }

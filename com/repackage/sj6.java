@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 /* loaded from: classes7.dex */
-public class sj6 extends ue6<wj8, FrsVideoActivityViewHolder> {
+public class sj6 extends ue6<vj8, FrsVideoActivityViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String l;
@@ -28,15 +28,15 @@ public class sj6 extends ue6<wj8, FrsVideoActivityViewHolder> {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wj8 a;
+        public final /* synthetic */ vj8 a;
         public final /* synthetic */ sj6 b;
 
-        public a(sj6 sj6Var, wj8 wj8Var) {
+        public a(sj6 sj6Var, vj8 vj8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sj6Var, wj8Var};
+                Object[] objArr = {sj6Var, vj8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,7 +47,7 @@ public class sj6 extends ue6<wj8, FrsVideoActivityViewHolder> {
                 }
             }
             this.b = sj6Var;
-            this.a = wj8Var;
+            this.a = vj8Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -57,8 +57,8 @@ public class sj6 extends ue6<wj8, FrsVideoActivityViewHolder> {
                 TiebaStatic.log(new StatisticItem("c12587").param("fid", this.b.l));
                 ru4 k = ru4.k();
                 k.x("frs_video_activity_tip" + this.b.l, System.currentTimeMillis());
-                wj8 wj8Var = this.a;
-                if (wj8Var == null || StringUtils.isNull(wj8Var.b)) {
+                vj8 vj8Var = this.a;
+                if (vj8Var == null || StringUtils.isNull(vj8Var.b)) {
                     return;
                 }
                 jm4.n(this.b.mContext, this.a.b);
@@ -131,15 +131,15 @@ public class sj6 extends ue6<wj8, FrsVideoActivityViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ue6, com.repackage.bn
     /* renamed from: J */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wj8 wj8Var, FrsVideoActivityViewHolder frsVideoActivityViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vj8 vj8Var, FrsVideoActivityViewHolder frsVideoActivityViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wj8Var, frsVideoActivityViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vj8Var, frsVideoActivityViewHolder})) == null) {
             if (view2 == null || frsVideoActivityViewHolder == null) {
                 return null;
             }
-            view2.setOnClickListener(new a(this, wj8Var));
-            frsVideoActivityViewHolder.a.setText(wj8Var != null ? wj8Var.a : "");
+            view2.setOnClickListener(new a(this, vj8Var));
+            frsVideoActivityViewHolder.a.setText(vj8Var != null ? vj8Var.a : "");
             ru4 k = ru4.k();
             if (G(k.m("frs_video_activity_tip" + this.l, 0L))) {
                 frsVideoActivityViewHolder.b.setVisibility(0);

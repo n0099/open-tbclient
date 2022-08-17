@@ -1,6 +1,5 @@
 package com.repackage;
 
-import android.os.Looper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class zu9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<zu9> b;
+    public static final zu9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final su9 a;
+    public final AtomicReference<av9> a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +28,7 @@ public final class zu9 {
                 return;
             }
         }
-        b = new AtomicReference<>();
+        b = new zu9();
     }
 
     public zu9() {
@@ -45,34 +44,24 @@ public final class zu9 {
                 return;
             }
         }
-        su9 b2 = xu9.a().b().b();
-        if (b2 != null) {
-            this.a = b2;
-        } else {
-            this.a = new av9(Looper.getMainLooper());
-        }
+        this.a = new AtomicReference<>();
     }
 
     public static zu9 a() {
-        zu9 zu9Var;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            do {
-                zu9 zu9Var2 = b.get();
-                if (zu9Var2 != null) {
-                    return zu9Var2;
-                }
-                zu9Var = new zu9();
-            } while (!b.compareAndSet(null, zu9Var));
-            return zu9Var;
-        }
-        return (zu9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (zu9) invokeV.objValue;
     }
 
-    public static su9 b() {
+    public av9 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a().a : (su9) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a.get() == null) {
+                this.a.compareAndSet(null, av9.a());
+            }
+            return this.a.get();
+        }
+        return (av9) invokeV.objValue;
     }
 }

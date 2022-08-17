@@ -5,25 +5,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kv9;
-import com.repackage.ru9;
-import com.repackage.vu9;
+import com.repackage.mv9;
+import com.repackage.tu9;
+import com.repackage.xu9;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes8.dex */
-public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong implements ru9 {
+public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong implements tu9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3534218984725836979L;
     public transient /* synthetic */ FieldHolder $fh;
     public final T[] array;
-    public final vu9<? super T> child;
+    public final xu9<? super T> child;
     public int index;
 
-    public OnSubscribeFromArray$FromArrayProducer(vu9<? super T> vu9Var, T[] tArr) {
+    public OnSubscribeFromArray$FromArrayProducer(xu9<? super T> xu9Var, T[] tArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vu9Var, tArr};
+            Object[] objArr = {xu9Var, tArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,29 +33,29 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
                 return;
             }
         }
-        this.child = vu9Var;
+        this.child = xu9Var;
         this.array = tArr;
     }
 
     public void fastPath() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            vu9<? super T> vu9Var = this.child;
+            xu9<? super T> xu9Var = this.child;
             for (T t : this.array) {
                 Object obj = (Object) t;
-                if (vu9Var.isUnsubscribed()) {
+                if (xu9Var.isUnsubscribed()) {
                     return;
                 }
-                vu9Var.onNext(obj);
+                xu9Var.onNext(obj);
             }
-            if (vu9Var.isUnsubscribed()) {
+            if (xu9Var.isUnsubscribed()) {
                 return;
             }
-            vu9Var.onCompleted();
+            xu9Var.onCompleted();
         }
     }
 
-    @Override // com.repackage.ru9
+    @Override // com.repackage.tu9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -63,10 +63,10 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
             if (i < 0) {
                 throw new IllegalArgumentException("n >= 0 required but it was " + j);
             } else if (j == Long.MAX_VALUE) {
-                if (kv9.b(this, j) == 0) {
+                if (mv9.b(this, j) == 0) {
                     fastPath();
                 }
-            } else if (i == 0 || kv9.b(this, j) != 0) {
+            } else if (i == 0 || mv9.b(this, j) != 0) {
             } else {
                 slowPath(j);
             }
@@ -76,7 +76,7 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
     public void slowPath(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            vu9<? super T> vu9Var = this.child;
+            xu9<? super T> xu9Var = this.child;
             T[] tArr = this.array;
             int length = tArr.length;
             int i = this.index;
@@ -84,16 +84,16 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
                 long j2 = 0;
                 while (true) {
                     if (j != 0 && i != length) {
-                        if (vu9Var.isUnsubscribed()) {
+                        if (xu9Var.isUnsubscribed()) {
                             return;
                         }
-                        vu9Var.onNext((Object) tArr[i]);
+                        xu9Var.onNext((Object) tArr[i]);
                         i++;
                         if (i == length) {
-                            if (vu9Var.isUnsubscribed()) {
+                            if (xu9Var.isUnsubscribed()) {
                                 return;
                             }
-                            vu9Var.onCompleted();
+                            xu9Var.onCompleted();
                             return;
                         }
                         j--;

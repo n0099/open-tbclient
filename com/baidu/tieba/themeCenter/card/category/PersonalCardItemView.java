@@ -117,7 +117,7 @@ public class PersonalCardItemView extends LinearLayout {
             this.e.setVisibility(0);
             this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.c.setImageBitmap(null);
-            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080bc1);
+            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080bc2);
             this.c.K(bq8Var.e(), 10, false);
         }
         if (bq8Var.g() == 1) {
@@ -144,12 +144,12 @@ public class PersonalCardItemView extends LinearLayout {
             this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e7b);
             TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091897);
             this.e = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08120f);
-            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120f);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081210);
+            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081210);
             TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f28);
             this.f = tbImageView2;
-            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f08120f);
-            this.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120f);
+            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081210);
+            this.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081210);
             this.g = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09060d);
             this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923d3);
             this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092543);

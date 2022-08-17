@@ -8,18 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ForumRuleStatus;
 /* loaded from: classes7.dex */
 public class uj8 implements on {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ForumData a;
+    public ForumRuleStatus a;
 
-    public uj8(ForumData forumData, boolean z) {
+    public uj8(ForumData forumData, ForumRuleStatus forumRuleStatus) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {forumData, Boolean.valueOf(z)};
+            Object[] objArr = {forumData, forumRuleStatus};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,22 +30,20 @@ public class uj8 implements on {
                 return;
             }
         }
-        this.a = forumData;
+        this.a = forumRuleStatus;
     }
 
-    public ForumData a() {
+    public ForumRuleStatus a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ForumData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ForumRuleStatus) invokeV.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void b(ForumRuleStatus forumRuleStatus) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumRuleStatus) == null) {
+            this.a = forumRuleStatus;
         }
-        return invokeV.booleanValue;
     }
 
     @Override // com.repackage.on

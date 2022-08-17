@@ -8,11 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ItemClickJumpUtil;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,44 +30,28 @@ public class e27 extends bn<ir4, ThreadCardViewHolder<ThreadData>> {
     public class a implements yn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kx a;
 
-        public a(e27 e27Var, kx kxVar) {
+        public a(e27 e27Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {e27Var, kxVar};
+                Object[] objArr = {e27Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = kxVar;
         }
 
         @Override // com.repackage.yn
         public void b(View view2, on onVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            boolean z;
-            ir4 ir4Var;
-            ThreadData threadData;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, onVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && ((z = onVar instanceof ir4)) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                if (z && (ir4Var = (ir4) onVar) != null && ir4Var.n && (threadData = ir4Var.t) != null && threadData.getItem() != null) {
-                    int a = zv4.a(ir4Var.t.getItem().button_link_type.intValue(), ir4Var.t.getItem().apk_detail != null ? ir4Var.t.getItem().apk_detail.pkg_source.intValue() : 0);
-                    ItemData itemData = new ItemData();
-                    itemData.parseProto(ir4Var.t.getItem());
-                    ItemCardHelper.q(this.a.v(), ir4Var.t.getItem().item_id.longValue(), this.a.u(itemData), ir4Var.t.getTid(), a, "", 2);
-                    ItemClickJumpUtil.itemClickJump(ir4Var.t.getItem().forum_name, String.valueOf(ir4Var.t.getItem().item_id), 1, 4);
-                    return;
-                }
-                ThreadData threadData2 = ((ir4) onVar).t;
-                threadData2.objType = 1;
-                ThreadCardUtils.jumpToPB((fo4) threadData2, view2.getContext(), 0, false);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, onVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (onVar instanceof n06) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardUtils.jumpToPB((fo4) ((n06) onVar), view2.getContext(), 0, false);
                 ((ThreadCardViewHolder) view2.getTag()).a().o(new oy.a(1));
             }
         }
@@ -107,16 +88,12 @@ public class e27 extends bn<ir4, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             dy.b bVar = new dy.b(this.b.getPageActivity(), false);
-            kx kxVar = new kx(this.b.getPageActivity());
-            kxVar.x(true);
-            kxVar.A(3);
-            kxVar.t();
-            bVar.h(kxVar);
+            bVar.h(new sx(this.b.getPageActivity()));
             dy k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.c);
             k.r(2);
             ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(k);
             threadCardViewHolder.i(this.a);
-            setOnAdapterItemClickListener(new a(this, kxVar));
+            setOnAdapterItemClickListener(new a(this));
             return threadCardViewHolder;
         }
         return (ThreadCardViewHolder) invokeL.objValue;

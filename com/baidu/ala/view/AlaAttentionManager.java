@@ -19,7 +19,6 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -446,10 +445,8 @@ public class AlaAttentionManager {
 
     public void showAttentionSucceedTip(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) || tbPageContext == null) {
-            return;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, tbPageContext) != null) || tbPageContext == null) {
         }
-        tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f01ff);
     }
 
     public void showAttentionSuccessTipAndLivePushDialog(TbPageContext tbPageContext, boolean z) {

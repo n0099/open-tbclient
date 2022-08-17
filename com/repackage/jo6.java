@@ -12,8 +12,8 @@ public class jo6 {
     public transient /* synthetic */ FieldHolder $fh;
     public final af6 a;
     public final FrsFragment b;
-    public final zr6 c;
-    public final tr6 d;
+    public final yr6 c;
+    public final sr6 d;
     public final FrsModelController e;
     public final fg6 f;
     public final co6 g;
@@ -37,9 +37,9 @@ public class jo6 {
             this.b = frsFragment;
             this.d = frsFragment.o0();
             this.a = this.b.k1();
-            this.c = this.b.E3();
+            this.c = this.b.F3();
             this.e = this.b.K0();
-            this.f = this.b.z3();
+            this.f = this.b.A3();
             this.g = this.b.a1();
             return;
         }

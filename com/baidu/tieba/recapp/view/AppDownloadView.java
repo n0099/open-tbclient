@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oc8;
+import com.repackage.nc8;
 /* loaded from: classes4.dex */
 public class AppDownloadView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -55,7 +55,7 @@ public class AppDownloadView extends LinearLayout {
     public static int getStatus(DownloadData downloadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, downloadData)) == null) ? oc8.p(downloadData) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, downloadData)) == null) ? nc8.p(downloadData) : invokeL.intValue;
     }
 
     public final void a(Context context) {
@@ -91,7 +91,7 @@ public class AppDownloadView extends LinearLayout {
             setVisibility(0);
             SkinManager.setImageResource(this.c, R.drawable.icon_download_play);
         }
-        int j = oc8.n().j(downloadData.getId(), downloadData.getName());
+        int j = nc8.n().j(downloadData.getId(), downloadData.getName());
         if (j >= 0) {
             c(j);
         } else {

@@ -1,110 +1,47 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.PreLoadImageProvider;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes6.dex */
-public class f08 implements e08, PreLoadImageProvider {
+public class f08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public ArrayList<PreLoadImageInfo> d;
-    public String e;
 
-    public f08(ExcContent excContent) {
+    public static final c08 a(TbPageContext<?> tbPageContext, ExcContent excContent) {
+        InterceptResult invokeLL;
         Long l;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {excContent};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, excContent)) == null) {
+            if (excContent == null || (l = excContent.type) == null) {
+                return null;
             }
-        }
-        if (excContent == null || (l = excContent.type) == null || !l.equals(3L)) {
-            return;
-        }
-        this.d = new ArrayList<>(1);
-        this.a = excContent.src;
-        String str = excContent.bsize;
-        this.e = str;
-        if (str != null) {
-            try {
-                String[] split = str.split(",");
-                this.b = og.e(split[0], 0);
-                this.c = og.e(split[1], 0);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+            if (l.longValue() == 2) {
+                return new a08(excContent);
             }
-        }
-        if (this.b <= 0) {
-            this.b = 1;
-        }
-        if (this.c <= 0) {
-            this.c = 1;
-        }
-        String str2 = excContent.cdn_src;
-        PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
-        preLoadImageInfo.procType = 17;
-        preLoadImageInfo.height = this.c;
-        preLoadImageInfo.width = this.b;
-        if (StringUtils.isNull(str2)) {
-            preLoadImageInfo.imgUrl = this.a;
-        } else {
-            preLoadImageInfo.imgUrl = str2;
-        }
-        this.d.add(preLoadImageInfo);
-    }
-
-    public int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i <= 0) {
-                return 0;
+            if (excContent.type.longValue() == 0) {
+                return new g08(tbPageContext.getPageActivity(), excContent);
             }
-            return (i * this.c) / this.b;
+            if (excContent.type.longValue() == 1) {
+                return new b08(tbPageContext, excContent);
+            }
+            return null;
         }
-        return invokeI.intValue;
+        return (c08) invokeLL.objValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public static final d08 b(ExcContent excContent) {
+        InterceptResult invokeL;
+        Long l;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
-    public ArrayList<PreLoadImageInfo> getImages() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (ArrayList) invokeV.objValue;
-    }
-
-    @Override // com.repackage.e08
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, excContent)) == null) {
+            if (excContent == null || (l = excContent.type) == null || !l.equals(3L)) {
+                return null;
+            }
+            return new e08(excContent);
         }
-        return invokeV.intValue;
+        return (d08) invokeL.objValue;
     }
 }

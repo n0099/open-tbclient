@@ -275,7 +275,7 @@ public class ay5 {
                         this.a.b.B1();
                         return;
                     }
-                    this.a.D.C(this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f09e8));
+                    this.a.D.C(this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f09e9));
                     this.a.D.f();
                     return;
                 }
@@ -483,7 +483,7 @@ public class ay5 {
                 this.D.M();
                 return;
             }
-            this.D.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f09e8));
+            this.D.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f09e9));
             this.D.f();
         }
     }
@@ -560,7 +560,7 @@ public class ay5 {
                 this.G = new h65(this.b, this.J);
             }
             this.G.k(qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds340));
-            this.G.m(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c3c));
+            this.G.m(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c3d));
             this.G.attachView(this.k, true);
             this.G.p();
             this.G.onChangeSkinType();

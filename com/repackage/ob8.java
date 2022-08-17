@@ -1,27 +1,27 @@
 package com.repackage;
 
-import android.graphics.drawable.Drawable;
-import com.baidu.tieba.video.VideoItemModel;
-import com.repackage.nc8;
+import android.view.View;
 /* loaded from: classes7.dex */
 public interface ob8 {
-    void onDestroy();
+    void autoPlay(int i);
 
-    void onPause();
+    boolean canPlay();
 
-    void onPrimary(boolean z);
+    long getCurrentPosition();
 
-    void onUserVisibleHint(boolean z);
+    int getPlayStatus();
 
-    void onViewClick();
+    String getPlayUrl();
 
-    void onViewDoubleClick();
+    View getVideoContainer();
 
-    void onViewDragToRight();
+    boolean isPlayStarted();
 
-    void setDrawables(Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4, Drawable drawable5, Drawable drawable6);
+    boolean isPlaying();
 
-    void setPageChangeHandler(nc8.a aVar, int i);
+    void release();
 
-    void updateTiebaData(int i, VideoItemModel videoItemModel);
+    void startPlay();
+
+    void stopPlay();
 }

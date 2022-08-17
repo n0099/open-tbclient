@@ -37,11 +37,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fj8;
 import com.repackage.g15;
-import com.repackage.gj8;
 import com.repackage.jg;
 import com.repackage.kg;
-import com.repackage.m17;
+import com.repackage.l17;
 import com.repackage.qi;
 import com.repackage.zm;
 /* loaded from: classes3.dex */
@@ -287,9 +287,9 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
     public final void k(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
-            g15 f2 = m17.f(TbadkApplication.getInst().getHomeBarShowTabName());
+            g15 f2 = l17.f(TbadkApplication.getInst().getHomeBarShowTabName());
             if (f2 != null) {
-                setBackgroundColor(gj8.a(gj8.f(m17.d(f2)), f));
+                setBackgroundColor(fj8.a(fj8.f(l17.d(f2)), f));
             } else {
                 SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, f, TbadkCoreApplication.getInst().getSkinType());
             }
@@ -304,10 +304,10 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
                 return;
             }
             if (TbadkApplication.getInst().isUseLuckyHeader()) {
-                this.a.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a05, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+                this.a.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a06, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
                 k(this.i);
             } else {
-                this.a.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a05, SkinManager.getColor(this.h), WebPManager.ResourceStateType.NORMAL_PRESS));
+                this.a.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a06, SkinManager.getColor(this.h), WebPManager.ResourceStateType.NORMAL_PRESS));
                 SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, this.i, TbadkCoreApplication.getInst().getSkinType());
             }
             this.c.E();
@@ -318,9 +318,9 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             if (TbadkApplication.getInst().isUseLuckyHeader()) {
-                this.a.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a05, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+                this.a.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a06, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
             } else {
-                this.a.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a05, SkinManager.getColor(this.h), WebPManager.ResourceStateType.NORMAL_PRESS));
+                this.a.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a06, SkinManager.getColor(this.h), WebPManager.ResourceStateType.NORMAL_PRESS));
             }
         }
     }

@@ -29,9 +29,9 @@ import com.repackage.h55;
 import com.repackage.qi;
 import com.repackage.ql4;
 import com.repackage.rl4;
+import com.repackage.rp7;
 import com.repackage.sp7;
 import com.repackage.tl4;
-import com.repackage.tp7;
 import com.repackage.zm;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -44,9 +44,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     public transient /* synthetic */ FieldHolder $fh;
     public rl4 a;
     public GridView b;
-    public tp7 c;
+    public sp7 c;
     public List<ImageFileInfo> d;
-    public sp7 e;
+    public rp7 e;
     public NoDataView f;
     public BaseFragmentActivity g;
 
@@ -145,13 +145,13 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         }
     }
 
-    public void A1(sp7 sp7Var) {
+    public void A1(rp7 rp7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sp7Var) == null) {
-            this.e = sp7Var;
-            tp7 tp7Var = this.c;
-            if (tp7Var != null) {
-                tp7Var.j(sp7Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, rp7Var) == null) {
+            this.e = rp7Var;
+            sp7 sp7Var = this.c;
+            if (sp7Var != null) {
+                sp7Var.j(rp7Var);
             }
         }
     }
@@ -206,9 +206,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            tp7 tp7Var = this.c;
-            if (tp7Var != null) {
-                return tp7Var.f();
+            sp7 sp7Var = this.c;
+            if (sp7Var != null) {
+                return sp7Var.f();
             }
             return null;
         }
@@ -222,9 +222,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.d = new ArrayList();
             this.a = new rl4(getActivity());
-            tp7 tp7Var = new tp7(this.g, this.d);
-            this.c = tp7Var;
-            tp7Var.j(this.e);
+            sp7 sp7Var = new sp7(this.g, this.d);
+            this.c = sp7Var;
+            sp7Var.j(this.e);
             this.b.setAdapter((ListAdapter) this.c);
             this.b.setOnScrollListener(this);
             if (getArguments() == null || (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) == null || !(serializable instanceof ArrayList)) {
@@ -250,9 +250,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     }
 
     public final void z1() {
-        tp7 tp7Var;
+        sp7 sp7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (tp7Var = this.c) == null || tp7Var.g() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (sp7Var = this.c) == null || sp7Var.g() == null) {
             return;
         }
         int childCount = this.b.getChildCount();

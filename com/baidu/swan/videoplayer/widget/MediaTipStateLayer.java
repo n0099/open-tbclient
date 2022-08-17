@@ -171,8 +171,8 @@ public class MediaTipStateLayer implements View.OnClickListener {
             Resources resources = this.a.getResources();
             TipState tipState = this.h;
             if (tipState == TipState.ERROR) {
-                this.i.setImageResource(R.drawable.obfuscated_res_0x7f0811b6);
-                this.j.setText(this.a.getText(R.string.obfuscated_res_0x7f0f1322));
+                this.i.setImageResource(R.drawable.obfuscated_res_0x7f0811b7);
+                this.j.setText(this.a.getText(R.string.obfuscated_res_0x7f0f1324));
                 this.c.setVisibility(0);
                 this.d.setVisibility(0);
                 this.e.setVisibility(8);
@@ -181,19 +181,19 @@ public class MediaTipStateLayer implements View.OnClickListener {
                 this.d.setVisibility(8);
                 this.e.setVisibility(0);
                 this.g.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060aa7));
-                this.g.setText(R.string.obfuscated_res_0x7f0f1317);
-                this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811ad);
+                this.g.setText(R.string.obfuscated_res_0x7f0f1319);
+                this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811ae);
             } else if (tipState == TipState.NO_NETWORK) {
                 this.c.setVisibility(0);
                 this.d.setVisibility(8);
                 this.e.setVisibility(0);
                 this.g.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060aa6));
-                this.g.setText(R.string.obfuscated_res_0x7f0f1319);
-                this.f.setText(R.string.obfuscated_res_0x7f0f1314);
-                this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811ac);
+                this.g.setText(R.string.obfuscated_res_0x7f0f131b);
+                this.f.setText(R.string.obfuscated_res_0x7f0f1316);
+                this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811ad);
             } else if (tipState == TipState.END) {
-                this.i.setImageResource(R.drawable.obfuscated_res_0x7f0811b7);
-                this.j.setText(this.a.getText(R.string.obfuscated_res_0x7f0f1323));
+                this.i.setImageResource(R.drawable.obfuscated_res_0x7f0811b8);
+                this.j.setText(this.a.getText(R.string.obfuscated_res_0x7f0f1325));
                 this.c.setVisibility(0);
                 this.d.setVisibility(0);
                 this.e.setVisibility(8);

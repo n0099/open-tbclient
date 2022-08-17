@@ -9,7 +9,6 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.core.internal.view.SupportMenu;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -320,7 +319,7 @@ public class MaskView extends ViewGroup {
         Paint paint = new Paint();
         this.i = paint;
         paint.setAntiAlias(true);
-        this.h.setColor(SupportMenu.CATEGORY_MASK);
+        this.h.setColor(-65536);
         this.h.setStrokeWidth(10.0f);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         setFocusable(true);

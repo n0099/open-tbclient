@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gj8;
+import com.repackage.fj8;
 import com.repackage.ks4;
 import com.repackage.ms4;
 import com.repackage.qi;
@@ -131,7 +131,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
                 if (this.a.o == 100 && !TextUtils.isEmpty(this.a.k)) {
                     sw8.n(this.a.getPageContext(), this.a.k, this.a.l, this.a.n, this.a.m);
                 } else {
-                    qi.O(TbadkCoreApplication.getInst(), this.a.getString(R.string.obfuscated_res_0x7f0f11fa));
+                    qi.N(TbadkCoreApplication.getInst(), this.a.getString(R.string.obfuscated_res_0x7f0f11fc));
                 }
             }
         }
@@ -340,11 +340,11 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
     public final void H1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TBAlertConfig.a aVar = new TBAlertConfig.a(getString(R.string.obfuscated_res_0x7f0f0e81), TBAlertConfig.OperateBtnStyle.MAIN);
+            TBAlertConfig.a aVar = new TBAlertConfig.a(getString(R.string.obfuscated_res_0x7f0f0e82), TBAlertConfig.OperateBtnStyle.MAIN);
             TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0370, TBAlertConfig.OperateBtnStyle.SECONDARY);
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
-            tBAlertBuilder.u(getString(R.string.obfuscated_res_0x7f0f11f9));
-            tBAlertBuilder.o(getString(R.string.obfuscated_res_0x7f0f11f8));
+            tBAlertBuilder.u(getString(R.string.obfuscated_res_0x7f0f11fb));
+            tBAlertBuilder.o(getString(R.string.obfuscated_res_0x7f0f11fa));
             tBAlertBuilder.m(true);
             tBAlertBuilder.r(aVar2, aVar);
             tBAlertBuilder.h(false);
@@ -384,7 +384,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             this.n = str3;
             this.m = str4;
             this.q.setVisibility(8);
-            this.e.setText(getString(R.string.obfuscated_res_0x7f0f11fc));
+            this.e.setText(getString(R.string.obfuscated_res_0x7f0f11fe));
         }
     }
 
@@ -412,10 +412,10 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             MaxureLayerView maxureLayerView = (MaxureLayerView) findViewById(R.id.obfuscated_res_0x7f0914ac);
             this.q = maxureLayerView;
             maxureLayerView.c(true);
-            this.q.d(gj8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.q.d(fj8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), SkinManager.RESOURCE_ALPHA_DISABLE));
             this.q.g(getResources().getColor(R.color.CAM_X0101));
-            this.q.f(gj8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), ks4.a(R.string.A_X05)));
-            this.q.e(gj8.a(SkinManager.getColor(0, (int) R.color.CAM_X0101), SkinManager.RESOURCE_ALPHA_PRESS));
+            this.q.f(fj8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), ks4.a(R.string.A_X05)));
+            this.q.e(fj8.a(SkinManager.getColor(0, (int) R.color.CAM_X0101), SkinManager.RESOURCE_ALPHA_PRESS));
             this.q.h(UtilHelper.getDimenPixelSize(R.dimen.T_X07));
             this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091be3);
             this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090077);
@@ -427,7 +427,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             this.d.setPlaceHolderAutoChangeSkinType(2);
             this.d.setDrawBorder(false);
             ms4.d(this.f).A(R.string.F_X02);
-            this.j.setBackgroundDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080818, WebPManager.ResourceStateType.NORMAL));
+            this.j.setBackgroundDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080819, WebPManager.ResourceStateType.NORMAL));
             this.f.setOnClickListener(new b(this));
             this.i.setOnClickListener(new c(this));
             c(0);
@@ -476,7 +476,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
     public void onError(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) {
-            qi.O(TbadkCoreApplication.getInst(), str);
+            qi.N(TbadkCoreApplication.getInst(), str);
         }
     }
 

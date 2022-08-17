@@ -5,28 +5,28 @@ import android.view.View;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tieba.homepage.concern.view.ConcernRecommendLayout;
+import com.baidu.tieba.homepage.concern.view.RecommendBarLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class zv6 extends rw<zq4> {
+/* loaded from: classes8.dex */
+public class zv6 extends rw<uv6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcernRecommendLayout f;
+    public RecommendBarLayout f;
     public int g;
+    public int h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zv6(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public zv6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b) {
         super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext, bdUniqueId, Byte.valueOf(b)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,10 +38,7 @@ public class zv6 extends rw<zq4> {
             }
         }
         this.g = 3;
-        ConcernRecommendLayout concernRecommendLayout = new ConcernRecommendLayout(tbPageContext.getPageActivity());
-        this.f = concernRecommendLayout;
-        concernRecommendLayout.setPageContext(tbPageContext);
-        this.f.setPageUniqueId(bdUniqueId);
+        this.f = new RecommendBarLayout(tbPageContext, tbPageContext.getPageActivity(), bdUniqueId, b);
     }
 
     @Override // com.repackage.rw
@@ -66,24 +63,12 @@ public class zv6 extends rw<zq4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.hx
     /* renamed from: p */
-    public void a(zq4 zq4Var) {
+    public void a(uv6 uv6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, zq4Var) == null) {
-            this.f.setData(zq4Var);
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, uv6Var) == null) || uv6Var == null || this.h == uv6Var.hashCode()) {
+            return;
         }
-    }
-
-    public void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f.setHasBorder(z);
-        }
-    }
-
-    public void r(bn4<MetaData> bn4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bn4Var) == null) {
-            this.f.setOnItemCoverListener(bn4Var);
-        }
+        this.h = uv6Var.hashCode();
+        this.f.setData(uv6Var);
     }
 }

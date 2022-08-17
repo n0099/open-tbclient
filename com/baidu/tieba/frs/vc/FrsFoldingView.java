@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.es6;
+import com.repackage.ds6;
 import com.repackage.qi;
 import com.repackage.qp6;
 import java.util.List;
@@ -230,7 +230,7 @@ public class FrsFoldingView extends LinearLayout {
         }
     }
 
-    public void setViews(List<View> list, List<es6> list2) {
+    public void setViews(List<View> list, List<ds6> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, list, list2) == null) {
             this.e.removeAllViews();

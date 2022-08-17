@@ -38,7 +38,7 @@ public class ie6 extends bz5<de6> {
             }
         }
         this.j = 3;
-        NoDataView a = NoDataViewFactory.a(this.b.getPageActivity(), h(), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, qi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070252)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f10bb), null);
+        NoDataView a = NoDataViewFactory.a(this.b.getPageActivity(), h(), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, qi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070252)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f10bc), null);
         this.i = a;
         a.setVisibility(0);
         j(this.b, TbadkCoreApplication.getInst().getSkinType());

@@ -61,8 +61,8 @@ import com.repackage.or8;
 import com.repackage.pi;
 import com.repackage.pl4;
 import com.repackage.qi;
+import com.repackage.qj8;
 import com.repackage.qo6;
-import com.repackage.rj8;
 import com.repackage.t95;
 import com.repackage.tf6;
 import java.util.List;
@@ -81,7 +81,7 @@ public class FrsTabHostFragment extends BaseFragment {
     public FrsFragment d;
     public FragmentTabHost e;
     public FrameLayout f;
-    public rj8 g;
+    public qj8 g;
     public int h;
     public int i;
     public fz8 j;
@@ -371,9 +371,9 @@ public class FrsTabHostFragment extends BaseFragment {
                 this.a.e.getCurrentFragment();
                 int P1 = this.a.P1(i);
                 if (P1 != 1) {
-                    this.a.d.M3();
+                    this.a.d.N3();
                 } else {
-                    this.a.d.a5();
+                    this.a.d.b5();
                 }
                 if (P1 != 1) {
                     if (P1 == 4 || P1 == 25) {
@@ -382,19 +382,19 @@ public class FrsTabHostFragment extends BaseFragment {
                         }
                     } else {
                         if (this.a.d != null) {
-                            this.a.d.z4(false);
+                            this.a.d.A4(false);
                         }
                         this.a.k.setVisibility(8);
                         this.a.W1();
                     }
                     if (this.a.d != null) {
-                        this.a.d.r4(false);
+                        this.a.d.s4(false);
                         return;
                     }
                     return;
                 }
                 if (this.a.d != null) {
-                    this.a.d.z4(true);
+                    this.a.d.A4(true);
                 }
                 this.a.k.setVisibility(0);
             }
@@ -481,9 +481,9 @@ public class FrsTabHostFragment extends BaseFragment {
     }
 
     public final void H1(m65 m65Var, n65 n65Var, TbFragmentTabIndicator tbFragmentTabIndicator, String str) {
-        rj8 rj8Var;
+        qj8 qj8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048579, this, m65Var, n65Var, tbFragmentTabIndicator, str) == null) || n65Var == null || (rj8Var = this.g) == null || rj8Var.getForum() == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048579, this, m65Var, n65Var, tbFragmentTabIndicator, str) == null) || n65Var == null || (qj8Var = this.g) == null || qj8Var.getForum() == null) {
             return;
         }
         ForumData forum = this.g.getForum();
@@ -907,12 +907,12 @@ public class FrsTabHostFragment extends BaseFragment {
         }
     }
 
-    public void b2(rj8 rj8Var, tf6 tf6Var) {
+    public void b2(qj8 qj8Var, tf6 tf6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048599, this, rj8Var, tf6Var) == null) || rj8Var == null || tf6Var == null || this.e == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048599, this, qj8Var, tf6Var) == null) || qj8Var == null || tf6Var == null || this.e == null) {
             return;
         }
-        this.g = rj8Var;
+        this.g = qj8Var;
         this.c = tf6Var;
         tf6Var.m();
         if (ListUtils.isEmpty(this.c.g())) {
@@ -954,18 +954,18 @@ public class FrsTabHostFragment extends BaseFragment {
         }
         this.h = Q1;
         this.i = Q1;
-        this.b.x0(Q1);
-        this.b.y0(this.i);
+        this.b.y0(Q1);
+        this.b.z0(this.i);
         this.e.setCurrentTab(Q1);
         int P1 = P1(Q1);
         if (P1 != 1) {
             FrsFragment frsFragment = this.d;
             if (frsFragment != null) {
-                frsFragment.r4(false);
+                frsFragment.s4(false);
                 if (P1 != 4 && P1 != 25) {
-                    this.d.z4(false);
+                    this.d.A4(false);
                     this.k.setVisibility(8);
-                    this.d.M3();
+                    this.d.N3();
                 }
             }
             if (this.g.getForum() != null) {
@@ -1029,12 +1029,12 @@ public class FrsTabHostFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
             if (UbsABTestHelper.isMainTabShowA() && (frsFragment = this.d) != null) {
-                ForumWriteData n3 = frsFragment.n3();
+                ForumWriteData o3 = frsFragment.o3();
                 ItemInfo itemInfo = this.d.P0() != null ? this.d.P0().itemInfo : null;
                 if (this.o == null) {
                     this.o = new ez8(this.a, "frs", 2, "2");
                 }
-                this.o.j(n3);
+                this.o.j(o3);
                 this.o.l(U1());
                 this.o.k(itemInfo);
                 this.o.m();
@@ -1053,10 +1053,10 @@ public class FrsTabHostFragment extends BaseFragment {
             if (this.d.P0().getAnti() != null) {
                 this.j.A(this.d.P0().getAnti().getCanGoods());
             }
-            ForumWriteData n32 = this.d.n3();
-            n32.setDefaultZone(i);
+            ForumWriteData o32 = this.d.o3();
+            o32.setDefaultZone(i);
             this.j.F(i == 1 ? R.drawable.btn_frs_professional_edit_n : 0);
-            this.j.B(n32);
+            this.j.B(o32);
             this.j.C(this.d.P0().itemInfo);
             this.j.H(J1());
             FrsFragment frsFragment3 = this.d;
@@ -1078,8 +1078,8 @@ public class FrsTabHostFragment extends BaseFragment {
         if (!(interceptable == null || interceptable.invokeV(1048606, this) == null) || !DialogLoginHelper.checkUpIsLogin(new LoginDialogData(this.a, LoginDialogData.FRS_PUBLISH_RESULT_PAGE)) || this.m.c() || G1()) {
             return;
         }
-        if (this.d.E3().K(502) != null) {
-            this.n.h(this.d.d(), this.d.E3().C().a);
+        if (this.d.F3().K(502) != null) {
+            this.n.h(this.d.d(), this.d.F3().C().a);
         } else {
             h2(-1);
         }

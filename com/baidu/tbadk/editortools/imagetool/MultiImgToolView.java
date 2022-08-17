@@ -213,7 +213,7 @@ public class MultiImgToolView extends DragContainer implements t25, DragHorizonS
                 }
                 ImageFileInfo imageFileInfo = (ImageFileInfo) this.b.getItem(indexOfChild);
                 if (!(imageFileInfo != null && new File(imageFileInfo.getFilePath()).exists())) {
-                    qi.K(this.b.b, R.string.obfuscated_res_0x7f0f053b);
+                    qi.J(this.b.b, R.string.obfuscated_res_0x7f0f053b);
                 } else if (this.b.d != null) {
                     this.b.d.J(new h25(15, 0, Integer.valueOf(indexOfChild)));
                 }
@@ -222,13 +222,13 @@ public class MultiImgToolView extends DragContainer implements t25, DragHorizonS
 
         /* renamed from: com.baidu.tbadk.editortools.imagetool.MultiImgToolView$c$c  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class View$OnClickListenerC0191c implements View.OnClickListener {
+        public class View$OnClickListenerC0192c implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ FrameLayout a;
             public final /* synthetic */ c b;
 
-            public View$OnClickListenerC0191c(c cVar, FrameLayout frameLayout) {
+            public View$OnClickListenerC0192c(c cVar, FrameLayout frameLayout) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -354,7 +354,7 @@ public class MultiImgToolView extends DragContainer implements t25, DragHorizonS
                 }
                 ImageView imageView = (ImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f090771);
                 SkinManager.setImageResource(imageView, R.drawable.btn_add_photo_close);
-                imageView.setOnClickListener(new View$OnClickListenerC0191c(this, frameLayout));
+                imageView.setOnClickListener(new View$OnClickListenerC0192c(this, frameLayout));
                 frameLayout.setContentDescription(frameLayout.getResources().getString(R.string.obfuscated_res_0x7f0f0537) + (i + 1) + " " + imageFileInfo.getModifyTime());
                 return frameLayout;
             }

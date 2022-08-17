@@ -51,7 +51,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 intent2.putExtra("locate_type", 1);
                 intent2.setFlags(603979776);
                 PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
-                String string = context.getString(R.string.obfuscated_res_0x7f0f1180);
+                String string = context.getString(R.string.obfuscated_res_0x7f0f1182);
                 String string2 = context.getString(R.string.obfuscated_res_0x7f0f029e);
                 jz4.h0().i(jz4.h0().C(12), 12);
                 NotificationHelper.showNotification(context, 12, string2, string, string, service, false);

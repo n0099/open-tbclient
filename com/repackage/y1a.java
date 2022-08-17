@@ -1,161 +1,143 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.payui.model.PayFlowType;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.model.ThemeColorConfig;
 /* loaded from: classes7.dex */
-public class y1a implements t1a {
-    public static /* synthetic */ Interceptable $ic;
+public class y1a {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static PaysSettingInfo a = null;
+    public static String b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
+    public static String c = "https://web.yy.com/yy_wallet/wallet.html?";
+    public static String d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+    public static String e = "https://web.yy.com/yy_wallet/help-faq.html?";
     public transient /* synthetic */ FieldHolder $fh;
-    public MiddleRevenueConfig a;
 
-    public y1a(MiddleRevenueConfig middleRevenueConfig) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755193272, "Lcom/repackage/y1a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {middleRevenueConfig};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = middleRevenueConfig;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755193272, "Lcom/repackage/y1a;");
+        }
     }
 
-    @Override // com.repackage.t1a
-    public GetBannerConfigReqParams a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            GetBannerConfigReqParams getBannerConfigReqParams = new GetBannerConfigReqParams();
-            getBannerConfigReqParams.setAppId(this.a.getAppId());
-            getBannerConfigReqParams.setUsedChannel(this.a.getUseChannel());
-            getBannerConfigReqParams.setUid(this.a.getUid());
-            getBannerConfigReqParams.setToken(this.a.getToken());
-            getBannerConfigReqParams.setTokenCallback(this.a.getTokenCallback());
-            return getBannerConfigReqParams;
-        }
-        return (GetBannerConfigReqParams) invokeV.objValue;
-    }
-
-    @Override // com.repackage.t1a
-    public oz9 b(PayFlowType payFlowType, Map<String, String> map) {
+    public static String a(String str, PayUIKitConfig payUIKitConfig) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payFlowType, map)) == null) {
-            oz9 oz9Var = new oz9();
-            oz9Var.B(this.a.getUid());
-            oz9Var.y(this.a.getToken());
-            oz9Var.C(this.a.getUseChannel());
-            oz9Var.s(this.a.getCurrencyType());
-            oz9Var.z(this.a.getTokenCallback());
-            String deviceId = this.a.getDeviceId();
-            RLog.info("QueryParamsProvider", "getMiddlePayWithProductInfoParams deviceId:" + deviceId);
-            HashMap hashMap = new HashMap();
-            if (deviceId != null) {
-                hashMap.put("deviceId", deviceId);
-            } else {
-                RLog.error("QueryParamsProvider", "getMiddlePayWithProductInfoParams deviceId null", new Object[0]);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, payUIKitConfig)) == null) {
+            if (payUIKitConfig == null || payUIKitConfig.revenueConfig == null) {
+                return str;
             }
-            hashMap.put("chargeScene", payFlowType == PayFlowType.WALLET_PAY_FLOW ? "1" : "0");
-            JSONObject e = e(map);
-            if (e != null) {
-                hashMap.put("clientInfo", e);
+            StringBuilder sb = new StringBuilder(str);
+            sb.append("&uid=" + payUIKitConfig.revenueConfig.getUid());
+            sb.append("&hostId=" + payUIKitConfig.revenueConfig.getHostId());
+            sb.append("&appid=" + payUIKitConfig.revenueConfig.getAppId());
+            sb.append("&usedChannel=" + payUIKitConfig.revenueConfig.getUseChannel());
+            sb.append("&authType=" + payUIKitConfig.revenueConfig.getAuthType());
+            sb.append("&clientVersion=" + payUIKitConfig.revenueConfig.getVersion());
+            sb.append("&sdkVersion=4.3.30-bdpay-fix.2-SNAPSHOT");
+            int i = 0;
+            ThemeColorConfig themeColorConfig = payUIKitConfig.themeColorConfig;
+            if (themeColorConfig != null && themeColorConfig.getThemeResId().intValue() == R.style.obfuscated_res_0x7f100154) {
+                i = 1;
             }
-            oz9Var.t(hashMap);
-            return oz9Var;
+            sb.append("&theme=" + i);
+            return sb.toString();
         }
-        return (oz9) invokeLL.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.repackage.t1a
-    public QueryCurrencyReqParams c() {
+    public static String b(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, payUIKitConfig)) == null) {
+            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
+                return a(d, payUIKitConfig);
+            }
+            return d;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, payUIKitConfig)) == null) {
+            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
+                return a(e, payUIKitConfig);
+            }
+            return e;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static PaysSettingInfo d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
-            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
-            queryCurrencyReqParams.setAppId(this.a.getAppId());
-            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
-            queryCurrencyReqParams.setUid(this.a.getUid());
-            queryCurrencyReqParams.setToken(this.a.getToken());
-            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
-            queryCurrencyReqParams.setReturnYb(true);
-            return queryCurrencyReqParams;
-        }
-        return (QueryCurrencyReqParams) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a : (PaysSettingInfo) invokeV.objValue;
     }
 
-    @Override // com.repackage.t1a
-    public QueryCurrencyReqParams d(Map<String, String> map) {
+    public static String e(PayUIKitConfig payUIKitConfig) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, map)) == null) {
-            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
-            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
-            queryCurrencyReqParams.setAppId(this.a.getAppId());
-            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
-            queryCurrencyReqParams.setUid(this.a.getUid());
-            queryCurrencyReqParams.setToken(this.a.getToken());
-            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
-            HashMap hashMap = new HashMap();
-            JSONObject e = e(map);
-            if (e != null) {
-                hashMap.put("clientInfo", e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, payUIKitConfig)) == null) {
+            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
+                return a(c, payUIKitConfig);
             }
-            queryCurrencyReqParams.setExpandMap(hashMap);
-            return queryCurrencyReqParams;
+            return c;
         }
-        return (QueryCurrencyReqParams) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final JSONObject e(Map<String, String> map) {
+    public static String f(PayUIKitConfig payUIKitConfig) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, map)) != null) {
-            return (JSONObject) invokeL.objValue;
-        }
-        JSONObject jSONObject = null;
-        if (map == null) {
-            return null;
-        }
-        try {
-            if (map.size() > 0) {
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    for (Map.Entry<String, String> entry : map.entrySet()) {
-                        if (entry.getKey() != null && entry.getValue() != null) {
-                            jSONObject2.put(entry.getKey(), entry.getValue());
-                        }
-                    }
-                    return jSONObject2;
-                } catch (JSONException e) {
-                    e = e;
-                    jSONObject = jSONObject2;
-                    RLog.error("QueryParamsProvider", "getClientInfoJsonObject JSONException" + e.getLocalizedMessage(), new Object[0]);
-                    return jSONObject;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, payUIKitConfig)) == null) {
+            if (payUIKitConfig == null && payUIKitConfig.revenueConfig == null) {
+                return b;
             }
-            return null;
-        } catch (JSONException e2) {
-            e = e2;
+            return a(b, payUIKitConfig);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            if (z) {
+                b = "https://webtest.yy.com/yy_wallet/pay-protocol.html?";
+                c = "https://webtest.yy.com/yy_wallet/wallet.html?";
+                d = "https://webtest.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+                e = "https://webtest.yy.com/yy_wallet/help-faq.html?";
+                return;
+            }
+            b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
+            c = "https://web.yy.com/yy_wallet/wallet.html?";
+            d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+            e = "https://web.yy.com/yy_wallet/help-faq.html?";
+        }
+    }
+
+    public static void h(PaysSettingInfo paysSettingInfo, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, paysSettingInfo, str) == null) {
+            RLog.info("PaySettingConfig", "setPaysSettingInfo info:" + paysSettingInfo + " from:" + str);
+            a = paysSettingInfo;
         }
     }
 }

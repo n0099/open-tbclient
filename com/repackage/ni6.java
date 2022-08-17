@@ -33,9 +33,9 @@ public class ni6 implements vj6 {
     }
 
     @Override // com.repackage.vj6
-    public void a(tr6 tr6Var, FrsViewData frsViewData) {
+    public void a(sr6 sr6Var, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, tr6Var, frsViewData) == null) || tr6Var == null || frsViewData == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, sr6Var, frsViewData) == null) || sr6Var == null || frsViewData == null) {
             return;
         }
         ArrayList<on> threadList = frsViewData.getThreadList();
@@ -62,12 +62,12 @@ public class ni6 implements vj6 {
     }
 
     @Override // com.repackage.vj6
-    public void c(tr6 tr6Var, af6 af6Var, FrsViewData frsViewData) {
+    public void c(sr6 sr6Var, af6 af6Var, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, tr6Var, af6Var, frsViewData) == null) || tr6Var == null || af6Var == null || frsViewData == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, sr6Var, af6Var, frsViewData) == null) || sr6Var == null || af6Var == null || frsViewData == null) {
             return;
         }
-        tr6Var.w();
+        sr6Var.w();
         if (frsViewData == null || frsViewData.getForum() == null) {
             return;
         }
@@ -78,7 +78,7 @@ public class ni6 implements vj6 {
     public int d(int i, FrsRequestData frsRequestData) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, frsRequestData)) == null) ? hr6.e(i, frsRequestData) : invokeIL.intValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, frsRequestData)) == null) ? gr6.e(i, frsRequestData) : invokeIL.intValue;
     }
 
     @Override // com.repackage.vj6

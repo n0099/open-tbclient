@@ -421,7 +421,7 @@ public class fn extends BaseAdapter implements pn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             TextView textView = new TextView(this.a);
-            textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0a3b));
+            textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0a3c));
             int d = qi.d(this.a, 15.0f);
             textView.setPadding(d, d, d, d);
             return textView;

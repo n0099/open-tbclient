@@ -35,13 +35,13 @@ public class n81 implements m81 {
 
         /* renamed from: com.repackage.n81$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0529a implements Runnable {
+        public class RunnableC0532a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ a b;
 
-            public RunnableC0529a(a aVar, String str) {
+            public RunnableC0532a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -205,7 +205,7 @@ public class n81 implements m81 {
                         httpURLConnection = inputStream;
                         if (this.c != null) {
                             if (this.d.b) {
-                                this.d.a.post(new RunnableC0529a(this, c2));
+                                this.d.a.post(new RunnableC0532a(this, c2));
                                 httpURLConnection = inputStream;
                             } else {
                                 this.c.c(c2);
@@ -302,14 +302,14 @@ public class n81 implements m81 {
 
         /* renamed from: com.repackage.n81$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0530b implements Runnable {
+        public class RunnableC0533b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ String b;
             public final /* synthetic */ b c;
 
-            public RunnableC0530b(b bVar, int i, String str) {
+            public RunnableC0533b(b bVar, int i, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -334,7 +334,7 @@ public class n81 implements m81 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     h81 h81Var = this.c.d;
-                    h81Var.a(new IOException("status code " + this.a + ", response " + this.b), this.a, da1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0ec8));
+                    h81Var.a(new IOException("status code " + this.a + ", response " + this.b), this.a, da1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0ec9));
                 }
             }
         }
@@ -369,7 +369,7 @@ public class n81 implements m81 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.d.a(this.a, -1000, da1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0ec8));
+                    this.b.d.a(this.a, -1000, da1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0ec9));
                 }
             }
         }
@@ -451,7 +451,7 @@ public class n81 implements m81 {
                         String c3 = x91.c(errorStream);
                         if (this.d != null) {
                             if (this.e.b) {
-                                this.e.a.post(new RunnableC0530b(this, responseCode, c3));
+                                this.e.a.post(new RunnableC0533b(this, responseCode, c3));
                             } else {
                                 h81 h81Var = this.d;
                                 StringBuilder sb2 = new StringBuilder();
@@ -459,7 +459,7 @@ public class n81 implements m81 {
                                 sb2.append(responseCode);
                                 sb2.append(", response ");
                                 sb2.append(c3);
-                                h81Var.a(new IOException(sb2.toString()), responseCode, da1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0ec8));
+                                h81Var.a(new IOException(sb2.toString()), responseCode, da1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0ec9));
                             }
                         }
                     }
@@ -472,7 +472,7 @@ public class n81 implements m81 {
                             if (this.e.b) {
                                 this.e.a.post(new c(this, th));
                             } else {
-                                this.d.a(th, -1000, da1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0ec8));
+                                this.d.a(th, -1000, da1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0ec9));
                             }
                         }
                         x91.a(null, dataOutputStream);

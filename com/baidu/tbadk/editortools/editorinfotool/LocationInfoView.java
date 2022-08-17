@@ -119,9 +119,9 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
                 }
                 this.a.setText(StringHelper.cutChineseAndEnglishWithSuffix(str, 8, StringHelper.STRING_MORE));
             } else if (i == 1) {
-                this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a52));
+                this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a53));
             } else {
-                this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a58));
+                this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a59));
             }
             this.a.a = Integer.valueOf(i);
         }

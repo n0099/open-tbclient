@@ -204,11 +204,11 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
 
     @VisibleForTesting
     @Nullable
-    public static Map<String, String> getExtraMap(ProducerListener producerListener, String str, boolean z, int i) {
+    public static Map<String, String> getExtraMap(ProducerListener2 producerListener2, ProducerContext producerContext, boolean z, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{producerListener, str, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            if (producerListener.requiresExtraMap(str)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{producerListener2, producerContext, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            if (producerListener2.requiresExtraMap(producerContext, PRODUCER_NAME)) {
                 if (z) {
                     return ImmutableMap.of("cached_value_found", String.valueOf(z), "encodedImageSize", String.valueOf(i));
                 }
@@ -228,22 +228,21 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
     private h0<EncodedImage, Void> onFinishDiskReads(Consumer<EncodedImage> consumer, ProducerContext producerContext, CacheKey cacheKey) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, consumer, producerContext, cacheKey)) == null) ? new h0<EncodedImage, Void>(this, producerContext.getListener(), producerContext.getId(), consumer, producerContext, cacheKey) { // from class: com.facebook.imagepipeline.producers.PartialDiskCacheProducer.1
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, consumer, producerContext, cacheKey)) == null) ? new h0<EncodedImage, Void>(this, producerContext.getProducerListener(), producerContext, consumer, cacheKey) { // from class: com.facebook.imagepipeline.producers.PartialDiskCacheProducer.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PartialDiskCacheProducer this$0;
             public final /* synthetic */ Consumer val$consumer;
-            public final /* synthetic */ ProducerListener val$listener;
+            public final /* synthetic */ ProducerListener2 val$listener;
             public final /* synthetic */ CacheKey val$partialImageCacheKey;
             public final /* synthetic */ ProducerContext val$producerContext;
-            public final /* synthetic */ String val$requestId;
 
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, r7, r8, consumer, producerContext, cacheKey};
+                    Object[] objArr = {this, r7, producerContext, consumer, cacheKey};
                     interceptable2.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -255,9 +254,8 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
                 }
                 this.this$0 = this;
                 this.val$listener = r7;
-                this.val$requestId = r8;
-                this.val$consumer = consumer;
                 this.val$producerContext = producerContext;
+                this.val$consumer = consumer;
                 this.val$partialImageCacheKey = cacheKey;
             }
 
@@ -268,32 +266,33 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i0Var)) == null) {
                     if (PartialDiskCacheProducer.isTaskCancelled(i0Var)) {
-                        this.val$listener.onProducerFinishWithCancellation(this.val$requestId, PartialDiskCacheProducer.PRODUCER_NAME, null);
+                        this.val$listener.onProducerFinishWithCancellation(this.val$producerContext, PartialDiskCacheProducer.PRODUCER_NAME, null);
                         this.val$consumer.onCancellation();
                     } else if (i0Var.p()) {
-                        this.val$listener.onProducerFinishWithFailure(this.val$requestId, PartialDiskCacheProducer.PRODUCER_NAME, i0Var.k(), null);
+                        this.val$listener.onProducerFinishWithFailure(this.val$producerContext, PartialDiskCacheProducer.PRODUCER_NAME, i0Var.k(), null);
                         this.this$0.startInputProducer(this.val$consumer, this.val$producerContext, this.val$partialImageCacheKey, null);
                     } else {
                         EncodedImage l = i0Var.l();
                         if (l != null) {
-                            ProducerListener producerListener = this.val$listener;
-                            String str = this.val$requestId;
-                            producerListener.onProducerFinishWithSuccess(str, PartialDiskCacheProducer.PRODUCER_NAME, PartialDiskCacheProducer.getExtraMap(producerListener, str, true, l.getSize()));
+                            ProducerListener2 producerListener2 = this.val$listener;
+                            ProducerContext producerContext2 = this.val$producerContext;
+                            producerListener2.onProducerFinishWithSuccess(producerContext2, PartialDiskCacheProducer.PRODUCER_NAME, PartialDiskCacheProducer.getExtraMap(producerListener2, producerContext2, true, l.getSize()));
                             BytesRange max = BytesRange.toMax(l.getSize() - 1);
                             l.setBytesRange(max);
                             int size = l.getSize();
                             ImageRequest imageRequest = this.val$producerContext.getImageRequest();
                             if (max.contains(imageRequest.getBytesRange())) {
-                                this.val$listener.onUltimateProducerReached(this.val$requestId, PartialDiskCacheProducer.PRODUCER_NAME, true);
+                                this.val$producerContext.putOriginExtra("disk", "partial");
+                                this.val$listener.onUltimateProducerReached(this.val$producerContext, PartialDiskCacheProducer.PRODUCER_NAME, true);
                                 this.val$consumer.onNewResult(l, 9);
                             } else {
                                 this.val$consumer.onNewResult(l, 8);
                                 this.this$0.startInputProducer(this.val$consumer, new SettableProducerContext(ImageRequestBuilder.fromRequest(imageRequest).setBytesRange(BytesRange.from(size - 1)).build(), this.val$producerContext), this.val$partialImageCacheKey, l);
                             }
                         } else {
-                            ProducerListener producerListener2 = this.val$listener;
-                            String str2 = this.val$requestId;
-                            producerListener2.onProducerFinishWithSuccess(str2, PartialDiskCacheProducer.PRODUCER_NAME, PartialDiskCacheProducer.getExtraMap(producerListener2, str2, false, 0));
+                            ProducerListener2 producerListener22 = this.val$listener;
+                            ProducerContext producerContext3 = this.val$producerContext;
+                            producerListener22.onProducerFinishWithSuccess(producerContext3, PartialDiskCacheProducer.PRODUCER_NAME, PartialDiskCacheProducer.getExtraMap(producerListener22, producerContext3, false, 0));
                             this.this$0.startInputProducer(this.val$consumer, this.val$producerContext, this.val$partialImageCacheKey, l);
                         }
                     }
@@ -360,7 +359,7 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
                 this.mInputProducer.produceResults(consumer, producerContext);
                 return;
             }
-            producerContext.getListener().onProducerStart(producerContext.getId(), PRODUCER_NAME);
+            producerContext.getProducerListener().onProducerStart(producerContext, PRODUCER_NAME);
             CacheKey encodedCacheKey = this.mCacheKeyFactory.getEncodedCacheKey(imageRequest, createUriForPartialCacheKey(imageRequest), producerContext.getCallerContext());
             AtomicBoolean atomicBoolean = new AtomicBoolean(false);
             this.mDefaultBufferedDiskCache.get(encodedCacheKey, atomicBoolean).e(onFinishDiskReads(consumer, producerContext, encodedCacheKey));

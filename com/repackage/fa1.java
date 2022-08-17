@@ -71,7 +71,7 @@ public class fa1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
                 this.e.f("2", str);
-                this.a.S(this.c.getString(R.string.obfuscated_res_0x7f0f15f8), null);
+                this.a.S(this.c.getString(R.string.obfuscated_res_0x7f0f15fb), null);
             }
         }
 
@@ -362,8 +362,8 @@ public class fa1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, channelListView) == null) {
             View inflate = View.inflate(channelListView.getContext(), R.layout.obfuscated_res_0x7f0d020a, null);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919ef)).setText(R.string.obfuscated_res_0x7f0f0d6b);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919ee)).setText(R.string.obfuscated_res_0x7f0f0d6c);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919ef)).setText(R.string.obfuscated_res_0x7f0f0d6c);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919ee)).setText(R.string.obfuscated_res_0x7f0f0d6d);
             PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
             this.d = popupWindow;
             popupWindow.w(false);

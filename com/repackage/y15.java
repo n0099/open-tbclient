@@ -38,7 +38,7 @@ public class y15 implements c25 {
     public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-            oc8 n = oc8.n();
+            nc8 n = nc8.n();
             if (i == 3) {
                 n.v(downloadData);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
@@ -46,7 +46,7 @@ public class y15 implements c25 {
                 n.B(downloadData);
             }
             z15.a(downloadData);
-            oc8.n().y(downloadData);
+            nc8.n().y(downloadData);
         }
     }
 
@@ -64,7 +64,7 @@ public class y15 implements c25 {
         }
         z15.c(downloadData);
         NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-        oc8.n().y(downloadData);
+        nc8.n().y(downloadData);
         if (downloadData.isNeedInvokeApk()) {
             UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
         }
@@ -97,8 +97,8 @@ public class y15 implements c25 {
             edit.putLong(downloadData.getId(), downloadData.getSize());
             edit.commit();
         }
-        oc8.n().C(downloadData);
-        oc8.n().y(downloadData);
+        nc8.n().C(downloadData);
+        nc8.n().y(downloadData);
     }
 
     @Override // com.repackage.c25

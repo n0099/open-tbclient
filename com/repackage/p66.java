@@ -62,20 +62,20 @@ public class p66 extends dp4 {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0920), R.drawable.obfuscated_res_0x7f0807bf));
-            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0916), R.drawable.obfuscated_res_0x7f0807bb));
-            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0930), R.drawable.obfuscated_res_0x7f0807c7));
-            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0918), R.drawable.obfuscated_res_0x7f0807bc));
-            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f091a), R.drawable.obfuscated_res_0x7f0807c8));
-            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f092a), R.drawable.obfuscated_res_0x7f0807c2));
-            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0914), R.drawable.obfuscated_res_0x7f0807bd));
-            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0928), R.drawable.obfuscated_res_0x7f0807be));
-            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0926), R.drawable.obfuscated_res_0x7f0807c4));
-            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f092d), R.drawable.obfuscated_res_0x7f0807c3));
-            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0921), R.drawable.obfuscated_res_0x7f0807c0));
-            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f092c), R.drawable.obfuscated_res_0x7f0807c1));
-            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0922), R.drawable.obfuscated_res_0x7f0807c6));
-            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f092b), R.drawable.obfuscated_res_0x7f0807c5));
+            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0921), R.drawable.obfuscated_res_0x7f0807bf));
+            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0917), R.drawable.obfuscated_res_0x7f0807bb));
+            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0931), R.drawable.obfuscated_res_0x7f0807c7));
+            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0919), R.drawable.obfuscated_res_0x7f0807bc));
+            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f091b), R.drawable.obfuscated_res_0x7f0807c8));
+            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f092b), R.drawable.obfuscated_res_0x7f0807c2));
+            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0915), R.drawable.obfuscated_res_0x7f0807bd));
+            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0929), R.drawable.obfuscated_res_0x7f0807be));
+            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0927), R.drawable.obfuscated_res_0x7f0807c4));
+            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f092e), R.drawable.obfuscated_res_0x7f0807c3));
+            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0922), R.drawable.obfuscated_res_0x7f0807c0));
+            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f092d), R.drawable.obfuscated_res_0x7f0807c1));
+            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0923), R.drawable.obfuscated_res_0x7f0807c6));
+            this.e.add(new o66(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f092c), R.drawable.obfuscated_res_0x7f0807c5));
         }
     }
 

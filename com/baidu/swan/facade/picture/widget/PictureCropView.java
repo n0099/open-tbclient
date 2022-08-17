@@ -232,7 +232,7 @@ public class PictureCropView extends PictureView {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             this.m.setColor(this.l);
             this.m.setStyle(Paint.Style.FILL);
-            this.j = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08112e);
+            this.j = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08112f);
             ZoomImageView zoomImageView = (ZoomImageView) getImageView();
             zoomImageView.setDoubleTapEnabled(true);
             zoomImageView.setCalcBaseMatrix(false);

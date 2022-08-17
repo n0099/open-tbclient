@@ -11,6 +11,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,6 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ye9;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,8 +29,10 @@ import java.lang.reflect.Method;
 /* loaded from: classes4.dex */
 public class SVGImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
-    public static Method a;
+    public static Method c;
     public transient /* synthetic */ FieldHolder $fh;
+    public SVG a;
+    public ye9 b;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -37,71 +41,64 @@ public class SVGImageView extends ImageView {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends AsyncTask<String, Integer, Picture> {
+    public class b extends AsyncTask<Integer, Integer, SVG> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SVGImageView a;
+        public Context a;
+        public int b;
+        public final /* synthetic */ SVGImageView c;
 
-        public b(SVGImageView sVGImageView) {
+        public b(SVGImageView sVGImageView, Context context, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sVGImageView};
+                Object[] objArr = {sVGImageView, context, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = sVGImageView;
+            this.c = sVGImageView;
+            this.a = context;
+            this.b = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.AsyncTask
         /* renamed from: a */
-        public Picture doInBackground(String... strArr) {
+        public SVG doInBackground(Integer... numArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, numArr)) == null) {
                 try {
-                    return SVG.f(this.a.getContext().getAssets(), strArr[0]).l();
+                    return SVG.i(this.a, this.b);
                 } catch (SVGParseException e) {
-                    Log.e("SVGImageView", "Error loading file " + strArr + ": " + e.getMessage());
-                    return null;
-                } catch (FileNotFoundException unused) {
-                    Log.e("SVGImageView", "File not found: " + strArr);
-                    return null;
-                } catch (IOException e2) {
-                    Log.e("SVGImageView", "Unable to load asset file: " + strArr, e2);
+                    Log.e("SVGImageView", String.format("Error loading resource 0x%x: %s", Integer.valueOf(this.b), e.getMessage()));
                     return null;
                 }
             }
-            return (Picture) invokeL.objValue;
+            return (SVG) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.AsyncTask
         /* renamed from: b */
-        public void onPostExecute(Picture picture) {
+        public void onPostExecute(SVG svg) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, picture) == null) || picture == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, svg) == null) {
+                this.c.a = svg;
+                this.c.c();
             }
-            this.a.d();
-            this.a.setImageDrawable(new PictureDrawable(picture));
-        }
-
-        public /* synthetic */ b(SVGImageView sVGImageView, a aVar) {
-            this(sVGImageView);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c extends AsyncTask<Integer, Integer, Picture> {
+    public class c extends AsyncTask<InputStream, Integer, SVG> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SVGImageView a;
@@ -127,30 +124,47 @@ public class SVGImageView extends ImageView {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.AsyncTask
         /* renamed from: a */
-        public Picture doInBackground(Integer... numArr) {
+        public SVG doInBackground(InputStream... inputStreamArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, numArr)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStreamArr)) == null) {
                 try {
-                    return SVG.h(this.a.getContext(), numArr[0].intValue()).l();
+                    try {
+                        SVG h = SVG.h(inputStreamArr[0]);
+                        try {
+                            inputStreamArr[0].close();
+                        } catch (IOException unused) {
+                        }
+                        return h;
+                    } catch (Throwable th) {
+                        try {
+                            inputStreamArr[0].close();
+                        } catch (IOException unused2) {
+                        }
+                        throw th;
+                    }
                 } catch (SVGParseException e) {
-                    Log.e("SVGImageView", String.format("Error loading resource 0x%x: %s", numArr, e.getMessage()));
-                    return null;
+                    Log.e("SVGImageView", "Parse error loading URI: " + e.getMessage());
+                    try {
+                        inputStreamArr[0].close();
+                        return null;
+                    } catch (IOException unused3) {
+                        return null;
+                    }
                 }
             }
-            return (Picture) invokeL.objValue;
+            return (SVG) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.AsyncTask
         /* renamed from: b */
-        public void onPostExecute(Picture picture) {
+        public void onPostExecute(SVG svg) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, picture) == null) || picture == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, svg) == null) {
+                this.a.a = svg;
+                this.a.c();
             }
-            this.a.d();
-            this.a.setImageDrawable(new PictureDrawable(picture));
         }
 
         public /* synthetic */ c(SVGImageView sVGImageView, a aVar) {
@@ -158,94 +172,22 @@ public class SVGImageView extends ImageView {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class d extends AsyncTask<InputStream, Integer, Picture> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SVGImageView a;
-
-        public d(SVGImageView sVGImageView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sVGImageView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sVGImageView;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.AsyncTask
-        /* renamed from: a */
-        public Picture doInBackground(InputStream... inputStreamArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStreamArr)) == null) {
-                try {
-                    try {
-                        Picture l = SVG.g(inputStreamArr[0]).l();
-                        try {
-                            inputStreamArr[0].close();
-                        } catch (IOException unused) {
-                        }
-                        return l;
-                    } catch (SVGParseException e) {
-                        Log.e("SVGImageView", "Parse error loading URI: " + e.getMessage());
-                        try {
-                            inputStreamArr[0].close();
-                            return null;
-                        } catch (IOException unused2) {
-                            return null;
-                        }
-                    }
-                } catch (Throwable th) {
-                    try {
-                        inputStreamArr[0].close();
-                    } catch (IOException unused3) {
-                    }
-                    throw th;
-                }
-            }
-            return (Picture) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.AsyncTask
-        /* renamed from: b */
-        public void onPostExecute(Picture picture) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, picture) == null) || picture == null) {
-                return;
-            }
-            this.a.d();
-            this.a.setImageDrawable(new PictureDrawable(picture));
-        }
-
-        public /* synthetic */ d(SVGImageView sVGImageView, a aVar) {
-            this(sVGImageView);
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1578512680, "Lcom/caverock/androidsvg/SVGImageView;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1578512680, "Lcom/caverock/androidsvg/SVGImageView;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1578512680, "Lcom/caverock/androidsvg/SVGImageView;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1578512680, "Lcom/caverock/androidsvg/SVGImageView;");
+        try {
+            c = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+        } catch (NoSuchMethodException unused) {
         }
     }
 
@@ -267,94 +209,143 @@ public class SVGImageView extends ImageView {
                 return;
             }
         }
-        try {
-            a = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
-        } catch (NoSuchMethodException unused) {
+        this.a = null;
+        this.b = new ye9();
+    }
+
+    private void setFromString(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
+            try {
+                this.a = SVG.k(str);
+                c();
+            } catch (SVGParseException unused) {
+                Log.e("SVGImageView", "Could not find SVG at: " + str);
+            }
         }
     }
 
-    public final void b(AttributeSet attributeSet, int i) {
+    public final void c() {
+        SVG svg;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, attributeSet, i) == null) || isInEditMode()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (svg = this.a) == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04066c}, i, 0);
+        Picture o = svg.o(this.b);
+        g();
+        setImageDrawable(new PictureDrawable(o));
+    }
+
+    public final void d(AttributeSet attributeSet, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet, i) == null) || isInEditMode()) {
+            return;
+        }
+        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0401ef, R.attr.obfuscated_res_0x7f04066d}, i, 0);
         try {
-            int resourceId = obtainStyledAttributes.getResourceId(0, -1);
+            String string = obtainStyledAttributes.getString(0);
+            if (string != null) {
+                this.b.a(string);
+            }
+            int resourceId = obtainStyledAttributes.getResourceId(1, -1);
             if (resourceId != -1) {
                 setImageResource(resourceId);
                 return;
             }
-            String string = obtainStyledAttributes.getString(0);
-            if (string != null) {
-                if (c(Uri.parse(string), false)) {
+            String string2 = obtainStyledAttributes.getString(1);
+            if (string2 != null) {
+                if (f(Uri.parse(string2))) {
                     return;
                 }
-                setImageAsset(string);
+                if (e(string2)) {
+                    return;
+                }
+                setFromString(string2);
             }
         } finally {
             obtainStyledAttributes.recycle();
         }
     }
 
-    public final boolean c(Uri uri, boolean z) {
-        InterceptResult invokeLZ;
+    public final boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, z)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             try {
-                new d(this, null).execute(getContext().getContentResolver().openInputStream(uri));
+                new c(this, null).execute(getContext().getAssets().open(str));
                 return true;
-            } catch (FileNotFoundException unused) {
-                if (z) {
-                    Log.e("SVGImageView", "File not found: " + uri);
-                }
+            } catch (IOException unused) {
                 return false;
             }
         }
-        return invokeLZ.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final void d() {
+    public final boolean f(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || a == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, uri)) == null) {
+            try {
+                new c(this, null).execute(getContext().getContentResolver().openInputStream(uri));
+                return true;
+            } catch (FileNotFoundException unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || c == null) {
             return;
         }
         try {
-            a.invoke(this, Integer.valueOf(View.class.getField("LAYER_TYPE_SOFTWARE").getInt(new View(getContext()))), null);
+            c.invoke(this, Integer.valueOf(View.class.getField("LAYER_TYPE_SOFTWARE").getInt(new View(getContext()))), null);
         } catch (Exception e) {
             Log.w("SVGImageView", "Unexpected failure calling setLayerType", e);
         }
     }
 
+    public void setCSS(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.b.a(str);
+            c();
+        }
+    }
+
     public void setImageAsset(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            new b(this, null).execute(str);
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || e(str)) {
+            return;
         }
+        Log.e("SVGImageView", "File not found: " + str);
     }
 
     @Override // android.widget.ImageView
     public void setImageResource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            new c(this, null).execute(Integer.valueOf(i));
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            new b(this, getContext(), i).execute(new Integer[0]);
         }
     }
 
     @Override // android.widget.ImageView
     public void setImageURI(Uri uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, uri) == null) {
-            c(uri, true);
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, uri) == null) || f(uri)) {
+            return;
         }
+        Log.e("SVGImageView", "File not found: " + uri);
     }
 
     public void setSVG(SVG svg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, svg) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, svg) == null) {
             if (svg != null) {
-                d();
-                setImageDrawable(new PictureDrawable(svg.l()));
+                this.a = svg;
+                c();
                 return;
             }
             throw new IllegalArgumentException("Null value passed to setSVG()");
@@ -380,11 +371,22 @@ public class SVGImageView extends ImageView {
                 return;
             }
         }
-        try {
-            a = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
-        } catch (NoSuchMethodException unused) {
+        this.a = null;
+        this.b = new ye9();
+        d(attributeSet, 0);
+    }
+
+    public void setSVG(SVG svg, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, svg, str) == null) {
+            if (svg != null) {
+                this.a = svg;
+                this.b.a(str);
+                c();
+                return;
+            }
+            throw new IllegalArgumentException("Null value passed to setSVG()");
         }
-        b(attributeSet, 0);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -406,10 +408,8 @@ public class SVGImageView extends ImageView {
                 return;
             }
         }
-        try {
-            a = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
-        } catch (NoSuchMethodException unused) {
-        }
-        b(attributeSet, i);
+        this.a = null;
+        this.b = new ye9();
+        d(attributeSet, i);
     }
 }

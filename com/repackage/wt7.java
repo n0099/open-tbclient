@@ -1,5 +1,14 @@
 package com.repackage;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.data.ThreadPublishHttpResMeesage;
+import com.baidu.tieba.pb.data.ThreadPublishReqMessage;
+import com.baidu.tieba.pb.data.ThreadPublishSocketResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,31 +17,40 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class wt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public int c;
-    public float d;
-    public boolean e;
+    public TbPageContext a;
 
-    public wt7(float f, float f2, int i, float f3, boolean z) {
+    public wt7(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i), Float.valueOf(f3), Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = f;
-        this.b = f2;
-        this.c = i;
-        this.d = f3;
-        this.e = z;
+        this.a = tbPageContext;
+        SocketMessageTask socketMessageTask = new SocketMessageTask(309644);
+        socketMessageTask.setResponsedClass(ThreadPublishSocketResMessage.class);
+        MessageManager.getInstance().registerTask(socketMessageTask);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VOTE_THREAD_PULISH, jk8.a(TbConfig.URL_THREAD_PUBLISH, 309644));
+        tbHttpMessageTask.setResponsedClass(ThreadPublishHttpResMeesage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    }
+
+    public void a(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            ThreadPublishReqMessage threadPublishReqMessage = new ThreadPublishReqMessage();
+            threadPublishReqMessage.tid = j;
+            threadPublishReqMessage.fid = j2;
+            threadPublishReqMessage.setTag(this.a.getUniqueId());
+            MessageManager.getInstance().sendMessage(threadPublishReqMessage);
+        }
     }
 }

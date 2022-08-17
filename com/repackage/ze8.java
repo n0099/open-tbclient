@@ -1,66 +1,44 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.common.TitanConstant;
+import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.af8;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 /* loaded from: classes7.dex */
-public class ze8 {
+public class ze8 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public af8 a;
-    public String b;
-    public boolean c;
-    public Context d;
-    public af8.a e;
+    public boolean a;
+    public final String b;
+    public Process c;
+    public BufferedReader d;
+    public FileOutputStream e;
+    public a f;
 
     /* loaded from: classes7.dex */
-    public class a implements af8.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ze8 a;
-
-        public a(ze8 ze8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ze8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ze8Var;
-        }
-
-        @Override // com.repackage.af8.a
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c) {
-                this.a.c = false;
-            }
-        }
+    public interface a {
+        void a();
     }
 
-    public ze8(Context context) {
+    public ze8(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -70,121 +48,93 @@ public class ze8 {
                 return;
             }
         }
-        this.b = null;
-        this.c = false;
-        this.e = new a(this);
-        this.d = context;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.b)) {
-                return this.b;
-            }
-            String b = bf8.b();
-            this.b = b;
-            if (TextUtils.isEmpty(b)) {
-                this.b = bf8.c();
-            } else if (!this.b.endsWith(File.separator)) {
-                this.b += File.separator;
-            }
-            return this.b;
+        this.a = true;
+        this.d = null;
+        this.e = null;
+        try {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.ENGLISH);
+            this.e = new FileOutputStream(new File(str, str2 + "-" + simpleDateFormat.format(new Date()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION), true);
+        } catch (FileNotFoundException e) {
+            BdLog.e(Log.getStackTraceString(e));
         }
-        return (String) invokeV.objValue;
+        if (z) {
+            this.b = "logcat -v threadtime *:v -d";
+        } else {
+            this.b = "logcat -v threadtime *:v";
+        }
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            File file = new File(str);
-            if (!file.exists()) {
-                if (file.mkdirs()) {
-                    BdLog.d("folder mkdir success: " + str);
-                } else if (!file.exists()) {
-                    BdLog.d("folder mkdir failed");
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Process process = this.c;
+            if (process != null) {
+                process.destroy();
+                this.c = null;
+            }
+            BufferedReader bufferedReader = this.d;
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                    this.d = null;
+                } catch (IOException e) {
+                    BdLog.e(Log.getStackTraceString(e));
                 }
             }
-            if (file.isDirectory()) {
-                return;
-            }
-            throw new IllegalArgumentException("The logcat folder path is not a directory: " + str);
-        }
-    }
-
-    public final boolean f(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, str, str2, z)) == null) {
-            if (this.a == null) {
-                e(str);
-                af8 af8Var = new af8(str, str2, z);
-                this.a = af8Var;
-                af8Var.b(this.e);
+            FileOutputStream fileOutputStream = this.e;
+            if (fileOutputStream != null) {
                 try {
-                    this.a.start();
-                    return true;
-                } catch (IllegalThreadStateException unused) {
-                    return true;
-                } catch (Exception e) {
-                    this.a = null;
-                    BdLog.e(e);
-                    return false;
+                    fileOutputStream.close();
+                } catch (IOException e2) {
+                    BdLog.e(Log.getStackTraceString(e2));
                 }
+                this.e = null;
             }
-            return true;
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            String c = c();
-            if (TextUtils.isEmpty(c)) {
-                return;
-            }
-            h();
-            if (bf8.e(c) && f(c, TitanConstant.KEY_INSTANT_INIT_CLASS, true)) {
-                this.c = true;
+            a aVar = this.f;
+            if (aVar != null) {
+                aVar.a();
             }
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: com.repackage.af8 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v0, types: [com.repackage.af8$a, com.repackage.af8] */
-    public final void h() {
+    public void b(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            af8 af8Var = this.a;
-            if (af8Var != null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.f = aVar;
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = false;
+            a();
+            interrupt();
+        }
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        String readLine;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
                 try {
-                    try {
-                        af8Var.c();
-                    } catch (Exception e) {
-                        BdLog.e(e);
+                    this.c = Runtime.getRuntime().exec(this.b);
+                    this.d = new BufferedReader(new InputStreamReader(this.c.getInputStream()), 1024);
+                    while (this.a && (readLine = this.d.readLine()) != null && this.a) {
+                        if (readLine.length() != 0 && this.e != null) {
+                            FileOutputStream fileOutputStream = this.e;
+                            fileOutputStream.write((readLine + "\n").getBytes());
+                        }
                     }
-                } finally {
-                    this.a.b(null);
-                    this.a = null;
+                    BdLog.d("collector complete.");
+                } catch (IOException e) {
+                    BdLog.e(Log.getStackTraceString(e));
                 }
+            } finally {
+                a();
             }
-            this.c = false;
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            h();
         }
     }
 }

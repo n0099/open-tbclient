@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.iz4;
 import com.repackage.nz4;
-import com.repackage.xd8;
+import com.repackage.wd8;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class TbadkStatic {
@@ -145,7 +145,7 @@ public class TbadkStatic {
         public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) ? xd8.a(tbPageContext, strArr) : invokeLL.intValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) ? wd8.a(tbPageContext, strArr) : invokeLL.intValue;
         }
     }
 

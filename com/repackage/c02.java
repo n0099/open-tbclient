@@ -91,11 +91,11 @@ public class c02 extends f02 implements View.OnClickListener {
 
         /* renamed from: com.repackage.c02$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class DialogInterface$OnClickListenerC0454a implements DialogInterface.OnClickListener {
+        public class DialogInterface$OnClickListenerC0456a implements DialogInterface.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public DialogInterface$OnClickListenerC0454a(a aVar) {
+            public DialogInterface$OnClickListenerC0456a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -156,10 +156,10 @@ public class c02 extends f02 implements View.OnClickListener {
                     this.a.putInt(this.b, 0);
                 }
                 d03.a aVar = new d03.a(this.c.c0);
-                aVar.U(R.string.obfuscated_res_0x7f0f1272);
-                aVar.v(R.string.obfuscated_res_0x7f0f1271);
+                aVar.U(R.string.obfuscated_res_0x7f0f1274);
+                aVar.v(R.string.obfuscated_res_0x7f0f1273);
                 aVar.n(new hg3());
-                aVar.O(R.string.obfuscated_res_0x7f0f0118, new DialogInterface$OnClickListenerC0454a(this));
+                aVar.O(R.string.obfuscated_res_0x7f0f0118, new DialogInterface$OnClickListenerC0456a(this));
                 aVar.X();
             }
         }
@@ -210,7 +210,7 @@ public class c02 extends f02 implements View.OnClickListener {
                     if (activity == null || activity.isDestroyed()) {
                         return;
                     }
-                    vz1.b(this.a.d.c0, R.string.obfuscated_res_0x7f0f1272, str);
+                    vz1.b(this.a.d.c0, R.string.obfuscated_res_0x7f0f1274, str);
                 }
             }
         }
@@ -522,7 +522,7 @@ public class c02 extends f02 implements View.OnClickListener {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                r03 f = r03.f(this.a.getContext(), R.string.obfuscated_res_0x7f0f1308);
+                r03 f = r03.f(this.a.getContext(), R.string.obfuscated_res_0x7f0f130a);
                 f.l(2);
                 f.G();
             }
@@ -580,7 +580,7 @@ public class c02 extends f02 implements View.OnClickListener {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                r03 f = r03.f(this.b.getContext(), R.string.obfuscated_res_0x7f0f1308);
+                r03 f = r03.f(this.b.getContext(), R.string.obfuscated_res_0x7f0f130a);
                 f.l(2);
                 f.G();
             }
@@ -956,13 +956,13 @@ public class c02 extends f02 implements View.OnClickListener {
 
             /* renamed from: com.repackage.c02$n$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0455a implements Runnable {
+            public class RunnableC0457a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
                 public final /* synthetic */ a b;
 
-                public RunnableC0455a(a aVar, String str) {
+                public RunnableC0457a(a aVar, String str) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1018,7 +1018,7 @@ public class c02 extends f02 implements View.OnClickListener {
             public void c(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                    this.a.a.c0.runOnUiThread(new RunnableC0455a(this, str));
+                    this.a.a.c0.runOnUiThread(new RunnableC0457a(this, str));
                 }
             }
         }
@@ -1206,7 +1206,7 @@ public class c02 extends f02 implements View.OnClickListener {
                     aVar.H(R.string.obfuscated_res_0x7f0f0139, new b(this));
                 }
                 if (az1.e() != 0) {
-                    aVar.B(R.string.obfuscated_res_0x7f0f129d, new c(this));
+                    aVar.B(R.string.obfuscated_res_0x7f0f129f, new c(this));
                 }
                 aVar.X();
             }
@@ -1401,7 +1401,7 @@ public class c02 extends f02 implements View.OnClickListener {
         if (swanAppWebPopWindow == null || !swanAppWebPopWindow.x()) {
             SwanAppWebPopWindow swanAppWebPopWindow2 = new SwanAppWebPopWindow(activity, "https://baozhang.baidu.com/guarantee/baoshowdetail?appkey=" + b0.O());
             this.P0 = swanAppWebPopWindow2;
-            swanAppWebPopWindow2.r0(R.string.obfuscated_res_0x7f0f122c);
+            swanAppWebPopWindow2.r0(R.string.obfuscated_res_0x7f0f122e);
             swanAppWebPopWindow2.n0(SwanAppWebPopWindow.CloseStyle.CLOSE_AT_BOTTOM);
             swanAppWebPopWindow2.o0();
             swanAppWebPopWindow2.m0();
@@ -1419,7 +1419,7 @@ public class c02 extends f02 implements View.OnClickListener {
         if (swanAppWebPopWindow == null || !swanAppWebPopWindow.x()) {
             SwanAppWebPopWindow swanAppWebPopWindow2 = new SwanAppWebPopWindow(activity, this.M0);
             this.P0 = swanAppWebPopWindow2;
-            swanAppWebPopWindow2.s0(G(R.string.obfuscated_res_0x7f0f125a));
+            swanAppWebPopWindow2.s0(G(R.string.obfuscated_res_0x7f0f125c));
             swanAppWebPopWindow2.p0(activity.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070689));
             swanAppWebPopWindow2.n0(SwanAppWebPopWindow.CloseStyle.CLOSE_AT_RIGHT);
             swanAppWebPopWindow2.m0();
@@ -1470,13 +1470,13 @@ public class c02 extends f02 implements View.OnClickListener {
         String str = y03.K().q().W().f0().webUrl;
         if (TextUtils.isEmpty(str)) {
             ue3.b(this.c0).c("");
-            r03.f(this.c0, R.string.obfuscated_res_0x7f0f1325).G();
+            r03.f(this.c0, R.string.obfuscated_res_0x7f0f1327).G();
             return;
         }
         String b3 = b3(str, zq2.b(te3.n()));
-        int i2 = R.string.obfuscated_res_0x7f0f1326;
+        int i2 = R.string.obfuscated_res_0x7f0f1328;
         if (b3.length() > 4000) {
-            i2 = R.string.obfuscated_res_0x7f0f1327;
+            i2 = R.string.obfuscated_res_0x7f0f1329;
         } else {
             str = b3;
         }
@@ -1551,9 +1551,9 @@ public class c02 extends f02 implements View.OnClickListener {
             Button button = (Button) view2.findViewById(R.id.obfuscated_res_0x7f090450);
             button.setVisibility(0);
             if (a2.getInt(b2, -1) == 1) {
-                button.setText(R.string.obfuscated_res_0x7f0f126f);
+                button.setText(R.string.obfuscated_res_0x7f0f1271);
             } else {
-                button.setText(R.string.obfuscated_res_0x7f0f1270);
+                button.setText(R.string.obfuscated_res_0x7f0f1272);
             }
             button.setOnClickListener(new b(this, a2, b2, new a(this, a2, b2)));
         }
@@ -1904,14 +1904,14 @@ public class c02 extends f02 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
             if (x72.n(y03.K().getAppId())) {
-                this.N0.setText(R.string.obfuscated_res_0x7f0f12b6);
+                this.N0.setText(R.string.obfuscated_res_0x7f0f12b8);
                 this.N0.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060a30));
-                this.N0.setBackgroundResource(R.drawable.obfuscated_res_0x7f081106);
+                this.N0.setBackgroundResource(R.drawable.obfuscated_res_0x7f081107);
                 return;
             }
-            this.N0.setText(R.string.obfuscated_res_0x7f0f1282);
+            this.N0.setText(R.string.obfuscated_res_0x7f0f1284);
             this.N0.setTextColor(-1);
-            this.N0.setBackgroundResource(R.drawable.obfuscated_res_0x7f081104);
+            this.N0.setBackgroundResource(R.drawable.obfuscated_res_0x7f081105);
         }
     }
 }

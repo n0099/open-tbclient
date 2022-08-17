@@ -371,7 +371,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
     public final void r() {
         Drawable pureDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08093f, SkinManager.getColor(R.color.CAM_X0112), WebPManager.ResourceStateType.NORMAL)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080940, SkinManager.getColor(R.color.CAM_X0112), WebPManager.ResourceStateType.NORMAL)) == null) {
             return;
         }
         this.k = pureDrawable.getIntrinsicHeight();

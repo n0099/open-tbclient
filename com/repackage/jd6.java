@@ -88,7 +88,7 @@ public class jd6 extends b9<TbTitleActivity> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.a.getPageContext().getContext()).createNormalCfg(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f13ea), "from")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.a.getPageContext().getContext()).createNormalCfg(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f13ec), "from")));
             }
         }
     }
@@ -249,8 +249,8 @@ public class jd6 extends b9<TbTitleActivity> {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            String string = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f13a4);
-            String string2 = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f13a5);
+            String string = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f13a6);
+            String string2 = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f13a7);
             int length = string2.length();
             int indexOf = string.indexOf(string2);
             SpannableString spannableString = new SpannableString(string);
@@ -281,7 +281,7 @@ public class jd6 extends b9<TbTitleActivity> {
             }
             NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f09255c);
             this.d = navigationBar;
-            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f13a7));
+            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f13a9));
             this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.d.showBottomLine();
             this.e = (ScrollView) this.b.findViewById(R.id.obfuscated_res_0x7f092098);

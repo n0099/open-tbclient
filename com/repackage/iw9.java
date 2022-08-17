@@ -1,232 +1,118 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.uu9;
+import com.repackage.vu9;
 /* loaded from: classes6.dex */
-public final class iw9 implements ru9 {
+public final class iw9<T> implements vu9.c<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final ru9 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public ru9 b;
-    public boolean c;
-    public long d;
-    public long e;
-    public ru9 f;
+    public final vu9.c<T> a;
+    public final uu9 b;
 
     /* loaded from: classes6.dex */
-    public static class a implements ru9 {
+    public static final class a<T> extends wu9<T> implements ev9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final wu9<? super T> b;
+        public final uu9.a c;
+        public T d;
+        public Throwable e;
 
-        public a() {
+        public a(wu9<? super T> wu9Var, uu9.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wu9Var, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = wu9Var;
+            this.c = aVar;
+        }
+
+        @Override // com.repackage.wu9
+        public void b(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+                this.e = th;
+                this.c.b(this);
+            }
+        }
+
+        @Override // com.repackage.wu9
+        public void c(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+                this.d = t;
+                this.c.b(this);
+            }
+        }
+
+        @Override // com.repackage.ev9
+        public void call() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                try {
+                    Throwable th = this.e;
+                    if (th != null) {
+                        this.e = null;
+                        this.b.b(th);
+                    } else {
+                        T t = this.d;
+                        this.d = null;
+                        this.b.c(t);
+                    }
+                } finally {
+                    this.c.unsubscribe();
                 }
             }
         }
-
-        @Override // com.repackage.ru9
-        public void request(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            }
-        }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755603898, "Lcom/repackage/iw9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755603898, "Lcom/repackage/iw9;");
-                return;
-            }
-        }
-        g = new a();
-    }
-
-    public iw9() {
+    public iw9(vu9.c<T> cVar, uu9 uu9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cVar, uu9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-            return;
-        }
-        while (true) {
-            synchronized (this) {
-                long j = this.d;
-                long j2 = this.e;
-                ru9 ru9Var = this.f;
-                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                if (i == 0 && j2 == 0 && ru9Var == null) {
-                    this.c = false;
-                    return;
-                }
-                this.d = 0L;
-                this.e = 0L;
-                this.f = null;
-                long j3 = this.a;
-                if (j3 != Long.MAX_VALUE) {
-                    long j4 = j3 + j;
-                    if (j4 < 0 || j4 == Long.MAX_VALUE) {
-                        this.a = Long.MAX_VALUE;
-                        j3 = Long.MAX_VALUE;
-                    } else {
-                        j3 = j4 - j2;
-                        if (j3 >= 0) {
-                            this.a = j3;
-                        } else {
-                            throw new IllegalStateException("more produced than requested");
-                        }
-                    }
-                }
-                if (ru9Var != null) {
-                    if (ru9Var == g) {
-                        this.b = null;
-                    } else {
-                        this.b = ru9Var;
-                        ru9Var.request(j3);
-                    }
-                } else {
-                    ru9 ru9Var2 = this.b;
-                    if (ru9Var2 != null && i != 0) {
-                        ru9Var2.request(j);
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            if (j > 0) {
-                synchronized (this) {
-                    if (this.c) {
-                        this.e += j;
-                        return;
-                    }
-                    this.c = true;
-                    try {
-                        long j2 = this.a;
-                        if (j2 != Long.MAX_VALUE) {
-                            long j3 = j2 - j;
-                            if (j3 >= 0) {
-                                this.a = j3;
-                            } else {
-                                throw new IllegalStateException("more items arrived than were requested");
-                            }
-                        }
-                        a();
-                        return;
-                    } catch (Throwable th) {
-                        synchronized (this) {
-                            this.c = false;
-                            throw th;
-                        }
-                    }
-                }
-            }
-            throw new IllegalArgumentException("n > 0 required");
-        }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public void c(ru9 ru9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ru9Var) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    if (ru9Var == null) {
-                        ru9Var = g;
-                    }
-                    this.f = ru9Var;
-                    return;
-                }
-                this.c = true;
-                try {
-                    this.b = ru9Var;
-                    if (ru9Var != null) {
-                        ru9Var.request(this.a);
-                    }
-                    a();
-                } catch (Throwable th) {
-                    synchronized (this) {
-                        this.c = false;
-                        throw th;
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    @Override // com.repackage.ru9
-    public void request(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i < 0) {
-                throw new IllegalArgumentException("n >= 0 required");
-            }
-            if (i == 0) {
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            synchronized (this) {
-                if (this.c) {
-                    this.d += j;
-                    return;
-                }
-                this.c = true;
-                try {
-                    long j2 = this.a + j;
-                    if (j2 < 0) {
-                        j2 = Long.MAX_VALUE;
-                    }
-                    this.a = j2;
-                    ru9 ru9Var = this.b;
-                    if (ru9Var != null) {
-                        ru9Var.request(j);
-                    }
-                    a();
-                } catch (Throwable th) {
-                    synchronized (this) {
-                        this.c = false;
-                        throw th;
-                    }
-                }
-            }
+        }
+        this.a = cVar;
+        this.b = uu9Var;
+    }
+
+    @Override // com.repackage.vu9.c, com.repackage.fv9
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((wu9) ((wu9) obj));
+    }
+
+    public void call(wu9<? super T> wu9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, wu9Var) == null) {
+            uu9.a createWorker = this.b.createWorker();
+            a aVar = new a(wu9Var, createWorker);
+            wu9Var.a(createWorker);
+            wu9Var.a(aVar);
+            this.a.call(aVar);
         }
     }
 }

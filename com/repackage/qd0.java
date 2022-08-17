@@ -78,14 +78,14 @@ public class qd0 {
 
         /* renamed from: com.repackage.qd0$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0559b implements Runnable {
+        public class RunnableC0562b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ boolean a;
             public final /* synthetic */ Exception b;
             public final /* synthetic */ b c;
 
-            public RunnableC0559b(b bVar, boolean z, Exception exc) {
+            public RunnableC0562b(b bVar, boolean z, Exception exc) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -208,7 +208,7 @@ public class qd0 {
             if (!(interceptable == null || interceptable.invokeL(1048580, this, exc) == null) || this.c.d == null || this.c.d.isEmpty()) {
                 return;
             }
-            new Handler(Looper.getMainLooper()).post(new RunnableC0559b(this, this.c.q(), exc));
+            new Handler(Looper.getMainLooper()).post(new RunnableC0562b(this, this.c.q(), exc));
         }
 
         public void g(T t) {

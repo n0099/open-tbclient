@@ -27,27 +27,27 @@ public class y55 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) {
             bw4.a(downloadData, 400);
-            qc8.l().g(downloadData.getUrl(), downloadData.getId());
+            pc8.l().g(downloadData.getUrl(), downloadData.getId());
         }
     }
 
     public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? qc8.l().p(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? pc8.l().p(str) : invokeL.booleanValue;
     }
 
     public static int c(@NonNull DownloadData downloadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, downloadData)) == null) {
-            if (qc8.l().o(downloadData.getId())) {
+            if (pc8.l().o(downloadData.getId())) {
                 return 5;
             }
-            if (qc8.l().q(downloadData.getId())) {
+            if (pc8.l().q(downloadData.getId())) {
                 return 1;
             }
-            return qc8.l().n(downloadData.getId(), downloadData.getName()) ? 7 : 6;
+            return pc8.l().n(downloadData.getId(), downloadData.getName()) ? 7 : 6;
         }
         return invokeL.intValue;
     }
@@ -120,7 +120,7 @@ public class y55 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, downloadData)) == null) {
-            int i = qc8.l().i(downloadData.getId(), downloadData.getName());
+            int i = pc8.l().i(downloadData.getId(), downloadData.getName());
             if (i < 0 || i > 100) {
                 return 0;
             }
@@ -148,7 +148,7 @@ public class y55 {
             downloadData.setId(str);
             downloadData.setName(itemData.mTitle);
             downloadData.setUrl(itemData.buttonLink);
-            downloadData.setNotifyId(qc8.m(str).intValue());
+            downloadData.setNotifyId(pc8.m(str).intValue());
             downloadData.setNeedInvokeApk(true);
             downloadData.setNeedNotify(false);
             ItemDownloadExtraData itemDownloadExtraData = new ItemDownloadExtraData(itemData.apkDetail.pkg_source.intValue());
@@ -178,7 +178,7 @@ public class y55 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, downloadData)) == null) {
             if (qi.D()) {
-                return qc8.l().s(downloadData);
+                return pc8.l().s(downloadData);
             }
             z15.b(downloadData);
             return false;

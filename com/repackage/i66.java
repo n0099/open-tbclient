@@ -44,12 +44,12 @@ public class i66 {
 
         /* renamed from: com.repackage.i66$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0500a implements w25.a {
+        public class C0507a implements w25.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0500a(a aVar) {
+            public C0507a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,7 +93,7 @@ public class i66 {
             }
             this.c = i66Var;
             this.a = new ArrayList<>();
-            this.b = new C0500a(this);
+            this.b = new C0507a(this);
             setPriority(4);
             setParallel(i66.d);
         }

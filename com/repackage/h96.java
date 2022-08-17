@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mk8;
+import com.repackage.lk8;
 /* loaded from: classes6.dex */
 public class h96 {
     public static /* synthetic */ Interceptable $ic;
@@ -43,7 +43,7 @@ public class h96 {
     public String j;
     public uq4 k;
     public LikeModel l;
-    public mk8 m;
+    public lk8 m;
     public boolean n;
 
     /* loaded from: classes6.dex */
@@ -151,22 +151,21 @@ public class h96 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 if (this.a.l.getErrorCode() == 22) {
-                    qi.O(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f0827));
+                    qi.N(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f0827));
                 } else if (obj == null) {
                 } else {
                     if (this.a.l.getErrorCode() != 0) {
-                        qi.O(this.a.a.getPageActivity(), this.a.l.getErrorString());
-                        return;
+                        qi.N(this.a.a.getPageActivity(), this.a.l.getErrorString());
+                    } else {
+                        this.a.n(true);
                     }
-                    this.a.n(true);
-                    qi.O(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f02ba));
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class d implements mk8.a {
+    public class d implements lk8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ h96 a;
@@ -189,19 +188,19 @@ public class h96 {
             this.a = h96Var;
         }
 
-        @Override // com.repackage.mk8.a
+        @Override // com.repackage.lk8.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
             }
         }
 
-        @Override // com.repackage.mk8.a
+        @Override // com.repackage.lk8.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
                 this.a.n(false);
-                qi.O(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f1496));
+                qi.N(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f1498));
             }
         }
     }
@@ -223,7 +222,7 @@ public class h96 {
         }
         this.a = tbPageContext;
         this.i = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ab);
-        this.j = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13d1);
+        this.j = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13d3);
         View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0758, (ViewGroup) null);
         this.b = inflate;
         this.c = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09032a);
@@ -282,7 +281,7 @@ public class h96 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (!qi.D()) {
-                UtilHelper.showToast(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0c3c));
+                UtilHelper.showToast(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0c3d));
                 return;
             }
             uq4 uq4Var = this.k;
@@ -308,7 +307,7 @@ public class h96 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (!qi.D()) {
-                UtilHelper.showToast(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0c3c));
+                UtilHelper.showToast(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0c3d));
                 return;
             }
             uq4 uq4Var = this.k;
@@ -320,7 +319,7 @@ public class h96 {
                 return;
             }
             if (this.m == null) {
-                this.m = new mk8();
+                this.m = new lk8();
             }
             this.m.b(new d(this));
             this.m.c(this.k.l(), this.k.j());
@@ -380,7 +379,7 @@ public class h96 {
                 pv4 pv4Var2 = new pv4();
                 pv4Var2.t(R.color.CAM_X0109);
                 this.h.setConfig(pv4Var2);
-                this.h.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc));
+                this.h.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbd));
             }
             this.k.w(z);
         }

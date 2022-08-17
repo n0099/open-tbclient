@@ -191,7 +191,7 @@ public final class c extends com.kwad.components.ad.draw.kwai.a implements View.
     private void a(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0352a(this.bh.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(i).aj(z).a(new a.b(this) { // from class: com.kwad.components.ad.draw.a.c.3
+            com.kwad.components.core.c.a.a.a(new a.C0354a(this.bh.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(i).aj(z).a(new a.b(this) { // from class: com.kwad.components.ad.draw.a.c.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ c bs;

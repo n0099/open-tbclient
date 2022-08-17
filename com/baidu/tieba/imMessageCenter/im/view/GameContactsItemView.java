@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e77;
+import com.repackage.d77;
 import com.repackage.ms4;
 import com.repackage.qi;
 /* loaded from: classes3.dex */
@@ -29,7 +29,7 @@ public class GameContactsItemView extends RelativeLayout {
     public CircleStrokeHeadImageView a;
     public MessageRedDotView b;
     public View c;
-    public e77 d;
+    public d77 d;
 
     static {
         InterceptResult invokeClinit;
@@ -148,10 +148,10 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public e77 getGameMatchUser() {
+    public d77 getGameMatchUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (e77) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (d77) invokeV.objValue;
     }
 
     public void h() {
@@ -170,12 +170,12 @@ public class GameContactsItemView extends RelativeLayout {
         this.a.getImgView().K(this.d.a(), 12, false);
     }
 
-    public void setGameMatchUser(@NonNull e77 e77Var) {
+    public void setGameMatchUser(@NonNull d77 d77Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, e77Var) == null) || e77Var.equals(this.d)) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, d77Var) == null) || d77Var.equals(this.d)) {
             return;
         }
-        this.d = e77Var;
+        this.d = d77Var;
         i();
     }
 

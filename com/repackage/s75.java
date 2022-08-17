@@ -35,14 +35,14 @@ public class s75 implements i75<AgreeEvent> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, agreeEvent)) == null) {
             if (agreeEvent != null && agreeEvent.agreeData != null) {
-                sk8 sk8Var = new sk8();
-                sk8Var.b = agreeEvent.agreeData;
+                rk8 rk8Var = new rk8();
+                rk8Var.b = agreeEvent.agreeData;
                 String str = agreeEvent.agreeExtra;
                 if (AgreeEvent.IS_THREAD.equals(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, sk8Var));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, rk8Var));
                     return true;
                 } else if (AgreeEvent.IS_POST.equals(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, sk8Var));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, rk8Var));
                     return true;
                 }
             }

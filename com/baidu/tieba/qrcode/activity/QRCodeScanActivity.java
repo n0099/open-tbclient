@@ -39,14 +39,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oa8;
 import com.repackage.pa8;
-import com.repackage.qa8;
 import com.repackage.qi;
 import com.repackage.rg;
 import com.repackage.tg;
 import com.repackage.ur4;
 /* loaded from: classes4.dex */
-public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> implements pa8, View.OnClickListener {
+public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> implements oa8, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public QRCodeView a;
@@ -54,7 +54,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
     public View c;
     public TextView d;
     public ImageView e;
-    public qa8 f;
+    public pa8 f;
     public int g;
     public PopupWindow h;
     public WriteImagesInfo i;
@@ -232,7 +232,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.isFinishing() || this.a.a.getScanBoxView() == null) {
                 return;
             }
-            this.a.a.getScanBoxView().setQRCodeTipText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f60));
+            this.a.a.getScanBoxView().setQRCodeTipText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f61));
             this.a.a.getScanBoxView().setTipTextColor(this.a.getResources().getColor(R.color.CAM_X0201));
             this.a.a.getScanBoxView().m();
         }
@@ -432,29 +432,29 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         popupWindow2.setContentView(inflate);
         this.h.setWidth(-2);
         this.h.setHeight(-2);
-        this.h.setBackgroundDrawable(getPageContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f96));
+        this.h.setBackgroundDrawable(getPageContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f97));
         this.h.setOutsideTouchable(true);
         this.h.setFocusable(false);
         this.h.setTouchable(true);
         rg.a().post(new g(this, view2, (ArrowView) inflate.findViewById(R.id.obfuscated_res_0x7f09219e)));
     }
 
-    @Override // com.repackage.pa8
+    @Override // com.repackage.oa8
     public void b1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             ur4 ur4Var = new ur4(getPageContext().getPageActivity());
             ur4Var.setTitle((String) null);
             ur4Var.setMessageShowCenter(true);
-            ur4Var.setMessage(getString(R.string.obfuscated_res_0x7f0f0f65));
-            ur4Var.setPositiveButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f0f66), new c(this));
+            ur4Var.setMessage(getString(R.string.obfuscated_res_0x7f0f0f66));
+            ur4Var.setPositiveButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f0f67), new c(this));
             ur4Var.setCancelable(false);
             ur4Var.setCanceledOnTouchOutside(false);
             ur4Var.create(getPageContext()).show();
         }
     }
 
-    @Override // com.repackage.pa8
+    @Override // com.repackage.oa8
     public void c1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -462,7 +462,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         }
     }
 
-    @Override // com.repackage.pa8
+    @Override // com.repackage.oa8
     public void f0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -470,13 +470,13 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         }
     }
 
-    @Override // com.repackage.pa8
+    @Override // com.repackage.oa8
     public void h1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             c1();
             if (this.a.getScanBoxView() != null) {
-                this.a.getScanBoxView().setQRCodeTipText(getResources().getString(R.string.obfuscated_res_0x7f0f0f67));
+                this.a.getScanBoxView().setQRCodeTipText(getResources().getString(R.string.obfuscated_res_0x7f0f0f68));
                 this.a.getScanBoxView().setTipTextColor(getResources().getColor(R.color.CAM_X0301));
                 this.a.getScanBoxView().m();
             }
@@ -489,7 +489,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         }
     }
 
-    @Override // com.repackage.pa8
+    @Override // com.repackage.oa8
     public void o0(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
@@ -513,7 +513,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             super.onChangeSkinType(i);
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f08120f);
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f081210);
             if (this.b.getBackImageView() != null) {
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.b.getBackImageView(), R.drawable.obfuscated_res_0x7f080612, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
@@ -563,7 +563,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             }
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091ae7);
             this.b = navigationBar;
-            this.d = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f68));
+            this.d = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f69));
             View addSystemImageButton = this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this);
@@ -571,12 +571,12 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-2, -2);
             marginLayoutParams.rightMargin = qi.f(this, R.dimen.tbds18);
             this.e.setLayoutParams(marginLayoutParams);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f0809fa, R.color.white_alpha100, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f0809fb, R.color.white_alpha100, null);
             this.e.setScaleType(ImageView.ScaleType.FIT_XY);
             this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.e, this);
-            qa8 qa8Var = new qa8(this, getPageContext());
-            this.f = qa8Var;
-            qa8Var.o(this.l);
+            pa8 pa8Var = new pa8(this, getPageContext());
+            this.f = pa8Var;
+            pa8Var.o(this.l);
             this.a.setDelegate(this.f);
             this.f.g();
         }
@@ -627,15 +627,15 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         }
     }
 
-    @Override // com.repackage.pa8
+    @Override // com.repackage.oa8
     public void w0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             ur4 ur4Var = new ur4(getPageContext().getPageActivity());
             ur4Var.setTitleShowCenter(true);
-            ur4Var.setTitle(getString(R.string.obfuscated_res_0x7f0f0f64));
+            ur4Var.setTitle(getString(R.string.obfuscated_res_0x7f0f0f65));
             ur4Var.setMessageShowCenter(true);
-            ur4Var.setMessage(getString(R.string.obfuscated_res_0x7f0f0f63));
+            ur4Var.setMessage(getString(R.string.obfuscated_res_0x7f0f0f64));
             ur4Var.setNegativeTextColor(R.color.CAM_X0105);
             ur4Var.setPositiveButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f0431), new a(this, str));
             ur4Var.setNegativeButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f0370), new b(this));

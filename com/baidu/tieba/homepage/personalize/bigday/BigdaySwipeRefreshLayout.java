@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.av4;
-import com.repackage.e07;
+import com.repackage.d07;
 import com.repackage.qi;
 import com.repackage.rg;
 /* loaded from: classes3.dex */
@@ -1318,8 +1318,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             this.s = kVar;
             kVar.getView().setVisibility(8);
             addView(this.s.getView(), 0);
-            if (kVar instanceof e07) {
-                ((e07) kVar).U(new c(this, kVar));
+            if (kVar instanceof d07) {
+                ((d07) kVar).U(new c(this, kVar));
             }
         }
     }

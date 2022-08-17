@@ -179,7 +179,7 @@ public class gq8 extends b9<AvatarPendantActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.b.setVisibility(8);
-            String string = this.i.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c56);
+            String string = this.i.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c57);
             this.i.setNetRefreshViewTopMargin(this.f);
             this.i.showNetRefreshView(this.j, string, false);
         }

@@ -46,14 +46,14 @@ public class RetainDialogActivity extends NadDialogActivity {
     public String B1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getResources().getString(R.string.obfuscated_res_0x7f0f0b9d) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getResources().getString(R.string.obfuscated_res_0x7f0f0b9e) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
     public String C1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getResources().getString(R.string.obfuscated_res_0x7f0f0ba1) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getResources().getString(R.string.obfuscated_res_0x7f0f0ba2) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
@@ -108,7 +108,7 @@ public class RetainDialogActivity extends NadDialogActivity {
             if (intent != null) {
                 this.C = intent.getIntExtra("percent", 50);
             }
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0ba2);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0ba3);
             ((TextView) findViewById(R.id.obfuscated_res_0x7f0915ef)).setText(String.format(string, this.C + "%"), TextView.BufferType.NORMAL);
         }
     }

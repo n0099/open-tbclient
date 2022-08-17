@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab;
 import com.repackage.d9;
 import com.repackage.h19;
-import com.repackage.kk8;
+import com.repackage.jk8;
 import com.repackage.oi;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -130,8 +130,8 @@ public class StickerModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (oi.A()) {
-                kk8.h(309475, ResponseSocketGetStickerMessage.class, false, false);
-                kk8.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
+                jk8.h(309475, ResponseSocketGetStickerMessage.class, false, false);
+                jk8.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
                 RequestGetStickerMessage requestGetStickerMessage = new RequestGetStickerMessage();
                 requestGetStickerMessage.setTag(this.unique_id);
                 sendMessage(requestGetStickerMessage);

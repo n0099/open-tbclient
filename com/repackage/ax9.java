@@ -1,152 +1,244 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
+import java.io.PrintStream;
+import java.util.Queue;
+import rx.exceptions.MissingBackpressureException;
+import rx.internal.operators.NotificationLite;
 /* loaded from: classes5.dex */
-public final class ax9 implements wu9 {
+public class ax9 implements yu9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<wu9> a;
-    public volatile boolean b;
+    public Queue<Object> a;
+    public volatile Object b;
 
-    public ax9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755841265, "Lcom/repackage/ax9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-        }
-    }
-
-    public static void c(Collection<wu9> collection) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, collection) == null) || collection == null) {
-            return;
-        }
-        ArrayList arrayList = null;
-        for (wu9 wu9Var : collection) {
-            try {
-                wu9Var.unsubscribe();
-            } catch (Throwable th) {
-                if (arrayList == null) {
-                    arrayList = new ArrayList();
-                }
-                arrayList.add(th);
-            }
-        }
-        bv9.d(arrayList);
-    }
-
-    public void a(wu9 wu9Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, wu9Var) == null) || wu9Var.isUnsubscribed()) {
-            return;
-        }
-        if (!this.b) {
-            synchronized (this) {
-                if (!this.b) {
-                    List list = this.a;
-                    if (list == null) {
-                        list = new LinkedList();
-                        this.a = list;
-                    }
-                    list.add(wu9Var);
-                    return;
-                }
-            }
-        }
-        wu9Var.unsubscribe();
-    }
-
-    public void b(wu9 wu9Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wu9Var) == null) || this.b) {
-            return;
-        }
-        synchronized (this) {
-            List<wu9> list = this.a;
-            if (!this.b && list != null) {
-                boolean remove = list.remove(wu9Var);
-                if (remove) {
-                    wu9Var.unsubscribe();
-                }
-            }
-        }
-    }
-
-    @Override // com.repackage.wu9
-    public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.wu9
-    public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.b) {
-            return;
-        }
-        synchronized (this) {
-            if (this.b) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755841265, "Lcom/repackage/ax9;");
                 return;
             }
-            this.b = true;
-            List<wu9> list = this.a;
-            this.a = null;
-            c(list);
         }
+        int i = zw9.c() ? 16 : 128;
+        String property = System.getProperty("rx.ring-buffer.size");
+        if (property != null) {
+            try {
+                i = Integer.parseInt(property);
+            } catch (NumberFormatException e) {
+                PrintStream printStream = System.err;
+                printStream.println("Failed to set 'rx.buffer.size' with value " + property + " => " + e.getMessage());
+            }
+        }
+        c = i;
     }
 
-    public ax9(wu9... wu9VarArr) {
+    public ax9(Queue<Object> queue, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wu9VarArr};
+            Object[] objArr = {queue, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.a = new LinkedList(Arrays.asList(wu9VarArr));
+        this.a = queue;
     }
 
-    public ax9(wu9 wu9Var) {
+    public static ax9 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (oy9.b()) {
+                return new ax9(true, c);
+            }
+            return new ax9();
+        }
+        return (ax9) invokeV.objValue;
+    }
+
+    public static ax9 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (oy9.b()) {
+                return new ax9(false, c);
+            }
+            return new ax9();
+        }
+        return (ax9) invokeV.objValue;
+    }
+
+    public Object c(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? NotificationLite.e(obj) : invokeL.objValue;
+    }
+
+    public boolean d(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? NotificationLite.f(obj) : invokeL.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Queue<Object> queue = this.a;
+            return queue == null || queue.isEmpty();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.b == null) {
+            this.b = NotificationLite.b();
+        }
+    }
+
+    public void g(Object obj) throws MissingBackpressureException {
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            synchronized (this) {
+                Queue<Object> queue = this.a;
+                z = true;
+                z2 = false;
+                if (queue != null) {
+                    z2 = !queue.offer(NotificationLite.h(obj));
+                    z = false;
+                }
+            }
+            if (z) {
+                throw new IllegalStateException("This instance has been unsubscribed and the queue is no longer usable.");
+            }
+            if (z2) {
+                throw new MissingBackpressureException();
+            }
+        }
+    }
+
+    public Object h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                Queue<Object> queue = this.a;
+                if (queue == null) {
+                    return null;
+                }
+                Object peek = queue.peek();
+                Object obj = this.b;
+                if (peek == null && obj != null && queue.peek() == null) {
+                    peek = obj;
+                }
+                return peek;
+            }
+        }
+        return invokeV.objValue;
+    }
+
+    public Object i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                Queue<Object> queue = this.a;
+                if (queue == null) {
+                    return null;
+                }
+                Object poll = queue.poll();
+                Object obj = this.b;
+                if (poll == null && obj != null && queue.peek() == null) {
+                    this.b = null;
+                    poll = obj;
+                }
+                return poll;
+            }
+        }
+        return invokeV.objValue;
+    }
+
+    @Override // com.repackage.yu9
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a == null : invokeV.booleanValue;
+    }
+
+    public synchronized void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            synchronized (this) {
+            }
+        }
+    }
+
+    @Override // com.repackage.yu9
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            j();
+        }
+    }
+
+    public ax9(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wu9Var};
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.a = z ? new sx9<>(i) : new ay9<>(i);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ax9() {
+        this(new fx9(c), c);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((Queue) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        LinkedList linkedList = new LinkedList();
-        this.a = linkedList;
-        linkedList.add(wu9Var);
     }
 }

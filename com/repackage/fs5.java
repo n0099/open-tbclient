@@ -48,7 +48,7 @@ public class fs5 extends bz5<br5> {
 
         /* renamed from: com.repackage.fs5$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0479a extends AlaBannerViewHolder<SdkLiveInfoData> {
+        public class C0482a extends AlaBannerViewHolder<SdkLiveInfoData> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public View a;
@@ -59,7 +59,7 @@ public class fs5 extends bz5<br5> {
             public final /* synthetic */ a f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0479a(a aVar, View view2) {
+            public C0482a(a aVar, View view2) {
                 super(view2);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -190,7 +190,7 @@ public class fs5 extends bz5<br5> {
         public AlaBannerViewHolder a(ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) ? new C0479a(this, LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d082a, viewGroup, false)) : (AlaBannerViewHolder) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) ? new C0482a(this, LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d082a, viewGroup, false)) : (AlaBannerViewHolder) invokeLI.objValue;
         }
     }
 

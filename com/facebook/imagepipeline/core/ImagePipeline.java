@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
+import com.facebook.callercontext.CallerContextVerifier;
 import com.facebook.common.internal.Objects;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Predicate;
@@ -29,7 +30,10 @@ import com.facebook.imagepipeline.datasource.CloseableProducerToDataSourceAdapte
 import com.facebook.imagepipeline.datasource.ProducerToDataSourceAdapter;
 import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.listener.ForwardingRequestListener;
+import com.facebook.imagepipeline.listener.ForwardingRequestListener2;
 import com.facebook.imagepipeline.listener.RequestListener;
+import com.facebook.imagepipeline.listener.RequestListener2;
+import com.facebook.imagepipeline.producers.InternalRequestListener;
 import com.facebook.imagepipeline.producers.Producer;
 import com.facebook.imagepipeline.producers.SettableProducerContext;
 import com.facebook.imagepipeline.producers.ThreadHandoffProducerQueue;
@@ -51,6 +55,9 @@ public class ImagePipeline {
     public transient /* synthetic */ FieldHolder $fh;
     public final MemoryCache<CacheKey, CloseableImage> mBitmapMemoryCache;
     public final CacheKeyFactory mCacheKeyFactory;
+    @Nullable
+    public final CallerContextVerifier mCallerContextVerifier;
+    public final ImagePipelineConfig mConfig;
     public final MemoryCache<CacheKey, PooledByteBuffer> mEncodedMemoryCache;
     public AtomicLong mIdCounter;
     public final Supplier<Boolean> mIsPrefetchEnabledSupplier;
@@ -58,13 +65,14 @@ public class ImagePipeline {
     public final BufferedDiskCache mMainBufferedDiskCache;
     public final ProducerSequenceFactory mProducerSequenceFactory;
     public final RequestListener mRequestListener;
+    public final RequestListener2 mRequestListener2;
     public final BufferedDiskCache mSmallImageBufferedDiskCache;
     public final Supplier<Boolean> mSuppressBitmapPrefetchingSupplier;
     public final ThreadHandoffProducerQueue mThreadHandoffProducerQueue;
 
-    /* renamed from: com.facebook.imagepipeline.core.ImagePipeline$8  reason: invalid class name */
+    /* renamed from: com.facebook.imagepipeline.core.ImagePipeline$9  reason: invalid class name */
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class AnonymousClass8 {
+    public static /* synthetic */ class AnonymousClass9 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$request$ImageRequest$CacheChoice;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,13 +80,13 @@ public class ImagePipeline {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(293997625, "Lcom/facebook/imagepipeline/core/ImagePipeline$8;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(293997656, "Lcom/facebook/imagepipeline/core/ImagePipeline$9;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(293997625, "Lcom/facebook/imagepipeline/core/ImagePipeline$8;");
+                    classClinitInterceptable.invokePostClinit(293997656, "Lcom/facebook/imagepipeline/core/ImagePipeline$9;");
                     return;
                 }
             }
@@ -111,12 +119,12 @@ public class ImagePipeline {
         PREFETCH_EXCEPTION = new CancellationException("Prefetching is not enabled");
     }
 
-    public ImagePipeline(ProducerSequenceFactory producerSequenceFactory, Set<RequestListener> set, Supplier<Boolean> supplier, MemoryCache<CacheKey, CloseableImage> memoryCache, MemoryCache<CacheKey, PooledByteBuffer> memoryCache2, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, ThreadHandoffProducerQueue threadHandoffProducerQueue, Supplier<Boolean> supplier2, Supplier<Boolean> supplier3) {
+    public ImagePipeline(ProducerSequenceFactory producerSequenceFactory, Set<RequestListener> set, Set<RequestListener2> set2, Supplier<Boolean> supplier, MemoryCache<CacheKey, CloseableImage> memoryCache, MemoryCache<CacheKey, PooledByteBuffer> memoryCache2, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, ThreadHandoffProducerQueue threadHandoffProducerQueue, Supplier<Boolean> supplier2, Supplier<Boolean> supplier3, @Nullable CallerContextVerifier callerContextVerifier, ImagePipelineConfig imagePipelineConfig) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {producerSequenceFactory, set, supplier, memoryCache, memoryCache2, bufferedDiskCache, bufferedDiskCache2, cacheKeyFactory, threadHandoffProducerQueue, supplier2, supplier3};
+            Object[] objArr = {producerSequenceFactory, set, set2, supplier, memoryCache, memoryCache2, bufferedDiskCache, bufferedDiskCache2, cacheKeyFactory, threadHandoffProducerQueue, supplier2, supplier3, callerContextVerifier, imagePipelineConfig};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -129,6 +137,7 @@ public class ImagePipeline {
         this.mIdCounter = new AtomicLong();
         this.mProducerSequenceFactory = producerSequenceFactory;
         this.mRequestListener = new ForwardingRequestListener(set);
+        this.mRequestListener2 = new ForwardingRequestListener2(set2);
         this.mIsPrefetchEnabledSupplier = supplier;
         this.mBitmapMemoryCache = memoryCache;
         this.mEncodedMemoryCache = memoryCache2;
@@ -138,12 +147,14 @@ public class ImagePipeline {
         this.mThreadHandoffProducerQueue = threadHandoffProducerQueue;
         this.mSuppressBitmapPrefetchingSupplier = supplier2;
         this.mLazyDataSource = supplier3;
+        this.mCallerContextVerifier = callerContextVerifier;
+        this.mConfig = imagePipelineConfig;
     }
 
     private Predicate<CacheKey> predicateForUri(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, uri)) == null) ? new Predicate<CacheKey>(this, uri) { // from class: com.facebook.imagepipeline.core.ImagePipeline.7
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, uri)) == null) ? new Predicate<CacheKey>(this, uri) { // from class: com.facebook.imagepipeline.core.ImagePipeline.8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ImagePipeline this$0;
@@ -179,33 +190,37 @@ public class ImagePipeline {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x004d  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x006c  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private <T> DataSource<CloseableReference<T>> submitFetchRequest(Producer<CloseableReference<T>> producer, ImageRequest imageRequest, ImageRequest.RequestLevel requestLevel, Object obj, @Nullable RequestListener requestListener) {
-        InterceptResult invokeLLLLL;
+    private <T> DataSource<CloseableReference<T>> submitFetchRequest(Producer<CloseableReference<T>> producer, ImageRequest imageRequest, ImageRequest.RequestLevel requestLevel, Object obj, @Nullable RequestListener requestListener, @Nullable String str) {
+        InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, producer, imageRequest, requestLevel, obj, requestListener)) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{producer, imageRequest, requestLevel, obj, requestListener, str})) == null) {
             if (FrescoSystrace.isTracing()) {
                 FrescoSystrace.beginSection("ImagePipeline#submitFetchRequest");
             }
-            RequestListener requestListenerForRequest = getRequestListenerForRequest(imageRequest, requestListener);
+            InternalRequestListener internalRequestListener = new InternalRequestListener(getRequestListenerForRequest(imageRequest, requestListener), this.mRequestListener2);
+            CallerContextVerifier callerContextVerifier = this.mCallerContextVerifier;
+            if (callerContextVerifier != null) {
+                callerContextVerifier.verifyCallerContext(obj, false);
+            }
             try {
                 try {
                     ImageRequest.RequestLevel max = ImageRequest.RequestLevel.getMax(imageRequest.getLowestPermittedRequestLevel(), requestLevel);
                     String generateUniqueFutureId = generateUniqueFutureId();
                     if (!imageRequest.getProgressiveRenderingEnabled() && UriUtil.isNetworkUri(imageRequest.getSourceUri())) {
                         z = false;
-                        DataSource<CloseableReference<T>> create = CloseableProducerToDataSourceAdapter.create(producer, new SettableProducerContext(imageRequest, generateUniqueFutureId, requestListenerForRequest, obj, max, false, z, imageRequest.getPriority()), requestListenerForRequest);
+                        DataSource<CloseableReference<T>> create = CloseableProducerToDataSourceAdapter.create(producer, new SettableProducerContext(imageRequest, generateUniqueFutureId, str, internalRequestListener, obj, max, false, z, imageRequest.getPriority(), this.mConfig), internalRequestListener);
                         if (FrescoSystrace.isTracing()) {
                             FrescoSystrace.endSection();
                         }
                         return create;
                     }
                     z = true;
-                    DataSource<CloseableReference<T>> create2 = CloseableProducerToDataSourceAdapter.create(producer, new SettableProducerContext(imageRequest, generateUniqueFutureId, requestListenerForRequest, obj, max, false, z, imageRequest.getPriority()), requestListenerForRequest);
+                    DataSource<CloseableReference<T>> create2 = CloseableProducerToDataSourceAdapter.create(producer, new SettableProducerContext(imageRequest, generateUniqueFutureId, str, internalRequestListener, obj, max, false, z, imageRequest.getPriority(), this.mConfig), internalRequestListener);
                     if (FrescoSystrace.isTracing()) {
                     }
                     return create2;
@@ -223,16 +238,20 @@ public class ImagePipeline {
                 throw th;
             }
         }
-        return (DataSource) invokeLLLLL.objValue;
+        return (DataSource) invokeCommon.objValue;
     }
 
     private DataSource<Void> submitPrefetchRequest(Producer<Void> producer, ImageRequest imageRequest, ImageRequest.RequestLevel requestLevel, Object obj, Priority priority) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65541, this, producer, imageRequest, requestLevel, obj, priority)) == null) {
-            RequestListener requestListenerForRequest = getRequestListenerForRequest(imageRequest, null);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65542, this, producer, imageRequest, requestLevel, obj, priority)) == null) {
+            InternalRequestListener internalRequestListener = new InternalRequestListener(getRequestListenerForRequest(imageRequest, null), this.mRequestListener2);
+            CallerContextVerifier callerContextVerifier = this.mCallerContextVerifier;
+            if (callerContextVerifier != null) {
+                callerContextVerifier.verifyCallerContext(obj, true);
+            }
             try {
-                return ProducerToDataSourceAdapter.create(producer, new SettableProducerContext(imageRequest, generateUniqueFutureId(), requestListenerForRequest, obj, ImageRequest.RequestLevel.getMax(imageRequest.getLowestPermittedRequestLevel(), requestLevel), true, false, priority), requestListenerForRequest);
+                return ProducerToDataSourceAdapter.create(producer, new SettableProducerContext(imageRequest, generateUniqueFutureId(), internalRequestListener, obj, ImageRequest.RequestLevel.getMax(imageRequest.getLowestPermittedRequestLevel(), requestLevel), true, false, priority, this.mConfig), internalRequestListener);
             } catch (Exception e) {
                 return DataSources.immediateFailedDataSource(e);
             }
@@ -259,7 +278,7 @@ public class ImagePipeline {
     public void clearMemoryCaches() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Predicate<CacheKey> predicate = new Predicate<CacheKey>(this) { // from class: com.facebook.imagepipeline.core.ImagePipeline.4
+            Predicate<CacheKey> predicate = new Predicate<CacheKey>(this) { // from class: com.facebook.imagepipeline.core.ImagePipeline.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ImagePipeline this$0;
@@ -331,32 +350,32 @@ public class ImagePipeline {
     public DataSource<CloseableReference<PooledByteBuffer>> fetchEncodedImage(ImageRequest imageRequest, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, imageRequest, obj)) == null) ? fetchEncodedImage(imageRequest, obj, null) : (DataSource) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, imageRequest, obj)) == null) ? fetchEncodedImage(imageRequest, obj, null) : (DataSource) invokeLL.objValue;
     }
 
     public DataSource<CloseableReference<CloseableImage>> fetchImageFromBitmapCache(ImageRequest imageRequest, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, imageRequest, obj)) == null) ? fetchDecodedImage(imageRequest, obj, ImageRequest.RequestLevel.BITMAP_MEMORY_CACHE) : (DataSource) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, imageRequest, obj)) == null) ? fetchDecodedImage(imageRequest, obj, ImageRequest.RequestLevel.BITMAP_MEMORY_CACHE) : (DataSource) invokeLL.objValue;
     }
 
     public String generateUniqueFutureId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? String.valueOf(this.mIdCounter.getAndIncrement()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? String.valueOf(this.mIdCounter.getAndIncrement()) : (String) invokeV.objValue;
     }
 
     public MemoryCache<CacheKey, CloseableImage> getBitmapMemoryCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mBitmapMemoryCache : (MemoryCache) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mBitmapMemoryCache : (MemoryCache) invokeV.objValue;
     }
 
     @Nullable
-    public CacheKey getCacheKey(@Nullable ImageRequest imageRequest, Object obj) {
+    public CacheKey getCacheKey(@Nullable ImageRequest imageRequest, @Nullable Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, imageRequest, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, imageRequest, obj)) == null) {
             if (FrescoSystrace.isTracing()) {
                 FrescoSystrace.beginSection("ImagePipeline#getCacheKey");
             }
@@ -380,14 +399,14 @@ public class ImagePipeline {
     public CacheKeyFactory getCacheKeyFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mCacheKeyFactory : (CacheKeyFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mCacheKeyFactory : (CacheKeyFactory) invokeV.objValue;
     }
 
     @Nullable
     public CloseableReference<CloseableImage> getCachedImage(@Nullable CacheKey cacheKey) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, cacheKey)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, cacheKey)) == null) {
             MemoryCache<CacheKey, CloseableImage> memoryCache = this.mBitmapMemoryCache;
             if (memoryCache == null || cacheKey == null) {
                 return null;
@@ -402,10 +421,28 @@ public class ImagePipeline {
         return (CloseableReference) invokeL.objValue;
     }
 
+    public RequestListener getCombinedRequestListener(@Nullable RequestListener requestListener) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, requestListener)) == null) {
+            if (requestListener == null) {
+                return this.mRequestListener;
+            }
+            return new ForwardingRequestListener(this.mRequestListener, requestListener);
+        }
+        return (RequestListener) invokeL.objValue;
+    }
+
+    public ImagePipelineConfig getConfig() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mConfig : (ImagePipelineConfig) invokeV.objValue;
+    }
+
     public Supplier<DataSource<CloseableReference<CloseableImage>>> getDataSourceSupplier(ImageRequest imageRequest, Object obj, ImageRequest.RequestLevel requestLevel) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048596, this, imageRequest, obj, requestLevel)) == null) ? new Supplier<DataSource<CloseableReference<CloseableImage>>>(this, imageRequest, obj, requestLevel) { // from class: com.facebook.imagepipeline.core.ImagePipeline.1
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048599, this, imageRequest, obj, requestLevel)) == null) ? new Supplier<DataSource<CloseableReference<CloseableImage>>>(this, imageRequest, obj, requestLevel) { // from class: com.facebook.imagepipeline.core.ImagePipeline.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ImagePipeline this$0;
@@ -454,7 +491,7 @@ public class ImagePipeline {
     public Supplier<DataSource<CloseableReference<PooledByteBuffer>>> getEncodedImageDataSourceSupplier(ImageRequest imageRequest, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, imageRequest, obj)) == null) ? new Supplier<DataSource<CloseableReference<PooledByteBuffer>>>(this, imageRequest, obj) { // from class: com.facebook.imagepipeline.core.ImagePipeline.3
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048602, this, imageRequest, obj)) == null) ? new Supplier<DataSource<CloseableReference<PooledByteBuffer>>>(this, imageRequest, obj) { // from class: com.facebook.imagepipeline.core.ImagePipeline.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ImagePipeline this$0;
@@ -501,7 +538,7 @@ public class ImagePipeline {
     public long getMainBufferedDiskCacheCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             BufferedDiskCache bufferedDiskCache = this.mMainBufferedDiskCache;
             if (bufferedDiskCache != null) {
                 return bufferedDiskCache.getCount();
@@ -514,7 +551,7 @@ public class ImagePipeline {
     public long getMainBufferedDiskCacheSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             BufferedDiskCache bufferedDiskCache = this.mMainBufferedDiskCache;
             if (bufferedDiskCache != null) {
                 return bufferedDiskCache.getSize();
@@ -527,13 +564,13 @@ public class ImagePipeline {
     public ProducerSequenceFactory getProducerSequenceFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.mProducerSequenceFactory : (ProducerSequenceFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.mProducerSequenceFactory : (ProducerSequenceFactory) invokeV.objValue;
     }
 
     public RequestListener getRequestListenerForRequest(ImageRequest imageRequest, @Nullable RequestListener requestListener) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048602, this, imageRequest, requestListener)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048606, this, imageRequest, requestListener)) == null) {
             if (requestListener == null) {
                 if (imageRequest.getRequestListener() == null) {
                     return this.mRequestListener;
@@ -551,7 +588,7 @@ public class ImagePipeline {
     public long getSmallBufferedDiskCacheCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             BufferedDiskCache bufferedDiskCache = this.mSmallImageBufferedDiskCache;
             if (bufferedDiskCache != null) {
                 return bufferedDiskCache.getCount();
@@ -564,7 +601,7 @@ public class ImagePipeline {
     public long getSmallBufferedDiskCacheSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
             BufferedDiskCache bufferedDiskCache = this.mSmallImageBufferedDiskCache;
             if (bufferedDiskCache != null) {
                 return bufferedDiskCache.getSize();
@@ -574,10 +611,16 @@ public class ImagePipeline {
         return invokeV.longValue;
     }
 
+    public long getUsedDiskCacheSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.mMainBufferedDiskCache.getSize() + this.mSmallImageBufferedDiskCache.getSize() : invokeV.longValue;
+    }
+
     public boolean hasCachedImage(@Nullable CacheKey cacheKey) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, cacheKey)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, cacheKey)) == null) {
             MemoryCache<CacheKey, CloseableImage> memoryCache = this.mBitmapMemoryCache;
             if (memoryCache == null || cacheKey == null) {
                 return false;
@@ -590,7 +633,7 @@ public class ImagePipeline {
     public boolean isInBitmapMemoryCache(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, uri)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, uri)) == null) {
             if (uri == null) {
                 return false;
             }
@@ -602,40 +645,72 @@ public class ImagePipeline {
     public DataSource<Boolean> isInDiskCache(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, uri)) == null) ? isInDiskCache(ImageRequest.fromUri(uri)) : (DataSource) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, uri)) == null) ? isInDiskCache(ImageRequest.fromUri(uri)) : (DataSource) invokeL.objValue;
     }
 
     public boolean isInDiskCacheSync(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, uri)) == null) ? isInDiskCacheSync(uri, ImageRequest.CacheChoice.SMALL) || isInDiskCacheSync(uri, ImageRequest.CacheChoice.DEFAULT) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, uri)) == null) ? isInDiskCacheSync(uri, ImageRequest.CacheChoice.SMALL) || isInDiskCacheSync(uri, ImageRequest.CacheChoice.DEFAULT) : invokeL.booleanValue;
     }
 
     public Supplier<Boolean> isLazyDataSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.mLazyDataSource : (Supplier) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.mLazyDataSource : (Supplier) invokeV.objValue;
     }
 
     public boolean isPaused() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.mThreadHandoffProducerQueue.isQueueing() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.mThreadHandoffProducerQueue.isQueueing() : invokeV.booleanValue;
     }
 
     public void pause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
             this.mThreadHandoffProducerQueue.startQueueing();
         }
     }
 
     public DataSource<Void> prefetchToBitmapCache(ImageRequest imageRequest, Object obj) {
         InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048621, this, imageRequest, obj)) == null) ? prefetchToBitmapCache(imageRequest, obj, Priority.MEDIUM) : (DataSource) invokeLL.objValue;
+    }
+
+    @Deprecated
+    public DataSource<Void> prefetchToBitmapCacheWithHighPriority(ImageRequest imageRequest, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048622, this, imageRequest, obj)) == null) ? prefetchToBitmapCache(imageRequest, obj, Priority.HIGH) : (DataSource) invokeLL.objValue;
+    }
+
+    public DataSource<Void> prefetchToDiskCache(ImageRequest imageRequest, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048623, this, imageRequest, obj)) == null) ? prefetchToDiskCache(imageRequest, obj, Priority.MEDIUM) : (DataSource) invokeLL.objValue;
+    }
+
+    public DataSource<Void> prefetchToEncodedCache(ImageRequest imageRequest, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048625, this, imageRequest, obj)) == null) ? prefetchToEncodedCache(imageRequest, obj, Priority.MEDIUM) : (DataSource) invokeLL.objValue;
+    }
+
+    public void resume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
+            this.mThreadHandoffProducerQueue.stopQueuing();
+        }
+    }
+
+    private DataSource<Void> prefetchToBitmapCache(ImageRequest imageRequest, Object obj, Priority priority) {
+        InterceptResult invokeLLL;
         boolean booleanValue;
         Producer<Void> decodedImagePrefetchProducerSequence;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048616, this, imageRequest, obj)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, imageRequest, obj, priority)) == null) {
             if (!this.mIsPrefetchEnabledSupplier.get().booleanValue()) {
                 return DataSources.immediateFailedDataSource(PREFETCH_EXCEPTION);
             }
@@ -651,25 +726,12 @@ public class ImagePipeline {
                 } else {
                     decodedImagePrefetchProducerSequence = this.mProducerSequenceFactory.getDecodedImagePrefetchProducerSequence(imageRequest);
                 }
-                return submitPrefetchRequest(decodedImagePrefetchProducerSequence, imageRequest, ImageRequest.RequestLevel.FULL_FETCH, obj, Priority.MEDIUM);
+                return submitPrefetchRequest(decodedImagePrefetchProducerSequence, imageRequest, ImageRequest.RequestLevel.FULL_FETCH, obj, priority);
             } catch (Exception e) {
                 return DataSources.immediateFailedDataSource(e);
             }
         }
-        return (DataSource) invokeLL.objValue;
-    }
-
-    public DataSource<Void> prefetchToDiskCache(ImageRequest imageRequest, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048617, this, imageRequest, obj)) == null) ? prefetchToDiskCache(imageRequest, obj, Priority.MEDIUM) : (DataSource) invokeLL.objValue;
-    }
-
-    public void resume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
-            this.mThreadHandoffProducerQueue.stopQueuing();
-        }
+        return (DataSource) invokeLLL.objValue;
     }
 
     public void evictFromDiskCache(ImageRequest imageRequest) {
@@ -690,14 +752,14 @@ public class ImagePipeline {
     public DataSource<CloseableReference<PooledByteBuffer>> fetchEncodedImage(ImageRequest imageRequest, Object obj, @Nullable RequestListener requestListener) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, imageRequest, obj, requestListener)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, imageRequest, obj, requestListener)) == null) {
             Preconditions.checkNotNull(imageRequest.getSourceUri());
             try {
                 Producer<CloseableReference<PooledByteBuffer>> encodedImageProducerSequence = this.mProducerSequenceFactory.getEncodedImageProducerSequence(imageRequest);
                 if (imageRequest.getResizeOptions() != null) {
                     imageRequest = ImageRequestBuilder.fromRequest(imageRequest).setResizeOptions(null).build();
                 }
-                return submitFetchRequest(encodedImageProducerSequence, imageRequest, ImageRequest.RequestLevel.FULL_FETCH, obj, requestListener);
+                return submitFetchRequest(encodedImageProducerSequence, imageRequest, ImageRequest.RequestLevel.FULL_FETCH, obj, requestListener, null);
             } catch (Exception e) {
                 return DataSources.immediateFailedDataSource(e);
             }
@@ -708,7 +770,7 @@ public class ImagePipeline {
     public Supplier<DataSource<CloseableReference<CloseableImage>>> getDataSourceSupplier(ImageRequest imageRequest, Object obj, ImageRequest.RequestLevel requestLevel, @Nullable RequestListener requestListener) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048597, this, imageRequest, obj, requestLevel, requestListener)) == null) ? new Supplier<DataSource<CloseableReference<CloseableImage>>>(this, imageRequest, obj, requestLevel, requestListener) { // from class: com.facebook.imagepipeline.core.ImagePipeline.2
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048600, this, imageRequest, obj, requestLevel, requestListener)) == null) ? new Supplier<DataSource<CloseableReference<CloseableImage>>>(this, imageRequest, obj, requestLevel, requestListener) { // from class: com.facebook.imagepipeline.core.ImagePipeline.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ImagePipeline this$0;
@@ -760,10 +822,10 @@ public class ImagePipeline {
     public DataSource<Boolean> isInDiskCache(ImageRequest imageRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, imageRequest)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, imageRequest)) == null) {
             CacheKey encodedCacheKey = this.mCacheKeyFactory.getEncodedCacheKey(imageRequest, null);
             SimpleDataSource create = SimpleDataSource.create();
-            this.mMainBufferedDiskCache.contains(encodedCacheKey).g(new h0<Boolean, i0<Boolean>>(this, encodedCacheKey) { // from class: com.facebook.imagepipeline.core.ImagePipeline.6
+            this.mMainBufferedDiskCache.contains(encodedCacheKey).g(new h0<Boolean, i0<Boolean>>(this, encodedCacheKey) { // from class: com.facebook.imagepipeline.core.ImagePipeline.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ImagePipeline this$0;
@@ -802,7 +864,7 @@ public class ImagePipeline {
                     }
                     return (i0) invokeL2.objValue;
                 }
-            }).e(new h0<Boolean, Void>(this, create) { // from class: com.facebook.imagepipeline.core.ImagePipeline.5
+            }).e(new h0<Boolean, Void>(this, create) { // from class: com.facebook.imagepipeline.core.ImagePipeline.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ImagePipeline this$0;
@@ -847,7 +909,23 @@ public class ImagePipeline {
     public DataSource<Void> prefetchToDiskCache(ImageRequest imageRequest, Object obj, Priority priority) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048618, this, imageRequest, obj, priority)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048624, this, imageRequest, obj, priority)) == null) {
+            if (!this.mIsPrefetchEnabledSupplier.get().booleanValue()) {
+                return DataSources.immediateFailedDataSource(PREFETCH_EXCEPTION);
+            }
+            try {
+                return submitPrefetchRequest(this.mProducerSequenceFactory.getEncodedImagePrefetchProducerSequence(imageRequest), imageRequest, ImageRequest.RequestLevel.FULL_FETCH, obj, priority);
+            } catch (Exception e) {
+                return DataSources.immediateFailedDataSource(e);
+            }
+        }
+        return (DataSource) invokeLLL.objValue;
+    }
+
+    public DataSource<Void> prefetchToEncodedCache(ImageRequest imageRequest, Object obj, Priority priority) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048626, this, imageRequest, obj, priority)) == null) {
             if (!this.mIsPrefetchEnabledSupplier.get().booleanValue()) {
                 return DataSources.immediateFailedDataSource(PREFETCH_EXCEPTION);
             }
@@ -866,10 +944,63 @@ public class ImagePipeline {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, imageRequest, obj, requestLevel)) == null) ? fetchDecodedImage(imageRequest, obj, requestLevel, null) : (DataSource) invokeLLL.objValue;
     }
 
+    public Supplier<DataSource<CloseableReference<CloseableImage>>> getDataSourceSupplier(ImageRequest imageRequest, Object obj, ImageRequest.RequestLevel requestLevel, @Nullable RequestListener requestListener, @Nullable String str) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048601, this, imageRequest, obj, requestLevel, requestListener, str)) == null) ? new Supplier<DataSource<CloseableReference<CloseableImage>>>(this, imageRequest, obj, requestLevel, requestListener, str) { // from class: com.facebook.imagepipeline.core.ImagePipeline.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ImagePipeline this$0;
+            public final /* synthetic */ Object val$callerContext;
+            public final /* synthetic */ ImageRequest val$imageRequest;
+            public final /* synthetic */ ImageRequest.RequestLevel val$requestLevel;
+            public final /* synthetic */ RequestListener val$requestListener;
+            public final /* synthetic */ String val$uiComponentId;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, imageRequest, obj, requestLevel, requestListener, str};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$imageRequest = imageRequest;
+                this.val$callerContext = obj;
+                this.val$requestLevel = requestLevel;
+                this.val$requestListener = requestListener;
+                this.val$uiComponentId = str;
+            }
+
+            public String toString() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Objects.toStringHelper(this).add("uri", this.val$imageRequest.getSourceUri()).toString() : (String) invokeV.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // com.facebook.common.internal.Supplier
+            public DataSource<CloseableReference<CloseableImage>> get() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.this$0.fetchDecodedImage(this.val$imageRequest, this.val$callerContext, this.val$requestLevel, this.val$requestListener, this.val$uiComponentId) : (DataSource) invokeV.objValue;
+            }
+        } : (Supplier) invokeLLLLL.objValue;
+    }
+
     public boolean isInBitmapMemoryCache(ImageRequest imageRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, imageRequest)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, imageRequest)) == null) {
             if (imageRequest == null) {
                 return false;
             }
@@ -886,7 +1017,7 @@ public class ImagePipeline {
     public boolean isInDiskCacheSync(Uri uri, ImageRequest.CacheChoice cacheChoice) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048611, this, uri, cacheChoice)) == null) ? isInDiskCacheSync(ImageRequestBuilder.newBuilderWithSource(uri).setCacheChoice(cacheChoice).build()) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048616, this, uri, cacheChoice)) == null) ? isInDiskCacheSync(ImageRequestBuilder.newBuilderWithSource(uri).setCacheChoice(cacheChoice).build()) : invokeLL.booleanValue;
     }
 
     public void clearMemoryCaches(Predicate<CacheKey> predicate) {
@@ -904,22 +1035,28 @@ public class ImagePipeline {
     public DataSource<CloseableReference<CloseableImage>> fetchDecodedImage(ImageRequest imageRequest, Object obj, ImageRequest.RequestLevel requestLevel, @Nullable RequestListener requestListener) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048587, this, imageRequest, obj, requestLevel, requestListener)) == null) {
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048587, this, imageRequest, obj, requestLevel, requestListener)) == null) ? fetchDecodedImage(imageRequest, obj, requestLevel, requestListener, null) : (DataSource) invokeLLLL.objValue;
+    }
+
+    public DataSource<CloseableReference<CloseableImage>> fetchDecodedImage(ImageRequest imageRequest, Object obj, ImageRequest.RequestLevel requestLevel, @Nullable RequestListener requestListener, @Nullable String str) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048588, this, imageRequest, obj, requestLevel, requestListener, str)) == null) {
             try {
-                return submitFetchRequest(this.mProducerSequenceFactory.getDecodedImageProducerSequence(imageRequest), imageRequest, requestLevel, obj, requestListener);
+                return submitFetchRequest(this.mProducerSequenceFactory.getDecodedImageProducerSequence(imageRequest), imageRequest, requestLevel, obj, requestListener, str);
             } catch (Exception e) {
                 return DataSources.immediateFailedDataSource(e);
             }
         }
-        return (DataSource) invokeLLLL.objValue;
+        return (DataSource) invokeLLLLL.objValue;
     }
 
     public boolean isInDiskCacheSync(ImageRequest imageRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, imageRequest)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, imageRequest)) == null) {
             CacheKey encodedCacheKey = this.mCacheKeyFactory.getEncodedCacheKey(imageRequest, null);
-            int i = AnonymousClass8.$SwitchMap$com$facebook$imagepipeline$request$ImageRequest$CacheChoice[imageRequest.getCacheChoice().ordinal()];
+            int i = AnonymousClass9.$SwitchMap$com$facebook$imagepipeline$request$ImageRequest$CacheChoice[imageRequest.getCacheChoice().ordinal()];
             if (i != 1) {
                 if (i != 2) {
                     return false;
@@ -935,13 +1072,13 @@ public class ImagePipeline {
     public <T> DataSource<CloseableReference<T>> submitFetchRequest(Producer<CloseableReference<T>> producer, SettableProducerContext settableProducerContext, RequestListener requestListener) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048620, this, producer, settableProducerContext, requestListener)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048628, this, producer, settableProducerContext, requestListener)) == null) {
             if (FrescoSystrace.isTracing()) {
                 FrescoSystrace.beginSection("ImagePipeline#submitFetchRequest");
             }
             try {
                 try {
-                    DataSource<CloseableReference<T>> create = CloseableProducerToDataSourceAdapter.create(producer, settableProducerContext, requestListener);
+                    DataSource<CloseableReference<T>> create = CloseableProducerToDataSourceAdapter.create(producer, settableProducerContext, new InternalRequestListener(requestListener, this.mRequestListener2));
                     if (FrescoSystrace.isTracing()) {
                         FrescoSystrace.endSection();
                     }

@@ -172,7 +172,7 @@ public class as4 implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{cf7.b("#FF722B"), cf7.b("#FF2b5D")});
+            GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{bf7.b("#FF722B"), bf7.b("#FF2b5D")});
             gradientDrawable.setCornerRadius(this.l);
             return gradientDrawable;
         }

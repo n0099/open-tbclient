@@ -284,7 +284,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             t16 t16Var = this.e;
             if (t16Var != null && t16Var.g()) {
                 ds4 ds4Var = new ds4(getPageContext(), new fs4(getPageContext().getPageActivity()));
-                ds4Var.i(getResources().getString(R.string.obfuscated_res_0x7f0f052b), new String[]{getResources().getString(R.string.obfuscated_res_0x7f0f0f74)}, new e(this, ds4Var));
+                ds4Var.i(getResources().getString(R.string.obfuscated_res_0x7f0f052b), new String[]{getResources().getString(R.string.obfuscated_res_0x7f0f0f75)}, new e(this, ds4Var));
                 ds4Var.k();
                 return;
             }
@@ -325,16 +325,16 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             this.a = navigationBar;
             navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0616)).setTextColor(getResources().getColor(R.color.CAM_X0101));
             View addSystemImageButton = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            ((ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f092615)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a02));
+            ((ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f092615)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a03));
             addSystemImageButton.setOnClickListener(new c(this));
             NavigationBar navigationBar2 = this.a;
             NavigationBar.ControlAlign controlAlign = NavigationBar.ControlAlign.HORIZONTAL_RIGHT;
             if (this.h == 2) {
                 resources = getResources();
-                i = R.string.obfuscated_res_0x7f0f1081;
+                i = R.string.obfuscated_res_0x7f0f1082;
             } else {
                 resources = getResources();
-                i = R.string.obfuscated_res_0x7f0f0c45;
+                i = R.string.obfuscated_res_0x7f0f0c46;
             }
             navigationBar2.addTextButton(controlAlign, resources.getString(i), new d(this)).setTextColor(getResources().getColor(R.color.CAM_X0101));
             this.d = findViewById(R.id.obfuscated_res_0x7f091a31);
@@ -436,11 +436,11 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
                 if (t16Var != null) {
                     if (t16Var.isPlaying()) {
                         this.e.pause();
-                        this.c.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a19));
+                        this.c.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a1a));
                         return;
                     }
                     this.e.start();
-                    this.c.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a21));
+                    this.c.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a22));
                 }
             }
         }
@@ -506,7 +506,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             t16 t16Var = this.e;
             if (t16Var != null) {
                 t16Var.onResume();
-                this.c.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a19));
+                this.c.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a1a));
             }
         }
     }

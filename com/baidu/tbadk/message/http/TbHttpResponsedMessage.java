@@ -4,6 +4,8 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.BdToastData;
+import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tbadk.core.util.NetWorkState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -109,5 +111,12 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
             return new String(bArr, getCharset());
         }
         return (String) invokeL.objValue;
+    }
+
+    public void showToast(BdToastData bdToastData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdToastData) == null) {
+            BdToastHelper.toast(bdToastData);
+        }
     }
 }

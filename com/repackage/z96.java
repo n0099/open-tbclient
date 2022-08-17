@@ -33,7 +33,7 @@ public class z96 implements x96 {
     public boolean f;
     public TbPageContext g;
     public boolean h;
-    public fn7 i;
+    public en7 i;
 
     /* loaded from: classes7.dex */
     public class a implements aa6.b {
@@ -71,7 +71,7 @@ public class z96 implements x96 {
                 this.a.b.setVisibility(4);
                 this.a.a.setDrawBorder(true);
                 this.a.a.invalidate();
-                qi.O(TbadkCoreApplication.getInst(), str);
+                qi.N(TbadkCoreApplication.getInst(), str);
                 if (this.c.i != null) {
                     this.c.i.b(3, str);
                 }
@@ -135,7 +135,7 @@ public class z96 implements x96 {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                qi.O(TbadkCoreApplication.getInst(), str);
+                qi.N(TbadkCoreApplication.getInst(), str);
                 if (this.b.i != null) {
                     this.b.i.b(3, str);
                 }
@@ -225,8 +225,8 @@ public class z96 implements x96 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i, i2)) == null) {
                 if (this.a.i != null) {
-                    fn7 fn7Var = this.a.i;
-                    fn7Var.b(4, "what-->" + i + "  extra-->" + i2);
+                    en7 en7Var = this.a.i;
+                    en7Var.b(4, "what-->" + i + "  extra-->" + i2);
                     return false;
                 }
                 return false;
@@ -250,10 +250,10 @@ public class z96 implements x96 {
                 return;
             }
         }
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, jn7.class);
-        jn7 jn7Var = runTask != null ? (jn7) runTask.getData() : null;
-        if (jn7Var != null) {
-            this.i = jn7Var.get();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, in7.class);
+        in7 in7Var = runTask != null ? (in7) runTask.getData() : null;
+        if (in7Var != null) {
+            this.i = in7Var.get();
         }
         this.g = tbPageContext;
         this.a = new SelectMusicModel(tbPageContext, y96Var);

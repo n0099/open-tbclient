@@ -144,7 +144,7 @@ public class t86 {
             SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f0805dc, SvgManager.SvgResourceStateType.NORMAL);
         }
         SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080639, SvgManager.SvgResourceStateType.NORMAL);
-        SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080f2d);
+        SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080f2e);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.m, R.drawable.obfuscated_res_0x7f0805e9, R.color.CAM_X0311, SvgManager.SvgResourceStateType.NORMAL);
         SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0311);
         SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0311);

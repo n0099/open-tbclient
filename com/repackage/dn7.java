@@ -1,27 +1,19 @@
 package com.repackage;
+
+import android.os.Environment;
+import java.io.File;
 /* loaded from: classes6.dex */
 public interface dn7 {
-    void a(String str);
+    public static final String a = File.separator;
+    public static final String b = Environment.getExternalStorageDirectory() + a + "tieba";
+    public static final String c = b + a + ".tieba_post_monitor";
+    public static final String d = c + a + "v1";
+    public static final String e;
 
-    void b(String str, int i, int i2, String str2);
-
-    void c(String str, int i, String str2);
-
-    boolean d(String str);
-
-    boolean e(String str);
-
-    void f(String str, int i, String str2);
-
-    void g(String str, int i, String str2);
-
-    void h(String str, String str2);
-
-    void i(String str, String str2);
-
-    void j(String str);
-
-    void k(String str);
-
-    void l(String str, int i, String str2);
+    static {
+        StringBuilder sb = new StringBuilder();
+        sb.append(d);
+        sb.append(a);
+        e = sb.toString();
+    }
 }

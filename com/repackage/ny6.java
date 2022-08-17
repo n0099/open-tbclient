@@ -1,86 +1,19 @@
 package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.homepage.lowFlows.message.MoreTreasureTroveReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class ny6 implements ay6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public BdUniqueId b;
-    public ab c;
-    public boolean d;
-    public by6 e;
-    public final HashMap<String, List<on>> f;
-
-    /* loaded from: classes6.dex */
-    public class a extends ab {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ny6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ny6 ny6Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ny6Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ny6Var;
-        }
-
-        @Override // com.repackage.ab
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.d = false;
-                if (this.a.e == null) {
-                    return;
-                }
-                if (!(responsedMessage instanceof my6)) {
-                    this.a.e.c(-1);
-                } else if (responsedMessage.getOrginalMessage() == null || this.a.b != responsedMessage.getOrginalMessage().getTag()) {
-                    this.a.e.c(-1);
-                } else if (responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    this.a.e.c(responsedMessage.getError());
-                } else {
-                    my6 my6Var = (my6) responsedMessage;
-                    if (my6Var.getDataList() == null || my6Var.getDataList().size() <= 0) {
-                        this.a.e.c(-1);
-                        return;
-                    }
-                    if (!StringUtils.isNull(this.a.a)) {
-                        this.a.f.put(this.a.a, my6Var.getDataList());
-                    }
-                    this.a.e.b(responsedMessage.getError(), my6Var);
-                }
-            }
-        }
-    }
+    public by6 a;
+    public zx6 b;
 
     public ny6(by6 by6Var) {
         Interceptable interceptable = $ic;
@@ -97,10 +30,8 @@ public class ny6 implements ay6 {
                 return;
             }
         }
-        this.b = null;
-        this.f = new HashMap<>();
-        this.e = by6Var;
-        g();
+        this.a = by6Var;
+        this.b = new my6(this);
     }
 
     @Override // com.repackage.ay6
@@ -108,68 +39,52 @@ public class ny6 implements ay6 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, bdUniqueId, str, str2, str3)) == null) {
-            if (oi.A() && bdUniqueId != null && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                if (this.d) {
-                    return false;
-                }
-                String str4 = this.a;
-                if (str4 != null && str4.equals(str) && this.f.size() > 0) {
-                    this.e.setData(this.f.get(str));
-                    return true;
-                }
-                k(bdUniqueId);
-                i(str);
-                h(str2);
-                j(str3);
-                MoreTreasureTroveReqMsg moreTreasureTroveReqMsg = new MoreTreasureTroveReqMsg();
-                moreTreasureTroveReqMsg.setTag(bdUniqueId);
-                moreTreasureTroveReqMsg.setTabCode(str);
-                moreTreasureTroveReqMsg.setLfUser(str2);
-                moreTreasureTroveReqMsg.setTaskId(str3);
-                boolean sendMessage = MessageManager.getInstance().sendMessage(moreTreasureTroveReqMsg);
-                this.d = sendMessage;
-                return sendMessage;
-            }
-            by6 by6Var = this.e;
-            if (by6Var != null) {
-                by6Var.c(-1);
+            zx6 zx6Var = this.b;
+            if (zx6Var != null) {
+                return zx6Var.a(bdUniqueId, str, str2, str3);
             }
             return false;
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final void g() {
+    @Override // com.repackage.ay6
+    public boolean b(int i, ly6 ly6Var) {
+        InterceptResult invokeIL;
+        by6 by6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new a(this, CmdConfigHttp.CMD_LOW_FLOWS_PAGE, 309691);
-            MessageManager.getInstance().registerListener(this.c);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, ly6Var)) == null) {
+            if (ly6Var == null || (by6Var = this.a) == null) {
+                return false;
+            }
+            by6Var.setData(ly6Var.getDataList());
+            return true;
         }
+        return invokeIL.booleanValue;
     }
 
-    public void h(String str) {
+    @Override // com.repackage.ay6
+    public boolean c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            by6 by6Var = this.a;
+            if (by6Var != null) {
+                by6Var.b(i);
+                return true;
+            }
+            return false;
         }
+        return invokeI.booleanValue;
     }
 
-    public void i(String str) {
+    @Override // com.repackage.ay6
+    public void setData(List<on> list) {
+        by6 by6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || (by6Var = this.a) == null) {
+            return;
         }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-        }
-    }
-
-    public void k(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            this.b = bdUniqueId;
-        }
+        by6Var.setData(list);
     }
 }

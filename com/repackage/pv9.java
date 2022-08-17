@@ -1,52 +1,77 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pu9;
+import rx.internal.operators.NotificationLite;
+import rx.internal.operators.OnSubscribeCombineLatest$LatestCoordinator;
 /* loaded from: classes7.dex */
-public final class pv9<T, R> implements pu9.a<R> {
+public final class pv9<T, R> extends xu9<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final pu9.a<T> a;
-    public final pu9.b<? extends R, ? super T> b;
+    public final OnSubscribeCombineLatest$LatestCoordinator<T, R> e;
+    public final int f;
+    public boolean g;
 
-    public pv9(pu9.a<T> aVar, pu9.b<? extends R, ? super T> bVar) {
+    public pv9(OnSubscribeCombineLatest$LatestCoordinator<T, R> onSubscribeCombineLatest$LatestCoordinator, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, bVar};
+            Object[] objArr = {onSubscribeCombineLatest$LatestCoordinator, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = aVar;
-        this.b = bVar;
+        this.e = onSubscribeCombineLatest$LatestCoordinator;
+        this.f = i;
+        e(onSubscribeCombineLatest$LatestCoordinator.bufferSize);
     }
 
-    @Override // com.repackage.pu9.a, com.repackage.dv9
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((vu9) ((vu9) obj));
-    }
-
-    public void call(vu9<? super R> vu9Var) {
+    public void g(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, vu9Var) == null) {
-            try {
-                vu9 vu9Var2 = (vu9) wy9.n(this.b).call(vu9Var);
-                vu9Var2.d();
-                this.a.call(vu9Var2);
-            } catch (Throwable th) {
-                bv9.e(th);
-                vu9Var.onError(th);
-            }
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            e(j);
         }
+    }
+
+    @Override // com.repackage.su9
+    public void onCompleted() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.g) {
+            return;
+        }
+        this.g = true;
+        this.e.combine(null, this.f);
+    }
+
+    @Override // com.repackage.su9
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+            if (this.g) {
+                yy9.j(th);
+                return;
+            }
+            this.e.onError(th);
+            this.g = true;
+            this.e.combine(null, this.f);
+        }
+    }
+
+    @Override // com.repackage.su9
+    public void onNext(T t) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.g) {
+            return;
+        }
+        this.e.combine(NotificationLite.h(t), this.f);
     }
 }

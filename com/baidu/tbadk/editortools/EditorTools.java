@@ -631,7 +631,7 @@ public class EditorTools extends LinearLayout {
         if (t25Var instanceof View) {
             View view2 = (View) t25Var;
             view2.requestFocus();
-            qi.M(getContext(), view2);
+            qi.L(getContext(), view2);
         }
     }
 

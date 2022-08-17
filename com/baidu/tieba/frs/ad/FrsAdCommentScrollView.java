@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nj8;
+import com.repackage.mj8;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -30,7 +30,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
     public FrameLayout d;
     public Handler e;
     public ValueAnimator f;
-    public List<nj8> g;
+    public List<mj8> g;
     public int h;
     public Runnable i;
 
@@ -210,7 +210,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
         }
     }
 
-    public void m(List<nj8> list) {
+    public void m(List<mj8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             if (ListUtils.getCount(list) <= 1) {
@@ -273,27 +273,27 @@ public class FrsAdCommentScrollView extends LinearLayout {
     }
 
     public final void r() {
-        nj8 nj8Var;
+        mj8 mj8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            nj8 nj8Var2 = (nj8) ListUtils.getItem(this.g, this.h);
+            mj8 mj8Var2 = (mj8) ListUtils.getItem(this.g, this.h);
             if (this.h + 1 >= this.g.size()) {
-                nj8Var = (nj8) ListUtils.getItem(this.g, 0);
+                mj8Var = (mj8) ListUtils.getItem(this.g, 0);
             } else {
-                nj8Var = (nj8) ListUtils.getItem(this.g, this.h + 1);
+                mj8Var = (mj8) ListUtils.getItem(this.g, this.h + 1);
             }
-            if ((this.c.getTag() instanceof TextView) && nj8Var2 != null) {
-                String a2 = nj8Var2.a();
-                if (nj8Var2.b()) {
+            if ((this.c.getTag() instanceof TextView) && mj8Var2 != null) {
+                String a2 = mj8Var2.a();
+                if (mj8Var2.b()) {
                     a2 = getContext().getString(R.string.obfuscated_res_0x7f0f0757, a2);
                 }
                 ((TextView) this.c.getTag()).setText(a2);
             }
-            if (!(this.d.getTag() instanceof TextView) || nj8Var == null) {
+            if (!(this.d.getTag() instanceof TextView) || mj8Var == null) {
                 return;
             }
-            String a3 = nj8Var.a();
-            if (nj8Var.b()) {
+            String a3 = mj8Var.a();
+            if (mj8Var.b()) {
                 a3 = getContext().getString(R.string.obfuscated_res_0x7f0f0757, a3);
             }
             ((TextView) this.d.getTag()).setText(a3);

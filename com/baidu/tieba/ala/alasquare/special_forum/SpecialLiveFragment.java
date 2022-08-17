@@ -60,9 +60,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.repackage.bk8;
 import com.repackage.c9;
 import com.repackage.ch5;
-import com.repackage.ck8;
 import com.repackage.ht5;
 import com.repackage.jt5;
 import com.repackage.oi;
@@ -403,7 +403,7 @@ public class SpecialLiveFragment extends BaseFragment {
                         AntiHelper.u(this.a.b, signMessage.mSignErrorString);
                         return;
                     } else {
-                        qi.O(this.a.b, this.a.b.getString(R.string.obfuscated_res_0x7f0f11b9, Integer.valueOf(signData2.sign_bonus_point)));
+                        qi.N(this.a.b, this.a.b.getString(R.string.obfuscated_res_0x7f0f11bb, Integer.valueOf(signData2.sign_bonus_point)));
                         return;
                     }
                 }
@@ -411,7 +411,7 @@ public class SpecialLiveFragment extends BaseFragment {
                     this.a.K = 3;
                     this.a.x2(false);
                 }
-                qi.O(this.a.b, signMessage.mSignErrorString);
+                qi.N(this.a.b, signMessage.mSignErrorString);
             }
         }
     }
@@ -446,21 +446,20 @@ public class SpecialLiveFragment extends BaseFragment {
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 this.a.l.setClickable(true);
                 if (this.a.A.getErrorCode() == 22) {
-                    qi.N(this.a.b, R.string.obfuscated_res_0x7f0f0827);
+                    qi.M(this.a.b, R.string.obfuscated_res_0x7f0f0827);
                 } else if (AntiHelper.m(this.a.A.getErrorCode(), this.a.A.getErrorString())) {
                     AntiHelper.u(this.a.b, this.a.A.getErrorString());
                 } else if (this.a.A.getErrorCode() != 0) {
-                    qi.O(this.a.b, this.a.A.getErrorString());
+                    qi.N(this.a.b, this.a.A.getErrorString());
                 } else {
-                    ck8 ck8Var = (ck8) obj;
-                    if (ck8Var != null) {
+                    bk8 bk8Var = (bk8) obj;
+                    if (bk8Var != null) {
                         TbadkCoreApplication.getInst().addLikeForum(this.a.H);
-                        ck8Var.y(1);
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, ck8Var));
-                        qi.N(this.a.b, R.string.obfuscated_res_0x7f0f02ba);
+                        bk8Var.x(1);
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, bk8Var));
                         return;
                     }
-                    qi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c3c);
+                    qi.M(this.a.b, R.string.obfuscated_res_0x7f0f0c3d);
                 }
             }
         }
@@ -654,10 +653,10 @@ public class SpecialLiveFragment extends BaseFragment {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            ck8 ck8Var;
+            bk8 bk8Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ck8) && (ck8Var = (ck8) customResponsedMessage.getData()) != null && this.a.G.equals(ck8Var.g())) {
-                if (ck8Var.n() == 1) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof bk8) && (bk8Var = (bk8) customResponsedMessage.getData()) != null && this.a.G.equals(bk8Var.g())) {
+                if (bk8Var.m() == 1) {
                     if (this.a.r2()) {
                         this.a.K = 3;
                     } else {
@@ -706,7 +705,7 @@ public class SpecialLiveFragment extends BaseFragment {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData) && (signData = (SignData) customResponsedMessage.getData()) != null && this.a.G.equals(signData.forumId) && signData.is_signed == 1) {
                 this.a.K = 3;
                 this.a.x2(false);
-                qi.O(this.a.getPageContext().getPageActivity(), this.a.b.getString(R.string.obfuscated_res_0x7f0f11b9, Integer.valueOf(signData.sign_bonus_point)));
+                qi.N(this.a.getPageContext().getPageActivity(), this.a.b.getString(R.string.obfuscated_res_0x7f0f11bb, Integer.valueOf(signData.sign_bonus_point)));
             }
         }
     }
@@ -785,7 +784,7 @@ public class SpecialLiveFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!oi.z()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                     return;
                 }
                 if (!TbadkCoreApplication.isLogin()) {
@@ -1083,7 +1082,7 @@ public class SpecialLiveFragment extends BaseFragment {
             hideLoadingView(this.c);
             this.d.setVisibility(8);
             if (TextUtils.isEmpty(str)) {
-                showNetRefreshView(this.c, this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11d0), true);
+                showNetRefreshView(this.c, this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11d2), true);
             } else {
                 showNetRefreshView(this.c, str, true);
             }
@@ -1159,7 +1158,7 @@ public class SpecialLiveFragment extends BaseFragment {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             TabData tabData = new TabData();
             tabData.tabId = -901;
-            tabData.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11b3);
+            tabData.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11b5);
             return tabData;
         }
         return (TabData) invokeV.objValue;
@@ -1171,7 +1170,7 @@ public class SpecialLiveFragment extends BaseFragment {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             SpecialLiveTabInfo specialLiveTabInfo = new SpecialLiveTabInfo();
             specialLiveTabInfo.tabId = -901;
-            specialLiveTabInfo.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11b3);
+            specialLiveTabInfo.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11b5);
             return specialLiveTabInfo;
         }
         return (SpecialLiveTabInfo) invokeV.objValue;
@@ -1183,7 +1182,7 @@ public class SpecialLiveFragment extends BaseFragment {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             TabData tabData = new TabData();
             tabData.tabId = -903;
-            tabData.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11b8);
+            tabData.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11ba);
             return tabData;
         }
         return (TabData) invokeV.objValue;
@@ -1195,7 +1194,7 @@ public class SpecialLiveFragment extends BaseFragment {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             SpecialLiveTabInfo specialLiveTabInfo = new SpecialLiveTabInfo();
             specialLiveTabInfo.tabId = -903;
-            specialLiveTabInfo.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11b8);
+            specialLiveTabInfo.tabName = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f11ba);
             return specialLiveTabInfo;
         }
         return (SpecialLiveTabInfo) invokeV.objValue;
@@ -1539,7 +1538,7 @@ public class SpecialLiveFragment extends BaseFragment {
                     TiebaStatic.log(statisticItem);
                 }
             } else if (i3 == 2) {
-                string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f117a);
+                string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f117c);
                 drawable = SkinManager.getDrawable(R.drawable.icon_public_sign_blue_s);
                 this.l.setClickable(true);
                 if (!z) {
@@ -1549,7 +1548,7 @@ public class SpecialLiveFragment extends BaseFragment {
                 }
             } else {
                 if (i3 == 3) {
-                    string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1199);
+                    string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f119b);
                     this.l.setClickable(false);
                     i2 = R.drawable.special_sign_btn_signed_bg;
                     i4 = R.color.CAM_X0109;

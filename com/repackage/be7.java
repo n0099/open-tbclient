@@ -1,7 +1,5 @@
 package com.repackage;
-
-import com.baidu.adp.BdUniqueId;
 /* loaded from: classes5.dex */
 public interface be7 {
-    void setUniqueId(BdUniqueId bdUniqueId);
+    void a(sf7 sf7Var, int i);
 }

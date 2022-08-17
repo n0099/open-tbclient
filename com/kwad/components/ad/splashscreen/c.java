@@ -441,7 +441,7 @@ public final class c {
             public final void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && this.xI.xE) {
-                    com.kwad.components.core.c.a.a.a(new a.C0352a(view2.getContext()).L(this.xG).b(this.xH).aj(false).ae(2).a(new a.b(this) { // from class: com.kwad.components.ad.splashscreen.c.1.1
+                    com.kwad.components.core.c.a.a.a(new a.C0354a(view2.getContext()).L(this.xG).b(this.xH).aj(false).ae(2).a(new a.b(this) { // from class: com.kwad.components.ad.splashscreen.c.1.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass1 xJ;

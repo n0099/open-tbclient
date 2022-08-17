@@ -322,7 +322,7 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
     public final void J1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.e.C(getResources().getString(R.string.obfuscated_res_0x7f0f0991));
+            this.e.C(getResources().getString(R.string.obfuscated_res_0x7f0f0992));
             this.e.f();
         }
     }
@@ -457,11 +457,11 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
             this.f = downloadManagerNoDataLayout;
             int i = this.j;
             if (i == 1) {
-                downloadManagerNoDataLayout.setNoDataText(R.string.obfuscated_res_0x7f0f0992);
+                downloadManagerNoDataLayout.setNoDataText(R.string.obfuscated_res_0x7f0f0993);
             } else if (i == 2) {
-                downloadManagerNoDataLayout.setNoDataText(R.string.obfuscated_res_0x7f0f0986);
+                downloadManagerNoDataLayout.setNoDataText(R.string.obfuscated_res_0x7f0f0987);
             } else if (i == 3) {
-                downloadManagerNoDataLayout.setNoDataText(R.string.obfuscated_res_0x7f0f0983);
+                downloadManagerNoDataLayout.setNoDataText(R.string.obfuscated_res_0x7f0f0984);
             }
             changeSkinType(TbadkCoreApplication.getInst().getSkinType());
             return this.a;

@@ -162,7 +162,7 @@ public final class jo5 {
             TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092223);
             TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092222);
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092224);
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f0811e9);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f0811ea);
             tbImageView.setAutoChangeStyle(false);
             PopupWindow popupWindow = new PopupWindow(b2);
             if (hj4Var.g() != 3) {
@@ -170,10 +170,10 @@ public final class jo5 {
                 if (!StringUtils.isNull(hj4Var.c())) {
                     tbImageView.K(hj4Var.c(), 10, false);
                 } else {
-                    tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f0811e9);
+                    tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f0811ea);
                 }
             } else {
-                tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f0811ea);
+                tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f0811eb);
                 aVar = new a(hj4Var, popupWindow);
             }
             textView.setOnClickListener(aVar);

@@ -28,12 +28,12 @@ import com.repackage.gu4;
 import com.repackage.qi;
 import com.repackage.ru4;
 import com.repackage.ur4;
-import com.repackage.xe8;
+import com.repackage.we8;
 /* loaded from: classes4.dex */
 public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xe8 a;
+    public we8 a;
     public SystemHelpSettingModel b;
     public ur4 c;
 
@@ -75,7 +75,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
                 if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
                     this.a.closeLoadingDialog();
                     this.a.a.l().setTip("");
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f1340);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f1342);
                 } else if (obj == MoreModel.TaskType.GET_SIZE) {
                     this.a.a.l().setTip((String) objArr[1]);
                 }
@@ -116,7 +116,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 this.a.closeLoadingDialog();
-                this.a.showToast(R.string.obfuscated_res_0x7f0f1341);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f1343);
             }
         }
     }
@@ -346,16 +346,16 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        xe8 xe8Var;
+        we8 we8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || (xe8Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || (we8Var = this.a) == null) {
             return;
         }
-        if (view2 == xe8Var.l()) {
+        if (view2 == we8Var.l()) {
             if (this.b != null) {
                 CyberPlayerManager.deleteVideoCache(null);
                 if (TextUtils.isEmpty(this.a.l().getTip())) {
-                    showToast(R.string.obfuscated_res_0x7f0f0c51);
+                    showToast(R.string.obfuscated_res_0x7f0f0c52);
                 } else {
                     this.c = new ur4(getPageContext().getPageActivity()).setMessageId(R.string.obfuscated_res_0x7f0f025d).setPositiveButton(R.string.obfuscated_res_0x7f0f0265, new d(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new c(this)).create(getPageContext()).show();
                 }
@@ -368,7 +368,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         } else if (view2 == this.a.p()) {
             sendMessage(new CustomMessage(2002001, new PluginCenterActivityConfig(getPageContext().getPageActivity())));
         } else if (view2 == this.a.n()) {
-            qi.L(this, "Debug工具入口迁移到了首页顶部！本入口即将移除~");
+            qi.K(this, "Debug工具入口迁移到了首页顶部！本入口即将移除~");
             MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
             mainTabActivityConfig.setBottomTab(2);
             MessageManager.getInstance().sendMessage(new CustomMessage(2015002, mainTabActivityConfig));
@@ -380,7 +380,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new xe8(this);
+            this.a = new we8(this);
             this.b = new SystemHelpSettingModel(this);
             if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
                 this.a.o().k();

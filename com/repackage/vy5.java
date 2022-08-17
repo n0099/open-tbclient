@@ -138,22 +138,22 @@ public class vy5 implements uy5, View.OnClickListener {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.d.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809bb));
-            this.g.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809ba));
-            this.f.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809b9));
-            this.e.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809b7));
-            this.h.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809b8));
+            this.d.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809bc));
+            this.g.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809bb));
+            this.f.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809ba));
+            this.e.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809b8));
+            this.h.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809b9));
             float f = this.p;
             if (f == 0.0f) {
-                this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809bb, this.b.getResources().getColor(R.color.CAM_X0302), null));
+                this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809bc, this.b.getResources().getColor(R.color.CAM_X0302), null));
             } else if (f == 1.7777778f) {
-                this.g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809ba, this.b.getResources().getColor(R.color.CAM_X0302), null));
+                this.g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809bb, this.b.getResources().getColor(R.color.CAM_X0302), null));
             } else if (f == 1.3333334f) {
-                this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b9, this.b.getResources().getColor(R.color.CAM_X0302), null));
+                this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809ba, this.b.getResources().getColor(R.color.CAM_X0302), null));
             } else if (f == 0.5625f) {
-                this.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b7, this.b.getResources().getColor(R.color.CAM_X0302), null));
+                this.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b8, this.b.getResources().getColor(R.color.CAM_X0302), null));
             } else if (f == 1.0f) {
-                this.h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b8, this.b.getResources().getColor(R.color.CAM_X0302), null));
+                this.h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b9, this.b.getResources().getColor(R.color.CAM_X0302), null));
             }
         }
     }

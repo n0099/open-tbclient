@@ -1,16 +1,14 @@
 package com.repackage;
 
+import android.view.ViewGroup;
 import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
-import com.repackage.ou7;
 /* loaded from: classes6.dex */
-public interface nu7<V extends ou7, D extends IBaseDialogData> {
-    int a();
+public interface nu7<D extends IBaseDialogData> {
+    void a();
 
-    boolean b();
+    void b(D d);
 
-    boolean c();
+    int c();
 
-    void dismiss();
-
-    void show();
+    ViewGroup getViewGroup();
 }

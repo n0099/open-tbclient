@@ -200,9 +200,9 @@ public final class i extends com.kwad.components.ad.interstitial.b.b {
             } else {
                 imageView.setVisibility(0);
                 if (com.kwad.sdk.core.response.a.a.bD(adInfo)) {
-                    KSImageLoader.loadCircleIcon(imageView, bVar.getAppIconUrl(), getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080be6));
+                    KSImageLoader.loadCircleIcon(imageView, bVar.getAppIconUrl(), getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080be7));
                 } else {
-                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f080be6);
+                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f080be7);
                     KSImageLoader.loadWithRadius(imageView, bVar.getAppIconUrl(), adTemplate, hE);
                 }
             }
@@ -265,7 +265,7 @@ public final class i extends com.kwad.components.ad.interstitial.b.b {
                     string2 = com.kwad.sdk.core.response.a.a.ae(adInfo);
                 } else if (TextUtils.isEmpty(adInfo.advertiserInfo.adAuthorText)) {
                     bVar2 = this.hD;
-                    string2 = getContext().getString(R.string.obfuscated_res_0x7f0f09a2);
+                    string2 = getContext().getString(R.string.obfuscated_res_0x7f0f09a3);
                 } else {
                     bVar2 = this.hD;
                     string2 = adInfo.advertiserInfo.adAuthorText;
@@ -280,7 +280,7 @@ public final class i extends com.kwad.components.ad.interstitial.b.b {
                     string = com.kwad.sdk.core.response.a.a.af(adInfo);
                 } else if (TextUtils.isEmpty(adInfo.advertiserInfo.adAuthorText)) {
                     bVar = this.hD;
-                    string = getContext().getString(R.string.obfuscated_res_0x7f0f09a2);
+                    string = getContext().getString(R.string.obfuscated_res_0x7f0f09a3);
                 } else {
                     bVar = this.hD;
                     string = adInfo.advertiserInfo.adAuthorText;

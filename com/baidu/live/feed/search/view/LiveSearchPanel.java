@@ -520,11 +520,11 @@ public final class LiveSearchPanel extends LinearLayout implements e90.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             if (Intrinsics.areEqual(str, "day")) {
-                setBackgroundResource(R.drawable.obfuscated_res_0x7f080d02);
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d04);
-            } else if (Intrinsics.areEqual(str, "night")) {
                 setBackgroundResource(R.drawable.obfuscated_res_0x7f080d03);
                 this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d05);
+            } else if (Intrinsics.areEqual(str, "night")) {
+                setBackgroundResource(R.drawable.obfuscated_res_0x7f080d04);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d06);
             }
             this.b.setHintTextColor(ab0.f().a(getContext(), this.n, "color_858585"));
             this.b.setTextColor(ab0.f().a(getContext(), this.n, "color_1F1F1F"));
@@ -836,7 +836,7 @@ public final class LiveSearchPanel extends LinearLayout implements e90.a {
         this.m = true;
         this.n = LiveFeedPageSdk.HOST_LIVE_TAB;
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0541, (ViewGroup) this, true);
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f080d02);
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f080d03);
         setGravity(16);
         View findViewById = findViewById(R.id.obfuscated_res_0x7f091383);
         Intrinsics.checkExpressionValueIsNotNull(findViewById, "findViewById(R.id.live_search_panel_search_tag)");

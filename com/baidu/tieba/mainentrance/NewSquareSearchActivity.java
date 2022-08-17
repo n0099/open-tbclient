@@ -44,10 +44,10 @@ import com.repackage.oi;
 import com.repackage.qi;
 import com.repackage.rg;
 import com.repackage.ru4;
-import com.repackage.wh7;
+import com.repackage.vh7;
+import com.repackage.xg7;
 import com.repackage.yg7;
 import com.repackage.z8;
-import com.repackage.zg7;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -60,7 +60,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     public boolean b;
     public boolean c;
     public HotForumModel d;
-    public wh7 e;
+    public vh7 e;
     public boolean f;
     public final ab g;
     public CustomMessageListener h;
@@ -105,7 +105,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                             return;
                         }
                         NewSquareSearchActivity newSquareSearchActivity = this.a;
-                        newSquareSearchActivity.showToast(newSquareSearchActivity.getActivity().getString(R.string.obfuscated_res_0x7f0f0c3c));
+                        newSquareSearchActivity.showToast(newSquareSearchActivity.getActivity().getString(R.string.obfuscated_res_0x7f0f0c3d));
                         this.a.b = true;
                         return;
                     }
@@ -199,7 +199,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qi.M(this.a.getPageContext().getPageActivity(), this.a.e.o());
+                qi.L(this.a.getPageContext().getPageActivity(), this.a.e.o());
             }
         }
     }
@@ -344,7 +344,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             if (!oi.z()) {
-                showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                showToast(R.string.obfuscated_res_0x7f0f0c3d);
             } else if (StringUtils.isNull(str)) {
             } else {
                 if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
@@ -478,7 +478,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
             addGlobalLayoutListener();
             registerListener(this.g);
             registerListener(this.h);
-            this.e = new wh7(this, this.c);
+            this.e = new vh7(this, this.c);
             E1();
             this.d = new HotForumModel(getPageContext(), this);
             F1();
@@ -490,9 +490,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
-            wh7 wh7Var = this.e;
-            if (wh7Var != null) {
-                wh7Var.s();
+            vh7 vh7Var = this.e;
+            if (vh7Var != null) {
+                vh7Var.s();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921504, null));
             TbPageExtraHelper.setPrePageKey(getCurrentPageKey());
@@ -534,9 +534,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onResume();
-            wh7 wh7Var = this.e;
-            if (wh7Var != null) {
-                wh7Var.t();
+            vh7 vh7Var = this.e;
+            if (vh7Var != null) {
+                vh7Var.t();
             }
             registerGetShareContentTask();
             TbSingleton.getInstance().setFromWhichSearchSource("");
@@ -561,7 +561,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.b
-    public void r(List<yg7> list, List<zg7> list2, HotSearchInfoData hotSearchInfoData, String str) {
+    public void r(List<xg7> list, List<yg7> list2, HotSearchInfoData hotSearchInfoData, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048593, this, list, list2, hotSearchInfoData, str) == null) {
             G1(hotSearchInfoData);

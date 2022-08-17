@@ -107,7 +107,7 @@ public class HkMWebView extends BaseWebView {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
                 Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
                 if (this.b.getPackageManager().resolveActivity(intent, 0) == null) {
-                    qi.P(this.b, "您的手机未安装任何浏览器应用，无法完成下载", 0);
+                    qi.O(this.b, "您的手机未安装任何浏览器应用，无法完成下载", 0);
                 } else {
                     this.b.startActivity(intent);
                 }

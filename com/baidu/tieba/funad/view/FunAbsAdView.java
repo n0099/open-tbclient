@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunNativeAd2;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
-import com.repackage.al8;
-import com.repackage.ss6;
+import com.repackage.rs6;
+import com.repackage.zk8;
 import java.util.List;
 /* loaded from: classes3.dex */
 public abstract class FunAbsAdView extends NativeAdContainer {
@@ -52,7 +52,7 @@ public abstract class FunAbsAdView extends NativeAdContainer {
 
     public abstract void e(BdUniqueId bdUniqueId);
 
-    public abstract void f(@NonNull al8 al8Var, @NonNull Activity activity);
+    public abstract void f(@NonNull zk8 zk8Var, @NonNull Activity activity);
 
     public abstract void g(Context context);
 
@@ -64,7 +64,7 @@ public abstract class FunAbsAdView extends NativeAdContainer {
 
     public abstract int getLayoutId();
 
-    public abstract ss6.g getLogItem();
+    public abstract rs6.g getLogItem();
 
     public abstract String getPageType();
 

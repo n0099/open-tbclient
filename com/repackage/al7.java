@@ -8,14 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetVipInfo.VipRank;
-import tbclient.GetVipInfo.VipUser;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipTaskItem;
+import tbclient.GetVipInfo.VipTaskList;
 /* loaded from: classes5.dex */
 public class al7 implements on {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ok7 a;
+    public nk7 a;
+    public List<bl7> b;
 
     static {
         InterceptResult invokeClinit;
@@ -30,15 +33,15 @@ public class al7 implements on {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
-    public al7(VipRank vipRank, VipUser vipUser) {
+    public al7(VipTaskList vipTaskList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipRank, vipUser};
+            Object[] objArr = {vipTaskList};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,23 +51,26 @@ public class al7 implements on {
                 return;
             }
         }
-        if (vipRank == null) {
+        if (vipTaskList == null || vipTaskList.item == null) {
             return;
         }
-        String str = vipRank.card_id;
-        ok7 ok7Var = new ok7();
-        this.a = ok7Var;
-        ok7Var.d(vipRank.class_name);
-        this.a.f(vipRank.class_url_name);
-        this.a.g(vipRank.class_url);
-        vipRank.my_score_rank.intValue();
-        String str2 = vipUser.portrait;
+        String str = vipTaskList.card_id;
+        nk7 nk7Var = new nk7();
+        this.a = nk7Var;
+        nk7Var.e(3);
+        this.a.d(vipTaskList.class_name);
+        this.a.f(vipTaskList.class_url_name);
+        this.a.g(vipTaskList.class_url);
+        this.b = new ArrayList();
+        for (VipTaskItem vipTaskItem : vipTaskList.item) {
+            this.b.add(new bl7(vipTaskItem));
+        }
     }
 
     @Override // com.repackage.on
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
     }
 }

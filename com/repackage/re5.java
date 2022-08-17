@@ -124,10 +124,10 @@ public class re5 {
             if (activity == null) {
                 return;
             }
-            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0f2e, TBAlertConfig.OperateBtnStyle.MAIN);
+            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0f2f, TBAlertConfig.OperateBtnStyle.MAIN);
             TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f07f0, TBAlertConfig.OperateBtnStyle.SECONDARY);
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(activity);
-            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0ac1);
+            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0ac2);
             tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f0377);
             tBAlertBuilder.r(aVar2, aVar);
             tBAlertBuilder.m(true);

@@ -323,7 +323,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!oi.z()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                     return;
                 }
                 qm4 qm4Var = this.a.mView;
@@ -522,7 +522,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         }
         setUseStyleImmersiveSticky(intent.getBooleanExtra(WebViewActivityConfig.TAG_NEED_STYLE_IMMERSIVE_STICKY, true));
         if (TextUtils.isEmpty(this.mUrl)) {
-            qi.O(getPageContext().getPageActivity(), getResources().getString(R.string.obfuscated_res_0x7f0f14d2));
+            qi.N(getPageContext().getPageActivity(), getResources().getString(R.string.obfuscated_res_0x7f0f14d4));
             return;
         }
         if (this.mUrl.contains("useImmersive=0") && "Meizu".equalsIgnoreCase(Build.BRAND)) {
@@ -735,7 +735,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                 shareInfoUrl = str;
             }
             fi.a(shareInfoUrl);
-            qi.O(this, getResources().getString(R.string.obfuscated_res_0x7f0f0450));
+            qi.N(this, getResources().getString(R.string.obfuscated_res_0x7f0f0450));
         }
     }
 
@@ -745,7 +745,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, str, str2, str3, str4)) == null) {
             ShareItem shareItem = new ShareItem();
             if (StringUtils.isNull(this.mUrlTitle, true)) {
-                shareItem.u = getResources().getString(R.string.obfuscated_res_0x7f0f1134);
+                shareItem.u = getResources().getString(R.string.obfuscated_res_0x7f0f1135);
             } else {
                 shareItem.u = this.mUrlTitle;
             }

@@ -201,7 +201,7 @@ public class xu5 implements View.OnClickListener {
                 this.c.g.setText(name_show);
             }
             this.c.l.setVisibility(0);
-            this.c.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f08120f);
+            this.c.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f081210);
             this.c.c.setText(this.e.getThreadAlaInfo().label_name);
             this.c.c.setVisibility(0);
             if (this.e.getAuthor() != null && this.e.getAuthor().getAlaUserData() != null && !pi.isEmpty(this.e.getAuthor().getAlaUserData().great_anchor_icon)) {
@@ -247,7 +247,7 @@ public class xu5 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
             if (!oi.z()) {
-                qi.L(this.b.getPageActivity(), this.b.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c75));
+                qi.K(this.b.getPageActivity(), this.b.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c76));
                 return;
             }
             ThreadData threadData = this.e;

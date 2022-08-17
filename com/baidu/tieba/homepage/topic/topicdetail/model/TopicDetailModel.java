@@ -19,19 +19,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a37;
 import com.repackage.ab;
 import com.repackage.d9;
 import com.repackage.oi;
 import com.repackage.on;
-import com.repackage.w27;
+import com.repackage.v27;
+import com.repackage.z27;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class TopicDetailModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w27 a;
-    public a37 b;
+    public v27 a;
+    public z27 b;
     public ab c;
 
     /* loaded from: classes3.dex */
@@ -216,9 +216,9 @@ public class TopicDetailModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             if (!oi.A()) {
-                w27 w27Var = this.a;
-                if (w27Var != null) {
-                    w27Var.t(-1, null);
+                v27 v27Var = this.a;
+                if (v27Var != null) {
+                    v27Var.t(-1, null);
                     return;
                 }
                 return;
@@ -235,9 +235,9 @@ public class TopicDetailModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             if (!oi.A()) {
-                w27 w27Var = this.a;
-                if (w27Var != null) {
-                    w27Var.M0(-1, false, null);
+                v27 v27Var = this.a;
+                if (v27Var != null) {
+                    v27Var.M0(-1, false, null);
                     return;
                 }
                 return;
@@ -252,10 +252,10 @@ public class TopicDetailModel extends BdBaseModel {
         }
     }
 
-    public void G(w27 w27Var) {
+    public void G(v27 v27Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, w27Var) == null) {
-            this.a = w27Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v27Var) == null) {
+            this.a = v27Var;
         }
     }
 

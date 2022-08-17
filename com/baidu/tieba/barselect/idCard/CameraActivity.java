@@ -781,9 +781,9 @@ public class CameraActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
             ur4 ur4Var = new ur4(activity);
             ur4Var.setCanceledOnTouchOutside(false);
-            ur4Var.setTitle(R.string.obfuscated_res_0x7f0f0ffd);
-            ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0ff9);
-            ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0980, new e(this, activity)).setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new d(this, activity)).create(getPageContext());
+            ur4Var.setTitle(R.string.obfuscated_res_0x7f0f0ffe);
+            ur4Var.setMessageId(R.string.obfuscated_res_0x7f0f0ffa);
+            ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0981, new e(this, activity)).setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new d(this, activity)).create(getPageContext());
             ur4Var.show();
         }
     }
@@ -938,7 +938,7 @@ public class CameraActivity extends BaseActivity {
             super.onRequestPermissionsResult(i2, strArr, iArr);
             if (i2 != 800) {
                 if (i2 == 801 && (iArr.length <= 0 || iArr[0] != 0)) {
-                    qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1201);
+                    qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1203);
                 }
             } else if (iArr.length > 0 && iArr[0] == 0) {
                 this.h.getCameraControl().g();

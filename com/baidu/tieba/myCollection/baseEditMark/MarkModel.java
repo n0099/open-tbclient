@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bm4;
 import com.repackage.d9;
 import com.repackage.gu4;
-import com.repackage.xn7;
-import com.repackage.zn7;
+import com.repackage.wn7;
+import com.repackage.yn7;
 /* loaded from: classes3.dex */
 public class MarkModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -35,7 +35,7 @@ public class MarkModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
         public boolean b;
-        public zn7 c;
+        public yn7 c;
         public final /* synthetic */ MarkModel d;
 
         public a(MarkModel markModel, boolean z) {
@@ -58,7 +58,7 @@ public class MarkModel extends BdBaseModel {
             this.b = true;
             this.c = null;
             this.b = z;
-            this.c = new zn7();
+            this.c = new yn7();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,9 +70,9 @@ public class MarkModel extends BdBaseModel {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, boolArr)) == null) {
                 if (this.b) {
                     this.a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
-                    xn7 xn7Var = new xn7();
-                    xn7Var.j(this.d.b);
-                    this.a.addPostData("data", xn7Var.E(0, 1));
+                    wn7 wn7Var = new wn7();
+                    wn7Var.j(this.d.b);
+                    this.a.addPostData("data", wn7Var.E(0, 1));
                 } else {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
                     this.a = netWork;

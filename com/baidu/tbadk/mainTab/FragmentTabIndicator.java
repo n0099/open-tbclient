@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.gj8;
+import com.repackage.fj8;
 import com.repackage.h9;
 import com.repackage.jg;
 import com.repackage.kg;
@@ -359,7 +359,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             String charSequence = this.r.getText().toString();
             if (z) {
-                charSequence = getContext().getString(R.string.obfuscated_res_0x7f0f1368) + charSequence;
+                charSequence = getContext().getString(R.string.obfuscated_res_0x7f0f136a) + charSequence;
             }
             this.r.setContentDescription(charSequence);
         }
@@ -504,13 +504,13 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
                     int skinType = TbadkCoreApplication.getInst().getSkinType();
                     if (skinType == 4) {
-                        this.r.setTextColor(gj8.f(this.f.dark.font_color));
+                        this.r.setTextColor(fj8.f(this.f.dark.font_color));
                         return;
                     } else if (skinType == 1) {
-                        this.r.setTextColor(gj8.f(this.f.night.font_color));
+                        this.r.setTextColor(fj8.f(this.f.night.font_color));
                         return;
                     } else {
-                        this.r.setTextColor(gj8.f(this.f.day.font_color));
+                        this.r.setTextColor(fj8.f(this.f.day.font_color));
                         return;
                     }
                 }

@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DataSpec;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class SingleSampleMediaChunk extends BaseMediaChunk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -171,7 +171,7 @@ public class jr8 implements View.OnClickListener {
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (shareDialogItemView = (ShareDialogItemView) this.a.d.findViewWithTag(16)) == null) {
                 return;
             }
-            shareDialogItemView.c(z ? R.drawable.obfuscated_res_0x7f0809c5 : R.drawable.obfuscated_res_0x7f0809c4, SkinManager.getColor(R.color.CAM_X0107));
+            shareDialogItemView.c(z ? R.drawable.obfuscated_res_0x7f0809c6 : R.drawable.obfuscated_res_0x7f0809c5, SkinManager.getColor(R.color.CAM_X0107));
         }
     }
 
@@ -223,43 +223,29 @@ public class jr8 implements View.OnClickListener {
         MessageManager.getInstance().registerListener(this.y);
     }
 
-    public final void A() {
+    public void A(hr8 hr8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (int i = 0; i < this.v.size(); i++) {
-                if (this.v.get(i).getUserId() == null) {
-                    this.w.add(this.v.get(i));
-                } else if (!this.x.contains(this.v.get(i).getUserId())) {
-                    this.x.add(this.v.get(i).getUserId());
-                    this.w.add(this.v.get(i));
-                }
-            }
-        }
-    }
-
-    public void B(hr8 hr8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hr8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, hr8Var) == null) {
             this.g = hr8Var;
         }
     }
 
-    public void C(ShareDialogConfig shareDialogConfig, boolean z, boolean z2) {
+    public void B(ShareDialogConfig shareDialogConfig, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{shareDialogConfig, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{shareDialogConfig, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             q();
             ArrayList<MetaData> arrayList = this.w;
             if (arrayList != null && arrayList.size() != 0 && z2 && TbadkCoreApplication.getCurrentAccount() != null) {
-                D(shareDialogConfig, z, 0, 1, 2);
+                C(shareDialogConfig, z, 0, 1, 2);
             } else {
-                E(shareDialogConfig, z, 0, 1, z2);
+                D(shareDialogConfig, z, 0, 1, z2);
             }
         }
     }
 
-    public void D(ShareDialogConfig shareDialogConfig, boolean z, int i, int i2, int i3) {
+    public void C(ShareDialogConfig shareDialogConfig, boolean z, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{shareDialogConfig, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{shareDialogConfig, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             this.f = shareDialogConfig.shareItem;
             this.b = shareDialogConfig.mForumList;
             this.a = shareDialogConfig.mPrivateThread;
@@ -273,12 +259,12 @@ public class jr8 implements View.OnClickListener {
             this.o = shareDialogConfig.isMadeTop;
             this.p = shareDialogConfig.isAddedGood;
             if (this.k) {
-                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080819), R.string.obfuscated_res_0x7f0f1168, 4, i);
-                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080815), R.string.obfuscated_res_0x7f0f116f, 3, i);
-                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080816), R.string.obfuscated_res_0x7f0f1147, 9, i);
-                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080817), R.string.obfuscated_res_0x7f0f114b, 5, i);
-                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f08081a), R.string.obfuscated_res_0x7f0f1156, 7, i);
-                c(R.string.obfuscated_res_0x7f0f0ae6, R.drawable.obfuscated_res_0x7f0809cd, 13, i);
+                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f08081a), R.string.obfuscated_res_0x7f0f116a, 4, i);
+                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080816), R.string.obfuscated_res_0x7f0f1171, 3, i);
+                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080817), R.string.obfuscated_res_0x7f0f1148, 9, i);
+                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080818), R.string.obfuscated_res_0x7f0f114c, 5, i);
+                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f08081b), R.string.obfuscated_res_0x7f0f1157, 7, i);
+                c(R.string.obfuscated_res_0x7f0f0ae7, R.drawable.obfuscated_res_0x7f0809ce, 13, i);
                 return;
             }
             if (this.f.k0) {
@@ -297,46 +283,46 @@ public class jr8 implements View.OnClickListener {
                 }
                 this.e.a(i);
                 if (size >= C) {
-                    c(R.string.obfuscated_res_0x7f0f0ae7, R.drawable.obfuscated_res_0x7f080a5f, 28, i);
+                    c(R.string.obfuscated_res_0x7f0f0ae8, R.drawable.obfuscated_res_0x7f080a60, 28, i);
                 }
-                d(R.string.obfuscated_res_0x7f0f1133, R.drawable.obfuscated_res_0x7f08086e, 24, shareDialogConfig.isShowNovelMask(), i2);
-                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080819), R.string.obfuscated_res_0x7f0f1168, 4, shareDialogConfig.isShowNovelMask(), i2);
-                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080815), R.string.obfuscated_res_0x7f0f116f, 3, shareDialogConfig.isShowNovelMask(), i2);
-                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080816), R.string.obfuscated_res_0x7f0f1147, 9, shareDialogConfig.isShowNovelMask(), i2);
-                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080817), R.string.obfuscated_res_0x7f0f114b, 5, shareDialogConfig.isShowNovelMask(), i2);
-                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f08081a), R.string.obfuscated_res_0x7f0f1156, 7, shareDialogConfig.isShowNovelMask(), i2);
+                d(R.string.obfuscated_res_0x7f0f1134, R.drawable.obfuscated_res_0x7f080870, 24, shareDialogConfig.isShowNovelMask(), i2);
+                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f08081a), R.string.obfuscated_res_0x7f0f116a, 4, shareDialogConfig.isShowNovelMask(), i2);
+                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080816), R.string.obfuscated_res_0x7f0f1171, 3, shareDialogConfig.isShowNovelMask(), i2);
+                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080817), R.string.obfuscated_res_0x7f0f1148, 9, shareDialogConfig.isShowNovelMask(), i2);
+                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080818), R.string.obfuscated_res_0x7f0f114c, 5, shareDialogConfig.isShowNovelMask(), i2);
+                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f08081b), R.string.obfuscated_res_0x7f0f1157, 7, shareDialogConfig.isShowNovelMask(), i2);
                 if (!shareDialogConfig.isHideShareCopyLink) {
-                    c(R.string.obfuscated_res_0x7f0f112e, R.drawable.obfuscated_res_0x7f0809c6, 10, i3);
+                    c(R.string.obfuscated_res_0x7f0f112f, R.drawable.obfuscated_res_0x7f0809c7, 10, i3);
                 }
             }
             boolean isPrePagePersonalPage = shareDialogConfig.isPrePagePersonalPage();
             boolean z2 = shareDialogConfig.isHost;
             if (shareDialogConfig.isFromImmersionVideo) {
                 if (!isPrePagePersonalPage && s()) {
-                    c(R.string.obfuscated_res_0x7f0f06b9, R.drawable.obfuscated_res_0x7f08098d, 18, i3);
+                    c(R.string.obfuscated_res_0x7f0f06b9, R.drawable.obfuscated_res_0x7f08098e, 18, i3);
                 }
                 if (shareDialogConfig.isCollected) {
-                    h(R.string.obfuscated_res_0x7f0f0a90, R.drawable.obfuscated_res_0x7f0809c5, 0, 16, i2);
+                    h(R.string.obfuscated_res_0x7f0f0a91, R.drawable.obfuscated_res_0x7f0809c6, 0, 16, i2);
                 } else {
-                    c(R.string.obfuscated_res_0x7f0f0a90, R.drawable.obfuscated_res_0x7f0809c4, 16, i3);
+                    c(R.string.obfuscated_res_0x7f0f0a91, R.drawable.obfuscated_res_0x7f0809c5, 16, i3);
                 }
                 if (!z2) {
-                    c(R.string.obfuscated_res_0x7f0f0ff6, R.drawable.obfuscated_res_0x7f0809d0, 17, i3);
+                    c(R.string.obfuscated_res_0x7f0f0ff7, R.drawable.obfuscated_res_0x7f0809d1, 17, i3);
                 } else if (isPrePagePersonalPage) {
-                    c(R.string.obfuscated_res_0x7f0f04ab, R.drawable.obfuscated_res_0x7f0809c7, 19, i3);
+                    c(R.string.obfuscated_res_0x7f0f04ab, R.drawable.obfuscated_res_0x7f0809c8, 19, i3);
                 }
             }
             if (shareDialogConfig.showDisLike && !isPrePagePersonalPage) {
-                c(R.string.obfuscated_res_0x7f0f0c9f, R.drawable.obfuscated_res_0x7f0809d1, 14, i3);
+                c(R.string.obfuscated_res_0x7f0f0ca0, R.drawable.obfuscated_res_0x7f0809d2, 14, i3);
             }
             if (this.f.l0) {
-                c(R.string.obfuscated_res_0x7f0f03f4, R.drawable.obfuscated_res_0x7f0809d1, 15, i3);
+                c(R.string.obfuscated_res_0x7f0f03f4, R.drawable.obfuscated_res_0x7f0809d2, 15, i3);
             }
             if (shareDialogConfig.showHeating) {
-                c(shareDialogConfig.isSelfHeating ? R.string.obfuscated_res_0x7f0f0840 : R.string.obfuscated_res_0x7f0f0841, R.drawable.obfuscated_res_0x7f0809cb, 23, i3);
+                c(shareDialogConfig.isSelfHeating ? R.string.obfuscated_res_0x7f0f0840 : R.string.obfuscated_res_0x7f0f0841, R.drawable.obfuscated_res_0x7f0809cc, 23, i3);
             }
             if (z) {
-                c(R.string.obfuscated_res_0x7f0f0ae6, R.drawable.obfuscated_res_0x7f0809cd, 13, i3);
+                c(R.string.obfuscated_res_0x7f0f0ae7, R.drawable.obfuscated_res_0x7f0809ce, 13, i3);
             }
             if (shareDialogConfig.isFromImmersionVideo) {
                 tj5 tj5Var = new tj5(this.c);
@@ -348,11 +334,11 @@ public class jr8 implements View.OnClickListener {
         }
     }
 
-    public void E(ShareDialogConfig shareDialogConfig, boolean z, int i, int i2, boolean z2) {
+    public void D(ShareDialogConfig shareDialogConfig, boolean z, int i, int i2, boolean z2) {
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{shareDialogConfig, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{shareDialogConfig, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
             this.f = shareDialogConfig.shareItem;
             this.b = shareDialogConfig.mForumList;
             this.a = shareDialogConfig.mPrivateThread;
@@ -366,61 +352,61 @@ public class jr8 implements View.OnClickListener {
             this.o = shareDialogConfig.isMadeTop;
             this.p = shareDialogConfig.isAddedGood;
             if (this.k) {
-                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080819), R.string.obfuscated_res_0x7f0f1168, 4, i);
-                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080815), R.string.obfuscated_res_0x7f0f116f, 3, i);
-                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080816), R.string.obfuscated_res_0x7f0f1147, 9, i);
-                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080817), R.string.obfuscated_res_0x7f0f114b, 5, i);
-                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f08081a), R.string.obfuscated_res_0x7f0f1156, 7, i);
-                c(R.string.obfuscated_res_0x7f0f0ae6, R.drawable.obfuscated_res_0x7f0809cd, 13, i);
+                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f08081a), R.string.obfuscated_res_0x7f0f116a, 4, i);
+                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080816), R.string.obfuscated_res_0x7f0f1171, 3, i);
+                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080817), R.string.obfuscated_res_0x7f0f1148, 9, i);
+                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080818), R.string.obfuscated_res_0x7f0f114c, 5, i);
+                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f08081b), R.string.obfuscated_res_0x7f0f1157, 7, i);
+                c(R.string.obfuscated_res_0x7f0f0ae7, R.drawable.obfuscated_res_0x7f0809ce, 13, i);
                 return;
             }
             if (this.f.k0) {
                 if (!z2 || TbadkCoreApplication.getCurrentAccount() == null) {
-                    i3 = R.drawable.obfuscated_res_0x7f080819;
-                    i4 = R.drawable.obfuscated_res_0x7f080815;
+                    i3 = R.drawable.obfuscated_res_0x7f08081a;
+                    i4 = R.drawable.obfuscated_res_0x7f080816;
                 } else {
                     boolean isShowNovelMask = shareDialogConfig.isShowNovelMask();
-                    i3 = R.drawable.obfuscated_res_0x7f080819;
-                    i4 = R.drawable.obfuscated_res_0x7f080815;
-                    d(R.string.obfuscated_res_0x7f0f1133, R.drawable.obfuscated_res_0x7f08086e, 24, isShowNovelMask, i);
+                    i3 = R.drawable.obfuscated_res_0x7f08081a;
+                    i4 = R.drawable.obfuscated_res_0x7f080816;
+                    d(R.string.obfuscated_res_0x7f0f1134, R.drawable.obfuscated_res_0x7f080870, 24, isShowNovelMask, i);
                 }
-                g(new SvgMaskType(i3), R.string.obfuscated_res_0x7f0f1168, 4, shareDialogConfig.isShowNovelMask(), i);
-                g(new SvgMaskType(i4), R.string.obfuscated_res_0x7f0f116f, 3, shareDialogConfig.isShowNovelMask(), i);
-                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080816), R.string.obfuscated_res_0x7f0f1147, 9, shareDialogConfig.isShowNovelMask(), i);
-                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080817), R.string.obfuscated_res_0x7f0f114b, 5, shareDialogConfig.isShowNovelMask(), i);
-                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f08081a), R.string.obfuscated_res_0x7f0f1156, 7, shareDialogConfig.isShowNovelMask(), i);
+                g(new SvgMaskType(i3), R.string.obfuscated_res_0x7f0f116a, 4, shareDialogConfig.isShowNovelMask(), i);
+                g(new SvgMaskType(i4), R.string.obfuscated_res_0x7f0f1171, 3, shareDialogConfig.isShowNovelMask(), i);
+                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080817), R.string.obfuscated_res_0x7f0f1148, 9, shareDialogConfig.isShowNovelMask(), i);
+                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080818), R.string.obfuscated_res_0x7f0f114c, 5, shareDialogConfig.isShowNovelMask(), i);
+                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f08081b), R.string.obfuscated_res_0x7f0f1157, 7, shareDialogConfig.isShowNovelMask(), i);
                 if (!shareDialogConfig.isHideShareCopyLink) {
-                    c(R.string.obfuscated_res_0x7f0f112e, R.drawable.obfuscated_res_0x7f0809c6, 10, i2);
+                    c(R.string.obfuscated_res_0x7f0f112f, R.drawable.obfuscated_res_0x7f0809c7, 10, i2);
                 }
             }
             boolean isPrePagePersonalPage = shareDialogConfig.isPrePagePersonalPage();
             boolean z3 = shareDialogConfig.isHost;
             if (shareDialogConfig.isFromImmersionVideo) {
                 if (!isPrePagePersonalPage && s()) {
-                    c(R.string.obfuscated_res_0x7f0f06b9, R.drawable.obfuscated_res_0x7f08098d, 18, i2);
+                    c(R.string.obfuscated_res_0x7f0f06b9, R.drawable.obfuscated_res_0x7f08098e, 18, i2);
                 }
                 if (shareDialogConfig.isCollected) {
-                    h(R.string.obfuscated_res_0x7f0f0a90, R.drawable.obfuscated_res_0x7f0809c5, 0, 16, i2);
+                    h(R.string.obfuscated_res_0x7f0f0a91, R.drawable.obfuscated_res_0x7f0809c6, 0, 16, i2);
                 } else {
-                    c(R.string.obfuscated_res_0x7f0f0a90, R.drawable.obfuscated_res_0x7f0809c4, 16, i2);
+                    c(R.string.obfuscated_res_0x7f0f0a91, R.drawable.obfuscated_res_0x7f0809c5, 16, i2);
                 }
                 if (!z3) {
-                    c(R.string.obfuscated_res_0x7f0f0ff6, R.drawable.obfuscated_res_0x7f0809d0, 17, i2);
+                    c(R.string.obfuscated_res_0x7f0f0ff7, R.drawable.obfuscated_res_0x7f0809d1, 17, i2);
                 } else if (isPrePagePersonalPage) {
-                    c(R.string.obfuscated_res_0x7f0f04ab, R.drawable.obfuscated_res_0x7f0809c7, 19, i2);
+                    c(R.string.obfuscated_res_0x7f0f04ab, R.drawable.obfuscated_res_0x7f0809c8, 19, i2);
                 }
             }
             if (shareDialogConfig.showDisLike && !isPrePagePersonalPage) {
-                c(R.string.obfuscated_res_0x7f0f0c9f, R.drawable.obfuscated_res_0x7f0809d1, 14, i2);
+                c(R.string.obfuscated_res_0x7f0f0ca0, R.drawable.obfuscated_res_0x7f0809d2, 14, i2);
             }
             if (this.f.l0) {
-                c(R.string.obfuscated_res_0x7f0f03f4, R.drawable.obfuscated_res_0x7f0809d1, 15, i2);
+                c(R.string.obfuscated_res_0x7f0f03f4, R.drawable.obfuscated_res_0x7f0809d2, 15, i2);
             }
             if (shareDialogConfig.showHeating) {
-                c(shareDialogConfig.isSelfHeating ? R.string.obfuscated_res_0x7f0f0840 : R.string.obfuscated_res_0x7f0f0841, R.drawable.obfuscated_res_0x7f0809cb, 23, i2);
+                c(shareDialogConfig.isSelfHeating ? R.string.obfuscated_res_0x7f0f0840 : R.string.obfuscated_res_0x7f0f0841, R.drawable.obfuscated_res_0x7f0809cc, 23, i2);
             }
             if (z) {
-                c(R.string.obfuscated_res_0x7f0f0ae6, R.drawable.obfuscated_res_0x7f0809cd, 13, i2);
+                c(R.string.obfuscated_res_0x7f0f0ae7, R.drawable.obfuscated_res_0x7f0809ce, 13, i2);
             }
             if (shareDialogConfig.isFromImmersionVideo) {
                 tj5 tj5Var = new tj5(this.c);
@@ -432,9 +418,9 @@ public class jr8 implements View.OnClickListener {
         }
     }
 
-    public final void F(int i) {
+    public final void E(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || this.f == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || this.f == null) {
             return;
         }
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("fid", this.f.M).param("tid", this.f.N).param("obj_type", i).param("obj_source", this.f.H).param("obj_param1", this.f.I).param(TiebaStatic.Params.OBJ_PARAM2, this.f.J));
@@ -454,16 +440,16 @@ public class jr8 implements View.OnClickListener {
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_TRANSFER_BTN_CLICK).param("obj_locate", i != 11 ? 1 : 2).param("obj_source", i3).param("obj_type", i4));
     }
 
-    public final void G(String str, Object... objArr) {
+    public final void F(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, objArr) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, objArr) == null) {
             TiebaStatic.eventStat(this.c, str, "click", 1, objArr);
         }
     }
 
-    public final void H(ShareItem shareItem) {
+    public final void G(ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, shareItem) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, shareItem) == null) {
             StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS).param("obj_source", 7);
             int i = shareItem.I;
             if (i != 0) {
@@ -484,16 +470,16 @@ public class jr8 implements View.OnClickListener {
         }
     }
 
-    public final void J(int i, String str) {
+    public final void H(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, str) == null) {
             TiebaStatic.eventStat(this.c, "pb_new_share", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
         }
     }
 
-    public final void K(ShareItem shareItem, int i) {
+    public final void J(ShareItem shareItem, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048585, this, shareItem, i) == null) || shareItem == null || shareItem.t == null) {
+        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, shareItem, i) == null) || shareItem == null || shareItem.t == null) {
             return;
         }
         if (shareItem.b) {
@@ -502,7 +488,7 @@ public class jr8 implements View.OnClickListener {
             if (shareItem.d) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_PHOTO_LIVE).param("tid", shareItem.t).param("obj_type", i));
             } else if (shareItem.a) {
-                J(i, shareItem.F);
+                H(i, shareItem.F);
             } else if (shareItem.e) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_param1", 7).param("obj_type", i).param("fid", shareItem.t).param(TiebaStatic.Params.OBJ_PARAM2, shareItem.J));
             } else if (shareItem.g) {
@@ -518,14 +504,14 @@ public class jr8 implements View.OnClickListener {
 
     public final void c(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048586, this, i, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048585, this, i, i2, i3, i4) == null) {
             h(i, i2, SkinManager.getColor(R.color.CAM_X0107), i3, i4);
         }
     }
 
     public final void d(int i, int i2, int i3, boolean z, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4)}) == null) {
             ShareDialogItemView shareDialogItemView = new ShareDialogItemView(this.c);
             shareDialogItemView.setItemIcon(i2, 0, i3);
             shareDialogItemView.setItemName(i);
@@ -538,7 +524,7 @@ public class jr8 implements View.OnClickListener {
 
     public final void e(@NonNull MetaData metaData, int i, boolean z, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{metaData, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{metaData, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             ShareDialogItemView shareDialogItemView = new ShareDialogItemView(this.c);
             shareDialogItemView.setItemIcon(metaData.getAvater(), i, metaData);
             String name_show = metaData.getName_show();
@@ -556,7 +542,7 @@ public class jr8 implements View.OnClickListener {
 
     public final void f(AbsSvgType absSvgType, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(1048589, this, absSvgType, i, i2, i3) == null) || absSvgType == null) {
+        if (!(interceptable == null || interceptable.invokeLIII(1048588, this, absSvgType, i, i2, i3) == null) || absSvgType == null) {
             return;
         }
         ShareDialogItemView shareDialogItemView = new ShareDialogItemView(this.c);
@@ -570,7 +556,7 @@ public class jr8 implements View.OnClickListener {
 
     public final void g(AbsSvgType absSvgType, int i, int i2, boolean z, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{absSvgType, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)}) == null) || absSvgType == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{absSvgType, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)}) == null) || absSvgType == null) {
             return;
         }
         ShareDialogItemView shareDialogItemView = new ShareDialogItemView(this.c);
@@ -584,7 +570,7 @@ public class jr8 implements View.OnClickListener {
 
     public final void h(int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             ShareDialogItemView shareDialogItemView = new ShareDialogItemView(this.c);
             shareDialogItemView.setItemIcon(i2, i3, i4);
             shareDialogItemView.setItemName(i);
@@ -597,7 +583,7 @@ public class jr8 implements View.OnClickListener {
 
     public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             ArrayList<MetaData> arrayList = this.t;
             if (arrayList != null && arrayList.size() != 0) {
                 Iterator<MetaData> it = this.t.iterator();
@@ -620,7 +606,7 @@ public class jr8 implements View.OnClickListener {
     public a75 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             if (this.s == null) {
                 this.s = this.r.b(l());
             }
@@ -632,7 +618,7 @@ public class jr8 implements View.OnClickListener {
     public MarkData k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             MarkData markData = new MarkData();
             Date date = new Date();
             markData.setAccount(TbadkCoreApplication.getCurrentAccount());
@@ -652,7 +638,7 @@ public class jr8 implements View.OnClickListener {
         InterceptResult invokeV;
         TbPageContext<BaseFragmentActivity> pageContext;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             Context context = this.c;
             if (context instanceof BaseActivity) {
                 pageContext = ((BaseActivity) context).getPageContext();
@@ -667,7 +653,7 @@ public class jr8 implements View.OnClickListener {
     public final BdUniqueId m(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, context)) == null) {
             if (context instanceof BaseActivity) {
                 return ((BaseActivity) context).getUniqueId();
             }
@@ -682,7 +668,7 @@ public class jr8 implements View.OnClickListener {
     public View n(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048597, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048596, this, z)) == null) {
             if (this.d == null) {
                 if (z) {
                     this.e = new ShareScrollableLayout(this.c);
@@ -699,9 +685,9 @@ public class jr8 implements View.OnClickListener {
 
     public final void o(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048598, this, i) == null) && i == 13) {
+        if ((interceptable == null || interceptable.invokeI(1048597, this, i) == null) && i == 13) {
             u();
-            F(13);
+            E(13);
         }
     }
 
@@ -712,7 +698,7 @@ public class jr8 implements View.OnClickListener {
         View.OnClickListener onClickListener;
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, view2) == null) {
             hr8 hr8Var = this.g;
             if (hr8Var != null) {
                 hr8Var.a(view2);
@@ -720,7 +706,7 @@ public class jr8 implements View.OnClickListener {
             if (view2.getTag() instanceof Integer) {
                 Integer num = (Integer) view2.getTag();
                 if (!oi.z() && num.intValue() != 10) {
-                    qi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f113c);
+                    qi.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f113d);
                 } else if (num.intValue() == 14) {
                     View.OnClickListener onClickListener2 = this.h;
                     if (onClickListener2 != null) {
@@ -791,7 +777,7 @@ public class jr8 implements View.OnClickListener {
                         }
                         return;
                     } else if (num.intValue() == 25) {
-                        pa7.a("分享弹窗触发分享");
+                        oa7.a("分享弹窗触发分享");
                         Object tag = view2.getTag(R.id.obfuscated_res_0x7f090953);
                         ThreadData threadData2 = null;
                         OriginalThreadInfo.ShareInfo shareInfo = this.f.W;
@@ -802,17 +788,17 @@ public class jr8 implements View.OnClickListener {
                             threadData2 = this.f.a0;
                         }
                         if (threadData2 != null && (tag instanceof MetaData) && (context = this.c) != null) {
-                            if (j87.a(context)) {
+                            if (i87.a(context)) {
                                 return;
                             }
                             MetaData metaData = (MetaData) tag;
                             x(metaData.getUserId());
-                            pa7.a("分享弹窗触发分享：分享成功");
-                            u97 u97Var = new u97(this.c);
-                            u97Var.o(threadData2, metaData);
-                            u97Var.p();
+                            oa7.a("分享弹窗触发分享：分享成功");
+                            t97 t97Var = new t97(this.c);
+                            t97Var.o(threadData2, metaData);
+                            t97Var.p();
                         } else {
-                            pa7.a("分享弹窗触发分享：数据异常");
+                            oa7.a("分享弹窗触发分享：数据异常");
                         }
                         hr8 hr8Var2 = this.g;
                         if (hr8Var2 instanceof kr8) {
@@ -850,34 +836,36 @@ public class jr8 implements View.OnClickListener {
 
     public final void p(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
             f05 f05Var = new f05(this.c, null);
             ShareItem shareItem = this.f;
+            boolean h = ru4.k().h("key_person_growth_share_switch", false);
+            if (!TbSingleton.getInstance().isUserGrowthTaskCompleted(UserGrowthTaskRequestMessage.SHARE_THREAD) && !h) {
+                shareItem.x0 = TbSingleton.getInstance().getUserGrowthWeight(UserGrowthTaskRequestMessage.SHARE_THREAD);
+            }
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_VOICE_ROOM_SHARE);
             if (i == 4) {
-                G("share_to_weixin", new Object[0]);
+                F("share_to_weixin", new Object[0]);
                 statisticItem.param(TiebaStatic.Params.TIEBA_PARAMS, ThirdPartyUtil.TYPE_WEIXIN);
-                K(shareItem, 4);
+                J(shareItem, 4);
                 if (shareItem != null) {
                     f05Var.s(shareItem);
                 }
-                z();
             } else if (i == 3) {
-                G("share_to_pyq", new Object[0]);
+                F("share_to_pyq", new Object[0]);
                 statisticItem.param(TiebaStatic.Params.TIEBA_PARAMS, "pyq");
-                K(shareItem, 3);
+                J(shareItem, 3);
                 if (shareItem != null) {
                     if (shareItem.b) {
                         shareItem.v = "【" + shareItem.u + "】 " + shareItem.v;
                     }
                     f05Var.t(shareItem);
                 }
-                z();
             } else if (i == 9) {
                 statisticItem.param(TiebaStatic.Params.TIEBA_PARAMS, LoginConstants.QQ_LOGIN);
-                if (gk8.b(this.c, "com.tencent.mobileqq")) {
-                    G("share_to_qq_friend", new Object[0]);
-                    K(shareItem, 9);
+                if (fk8.b(this.c, "com.tencent.mobileqq")) {
+                    F("share_to_qq_friend", new Object[0]);
+                    J(shareItem, 9);
                     if (shareItem != null) {
                         if (!StringUtils.isNull(shareItem.u) && !StringUtils.isNull(shareItem.v) && shareItem.u.trim().equals(shareItem.v.trim())) {
                             shareItem.v = "";
@@ -886,14 +874,13 @@ public class jr8 implements View.OnClickListener {
                     }
                 } else {
                     Context context = this.c;
-                    BdToast.b(context, context.getText(R.string.obfuscated_res_0x7f0f1148)).h();
+                    BdToast.b(context, context.getText(R.string.obfuscated_res_0x7f0f1149)).i();
                 }
-                z();
             } else if (i == 5) {
                 statisticItem.param(TiebaStatic.Params.TIEBA_PARAMS, "qqzone");
-                if (gk8.b(this.c, "com.tencent.mobileqq")) {
-                    G("share_to_qzone", new Object[0]);
-                    K(shareItem, 5);
+                if (fk8.b(this.c, "com.tencent.mobileqq")) {
+                    F("share_to_qzone", new Object[0]);
+                    J(shareItem, 5);
                     if (shareItem != null) {
                         if (!StringUtils.isNull(shareItem.u) && !StringUtils.isNull(shareItem.v) && shareItem.u.trim().equals(shareItem.v.trim())) {
                             shareItem.v = "";
@@ -902,9 +889,8 @@ public class jr8 implements View.OnClickListener {
                     }
                 } else {
                     Context context2 = this.c;
-                    BdToast.b(context2, context2.getText(R.string.obfuscated_res_0x7f0f1148)).h();
+                    BdToast.b(context2, context2.getText(R.string.obfuscated_res_0x7f0f1149)).i();
                 }
-                z();
             } else if (i == 7) {
                 statisticItem.param(TiebaStatic.Params.TIEBA_PARAMS, "weibo");
                 try {
@@ -914,8 +900,8 @@ public class jr8 implements View.OnClickListener {
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
-                G("share_to_sweibo", new Object[0]);
-                K(shareItem, 7);
+                F("share_to_sweibo", new Object[0]);
+                J(shareItem, 7);
                 if (shareItem != null) {
                     if (!shareItem.a) {
                         if (!StringUtils.isNull(shareItem.u) && !StringUtils.isNull(shareItem.v) && shareItem.u.trim().equals(shareItem.v.trim())) {
@@ -925,19 +911,17 @@ public class jr8 implements View.OnClickListener {
                     }
                     f05Var.q(shareItem);
                 }
-                z();
             } else if (i == 10) {
                 statisticItem.param(TiebaStatic.Params.TIEBA_PARAMS, "copylink");
-                K(shareItem, 10);
+                J(shareItem, 10);
                 String u = f05.u(shareItem.w, shareItem.N, UtilHelper.isVideoThread(shareItem.P));
                 shareItem.w = u;
                 fi.a(u);
-                qi.O(this.c.getApplicationContext(), this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0450));
-                H(shareItem);
+                qi.N(this.c.getApplicationContext(), this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0450));
+                G(shareItem);
                 if (shareItem != null && shareItem.a) {
-                    J(8, shareItem.F);
+                    H(8, shareItem.F);
                 }
-                z();
             }
             if (shareItem.H != 8 || shareItem.X <= 0) {
                 return;
@@ -950,9 +934,9 @@ public class jr8 implements View.OnClickListener {
 
     public void q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.t = oa7.a();
-            this.u = qa7.a();
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            this.t = na7.a();
+            this.u = pa7.a();
             i();
             ArrayList<MetaData> arrayList = this.t;
             if (arrayList != null && this.u != null && arrayList.size() != 0 && this.u.size() != 0) {
@@ -969,20 +953,20 @@ public class jr8 implements View.OnClickListener {
                     }
                 }
             }
-            A();
+            z();
         }
     }
 
     public final boolean r(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) ? i == 4 || i == 3 || i == 9 || i == 5 || i == 7 || i == 10 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) ? i == 4 || i == 3 || i == 9 || i == 5 || i == 7 || i == 10 : invokeI.booleanValue;
     }
 
     public final boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             if (!"frs".equals(this.n) || this.f == null) {
                 return false;
             }
@@ -994,7 +978,7 @@ public class jr8 implements View.OnClickListener {
     public final boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             ShareItem shareItem = this.f;
             return shareItem != null && shareItem.J == 11;
         }
@@ -1003,7 +987,7 @@ public class jr8 implements View.OnClickListener {
 
     public final void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.c, 25018);
             selectForumActivityConfig.setIsShare(true);
             selectForumActivityConfig.setForumList(this.b);
@@ -1032,7 +1016,7 @@ public class jr8 implements View.OnClickListener {
 
     public final void v() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921694, this.f.W.threadData);
             MessageManager.getInstance().registerStickyMode(2921694);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
@@ -1044,7 +1028,7 @@ public class jr8 implements View.OnClickListener {
 
     public final void w() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_SHARE_FRIEND_BTN);
             int i = this.f.H;
             int i2 = 2;
@@ -1061,7 +1045,7 @@ public class jr8 implements View.OnClickListener {
 
     public final void x(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_SHARE_NEARLY_PERSON);
             int i = this.f.H;
             int i2 = 2;
@@ -1079,16 +1063,22 @@ public class jr8 implements View.OnClickListener {
 
     public void y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.y);
         }
     }
 
     public final void z() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048610, this) == null) || TbSingleton.getInstance().isUserGrowthTaskCompleted(UserGrowthTaskRequestMessage.SHARE_THREAD)) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
+            for (int i = 0; i < this.v.size(); i++) {
+                if (this.v.get(i).getUserId() == null) {
+                    this.w.add(this.v.get(i));
+                } else if (!this.x.contains(this.v.get(i).getUserId())) {
+                    this.x.add(this.v.get(i).getUserId());
+                    this.w.add(this.v.get(i));
+                }
+            }
         }
-        MessageManager.getInstance().sendMessage(new UserGrowthTaskRequestMessage(UserGrowthTaskRequestMessage.SHARE_THREAD));
     }
 }

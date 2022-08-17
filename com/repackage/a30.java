@@ -33,7 +33,7 @@ public class a30 implements w20 {
 
         /* renamed from: com.repackage.a30$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0432a {
+        public static class C0434a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String a;
@@ -41,7 +41,7 @@ public class a30 implements w20 {
             public String c;
             public int d;
 
-            public C0432a(Context context) {
+            public C0434a(Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,9 +178,9 @@ public class a30 implements w20 {
             StringBuilder sb;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                C0432a c0432a = new C0432a(context);
-                String c = c0432a.c();
-                int d = c0432a.d();
+                C0434a c0434a = new C0434a(context);
+                String c = c0434a.c();
+                int d = c0434a.d();
                 if (TextUtils.isEmpty(c)) {
                     sb = new StringBuilder();
                 } else {

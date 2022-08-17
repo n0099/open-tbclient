@@ -24,7 +24,7 @@ public class a {
 
     /* renamed from: com.qq.e.comm.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class C0431a {
+    public static /* synthetic */ class C0433a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -75,7 +75,7 @@ public class a {
         this.b = z;
     }
 
-    public /* synthetic */ a(C0431a c0431a) {
+    public /* synthetic */ a(C0433a c0433a) {
         this();
     }
 

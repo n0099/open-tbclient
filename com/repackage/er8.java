@@ -424,7 +424,7 @@ public class er8 {
             this.c.setVisibility(8);
             this.f.setVisibility(8);
             this.g.setVisibility(8);
-            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c56);
+            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c57);
             this.a.setNetRefreshViewTopMargin(this.j);
             this.a.showNetRefreshView(this.b, string, false);
         }

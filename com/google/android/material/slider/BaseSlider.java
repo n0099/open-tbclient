@@ -222,9 +222,9 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
                 if (i == this.slider.getValues().size() - 1) {
-                    return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0aa2);
+                    return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0aa3);
                 }
-                return i == 0 ? this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0aa3) : "";
+                return i == 0 ? this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0aa4) : "";
             }
             return (String) invokeI.objValue;
         }
@@ -975,7 +975,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     private void processAttributes(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65581, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16842766, 16842788, 16843078, 16843486, 16843487, R.attr.obfuscated_res_0x7f0402f5, R.attr.obfuscated_res_0x7f0402f6, R.attr.obfuscated_res_0x7f0403f6, R.attr.obfuscated_res_0x7f0403f8, R.attr.obfuscated_res_0x7f0406ff, R.attr.obfuscated_res_0x7f040702, R.attr.obfuscated_res_0x7f040704, R.attr.obfuscated_res_0x7f040709, R.attr.obfuscated_res_0x7f04070a, R.attr.obfuscated_res_0x7f04070b, R.attr.obfuscated_res_0x7f040733, R.attr.obfuscated_res_0x7f040734, R.attr.obfuscated_res_0x7f040735, R.attr.obfuscated_res_0x7f040736}, i, DEF_STYLE_RES, new int[0]);
+            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16842766, 16842788, 16843078, 16843486, 16843487, R.attr.obfuscated_res_0x7f0402f6, R.attr.obfuscated_res_0x7f0402f7, R.attr.obfuscated_res_0x7f0403f7, R.attr.obfuscated_res_0x7f0403f9, R.attr.obfuscated_res_0x7f0406ff, R.attr.obfuscated_res_0x7f040702, R.attr.obfuscated_res_0x7f040704, R.attr.obfuscated_res_0x7f040709, R.attr.obfuscated_res_0x7f04070a, R.attr.obfuscated_res_0x7f04070b, R.attr.obfuscated_res_0x7f040733, R.attr.obfuscated_res_0x7f040734, R.attr.obfuscated_res_0x7f040735, R.attr.obfuscated_res_0x7f040736}, i, DEF_STYLE_RES, new int[0]);
             this.valueFrom = obtainStyledAttributes.getFloat(3, 0.0f);
             this.valueTo = obtainStyledAttributes.getFloat(4, 1.0f);
             setValues(Float.valueOf(this.valueFrom));
@@ -2018,7 +2018,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BaseSlider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040632);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040633);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2136,7 +2136,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.this$0.getContext(), this.val$attrs, new int[]{16842766, 16842788, 16843078, 16843486, 16843487, R.attr.obfuscated_res_0x7f0402f5, R.attr.obfuscated_res_0x7f0402f6, R.attr.obfuscated_res_0x7f0403f6, R.attr.obfuscated_res_0x7f0403f8, R.attr.obfuscated_res_0x7f0406ff, R.attr.obfuscated_res_0x7f040702, R.attr.obfuscated_res_0x7f040704, R.attr.obfuscated_res_0x7f040709, R.attr.obfuscated_res_0x7f04070a, R.attr.obfuscated_res_0x7f04070b, R.attr.obfuscated_res_0x7f040733, R.attr.obfuscated_res_0x7f040734, R.attr.obfuscated_res_0x7f040735, R.attr.obfuscated_res_0x7f040736}, this.val$defStyleAttr, BaseSlider.DEF_STYLE_RES, new int[0]);
+                    TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.this$0.getContext(), this.val$attrs, new int[]{16842766, 16842788, 16843078, 16843486, 16843487, R.attr.obfuscated_res_0x7f0402f6, R.attr.obfuscated_res_0x7f0402f7, R.attr.obfuscated_res_0x7f0403f7, R.attr.obfuscated_res_0x7f0403f9, R.attr.obfuscated_res_0x7f0406ff, R.attr.obfuscated_res_0x7f040702, R.attr.obfuscated_res_0x7f040704, R.attr.obfuscated_res_0x7f040709, R.attr.obfuscated_res_0x7f04070a, R.attr.obfuscated_res_0x7f04070b, R.attr.obfuscated_res_0x7f040733, R.attr.obfuscated_res_0x7f040734, R.attr.obfuscated_res_0x7f040735, R.attr.obfuscated_res_0x7f040736}, this.val$defStyleAttr, BaseSlider.DEF_STYLE_RES, new int[0]);
                     TooltipDrawable parseLabelDrawable = BaseSlider.parseLabelDrawable(this.this$0.getContext(), obtainStyledAttributes);
                     obtainStyledAttributes.recycle();
                     return parseLabelDrawable;

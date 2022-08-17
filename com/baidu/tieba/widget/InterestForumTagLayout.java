@@ -138,9 +138,9 @@ public class InterestForumTagLayout extends LinearLayout implements ix {
             return;
         }
         if (this.g) {
-            string = this.b.getString(R.string.obfuscated_res_0x7f0f090b);
+            string = this.b.getString(R.string.obfuscated_res_0x7f0f090c);
         } else {
-            string = this.b.getString(R.string.obfuscated_res_0x7f0f0909);
+            string = this.b.getString(R.string.obfuscated_res_0x7f0f090a);
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         EMTextView eMTextView = new EMTextView(getContext());
@@ -209,7 +209,7 @@ public class InterestForumTagLayout extends LinearLayout implements ix {
             setOrientation(1);
             TextView textView = new TextView(getContext());
             this.c = textView;
-            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f090f));
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0910));
             addView(this.c, new LinearLayout.LayoutParams(-2, -2));
             RelativeLayout relativeLayout = new RelativeLayout(getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
@@ -277,7 +277,7 @@ public class InterestForumTagLayout extends LinearLayout implements ix {
             return;
         }
         if (z) {
-            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080959, SkinManager.getColor(R.color.CAM_X0301), null);
+            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08095a, SkinManager.getColor(R.color.CAM_X0301), null);
             if (pureDrawable != null) {
                 this.c.setCompoundDrawablePadding(qi.f(getContext(), R.dimen.M_W_X002));
                 this.c.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, pureDrawable, (Drawable) null);

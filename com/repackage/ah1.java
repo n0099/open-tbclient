@@ -37,7 +37,7 @@ public class ah1 implements ServiceConnection {
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            this.a.a = a.AbstractBinderC0171a.a(iBinder);
+            this.a.a = a.AbstractBinderC0172a.a(iBinder);
             vg1 vg1Var = this.a.e;
             if (vg1Var != null) {
                 vg1Var.a();

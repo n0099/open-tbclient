@@ -45,12 +45,12 @@ public class fi6 {
 
         /* renamed from: com.repackage.fi6$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0477a implements View.OnClickListener {
+        public class View$OnClickListenerC0479a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0477a(a aVar) {
+            public View$OnClickListenerC0479a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,7 +109,7 @@ public class fi6 {
                     ScreenTopToast screenTopToast = new ScreenTopToast(this.c.a.getPageActivity());
                     screenTopToast.m(this.c.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f06de));
                     screenTopToast.k(this.c.a.getString(R.string.obfuscated_res_0x7f0f073e));
-                    screenTopToast.j(new View$OnClickListenerC0477a(this));
+                    screenTopToast.j(new View$OnClickListenerC0479a(this));
                     screenTopToast.n((ViewGroup) this.c.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f090ac4));
                     return;
                 }
@@ -199,9 +199,9 @@ public class fi6 {
                 if (!h) {
                     this.a.j(i);
                 } else if (this.a.b == 1) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f1434);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f1436);
                 } else if (this.a.b == 2) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f1117);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f1118);
                 }
             }
         }
@@ -269,14 +269,14 @@ public class fi6 {
             ur4Var.setNegativeTextColor(R.color.CAM_X0105);
             int i2 = this.b;
             if (i2 == 1) {
-                ur4Var.setTitle(R.string.obfuscated_res_0x7f0f1434);
+                ur4Var.setTitle(R.string.obfuscated_res_0x7f0f1436);
             } else if (i2 == 2) {
-                ur4Var.setTitle(R.string.obfuscated_res_0x7f0f1117);
+                ur4Var.setTitle(R.string.obfuscated_res_0x7f0f1118);
             }
             ur4Var.setMessage(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f065f), Integer.valueOf(i)));
             ur4Var.setContentViewSize(1);
-            ur4Var.setPositiveButton(this.a.getString(R.string.obfuscated_res_0x7f0f1104), new a(this, ur4Var, i));
-            ur4Var.setNegativeButton(this.a.getString(R.string.obfuscated_res_0x7f0f0c48), new b(this, ur4Var));
+            ur4Var.setPositiveButton(this.a.getString(R.string.obfuscated_res_0x7f0f1105), new a(this, ur4Var, i));
+            ur4Var.setNegativeButton(this.a.getString(R.string.obfuscated_res_0x7f0f0c49), new b(this, ur4Var));
             ur4Var.create(this.a).show();
         }
     }

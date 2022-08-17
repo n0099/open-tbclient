@@ -9,9 +9,9 @@ public class wo6 {
 
     public abstract void a();
 
-    public abstract void b(qj8 qj8Var);
+    public abstract void b(pj8 pj8Var);
 
-    public abstract void c(qj8 qj8Var, int i, yo6 yo6Var);
+    public abstract void c(pj8 pj8Var, int i, yo6 yo6Var);
 
     public abstract void d();
 }

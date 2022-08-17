@@ -1,22 +1,24 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j0a;
+import com.repackage.l0a;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import tv.athena.revenue.payui.view.IYYPayWayView;
 import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes5.dex */
-public class a1a implements j0a.b {
+public class a1a implements l0a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public a1a() {
+    public a1a(IYYPayWayView iYYPayWayView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iYYPayWayView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,22 +28,14 @@ public class a1a implements j0a.b {
                 return;
             }
         }
-        RLog.info("PayGiftDialogCallback", "create PayGiftDialogCallback");
+        RLog.info("PayConfirmDialogCallback", "create PayConfirmDialogCallback");
     }
 
-    @Override // com.repackage.j0a.b
+    @Override // com.repackage.l0a.a
     public void a(CancelType cancelType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayGiftDialogCallback", "PayGiftDialog onNotifyCancelType clickArea:" + cancelType);
-        }
-    }
-
-    @Override // com.repackage.j0a.b
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            RLog.info("PayGiftDialogCallback", "showPayGiftDialog onKonwn");
+            RLog.info("PayConfirmDialogCallback", "onNotifyCancelType clickArea:" + cancelType);
         }
     }
 }

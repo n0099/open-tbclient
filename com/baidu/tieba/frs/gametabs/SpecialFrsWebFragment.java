@@ -70,13 +70,13 @@ import com.repackage.km6;
 import com.repackage.lm6;
 import com.repackage.mm6;
 import com.repackage.mt4;
+import com.repackage.nl8;
 import com.repackage.og;
 import com.repackage.oi;
 import com.repackage.ol8;
 import com.repackage.pl8;
 import com.repackage.pt4;
 import com.repackage.qa5;
-import com.repackage.ql8;
 import com.repackage.rf5;
 import com.repackage.rg;
 import com.repackage.rm4;
@@ -107,7 +107,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements bg6 {
     public NoNetworkView j;
     public FrameLayout k;
     public FrameLayout l;
-    public ol8 m;
+    public nl8 m;
     public mm6 n;
     public rt4 o;
     public boolean p;
@@ -116,7 +116,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements bg6 {
     public boolean s;
     public boolean t;
     public String u;
-    public ql8 v;
+    public pl8 v;
     public CustomMessageListener w;
     public CustomMessageListener x;
     public final View.OnClickListener y;
@@ -150,7 +150,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements bg6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!oi.z()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
                     return;
                 }
                 SpecialFrsWebFragment specialFrsWebFragment = this.a;
@@ -207,7 +207,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements bg6 {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements ql8 {
+    public class c implements pl8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpecialFrsWebFragment a;
@@ -230,7 +230,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements bg6 {
             this.a = specialFrsWebFragment;
         }
 
-        @Override // com.repackage.ql8
+        @Override // com.repackage.pl8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -858,17 +858,17 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements bg6 {
         return (NavigationBar) invokeV.objValue;
     }
 
-    public final pl8 W1() {
+    public final ol8 W1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, pl8.class, getPageContext());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, ol8.class, getPageContext());
             if (runTask == null || runTask.getData() == null) {
                 return null;
             }
-            return (pl8) runTask.getData();
+            return (ol8) runTask.getData();
         }
-        return (pl8) invokeV.objValue;
+        return (ol8) invokeV.objValue;
     }
 
     public void X1(String str) {
@@ -1144,7 +1144,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements bg6 {
             this.k.setVisibility(8);
             this.l.setVisibility(0);
             if (getPageContext() != null) {
-                showNetRefreshView(this.l, getPageContext().getString(R.string.obfuscated_res_0x7f0f14d3), null, getPageContext().getString(R.string.obfuscated_res_0x7f0f0fb6), false, this.y);
+                showNetRefreshView(this.l, getPageContext().getString(R.string.obfuscated_res_0x7f0f14d5), null, getPageContext().getString(R.string.obfuscated_res_0x7f0f0fb7), false, this.y);
             }
         }
     }
@@ -1239,9 +1239,9 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements bg6 {
                 this.e = getArguments().getString("fid");
                 this.f = getArguments().getString("fname");
             }
-            ol8 ol8Var = new ol8();
-            this.m = ol8Var;
-            ol8Var.a(new XiubaTbJsBridge(getPageContext()));
+            nl8 nl8Var = new nl8();
+            this.m = nl8Var;
+            nl8Var.a(new XiubaTbJsBridge(getPageContext()));
             this.m.a(new CommonTbJsBridge(getPageContext().getPageActivity()));
             this.m.a(W1());
             d2();
@@ -1295,9 +1295,9 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements bg6 {
             if (km6Var != null) {
                 km6Var.m();
             }
-            ol8 ol8Var = this.m;
-            if (ol8Var != null) {
-                ol8Var.g();
+            nl8 nl8Var = this.m;
+            if (nl8Var != null) {
+                nl8Var.g();
             }
             ScrollBridgeWebview scrollBridgeWebview = this.h;
             if (scrollBridgeWebview != null) {

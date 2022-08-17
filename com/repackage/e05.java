@@ -50,7 +50,7 @@ public class e05 {
                 return -1;
             }
             int a2 = a();
-            return a2 != 2 ? a2 != 3 ? a2 != 4 ? a2 != 6 ? a2 != 8 ? R.drawable.obfuscated_res_0x7f080819 : R.drawable.obfuscated_res_0x7f080816 : R.drawable.obfuscated_res_0x7f08081a : R.drawable.obfuscated_res_0x7f080817 : R.drawable.obfuscated_res_0x7f080819 : R.drawable.obfuscated_res_0x7f080815;
+            return a2 != 2 ? a2 != 3 ? a2 != 4 ? a2 != 6 ? a2 != 8 ? R.drawable.obfuscated_res_0x7f08081a : R.drawable.obfuscated_res_0x7f080817 : R.drawable.obfuscated_res_0x7f08081b : R.drawable.obfuscated_res_0x7f080818 : R.drawable.obfuscated_res_0x7f08081a : R.drawable.obfuscated_res_0x7f080816;
         }
         return invokeV.intValue;
     }

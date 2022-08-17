@@ -18,7 +18,7 @@ import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.nio.charset.Charset;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ck2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;

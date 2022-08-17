@@ -1,75 +1,34 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tieba.R;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.common.TitanConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ur4;
+import com.repackage.ze8;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class ye8 extends ur4 {
+public class ye8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout a;
-    public EditText b;
+    public ze8 a;
+    public String b;
+    public boolean c;
+    public Context d;
+    public ze8.a e;
 
     /* loaded from: classes7.dex */
-    public class a implements ur4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ ye8 b;
-
-        public a(ye8 ye8Var, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ye8Var, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ye8Var;
-            this.a = activity;
-        }
-
-        @Override // com.repackage.ur4.e
-        public void onClick(ur4 ur4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ur4Var) == null) {
-                if (!pi.isEmpty(this.b.b.getText().toString())) {
-                    TbSingleton.getInstance().setVisitPreviewServer(true);
-                    String obj = this.b.b.getText().toString();
-                    TbSingleton.getInstance().setPubEnvValue(obj);
-                    qi.N(this.a, R.string.obfuscated_res_0x7f0f0395);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921508, obj));
-                }
-                this.b.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements ur4.e {
+    public class a implements ze8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ye8 a;
 
-        public b(ye8 ye8Var) {
+        public a(ye8 ye8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,38 +46,145 @@ public class ye8 extends ur4 {
             this.a = ye8Var;
         }
 
-        @Override // com.repackage.ur4.e
-        public void onClick(ur4 ur4Var) {
+        @Override // com.repackage.ze8.a
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ur4Var) == null) {
-                this.a.dismiss();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c) {
+                this.a.c = false;
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ye8(Activity activity) {
-        super(activity);
+    public ye8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0230, (ViewGroup) null);
-        this.a = linearLayout;
-        setContentView(linearLayout);
-        this.b = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f090920);
-        setPositiveButton(R.string.obfuscated_res_0x7f0f0431, new a(this, activity));
-        setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new b(this));
+        this.b = null;
+        this.c = false;
+        this.e = new a(this);
+        this.d = context;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.b)) {
+                return this.b;
+            }
+            String b = af8.b();
+            this.b = b;
+            if (TextUtils.isEmpty(b)) {
+                this.b = af8.c();
+            } else if (!this.b.endsWith(File.separator)) {
+                this.b += File.separator;
+            }
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            File file = new File(str);
+            if (!file.exists()) {
+                if (file.mkdirs()) {
+                    BdLog.d("folder mkdir success: " + str);
+                } else if (!file.exists()) {
+                    BdLog.d("folder mkdir failed");
+                }
+            }
+            if (file.isDirectory()) {
+                return;
+            }
+            throw new IllegalArgumentException("The logcat folder path is not a directory: " + str);
+        }
+    }
+
+    public final boolean f(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, str, str2, z)) == null) {
+            if (this.a == null) {
+                e(str);
+                ze8 ze8Var = new ze8(str, str2, z);
+                this.a = ze8Var;
+                ze8Var.b(this.e);
+                try {
+                    this.a.start();
+                    return true;
+                } catch (IllegalThreadStateException unused) {
+                    return true;
+                } catch (Exception e) {
+                    this.a = null;
+                    BdLog.e(e);
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeLLZ.booleanValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            String c = c();
+            if (TextUtils.isEmpty(c)) {
+                return;
+            }
+            h();
+            if (af8.e(c) && f(c, TitanConstant.KEY_INSTANT_INIT_CLASS, true)) {
+                this.c = true;
+            }
+        }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: com.repackage.ze8 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v0, types: [com.repackage.ze8, com.repackage.ze8$a] */
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            ze8 ze8Var = this.a;
+            if (ze8Var != null) {
+                try {
+                    try {
+                        ze8Var.c();
+                    } catch (Exception e) {
+                        BdLog.e(e);
+                    }
+                } finally {
+                    this.a.b(null);
+                    this.a = null;
+                }
+            }
+            this.c = false;
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            h();
+        }
     }
 }

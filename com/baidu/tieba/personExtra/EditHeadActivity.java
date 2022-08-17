@@ -33,6 +33,7 @@ import com.baidu.tbadk.core.atomData.EditHeadActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.message.UserGrowthTaskRequestMessage;
 import com.baidu.tbadk.core.service.TiebaPrepareImageService;
+import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.NetWork;
@@ -339,7 +340,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     Intent intent = this.a.a.getIntent();
                     if (imageUploadResult != null) {
                         if (imageUploadResult.error_code != 0) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f14ce, false);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f14d0, false);
                         } else {
                             PhotoUrlData photoUrlData = new PhotoUrlData();
                             photoUrlData.setPicId(String.valueOf(imageUploadResult.picId));
@@ -433,7 +434,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 k55Var.n(this.a.z);
                 k55Var.g(false);
                 EditHeadActivity editHeadActivity = this.a;
-                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f14d0));
+                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f14d2));
             }
         }
     }
@@ -842,7 +843,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 EditHeadActivity editHeadActivity = this.b;
-                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f14cc));
+                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f14ce));
             }
         }
 
@@ -898,11 +899,9 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                             this.b.sendBroadcast(intent2);
                         }
                         this.b.finish();
-                        EditHeadActivity editHeadActivity = this.b;
-                        editHeadActivity.showToast(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f14cd));
-                        return;
+                    } else if (BdToastHelper.getBdToastData().getContent() == null) {
+                        this.b.showToast(this.a.getErrorString());
                     }
-                    this.b.showToast(this.a.getErrorString());
                 }
             }
         }
