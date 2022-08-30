@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CreateTagResponseData implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<CreateTagResponseData> CREATOR;
@@ -20,7 +20,7 @@ public class CreateTagResponseData implements Parcelable {
     @SerializedName("tag_info")
     public QuestionTagListData.QuestionTag tagInfo;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<CreateTagResponseData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

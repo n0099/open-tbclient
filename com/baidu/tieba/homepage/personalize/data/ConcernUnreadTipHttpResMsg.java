@@ -3,19 +3,19 @@ package com.baidu.tieba.homepage.personalize.data;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.r07;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j07;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.UnreadTip.UnreadTipResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ConcernUnreadTipHttpResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j07 mData;
+    public r07 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernUnreadTipHttpResMsg() {
@@ -49,9 +49,9 @@ public class ConcernUnreadTipHttpResMsg extends HttpResponsedMessage {
             setErrorString(unreadTipResIdl.error.errmsg);
         }
         if (unreadTipResIdl.data != null) {
-            j07 j07Var = new j07();
-            this.mData = j07Var;
-            j07Var.b(unreadTipResIdl.data);
+            r07 r07Var = new r07();
+            this.mData = r07Var;
+            r07Var.b(unreadTipResIdl.data);
         }
     }
 }

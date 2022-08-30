@@ -9,19 +9,19 @@ import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+import com.baidu.tieba.tz8;
+import com.baidu.tieba.uz8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kz8;
-import com.repackage.lz8;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lz8 a;
-    public kz8 b;
+    public uz8 a;
+    public tz8 b;
     public NewWriteModel c;
     public AccessState d;
     public WriteData e;
@@ -77,7 +77,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new lz8(this);
+            this.a = new uz8(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
@@ -92,9 +92,9 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                 if (this.e.getWriteImagesInfo() != null) {
                     this.c.b0(this.e.getWriteImagesInfo().size() > 0);
                 }
-                kz8 kz8Var = new kz8(this.a, this.c);
-                this.b = kz8Var;
-                this.a.l(kz8Var);
+                tz8 tz8Var = new tz8(this.a, this.c);
+                this.b = tz8Var;
+                this.a.l(tz8Var);
                 this.b.h(z1());
                 return;
             }

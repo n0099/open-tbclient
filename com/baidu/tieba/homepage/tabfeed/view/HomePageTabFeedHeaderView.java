@@ -11,21 +11,21 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
+import com.baidu.tieba.cn4;
+import com.baidu.tieba.i9;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.tp4;
+import com.baidu.tieba.uo4;
+import com.baidu.tieba.v17;
+import com.baidu.tieba.w27;
+import com.baidu.tieba.ws4;
+import com.baidu.tieba.zm4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bn4;
-import com.repackage.h9;
-import com.repackage.n17;
-import com.repackage.o27;
-import com.repackage.qi;
-import com.repackage.rp4;
-import com.repackage.so4;
-import com.repackage.us4;
-import com.repackage.ym4;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,11 +33,11 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
     public AutoBannerLayout b;
     public GridIconLayout c;
     public String d;
-    public bn4 e;
-    public us4<so4> f;
+    public cn4 e;
+    public ws4<uo4> f;
 
-    /* loaded from: classes3.dex */
-    public class a implements ym4 {
+    /* loaded from: classes4.dex */
+    public class a implements zm4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HomePageTabFeedHeaderView a;
@@ -60,7 +60,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             this.a = homePageTabFeedHeaderView;
         }
 
-        @Override // com.repackage.ym4
+        @Override // com.baidu.tieba.zm4
         public void a(View view2, boolean z, Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), obj}) == null) && z && this.a.b != null) {
@@ -69,8 +69,8 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b implements ym4 {
+    /* loaded from: classes4.dex */
+    public class b implements zm4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HomePageTabFeedHeaderView a;
@@ -93,17 +93,17 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             this.a = homePageTabFeedHeaderView;
         }
 
-        @Override // com.repackage.ym4
+        @Override // com.baidu.tieba.zm4
         public void a(View view2, boolean z, Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), obj}) == null) && z) {
-                n17.c("c13751", this.a.d);
+                v17.c("c13751", this.a.d);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class c implements bn4<so4> {
+    /* loaded from: classes4.dex */
+    public class c implements cn4<uo4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HomePageTabFeedHeaderView a;
@@ -127,27 +127,27 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.bn4
+        @Override // com.baidu.tieba.cn4
         /* renamed from: a */
-        public void d(View view2, so4 so4Var, int i, long j) {
+        public void d(View view2, uo4 uo4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, so4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, uo4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.bn4
+        @Override // com.baidu.tieba.cn4
         /* renamed from: b */
-        public void c(View view2, so4 so4Var, int i, long j) {
+        public void c(View view2, uo4 uo4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, so4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                n17.a("c13751", so4Var, i + 1, this.a.d);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, uo4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                v17.a("c13751", uo4Var, i + 1, this.a.d);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class d implements us4<so4> {
+    /* loaded from: classes4.dex */
+    public class d implements ws4<uo4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HomePageTabFeedHeaderView a;
@@ -170,25 +170,25 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             this.a = homePageTabFeedHeaderView;
         }
 
-        @Override // com.repackage.us4
+        @Override // com.baidu.tieba.ws4
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                so4 so4Var = new so4();
-                so4Var.g(str);
-                n17.a("c13750", so4Var, i, this.a.d);
+                uo4 uo4Var = new uo4();
+                uo4Var.g(str);
+                v17.a("c13750", uo4Var, i, this.a.d);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.us4
+        @Override // com.baidu.tieba.ws4
         /* renamed from: c */
-        public void a(int i, so4 so4Var) {
+        public void a(int i, uo4 uo4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, so4Var) == null) || so4Var == null) {
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, uo4Var) == null) || uo4Var == null) {
                 return;
             }
-            n17.b("c13750", so4Var, i, this.a.d);
+            v17.b("c13750", uo4Var, i, this.a.d);
         }
     }
 
@@ -220,7 +220,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
             setDescendantFocusability(262144);
-            this.a = (TbPageContext) h9.a(getContext());
+            this.a = (TbPageContext) i9.a(getContext());
         }
     }
 
@@ -262,35 +262,35 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         }
     }
 
-    public void setData(o27 o27Var) {
-        List<so4> list;
+    public void setData(w27 w27Var) {
+        List<uo4> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, o27Var) == null) || o27Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, w27Var) == null) || w27Var == null) {
             return;
         }
-        setPadding(0, qi.f(getContext(), R.dimen.M_H_X003), 0, 0);
+        setPadding(0, ri.f(getContext(), R.dimen.M_H_X003), 0, 0);
         if (this.b == null) {
             AutoBannerLayout autoBannerLayout = new AutoBannerLayout(getContext());
             this.b = autoBannerLayout;
             autoBannerLayout.setFrom(YYLiveUtil.SOURCE_CHANNEL_BANNER);
             this.b.setMarqueenTime(3000L);
             this.b.setOnCoverViewCallback(this.f);
-            this.b.setBannerHeight(qi.f(getContext(), R.dimen.tbds343));
+            this.b.setBannerHeight(ri.f(getContext(), R.dimen.tbds343));
             addView(this.b);
             this.b.setIWindowChangedListener(new a(this));
         }
-        this.b.a(o27Var.e);
+        this.b.a(w27Var.e);
         if (this.c == null) {
             GridIconLayout gridIconLayout = new GridIconLayout(getContext());
             this.c = gridIconLayout;
             gridIconLayout.setOnItemCoverListener(this.e);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.topMargin = qi.f(this.a.getPageActivity(), R.dimen.M_H_X003);
+            layoutParams.topMargin = ri.f(this.a.getPageActivity(), R.dimen.M_H_X003);
             addView(this.c, layoutParams);
-            int f = qi.f(this.a.getPageActivity(), R.dimen.M_H_X002);
-            int f2 = qi.f(this.a.getPageActivity(), R.dimen.tbds30);
-            rp4 rp4Var = o27Var.f;
-            int size = (rp4Var == null || (list = rp4Var.a) == null) ? 0 : list.size();
+            int f = ri.f(this.a.getPageActivity(), R.dimen.M_H_X002);
+            int f2 = ri.f(this.a.getPageActivity(), R.dimen.tbds30);
+            tp4 tp4Var = w27Var.f;
+            int size = (tp4Var == null || (list = tp4Var.a) == null) ? 0 : list.size();
             if (size == 5 || size >= 9) {
                 this.c.setPadding(0, f, 0, f);
             } else if (size >= 4 && size < 9) {
@@ -299,7 +299,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             this.c.setIWindowChangedListener(new b(this));
             this.c.setMaxItem(10);
         }
-        this.c.a(o27Var.f);
+        this.c.a(w27Var.f);
         this.c.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
     }
 

@@ -1,15 +1,15 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cf;
+import com.baidu.tieba.fa5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bf;
-import com.repackage.y95;
 /* loaded from: classes3.dex */
-public class PageStayDurationSwitch extends bf {
+public class PageStayDurationSwitch extends cf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,15 +27,15 @@ public class PageStayDurationSwitch extends bf {
         }
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            y95.b().i(1 == i);
+            fa5.b().i(1 == i);
         }
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class PageStayDurationSwitch extends bf {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class PageStayDurationSwitch extends bf {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,14 +65,14 @@ public class PageStayDurationSwitch extends bf {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "log_online_smallflow" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

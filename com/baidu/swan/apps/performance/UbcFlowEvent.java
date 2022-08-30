@@ -3,6 +3,7 @@ package com.baidu.swan.apps.performance;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.kh1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
-import com.repackage.jh1;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -104,7 +104,7 @@ public class UbcFlowEvent {
                 return;
             }
         }
-        g = jh1.a;
+        g = kh1.a;
     }
 
     public UbcFlowEvent(String str) {

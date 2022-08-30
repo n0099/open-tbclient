@@ -15,7 +15,7 @@ import com.baidu.tieba.R;
 import com.kwad.sdk.utils.aa;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class KSRelativeLayout extends RelativeLayout implements i {
     public final AtomicBoolean Kt;
     public h Pq;

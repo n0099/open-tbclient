@@ -16,6 +16,9 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.kh1;
+import com.baidu.tieba.re3;
+import com.baidu.tieba.ud3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,9 +26,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jh1;
-import com.repackage.qe3;
-import com.repackage.td3;
 /* loaded from: classes2.dex */
 public class NeutralRefreshAnimView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -310,10 +310,10 @@ public class NeutralRefreshAnimView extends View {
                 return;
             }
         }
-        s = jh1.a;
-        t = qe3.g(3.5f);
+        s = kh1.a;
+        t = re3.g(3.5f);
         u = Color.parseColor("#000000");
-        int g = qe3.g(18.0f);
+        int g = re3.g(18.0f);
         v = g;
         w = g >> 1;
     }
@@ -417,7 +417,7 @@ public class NeutralRefreshAnimView extends View {
             if (i <= 0 || i2 <= 0) {
                 return;
             }
-            td3.j(new a(this, i, i2), "CreateBitmapOnSizeChanged");
+            ud3.j(new a(this, i, i2), "CreateBitmapOnSizeChanged");
         }
     }
 

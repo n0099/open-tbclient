@@ -18,6 +18,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.t57;
+import com.baidu.tieba.w57;
 import com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -26,9 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l57;
-import com.repackage.o57;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoTopicListFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public static final int e;
@@ -38,7 +38,7 @@ public class VideoTopicListFragment extends BaseFragment {
     public long c;
     public VideoHotTopicSearchAdapter d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements VideoHotTopicSearchAdapter.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,10 +63,10 @@ public class VideoTopicListFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter.a
-        public void a(o57 o57Var) {
+        public void a(w57 w57Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, o57Var) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, o57Var));
+            if (interceptable == null || interceptable.invokeL(1048576, this, w57Var) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, w57Var));
             }
         }
     }
@@ -181,12 +181,12 @@ public class VideoTopicListFragment extends BaseFragment {
         }
     }
 
-    public void u1(l57 l57Var) {
+    public void u1(t57 t57Var) {
         VideoHotTopicSearchAdapter videoHotTopicSearchAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, l57Var) == null) || (videoHotTopicSearchAdapter = this.d) == null || l57Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, t57Var) == null) || (videoHotTopicSearchAdapter = this.d) == null || t57Var == null) {
             return;
         }
-        videoHotTopicSearchAdapter.d("", l57Var.c());
+        videoHotTopicSearchAdapter.d("", t57Var.c());
     }
 }

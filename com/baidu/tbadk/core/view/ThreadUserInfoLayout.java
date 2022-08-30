@@ -36,17 +36,17 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.switchs.NickNameActivitySwitch;
 import com.baidu.tieba.R;
+import com.baidu.tieba.i9;
+import com.baidu.tieba.km4;
+import com.baidu.tieba.ml4;
+import com.baidu.tieba.nl4;
+import com.baidu.tieba.ns7;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fs7;
-import com.repackage.h9;
-import com.repackage.jm4;
-import com.repackage.ll4;
-import com.repackage.ml4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class ThreadUserInfoLayout extends LinearLayout {
@@ -105,10 +105,10 @@ public class ThreadUserInfoLayout extends LinearLayout {
         public void onClick(View view2) {
             String url;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || !ViewHelper.checkUpIsLogin(this.a.q) || this.a.p == null || this.a.p.getAuthor() == null || this.a.p.getAuthor().getTShowInfoNew() == null || ListUtils.getItem(this.a.p.getAuthor().getTShowInfoNew(), 0) == null || (url = this.a.p.getAuthor().getTShowInfoNew().get(0).getUrl()) == null || !(h9.a(this.a.q) instanceof TbPageContext)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || !ViewHelper.checkUpIsLogin(this.a.q) || this.a.p == null || this.a.p.getAuthor() == null || this.a.p.getAuthor().getTShowInfoNew() == null || ListUtils.getItem(this.a.p.getAuthor().getTShowInfoNew(), 0) == null || (url = this.a.p.getAuthor().getTShowInfoNew().get(0).getUrl()) == null || !(i9.a(this.a.q) instanceof TbPageContext)) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink((TbPageContext) h9.a(this.a.q), new String[]{url});
+            UrlManager.getInstance().dealOneLink((TbPageContext) i9.a(this.a.q), new String[]{url});
         }
     }
 
@@ -142,8 +142,8 @@ public class ThreadUserInfoLayout extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.p == null || this.a.p.getAuthor() == null || StringUtils.isNull(this.a.p.getAuthor().getName_show()) || StringUtils.isNull(this.a.p.getAuthor().getUserId()) || this.a.p.getForum_name() == null) {
                 return;
             }
-            if (view2.getTag(R.id.obfuscated_res_0x7f092012) != null && (view2.getTag(R.id.obfuscated_res_0x7f092012) instanceof String)) {
-                String str = (String) view2.getTag(R.id.obfuscated_res_0x7f092012);
+            if (view2.getTag(R.id.obfuscated_res_0x7f092014) != null && (view2.getTag(R.id.obfuscated_res_0x7f092014) instanceof String)) {
+                String str = (String) view2.getTag(R.id.obfuscated_res_0x7f092014);
                 if (!TextUtils.isEmpty(str) && ViewHelper.checkUpIsLogin(this.a.getContext())) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(view2.getContext(), null, str, true)));
                     return;
@@ -200,7 +200,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.p == null || this.a.p.getAuthor() == null) {
                 return;
             }
-            jm4.s(this.a.q.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14e6), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.p.getAuthor().getUserId() + "&opacity=0", true, true, true);
+            km4.s(this.a.q.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14e9), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.p.getAuthor().getUserId() + "&opacity=0", true, true, true);
             if (this.a.s == 1) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 3));
             }
@@ -239,10 +239,10 @@ public class ThreadUserInfoLayout extends LinearLayout {
             if (threadData != null && threadData.getAuthor() != null && threadData.getAuthor().getAlaUserData() != null) {
                 AlaUserInfoData alaUserData = threadData.getAuthor().getAlaUserData();
                 if (this.k != null) {
-                    ll4 ll4Var = new ll4();
-                    ll4Var.a = alaUserData;
-                    ll4Var.b = 1;
-                    this.k.setTag(ll4Var);
+                    ml4 ml4Var = new ml4();
+                    ml4Var.a = alaUserData;
+                    ml4Var.b = 1;
+                    this.k.setTag(ml4Var);
                     if (alaUserData.anchor_live == 0) {
                         this.k.setVisibility(8);
                         return;
@@ -264,21 +264,21 @@ public class ThreadUserInfoLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.q = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d086e, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0870, (ViewGroup) this, true);
             this.a = (ClickableHeaderImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09053b);
             this.b = (UserIconBox) inflate.findViewById(R.id.obfuscated_res_0x7f09053a);
             this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09053f);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090e4a);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090e4b);
             this.e = (UserIconBox) inflate.findViewById(R.id.obfuscated_res_0x7f09053c);
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092147);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09213c);
-            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f0907e3);
-            this.n = findViewById(R.id.obfuscated_res_0x7f0907f5);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f092142);
+            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09214a);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09213f);
+            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f0907e4);
+            this.n = findViewById(R.id.obfuscated_res_0x7f0907f6);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f092145);
             this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090537);
-            this.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092166);
+            this.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092169);
             this.l = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901e9);
-            View a2 = ml4.b().a(this.q, 1);
+            View a2 = nl4.b().a(this.q, 1);
             this.k = a2;
             if (a2 != null) {
                 a2.setVisibility(8);
@@ -357,7 +357,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
                     if (!ListUtils.isEmpty(this.p.getAuthor().getTShowInfoNew())) {
                         this.p.getAuthor().getTShowInfoNew().clear();
                     }
-                    this.p.getAuthor().setName_show(getContext().getString(R.string.obfuscated_res_0x7f0f0e0c));
+                    this.p.getAuthor().setName_show(getContext().getString(R.string.obfuscated_res_0x7f0f0e0f));
                 }
                 this.b.setOnClickListener(null);
                 this.c.setOnClickListener(null);
@@ -464,9 +464,9 @@ public class ThreadUserInfoLayout extends LinearLayout {
             }
             ThreadData threadData2 = this.p;
             if (threadData2.middle_page_num > 0 && threadData2.middle_page_pass_flag == 0) {
-                str = getContext().getString(R.string.obfuscated_res_0x7f0f10fc);
+                str = getContext().getString(R.string.obfuscated_res_0x7f0f10ff);
             } else {
-                str = StringHelper.cutChineseAndEnglishWithSuffix(str2, 12, StringHelper.STRING_MORE) + getResources().getString(R.string.obfuscated_res_0x7f0f065a);
+                str = StringHelper.cutChineseAndEnglishWithSuffix(str2, 12, StringHelper.STRING_MORE) + getResources().getString(R.string.obfuscated_res_0x7f0f065b);
             }
             this.o.setText(str);
             this.o.setVisibility(0);
@@ -500,22 +500,22 @@ public class ThreadUserInfoLayout extends LinearLayout {
             SkinManager.setViewTextColor(this.d, i2);
             if (threadData.isFromBrandForum) {
                 this.d.setVisibility(0);
-                this.d.setText(R.string.obfuscated_res_0x7f0f0341);
+                this.d.setText(R.string.obfuscated_res_0x7f0f0342);
                 return;
             } else if ("manager".equals(author.getBawu_type())) {
                 this.d.setVisibility(0);
-                this.d.setText(R.string.obfuscated_res_0x7f0f02fa);
+                this.d.setText(R.string.obfuscated_res_0x7f0f02fb);
                 return;
             } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(author.getBawu_type())) {
-                this.d.setText(R.string.obfuscated_res_0x7f0f02fb);
+                this.d.setText(R.string.obfuscated_res_0x7f0f02fc);
                 this.d.setVisibility(0);
                 return;
             } else if ("pri_content_assist".equals(author.getBawu_type())) {
-                this.d.setText(R.string.obfuscated_res_0x7f0f02f7);
+                this.d.setText(R.string.obfuscated_res_0x7f0f02f8);
                 this.d.setVisibility(0);
                 return;
             } else if ("pri_manage_assist".equals(author.getBawu_type())) {
-                this.d.setText(R.string.obfuscated_res_0x7f0f02f8);
+                this.d.setText(R.string.obfuscated_res_0x7f0f02f9);
                 this.d.setVisibility(0);
                 return;
             } else {
@@ -688,9 +688,9 @@ public class ThreadUserInfoLayout extends LinearLayout {
             if (!NickNameActivitySwitch.isOn() || name_show == null || name_show.equals(userName)) {
                 return;
             }
-            this.c.setText(fs7.b(this.q, this.c.getText().toString()));
+            this.c.setText(ns7.b(this.q, this.c.getText().toString()));
             this.c.setGravity(16);
-            this.c.setTag(R.id.obfuscated_res_0x7f092012, fs7.a());
+            this.c.setTag(R.id.obfuscated_res_0x7f092014, ns7.a());
             SkinManager.setViewTextColor(this.c, R.color.CAM_X0312, 1);
         }
     }

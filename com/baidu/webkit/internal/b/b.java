@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.Log;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import java.net.URISyntaxException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class b extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -15,7 +15,7 @@ import com.kwai.filedownloader.kwai.c;
 import com.kwai.filedownloader.services.c;
 import java.io.File;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public final class b {
     public volatile com.kwai.filedownloader.a.a aux;
     public c.d auy;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final b auz;
@@ -157,15 +157,15 @@ public final class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(a.InterfaceC0406a interfaceC0406a) {
+    public static void a(a.InterfaceC0621a interfaceC0621a) {
         long j;
         long j2;
         String targetFilePath;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, interfaceC0406a) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, interfaceC0621a) == null) {
             String str = "refreshed data count: %d , delete data count: %d, reset id count: %d. consume %d";
-            Iterator<com.kwai.filedownloader.c.c> it = interfaceC0406a.iterator();
+            Iterator<com.kwai.filedownloader.c.c> it = interfaceC0621a.iterator();
             c.d Dq = Dp().Dq();
             long currentTimeMillis = System.currentTimeMillis();
             long j3 = 0;
@@ -212,7 +212,7 @@ public final class b {
                                                 j2 = j3;
                                                 str = str2;
                                                 com.kwai.filedownloader.e.f.dF(com.kwai.filedownloader.e.c.EJ());
-                                                interfaceC0406a.Di();
+                                                interfaceC0621a.Di();
                                                 if (com.kwai.filedownloader.e.d.awL) {
                                                     com.kwai.filedownloader.e.d.e(com.kwai.filedownloader.a.a.class, str, Long.valueOf(j2), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(System.currentTimeMillis() - j));
                                                 }
@@ -237,10 +237,10 @@ public final class b {
                                                 com.kwai.filedownloader.e.d.e(com.kwai.filedownloader.a.a.class, "the id is changed on restoring from db: old[%d] -> new[%d]", Integer.valueOf(id), Integer.valueOf(j6));
                                             }
                                             next.setId(j6);
-                                            interfaceC0406a.a(id, next);
+                                            interfaceC0621a.a(id, next);
                                             j5++;
                                         }
-                                        interfaceC0406a.c(next);
+                                        interfaceC0621a.c(next);
                                         j3 = j2 + 1;
                                         str = str2;
                                         currentTimeMillis = j;
@@ -255,7 +255,7 @@ public final class b {
                                             th = th2;
                                             str = str2;
                                             com.kwai.filedownloader.e.f.dF(com.kwai.filedownloader.e.c.EJ());
-                                            interfaceC0406a.Di();
+                                            interfaceC0621a.Di();
                                             if (com.kwai.filedownloader.e.d.awL) {
                                             }
                                             throw th;
@@ -269,7 +269,7 @@ public final class b {
                             j2 = j3;
                             str = str2;
                             com.kwai.filedownloader.e.f.dF(com.kwai.filedownloader.e.c.EJ());
-                            interfaceC0406a.Di();
+                            interfaceC0621a.Di();
                             if (com.kwai.filedownloader.e.d.awL) {
                             }
                             throw th;
@@ -291,7 +291,7 @@ public final class b {
             long j7 = currentTimeMillis;
             long j8 = j3;
             com.kwai.filedownloader.e.f.dF(com.kwai.filedownloader.e.c.EJ());
-            interfaceC0406a.Di();
+            interfaceC0621a.Di();
             if (com.kwai.filedownloader.e.d.awL) {
                 com.kwai.filedownloader.e.d.e(com.kwai.filedownloader.a.a.class, str3, Long.valueOf(j8), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(System.currentTimeMillis() - j7));
             }

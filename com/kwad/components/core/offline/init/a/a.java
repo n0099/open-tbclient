@@ -17,7 +17,7 @@ import com.kwad.components.offline.api.core.video.listener.VideoPlayStateListene
 import com.kwad.components.offline.api.core.video.mdoel.KsPlayerLogParams;
 import com.kwad.components.offline.api.core.video.mdoel.PlayVideoInfo;
 import com.kwad.sdk.utils.am;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a implements IKsMediaPlayer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

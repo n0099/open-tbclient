@@ -28,7 +28,7 @@ import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ZeusLogRecorder extends ZeusCrashHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "ZeusLogRecorder";
@@ -48,7 +48,7 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
     public String recordPrefName;
     public AtomicInteger unUploadFileSize;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class LogRecordBean {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,12 +103,12 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface OnFinishedUploadLogListener {
         void onFinishedUploadLog(List<LogRecordBean> list, String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class WatchThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

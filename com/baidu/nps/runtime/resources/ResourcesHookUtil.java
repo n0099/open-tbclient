@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.tieba.o71;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n71;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
@@ -79,7 +79,7 @@ public class ResourcesHookUtil {
                             if (!new File(str).exists()) {
                                 return false;
                             }
-                            n71.d(assets, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
+                            o71.d(assets, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
                             if (set == null) {
                                 set = new HashSet<>();
                                 sAddedAssetsMap.put(str, set);
@@ -215,7 +215,7 @@ public class ResourcesHookUtil {
                 if (set == null || !set.contains(Integer.valueOf(hashCode))) {
                     if (new File(str).exists()) {
                         try {
-                            n71.d(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
+                            o71.d(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
                             if (set == null) {
                                 set = new HashSet<>();
                                 sAddedAssetsMap.put(str, set);
@@ -260,7 +260,7 @@ public class ResourcesHookUtil {
                 if (set == null || !set.contains(Integer.valueOf(hashCode))) {
                     if (new File(str).exists()) {
                         try {
-                            n71.d(assets, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
+                            o71.d(assets, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
                             if (set == null) {
                                 set = new HashSet<>();
                                 sAddedAssetsMap.put(str, set);

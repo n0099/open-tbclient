@@ -21,7 +21,7 @@ import com.kwad.components.ad.reward.k.u;
 import com.kwad.components.core.i.e;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b extends e implements a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public final class b extends e implements a.b {
     public com.kwad.components.ad.reward.a.a oy;
     public a oz;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void gn();
     }

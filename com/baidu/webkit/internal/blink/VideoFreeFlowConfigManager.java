@@ -14,7 +14,7 @@ import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoFreeFlowConfigManager implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIRECT = "DIRECT";
@@ -34,7 +34,7 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
     public byte[] mListLock;
     public ArrayList<a> mPacRulesList;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

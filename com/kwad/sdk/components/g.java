@@ -1,5 +1,5 @@
 package com.kwad.sdk.components;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface g {
     void onSuccess();
 

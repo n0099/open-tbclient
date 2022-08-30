@@ -8,6 +8,7 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class CircleView extends View {
     public static /* synthetic */ Interceptable $ic = null;
@@ -41,7 +41,7 @@ public class CircleView extends View {
                 return;
             }
         }
-        g = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+        g = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds3);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,8 +68,8 @@ public class CircleView extends View {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            e = qi.f(context, R.dimen.tbds94);
-            f = qi.f(context, R.dimen.tbds94);
+            e = ri.f(context, R.dimen.tbds94);
+            f = ri.f(context, R.dimen.tbds94);
             Paint paint = new Paint();
             this.d = paint;
             paint.setColor(context.getResources().getColor(R.color.CAM_X0314));

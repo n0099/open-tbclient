@@ -64,7 +64,7 @@ import com.facebook.imagepipeline.producers.ThumbnailBranchProducer;
 import com.facebook.imagepipeline.producers.ThumbnailProducer;
 import com.facebook.imagepipeline.producers.WebpTranscodeProducer;
 import com.facebook.imagepipeline.transcoder.ImageTranscoderFactory;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ProducerFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SIMULTANEOUS_REQUESTS = 5;

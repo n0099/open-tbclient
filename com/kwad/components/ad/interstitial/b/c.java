@@ -38,7 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class c extends com.kwad.sdk.mvp.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +57,7 @@ public final class c extends com.kwad.sdk.mvp.a {
     @NonNull
     public KSFrameLayout gq;
     public d gr;
-    public List<InterfaceC0318c> gs;
+    public List<InterfaceC0533c> gs;
     public com.kwad.components.ad.interstitial.c.b gt;
     public List<a.b> gu;
     public volatile boolean gv;
@@ -68,7 +68,7 @@ public final class c extends com.kwad.sdk.mvp.a {
     public Handler mHandler;
 
     /* renamed from: com.kwad.components.ad.interstitial.b.c$4  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class AnonymousClass4 implements ImageLoadingListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -207,12 +207,12 @@ public final class c extends com.kwad.sdk.mvp.a {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void cy();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -346,17 +346,17 @@ public final class c extends com.kwad.sdk.mvp.a {
     }
 
     /* renamed from: com.kwad.components.ad.interstitial.b.c$c  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0318c {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0533c {
         void cH();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface d {
         void cI();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface e {
         void onError();
     }
@@ -467,7 +467,7 @@ public final class c extends com.kwad.sdk.mvp.a {
     public final void a(Context context, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i, i2, i3) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0354a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(2).a(new a.b(this, 9, i, context) { // from class: com.kwad.components.ad.interstitial.b.c.3
+            com.kwad.components.core.c.a.a.a(new a.C0569a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(2).a(new a.b(this, 9, i, context) { // from class: com.kwad.components.ad.interstitial.b.c.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int gA;
@@ -523,7 +523,7 @@ public final class c extends com.kwad.sdk.mvp.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             boolean z = bVar.cC() == 1;
-            if ((com.kwad.components.ad.interstitial.kwai.b.cl() || z || bVar.cE()) && com.kwad.components.core.c.a.a.a(new a.C0354a(bVar.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(z).ae(bVar.cC()).a(new a.b(this, bVar) { // from class: com.kwad.components.ad.interstitial.b.c.1
+            if ((com.kwad.components.ad.interstitial.kwai.b.cl() || z || bVar.cE()) && com.kwad.components.core.c.a.a.a(new a.C0569a(bVar.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(z).ae(bVar.cC()).a(new a.b(this, bVar) { // from class: com.kwad.components.ad.interstitial.b.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b gy;
@@ -669,8 +669,8 @@ public final class c extends com.kwad.sdk.mvp.a {
     public final void cA() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            for (InterfaceC0318c interfaceC0318c : this.gs) {
-                interfaceC0318c.cH();
+            for (InterfaceC0533c interfaceC0533c : this.gs) {
+                interfaceC0533c.cH();
             }
         }
     }

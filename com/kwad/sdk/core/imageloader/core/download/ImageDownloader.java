@@ -3,10 +3,10 @@ package com.kwad.sdk.core.imageloader.core.download;
 import com.sina.weibo.sdk.utils.ResourceManager;
 import java.io.InputStream;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface ImageDownloader {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public enum Scheme {
         HTTP("http"),
         HTTPS("https"),

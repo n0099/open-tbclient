@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class AdsMediaSource implements MediaSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AdsMediaSource";
@@ -53,7 +53,7 @@ public final class AdsMediaSource implements MediaSource {
     public Handler playerHandler;
     public volatile boolean released;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface AdsListener {
         void onAdClicked();
 
@@ -62,7 +62,7 @@ public final class AdsMediaSource implements MediaSource {
         void onAdTapped();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public final class ComponentListener implements AdsLoader.EventListener, ExtractorMediaSource.EventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

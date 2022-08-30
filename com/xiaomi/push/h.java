@@ -17,6 +17,7 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.android.util.io.ActionJsonData;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -368,7 +369,7 @@ public class h {
             }
             try {
                 if (Settings.Secure.getInt(context.getContentResolver(), "freeform_window_state", -1) >= 0) {
-                    return str.equals(Settings.Secure.getString(context.getContentResolver(), "freeform_package_name"));
+                    return str.equals(ApiReplaceUtil.Overload.getString(context.getContentResolver(), "freeform_package_name"));
                 }
                 return false;
             } catch (Exception unused) {

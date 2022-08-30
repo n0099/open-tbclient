@@ -6,6 +6,8 @@ import android.os.Looper;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ac9;
+import com.baidu.tieba.ec9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,14 +16,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.player.AudioPlayData;
 import com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSourceTimerManager;
 import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
-import com.repackage.rb9;
-import com.repackage.vb9;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VLogAudioPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_ERROR = -1;
@@ -55,12 +55,12 @@ public class VLogAudioPlayer {
     public volatile int mTargetState;
     public Timer mUpdateProgressTimer;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface OnProgressListener {
         void getCurrentDuration(long j);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class ProgressTimerTask extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public class VLogAudioPlayer {
                         return;
                     }
                 } else if (this.this$0.mMediaPlayer != null) {
-                    rb9.e(VLogAudioPlayer.TAG, "是否静音：" + this.this$0.isMute);
+                    ac9.e(VLogAudioPlayer.TAG, "是否静音：" + this.this$0.isMute);
                     if (!this.this$0.isMute) {
                         try {
                             this.this$0.updateVolume(this.this$0.mMediaPlayer.getCurrentPosition());
@@ -577,7 +577,7 @@ public class VLogAudioPlayer {
                 AudioPlayData audioPlayData2 = list.get(i);
                 if (!TextUtils.isEmpty(audioPlayData2.audioPath)) {
                     mediaMetadataRetriever.setDataSource(audioPlayData2.audioPath);
-                    int b = vb9.b(mediaMetadataRetriever.extractMetadata(9), 0);
+                    int b = ec9.b(mediaMetadataRetriever.extractMetadata(9), 0);
                     audioPlayData2.realDuration = b;
                     if (audioPlayData == null) {
                         if (b <= 0) {
@@ -1021,7 +1021,7 @@ public class VLogAudioPlayer {
     public void setMute(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            rb9.e(TAG, "设置静音");
+            ac9.e(TAG, "设置静音");
             this.isMute = z;
             setVolume(0.0f);
         }
@@ -1101,7 +1101,7 @@ public class VLogAudioPlayer {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        rb9.e(VLogAudioPlayer.TAG, "设置音量为 = " + this.val$volume);
+                        ac9.e(VLogAudioPlayer.TAG, "设置音量为 = " + this.val$volume);
                         this.this$0.setVolumeInternal(this.val$volume);
                     }
                 }

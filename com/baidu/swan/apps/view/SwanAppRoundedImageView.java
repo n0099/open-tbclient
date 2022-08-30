@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.kz2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jz2;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes3.dex */
 public class SwanAppRoundedImageView extends ImageView {
@@ -162,7 +162,7 @@ public class SwanAppRoundedImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, drawable) == null) {
             if (this.d && drawable != null) {
-                this.f = jz2.b(drawable, this.g, this.a, this.b, this.c);
+                this.f = kz2.b(drawable, this.g, this.a, this.b, this.c);
             } else {
                 this.f = drawable;
             }
@@ -177,13 +177,13 @@ public class SwanAppRoundedImageView extends ImageView {
         }
         this.c = i;
         Drawable drawable = this.e;
-        if (drawable instanceof jz2) {
-            ((jz2) drawable).d(i);
+        if (drawable instanceof kz2) {
+            ((kz2) drawable).d(i);
         }
         if (this.d) {
             Drawable drawable2 = this.f;
-            if (drawable2 instanceof jz2) {
-                ((jz2) drawable2).d(i);
+            if (drawable2 instanceof kz2) {
+                ((kz2) drawable2).d(i);
             }
         }
         if (this.b > 0) {
@@ -198,13 +198,13 @@ public class SwanAppRoundedImageView extends ImageView {
         }
         this.b = i;
         Drawable drawable = this.e;
-        if (drawable instanceof jz2) {
-            ((jz2) drawable).e(i);
+        if (drawable instanceof kz2) {
+            ((kz2) drawable).e(i);
         }
         if (this.d) {
             Drawable drawable2 = this.f;
-            if (drawable2 instanceof jz2) {
-                ((jz2) drawable2).e(i);
+            if (drawable2 instanceof kz2) {
+                ((kz2) drawable2).e(i);
             }
         }
         invalidate();
@@ -217,13 +217,13 @@ public class SwanAppRoundedImageView extends ImageView {
         }
         this.a = i;
         Drawable drawable = this.e;
-        if (drawable instanceof jz2) {
-            ((jz2) drawable).f(i);
+        if (drawable instanceof kz2) {
+            ((kz2) drawable).f(i);
         }
         if (this.d) {
             Drawable drawable2 = this.f;
-            if (drawable2 instanceof jz2) {
-                ((jz2) drawable2).f(i);
+            if (drawable2 instanceof kz2) {
+                ((kz2) drawable2).f(i);
             }
         }
     }
@@ -233,11 +233,11 @@ public class SwanAppRoundedImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bitmap) == null) {
             if (bitmap != null) {
-                jz2 jz2Var = new jz2(bitmap, this.a, this.b, this.c);
-                this.e = jz2Var;
+                kz2 kz2Var = new kz2(bitmap, this.a, this.b, this.c);
+                this.e = kz2Var;
                 ImageView.ScaleType scaleType = this.g;
                 if (scaleType != null) {
-                    jz2Var.h(scaleType);
+                    kz2Var.h(scaleType);
                 }
             } else {
                 this.e = null;
@@ -251,7 +251,7 @@ public class SwanAppRoundedImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, drawable) == null) {
             if (drawable != null) {
-                this.e = jz2.b(drawable, this.g, this.a, this.b, this.c);
+                this.e = kz2.b(drawable, this.g, this.a, this.b, this.c);
             } else {
                 this.e = null;
             }
@@ -267,19 +267,19 @@ public class SwanAppRoundedImageView extends ImageView {
         this.d = z;
         if (z) {
             Drawable drawable = this.f;
-            if (drawable instanceof jz2) {
-                ((jz2) drawable).h(this.g);
-                ((jz2) this.f).f(this.a);
-                ((jz2) this.f).e(this.b);
-                ((jz2) this.f).d(this.c);
+            if (drawable instanceof kz2) {
+                ((kz2) drawable).h(this.g);
+                ((kz2) this.f).f(this.a);
+                ((kz2) this.f).e(this.b);
+                ((kz2) this.f).d(this.c);
             } else {
                 setBackgroundDrawable(drawable);
             }
         } else {
             Drawable drawable2 = this.f;
-            if (drawable2 instanceof jz2) {
-                ((jz2) drawable2).e(0);
-                ((jz2) this.f).f(0.0f);
+            if (drawable2 instanceof kz2) {
+                ((kz2) drawable2).e(0);
+                ((kz2) this.f).f(0.0f);
             }
         }
         invalidate();
@@ -307,12 +307,12 @@ public class SwanAppRoundedImageView extends ImageView {
                 break;
         }
         Drawable drawable = this.e;
-        if ((drawable instanceof jz2) && ((jz2) drawable).c() != scaleType) {
-            ((jz2) this.e).h(scaleType);
+        if ((drawable instanceof kz2) && ((kz2) drawable).c() != scaleType) {
+            ((kz2) this.e).h(scaleType);
         }
         Drawable drawable2 = this.f;
-        if ((drawable2 instanceof jz2) && ((jz2) drawable2).c() != scaleType) {
-            ((jz2) this.f).h(scaleType);
+        if ((drawable2 instanceof kz2) && ((kz2) drawable2).c() != scaleType) {
+            ((kz2) this.f).h(scaleType);
         }
         setWillNotCacheDrawing(true);
         requestLayout();

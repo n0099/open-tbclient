@@ -2,12 +2,12 @@ package com.baidu.bdtask.ctrl.actions.finishreq;
 
 import com.baidu.bdtask.ctrl.repo.a;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.tieba.yq;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xq;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 import kotlin.Metadata;
@@ -40,7 +40,7 @@ public final class b {
         this.b = new CopyOnWriteArraySet();
     }
 
-    public final Function2<Function1<? super xq, Unit>, Function0<com.baidu.bdtask.ctrl.b>, Function1<Function1<? super xq, Unit>, Function1<xq, Unit>>> b() {
+    public final Function2<Function1<? super yq, Unit>, Function0<com.baidu.bdtask.ctrl.b>, Function1<Function1<? super yq, Unit>, Function1<yq, Unit>>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new TaskFinishReqMiddleware$taskFinishMiddleWare$1(this) : (Function2) invokeV.objValue;

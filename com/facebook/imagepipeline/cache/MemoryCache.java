@@ -4,10 +4,10 @@ import com.facebook.common.internal.Predicate;
 import com.facebook.common.memory.MemoryTrimType;
 import com.facebook.common.references.CloseableReference;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface MemoryCache<K, V> {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface CacheTrimStrategy {
         double getTrimRatio(MemoryTrimType memoryTrimType);
     }

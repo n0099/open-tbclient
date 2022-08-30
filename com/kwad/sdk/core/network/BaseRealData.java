@@ -3,7 +3,7 @@ package com.kwad.sdk.core.network;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class BaseRealData extends BaseResultData {
     public abstract void parseData(@NonNull JSONObject jSONObject);
 

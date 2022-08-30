@@ -63,6 +63,11 @@ import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.tieba.m60;
+import com.baidu.tieba.u70;
+import com.baidu.tieba.w60;
+import com.baidu.tieba.y60;
+import com.baidu.tieba.z50;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,11 +75,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l60;
-import com.repackage.t70;
-import com.repackage.v60;
-import com.repackage.x60;
-import com.repackage.y50;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -204,7 +204,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (v60.b() == 0 && LoginManager.getInstance(BIMManager.sContext).getCurrentState() != LoginManager.LoginState.LOGINED) {
+                    if (w60.b() == 0 && LoginManager.getInstance(BIMManager.sContext).getCurrentState() != LoginManager.LoginState.LOGINED) {
                         LogUtils.e("BIMManager", "checkIMLoginState lcp connected, but im not login, triggle im relogin");
                         LoginManager.getInstance(BIMManager.sContext).triggleLogoutListener(4001, Constants.ERROR_LOGIN_STATE_ERROR);
                     }
@@ -357,7 +357,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 return false;
             }
             try {
-                t70.a = z;
+                u70.a = z;
             } catch (Throwable unused) {
                 LogUtils.e(BaseManager.TAG, "LCPConstants.LOG_DEBUG not found");
             }
@@ -662,7 +662,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65592, null, context) == null) {
             try {
-                l60.e(context);
+                m60.e(context);
                 LoginManager.getInstance(context).onLogoutResultInternal(0, "lcp unconnected");
             } catch (Exception e) {
                 LogUtils.e(BaseManager.TAG, "imLogoutByLcp exception ", e);
@@ -716,12 +716,12 @@ public class BIMManager extends BaseManager implements NoProGuard {
             }
             Context applicationContext = context.getApplicationContext();
             sContext = applicationContext;
-            l60.e = v60.d(applicationContext);
-            if (l60.e) {
+            m60.e = w60.d(applicationContext);
+            if (m60.e) {
                 try {
                     initLCP();
-                    t70.c(applicationContext, i != 0);
-                    t70.d(applicationContext, i);
+                    u70.c(applicationContext, i != 0);
+                    u70.d(applicationContext, i);
                 } catch (Throwable unused) {
                     LogUtils.e(BaseManager.TAG, "LCPConstants.setLcpEnv not found");
                 }
@@ -758,7 +758,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                         }
                         try {
                             BIMManager.initIMServiceImpl(context2);
-                            l60.c.removeCallbacks(BIMManager.checkIMLoginState);
+                            m60.c.removeCallbacks(BIMManager.checkIMLoginState);
                             if (z) {
                                 BIMManager.postCheckRunnable();
                             }
@@ -778,7 +778,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
             ConversationManagerImpl.getInstance(applicationContext);
             Utility.clearExpiredMsg(applicationContext);
             registerInternalListener(RetrieveMsgReceiver.getInstance(applicationContext));
-            y50.d().e(applicationContext, str, i, Constants.isDebugMode());
+            z50.d().e(applicationContext, str, i, Constants.isDebugMode());
             return true;
         }
         return invokeCommon.booleanValue;
@@ -814,7 +814,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        l60.g(this.val$context);
+                        m60.g(this.val$context);
                     }
                 }
             });
@@ -824,7 +824,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     public static void initLCP() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65596, null) == null) {
-            x60.e().i(sContext);
+            y60.e().i(sContext);
         }
     }
 
@@ -1132,7 +1132,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     public static void pingRequest() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65628, null) == null) {
-            v60.e();
+            w60.e();
         }
     }
 
@@ -1141,7 +1141,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
         if (interceptable == null || interceptable.invokeV(65629, null) == null) {
             try {
                 LogUtils.i("BIMManager", "postCheckRunnable after 30s");
-                l60.c.postDelayed(checkIMLoginState, 30000L);
+                m60.c.postDelayed(checkIMLoginState, 30000L);
             } catch (Exception e) {
                 LogUtils.e(BaseManager.TAG, "postCheckRunnable exception ", e);
             }
@@ -1365,7 +1365,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
 
     public static void tryConnection(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65656, null, context) == null) || l60.e) {
+        if (!(interceptable == null || interceptable.invokeL(65656, null, context) == null) || m60.e) {
             return;
         }
         AccountManagerImpl.getInstance(context);

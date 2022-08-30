@@ -30,7 +30,7 @@ import com.facebook.soloader.DoNotOptimize;
 import java.util.Locale;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class DalvikPurgeableDecoder implements PlatformDecoder {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] EOI;
@@ -38,7 +38,7 @@ public abstract class DalvikPurgeableDecoder implements PlatformDecoder {
     public final BitmapCounter mUnpooledBitmapsCounter;
 
     @DoNotOptimize
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class OreoUtils {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

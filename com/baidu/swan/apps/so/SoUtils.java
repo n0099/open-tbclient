@@ -7,6 +7,8 @@ import android.util.Log;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.tieba.kh1;
+import com.baidu.tieba.s63;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,8 +16,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jh1;
-import com.repackage.r63;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -57,8 +57,8 @@ public final class SoUtils {
                 return;
             }
         }
-        DEBUG = jh1.a;
-        sUbcImpl = new r63();
+        DEBUG = kh1.a;
+        sUbcImpl = new s63();
         uris = new String[]{"lib/armeabi", "lib/arm64-v8a"};
     }
 

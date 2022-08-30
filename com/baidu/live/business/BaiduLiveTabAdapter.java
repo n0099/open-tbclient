@@ -18,12 +18,12 @@ import com.baidu.live.business.model.data.LiveFeedWrapData;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.feedpage.interfaces.ILiveFeedOther;
 import com.baidu.live.feedpage.interfaces.ILiveFeedRefresh;
+import com.baidu.tieba.ma0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.la0;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
@@ -146,7 +146,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         LiveTabEntity liveTabEntity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (!la0.c(this.f) && str != null) {
+            if (!ma0.c(this.f) && str != null) {
                 for (int i = 0; i < this.f.size(); i++) {
                     b bVar = this.f.get(i);
                     if (bVar != null && (liveTabEntity = bVar.a) != null && str.equals(liveTabEntity.type)) {
@@ -163,7 +163,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            b bVar = (b) la0.b(this.f, i);
+            b bVar = (b) ma0.b(this.f, i);
             if (bVar != null) {
                 return bVar.a;
             }
@@ -333,7 +333,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
     public void m(String str) {
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, str) == null) || la0.c(this.f)) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, str) == null) || ma0.c(this.f)) {
             return;
         }
         for (b bVar : this.f) {
@@ -356,7 +356,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
     public void o() {
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || la0.c(this.f)) {
+        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || ma0.c(this.f)) {
             return;
         }
         for (b bVar : this.f) {
@@ -369,7 +369,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            if (!la0.c(this.f)) {
+            if (!ma0.c(this.f)) {
                 this.f.clear();
             }
             notifyDataSetChanged();
@@ -428,7 +428,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
 
     public void t(List<LiveTabEntity> list, LiveFeedWrapData liveFeedWrapData, LiveFeedConfig liveFeedConfig, LiveFeedReserveWrapData liveFeedReserveWrapData, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(1048602, this, list, liveFeedWrapData, liveFeedConfig, liveFeedReserveWrapData, str) == null) || la0.c(list)) {
+        if (!(interceptable == null || interceptable.invokeLLLLL(1048602, this, list, liveFeedWrapData, liveFeedConfig, liveFeedReserveWrapData, str) == null) || ma0.c(list)) {
             return;
         }
         this.h = str;
@@ -453,7 +453,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         b bVar;
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048603, this, str, str2, i) == null) || la0.c(this.f) || (bVar = (b) la0.b(this.f, i)) == null || (weakReference = bVar.b) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048603, this, str, str2, i) == null) || ma0.c(this.f) || (bVar = (b) ma0.b(this.f, i)) == null || (weakReference = bVar.b) == null || weakReference.get() == null) {
             return;
         }
         bVar.b.get().W3(str, str2);

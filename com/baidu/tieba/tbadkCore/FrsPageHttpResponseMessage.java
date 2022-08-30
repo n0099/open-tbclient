@@ -9,24 +9,24 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.pj8;
+import com.baidu.tieba.yj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hj8;
-import com.repackage.og;
-import com.repackage.qj8;
 import tbclient.Error;
 import tbclient.FrsPage.FrsPageResIdl;
-/* loaded from: classes4.dex */
-public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<qj8, FrsPageResIdl> {
+/* loaded from: classes5.dex */
+public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<yj8, FrsPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mCategoryId;
     public int mIsGood;
     public boolean needCache;
-    public qj8 responseData;
+    public yj8 responseData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -55,10 +55,10 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? FrsPageResIdl.class : (Class) invokeV.objValue;
     }
 
-    public qj8 getResponseData() {
+    public yj8 getResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.responseData : (qj8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.responseData : (yj8) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -90,10 +90,10 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         }
     }
 
-    public void setResponseData(qj8 qj8Var) {
+    public void setResponseData(yj8 yj8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, qj8Var) == null) {
-            this.responseData = qj8Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, yj8Var) == null) {
+            this.responseData = yj8Var;
         }
     }
 
@@ -107,18 +107,18 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        qj8 qj8Var;
+        yj8 yj8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || hasError() || (qj8Var = this.responseData) == null || !this.needCache || qj8Var.getForum() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || hasError() || (yj8Var = this.responseData) == null || !this.needCache || yj8Var.getForum() == null) {
             return;
         }
         int sortType = this.responseData.getSortType();
-        hj8 i2 = hj8.i();
+        pj8 i2 = pj8.i();
         String g = i2.g("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
         if (sortType == 3) {
-            hj8.i().m(g, bArr);
+            pj8.i().m(g, bArr);
         } else {
-            hj8.i().a(g, bArr, true);
+            pj8.i().a(g, bArr, true);
         }
     }
 
@@ -130,7 +130,7 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             super.beforeDispatchInBackGround(i, (int) bArr);
-            if (this.responseData.getBookInfo() == null || StringUtils.isNull(this.responseData.getBookInfo().a(), true) || this.responseData.getBookInfo().a().equals("0") || this.responseData.getBookInfo().b() != 3 || (e = og.e(this.responseData.getBookInfo().a(), -1)) <= 0 || (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(e))) == null) {
+            if (this.responseData.getBookInfo() == null || StringUtils.isNull(this.responseData.getBookInfo().a(), true) || this.responseData.getBookInfo().a().equals("0") || this.responseData.getBookInfo().b() != 3 || (e = pg.e(this.responseData.getBookInfo().a(), -1)) <= 0 || (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(e))) == null) {
                 return;
             }
             this.responseData.setMangaReadRecordChapterId(Integer.valueOf(((Integer) runTask.getData()).intValue()));
@@ -143,9 +143,9 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i, bArr) == null) {
-            qj8 qj8Var = new qj8();
-            this.responseData = qj8Var;
-            FrsPageResIdl parserProtobuf = qj8Var.parserProtobuf(bArr, true);
+            yj8 yj8Var = new yj8();
+            this.responseData = yj8Var;
+            FrsPageResIdl parserProtobuf = yj8Var.parserProtobuf(bArr, true);
             if (parserProtobuf != null && (error = parserProtobuf.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -154,9 +154,9 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
                 }
                 setErrorString(parserProtobuf.error.usermsg);
             }
-            qj8 qj8Var2 = this.responseData;
-            qj8Var2.isFromCache = false;
-            setData(qj8Var2);
+            yj8 yj8Var2 = this.responseData;
+            yj8Var2.isFromCache = false;
+            setData(yj8Var2);
         }
     }
 }

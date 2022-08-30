@@ -12,6 +12,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.ve;
+import com.baidu.tieba.vr4;
+import com.baidu.tieba.y48;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,17 +23,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
-import com.repackage.q48;
-import com.repackage.tr4;
-import com.repackage.ue;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonBarModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public static final String e;
     public static TbHttpMessageTask f;
     public transient /* synthetic */ FieldHolder $fh;
-    public q48 a;
+    public y48 a;
     public boolean b;
     public String c;
     public int d;
@@ -73,7 +73,7 @@ public class PersonBarModel extends BdBaseModel {
                 return;
             }
         }
-        this.a = new q48();
+        this.a = new y48();
         this.b = z;
     }
 
@@ -112,8 +112,8 @@ public class PersonBarModel extends BdBaseModel {
             String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
             if (str != null) {
                 try {
-                    tr4.f();
-                    ue<String> g = tr4.g("tb.my_pages");
+                    vr4.f();
+                    ve<String> g = vr4.g("tb.my_pages");
                     if (g != null) {
                         g.e(id, str, 604800000L);
                     }
@@ -170,9 +170,9 @@ public class PersonBarModel extends BdBaseModel {
         }
     }
 
-    public q48 z() {
+    public y48 z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a : (q48) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a : (y48) invokeV.objValue;
     }
 }

@@ -1,6 +1,11 @@
 package com.badlogic.gdx.graphics;
 
 import com.badlogic.gdx.graphics.Pixmap;
+import com.baidu.tieba.j3;
+import com.baidu.tieba.p3;
+import com.baidu.tieba.p5;
+import com.baidu.tieba.q5;
+import com.baidu.tieba.v5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j3;
-import com.repackage.p3;
-import com.repackage.p5;
-import com.repackage.q5;
-import com.repackage.v5;
 /* loaded from: classes.dex */
 public interface TextureData {
 

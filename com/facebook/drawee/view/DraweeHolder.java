@@ -19,7 +19,7 @@ import com.facebook.drawee.drawable.VisibilityCallback;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.interfaces.DraweeHierarchy;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DraweeHolder<DH extends DraweeHierarchy> implements VisibilityCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

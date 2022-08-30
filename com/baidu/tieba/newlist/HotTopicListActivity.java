@@ -12,21 +12,21 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.mr7;
+import com.baidu.tieba.pn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.er7;
-import com.repackage.on;
 import java.util.List;
-/* loaded from: classes3.dex */
-public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements er7 {
+/* loaded from: classes5.dex */
+public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements mr7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotTopicListModel a;
     public HotTopicListView b;
-    public List<on> c;
+    public List<pn> c;
 
     public HotTopicListActivity() {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         }
     }
 
-    @Override // com.repackage.er7
+    @Override // com.baidu.tieba.mr7
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -63,15 +63,15 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.u95
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ba5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "a078" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.er7
-    public void j(int i, List<on> list) {
+    @Override // com.baidu.tieba.mr7
+    public void j(int i, List<pn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, list) == null) {
             this.b.m();

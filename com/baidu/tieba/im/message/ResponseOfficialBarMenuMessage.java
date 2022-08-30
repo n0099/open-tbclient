@@ -4,26 +4,26 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
+import com.baidu.tieba.p77;
+import com.baidu.tieba.q77;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h77;
-import com.repackage.i77;
-import com.repackage.tr4;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ForumMenu.ForumMenuResIdl;
 import tbclient.ForumMenu.Menu;
 import tbclient.ForumMenu.SubMenu;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OFFICIAL_BAR_MENU_KEY_PRE = "official_bar_menu_";
     public transient /* synthetic */ FieldHolder $fh;
-    public i77 officialBarMenuDatas;
+    public q77 officialBarMenuDatas;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseOfficialBarMenuMessage() {
@@ -55,41 +55,41 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
             if (getError() != 0) {
                 return forumMenuResIdl;
             }
-            this.officialBarMenuDatas = new i77();
+            this.officialBarMenuDatas = new q77();
             if (forumMenuResIdl.data != null) {
                 getOfficialBarMenuDatas().f(forumMenuResIdl.data.update_time.intValue());
                 getOfficialBarMenuDatas().d(forumMenuResIdl.data.has_menu.intValue());
                 getOfficialBarMenuDatas().e(new ArrayList());
                 int size = forumMenuResIdl.data.parent_menu.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    h77 h77Var = new h77();
+                    p77 p77Var = new p77();
                     Menu menu = forumMenuResIdl.data.parent_menu.get(i2);
-                    h77Var.f(menu.action_type.intValue());
-                    h77Var.g(menu.content);
-                    h77Var.h(menu.create_time.intValue());
-                    h77Var.i(menu.forum_id + "");
-                    h77Var.j(menu.id + "");
-                    h77Var.k(menu.level.intValue());
-                    h77Var.l(menu.name);
-                    h77Var.n(new ArrayList());
+                    p77Var.f(menu.action_type.intValue());
+                    p77Var.g(menu.content);
+                    p77Var.h(menu.create_time.intValue());
+                    p77Var.i(menu.forum_id + "");
+                    p77Var.j(menu.id + "");
+                    p77Var.k(menu.level.intValue());
+                    p77Var.l(menu.name);
+                    p77Var.n(new ArrayList());
                     List<SubMenu> list = menu.sub_menu;
                     if (list != null) {
                         int size2 = list.size();
                         for (int i3 = 0; i3 < size2; i3++) {
                             SubMenu subMenu = menu.sub_menu.get(i3);
-                            h77 h77Var2 = new h77();
-                            h77Var2.f(subMenu.action_type.intValue());
-                            h77Var2.g(subMenu.content);
-                            h77Var2.i(subMenu.forum_id + "");
-                            h77Var2.j(subMenu.id + "");
-                            h77Var2.k(subMenu.level.intValue());
-                            h77Var2.l(subMenu.name);
-                            h77Var2.m(subMenu.parent_id.intValue());
-                            h77Var2.o(subMenu.update_time.intValue());
-                            h77Var.e().add(h77Var2);
+                            p77 p77Var2 = new p77();
+                            p77Var2.f(subMenu.action_type.intValue());
+                            p77Var2.g(subMenu.content);
+                            p77Var2.i(subMenu.forum_id + "");
+                            p77Var2.j(subMenu.id + "");
+                            p77Var2.k(subMenu.level.intValue());
+                            p77Var2.l(subMenu.name);
+                            p77Var2.m(subMenu.parent_id.intValue());
+                            p77Var2.o(subMenu.update_time.intValue());
+                            p77Var.e().add(p77Var2);
                         }
                     }
-                    getOfficialBarMenuDatas().a().add(h77Var);
+                    getOfficialBarMenuDatas().a().add(p77Var);
                 }
             }
             return forumMenuResIdl;
@@ -97,22 +97,22 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
         return invokeIL.objValue;
     }
 
-    public i77 getOfficialBarMenuDatas() {
+    public q77 getOfficialBarMenuDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.officialBarMenuDatas : (i77) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.officialBarMenuDatas : (q77) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
         Message<?> orginalMessage;
-        i77 officialBarMenuDatas;
+        q77 officialBarMenuDatas;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (orginalMessage = getOrginalMessage()) == null || !(orginalMessage instanceof RequestOfficialBarMenuMessage) || getError() != 0 || (officialBarMenuDatas = getOfficialBarMenuDatas()) == null || !officialBarMenuDatas.c() || officialBarMenuDatas.a() == null || officialBarMenuDatas.a().size() <= 0) {
             return;
         }
-        tr4.f();
-        TbSocketReponsedMessage.saveProtocolBufferDataToCache(tr4.d("tb.official_bar_menu"), OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuMessage) orginalMessage).getForum_id(), bArr);
+        vr4.f();
+        TbSocketReponsedMessage.saveProtocolBufferDataToCache(vr4.d("tb.official_bar_menu"), OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuMessage) orginalMessage).getForum_id(), bArr);
     }
 }

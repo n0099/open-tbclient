@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -103,7 +104,7 @@ public class bt {
                         file = new File(file3.getAbsolutePath() + ".lock");
                         try {
                             ab.m161a(file);
-                            randomAccessFile = new RandomAccessFile(file, "rw");
+                            randomAccessFile = new RandomAccessFile(file, rw.c);
                             try {
                                 try {
                                     fileLock = randomAccessFile.getChannel().lock();

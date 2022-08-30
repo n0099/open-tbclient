@@ -25,7 +25,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<HttpUrlConnectionNetworkFetchState> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FETCH_TIME = "fetch_time";
@@ -46,7 +46,7 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<HttpUrlC
     @Nullable
     public String mUserAgent;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class HttpUrlConnectionNetworkFetchState extends FetchState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

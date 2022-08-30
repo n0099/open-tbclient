@@ -13,17 +13,17 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
+import com.baidu.tieba.br5;
+import com.baidu.tieba.ms5;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.pn;
+import com.baidu.tieba.pr5;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.es5;
-import com.repackage.hr5;
-import com.repackage.oi;
-import com.repackage.on;
-import com.repackage.qi;
-import com.repackage.tq5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaLiveYYSubTabModel extends BdBaseModel {
@@ -33,7 +33,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
     public boolean b;
     public boolean c;
     public BdUniqueId d;
-    public es5 e;
+    public ms5 e;
     public long f;
     public int g;
     public String h;
@@ -80,16 +80,16 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
                         this.a.k.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.c);
                     }
                 } else {
-                    hr5 hr5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    pr5 pr5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.c) {
-                        this.a.e.a(hr5Var);
+                        this.a.e.a(pr5Var);
                     } else {
-                        tq5.a(this.a.g);
+                        br5.a(this.a.g);
                         if (this.a.e != null) {
                             this.a.e.b();
                         }
                         AlaLiveYYSubTabModel alaLiveYYSubTabModel = this.a;
-                        alaLiveYYSubTabModel.e = new es5(hr5Var, alaLiveYYSubTabModel.h, this.a.i);
+                        alaLiveYYSubTabModel.e = new ms5(pr5Var, alaLiveYYSubTabModel.h, this.a.i);
                     }
                     AlaLiveYYSubTabModel alaLiveYYSubTabModel2 = this.a;
                     alaLiveYYSubTabModel2.b = alaLiveYYSubTabModel2.e.f();
@@ -104,7 +104,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(boolean z, List<on> list);
+        void a(boolean z, List<pn> list);
 
         void b(int i, String str, boolean z);
     }
@@ -138,19 +138,19 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
             httpMessage.addParam("tab_id", this.g);
             String str = "N";
-            if (oi.z()) {
-                if (oi.H()) {
+            if (pi.z()) {
+                if (pi.H()) {
                     str = "1_0";
-                } else if (oi.v()) {
+                } else if (pi.v()) {
                     str = "0_13";
-                } else if (oi.u()) {
+                } else if (pi.u()) {
                     str = "0_3";
-                } else if (oi.t()) {
+                } else if (pi.t()) {
                     str = "0_2";
                 }
             }
             httpMessage.addParam("network", str);
-            httpMessage.addParam("ua_str", qi.k(this.a.getPageActivity()) + "_" + qi.i(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
+            httpMessage.addParam("ua_str", ri.k(this.a.getPageActivity()) + "_" + ri.i(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
             httpMessage.addParam("session_id", this.f);
             httpMessage.addParam("refresh_type", i);
             httpMessage.addParam("big_refresh_count", i2);
@@ -165,8 +165,8 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            es5 es5Var = this.e;
-            return (es5Var == null || ListUtils.isEmpty(es5Var.d())) ? false : true;
+            ms5 ms5Var = this.e;
+            return (ms5Var == null || ListUtils.isEmpty(ms5Var.d())) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -179,7 +179,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
                 this.f = currentTimeMillis;
             }
             this.c = true;
-            K(1, tq5.b(this.g) - 1);
+            K(1, br5.b(this.g) - 1);
         }
     }
 
@@ -222,7 +222,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.f = System.currentTimeMillis();
             this.c = false;
-            K(0, tq5.b(this.g));
+            K(0, br5.b(this.g));
         }
     }
 

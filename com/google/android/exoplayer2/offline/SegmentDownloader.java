@@ -20,7 +20,7 @@ import com.google.android.exoplayer2.util.PriorityTaskManager;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class SegmentDownloader<M, K> implements Downloader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE_BYTES = 131072;
@@ -36,7 +36,7 @@ public abstract class SegmentDownloader<M, K> implements Downloader {
     public final PriorityTaskManager priorityTaskManager;
     public volatile int totalSegments;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Segment implements Comparable<Segment> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

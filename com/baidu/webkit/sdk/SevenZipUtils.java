@@ -10,6 +10,7 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +37,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SevenZipUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSETS_NAME_PREFIX = "file:///android_assets";
@@ -392,7 +393,7 @@ public class SevenZipUtils {
             }
             try {
                 this.mLockFile = new File(file, "lock");
-                RandomAccessFile randomAccessFile = new RandomAccessFile(this.mLockFile, "rw");
+                RandomAccessFile randomAccessFile = new RandomAccessFile(this.mLockFile, rw.c);
                 this.mLockRAFile = randomAccessFile;
                 FileChannel channel = randomAccessFile.getChannel();
                 this.mChannel = channel;

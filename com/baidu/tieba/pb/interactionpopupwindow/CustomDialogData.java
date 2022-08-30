@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class CustomDialogData implements IBaseDialogData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String POS_LEFT = "left";
@@ -26,7 +26,7 @@ public class CustomDialogData implements IBaseDialogData {
     public Button rightButton;
     public int type;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class Button implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class CustomDialogData implements IBaseDialogData {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class Head implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

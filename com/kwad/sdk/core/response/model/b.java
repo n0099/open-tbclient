@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.response.model;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public boolean Kh = true;
     public boolean adj;

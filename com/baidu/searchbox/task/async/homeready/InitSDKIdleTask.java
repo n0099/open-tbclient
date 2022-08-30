@@ -5,12 +5,12 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.switchs.LaunchUpApplicationSwitch;
+import com.baidu.tieba.k20;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j20;
 /* loaded from: classes2.dex */
 public class InitSDKIdleTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -33,7 +33,7 @@ public class InitSDKIdleTask extends LaunchTask {
     private void initAxeSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            j20.a.c(TbadkCoreApplication.getInst()).b().t();
+            k20.a.c(TbadkCoreApplication.getInst()).b().t();
         }
     }
 

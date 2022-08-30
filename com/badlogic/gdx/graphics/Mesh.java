@@ -7,6 +7,17 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.BoundingBox;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.a6;
+import com.baidu.tieba.a7;
+import com.baidu.tieba.e1;
+import com.baidu.tieba.h7;
+import com.baidu.tieba.s3;
+import com.baidu.tieba.s5;
+import com.baidu.tieba.t3;
+import com.baidu.tieba.t5;
+import com.baidu.tieba.u5;
+import com.baidu.tieba.y5;
+import com.baidu.tieba.z5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,17 +25,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a6;
-import com.repackage.a7;
-import com.repackage.e1;
-import com.repackage.h7;
-import com.repackage.s3;
-import com.repackage.s5;
-import com.repackage.t3;
-import com.repackage.t5;
-import com.repackage.u5;
-import com.repackage.y5;
-import com.repackage.z5;
 import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
 import java.util.HashMap;
@@ -194,7 +194,7 @@ public class Mesh implements h7 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.c() : invokeV.intValue;
     }
 
-    @Override // com.repackage.h7
+    @Override // com.baidu.tieba.h7
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

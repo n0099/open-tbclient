@@ -3,12 +3,12 @@ package com.baidu.tieba.barselect.data;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.af5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.te5;
 import tbclient.ElectionInfo.DataReq;
 import tbclient.ElectionInfo.ElectionInfoReqIdl;
 /* loaded from: classes3.dex */
@@ -47,7 +47,7 @@ public class VoteElectionRequestMessage extends NetMessage {
             builder.fid = Long.valueOf(this.fid);
             builder.rn = Integer.valueOf(this.rn);
             builder.pn = Integer.valueOf(this.pn);
-            te5.a(builder, false);
+            af5.a(builder, false);
             ElectionInfoReqIdl.Builder builder2 = new ElectionInfoReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

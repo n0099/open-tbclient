@@ -15,7 +15,7 @@ import com.kwad.components.ad.reward.k.u;
 import com.kwad.components.core.widget.KsLogoView;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class d extends com.kwad.components.ad.reward.presenter.a implements com.kwad.components.ad.reward.k.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +120,7 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onCreate();
-            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091033);
+            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091035);
         }
     }
 }

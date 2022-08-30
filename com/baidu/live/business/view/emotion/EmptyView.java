@@ -9,13 +9,13 @@ import androidx.appcompat.widget.AppCompatTextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bb0;
+import com.baidu.tieba.n80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.repackage.ab0;
-import com.repackage.m80;
 /* loaded from: classes2.dex */
 public class EmptyView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -48,16 +48,16 @@ public class EmptyView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.getLayoutParams();
-            layoutParams.width = m80.b(getContext(), EmotionStrategy.getInstance().emptyWidth);
-            layoutParams.height = m80.b(getContext(), EmotionStrategy.getInstance().emptyHeight);
+            layoutParams.width = n80.b(getContext(), EmotionStrategy.getInstance().emptyWidth);
+            layoutParams.height = n80.b(getContext(), EmotionStrategy.getInstance().emptyHeight);
             this.a.setLayoutParams(layoutParams);
-            setImageResource(ab0.f().b(str));
+            setImageResource(bb0.f().b(str));
             if (LiveFeedPageSdk.HOST_QUANMIN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-                this.b.setText(R.string.obfuscated_res_0x7f0f09f7);
+                this.b.setText(R.string.obfuscated_res_0x7f0f09fa);
             } else {
-                this.b.setText(R.string.obfuscated_res_0x7f0f09f6);
+                this.b.setText(R.string.obfuscated_res_0x7f0f09f9);
             }
-            this.b.setTextColor(ab0.f().a(getContext(), str, "color_8585852"));
+            this.b.setTextColor(bb0.f().a(getContext(), str, "color_8585852"));
         }
     }
 
@@ -140,10 +140,10 @@ public class EmptyView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0520, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0522, this);
         setOrientation(1);
         setGravity(17);
-        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f0908cb);
-        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f0908cd);
+        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f0908cc);
+        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f0908ce);
     }
 }

@@ -9,12 +9,12 @@ import com.baidu.searchbox.ruka.Ruka;
 import com.baidu.tbadk.GrowthStatsUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.LaunchUpApplicationSwitch;
+import com.baidu.tieba.bl4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.al4;
 /* loaded from: classes2.dex */
 public class InitSDKTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -68,7 +68,7 @@ public class InitSDKTask extends LaunchTask {
     private void initTBTaskSDK() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65541, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-            al4.f().g(TbadkCoreApplication.getInst());
+            bl4.f().g(TbadkCoreApplication.getInst());
         }
     }
 

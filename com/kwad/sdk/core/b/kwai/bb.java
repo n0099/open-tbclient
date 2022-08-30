@@ -5,7 +5,7 @@ import com.kwad.components.ad.reward.b.e;
 import com.kwad.components.ad.reward.l;
 import com.kwad.components.ad.reward.monitor.RewardMonitorInfo;
 import com.kwad.components.ad.reward.monitor.RewardWebViewInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class bb {
     @InvokeBy(invokerClass = dd.class, methodId = "registerHolder")
     public static void tl() {

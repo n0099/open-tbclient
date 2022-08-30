@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public static BdUniqueId j;
@@ -37,7 +37,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
     public int h;
     public CustomMessageListener i;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnLayoutChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,8 +148,8 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
         this.b = view2;
         this.a = viewGroup;
         this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906bd);
-        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0908c3);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091698);
+        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0908c4);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09169a);
         SkinManager.setImageResource(this.e, R.drawable.new_pic_emotion_06);
         this.i.setTag(j);
         MessageManager.getInstance().registerListener(this.i);

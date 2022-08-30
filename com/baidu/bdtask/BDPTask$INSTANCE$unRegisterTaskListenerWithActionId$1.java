@@ -1,12 +1,12 @@
 package com.baidu.bdtask;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.fp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ep;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
@@ -17,16 +17,16 @@ public final class BDPTask$INSTANCE$unRegisterTaskListenerWithActionId$1 extends
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ String $actonId;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ep $taskCallback;
+    public final /* synthetic */ fp $taskCallback;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$unRegisterTaskListenerWithActionId$1(String str, ep epVar) {
+    public BDPTask$INSTANCE$unRegisterTaskListenerWithActionId$1(String str, fp fpVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, epVar};
+            Object[] objArr = {str, fpVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,7 +38,7 @@ public final class BDPTask$INSTANCE$unRegisterTaskListenerWithActionId$1 extends
             }
         }
         this.$actonId = str;
-        this.$taskCallback = epVar;
+        this.$taskCallback = fpVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

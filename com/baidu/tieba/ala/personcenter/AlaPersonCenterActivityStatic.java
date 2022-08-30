@@ -13,6 +13,8 @@ import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.personcenter.privilege.AlaPersonCenterPrivilegeActivity;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaGetEnterEffectResponsedMessage;
+import com.baidu.tieba.bg6;
+import com.baidu.tieba.dw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,8 +22,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tf6;
-import com.repackage.vv5;
 /* loaded from: classes3.dex */
 public class AlaPersonCenterActivityStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -60,14 +60,14 @@ public class AlaPersonCenterActivityStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof tf6) {
-                tf6 tf6Var = (tf6) data;
-                vv5 vv5Var = new vv5();
-                vv5Var.i(tf6Var.c());
-                vv5Var.j(tf6Var.d());
-                vv5Var.h(tf6Var.b());
-                vv5Var.k(tf6Var.e());
-                vv5Var.g(tf6Var);
+            if (data instanceof bg6) {
+                bg6 bg6Var = (bg6) data;
+                dw5 dw5Var = new dw5();
+                dw5Var.i(bg6Var.c());
+                dw5Var.j(bg6Var.d());
+                dw5Var.h(bg6Var.b());
+                dw5Var.k(bg6Var.e());
+                dw5Var.g(bg6Var);
             }
         }
     }

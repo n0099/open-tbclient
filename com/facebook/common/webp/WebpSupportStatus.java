@@ -15,7 +15,7 @@ import com.facebook.imageutils.WebpUtil;
 import java.io.UnsupportedEncodingException;
 import javax.annotation.Nullable;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class WebpSupportStatus {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXTENDED_WEBP_HEADER_LENGTH = 21;

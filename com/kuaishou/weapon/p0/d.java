@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import java.io.UnsupportedEncodingException;
 import java.util.regex.Pattern;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int a = 0;
@@ -26,7 +26,7 @@ public class d {
     public static final /* synthetic */ boolean g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class d {
         public abstract boolean a(byte[] bArr, int i, int i2, boolean z);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class b extends a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] f;
@@ -238,7 +238,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class c extends a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int j = 19;

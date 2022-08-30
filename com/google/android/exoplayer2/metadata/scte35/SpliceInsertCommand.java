@@ -17,7 +17,7 @@ import com.google.android.exoplayer2.util.TimestampAdjuster;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class SpliceInsertCommand extends SpliceCommand {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SpliceInsertCommand> CREATOR;
@@ -36,7 +36,7 @@ public final class SpliceInsertCommand extends SpliceCommand {
     public final boolean spliceImmediateFlag;
     public final int uniqueProgramId;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class ComponentSplice {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -11,7 +11,7 @@ import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.service.ServiceProvider;
 import java.util.HashSet;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ag {
     public static void b(Context context, boolean z) {
         try {

@@ -11,7 +11,7 @@ import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 @KsJson
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class URLPackage extends a implements Serializable {
     public static final String KEY_AUTHOR_ID = "authorId";
     public static final String KEY_CHANNEL_ID = "channelId";

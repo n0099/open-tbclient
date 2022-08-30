@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.core.widget.e;
 import com.kwad.components.core.widget.f;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class KSCouponLabelTextView extends TextView implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +137,7 @@ public class KSCouponLabelTextView extends TextView implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65539, this, context, attributeSet, i) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403ab, R.attr.obfuscated_res_0x7f0403ba, R.attr.obfuscated_res_0x7f0403c3, R.attr.obfuscated_res_0x7f0403c4}, i, 0);
-            int color = context.getResources().getColor(R.color.obfuscated_res_0x7f06076e);
+            int color = context.getResources().getColor(R.color.obfuscated_res_0x7f060771);
             this.wt = obtainStyledAttributes.getDimension(0, 8.0f);
             this.wu = obtainStyledAttributes.getDimension(3, 2.0f);
             this.strokeColor = obtainStyledAttributes.getColor(2, color);
@@ -253,7 +253,7 @@ public class KSCouponLabelTextView extends TextView implements e {
     public final void a(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            int color = getResources().getColor(R.color.obfuscated_res_0x7f06076e);
+            int color = getResources().getColor(R.color.obfuscated_res_0x7f060771);
             this.strokeColor = color;
             setTextColor(color);
             jd();

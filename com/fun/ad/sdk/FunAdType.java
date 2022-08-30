@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class FunAdType {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AM_SPLASH = "amSplash";
@@ -117,7 +117,7 @@ public final class FunAdType {
     public final AdType c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class AdType {
         public static /* synthetic */ Interceptable $ic;
         public static final AdType BANNER;

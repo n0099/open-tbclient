@@ -13,6 +13,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ai5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,12 +21,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.th5;
 /* loaded from: classes3.dex */
 public class MultiDelPostMenuView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public th5 a;
+    public ai5 a;
     public View b;
     public final Activity c;
     public TextView d;
@@ -133,13 +133,13 @@ public class MultiDelPostMenuView extends RelativeLayout implements View.OnClick
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MultiDelPostMenuView(TbPageContext tbPageContext, th5 th5Var) {
+    public MultiDelPostMenuView(TbPageContext tbPageContext, ai5 ai5Var) {
         super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, th5Var};
+            Object[] objArr = {tbPageContext, ai5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -153,35 +153,35 @@ public class MultiDelPostMenuView extends RelativeLayout implements View.OnClick
         this.g = State.UNSELECTED;
         this.i = new a(this, 2001304);
         this.c = tbPageContext.getPageActivity();
-        this.a = th5Var;
+        this.a = ai5Var;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d05ad, this);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091582);
+            LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d05af, this);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091584);
             this.b = findViewById;
             if (findViewById == null) {
                 return;
             }
-            TextView textView = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f09157e);
+            TextView textView = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091580);
             this.d = textView;
             if (textView != null) {
-                textView.setText(R.string.obfuscated_res_0x7f0f0370);
+                textView.setText(R.string.obfuscated_res_0x7f0f0371);
                 this.d.setOnClickListener(this);
             }
-            TextView textView2 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09157d);
+            TextView textView2 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09157f);
             this.e = textView2;
             if (textView2 != null) {
-                textView2.setText(R.string.obfuscated_res_0x7f0f04ab);
+                textView2.setText(R.string.obfuscated_res_0x7f0f04ac);
                 this.e.setOnClickListener(this);
             }
-            TextView textView3 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09157f);
+            TextView textView3 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091581);
             this.f = textView3;
             if (textView3 != null) {
-                textView3.setText(R.string.obfuscated_res_0x7f0f04ae);
+                textView3.setText(R.string.obfuscated_res_0x7f0f04af);
                 this.f.setOnClickListener(this);
             }
             b();
@@ -232,19 +232,19 @@ public class MultiDelPostMenuView extends RelativeLayout implements View.OnClick
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        th5 th5Var;
+        ai5 ai5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || view2 == null || (th5Var = this.a) == null || th5Var.c() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || view2 == null || (ai5Var = this.a) == null || ai5Var.c() == null) {
             return;
         }
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f09157e) {
+        if (id == R.id.obfuscated_res_0x7f091580) {
             this.a.c().e();
         }
-        if (id == R.id.obfuscated_res_0x7f09157d) {
+        if (id == R.id.obfuscated_res_0x7f09157f) {
             this.a.c().f();
         }
-        if (id == R.id.obfuscated_res_0x7f09157f) {
+        if (id == R.id.obfuscated_res_0x7f091581) {
             this.a.c().g();
         }
     }
@@ -255,8 +255,8 @@ public class MultiDelPostMenuView extends RelativeLayout implements View.OnClick
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
             MessageManager.getInstance().unRegisterListener(this.i);
-            th5 th5Var = this.a;
-            if (th5Var == null || th5Var.c() == null) {
+            ai5 ai5Var = this.a;
+            if (ai5Var == null || ai5Var.c() == null) {
                 return;
             }
             this.a.c().dismiss();
@@ -272,7 +272,7 @@ public class MultiDelPostMenuView extends RelativeLayout implements View.OnClick
             } else {
                 this.g = State.SELECTED;
             }
-            String string = this.c.getString(R.string.obfuscated_res_0x7f0f04ab);
+            String string = this.c.getString(R.string.obfuscated_res_0x7f0f04ac);
             TextView textView = this.e;
             if (textView != null) {
                 if (this.g == State.SELECTED) {

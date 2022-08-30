@@ -15,10 +15,10 @@ import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class PlatformMessageSender {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         String a();
 

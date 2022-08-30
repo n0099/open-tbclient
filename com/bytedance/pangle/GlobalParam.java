@@ -15,7 +15,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GlobalParam {
     public static /* synthetic */ Interceptable $ic;
     public static GlobalParam mInstance;

@@ -17,7 +17,7 @@ import com.facebook.imagepipeline.filter.IterativeBoxBlurFilter;
 import com.facebook.imagepipeline.filter.RenderScriptBlurFilter;
 import com.facebook.imagepipeline.request.BasePostprocessor;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BlurPostProcessor extends BasePostprocessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_ITERATIONS = 3;

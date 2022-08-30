@@ -3,6 +3,8 @@ package com.baidu.tieba.card.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.io;
+import com.baidu.tieba.pn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,10 +13,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import com.repackage.ho;
-import com.repackage.on;
 /* loaded from: classes3.dex */
-public abstract class BaseCardInfo implements on {
+public abstract class BaseCardInfo implements pn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean forceNoTest;
@@ -22,7 +22,7 @@ public abstract class BaseCardInfo implements on {
     public SupportType mSupportType;
     public boolean needTopMargin;
     public int position;
-    public ho trigger;
+    public io trigger;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
@@ -110,13 +110,13 @@ public abstract class BaseCardInfo implements on {
         this.mSupportType = SupportType.NONE;
     }
 
-    public ho getTrigger() {
+    public io getTrigger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.trigger : (ho) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.trigger : (io) invokeV.objValue;
     }
 
-    @Override // com.repackage.on
+    @Override // com.baidu.tieba.pn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -126,53 +126,62 @@ public abstract class BaseCardInfo implements on {
         return (BdUniqueId) invokeV.objValue;
     }
 
+    public boolean isHighLight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public boolean isSupportBottom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSupportType == SupportType.BOTTOM : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mSupportType == SupportType.BOTTOM : invokeV.booleanValue;
     }
 
     public boolean isSupportContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mSupportType == SupportType.CONTENT : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mSupportType == SupportType.CONTENT : invokeV.booleanValue;
     }
 
     public boolean isSupportExtend() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mSupportType == SupportType.EXTEND : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mSupportType == SupportType.EXTEND : invokeV.booleanValue;
     }
 
     public boolean isSupportFull() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mSupportType == SupportType.FULL : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mSupportType == SupportType.FULL : invokeV.booleanValue;
     }
 
     public boolean isSupportNone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mSupportType == SupportType.NONE : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mSupportType == SupportType.NONE : invokeV.booleanValue;
     }
 
     public boolean isSupportTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mSupportType == SupportType.TOP : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mSupportType == SupportType.TOP : invokeV.booleanValue;
     }
 
     public void setSupportType(SupportType supportType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, supportType) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, supportType) == null) {
             this.mSupportType = supportType;
         }
     }
 
-    public void setTrigger(ho hoVar) {
+    public void setTrigger(io ioVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, hoVar) == null) {
-            this.trigger = hoVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, ioVar) == null) {
+            this.trigger = ioVar;
         }
     }
 }

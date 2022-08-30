@@ -14,6 +14,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.nj8;
+import com.baidu.tieba.os4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,10 +23,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fj8;
-import com.repackage.ms4;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
@@ -74,10 +74,10 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
     private void setBackground(String str) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || (drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080b1c)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || (drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080b1d)) == null) {
             return;
         }
-        DrawableCompat.setTint(drawable, fj8.a(fj8.f(str), 0.3f));
+        DrawableCompat.setTint(drawable, nj8.a(nj8.f(str), 0.3f));
         this.d.setBackground(drawable);
         this.d.setPadding(f, 0, g, 0);
     }
@@ -147,7 +147,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             this.d.setSingleLine();
             this.d.setGravity(17);
             this.d.setPadding(f, 0, g, 0);
-            ms4.d(this.d).z(R.dimen.T_X08);
+            os4.d(this.d).z(R.dimen.T_X08);
         }
     }
 
@@ -157,7 +157,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
         if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (textView = this.d) == null) {
             return;
         }
-        ms4.d(textView).v(R.color.CAM_X0105);
+        os4.d(textView).v(R.color.CAM_X0105);
     }
 
     public void setData(String str, String str2, String str3) {
@@ -168,7 +168,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             if (TextUtils.isEmpty(str2)) {
                 str4 = "";
             } else {
-                str4 = String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1558), str2);
+                str4 = String.format(getContext().getString(R.string.obfuscated_res_0x7f0f155b), str2);
                 if (!TextUtils.isEmpty(this.e)) {
                     str4 = " " + str4;
                 }
@@ -237,7 +237,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
-            this.e += String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1558), str2);
+            this.e += String.format(getContext().getString(R.string.obfuscated_res_0x7f0f155b), str2);
         }
     }
 }

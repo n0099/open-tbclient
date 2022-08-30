@@ -13,13 +13,13 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ms4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ks4;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ClipCoverView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +99,7 @@ public class ClipCoverView extends View {
                 this.c = new Path();
             }
             this.c.reset();
-            this.c.addRoundRect(clipCoverRect, ks4.y(R.string.J_X05), Path.Direction.CW);
+            this.c.addRoundRect(clipCoverRect, ms4.y(R.string.J_X05), Path.Direction.CW);
             canvas.drawPath(this.c, this.a);
             a(canvas, this.c);
             canvas.restore();

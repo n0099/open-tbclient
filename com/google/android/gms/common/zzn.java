@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.baidu.tieba.ko9;
+import com.baidu.tieba.ln9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,9 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.google.android.gms.dynamic.IObjectWrapper;
 import com.google.android.gms.dynamic.ObjectWrapper;
-import com.repackage.bo9;
-import com.repackage.cn9;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class zzn extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<zzn> CREATOR;
@@ -40,7 +40,7 @@ public final class zzn extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new bo9();
+        CREATOR = new ko9();
     }
 
     public zzn(String str, boolean z, boolean z2, IBinder iBinder, boolean z3) {
@@ -70,13 +70,13 @@ public final class zzn extends AbstractSafeParcelable {
     public final void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
-            int a = cn9.a(parcel);
-            cn9.k(parcel, 1, this.zza, false);
-            cn9.c(parcel, 2, this.zzb);
-            cn9.c(parcel, 3, this.zzc);
-            cn9.f(parcel, 4, ObjectWrapper.wrap(this.zzd), false);
-            cn9.c(parcel, 5, this.zze);
-            cn9.b(parcel, a);
+            int a = ln9.a(parcel);
+            ln9.k(parcel, 1, this.zza, false);
+            ln9.c(parcel, 2, this.zzb);
+            ln9.c(parcel, 3, this.zzc);
+            ln9.f(parcel, 4, ObjectWrapper.wrap(this.zzd), false);
+            ln9.c(parcel, 5, this.zze);
+            ln9.b(parcel, a);
         }
     }
 }

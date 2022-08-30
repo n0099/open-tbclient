@@ -69,7 +69,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.function.Consumer;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity implements IPluginActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

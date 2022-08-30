@@ -2,6 +2,9 @@ package com.fun.ad.sdk.internal.api.ripper;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
+import com.baidu.tieba.ml9;
+import com.baidu.tieba.pg9;
+import com.baidu.tieba.ul9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,14 +16,11 @@ import com.fun.ad.sdk.BuildConfig;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.reporter.Reporter;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.repackage.dl9;
-import com.repackage.gg9;
-import com.repackage.ll9;
 import java.util.HashMap;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class BaseAdRipper implements AdRipper {
     public static /* synthetic */ Interceptable $ic;
     public static AdRipper FAKE_AD_RIPPER;
@@ -44,7 +44,7 @@ public abstract class BaseAdRipper implements AdRipper {
                 return;
             }
         }
-        FAKE_AD_RIPPER = new gg9();
+        FAKE_AD_RIPPER = new pg9();
         a = new Random();
     }
 
@@ -212,12 +212,12 @@ public abstract class BaseAdRipper implements AdRipper {
             jSONObject.put("convU", b.convUrl);
             jSONObject.put("uniqueId", b.uniqueId);
             jSONObject.put("lid", j);
-            ll9<Reporter> ll9Var = dl9.b;
-            synchronized (ll9Var) {
-                if (ll9Var.a == null) {
-                    ll9Var.a = ll9Var.a();
+            ul9<Reporter> ul9Var = ml9.b;
+            synchronized (ul9Var) {
+                if (ul9Var.a == null) {
+                    ul9Var.a = ul9Var.a();
                 }
-                reporter = ll9Var.a;
+                reporter = ul9Var.a;
             }
             reporter.logEvent("adM", jSONObject);
         } catch (JSONException e) {

@@ -16,7 +16,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class f implements TTInitializer {
     public volatile TTInitializer b;
     public static final Bundle c = new Bundle();
@@ -56,7 +56,7 @@ public class f implements TTInitializer {
         c.putBundle(str, bundle);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a implements ThreadFactory {
         public final ThreadGroup a;
         public final AtomicInteger b;

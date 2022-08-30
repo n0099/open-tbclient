@@ -17,27 +17,27 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d48;
+import com.baidu.tieba.g38;
+import com.baidu.tieba.j06;
+import com.baidu.tieba.km4;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b06;
-import com.repackage.jm4;
-import com.repackage.qi;
-import com.repackage.v38;
-import com.repackage.y28;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y28 a;
+    public g38 a;
     public Bundle b;
-    public v38 c;
-    public b06 d;
+    public d48 c;
+    public j06 d;
 
-    /* loaded from: classes4.dex */
-    public class a extends b06<v38> {
+    /* loaded from: classes5.dex */
+    public class a extends j06<d48> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterMoreActivity b;
@@ -61,12 +61,12 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.b06
+        @Override // com.baidu.tieba.j06
         /* renamed from: d */
-        public void a(View view2, v38 v38Var) {
+        public void a(View view2, d48 d48Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, v38Var) == null) {
-                this.b.c = v38Var;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, d48Var) == null) {
+                this.b.c = d48Var;
                 if (this.b.c == null || this.b.F1()) {
                     return;
                 }
@@ -117,14 +117,14 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
         if (str.startsWith("tieba&")) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
-                qi.M(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0460);
+                ri.M(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0461);
                 return;
             }
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str.substring(6)});
         } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
         } else {
-            jm4.x(getPageContext().getPageActivity(), true, str);
+            km4.x(getPageContext().getPageActivity(), true, str);
         }
     }
 
@@ -146,9 +146,9 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            y28 y28Var = this.a;
-            if (y28Var != null) {
-                y28Var.c();
+            g38 g38Var = this.a;
+            if (g38Var != null) {
+                g38Var.c();
             }
         }
     }
@@ -162,10 +162,10 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
             if (intent != null) {
                 this.b = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d06e2);
-            y28 y28Var = new y28(getPageContext(), this.b, this.d);
-            this.a = y28Var;
-            y28Var.b();
+            setContentView(R.layout.obfuscated_res_0x7f0d06e4);
+            g38 g38Var = new g38(getPageContext(), this.b, this.d);
+            this.a = g38Var;
+            g38Var.b();
         }
     }
 

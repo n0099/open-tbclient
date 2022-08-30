@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.security.SecureRandom;
 import java.util.UUID;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] a;

@@ -5,6 +5,8 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ln9;
+import com.baidu.tieba.zn9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +14,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cn9;
-import com.repackage.qn9;
 import java.util.List;
 import javax.annotation.Nullable;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class WakeLockEvent extends StatsEvent {
     public static /* synthetic */ Interceptable $ic;
     @NonNull
@@ -54,7 +54,7 @@ public final class WakeLockEvent extends StatsEvent {
                 return;
             }
         }
-        CREATOR = new qn9();
+        CREATOR = new zn9();
     }
 
     public WakeLockEvent(int i, long j, int i2, String str, int i3, @Nullable List<String> list, String str2, long j2, int i4, String str3, String str4, float f, long j3, String str5, boolean z) {
@@ -94,23 +94,23 @@ public final class WakeLockEvent extends StatsEvent {
     public final void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
-            int a = cn9.a(parcel);
-            cn9.g(parcel, 1, this.zza);
-            cn9.i(parcel, 2, this.zzb);
-            cn9.k(parcel, 4, this.zzd, false);
-            cn9.g(parcel, 5, this.zzg);
-            cn9.l(parcel, 6, this.zzh, false);
-            cn9.i(parcel, 8, this.zzj);
-            cn9.k(parcel, 10, this.zze, false);
-            cn9.g(parcel, 11, this.zzc);
-            cn9.k(parcel, 12, this.zzi, false);
-            cn9.k(parcel, 13, this.zzl, false);
-            cn9.g(parcel, 14, this.zzk);
-            cn9.e(parcel, 15, this.zzm);
-            cn9.i(parcel, 16, this.zzn);
-            cn9.k(parcel, 17, this.zzf, false);
-            cn9.c(parcel, 18, this.zzo);
-            cn9.b(parcel, a);
+            int a = ln9.a(parcel);
+            ln9.g(parcel, 1, this.zza);
+            ln9.i(parcel, 2, this.zzb);
+            ln9.k(parcel, 4, this.zzd, false);
+            ln9.g(parcel, 5, this.zzg);
+            ln9.l(parcel, 6, this.zzh, false);
+            ln9.i(parcel, 8, this.zzj);
+            ln9.k(parcel, 10, this.zze, false);
+            ln9.g(parcel, 11, this.zzc);
+            ln9.k(parcel, 12, this.zzi, false);
+            ln9.k(parcel, 13, this.zzl, false);
+            ln9.g(parcel, 14, this.zzk);
+            ln9.e(parcel, 15, this.zzm);
+            ln9.i(parcel, 16, this.zzn);
+            ln9.k(parcel, 17, this.zzf, false);
+            ln9.c(parcel, 18, this.zzo);
+            ln9.b(parcel, a);
         }
     }
 

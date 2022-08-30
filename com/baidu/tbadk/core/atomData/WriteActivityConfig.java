@@ -19,18 +19,18 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteVoteData;
 import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.dn8;
+import com.baidu.tieba.en8;
+import com.baidu.tieba.fn8;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-import com.repackage.vm8;
-import com.repackage.wm8;
-import com.repackage.xm8;
 /* loaded from: classes3.dex */
 public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -108,7 +108,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            xm8.g = new Intent(getIntent());
+            fn8.g = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -620,10 +620,10 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            boolean q = vm8.k().q();
-            wm8.a("发帖阻拦状态 = " + q);
+            boolean q = dn8.k().q();
+            en8.a("发帖阻拦状态 = " + q);
             if (q && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
-                qi.N(currentActivity, "正在发布，请稍后");
+                ri.N(currentActivity, "正在发布，请稍后");
             }
             return q;
         }

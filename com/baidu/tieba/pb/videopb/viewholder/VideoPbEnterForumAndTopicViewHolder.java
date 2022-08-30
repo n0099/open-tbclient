@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.ThreadForumEnterButton;
 import com.baidu.tbadk.core.view.TopicEnterButton;
 import com.baidu.tbadk.widget.layout.FlowLabelLayout;
+import com.baidu.tieba.qi;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class VideoPbEnterForumAndTopicViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class VideoPbEnterForumAndTopicViewHolder extends TypeAdapter.ViewHolder 
         if (list != null) {
             list.clear();
         }
-        if (!pi.isEmpty(threadData.getForum_name())) {
+        if (!qi.isEmpty(threadData.getForum_name())) {
             ThreadForumEnterButton threadForumEnterButton = new ThreadForumEnterButton(this.a);
             this.c = threadForumEnterButton;
             threadForumEnterButton.a(threadData);

@@ -3,6 +3,7 @@ package com.xiaomi.clientreport.processor;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -156,7 +157,7 @@ public class e {
                 file = new File(str + ".lock");
                 try {
                     ab.m161a(file);
-                    randomAccessFile = new RandomAccessFile(file, "rw");
+                    randomAccessFile = new RandomAccessFile(file, rw.c);
                     try {
                         FileLock lock = randomAccessFile.getChannel().lock();
                         try {
@@ -340,7 +341,7 @@ public class e {
         try {
             File file = new File(str + ".lock");
             ab.m161a(file);
-            randomAccessFile = new RandomAccessFile(file, "rw");
+            randomAccessFile = new RandomAccessFile(file, rw.c);
         } catch (Throwable unused) {
             randomAccessFile = null;
         }

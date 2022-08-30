@@ -9,29 +9,29 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.dn9;
+import com.baidu.tieba.en9;
+import com.baidu.tieba.jn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.an9;
-import com.repackage.um9;
-import com.repackage.vm9;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LifecycleCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public final vm9 a;
+    public final en9 a;
 
     @Keep
-    public static vm9 getChimeraLifecycleFragmentImpl(um9 um9Var) {
+    public static en9 getChimeraLifecycleFragmentImpl(dn9 dn9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, um9Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dn9Var)) == null) {
             throw new IllegalStateException("Method not available in SDK.");
         }
-        return (vm9) invokeL.objValue;
+        return (en9) invokeL.objValue;
     }
 
     @MainThread
@@ -89,7 +89,7 @@ public class LifecycleCallback {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             Activity g0 = this.a.g0();
-            an9.d(g0);
+            jn9.d(g0);
             return g0;
         }
         return (Activity) invokeV.objValue;

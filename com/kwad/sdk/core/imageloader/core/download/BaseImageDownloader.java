@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BaseImageDownloader implements ImageDownloader {
     public static final String ALLOWED_URI_CHARS = "@#&=*+-_.,:!?()/~'%";
     public static final int BUFFER_SIZE = 32768;
@@ -37,7 +37,7 @@ public class BaseImageDownloader implements ImageDownloader {
     public final int readTimeout;
 
     /* renamed from: com.kwad.sdk.core.imageloader.core.download.BaseImageDownloader$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$kwad$sdk$core$imageloader$core$download$ImageDownloader$Scheme;
 

@@ -16,7 +16,7 @@ import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.bd;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static int ks = 1;
@@ -26,12 +26,12 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
     public int ku;
     public int kv;
     public c kw;
-    public InterfaceC0309b kx;
+    public InterfaceC0524b kx;
     @Nullable
     public Runnable ky;
 
     @KsJson
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,12 +54,12 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     /* renamed from: com.kwad.components.ad.f.kwai.kwai.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0309b {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0524b {
         void C(int i);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -167,9 +167,9 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
         if (interceptable == null || interceptable.invokeI(65538, this, i) == null) {
             com.kwad.sdk.core.e.b.d("RegisterTimer", "updateTimer: " + i + ", mCallBackFunction: " + this.kr);
             if (i >= 0 && this.kr != null) {
-                InterfaceC0309b interfaceC0309b = this.kx;
-                if (interfaceC0309b != null && i == 0) {
-                    interfaceC0309b.C(this.ku);
+                InterfaceC0524b interfaceC0524b = this.kx;
+                if (interfaceC0524b != null && i == 0) {
+                    interfaceC0524b.C(this.ku);
                 }
                 a aVar = new a();
                 aVar.kB = i;
@@ -203,10 +203,10 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
         return (b) invokeL.objValue;
     }
 
-    public final void a(InterfaceC0309b interfaceC0309b) {
+    public final void a(InterfaceC0524b interfaceC0524b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0309b) == null) {
-            this.kx = interfaceC0309b;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0524b) == null) {
+            this.kx = interfaceC0524b;
         }
     }
 

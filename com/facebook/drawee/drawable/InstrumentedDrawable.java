@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class InstrumentedDrawable extends ForwardingDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,7 +16,7 @@ public class InstrumentedDrawable extends ForwardingDrawable {
     public final Listener mListener;
     public final String mScaleType;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface Listener {
         void track(int i, int i2, int i3, int i4, int i5, int i6, String str);
     }

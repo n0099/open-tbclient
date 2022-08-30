@@ -14,7 +14,7 @@ import java.util.List;
 public class a {
     public Application a;
     public c b;
-    public final List<InterfaceC0668a> c;
+    public final List<InterfaceC0669a> c;
     public int d;
     public WeakReference<Activity> e;
     public volatile int f;
@@ -23,7 +23,7 @@ public class a {
 
     /* renamed from: com.ss.android.socialbase.downloader.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0668a {
+    public interface InterfaceC0669a {
         @MainThread
         void b();
 
@@ -54,7 +54,7 @@ public class a {
         Object[] d = d();
         if (d != null) {
             for (Object obj : d) {
-                ((InterfaceC0668a) obj).b();
+                ((InterfaceC0669a) obj).b();
             }
         }
     }
@@ -65,7 +65,7 @@ public class a {
         Object[] d = d();
         if (d != null) {
             for (Object obj : d) {
-                ((InterfaceC0668a) obj).c();
+                ((InterfaceC0669a) obj).c();
             }
         }
     }
@@ -151,7 +151,7 @@ public class a {
         };
     }
 
-    /* JADX WARN: Type inference failed for: r0v2, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r0v2, types: [boolean, int] */
     public boolean b() {
         int i = this.f;
         int i2 = i;
@@ -171,9 +171,9 @@ public class a {
         return b.a;
     }
 
-    public void b(InterfaceC0668a interfaceC0668a) {
+    public void b(InterfaceC0669a interfaceC0669a) {
         synchronized (this.c) {
-            this.c.remove(interfaceC0668a);
+            this.c.remove(interfaceC0669a);
         }
     }
 
@@ -193,13 +193,13 @@ public class a {
         this.b = cVar;
     }
 
-    public void a(InterfaceC0668a interfaceC0668a) {
-        if (interfaceC0668a == null) {
+    public void a(InterfaceC0669a interfaceC0669a) {
+        if (interfaceC0669a == null) {
             return;
         }
         synchronized (this.c) {
-            if (!this.c.contains(interfaceC0668a)) {
-                this.c.add(interfaceC0668a);
+            if (!this.c.contains(interfaceC0669a)) {
+                this.c.add(interfaceC0669a);
             }
         }
     }

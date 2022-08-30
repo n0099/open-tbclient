@@ -6,19 +6,19 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
+import com.baidu.tieba.jy6;
+import com.baidu.tieba.wy6;
+import com.baidu.tieba.zy6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.by6;
-import com.repackage.oy6;
-import com.repackage.ry6;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public by6 a;
+    public jy6 a;
 
     public LowFlowsActivity() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.u95
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ba5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -46,9 +46,9 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            by6 by6Var = this.a;
-            if (by6Var != null) {
-                by6Var.onChangeSkinType(i);
+            jy6 jy6Var = this.a;
+            if (jy6Var != null) {
+                jy6Var.onChangeSkinType(i);
             }
         }
     }
@@ -58,20 +58,20 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            ry6 ry6Var = new ry6(getPageContext());
-            this.a = ry6Var;
-            ry6Var.a();
+            zy6 zy6Var = new zy6(getPageContext());
+            this.a = zy6Var;
+            zy6Var.a();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        by6 by6Var;
+        jy6 jy6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (by6Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (jy6Var = this.a) == null) {
             return;
         }
-        by6Var.a();
+        jy6Var.a();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -79,12 +79,12 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
-            by6 by6Var = this.a;
-            if (by6Var != null) {
-                by6Var.a();
+            jy6 jy6Var = this.a;
+            if (jy6Var != null) {
+                jy6Var.a();
             }
             if (getIntent() != null) {
-                oy6.a("c14083", StringUtils.isNull(getIntent().getStringExtra(LowFlowsActivityConfig.LF_USER_TASKID)) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), getIntent().getStringExtra("tab_code"));
+                wy6.a("c14083", StringUtils.isNull(getIntent().getStringExtra(LowFlowsActivityConfig.LF_USER_TASKID)) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), getIntent().getStringExtra("tab_code"));
             }
         }
     }

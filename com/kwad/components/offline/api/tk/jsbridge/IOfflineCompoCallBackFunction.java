@@ -1,5 +1,5 @@
 package com.kwad.components.offline.api.tk.jsbridge;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IOfflineCompoCallBackFunction {
     void onError(String str);
 

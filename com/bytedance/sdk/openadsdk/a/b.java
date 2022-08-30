@@ -6,7 +6,7 @@ import com.bytedance.sdk.openadsdk.TTAdBridge;
 import com.bytedance.sdk.openadsdk.TTAdEvent;
 import com.bytedance.sdk.openadsdk.a.a;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b implements TTAdBridge {
     public static volatile b a;
     public a b = new a();
@@ -63,13 +63,13 @@ public class b implements TTAdBridge {
 
     @Override // com.bytedance.sdk.openadsdk.TTAdBridge
     public void subscribe(final TTAdEvent tTAdEvent) {
-        this.b.a(new a.InterfaceC0286a() { // from class: com.bytedance.sdk.openadsdk.a.b.1
-            @Override // com.bytedance.sdk.openadsdk.a.a.InterfaceC0286a
+        this.b.a(new a.InterfaceC0501a() { // from class: com.bytedance.sdk.openadsdk.a.b.1
+            @Override // com.bytedance.sdk.openadsdk.a.a.InterfaceC0501a
             public void a() {
                 tTAdEvent.onEvent(0, null);
             }
 
-            @Override // com.bytedance.sdk.openadsdk.a.a.InterfaceC0286a
+            @Override // com.bytedance.sdk.openadsdk.a.a.InterfaceC0501a
             public void b() {
                 tTAdEvent.onEvent(1, null);
             }

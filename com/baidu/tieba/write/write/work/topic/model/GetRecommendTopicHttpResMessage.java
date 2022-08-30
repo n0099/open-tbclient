@@ -3,12 +3,12 @@ package com.baidu.tieba.write.write.work.topic.model;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.k39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b39;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -16,8 +16,8 @@ import tbclient.GetRecommendTopic.DataRes;
 import tbclient.GetRecommendTopic.GetRecommendTopicResIdl;
 import tbclient.GetRecommendTopic.TopicList;
 import tbclient.GetRecommendTopic.TopicListModule;
-/* loaded from: classes4.dex */
-public class GetRecommendTopicHttpResMessage extends HttpResponsedMessage implements b39 {
+/* loaded from: classes6.dex */
+public class GetRecommendTopicHttpResMessage extends HttpResponsedMessage implements k39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicListModule recommendTopic;
@@ -40,7 +40,7 @@ public class GetRecommendTopicHttpResMessage extends HttpResponsedMessage implem
         }
     }
 
-    @Override // com.repackage.b39
+    @Override // com.baidu.tieba.k39
     public List<TopicList> getTopicList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

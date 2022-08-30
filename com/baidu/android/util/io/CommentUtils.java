@@ -4,6 +4,7 @@ import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -236,7 +237,7 @@ public class CommentUtils {
                     byteArrayOutputStream.write(bytes);
                     byteArrayOutputStream.write(short2Stream((short) bytes.length));
                     byteArray = byteArrayOutputStream.toByteArray();
-                    randomAccessFile = new RandomAccessFile(file, "rw");
+                    randomAccessFile = new RandomAccessFile(file, rw.c);
                 } catch (IOException e2) {
                     e = e2;
                     randomAccessFile = null;

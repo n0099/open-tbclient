@@ -7,7 +7,7 @@ import com.google.android.exoplayer2.drm.DrmInitData;
 import com.google.android.exoplayer2.extractor.Extractor;
 import com.google.android.exoplayer2.util.TimestampAdjuster;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface HlsExtractorFactory {
     public static final HlsExtractorFactory DEFAULT = new DefaultHlsExtractorFactory();
 

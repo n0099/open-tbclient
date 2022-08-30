@@ -24,7 +24,7 @@ import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class TrackFragmentRandomAccessBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "tfra";
@@ -49,7 +49,7 @@ public class TrackFragmentRandomAccessBox extends AbstractFullBox {
     public int reserved;
     public long trackId;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

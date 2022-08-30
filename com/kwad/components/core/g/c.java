@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.mvp.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class c<T extends com.kwad.sdk.mvp.a> extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

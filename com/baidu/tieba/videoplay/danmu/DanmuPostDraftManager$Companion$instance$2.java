@@ -11,7 +11,7 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u0006\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001H\n"}, d2 = {"<anonymous>", "Lcom/baidu/tieba/videoplay/danmu/DanmuPostDraftManager;"}, k = 3, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class DanmuPostDraftManager$Companion$instance$2 extends Lambda implements Function0<DanmuPostDraftManager> {
     public static /* synthetic */ Interceptable $ic;
     public static final DanmuPostDraftManager$Companion$instance$2 INSTANCE;

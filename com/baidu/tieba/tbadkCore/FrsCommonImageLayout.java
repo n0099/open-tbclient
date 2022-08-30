@@ -32,21 +32,21 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.gg;
+import com.baidu.tieba.hg;
+import com.baidu.tieba.i9;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
-import com.repackage.fg;
-import com.repackage.gg;
-import com.repackage.h9;
-import com.repackage.og;
-import com.repackage.qi;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FrsCommonImageLayout extends LinearLayout implements AbsListView.RecyclerListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +72,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     public String o;
     public String p;
     public String q;
-    public fg<TbImageView> r;
+    public gg<TbImageView> r;
     public View.OnClickListener s;
     public boolean t;
     public d9<?> u;
@@ -82,7 +82,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     public String y;
     public int z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements ViewGroup.OnHierarchyChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,8 +122,8 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class b implements gg<TbImageView> {
+    /* loaded from: classes5.dex */
+    public static class b implements hg<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -148,7 +148,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.gg
+        @Override // com.baidu.tieba.hg
         public /* bridge */ /* synthetic */ TbImageView a(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             e(tbImageView2);
@@ -157,7 +157,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.gg
+        @Override // com.baidu.tieba.hg
         public /* bridge */ /* synthetic */ TbImageView c(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             h(tbImageView2);
@@ -171,7 +171,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.gg
+        @Override // com.baidu.tieba.hg
         /* renamed from: f */
         public void b(TbImageView tbImageView) {
             Interceptable interceptable = $ic;
@@ -184,7 +184,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.gg
+        @Override // com.baidu.tieba.hg
         /* renamed from: g */
         public TbImageView d() {
             InterceptResult invokeV;
@@ -214,7 +214,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -256,7 +256,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                                     imageUrlData.originalSize = mediaData.getOriginalSize();
                                     imageUrlData.isLongPic = mediaData.isLongPic();
                                     imageUrlData.mIsShowOrigonButton = mediaData.isShowOriginBtn();
-                                    imageUrlData.threadId = og.g(this.b.q, -1L);
+                                    imageUrlData.threadId = pg.g(this.b.q, -1L);
                                     imageUrlData.postId = mediaData.getPostId();
                                     concurrentHashMap.put(mediaData.getSrc_pic(), imageUrlData);
                                 }
@@ -298,7 +298,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                             MessageManager.getInstance().sendMessage(new CustomMessage(2010000, w));
                             TiebaStatic.eventStat(this.b.e, "pic_frs", "");
                             HistoryMessage historyMessage = new HistoryMessage();
-                            historyMessage.Activity = (TbPageContext) h9.a(this.b.e);
+                            historyMessage.Activity = (TbPageContext) i9.a(this.b.e);
                             historyMessage.threadId = this.b.n.getId();
                             historyMessage.threadName = this.b.n.getTitle();
                             historyMessage.forumName = this.b.n.getForum_name();
@@ -333,14 +333,14 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface d {
         void a(int i);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface e {
-        fg<TbImageView> S();
+        gg<TbImageView> S();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -364,10 +364,10 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         }
     }
 
-    public static fg<TbImageView> m(Context context, int i) {
+    public static gg<TbImageView> m(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, context, i)) == null) ? new fg<>(new b(context), i, 0) : (fg) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, context, i)) == null) ? new gg<>(new b(context), i, 0) : (gg) invokeLI.objValue;
     }
 
     @Override // android.view.ViewGroup
@@ -534,7 +534,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         if (!(interceptable == null || interceptable.invokeLLI(1048589, this, tbImageView, mediaData, i) == null) || tbImageView == null) {
             return;
         }
-        tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081210);
+        tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081211);
         String picUrl = mediaData.getPicUrl();
         if (mediaData.getType() == 5) {
             picUrl = null;
@@ -572,7 +572,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
             this.l = i;
             this.u = d9Var;
             Resources resources = getResources();
-            this.y = resources.getString(R.string.obfuscated_res_0x7f0f0710) + this.l + resources.getString(R.string.obfuscated_res_0x7f0f0711);
+            this.y = resources.getString(R.string.obfuscated_res_0x7f0f0711) + this.l + resources.getString(R.string.obfuscated_res_0x7f0f0712);
             if (this.r == null && (d9Var.getOrignalPage() instanceof e)) {
                 this.r = ((e) d9Var.getOrignalPage()).S();
             }
@@ -595,7 +595,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                     while (i5 < i4) {
                         TbImageView b2 = this.r.b();
                         StringBuilder sb = new StringBuilder();
-                        sb.append(d9Var.getString(R.string.obfuscated_res_0x7f0f0537));
+                        sb.append(d9Var.getString(R.string.obfuscated_res_0x7f0f0538));
                         i5++;
                         sb.append(i5);
                         b2.setContentDescription(sb.toString());
@@ -644,7 +644,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     public void setItemSize(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            this.g = qi.d(this.e, i);
+            this.g = ri.d(this.e, i);
         }
     }
 
@@ -719,20 +719,20 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         this.r = null;
         this.t = true;
         this.e = context;
-        this.i = qi.d(context, 2);
-        this.g = qi.d(this.e, this.j);
+        this.i = ri.d(context, 2);
+        this.g = ri.d(this.e, this.j);
         setOnHierarchyChangeListener(new a(this));
-        this.v = qi.d(this.e, 50.0f);
-        this.w = qi.d(this.e, 23.0f);
+        this.v = ri.d(this.e, 50.0f);
+        this.w = ri.d(this.e, 23.0f);
         Paint paint = new Paint();
         this.x = paint;
         paint.setDither(true);
         this.x.setFilterBitmap(true);
         Resources resources = getResources();
-        String str = resources.getString(R.string.obfuscated_res_0x7f0f0710) + this.l + resources.getString(R.string.obfuscated_res_0x7f0f0711);
+        String str = resources.getString(R.string.obfuscated_res_0x7f0f0711) + this.l + resources.getString(R.string.obfuscated_res_0x7f0f0712);
         this.y = str;
-        this.z = ((str.length() + 2) * qi.d(this.e, 10.0f)) / 2;
-        this.A = qi.d(this.e, 10.0f);
+        this.z = ((str.length() + 2) * ri.d(this.e, 10.0f)) / 2;
+        this.A = ri.d(this.e, 10.0f);
         Paint paint2 = new Paint(257);
         this.B = paint2;
         paint2.setColor(-1);

@@ -20,7 +20,7 @@ import com.bytedance.pangle.receiver.PluginBroadcastReceiver;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class LocalBroadcastManager {
     public static /* synthetic */ Interceptable $ic;
     public static final Object f;
@@ -32,7 +32,7 @@ public final class LocalBroadcastManager {
     public final ArrayList<a> d;
     public final Handler e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public final class LocalBroadcastManager {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -6,6 +6,8 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
+import com.baidu.tieba.dj3;
+import com.baidu.tieba.kh1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,8 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cj3;
-import com.repackage.jh1;
 /* loaded from: classes3.dex */
 public class QuickLoginInfo extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic;
@@ -79,7 +79,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
                 return;
             }
         }
-        DEBUG = jh1.a;
+        DEBUG = kh1.a;
         CREATOR = new a();
     }
 
@@ -88,20 +88,20 @@ public class QuickLoginInfo extends SwanAppIPCData {
     }
 
     @Nullable
-    public static QuickLoginInfo parseQuickLoginInfo(cj3 cj3Var) {
+    public static QuickLoginInfo parseQuickLoginInfo(dj3 dj3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cj3Var)) == null) {
-            if (cj3Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, dj3Var)) == null) {
+            if (dj3Var == null) {
                 return null;
             }
             QuickLoginInfo quickLoginInfo = new QuickLoginInfo();
-            quickLoginInfo.supportQuickLogin = cj3Var.f();
-            quickLoginInfo.encryptPhoneNum = cj3Var.c();
-            quickLoginInfo.serviceAgreement = cj3Var.b();
-            quickLoginInfo.hasHistory = cj3Var.d();
-            quickLoginInfo.loginMode = cj3Var.e();
-            quickLoginInfo.agreeText = cj3Var.a();
+            quickLoginInfo.supportQuickLogin = dj3Var.f();
+            quickLoginInfo.encryptPhoneNum = dj3Var.c();
+            quickLoginInfo.serviceAgreement = dj3Var.b();
+            quickLoginInfo.hasHistory = dj3Var.d();
+            quickLoginInfo.loginMode = dj3Var.e();
+            quickLoginInfo.agreeText = dj3Var.a();
             return quickLoginInfo;
         }
         return (QuickLoginInfo) invokeL.objValue;

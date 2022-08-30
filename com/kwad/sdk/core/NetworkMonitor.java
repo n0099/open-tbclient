@@ -13,14 +13,14 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class NetworkMonitor {
     public static volatile boolean Ti;
     public final List<WeakReference<a>> Tj;
     public boolean Tk;
     public final BroadcastReceiver Tl;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public enum Holder {
         INSTANCE;
         
@@ -34,14 +34,14 @@ public final class NetworkMonitor {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public enum NetworkState {
         NETWORK_NONE,
         NETWORK_MOBILE,
         NETWORK_WIFI
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(NetworkState networkState);
     }

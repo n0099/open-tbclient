@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.download.kwai;
 
 import com.kwad.sdk.api.KsAppDownloadListener;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class a implements KsAppDownloadListener {
     public String downloadId;
 

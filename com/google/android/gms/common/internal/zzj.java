@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.Nullable;
+import com.baidu.tieba.ln9;
+import com.baidu.tieba.vn9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,9 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.Feature;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
-import com.repackage.cn9;
-import com.repackage.mn9;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class zzj extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<zzj> CREATOR;
@@ -39,7 +39,7 @@ public final class zzj extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new mn9();
+        CREATOR = new vn9();
     }
 
     public zzj() {
@@ -81,12 +81,12 @@ public final class zzj extends AbstractSafeParcelable {
     public final void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
-            int a = cn9.a(parcel);
-            cn9.d(parcel, 1, this.zza, false);
-            cn9.m(parcel, 2, this.zzb, i, false);
-            cn9.g(parcel, 3, this.zzc);
-            cn9.j(parcel, 4, this.zzd, i, false);
-            cn9.b(parcel, a);
+            int a = ln9.a(parcel);
+            ln9.d(parcel, 1, this.zza, false);
+            ln9.m(parcel, 2, this.zzb, i, false);
+            ln9.g(parcel, 3, this.zzc);
+            ln9.j(parcel, 4, this.zzd, i, false);
+            ln9.b(parcel, a);
         }
     }
 }

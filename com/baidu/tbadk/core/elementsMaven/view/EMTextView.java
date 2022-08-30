@@ -10,12 +10,12 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.qs4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.os4;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class EMTextView extends TextView {
@@ -108,7 +108,7 @@ public class EMTextView extends TextView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fontMetricsInt}) == null) {
                 f();
-                os4.a(fontMetricsInt, this.a);
+                qs4.a(fontMetricsInt, this.a);
                 TextView c = c();
                 if (c == null || (c.getGravity() & 112) != 16) {
                     a(fontMetricsInt);

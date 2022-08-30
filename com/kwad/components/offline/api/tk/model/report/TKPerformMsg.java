@@ -14,7 +14,7 @@ import java.io.Serializable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class TKPerformMsg extends BaseOfflineCompoJsonParse<TKPerformMsg> implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ENTER_SCENE = -1;
@@ -35,7 +35,7 @@ public class TKPerformMsg extends BaseOfflineCompoJsonParse<TKPerformMsg> implem
     public String versionCode;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public @interface ERROR_REASON {
         public static final String KSAD_TK_JS_EMPTY = "js_empty";
         public static final String KSAD_TK_NO_FILE = "no_file";

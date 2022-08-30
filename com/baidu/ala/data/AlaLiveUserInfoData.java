@@ -4,18 +4,18 @@ import android.text.TextUtils;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
+import com.baidu.tieba.xo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vo4;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class AlaLiveUserInfoData extends vo4 implements Serializable {
+public class AlaLiveUserInfoData extends xo4 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALA_AUTHENT_STATUS_FAILED = 3;
     public static final int ALA_AUTHENT_STATUS_NOT = 0;
@@ -83,7 +83,7 @@ public class AlaLiveUserInfoData extends vo4 implements Serializable {
         this.isNewGiftPriceStrategy = false;
     }
 
-    @Override // com.repackage.vo4
+    @Override // com.baidu.tieba.xo4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {

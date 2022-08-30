@@ -25,7 +25,7 @@ import com.bumptech.glide.util.pool.GlideTrace;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BitmapEncoder implements ResourceEncoder<Bitmap> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Option<Bitmap.CompressFormat> COMPRESSION_FORMAT;

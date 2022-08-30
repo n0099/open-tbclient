@@ -9,6 +9,7 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameCallBack;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister;
 import com.baidu.searchbox.track.Track;
+import com.baidu.tieba.jc1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ic1;
 @Autowired
 /* loaded from: classes2.dex */
 public class PerfFrameContext {
@@ -62,7 +62,7 @@ public class PerfFrameContext {
                     if (AppConfig.isDebug()) {
                         Log.d("PerfFrame", "onPerfFrameCallBack");
                     }
-                    ic1<IPerfFrameRegister> perfFrameRegister = PerfFrameRuntime.getInstance().getPerfFrameRegister();
+                    jc1<IPerfFrameRegister> perfFrameRegister = PerfFrameRuntime.getInstance().getPerfFrameRegister();
                     if (perfFrameRegister == null || perfFrameRegister.getList() == null || perfExpInfo == null) {
                         return;
                     }

@@ -15,7 +15,7 @@ import com.kwad.components.core.webview.jshandler.s;
 import com.kwad.components.core.webview.jshandler.x;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b extends Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +120,7 @@ public final class b extends Presenter {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.aq();
             this.mAdTemplate = ((com.kwad.components.core.page.recycle.e) xR()).adTemplate;
-            NestedScrollWebView nestedScrollWebView = (NestedScrollWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f09121a);
+            NestedScrollWebView nestedScrollWebView = (NestedScrollWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f09121c);
             this.Gg = nestedScrollWebView;
             this.Gg.setClientConfig(nestedScrollWebView.getClientConfig().R(this.mAdTemplate));
             this.Gg.setNestedScrollingEnabled(true);

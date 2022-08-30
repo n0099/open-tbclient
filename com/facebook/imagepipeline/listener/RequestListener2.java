@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.listener;
 import androidx.annotation.NonNull;
 import com.facebook.imagepipeline.producers.ProducerContext;
 import com.facebook.imagepipeline.producers.ProducerListener2;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface RequestListener2 extends ProducerListener2 {
     void onRequestCancellation(@NonNull ProducerContext producerContext);
 

@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.api.KsScene;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IOfflineCompoRequest {
     boolean encryptDisable();
 

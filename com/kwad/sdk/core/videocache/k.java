@@ -7,7 +7,7 @@ import com.kwad.sdk.utils.am;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class k {
     public static void b(byte[] bArr, long j, int i) {
         am.e(bArr, "Buffer must be not null!");

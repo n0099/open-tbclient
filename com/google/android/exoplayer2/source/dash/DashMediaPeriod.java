@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Callback<ChunkSampleStream<DashChunkSource>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
     public final TrackGroupInfo[] trackGroupInfos;
     public final TrackGroupArray trackGroups;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class TrackGroupInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

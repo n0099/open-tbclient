@@ -8,11 +8,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class LiveStartClickDataEvent extends SerializableEvent {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int JUMP_LIVE_CHANNEL = 2;
-    public static final int JUMP_LIVE_ROOM = 1;
     public static final long serialVersionUID = 3427568968125136917L;
     public transient /* synthetic */ FieldHolder $fh;
-    public Integer viewTag;
+    public String viewTag;
 
     public LiveStartClickDataEvent() {
         Interceptable interceptable = $ic;

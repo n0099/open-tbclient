@@ -11,6 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ms4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,9 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ks4;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MaxureLayerView extends View {
     public static /* synthetic */ Interceptable $ic;
     public static final int p;
@@ -200,7 +200,7 @@ public class MaxureLayerView extends View {
         this.l.reset();
         this.m.right = getWidth();
         this.m.bottom = getHeight();
-        this.l.addRoundRect(this.m, ks4.y(this.j), Path.Direction.CW);
+        this.l.addRoundRect(this.m, ms4.y(this.j), Path.Direction.CW);
         canvas.clipPath(this.l);
         float f = 1.0f - ((100 - i) / 100.0f);
         canvas.drawRect(0.0f, f * getHeight(), getWidth(), (getHeight() * f) + r, this.e);

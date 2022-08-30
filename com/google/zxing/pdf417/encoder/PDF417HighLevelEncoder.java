@@ -19,7 +19,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
 import java.util.Arrays;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class PDF417HighLevelEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BYTE_COMPACTION = 1;

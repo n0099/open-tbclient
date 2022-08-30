@@ -7,13 +7,13 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.ThreadRecommendTagData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.lw4;
+import com.baidu.tieba.nj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fj8;
-import com.repackage.iw4;
 import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
 /* loaded from: classes3.dex */
@@ -46,16 +46,16 @@ public class ThreadRecommendTagUtil {
             }
             if (TbadkApplication.getInst().getSkinType() == 1) {
                 if (isElementValid(themeColorInfo.night)) {
-                    return fj8.f(themeColorInfo.night.common_color);
+                    return nj8.f(themeColorInfo.night.common_color);
                 }
                 return -1;
             } else if (TbadkApplication.getInst().getSkinType() == 4) {
                 if (isElementValid(themeColorInfo.dark)) {
-                    return fj8.f(themeColorInfo.dark.common_color);
+                    return nj8.f(themeColorInfo.dark.common_color);
                 }
                 return -1;
             } else if (isElementValid(themeColorInfo.day)) {
-                return fj8.f(themeColorInfo.day.common_color);
+                return nj8.f(themeColorInfo.day.common_color);
             } else {
                 return -1;
             }
@@ -87,7 +87,7 @@ public class ThreadRecommendTagUtil {
         int color2 = getColor(threadRecommendTagData.getBackgroundColor());
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
         int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
-        iw4.b bVar = new iw4.b();
+        lw4.b bVar = new lw4.b();
         bVar.n(UtilHelper.getDimenPixelSize(R.dimen.tbds10));
         bVar.q(R.dimen.T_X10);
         bVar.o(dimenPixelSize);

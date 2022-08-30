@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DraweeEventTracker {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_EVENTS_TO_TRACK = 20;
@@ -20,7 +20,7 @@ public class DraweeEventTracker {
     public final Queue<Event> mEventQueue;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class Event {
         public static final /* synthetic */ Event[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

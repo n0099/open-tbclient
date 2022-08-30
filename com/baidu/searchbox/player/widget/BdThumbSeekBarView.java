@@ -856,15 +856,15 @@ public class BdThumbSeekBarView extends View {
         Paint paint = new Paint();
         this.mPaint = paint;
         paint.setAntiAlias(true);
-        this.mPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060418));
+        this.mPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06041b));
         Paint paint2 = new Paint();
         this.mSeekPaint = paint2;
         paint2.setAntiAlias(true);
-        this.mSeekPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06041a));
+        this.mSeekPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06041d));
         Paint paint3 = new Paint();
         this.mBufferingPaint = paint3;
         paint3.setAntiAlias(true);
-        this.mBufferingPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060419));
+        this.mBufferingPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06041c));
         this.mMax = 100.0f;
         this.mProgress = 0.0f;
         this.mBufferingProgress = 0;

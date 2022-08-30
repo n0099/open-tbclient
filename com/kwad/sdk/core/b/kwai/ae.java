@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.kwad.sdk.core.response.model.AdInfo;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ae implements com.kwad.sdk.core.d<AdInfo.AdvertiserInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(AdInfo.AdvertiserInfo advertiserInfo, JSONObject jSONObject) {

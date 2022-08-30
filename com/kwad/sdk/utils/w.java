@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import com.kwad.sdk.service.ServiceProvider;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class w {
     public static String sAppTag = "";
 

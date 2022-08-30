@@ -7,7 +7,7 @@ import com.kwad.sdk.utils.as;
 import com.kwad.sdk.utils.ax;
 import java.io.File;
 import java.nio.charset.Charset;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static volatile e XW;
     public String XX = tA();

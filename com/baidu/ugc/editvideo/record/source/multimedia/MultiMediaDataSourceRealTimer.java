@@ -6,6 +6,7 @@ import android.os.Looper;
 import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.gc9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,11 +14,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xb9;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MultiMediaDataSourceRealTimer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSourceRealTimer";
@@ -40,7 +40,7 @@ public class MultiMediaDataSourceRealTimer {
     public Runnable startRunnable;
     public Runnable stopRunnable;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface AnimatorUpdateListener {
         void onAnimationUpdate(long j);
     }
@@ -367,7 +367,7 @@ public class MultiMediaDataSourceRealTimer {
                     long currentTimeMillis = System.currentTimeMillis();
                     if (this.this$0.mBeginTime == 0) {
                         String str = MultiMediaDataSourceRealTimer.TAG;
-                        xb9.a(str, "TimerTask thread : " + Thread.currentThread().getName());
+                        gc9.a(str, "TimerTask thread : " + Thread.currentThread().getName());
                         this.this$0.mBeginTime = currentTimeMillis;
                     }
                     long j = currentTimeMillis + this.this$0.mCurrentPlayTime;

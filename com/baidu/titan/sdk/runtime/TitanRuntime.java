@@ -11,13 +11,13 @@ import java.util.NoSuchElementException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 @DisableIntercept
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TitanRuntime {
     public static Interceptable $ic;
     public static final ThreadLocal<WeakReference<InterceptResult>> sInterceptStorage = new ThreadLocal<>();
     public static final ThreadLocal<WeakReference<InitContext>> sInitContextStorage = new ThreadLocal<>();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface Logging {
         boolean isLoggable(Level level);
 

@@ -10,13 +10,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.nj8;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fj8;
-import com.repackage.qi;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AdCloseReasonCheckBox extends CheckBox {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,9 +50,9 @@ public class AdCloseReasonCheckBox extends CheckBox {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            b(R.string.J_X07, qi.f(context, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0304, true);
+            b(R.string.J_X07, ri.f(context, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0304, true);
             SkinManager.setViewCheckedTextColorSelector(this, R.color.CAM_X0105, R.color.CAM_X0304, R.color.CAM_X0105);
-            int f = qi.f(context, R.dimen.obfuscated_res_0x7f0701e8);
+            int f = ri.f(context, R.dimen.obfuscated_res_0x7f0701e8);
             setPadding(f, 0, f, 0);
             setGravity(17);
             setButtonDrawable((Drawable) null);
@@ -73,7 +73,7 @@ public class AdCloseReasonCheckBox extends CheckBox {
             if (z) {
                 a = SkinManager.getColor(i3);
             } else {
-                a = fj8.a(SkinManager.getColor(i3), 0.5f);
+                a = nj8.a(SkinManager.getColor(i3), 0.5f);
             }
             this.b.setStroke(i2, a);
             GradientDrawable gradientDrawable2 = new GradientDrawable();
@@ -81,7 +81,7 @@ public class AdCloseReasonCheckBox extends CheckBox {
             gradientDrawable2.setShape(0);
             this.c.setCornerRadius(f);
             if (z) {
-                color = fj8.a(SkinManager.getColor(i4), 0.5f);
+                color = nj8.a(SkinManager.getColor(i4), 0.5f);
             } else {
                 color = SkinManager.getColor(i4);
             }

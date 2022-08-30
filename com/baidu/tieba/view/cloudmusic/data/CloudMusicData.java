@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CloudMusicData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<MusicTagList> music_tag_list;
     public List<TagList> tag_list;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class MusicTagList extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -25,7 +25,7 @@ public class CloudMusicData extends OrmObject {
         public Page page;
         public int tag_id;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public static class MusicList extends OrmObject implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 3;
@@ -104,7 +104,7 @@ public class CloudMusicData extends OrmObject {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public static class Page extends OrmObject implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 2;
@@ -142,7 +142,7 @@ public class CloudMusicData extends OrmObject {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class TagList extends OrmObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

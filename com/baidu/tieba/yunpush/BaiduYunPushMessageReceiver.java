@@ -14,20 +14,20 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mutiprocess.push.PushRecevierEvent;
+import com.baidu.tieba.nz4;
+import com.baidu.tieba.pg;
 import com.baidu.tieba.push.PushGeneralData;
+import com.baidu.tieba.tu4;
+import com.baidu.tieba.u75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jz4;
-import com.repackage.o75;
-import com.repackage.og;
-import com.repackage.ru4;
 import java.net.URISyntaxException;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SHAREDPRE_PUSH_STARTWORK = "baidu_yunpush_start_work";
@@ -55,7 +55,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
             String str5 = "onBind errorCode=" + i;
             if (i == 0) {
                 PushManager.setPushBackStatus(TbadkCoreApplication.getInst(), false);
-                ru4.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+                tu4.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
                 TbadkCoreApplication.getInst().setYunpushChannelId(str3);
             }
         }
@@ -104,10 +104,10 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                 pushGeneralData.parseData(jSONObject.optString("st_ext"));
                 PushRecevierEvent pushRecevierEvent = new PushRecevierEvent();
                 pushRecevierEvent.generalData = pushGeneralData;
-                o75.i(pushRecevierEvent);
-            } else if (jz4.L()) {
+                u75.i(pushRecevierEvent);
+            } else if (nz4.L()) {
             } else {
-                int e = og.e(str4, 2500);
+                int e = pg.e(str4, 2500);
                 if (e < 2500) {
                     e += 2500;
                 }

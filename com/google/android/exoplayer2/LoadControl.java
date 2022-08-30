@@ -3,7 +3,7 @@ package com.google.android.exoplayer2;
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.upstream.Allocator;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface LoadControl {
     Allocator getAllocator();
 

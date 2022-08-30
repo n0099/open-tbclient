@@ -2,7 +2,7 @@ package com.kwad.sdk.core.c;
 
 import android.app.Activity;
 import android.os.Bundle;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class d implements c {
     @Override // com.kwad.sdk.core.c.c
     public final void onActivityCreated(Activity activity, Bundle bundle) {

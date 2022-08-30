@@ -13,19 +13,19 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.INetWorkCore;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.ct4;
+import com.baidu.tieba.dg;
+import com.baidu.tieba.nx4;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.s75;
+import com.baidu.tieba.tu4;
+import com.baidu.tieba.wn4;
+import com.baidu.tieba.yn4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.at4;
-import com.repackage.cg;
-import com.repackage.kx4;
-import com.repackage.m75;
-import com.repackage.oi;
-import com.repackage.ru4;
-import com.repackage.un4;
-import com.repackage.wn4;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -109,12 +109,12 @@ public class HttpRequest {
                 b = currentAccountInfo.getBDUSS();
             } else {
                 if (TbadkCoreApplication.getInst().isRemoteProcess()) {
-                    b = m75.b();
+                    b = s75.b();
                 }
                 return null;
             }
             if (TbadkCoreApplication.getInst().isRemoteProcess() && TextUtils.isEmpty(b)) {
-                currentAccountInfo = un4.e();
+                currentAccountInfo = wn4.e();
                 if (currentAccountInfo == null) {
                     return null;
                 }
@@ -126,7 +126,7 @@ public class HttpRequest {
                 sb.append("=");
                 sb.append(b);
                 sb.append(ParamableElem.DIVIDE_PARAM);
-                String a = wn4.a(currentAccountInfo);
+                String a = yn4.a(currentAccountInfo);
                 if (!StringUtils.isNull(a)) {
                     sb.append("stoken");
                     sb.append("=");
@@ -150,10 +150,10 @@ public class HttpRequest {
             } else if (!TbadkCoreApplication.getInst().isRemoteProcess()) {
                 return;
             } else {
-                b = m75.b();
+                b = s75.b();
             }
             if (TbadkCoreApplication.getInst().isRemoteProcess() && TextUtils.isEmpty(b)) {
-                currentAccountInfo = un4.e();
+                currentAccountInfo = wn4.e();
                 if (currentAccountInfo == null) {
                     return;
                 }
@@ -163,7 +163,7 @@ public class HttpRequest {
                 return;
             }
             iNetWorkCore.addPostData(BDUSS, b);
-            String a = wn4.a(currentAccountInfo);
+            String a = yn4.a(currentAccountInfo);
             if (StringUtils.isNull(a)) {
                 return;
             }
@@ -228,9 +228,9 @@ public class HttpRequest {
             if (from != null && from.length() > 0) {
                 iNetWorkCore.addPostData("from", from);
             }
-            int I = oi.I();
+            int I = pi.I();
             iNetWorkCore.addPostData("net_type", String.valueOf(I));
-            String a = kx4.b().a();
+            String a = nx4.b().a();
             if (TbSingleton.getInstance().isVisitPreviewServer()) {
                 a = a + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ParamableElem.DIVIDE_PARAM;
             }
@@ -250,11 +250,11 @@ public class HttpRequest {
             if (z && (bdussData = getBdussData()) != null) {
                 a = a + bdussData;
             }
-            cg.s(z2);
-            cg.n(a + "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti());
+            dg.s(z2);
+            dg.n(a + "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti());
             if (this.mIsNeedTbs) {
                 if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    iNetWorkCore.addPostData(TBS, m75.f());
+                    iNetWorkCore.addPostData(TBS, s75.f());
                 } else {
                     iNetWorkCore.addPostData(TBS, TbadkCoreApplication.getInst().getTbs());
                 }
@@ -271,7 +271,7 @@ public class HttpRequest {
             iNetWorkCore.addPostData("model", Build.MODEL);
             iNetWorkCore.addPostData(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, Build.BRAND);
             iNetWorkCore.addPostData("baiduid", TbSingleton.getInstance().getBaiduIdForAnti());
-            if (ru4.k().l("android_safe_sdk_open", 0) == 1) {
+            if (tu4.k().l("android_safe_sdk_open", 0) == 1) {
                 iNetWorkCore.addPostData("z_id", TbadkCoreApplication.getInst().getZid());
             }
             if (ComplianceParmasHelper.isNeedChange(this.mUrl)) {
@@ -290,8 +290,8 @@ public class HttpRequest {
             iNetWorkCore.addPostData("event_day", TbSingleton.getInstance().getData());
             iNetWorkCore.addPostData(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? "1" : "2");
             iNetWorkCore.addPostData("is_teenager", "0");
-            iNetWorkCore.addPostData("start_type", at4.f + "");
-            iNetWorkCore.addPostData("start_scheme", at4.e());
+            iNetWorkCore.addPostData("start_type", ct4.f + "");
+            iNetWorkCore.addPostData("start_scheme", ct4.e());
         }
     }
 }

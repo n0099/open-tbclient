@@ -7,11 +7,11 @@ import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.swan.bdprivate.activity.BaseActivity;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ue3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.te3;
 /* loaded from: classes3.dex */
 public class LoginServiceAgreementActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -69,16 +69,16 @@ public class LoginServiceAgreementActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int c0 = te3.c0(this);
+            int c0 = ue3.c0(this);
             super.onCreate(bundle);
-            te3.g(this, c0);
+            ue3.g(this, c0);
             Intent intent = getIntent();
             if (intent == null) {
                 finish();
                 return;
             }
             Bundle extras = intent.getExtras();
-            setContentView(R.layout.obfuscated_res_0x7f0d0041);
+            setContentView(R.layout.obfuscated_res_0x7f0d0042);
             NgWebView ngWebView = (NgWebView) findViewById(R.id.obfuscated_res_0x7f0901ac);
             if (extras != null) {
                 ngWebView.loadUrl(extras.getString("url"));
@@ -87,7 +87,7 @@ public class LoginServiceAgreementActivity extends BaseActivity {
             this.b = swanAppActionBar;
             swanAppActionBar.setLeftBackViewVisibility(true);
             this.b.setLeftBackViewClickListener(new a(this));
-            this.b.setTitle(R.string.obfuscated_res_0x7f0f12f5);
+            this.b.setTitle(R.string.obfuscated_res_0x7f0f12f8);
             this.b.setRightZoneVisibility(false);
         }
     }

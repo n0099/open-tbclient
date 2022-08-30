@@ -19,14 +19,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class g extends v implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView eQ;
     public com.kwad.components.ad.reward.k nM;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void gX();
     }
@@ -181,9 +181,9 @@ public final class g extends v implements View.OnClickListener {
     public final void e(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) {
-            super.a(viewGroup, R.id.obfuscated_res_0x7f091063, R.id.obfuscated_res_0x7f091061);
+            super.a(viewGroup, R.id.obfuscated_res_0x7f091065, R.id.obfuscated_res_0x7f091063);
             if (this.eQ == null) {
-                this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091062);
+                this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091064);
             }
             this.pV.setOnClickListener(this);
         }

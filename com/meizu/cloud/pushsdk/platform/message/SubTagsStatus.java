@@ -7,12 +7,12 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class SubTagsStatus extends BasicPushStatus {
     public String pushId;
     public List<Tag> tagList;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class Tag implements Serializable {
         public int tagId;
         public String tagName;

@@ -24,8 +24,8 @@ import com.kwad.sdk.api.proxy.app.BaseFragmentActivity;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class a extends com.kwad.components.core.i.b implements a.InterfaceC0360a, x.b {
+/* loaded from: classes7.dex */
+public class a extends com.kwad.components.core.i.b implements a.InterfaceC0575a, x.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean Fu;
@@ -122,11 +122,11 @@ public class a extends com.kwad.components.core.i.b implements a.InterfaceC0360a
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             getActivity().setTheme(R.style.obfuscated_res_0x7f10022f);
-            setContentView(R.layout.obfuscated_res_0x7f0d0401);
+            setContentView(R.layout.obfuscated_res_0x7f0d0402);
             d(getIntent());
-            this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091112);
+            this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091114);
             nv();
-            com.kwad.components.core.playable.a aVar = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091117));
+            com.kwad.components.core.playable.a aVar = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091119));
             this.mk = aVar;
             aVar.a(this.mAdTemplate, this.mRootContainer, this.mApkDownloadHelper);
             this.mk.a(this);
@@ -167,7 +167,7 @@ public class a extends com.kwad.components.core.i.b implements a.InterfaceC0360a
         }
     }
 
-    @Override // com.kwad.components.core.kwai.a.InterfaceC0360a
+    @Override // com.kwad.components.core.kwai.a.InterfaceC0575a
     public final void r(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
@@ -175,7 +175,7 @@ public class a extends com.kwad.components.core.i.b implements a.InterfaceC0360a
         }
     }
 
-    @Override // com.kwad.components.core.kwai.a.InterfaceC0360a
+    @Override // com.kwad.components.core.kwai.a.InterfaceC0575a
     public final void s(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {

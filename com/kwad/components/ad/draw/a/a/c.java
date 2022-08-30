@@ -33,7 +33,7 @@ import com.kwad.components.core.webview.jshandler.s;
 import com.kwad.components.core.webview.jshandler.x;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class c extends com.kwad.components.ad.draw.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -562,8 +562,8 @@ public final class c extends com.kwad.components.ad.draw.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091036);
-            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091104);
+            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091038);
+            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091106);
         }
     }
 

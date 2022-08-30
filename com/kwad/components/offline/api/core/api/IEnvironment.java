@@ -1,7 +1,7 @@
 package com.kwad.components.offline.api.core.api;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IEnvironment {
     String getAppId();
 

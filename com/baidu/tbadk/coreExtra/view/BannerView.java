@@ -18,14 +18,14 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.hc8;
+import com.baidu.tieba.op4;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mp4;
-import com.repackage.qi;
-import com.repackage.zb8;
 /* loaded from: classes3.dex */
 public class BannerView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -41,7 +41,7 @@ public class BannerView extends RelativeLayout {
     public float i;
     public String j;
     public boolean k;
-    public mp4 l;
+    public op4 l;
     public String m;
     public b n;
     public View.OnClickListener o;
@@ -154,7 +154,7 @@ public class BannerView extends RelativeLayout {
     public final void h(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0130, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0131, this);
             Button button = (Button) findViewById(R.id.obfuscated_res_0x7f090423);
             this.c = button;
             button.setOnClickListener(this.o);
@@ -162,7 +162,7 @@ public class BannerView extends RelativeLayout {
             this.d = tbImageView;
             tbImageView.setAutoChangeStyle(true);
             this.d.setOnClickListener(this.o);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092303);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09230c);
             View findViewById = findViewById(R.id.obfuscated_res_0x7f09031d);
             this.g = findViewById;
             SkinManager.setBackgroundColor(findViewById, R.color.black_alpha0);
@@ -190,11 +190,11 @@ public class BannerView extends RelativeLayout {
         }
     }
 
-    public void setBannerData(mp4 mp4Var) {
+    public void setBannerData(op4 op4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, mp4Var) == null) {
-            this.l = mp4Var;
-            zb8.f(mp4Var.g, this.f, mp4Var.h, qi.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+        if (interceptable == null || interceptable.invokeL(1048581, this, op4Var) == null) {
+            this.l = op4Var;
+            hc8.f(op4Var.g, this.f, op4Var.h, ri.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
         }
     }
 
@@ -237,8 +237,8 @@ public class BannerView extends RelativeLayout {
             setVisibility(8);
             if (!this.h && this.k) {
                 ViewGroup.LayoutParams layoutParams = this.d.getLayoutParams();
-                layoutParams.width = qi.k(getContext());
-                layoutParams.height = (int) ((qi.k(getContext()) * this.i) + 0.5d);
+                layoutParams.width = ri.k(getContext());
+                layoutParams.height = (int) ((ri.k(getContext()) * this.i) + 0.5d);
                 this.d.setLayoutParams(layoutParams);
                 this.d.G(str, 10, 640, 108, false);
                 ViewGroup.LayoutParams layoutParams2 = getLayoutParams();

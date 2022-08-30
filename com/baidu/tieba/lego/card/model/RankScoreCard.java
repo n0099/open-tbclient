@@ -3,15 +3,15 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.jf7;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bf7;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RankScoreCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,14 +52,14 @@ public class RankScoreCard extends BaseCardInfo {
         this.rank = jSONObject.optInt("rank");
         this.desc = jSONObject.optString("desc");
         this.desc2 = jSONObject.optString("desc2");
-        this.d2Color = bf7.b(jSONObject.optString("d2Color", ""));
-        this.d2ColorN = bf7.b(jSONObject.optString("d2ColorN", ""));
+        this.d2Color = jf7.b(jSONObject.optString("d2Color", ""));
+        this.d2ColorN = jf7.b(jSONObject.optString("d2ColorN", ""));
         this.d2Scheme = jSONObject.optString("d2Scheme");
         this.ratio = jSONObject.optDouble("ratio");
         this.picUrl = jSONObject.optString("picUrl");
         this.subTitle = jSONObject.optString("subTitle");
-        this.sColor = bf7.b(jSONObject.optString("sColor", ""));
-        this.sColorNight = bf7.b(jSONObject.optString("sColorN", ""));
+        this.sColor = jf7.b(jSONObject.optString("sColor", ""));
+        this.sColorNight = jf7.b(jSONObject.optString("sColorN", ""));
         this.postUrl = jSONObject.optString("postUrl");
         this.isDone = jSONObject.optInt("isDone") == 1;
         this.btnText = jSONObject.optString("btnText");

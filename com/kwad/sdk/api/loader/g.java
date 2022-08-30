@@ -3,7 +3,7 @@ package com.kwad.sdk.api.loader;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class g {
     public static String a = "autoRevert";
 

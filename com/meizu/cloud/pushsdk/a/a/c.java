@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.a.a;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class c {
     public int a;
     public String b;

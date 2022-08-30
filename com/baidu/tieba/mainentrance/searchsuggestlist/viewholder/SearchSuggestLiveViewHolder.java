@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class SearchSuggestLiveViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,12 +41,12 @@ public class SearchSuggestLiveViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = view2.findViewById(R.id.obfuscated_res_0x7f091c32);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dbe);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d8e);
-        this.d = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f091daf);
-        this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091dae);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913bc);
-        this.g = view2.findViewById(R.id.obfuscated_res_0x7f091dbf);
+        this.a = view2.findViewById(R.id.obfuscated_res_0x7f091c34);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dc0);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d90);
+        this.d = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f091db1);
+        this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091db0);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913be);
+        this.g = view2.findViewById(R.id.obfuscated_res_0x7f091dc1);
     }
 }

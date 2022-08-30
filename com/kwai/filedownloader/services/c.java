@@ -10,17 +10,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.d.b;
 import com.kwai.filedownloader.e.c;
 import com.kwai.filedownloader.kwai.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final a awq;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public c.InterfaceC0411c awr;
+        public c.InterfaceC0626c awr;
         public Integer aws;
         public c.e awt;
         public c.b awu;
@@ -157,14 +157,14 @@ public final class c {
 
     public final com.kwai.filedownloader.a.a Er() {
         InterceptResult invokeV;
-        c.InterfaceC0411c interfaceC0411c;
+        c.InterfaceC0626c interfaceC0626c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             a aVar = this.awq;
-            if (aVar == null || (interfaceC0411c = aVar.awr) == null) {
+            if (aVar == null || (interfaceC0626c = aVar.awr) == null) {
                 return Ey();
             }
-            com.kwai.filedownloader.a.a EK = interfaceC0411c.EK();
+            com.kwai.filedownloader.a.a EK = interfaceC0626c.EK();
             if (EK != null) {
                 if (com.kwai.filedownloader.e.d.awL) {
                     com.kwai.filedownloader.e.d.e(this, "initial FileDownloader manager with the customize database: %s", EK);

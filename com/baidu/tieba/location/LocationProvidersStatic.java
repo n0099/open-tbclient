@@ -16,6 +16,12 @@ import com.baidu.location.LocationClient;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tieba.ah7;
+import com.baidu.tieba.lf;
+import com.baidu.tieba.wg7;
+import com.baidu.tieba.xg7;
+import com.baidu.tieba.y25;
+import com.baidu.tieba.zg7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,18 +29,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kf;
-import com.repackage.og7;
-import com.repackage.pg7;
-import com.repackage.rg7;
-import com.repackage.s25;
-import com.repackage.sg7;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LocationProvidersStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,20 +67,20 @@ public class LocationProvidersStatic {
                 EditorTools editorTools = (EditorTools) customResponsedMessage.getData();
                 int indexOf = editorTools.getCollectTools().indexOf(7);
                 if (indexOf != -1) {
-                    editorTools.d(new sg7(editorTools.getContext(), indexOf + 1));
+                    editorTools.d(new ah7(editorTools.getContext(), indexOf + 1));
                 }
                 if (editorTools.getCollectTools().indexOf(8) != -1) {
                     if (editorTools.t()) {
-                        editorTools.d(new rg7(editorTools.getContext(), true));
+                        editorTools.d(new zg7(editorTools.getContext(), true));
                     } else {
-                        editorTools.d(new rg7(editorTools.getContext()));
+                        editorTools.d(new zg7(editorTools.getContext()));
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,14 +100,14 @@ public class LocationProvidersStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<s25> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<y25> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016556, new sg7(customMessage.getData(), 0)) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016556, new ah7(customMessage.getData(), 0)) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c implements CustomMessageTask.CustomRunnable<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -170,13 +170,13 @@ public class LocationProvidersStatic {
                 return;
             }
         }
-        kf.n().r(pg7.t());
+        lf.n().r(xg7.t());
         boolean loadBoolean = TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true);
         if (Build.VERSION.SDK_INT <= 4) {
             loadBoolean = false;
         }
         if (loadBoolean) {
-            kf.n().r(og7.j());
+            lf.n().r(wg7.j());
         }
         MessageManager.getInstance().registerListener(new a(2010044));
         CustomMessageTask customMessageTask = new CustomMessageTask(2016556, new b());

@@ -16,7 +16,7 @@ import com.qq.e.ads.nativ.express2.NativeExpressADData2;
 import com.qq.e.comm.adevent.ADListener;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface POFactory extends InnerPOFactory {
     @Override // com.qq.e.comm.pi.InnerPOFactory
     /* synthetic */ void config(int i, String str);

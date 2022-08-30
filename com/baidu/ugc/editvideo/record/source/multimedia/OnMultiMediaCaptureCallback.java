@@ -1,5 +1,5 @@
 package com.baidu.ugc.editvideo.record.source.multimedia;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface OnMultiMediaCaptureCallback {
     void capture(int i, long j, int i2, int i3);
 

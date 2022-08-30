@@ -33,7 +33,7 @@ import com.kwad.components.core.widget.KsLogoView;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b extends com.kwad.components.ad.reward.presenter.a implements com.kwad.components.core.webview.b.d.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -249,7 +249,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
             showActionBarResult = RewardActionBarControl.ShowActionBarResult.SHOW_NATIVE_PLAYABLE_PORTRAIT;
         } else if (!com.kwad.sdk.core.response.a.a.bF(this.mAdInfo) || (viewGroup2 = this.rt) == null) {
             if (com.kwad.sdk.core.response.a.a.aK(this.mAdTemplate)) {
-                ViewGroup viewGroup3 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091179);
+                ViewGroup viewGroup3 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09117b);
                 this.ru = viewGroup3;
                 if (viewGroup3 != null) {
                     Resources resources = viewGroup3.getResources();
@@ -388,7 +388,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
             this.mAdInfo = bQ;
             if (com.kwad.sdk.core.response.a.a.bF(bQ)) {
-                this.rt = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091165);
+                this.rt = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091167);
             }
             this.pM.T(this.mAdTemplate);
             k kVar = this.nM;
@@ -674,11 +674,11 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091033);
-            this.rn = (ActionBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f091208);
-            this.ro = (ActionBarAppPortrait) findViewById(R.id.obfuscated_res_0x7f091209);
-            this.rp = (ActionBarAppPortraitForLive) findViewById(R.id.obfuscated_res_0x7f09120a);
-            this.rq = (ActionBarH5) findViewById(R.id.obfuscated_res_0x7f09120b);
+            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091035);
+            this.rn = (ActionBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f09120a);
+            this.ro = (ActionBarAppPortrait) findViewById(R.id.obfuscated_res_0x7f09120b);
+            this.rp = (ActionBarAppPortraitForLive) findViewById(R.id.obfuscated_res_0x7f09120c);
+            this.rq = (ActionBarH5) findViewById(R.id.obfuscated_res_0x7f09120d);
         }
     }
 

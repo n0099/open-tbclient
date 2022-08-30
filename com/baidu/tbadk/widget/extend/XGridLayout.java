@@ -7,11 +7,11 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.mg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fg5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class XGridLayout extends AdapterLayout {
@@ -57,12 +57,12 @@ public class XGridLayout extends AdapterLayout {
     }
 
     public void e() {
-        fg5 fg5Var;
+        mg5 mg5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (fg5Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (mg5Var = this.a) == null) {
             return;
         }
-        fg5Var.c();
+        mg5Var.c();
     }
 
     @Override // android.view.ViewGroup, android.view.View

@@ -10,13 +10,13 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ms4;
-import com.repackage.qi;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TextLineView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,12 +56,12 @@ public class TextLineView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65538, this, z) == null) {
             if (z) {
-                ms4 d = ms4.d(this);
+                os4 d = os4.d(this);
                 d.v(R.color.CAM_X0105);
                 d.A(R.string.F_X02);
                 return;
             }
-            ms4 d2 = ms4.d(this);
+            os4 d2 = os4.d(this);
             d2.v(R.color.CAM_X0108);
             d2.A(R.string.F_X01);
         }
@@ -160,9 +160,9 @@ public class TextLineView extends TextView {
         obtainStyledAttributes.getColor(5, SkinManager.getColor(R.color.CAM_X0108));
         setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.c + this.b + this.d);
         setTextColor(this.e);
-        this.f = qi.f(context, R.dimen.obfuscated_res_0x7f0702dd);
+        this.f = ri.f(context, R.dimen.obfuscated_res_0x7f0702dd);
         this.g = new RectF();
-        this.k = qi.f(getContext(), R.dimen.obfuscated_res_0x7f070224);
+        this.k = ri.f(getContext(), R.dimen.obfuscated_res_0x7f070224);
         obtainStyledAttributes.recycle();
     }
 }

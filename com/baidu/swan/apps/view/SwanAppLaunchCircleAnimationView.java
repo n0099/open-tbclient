@@ -10,11 +10,11 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d74;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c74;
 /* loaded from: classes3.dex */
 public class SwanAppLaunchCircleAnimationView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -105,8 +105,8 @@ public class SwanAppLaunchCircleAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.g = System.currentTimeMillis();
-            this.d = getResources().getColor(R.color.obfuscated_res_0x7f060409);
-            this.c = getResources().getColor(R.color.obfuscated_res_0x7f060407);
+            this.d = getResources().getColor(R.color.obfuscated_res_0x7f06040c);
+            this.c = getResources().getColor(R.color.obfuscated_res_0x7f06040a);
             this.a.setColor(this.d);
             this.a.setAntiAlias(true);
             this.a.setStyle(Paint.Style.STROKE);
@@ -123,7 +123,7 @@ public class SwanAppLaunchCircleAnimationView extends View {
             g();
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             this.f = ofFloat;
-            ofFloat.setInterpolator(new c74(0.4f, 0.0f, 0.6f, 1.0f));
+            ofFloat.setInterpolator(new d74(0.4f, 0.0f, 0.6f, 1.0f));
             this.f.setRepeatCount(-1);
             this.f.setRepeatMode(1);
             this.f.setDuration(800L);

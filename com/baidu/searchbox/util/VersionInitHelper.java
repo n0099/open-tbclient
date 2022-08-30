@@ -5,12 +5,12 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.og;
 /* loaded from: classes2.dex */
 public class VersionInitHelper {
     public static /* synthetic */ Interceptable $ic;
@@ -48,7 +48,7 @@ public class VersionInitHelper {
             ApplicationInfo applicationInfo = null;
             try {
                 applicationInfo = TbadkCoreApplication.getInst().getContext().getPackageManager().getApplicationInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 128);
-                TbConfig.setVersionType(og.e(String.valueOf(applicationInfo.metaData.get("versionType")), 3));
+                TbConfig.setVersionType(pg.e(String.valueOf(applicationInfo.metaData.get("versionType")), 3));
             } catch (Exception e) {
                 TbConfig.setVersionType(3);
                 BdLog.e(e.getMessage());

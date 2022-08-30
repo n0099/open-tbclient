@@ -76,7 +76,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(IKsAdSDK.class)
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class KsAdSDKImpl implements IKsAdSDK {
     public static final String INVOKER_ID_INIT = "initForInvoker";
     public static final String INVOKER_ID_INIT_COMPONENT_PROXY = "initComponentProxyForInvoker";
@@ -113,7 +113,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
     public static final Map<Class, Class> sComponentProxy = new HashMap();
     public static final Map<Class, Class> sRealComponent = new HashMap();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static KsAdSDKImpl QU = new KsAdSDKImpl();
     }

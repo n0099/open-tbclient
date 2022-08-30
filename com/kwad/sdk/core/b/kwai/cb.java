@@ -6,7 +6,7 @@ import com.kwad.sdk.core.config.item.InstallActivateReminderConfigItem;
 import com.kwad.sdk.core.config.item.g;
 import com.kwad.sdk.core.config.item.i;
 import com.kwad.sdk.core.response.model.SdkConfigData;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class cb {
     @InvokeBy(invokerClass = dd.class, methodId = "registerHolder")
     public static void tl() {

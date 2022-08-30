@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface ControlDispatcher {
     boolean dispatchSeekTo(Player player, int i, long j);
 

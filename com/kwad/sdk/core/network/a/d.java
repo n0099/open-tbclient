@@ -12,7 +12,7 @@ import com.kwad.sdk.core.network.l;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.service.kwai.f;
 import java.util.Random;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class d implements b {
     public static boolean Zh = true;
     public static double Zi = 1.0d;

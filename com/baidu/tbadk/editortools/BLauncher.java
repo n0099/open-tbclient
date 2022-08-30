@@ -14,33 +14,33 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.n25;
+import com.baidu.tieba.u25;
+import com.baidu.tieba.y25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h25;
-import com.repackage.o25;
-import com.repackage.s25;
 /* loaded from: classes3.dex */
-public class BLauncher extends ImageView implements o25 {
+public class BLauncher extends ImageView implements u25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public int b;
     public int c;
-    public s25 d;
+    public y25 d;
     public Drawable e;
     public boolean f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BLauncher(Context context, s25 s25Var) {
+    public BLauncher(Context context, y25 y25Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, s25Var};
+            Object[] objArr = {context, y25Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,19 +53,19 @@ public class BLauncher extends ImageView implements o25 {
         }
         this.c = 0;
         this.f = false;
-        if (s25Var == null) {
+        if (y25Var == null) {
             return;
         }
-        this.d = s25Var;
+        this.d = y25Var;
         setIcon();
-        setToolId(s25Var.c);
+        setToolId(y25Var.c);
     }
 
-    @Override // com.repackage.i25
-    public void A(h25 h25Var) {
+    @Override // com.baidu.tieba.o25
+    public void A(n25 n25Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, h25Var) == null) && h25Var != null && h25Var.a == 2) {
-            Object obj = h25Var.c;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, n25Var) == null) && n25Var != null && n25Var.a == 2) {
+            Object obj = n25Var.c;
             if (obj == null) {
                 b();
             } else if (obj instanceof String) {
@@ -118,7 +118,7 @@ public class BLauncher extends ImageView implements o25 {
         j0();
     }
 
-    @Override // com.repackage.o25
+    @Override // com.baidu.tieba.u25
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -153,14 +153,14 @@ public class BLauncher extends ImageView implements o25 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (TextView) invokeV.objValue;
     }
 
-    @Override // com.repackage.o25
+    @Override // com.baidu.tieba.u25
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    @Override // com.repackage.o25
+    @Override // com.baidu.tieba.u25
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -169,7 +169,7 @@ public class BLauncher extends ImageView implements o25 {
         }
     }
 
-    @Override // com.repackage.o25
+    @Override // com.baidu.tieba.u25
     public void j0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -178,7 +178,7 @@ public class BLauncher extends ImageView implements o25 {
         }
     }
 
-    @Override // com.repackage.o25
+    @Override // com.baidu.tieba.u25
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
@@ -212,19 +212,19 @@ public class BLauncher extends ImageView implements o25 {
     }
 
     public void setIcon() {
-        s25 s25Var;
+        y25 y25Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (s25Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (y25Var = this.d) == null) {
             return;
         }
-        if (s25Var.i) {
+        if (y25Var.i) {
             SvgManager svgManager = SvgManager.getInstance();
-            s25 s25Var2 = this.d;
-            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(s25Var2.d, s25Var2.e, this.c));
-        } else if (s25Var.j) {
-            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(s25Var.d, s25Var.e, s25Var.f, s25Var.g, this.c));
+            y25 y25Var2 = this.d;
+            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(y25Var2.d, y25Var2.e, this.c));
+        } else if (y25Var.j) {
+            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(y25Var.d, y25Var.e, y25Var.f, y25Var.g, this.c));
         } else {
-            SkinManager.setImageResource(this, s25Var.d, this.c);
+            SkinManager.setImageResource(this, y25Var.d, this.c);
         }
         if (this.d.c()) {
             return;

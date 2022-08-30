@@ -5,6 +5,6 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;
 @Target({ElementType.TYPE, ElementType.FIELD, ElementType.METHOD, ElementType.CONSTRUCTOR})
 @Documented
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public @interface KeepName {
 }

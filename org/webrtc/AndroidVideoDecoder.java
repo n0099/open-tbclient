@@ -6,12 +6,12 @@ import android.os.SystemClock;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.uu9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lu9;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.concurrent.BlockingDeque;
@@ -493,7 +493,7 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     @Override // org.webrtc.VideoDecoder
     @CalledByNative
     public /* synthetic */ long createNativeVideoDecoder() {
-        return lu9.$default$createNativeVideoDecoder(this);
+        return uu9.$default$createNativeVideoDecoder(this);
     }
 
     public SurfaceTextureHelper createSurfaceTextureHelper() {

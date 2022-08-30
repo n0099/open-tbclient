@@ -2,7 +2,7 @@ package com.kwad.sdk.c;
 
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b implements a {
     public static volatile b aip;
     public static c aiq;

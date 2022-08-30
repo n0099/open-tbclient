@@ -3,6 +3,7 @@ package com.xiaomi.push.service;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -94,7 +95,7 @@ public class a {
             try {
                 File file2 = new File(context.getFilesDir(), str2);
                 com.xiaomi.push.ab.m161a(file2);
-                randomAccessFile = new RandomAccessFile(file2, "rw");
+                randomAccessFile = new RandomAccessFile(file2, rw.c);
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
                     try {
@@ -185,7 +186,7 @@ public class a {
                         try {
                             File file = new File(context.getFilesDir(), (String) str3);
                             com.xiaomi.push.ab.m161a(file);
-                            randomAccessFile = new RandomAccessFile(file, "rw");
+                            randomAccessFile = new RandomAccessFile(file, rw.c);
                             try {
                                 fileLock = randomAccessFile.getChannel().lock();
                                 com.xiaomi.push.ab.a(new File(context.getFilesDir(), str2), str);

@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.upstream.Allocator;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class ClippingMediaSource implements MediaSource, MediaSource.Listener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public final class ClippingMediaSource implements MediaSource, MediaSource.Liste
     public MediaSource.Listener sourceListener;
     public final long startUs;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class ClippingTimeline extends ForwardingTimeline {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

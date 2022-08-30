@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface TTNativeAd extends TTClientBidding {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface AdInteractionListener {
         void onAdClicked(View view2, TTNativeAd tTNativeAd);
 
@@ -19,7 +19,7 @@ public interface TTNativeAd extends TTClientBidding {
         void onAdShow(TTNativeAd tTNativeAd);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface ExpressRenderListener {
         void onRenderSuccess(View view2, float f, float f2, boolean z);
     }

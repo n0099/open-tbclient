@@ -3,7 +3,7 @@ package com.kwad.sdk;
 import android.os.SystemClock;
 import android.util.Log;
 import com.kwad.sdk.utils.w;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class e {
     public static boolean QW;
     public static long QX;

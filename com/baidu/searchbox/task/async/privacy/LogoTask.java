@@ -6,19 +6,20 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearchlib.NASLib;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.p9;
+import com.baidu.tieba.tu4;
+import com.baidu.tieba.ya5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o9;
-import com.repackage.ra5;
-import com.repackage.ru4;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class LogoTask extends LaunchTask {
@@ -45,7 +46,7 @@ public class LogoTask extends LaunchTask {
     private void startSwitchDebugService() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2000996, new o9(TbadkCoreApplication.getInst())));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2000996, new p9(TbadkCoreApplication.getInst())));
         }
     }
 
@@ -75,10 +76,12 @@ public class LogoTask extends LaunchTask {
             if (this.mIsFirstUse) {
                 TbadkSettings.getInst().saveBoolean("first_sync_image_quality", true);
                 TbadkCoreApplication.getInst().setIsAbstractOn(0);
-                ru4.k().u("frs_first_in", true);
+                tu4.k().u("frs_first_in", true);
             }
-            NASLib.onAppStart(TbadkCoreApplication.getInst());
-            ra5.b().z(this.mIsFirstUse);
+            if (TbSingleton.getInstance().isAuditPackageSwitchOn()) {
+                NASLib.onAppStart(TbadkCoreApplication.getInst());
+            }
+            ya5.b().z(this.mIsFirstUse);
         }
     }
 

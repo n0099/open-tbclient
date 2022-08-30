@@ -10,12 +10,12 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.PublishProgressData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.gn8;
+import com.baidu.tieba.os4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ms4;
-import com.repackage.ym8;
 /* loaded from: classes3.dex */
 public class PublishProgressView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -50,17 +50,17 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
     private void setProgress(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, this, i) == null) {
-            this.b.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0f3a), Integer.valueOf(this.a.c(i))));
+            this.b.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0f3d), Integer.valueOf(this.a.c(i))));
         }
     }
 
     public final void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d073d, this);
-            this.a = (PublishProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f091a7b);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a84);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a7d);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d073f, this);
+            this.a = (PublishProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f091a7d);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a86);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a7f);
             this.c = textView;
             textView.setOnClickListener(this);
             this.a.setOnClickListener(this);
@@ -72,11 +72,11 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.b();
-            ms4 d = ms4.d(this.b);
+            os4 d = os4.d(this.b);
             d.v(R.color.CAM_X0101);
             d.z(R.dimen.T_X06);
             d.A(R.string.F_X01);
-            ms4 d2 = ms4.d(this.c);
+            os4 d2 = os4.d(this.c);
             d2.v(R.color.CAM_X0101);
             d2.z(R.dimen.T_X09);
             d2.A(R.string.F_X01);
@@ -114,13 +114,13 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091a7d) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091a7f) {
             PublishProgressData publishProgressData = this.d;
             if (publishProgressData != null) {
                 publishProgressData.hideRunning();
                 d();
             }
-            ym8.c();
+            gn8.c();
         }
     }
 

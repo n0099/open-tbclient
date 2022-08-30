@@ -14,6 +14,20 @@ import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.Net;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.a7;
+import com.baidu.tieba.b1;
+import com.baidu.tieba.d1;
+import com.baidu.tieba.e1;
+import com.baidu.tieba.g1;
+import com.baidu.tieba.g2;
+import com.baidu.tieba.g8;
+import com.baidu.tieba.j2;
+import com.baidu.tieba.j7;
+import com.baidu.tieba.l2;
+import com.baidu.tieba.n2;
+import com.baidu.tieba.q2;
+import com.baidu.tieba.s2;
+import com.baidu.tieba.w2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,20 +35,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a7;
-import com.repackage.b1;
-import com.repackage.d1;
-import com.repackage.e1;
-import com.repackage.g1;
-import com.repackage.g2;
-import com.repackage.g8;
-import com.repackage.j2;
-import com.repackage.j7;
-import com.repackage.l2;
-import com.repackage.n2;
-import com.repackage.q2;
-import com.repackage.s2;
-import com.repackage.w2;
 /* loaded from: classes.dex */
 public class AndroidFragmentApplication extends Fragment implements g2 {
     public static /* synthetic */ Interceptable $ic;
@@ -118,21 +118,21 @@ public class AndroidFragmentApplication extends Fragment implements g2 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (b1) invokeV.objValue;
     }
 
-    @Override // com.repackage.g2
+    @Override // com.baidu.tieba.g2
     public Window getApplicationWindow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getActivity().getWindow() : (Window) invokeV.objValue;
     }
 
-    @Override // androidx.fragment.app.Fragment, com.repackage.g2
+    @Override // androidx.fragment.app.Fragment, com.baidu.tieba.g2
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getActivity() : (Context) invokeV.objValue;
     }
 
-    @Override // com.repackage.g2
+    @Override // com.baidu.tieba.g2
     public a7<Runnable> getExecutedRunnables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -146,21 +146,21 @@ public class AndroidFragmentApplication extends Fragment implements g2 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (Graphics) invokeV.objValue;
     }
 
-    @Override // com.repackage.g2
+    @Override // com.baidu.tieba.g2
     public s2 getInput() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : (s2) invokeV.objValue;
     }
 
-    @Override // com.repackage.g2
+    @Override // com.baidu.tieba.g2
     public g8<g1> getLifecycleListeners() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.j : (g8) invokeV.objValue;
     }
 
-    @Override // com.repackage.g2
+    @Override // com.baidu.tieba.g2
     public a7<Runnable> getRunnables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -174,7 +174,7 @@ public class AndroidFragmentApplication extends Fragment implements g2 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? Application.ApplicationType.Android : (Application.ApplicationType) invokeV.objValue;
     }
 
-    @Override // com.repackage.g2
+    @Override // com.baidu.tieba.g2
     public WindowManager getWindowManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

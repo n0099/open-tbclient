@@ -1,15 +1,16 @@
 package com.kwad.sdk.utils.kwai;
 
+import com.baidu.tieba.rw;
 import java.io.Closeable;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.security.SecureRandom;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class h {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static final SecureRandom aqs = new SecureRandom();
         public static final char[] aqt = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
@@ -43,7 +44,7 @@ public final class h {
     }
 
     public static void a(File file, byte[] bArr, int i) {
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, rw.c);
         int i2 = 0;
         while (i2 < i) {
             try {
@@ -66,7 +67,7 @@ public final class h {
         } catch (Exception unused) {
         }
         if (aa(file2)) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(file2, "rw");
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file2, rw.c);
             randomAccessFile.setLength(bArr.length);
             randomAccessFile.write(bArr);
             closeQuietly(randomAccessFile);

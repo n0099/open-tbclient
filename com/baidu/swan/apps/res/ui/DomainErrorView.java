@@ -5,20 +5,20 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a13;
+import com.baidu.tieba.b83;
+import com.baidu.tieba.fa3;
+import com.baidu.tieba.hk2;
+import com.baidu.tieba.nm2;
+import com.baidu.tieba.re3;
+import com.baidu.tieba.se3;
+import com.baidu.tieba.t73;
+import com.baidu.tieba.tc3;
+import com.baidu.tieba.ue3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a83;
-import com.repackage.ea3;
-import com.repackage.gk2;
-import com.repackage.mm2;
-import com.repackage.qe3;
-import com.repackage.re3;
-import com.repackage.s73;
-import com.repackage.sc3;
-import com.repackage.te3;
-import com.repackage.z03;
 /* loaded from: classes2.dex */
 public class DomainErrorView extends CommonEmptyView {
     public static /* synthetic */ Interceptable $ic;
@@ -30,15 +30,15 @@ public class DomainErrorView extends CommonEmptyView {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
         public final /* synthetic */ String b;
-        public final /* synthetic */ z03 c;
+        public final /* synthetic */ a13 c;
         public final /* synthetic */ DomainErrorView d;
 
-        public a(DomainErrorView domainErrorView, String str, String str2, z03 z03Var) {
+        public a(DomainErrorView domainErrorView, String str, String str2, a13 a13Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {domainErrorView, str, str2, z03Var};
+                Object[] objArr = {domainErrorView, str, str2, a13Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,14 +51,14 @@ public class DomainErrorView extends CommonEmptyView {
             this.d = domainErrorView;
             this.a = str;
             this.b = str2;
-            this.c = z03Var;
+            this.c = a13Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                gk2.u().b(this.c.w(), this.c.O(), this.c.Z(), re3.u(this.a, this.b));
+                hk2.u().b(this.c.w(), this.c.O(), this.c.Z(), se3.u(this.a, this.b));
             }
         }
     }
@@ -87,17 +87,17 @@ public class DomainErrorView extends CommonEmptyView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             StringBuffer stringBuffer = new StringBuffer();
-            boolean d = re3.d(str, stringBuffer);
+            boolean d = se3.d(str, stringBuffer);
             String stringBuffer2 = stringBuffer.toString();
-            setIcon(R.drawable.obfuscated_res_0x7f081171);
+            setIcon(R.drawable.obfuscated_res_0x7f081172);
             setTitle(R.string.obfuscated_res_0x7f0f0157);
-            sc3 sc3Var = new sc3();
-            sc3Var.k(5L);
-            sc3Var.i(41L);
-            sc3Var.f("domain not in white list--" + stringBuffer2);
-            z03 b0 = z03.b0();
+            tc3 tc3Var = new tc3();
+            tc3Var.k(5L);
+            tc3Var.i(41L);
+            tc3Var.f("domain not in white list--" + stringBuffer2);
+            a13 b0 = a13.b0();
             if (b0 != null) {
-                String format = String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f01a3), te3.D(), ea3.i(mm2.U().M(), b0.Y().G()), String.valueOf(sc3Var.a()));
+                String format = String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f01a3), ue3.D(), fa3.i(nm2.U().M(), b0.Y().G()), String.valueOf(tc3Var.a()));
                 StringBuilder sb = new StringBuilder();
                 sb.append("(");
                 sb.append(d ? stringBuffer2 : format);
@@ -106,19 +106,19 @@ public class DomainErrorView extends CommonEmptyView {
                 this.g.setVisibility(0);
                 this.g.setOnClickListener(new a(this, format, stringBuffer2, b0));
             }
-            this.b.setText(getResources().getText(R.string.obfuscated_res_0x7f0f12a8));
-            this.c.setPadding(qe3.g(70.0f), 0, qe3.g(70.0f), 0);
-            String e = te3.n().e();
-            String a2 = te3.v().a();
-            a83 a83Var = new a83();
-            a83Var.p(sc3Var);
-            a83Var.q(s73.n(0));
-            a83Var.m(z03.g0());
-            a83Var.l("errorDomain", stringBuffer2);
-            a83Var.l("path", e);
-            a83Var.l("prePath", a2);
-            a83Var.l("curPath", te3.n().a());
-            s73.R(a83Var);
+            this.b.setText(getResources().getText(R.string.obfuscated_res_0x7f0f12ab));
+            this.c.setPadding(re3.g(70.0f), 0, re3.g(70.0f), 0);
+            String e = ue3.n().e();
+            String a2 = ue3.v().a();
+            b83 b83Var = new b83();
+            b83Var.p(tc3Var);
+            b83Var.q(t73.n(0));
+            b83Var.m(a13.g0());
+            b83Var.l("errorDomain", stringBuffer2);
+            b83Var.l("path", e);
+            b83Var.l("prePath", a2);
+            b83Var.l("curPath", ue3.n().a());
+            t73.R(b83Var);
         }
     }
 

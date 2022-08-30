@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 import androidx.annotation.MainThread;
 import com.kwad.sdk.utils.aa;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class KsAdContainer extends RelativeLayout {
     public aa.a afd;
 

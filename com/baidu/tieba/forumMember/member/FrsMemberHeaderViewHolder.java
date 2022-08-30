@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FrsMemberHeaderViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,18 +46,18 @@ public class FrsMemberHeaderViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912de);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912d2);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d33);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09244d);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f090d2f);
-        this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09254b);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921a5);
-        this.h = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c26);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f090d30);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921a4);
-        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091438);
-        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091437);
+        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912e0);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912d4);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d34);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092456);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f090d30);
+        this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092555);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ab);
+        this.h = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c28);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f090d31);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921aa);
+        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09143a);
+        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091439);
         this.a.setOnClickListener(onClickListener);
         this.d.setOnClickListener(onClickListener);
     }

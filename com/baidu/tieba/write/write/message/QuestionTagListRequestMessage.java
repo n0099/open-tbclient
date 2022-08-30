@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class QuestionTagListRequestMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CATEGORY = "first_category";

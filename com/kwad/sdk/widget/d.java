@@ -7,7 +7,7 @@ import android.view.ViewParent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class d extends ViewPager {
     public int ara;
     public boolean arb;

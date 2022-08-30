@@ -14,13 +14,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.vc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nc8;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AppDownloadView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class AppDownloadView extends LinearLayout {
     public static int getStatus(DownloadData downloadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, downloadData)) == null) ? nc8.p(downloadData) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, downloadData)) == null) ? vc8.p(downloadData) : invokeL.intValue;
     }
 
     public final void a(Context context) {
@@ -63,11 +63,11 @@ public class AppDownloadView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(0);
             setGravity(16);
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d011d, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d011e, (ViewGroup) this, true);
             this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09029d);
-            this.b = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f090ada);
-            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ad8);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090ad9);
+            this.b = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f090adb);
+            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ad9);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090ada);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -91,7 +91,7 @@ public class AppDownloadView extends LinearLayout {
             setVisibility(0);
             SkinManager.setImageResource(this.c, R.drawable.icon_download_play);
         }
-        int j = nc8.n().j(downloadData.getId(), downloadData.getName());
+        int j = vc8.n().j(downloadData.getId(), downloadData.getName());
         if (j >= 0) {
             c(j);
         } else {

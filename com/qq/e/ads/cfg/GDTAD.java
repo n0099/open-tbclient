@@ -14,7 +14,7 @@ import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.plugin.e;
 import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.StringUtil;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class GDTAD {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -22,7 +22,7 @@ public class GDTAD {
     public static e c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface InitListener {
         void onSuccess();
     }

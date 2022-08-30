@@ -8,6 +8,8 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.xn9;
+import com.baidu.tieba.zm9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,9 +21,7 @@ import com.google.android.gms.common.Feature;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.internal.IAccountAccessor;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
-import com.repackage.on9;
-import com.repackage.qm9;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class GetServiceRequest extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
     @NonNull
@@ -57,7 +57,7 @@ public class GetServiceRequest extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new on9();
+        CREATOR = new xn9();
     }
 
     public GetServiceRequest(int i, int i2, int i3, String str, IBinder iBinder, Scope[] scopeArr, Bundle bundle, Account account, Feature[] featureArr, Feature[] featureArr2, boolean z, int i4, boolean z2, @Nullable String str2) {
@@ -110,7 +110,7 @@ public class GetServiceRequest extends AbstractSafeParcelable {
     public final void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
-            on9.a(this, parcel, i);
+            xn9.a(this, parcel, i);
         }
     }
 
@@ -137,7 +137,7 @@ public class GetServiceRequest extends AbstractSafeParcelable {
             }
         }
         this.zza = 6;
-        this.zzc = qm9.a;
+        this.zzc = zm9.a;
         this.zzb = i;
         this.zzk = true;
         this.zzn = str;

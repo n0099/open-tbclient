@@ -1,5 +1,5 @@
 package com.fun.ad.sdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface FunAdInteractionListener {
     void onAdClicked(String str, String str2, String str3);
 

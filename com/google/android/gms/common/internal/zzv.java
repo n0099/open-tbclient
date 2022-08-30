@@ -4,14 +4,14 @@ import android.accounts.Account;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.RemoteException;
+import com.baidu.tieba.ap9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.internal.common.zza;
-import com.repackage.ro9;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class zzv extends zza implements IAccountAccessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public final class zzv extends zza implements IAccountAccessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Parcel zzB = zzB(2, zza());
-            Account account = (Account) ro9.a(zzB, Account.CREATOR);
+            Account account = (Account) ap9.a(zzB, Account.CREATOR);
             zzB.recycle();
             return account;
         }

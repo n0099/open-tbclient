@@ -1,5 +1,7 @@
 package com.baidu.swan.apps.optimization.quotasaver;
 
+import com.baidu.tieba.dm2;
+import com.baidu.tieba.hk2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,14 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cm2;
-import com.repackage.gk2;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/swan/apps/launch/model/property/Properties$Impl;", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class QuotaSaver$config$2 extends Lambda implements Function0<cm2.a> {
+public final class QuotaSaver$config$2 extends Lambda implements Function0<dm2.a> {
     public static /* synthetic */ Interceptable $ic;
     public static final QuotaSaver$config$2 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,14 +56,14 @@ public final class QuotaSaver$config$2 extends Lambda implements Function0<cm2.a
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
-    public final cm2.a invoke() {
+    public final dm2.a invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            cm2.a aVar = new cm2.a();
-            gk2.H0().a(aVar);
-            return new cm2.a(aVar.D());
+            dm2.a aVar = new dm2.a();
+            hk2.H0().a(aVar);
+            return new dm2.a(aVar.D());
         }
-        return (cm2.a) invokeV.objValue;
+        return (dm2.a) invokeV.objValue;
     }
 }

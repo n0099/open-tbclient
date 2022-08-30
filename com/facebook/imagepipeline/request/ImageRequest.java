@@ -27,7 +27,7 @@ import java.util.Map;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ImageRequest {
     public static /* synthetic */ Interceptable $ic;
     public static final Fn<ImageRequest, Uri> REQUEST_TO_URI_FN;
@@ -61,7 +61,7 @@ public class ImageRequest {
     public String mTag;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class CacheChoice {
         public static final /* synthetic */ CacheChoice[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -121,7 +121,7 @@ public class ImageRequest {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class RequestLevel {
         public static final /* synthetic */ RequestLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

@@ -13,13 +13,13 @@ import com.kwad.components.offline.api.IOfflineCompo;
 import com.kwad.components.offline.api.tk.model.StyleTemplate;
 import com.kwad.sdk.api.SdkConfig;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface ITkOfflineCompo extends IOfflineCompo {
     public static final String IMPL = "com.kwad.tachikoma.TkOfflineCompoImpl";
     public static final String PACKAGE_NAME = "com.kwad.components.tachikoma";
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class TKState {
         public static final /* synthetic */ TKState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

@@ -4,12 +4,12 @@ import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class SuspendIdleView extends SusPendedView {
     public static /* synthetic */ Interceptable $ic;
@@ -50,7 +50,7 @@ public class SuspendIdleView extends SusPendedView {
             setIsFinish(false);
             setRatio(0.0f);
             if (getTranAnim() != null) {
-                getTranAnim().setIntValues(qi.i(getContext()), 0);
+                getTranAnim().setIntValues(ri.i(getContext()), 0);
             }
             super.i();
         }

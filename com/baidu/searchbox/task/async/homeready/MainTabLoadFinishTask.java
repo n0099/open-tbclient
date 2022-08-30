@@ -8,14 +8,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.basic.Loki;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.a40;
+import com.baidu.tieba.q10;
+import com.baidu.tieba.tu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p10;
-import com.repackage.ru4;
-import com.repackage.z30;
 import java.io.UnsupportedEncodingException;
 /* loaded from: classes2.dex */
 public class MainTabLoadFinishTask extends LaunchTask {
@@ -46,7 +46,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 return "";
             }
             String str2 = split[1];
-            if (StringUtils.isNull(str2) || (b = new z30("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
+            if (StringUtils.isNull(str2) || (b = new a40("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
                 return "";
             }
             try {
@@ -65,16 +65,16 @@ public class MainTabLoadFinishTask extends LaunchTask {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
             Loki.startTrack();
             try {
-                ru4.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
+                tu4.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             try {
-                String f = p10.e(TbadkCoreApplication.getInst().getContext()).f();
-                String q = ru4.k().q("key_last_cached_oid", "");
+                String f = q10.e(TbadkCoreApplication.getInst().getContext()).f();
+                String q = tu4.k().q("key_last_cached_oid", "");
                 if (StringUtils.isNull(q) || !q.equals(f)) {
-                    ru4.k().y("key_last_cached_oid", f);
-                    ru4.k().y("key_last_cached_real_oid", getRealOaid(f));
+                    tu4.k().y("key_last_cached_oid", f);
+                    tu4.k().y("key_last_cached_real_oid", getRealOaid(f));
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();

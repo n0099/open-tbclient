@@ -5,17 +5,17 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tieba.af5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.te5;
 import java.util.List;
 import tbclient.AddMsgRecord.AddMsgRecordReqIdl;
 import tbclient.AddMsgRecord.DataReq;
 import tbclient.AddMsgRecord.MsgRecord;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RequestAddMsgRecordMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CLICK = 3;
@@ -53,7 +53,7 @@ public class RequestAddMsgRecordMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.records = this.msgRecords;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                te5.a(builder, true);
+                af5.a(builder, true);
             }
             AddMsgRecordReqIdl.Builder builder2 = new AddMsgRecordReqIdl.Builder();
             builder2.data = builder.build(false);

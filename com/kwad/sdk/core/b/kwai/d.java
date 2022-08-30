@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class d implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.a.a> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(com.kwad.sdk.core.webview.a.a.a aVar, JSONObject jSONObject) {

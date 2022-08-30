@@ -1,5 +1,5 @@
 package com.baidu.titan.sdk.runtime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BuddyInitHolder {
     public Object[] locals;
     public int methodId;

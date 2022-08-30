@@ -21,7 +21,7 @@ import com.google.android.exoplayer2.text.TextOutput;
 import com.google.android.exoplayer2.util.Util;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class SubtitleView extends View implements TextOutput {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ABSOLUTE = 2;

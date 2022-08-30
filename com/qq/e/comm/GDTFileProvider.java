@@ -17,6 +17,7 @@ import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +32,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class GDTFileProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] b;
@@ -40,14 +41,14 @@ public class GDTFileProvider extends ContentProvider {
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         Uri a(File file);
 
         File a(Uri uri);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class b implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -352,7 +353,7 @@ public class GDTFileProvider extends ContentProvider {
                 i = 738197504;
             } else if ("wa".equals(str)) {
                 i = 704643072;
-            } else if ("rw".equals(str)) {
+            } else if (rw.c.equals(str)) {
                 i = 939524096;
             } else if (!"rwt".equals(str)) {
                 throw new IllegalArgumentException("Invalid mode: " + str);

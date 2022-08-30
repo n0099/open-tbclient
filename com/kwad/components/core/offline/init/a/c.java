@@ -17,7 +17,7 @@ import com.kwad.components.offline.api.core.video.mdoel.PlayVideoInfo;
 import com.kwad.sdk.utils.am;
 import java.io.FileDescriptor;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class c implements IMediaPlayer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

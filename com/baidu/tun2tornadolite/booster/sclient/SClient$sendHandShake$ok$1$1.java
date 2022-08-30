@@ -12,7 +12,7 @@ import kotlin.coroutines.Continuation;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n"}, d2 = {"<anonymous>", "", "ok", ""}, k = 3, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class SClient$sendHandShake$ok$1$1 extends Lambda implements Function1<Boolean, Unit> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

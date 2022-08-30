@@ -8,6 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.tu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,9 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
-import com.repackage.ru4;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GetFriendAndStrangerSwitchModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static int FRIEND_AND_STRANGER_MASK_TYPE = -1;
@@ -25,7 +25,7 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public HttpMessageListener a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,13 +59,13 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel {
                 int i = getFriendAndStrangerSwitchResMsg.mMaskType;
                 if (i > -1) {
                     GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE = i;
-                    ru4 k = ru4.k();
+                    tu4 k = tu4.k();
                     k.w(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", getFriendAndStrangerSwitchResMsg.mMaskType);
                 }
                 int i2 = getFriendAndStrangerSwitchResMsg.mPushType;
                 if (i2 > -1) {
                     GetFriendAndStrangerSwitchModel.FRIEND_PRIVATE_MESSAGE_PUSH_TYPE = i2;
-                    ru4 k2 = ru4.k();
+                    tu4 k2 = tu4.k();
                     k2.w(TbadkCoreApplication.getCurrentAccount() + "key_friend_private_message_type", getFriendAndStrangerSwitchResMsg.mPushType);
                 }
             }

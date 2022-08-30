@@ -5,15 +5,15 @@ import android.app.Application;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a implements Application.ActivityLifecycleCallbacks {
     public static volatile boolean a;
     public int b = 0;
-    public InterfaceC0286a c;
+    public InterfaceC0501a c;
 
     /* renamed from: com.bytedance.sdk.openadsdk.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0286a {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0501a {
         void a();
 
         void b();
@@ -47,9 +47,9 @@ public class a implements Application.ActivityLifecycleCallbacks {
     public void onActivityStarted(@NonNull Activity activity) {
         this.b++;
         a = false;
-        InterfaceC0286a interfaceC0286a = this.c;
-        if (interfaceC0286a != null) {
-            interfaceC0286a.b();
+        InterfaceC0501a interfaceC0501a = this.c;
+        if (interfaceC0501a != null) {
+            interfaceC0501a.b();
         }
     }
 
@@ -59,14 +59,14 @@ public class a implements Application.ActivityLifecycleCallbacks {
         this.b = i;
         if (i == 0) {
             a = true;
-            InterfaceC0286a interfaceC0286a = this.c;
-            if (interfaceC0286a != null) {
-                interfaceC0286a.a();
+            InterfaceC0501a interfaceC0501a = this.c;
+            if (interfaceC0501a != null) {
+                interfaceC0501a.a();
             }
         }
     }
 
-    public void a(InterfaceC0286a interfaceC0286a) {
-        this.c = interfaceC0286a;
+    public void a(InterfaceC0501a interfaceC0501a) {
+        this.c = interfaceC0501a;
     }
 }

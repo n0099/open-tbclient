@@ -21,7 +21,7 @@ import com.kwad.components.core.webview.jshandler.r;
 import com.kwad.components.core.webview.jshandler.x;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ax;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class e extends com.kwad.sdk.core.download.kwai.a implements r.b, x.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

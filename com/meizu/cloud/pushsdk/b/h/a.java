@@ -13,7 +13,7 @@ import java.net.UnknownHostException;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a extends SSLSocketFactory {
     public String a = "TlsSessionTicket";
     public SSLSocketFactory b;

@@ -2,7 +2,7 @@ package com.kwad.sdk.utils;
 
 import android.text.TextUtils;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class be {
     public static boolean X(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {

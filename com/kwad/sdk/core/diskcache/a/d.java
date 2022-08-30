@@ -2,7 +2,7 @@ package com.kwad.sdk.core.diskcache.a;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class d {
     public static String bC(String str) {
         if (str == null) {

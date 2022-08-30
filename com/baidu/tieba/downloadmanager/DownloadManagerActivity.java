@@ -28,14 +28,14 @@ import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.downloadmanager.ui.DownloadManagerFragment;
+import com.baidu.tieba.i56;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.t65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a56;
-import com.repackage.n65;
-import com.repackage.qi;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -47,7 +47,7 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
     public TbTabLayout b;
     public BdBaseViewPager c;
     public int d;
-    public ArrayList<n65> e;
+    public ArrayList<t65> e;
     public CustomMessageListener f;
 
     /* loaded from: classes3.dex */
@@ -81,11 +81,11 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof a56)) {
-                a56 a56Var = (a56) customResponsedMessage.getData();
-                View a = a56Var.a();
-                if (!ItemCardHelper.d.equals(((TBSpecificationBtn) a56Var.a()).getText())) {
-                    ItemCardHelper.f(a56Var.e(), a56Var.d(), ItemCardHelper.e(((TBSpecificationBtn) a56Var.a()).getText()), a56Var.c(), a56Var.b(), true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof i56)) {
+                i56 i56Var = (i56) customResponsedMessage.getData();
+                View a = i56Var.a();
+                if (!ItemCardHelper.d.equals(((TBSpecificationBtn) i56Var.a()).getText())) {
+                    ItemCardHelper.f(i56Var.e(), i56Var.d(), ItemCardHelper.e(((TBSpecificationBtn) i56Var.a()).getText()), i56Var.c(), i56Var.b(), true);
                 }
                 DownloadManagerActivity downloadManagerActivity = this.a;
                 ItemCardHelper.l(downloadManagerActivity, downloadManagerActivity.getUniqueId(), a, (ViewGroup) this.a.findViewById(16908290));
@@ -227,11 +227,11 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_DOWNLOAD_MANAGER_SHOW);
                 statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-                if (this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0994).contentEquals(fVar.g())) {
+                if (this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0997).contentEquals(fVar.g())) {
                     statisticItem.addParam("obj_locate", 1);
-                } else if (this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0517).contentEquals(fVar.g())) {
+                } else if (this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0518).contentEquals(fVar.g())) {
                     statisticItem.addParam("obj_locate", 3);
-                } else if (this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0906).contentEquals(fVar.g())) {
+                } else if (this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0909).contentEquals(fVar.g())) {
                     statisticItem.addParam("obj_locate", 2);
                 }
                 statisticItem.addParam("obj_source", this.a.d);
@@ -245,11 +245,11 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-        public List<n65> b;
+        public List<t65> b;
         public final /* synthetic */ DownloadManagerActivity c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(DownloadManagerActivity downloadManagerActivity, FragmentManager fragmentManager, List<n65> list) {
+        public e(DownloadManagerActivity downloadManagerActivity, FragmentManager fragmentManager, List<t65> list) {
             super(fragmentManager);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -276,7 +276,7 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                List<n65> list = this.b;
+                List<t65> list = this.b;
                 if (list == null) {
                     return 0;
                 }
@@ -356,7 +356,7 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.b.setOnTabSelectedListener(new d(this));
             this.b.setSelectedTabTextBlod(true);
-            this.b.setTabTextSize(qi.f(getActivity(), R.dimen.tbds42));
+            this.b.setTabTextSize(ri.f(getActivity(), R.dimen.tbds42));
             this.b.setupWithViewPager(this.c);
         }
     }
@@ -364,13 +364,13 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
     public final void K0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090824);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090825);
             this.a = navigationBar;
-            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f050d));
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f050e));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090826);
+            this.c = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090827);
             L0();
-            this.b = (TbTabLayout) findViewById(R.id.obfuscated_res_0x7f090825);
+            this.b = (TbTabLayout) findViewById(R.id.obfuscated_res_0x7f090826);
             G0();
         }
     }
@@ -383,30 +383,30 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
             bundle.putInt("tab_id", 1);
             bundle.putInt("tab_source", this.d);
             bundle.putBoolean("tab_need_login", true);
-            n65 n65Var = new n65();
+            t65 t65Var = new t65();
             DownloadManagerFragment C1 = DownloadManagerFragment.C1();
-            n65Var.a = C1;
+            t65Var.a = C1;
             C1.setArguments(bundle);
-            n65Var.c = getResources().getString(R.string.obfuscated_res_0x7f0f0994);
-            this.e.add(n65Var);
+            t65Var.c = getResources().getString(R.string.obfuscated_res_0x7f0f0997);
+            this.e.add(t65Var);
             Bundle bundle2 = new Bundle();
             bundle2.putInt("tab_id", 2);
             bundle2.putInt("tab_source", this.d);
-            n65 n65Var2 = new n65();
+            t65 t65Var2 = new t65();
             DownloadManagerFragment C12 = DownloadManagerFragment.C1();
-            n65Var2.a = C12;
+            t65Var2.a = C12;
             C12.setArguments(bundle2);
-            n65Var2.c = getResources().getString(R.string.obfuscated_res_0x7f0f0906);
-            this.e.add(n65Var2);
+            t65Var2.c = getResources().getString(R.string.obfuscated_res_0x7f0f0909);
+            this.e.add(t65Var2);
             Bundle bundle3 = new Bundle();
             bundle3.putInt("tab_id", 3);
             bundle3.putInt("tab_source", this.d);
-            n65 n65Var3 = new n65();
+            t65 t65Var3 = new t65();
             DownloadManagerFragment C13 = DownloadManagerFragment.C1();
-            n65Var3.a = C13;
+            t65Var3.a = C13;
             C13.setArguments(bundle3);
-            n65Var3.c = getResources().getString(R.string.obfuscated_res_0x7f0f0517);
-            this.e.add(n65Var3);
+            t65Var3.c = getResources().getString(R.string.obfuscated_res_0x7f0f0518);
+            this.e.add(t65Var3);
             this.c.setOffscreenPageLimit(this.e.size());
             this.c.setAdapter(new e(this, getSupportFragmentManager(), this.e));
             this.c.setCurrentItem(F0());
@@ -420,10 +420,10 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.a.onChangeSkinType(getPageContext(), i);
             this.b.setSelectedTabIndicatorColor(SkinManager.getColor(R.color.CAM_X0302));
-            this.b.setSelectedIndicatorBottomMargin(qi.f(getActivity(), R.dimen.tbds5));
+            this.b.setSelectedIndicatorBottomMargin(ri.f(getActivity(), R.dimen.tbds5));
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0208);
             this.b.setTabTextColors(SkinManager.getColor(R.color.CAM_X0107), SkinManager.getColor(R.color.CAM_X0105));
-            Iterator<n65> it = this.e.iterator();
+            Iterator<t65> it = this.e.iterator();
             while (it.hasNext()) {
                 ((BaseFragment) it.next().a).onChangeSkinType(i);
             }
@@ -435,7 +435,7 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0234);
+            setContentView(R.layout.obfuscated_res_0x7f0d0235);
             this.d = getIntent().getIntExtra("source", 0);
             K0();
         }

@@ -15,7 +15,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class CacheDataSink implements DataSink {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_SIZE = 20480;
@@ -31,7 +31,7 @@ public final class CacheDataSink implements DataSink {
     public long outputStreamBytesWritten;
     public FileOutputStream underlyingFileOutputStream;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class CacheDataSinkException extends Cache.CacheException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

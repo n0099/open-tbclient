@@ -16,15 +16,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.v56;
+import com.baidu.tieba.w56;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n56;
-import com.repackage.o56;
-import com.repackage.rg;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PbTopTipView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,11 +33,11 @@ public class PbTopTipView extends TextView {
     public Animation c;
     public Animation d;
     public Runnable e;
-    public o56 f;
-    public n56.b g;
+    public w56 f;
+    public v56.b g;
     public Runnable h;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,8 +70,8 @@ public class PbTopTipView extends TextView {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements n56.b {
+    /* loaded from: classes5.dex */
+    public class b implements v56.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbTopTipView a;
@@ -94,7 +94,7 @@ public class PbTopTipView extends TextView {
             this.a = pbTopTipView;
         }
 
-        @Override // com.repackage.n56.b
+        @Override // com.baidu.tieba.v56.b
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && e(i2) && this.a.b) {
@@ -102,21 +102,21 @@ public class PbTopTipView extends TextView {
             }
         }
 
-        @Override // com.repackage.n56.b
+        @Override // com.baidu.tieba.v56.b
         public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
             }
         }
 
-        @Override // com.repackage.n56.b
+        @Override // com.baidu.tieba.v56.b
         public void c(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             }
         }
 
-        @Override // com.repackage.n56.b
+        @Override // com.baidu.tieba.v56.b
         public void d(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
@@ -130,7 +130,7 @@ public class PbTopTipView extends TextView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +162,7 @@ public class PbTopTipView extends TextView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -192,7 +192,7 @@ public class PbTopTipView extends TextView {
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                 this.a.k();
                 this.a.setVisibility(8);
-                rg.a().postDelayed(this.a.h, 600L);
+                sg.a().postDelayed(this.a.h, 600L);
             }
         }
 
@@ -211,7 +211,7 @@ public class PbTopTipView extends TextView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -260,7 +260,7 @@ public class PbTopTipView extends TextView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -347,9 +347,9 @@ public class PbTopTipView extends TextView {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            o56 o56Var = new o56(getContext());
-            this.f = o56Var;
-            o56Var.d(this.g);
+            w56 w56Var = new w56(getContext());
+            this.f = w56Var;
+            w56Var.d(this.g);
             setOnTouchListener(new c(this));
             setupPaddings();
             this.d = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010102);
@@ -374,7 +374,7 @@ public class PbTopTipView extends TextView {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             removeCallbacks(this.e);
             clearAnimation();
-            rg.a().removeCallbacks(this.h);
+            sg.a().removeCallbacks(this.h);
         }
     }
 

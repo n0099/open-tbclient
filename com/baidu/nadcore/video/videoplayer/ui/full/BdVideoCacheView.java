@@ -11,6 +11,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.video.videoplayer.ui.loading.BdVideoLoadingView;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tieba.ex0;
+import com.baidu.tieba.x11;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,8 +20,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dx0;
-import com.repackage.w11;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public class BdVideoCacheView extends FrameLayout {
@@ -45,14 +45,14 @@ public class BdVideoCacheView extends FrameLayout {
                 return;
             }
         }
-        w11.c(18.0f);
-        w11.c(22.0f);
-        e = w11.d(200.0f);
-        f = w11.d(200.0f);
-        w11.d(10.0f);
-        w11.d(25.0f);
-        w11.d(6.0f);
-        w11.d(8.0f);
+        x11.c(18.0f);
+        x11.c(22.0f);
+        e = x11.d(200.0f);
+        f = x11.d(200.0f);
+        x11.d(10.0f);
+        x11.d(25.0f);
+        x11.d(6.0f);
+        x11.d(8.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -133,7 +133,7 @@ public class BdVideoCacheView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             if (i != 0) {
-                dx0.a("onWindowVisibilityChanged(" + i + SmallTailInfo.EMOTION_SUFFIX);
+                ex0.a("onWindowVisibilityChanged(" + i + SmallTailInfo.EMOTION_SUFFIX);
                 setVisibility(4);
             }
             super.onWindowVisibilityChanged(i);

@@ -4,6 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.bdtask.model.response.NextActive;
+import com.baidu.tieba.ov;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nv;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.json.JSONObject;
@@ -111,7 +111,7 @@ public final class UBCActionTaskInfo extends UBCTaskStatusInfo {
             if (this.taskInfo.isVisitAction()) {
                 json.put("duration", this.duration);
             }
-            json.put("duplicateId", nv.a.b(this.duplicateId));
+            json.put("duplicateId", ov.a.b(this.duplicateId));
             return json;
         }
         return (JSONObject) invokeV.objValue;

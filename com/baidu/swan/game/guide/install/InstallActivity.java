@@ -9,6 +9,11 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.ae3;
+import com.baidu.tieba.lr3;
+import com.baidu.tieba.rr3;
+import com.baidu.tieba.ur3;
+import com.baidu.tieba.vr3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,11 +21,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kr3;
-import com.repackage.qr3;
-import com.repackage.tr3;
-import com.repackage.ur3;
-import com.repackage.zd3;
 import com.sina.weibo.sdk.share.BaseActivity;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.ExecutorService;
@@ -130,7 +130,7 @@ public class InstallActivity extends Activity {
     public static boolean b(WeakReference<Activity> weakReference, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, weakReference, str, str2, str3)) == null) ? kr3.t().u(weakReference.get(), str, str2, str3) : invokeLLLL.booleanValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, weakReference, str, str2, str3)) == null) ? lr3.t().u(weakReference.get(), str, str2, str3) : invokeLLLL.booleanValue;
     }
 
     @Override // android.app.Activity
@@ -141,12 +141,12 @@ public class InstallActivity extends Activity {
             if (i == 1345431) {
                 if (i2 != -1 || TextUtils.isEmpty(this.d)) {
                     if (i2 == 0) {
-                        ur3.n().h("installCancel", new tr3(this.e), this.d, this.f, this.c);
+                        vr3.n().h("installCancel", new ur3(this.e), this.d, this.f, this.c);
                     } else if (i2 == 1 && intent != null) {
-                        ur3.n().g("installFailed", new tr3(this.e), this.d, this.f, intent.getIntExtra("android.intent.extra.INSTALL_RESULT", 31022), this.c);
+                        vr3.n().g("installFailed", new ur3(this.e), this.d, this.f, intent.getIntExtra("android.intent.extra.INSTALL_RESULT", 31022), this.c);
                     }
-                } else if (qr3.g(AppRuntime.getAppContext(), this.d) && qr3.k(AppRuntime.getAppContext(), this.d)) {
-                    ur3.n().h("openAtOnce", new tr3(this.e), this.d, this.f, this.c);
+                } else if (rr3.g(AppRuntime.getAppContext(), this.d) && rr3.k(AppRuntime.getAppContext(), this.d)) {
+                    vr3.n().h("openAtOnce", new ur3(this.e), this.d, this.f, this.c);
                 }
             }
             finish();
@@ -162,7 +162,7 @@ public class InstallActivity extends Activity {
             if (extras != null) {
                 this.c = extras.getString("key_download_url");
                 this.d = extras.getString("key_download_package_name");
-                this.e = zd3.d(extras.getString("ubc_params", ""));
+                this.e = ae3.d(extras.getString("ubc_params", ""));
                 this.f = extras.getString("download_params");
             }
             g.execute(new b(this, this.c, this.d, this.f, null));
@@ -179,8 +179,8 @@ public class InstallActivity extends Activity {
                 int i = this.a + 1;
                 this.a = i;
                 if (i > 1) {
-                    if (!qr3.g(AppRuntime.getAppContext(), this.d)) {
-                        ur3.n().h("installCancel", new tr3(this.e), this.d, this.f, this.c);
+                    if (!rr3.g(AppRuntime.getAppContext(), this.d)) {
+                        vr3.n().h("installCancel", new ur3(this.e), this.d, this.f, this.c);
                     }
                     finish();
                 }

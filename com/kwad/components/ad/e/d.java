@@ -27,7 +27,7 @@ import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.utils.k;
 import com.kwad.sdk.widget.KSFrameLayout;
 import com.kwad.sdk.widget.j;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class d extends KSFrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -136,10 +136,10 @@ public final class d extends KSFrameLayout {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d043c, this);
-            AdBasePvFrameLayout adBasePvFrameLayout = (AdBasePvFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911b6);
+            View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d043d, this);
+            AdBasePvFrameLayout adBasePvFrameLayout = (AdBasePvFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911b8);
             this.jK = adBasePvFrameLayout;
-            DetailVideoView detailVideoView = (DetailVideoView) adBasePvFrameLayout.findViewById(R.id.obfuscated_res_0x7f09120c);
+            DetailVideoView detailVideoView = (DetailVideoView) adBasePvFrameLayout.findViewById(R.id.obfuscated_res_0x7f09120e);
             this.mDetailVideoView = detailVideoView;
             detailVideoView.setAd(true);
         }

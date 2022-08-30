@@ -44,7 +44,7 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0095, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0096, (ViewGroup) this, true);
         this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0903f0);
         this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0903f2);
         this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0903f1);

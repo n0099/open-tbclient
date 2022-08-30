@@ -3,20 +3,20 @@ package com.baidu.tieba.view.anniversary.model;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.fx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ww8;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.VideoTemplate.VideoTemplateResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AnniversaryEtSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ww8 resultData;
+    public fx8 resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AnniversaryEtSocketResMessage() {
@@ -50,9 +50,9 @@ public class AnniversaryEtSocketResMessage extends SocketResponsedMessage {
                     setErrorString(videoTemplateResIdl.error.usermsg);
                 }
                 if (videoTemplateResIdl.data != null) {
-                    ww8 ww8Var = new ww8();
-                    this.resultData = ww8Var;
-                    ww8Var.g(videoTemplateResIdl.data);
+                    fx8 fx8Var = new fx8();
+                    this.resultData = fx8Var;
+                    fx8Var.g(videoTemplateResIdl.data);
                 }
             }
             return videoTemplateResIdl;
@@ -60,9 +60,9 @@ public class AnniversaryEtSocketResMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public ww8 getResultData() {
+    public fx8 getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.resultData : (ww8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.resultData : (fx8) invokeV.objValue;
     }
 }

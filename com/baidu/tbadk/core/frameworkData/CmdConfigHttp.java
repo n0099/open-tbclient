@@ -198,6 +198,7 @@ public class CmdConfigHttp {
     public static final int CMD_HISTORY_SWAN = 1003434;
     public static final int CMD_HOME_CHANNEL_TAB_LIST = 1003497;
     public static final int CMD_HOME_TAB_ACTIVITY_LIST = 1003461;
+    public static final int CMD_HOT_EVENT = 1003543;
     public static final int CMD_HOT_THREAD_UNLIKE = 1003017;
     public static final int CMD_HOT_TOPIC = 1003041;
     public static final int CMD_HOT_TOPIC_RANKLIST = 1003078;

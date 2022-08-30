@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class AtomParsers {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AtomParsers";
@@ -45,7 +45,7 @@ public final class AtomParsers {
     public static final int TYPE_vide;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class ChunkIterator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +108,7 @@ public final class AtomParsers {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface SampleSizeBox {
         int getSampleCount();
 
@@ -117,7 +117,7 @@ public final class AtomParsers {
         int readNextSampleSize();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class StsdData {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STSD_HEADER_SIZE = 8;
@@ -147,7 +147,7 @@ public final class AtomParsers {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class StszSampleSizeBox implements SampleSizeBox {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -203,7 +203,7 @@ public final class AtomParsers {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class Stz2SampleSizeBox implements SampleSizeBox {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -277,7 +277,7 @@ public final class AtomParsers {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class TkhdData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

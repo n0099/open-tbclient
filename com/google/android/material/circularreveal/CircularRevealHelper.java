@@ -27,7 +27,7 @@ import com.google.android.material.circularreveal.CircularRevealWidget;
 import com.google.android.material.math.MathUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CircularRevealHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BITMAP_SHADER = 0;
@@ -55,7 +55,7 @@ public class CircularRevealHelper {
     /* renamed from: view  reason: collision with root package name */
     public final View f1072view;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface Delegate {
         void actualDraw(Canvas canvas);
 
@@ -63,7 +63,7 @@ public class CircularRevealHelper {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public @interface Strategy {
     }
 

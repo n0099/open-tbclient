@@ -1,5 +1,0 @@
-package com.repackage;
-/* loaded from: classes7.dex */
-public interface wn1 {
-    void onScrollChanged(int i, int i2, int i3, int i4);
-}

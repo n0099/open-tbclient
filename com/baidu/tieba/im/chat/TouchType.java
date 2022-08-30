@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Hashtable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TouchType extends Hashtable<Integer, Boolean> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int KEY = 0;

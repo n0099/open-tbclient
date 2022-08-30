@@ -1,15 +1,15 @@
 package com.baidu.ugc.editvideo.record.processor.glrender;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ac9;
+import com.baidu.tieba.fc9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
-import com.repackage.rb9;
-import com.repackage.wb9;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BaseGlRenderer implements IGlRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,8 +79,8 @@ public class BaseGlRenderer implements IGlRenderer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             try {
-                if (wb9.b(this.runOnProcess) > 0) {
-                    rb9.b("runPendingOnProcessTasks : " + this.runOnProcess.size());
+                if (fc9.b(this.runOnProcess) > 0) {
+                    ac9.b("runPendingOnProcessTasks : " + this.runOnProcess.size());
                 }
                 while (!this.runOnProcess.isEmpty()) {
                     this.runOnProcess.removeFirst().run();

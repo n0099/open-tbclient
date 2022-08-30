@@ -2,13 +2,13 @@ package com.google.a.b.a.a.a;
 
 import android.os.Bundle;
 import android.os.Parcel;
+import com.baidu.tieba.sm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jm9;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class e extends com.google.a.a.b implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,13 +37,13 @@ public abstract class e extends com.google.a.a.b implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, parcel)) == null) {
             if (i == 1) {
-                a((Bundle) jm9.a(parcel, Bundle.CREATOR));
+                a((Bundle) sm9.a(parcel, Bundle.CREATOR));
             } else if (i == 2) {
-                b((Bundle) jm9.a(parcel, Bundle.CREATOR));
+                b((Bundle) sm9.a(parcel, Bundle.CREATOR));
             } else if (i != 3) {
                 return false;
             } else {
-                jm9.a(parcel, Bundle.CREATOR);
+                sm9.a(parcel, Bundle.CREATOR);
                 a();
             }
             return true;

@@ -11,6 +11,7 @@ import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sdk.container.widget.AbsCountDownView;
+import com.baidu.tieba.q01;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +19,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p01;
 /* loaded from: classes2.dex */
 public class CircleTextProgressbar extends AbsCountDownView {
     public static /* synthetic */ Interceptable $ic;
@@ -211,11 +211,11 @@ public class CircleTextProgressbar extends AbsCountDownView {
             ColorStateList valueOf = ColorStateList.valueOf(0);
             this.f = valueOf;
             this.g = valueOf.getColorForState(getDrawableState(), 0);
-            setWidth(p01.c.a(context, 40.0f));
-            setHeight(p01.c.a(context, 40.0f));
+            setWidth(q01.c.a(context, 40.0f));
+            setHeight(q01.c.a(context, 40.0f));
             setOutLineColor(-7697782);
             setProgressColor(-12956454);
-            setProgressLineWidth(p01.c.a(context, 2.0f));
+            setProgressLineWidth(q01.c.a(context, 2.0f));
             setTextSize(1, 10.0f);
             setTextColor(-1);
             setText("跳过");

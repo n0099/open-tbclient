@@ -4,19 +4,19 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.fg;
+import com.baidu.tieba.pg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eg;
-import com.repackage.og;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PvCacheModel {
     public static /* synthetic */ Interceptable $ic;
     public static PvCacheModel mCacheModel;
     public transient /* synthetic */ FieldHolder $fh;
-    public eg<String, String> mCache;
+    public fg<String, String> mCache;
 
     public PvCacheModel() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class PvCacheModel {
             }
         }
         this.mCache = null;
-        this.mCache = new eg<>(256);
+        this.mCache = new fg<>(256);
     }
 
     public static synchronized PvCacheModel getInstance() {
@@ -57,8 +57,8 @@ public class PvCacheModel {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        eg<String, String> egVar = this.mCache;
-        egVar.h(currentAccount + str, String.valueOf(l));
+        fg<String, String> fgVar = this.mCache;
+        fgVar.h(currentAccount + str, String.valueOf(l));
     }
 
     public boolean isSameDay(String str) {
@@ -69,12 +69,12 @@ public class PvCacheModel {
                 return false;
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            eg<String, String> egVar = this.mCache;
-            String f = egVar.f(currentAccount + str);
+            fg<String, String> fgVar = this.mCache;
+            String f = fgVar.f(currentAccount + str);
             if (TextUtils.isEmpty(f)) {
                 return false;
             }
-            return UtilHelper.isSameDay(og.g(f, 0L), System.currentTimeMillis());
+            return UtilHelper.isSameDay(pg.g(f, 0L), System.currentTimeMillis());
         }
         return invokeL.booleanValue;
     }
@@ -85,7 +85,7 @@ public class PvCacheModel {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        eg<String, String> egVar = this.mCache;
-        egVar.i(currentAccount + str);
+        fg<String, String> fgVar = this.mCache;
+        fgVar.i(currentAccount + str);
     }
 }

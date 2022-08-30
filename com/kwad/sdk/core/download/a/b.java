@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.widget.RemoteViews;
 import com.kwad.sdk.api.core.ICompletedRemoteView;
 import com.kwad.sdk.api.core.RemoteViewBuilder;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public ICompletedRemoteView Xm;
 

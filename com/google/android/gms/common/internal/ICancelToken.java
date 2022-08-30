@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.internal.common.zzb;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface ICancelToken extends IInterface {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static abstract class Stub extends zzb implements ICancelToken {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

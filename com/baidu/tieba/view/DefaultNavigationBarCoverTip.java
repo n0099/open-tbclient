@@ -16,15 +16,15 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
+import com.baidu.tieba.dn4;
+import com.baidu.tieba.tv4;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cn4;
-import com.repackage.qv4;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,10 +32,10 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     public View i;
     public String j;
     public View.OnClickListener k;
-    public final cn4 l;
+    public final dn4 l;
     public NavigationBarCoverTip.e m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,8 +73,8 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends cn4 {
+    /* loaded from: classes6.dex */
+    public class b extends dn4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DefaultNavigationBarCoverTip a;
@@ -97,7 +97,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             this.a = defaultNavigationBarCoverTip;
         }
 
-        @Override // com.repackage.cn4, android.app.Application.ActivityLifecycleCallbacks
+        @Override // com.baidu.tieba.dn4, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity == this.a.h) {
@@ -107,7 +107,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class c implements NavigationBarCoverTip.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -196,14 +196,14 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             }
             Context context = getContext();
             this.j = str2;
-            View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d091b, null);
+            View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d091d, null);
             this.i = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09265e);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.i.findViewById(R.id.obfuscated_res_0x7f091e33);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092668);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.i.findViewById(R.id.obfuscated_res_0x7f091e35);
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-            qv4 qv4Var = new qv4();
-            qv4Var.s();
-            tBSpecificationBtn.setConfig(qv4Var);
+            tv4 tv4Var = new tv4();
+            tv4Var.s();
+            tBSpecificationBtn.setConfig(tv4Var);
             textView.setSingleLine();
             textView.setEllipsize(TextUtils.TruncateAt.END);
             textView.setText(str);
@@ -212,7 +212,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                 tBSpecificationBtn.setVisibility(8);
             } else {
                 tBSpecificationBtn.setVisibility(0);
-                tBSpecificationBtn.setText(context.getString(R.string.obfuscated_res_0x7f0f099e));
+                tBSpecificationBtn.setText(context.getString(R.string.obfuscated_res_0x7f0f09a1));
             }
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
             tBSpecificationBtn.k();

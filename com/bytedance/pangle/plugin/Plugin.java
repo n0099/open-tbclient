@@ -40,7 +40,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class Plugin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LIFE_INSTALLED = 2;

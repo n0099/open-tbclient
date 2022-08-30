@@ -43,8 +43,8 @@ public class LoadingView extends LinearLayout {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04c3, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091d58);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04c5, this);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091d5a);
             setOrientation(1);
             setBackgroundColor(-1);
             setGravity(1);

@@ -35,18 +35,18 @@ import com.kwad.sdk.utils.ao;
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a implements f {
     public static c Xd;
     public static HashMap<String, WeakReference<Bitmap>> Xc = new HashMap<>();
-    public static final Handler Xe = new HandlerC0389a();
+    public static final Handler Xe = new HandlerC0604a();
 
     /* renamed from: com.kwad.sdk.core.download.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class HandlerC0389a extends Handler {
+    /* loaded from: classes7.dex */
+    public static class HandlerC0604a extends Handler {
         public final SparseArray<Long> Xf;
 
-        public HandlerC0389a() {
+        public HandlerC0604a() {
             super(Looper.getMainLooper());
             this.Xf = new SparseArray<>();
         }
@@ -76,7 +76,7 @@ public final class a implements f {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static String Xg = "ksad_notification_default_icon";
         public String NY;
@@ -163,7 +163,7 @@ public final class a implements f {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class c extends BroadcastReceiver {
         public static void g(@NonNull Intent intent) {
             DownloadTask i = i(intent);

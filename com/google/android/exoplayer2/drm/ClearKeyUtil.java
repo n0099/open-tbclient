@@ -18,7 +18,7 @@ import org.aspectj.runtime.reflect.SignatureImpl;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class ClearKeyUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern REQUEST_KIDS_PATTERN;

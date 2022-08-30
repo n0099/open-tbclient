@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static String a(Context context, String str) {
         return a(context, "com.meizu.flyme.push", str + "_pushId");

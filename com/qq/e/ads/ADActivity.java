@@ -14,7 +14,7 @@ import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.pi.ACTD;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class ADActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

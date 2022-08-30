@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class SoSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOAD_FLAG_ALLOW_IMPLICIT_PROVISION = 1;

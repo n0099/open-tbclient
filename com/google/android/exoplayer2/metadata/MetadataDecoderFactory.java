@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.metadata.emsg.EventMessageDecoder;
 import com.google.android.exoplayer2.metadata.id3.Id3Decoder;
 import com.google.android.exoplayer2.metadata.scte35.SpliceInfoDecoder;
 import com.google.android.exoplayer2.util.MimeTypes;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface MetadataDecoderFactory {
     public static final MetadataDecoderFactory DEFAULT = new MetadataDecoderFactory() { // from class: com.google.android.exoplayer2.metadata.MetadataDecoderFactory.1
         public static /* synthetic */ Interceptable $ic;

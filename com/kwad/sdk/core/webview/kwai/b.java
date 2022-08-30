@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b implements com.kwad.sdk.core.b {
     public String agi;
     public String agj;

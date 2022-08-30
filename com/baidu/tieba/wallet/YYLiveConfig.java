@@ -1,16 +1,16 @@
 package com.baidu.tieba.wallet;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.tu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.ru4;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YYLiveConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,18 +60,18 @@ public class YYLiveConfig {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
             if (jSONObject != null) {
                 parse(jSONObject);
-                ru4.k().y("key_extra_yy_config", jSONObject.toString());
+                tu4.k().y("key_extra_yy_config", jSONObject.toString());
                 return;
             }
-            String q = ru4.k().q("key_extra_yy_config", "");
-            if (!pi.isEmpty(q)) {
+            String q = tu4.k().q("key_extra_yy_config", "");
+            if (!qi.isEmpty(q)) {
                 try {
                     parse(new JSONObject(q));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            ru4.k().y("key_extra_yy_config", "");
+            tu4.k().y("key_extra_yy_config", "");
         }
     }
 
@@ -86,7 +86,7 @@ public class YYLiveConfig {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            ru4.k().y("key_extra_yy_config", jSONObject.toString());
+            tu4.k().y("key_extra_yy_config", jSONObject.toString());
         }
     }
 }

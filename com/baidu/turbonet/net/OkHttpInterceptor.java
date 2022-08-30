@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.internal.http.RealResponseBody;
 import java.lang.reflect.Field;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class OkHttpInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public static Field a;

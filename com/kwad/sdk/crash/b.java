@@ -1,7 +1,7 @@
 package com.kwad.sdk.crash;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public final String acw;
     public final boolean agB;
@@ -23,7 +23,7 @@ public final class b {
     public final String platform;
     public final String version;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public String LH;
         public int LI;

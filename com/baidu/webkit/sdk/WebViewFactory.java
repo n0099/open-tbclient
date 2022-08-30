@@ -40,7 +40,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class WebViewFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHROMIUM_HOST_APP = "com.baidu.browser.apps";
@@ -93,7 +93,7 @@ public final class WebViewFactory {
     public static boolean sforceMainProcessNoZeus;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface WebKitUnzipCallback {
         void unzipFinished();
     }

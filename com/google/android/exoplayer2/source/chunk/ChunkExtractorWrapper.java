@@ -17,7 +17,7 @@ import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ChunkExtractorWrapper implements ExtractorOutput {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public final class ChunkExtractorWrapper implements ExtractorOutput {
     public SeekMap seekMap;
     public TrackOutputProvider trackOutputProvider;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class BindingTrackOutput implements TrackOutput {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public final class ChunkExtractorWrapper implements ExtractorOutput {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface TrackOutputProvider {
         TrackOutput track(int i, int i2);
     }

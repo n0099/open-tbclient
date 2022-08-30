@@ -2,6 +2,7 @@ package com.baidu.browser.sailor.feature;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.kw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jw;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -17,7 +17,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BdSailorFeature";
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, jw> mClientsMap;
+    public Map<String, kw> mClientsMap;
     public Context mContext;
     public Enum<EnumC0082a> mStatus;
 
@@ -126,10 +126,10 @@ public class a {
         }
     }
 
-    public jw getListenerFromActivity(String str) {
+    public kw getListenerFromActivity(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.mClientsMap.get(str) : (jw) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.mClientsMap.get(str) : (kw) invokeL.objValue;
     }
 
     public String getName() {
@@ -144,12 +144,12 @@ public class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mStatus == EnumC0082a.a : invokeV.booleanValue;
     }
 
-    public void regActivityResultCallback(String str, jw jwVar) {
+    public void regActivityResultCallback(String str, kw kwVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, jwVar) == null) || this.mClientsMap.containsKey(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, kwVar) == null) || this.mClientsMap.containsKey(str)) {
             return;
         }
-        this.mClientsMap.put(str, jwVar);
+        this.mClientsMap.put(str, kwVar);
     }
 
     public void unregActivityResultCallback(String str) {

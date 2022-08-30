@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ksad.json.annotation.KsJson;
 import java.io.Serializable;
 @KsJson
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AdBid extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3937320872050889919L;

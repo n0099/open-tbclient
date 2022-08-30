@@ -11,7 +11,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static final Map<String, Set<com.kwad.sdk.core.config.item.b>> To = new ConcurrentHashMap();
     public static SharedPreferences Tp = null;

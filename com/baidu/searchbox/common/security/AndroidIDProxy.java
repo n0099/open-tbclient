@@ -2,8 +2,8 @@ package com.baidu.searchbox.common.security;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.provider.Settings;
 import com.baidu.searchbox.common.security.ioc.HostAbilityRuntime;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -43,7 +43,7 @@ public class AndroidIDProxy {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                return Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+                return ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
             } catch (Exception unused) {
                 return null;
             }

@@ -1,12 +1,12 @@
 package com.baidu.cesium.i;
 
+import com.baidu.tieba.nz;
+import com.baidu.tieba.rz;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mz;
-import com.repackage.qz;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class i {
@@ -84,8 +84,8 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            byte[] a2 = qz.a();
-            return new String(mz.c(a2, a2, bArr));
+            byte[] a2 = rz.a();
+            return new String(nz.c(a2, a2, bArr));
         }
         return (String) invokeL.objValue;
     }

@@ -21,7 +21,7 @@ import com.kwad.sdk.core.page.widget.RoundAngleImageView;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.RatioFrameLayout;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class k extends a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,14 +74,14 @@ public final class k extends a implements View.OnClickListener {
     public final void bg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f091027);
-            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f09109e)).setRatio(0.66f);
-            RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f09102d);
+            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f091029);
+            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910a0)).setRatio(0.66f);
+            RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f09102f);
             this.dI = roundAngleImageView;
             roundAngleImageView.setRadius(com.kwad.sdk.b.kwai.a.a(getContext(), 3.0f));
-            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f091029);
-            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091040);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091094);
+            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f09102b);
+            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091042);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091096);
         }
     }
 
@@ -127,7 +127,7 @@ public final class k extends a implements View.OnClickListener {
     public final int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d0424 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d0425 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -147,7 +147,7 @@ public final class k extends a implements View.OnClickListener {
                 i = 1;
             }
             g(false);
-            com.kwad.components.core.c.a.a.a(new a.C0354a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.dk ? 1 : 2).aj(view2 == this.dk).a(new a.b(this, i) { // from class: com.kwad.components.ad.feed.a.k.1
+            com.kwad.components.core.c.a.a.a(new a.C0569a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.dk ? 1 : 2).aj(view2 == this.dk).a(new a.b(this, i) { // from class: com.kwad.components.ad.feed.a.k.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ k dK;

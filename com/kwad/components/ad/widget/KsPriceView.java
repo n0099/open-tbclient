@@ -26,7 +26,7 @@ import com.kwad.components.core.widget.e;
 import com.kwad.components.core.widget.f;
 import com.kwad.sdk.core.e.b;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class KsPriceView extends TextView implements e {
     public static /* synthetic */ Interceptable $ic = null;
     public static String Cw = "¥%s 到手约 ¥%s";
@@ -38,7 +38,7 @@ public class KsPriceView extends TextView implements e {
     public a Cv;
     public String Cz;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -241,11 +241,11 @@ public class KsPriceView extends TextView implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
             setMaxLines(1);
-            this.Cv.CE = context.getResources().getColor(R.color.obfuscated_res_0x7f06076e);
+            this.Cv.CE = context.getResources().getColor(R.color.obfuscated_res_0x7f060771);
             this.Cv.CF = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e0);
-            this.Cv.CG = context.getResources().getColor(R.color.obfuscated_res_0x7f06076f);
+            this.Cv.CG = context.getResources().getColor(R.color.obfuscated_res_0x7f060772);
             this.Cv.CH = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703df);
-            this.Cv.CC = context.getResources().getColor(R.color.obfuscated_res_0x7f06076e);
+            this.Cv.CC = context.getResources().getColor(R.color.obfuscated_res_0x7f060771);
             this.Cv.CD = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e0);
         }
     }

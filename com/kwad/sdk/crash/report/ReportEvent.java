@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.r;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
     public static final long serialVersionUID = 8652448382850235426L;
     public long clientIncrementId;
@@ -13,7 +13,7 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
     public StatPackage statPackage;
     public String timeZone;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class CustomStatEvent implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = 5177557263564436342L;
         public String key;
@@ -37,7 +37,7 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class ExceptionEvent implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = 5177557263564436344L;
         public String flag;
@@ -67,7 +67,7 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class StatPackage implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = -6225392281821567840L;
         public CustomStatEvent customStatEvent;
@@ -91,7 +91,7 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class UrlPackage implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = 2535768638193007414L;
         public String identity;

@@ -3,20 +3,20 @@ package com.baidu.tieba.frs.HorseRace;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
+import com.baidu.tieba.dg6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vf6;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetHorseRaceLampList.GetHorseRaceLampListResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetLiveHorseRaceSocketResponseMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vf6 mData;
+    public dg6 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetLiveHorseRaceSocketResponseMessage() {
@@ -34,7 +34,7 @@ public class GetLiveHorseRaceSocketResponseMessage extends TbSocketReponsedMessa
                 return;
             }
         }
-        this.mData = new vf6();
+        this.mData = new dg6();
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -62,9 +62,9 @@ public class GetLiveHorseRaceSocketResponseMessage extends TbSocketReponsedMessa
         return invokeIL.objValue;
     }
 
-    public vf6 getData() {
+    public dg6 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (vf6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (dg6) invokeV.objValue;
     }
 }

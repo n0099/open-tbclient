@@ -18,20 +18,20 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.horizonalScrollListView.MyHorizontalScrollView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.rl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jl6;
-import com.repackage.qi;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<jl6> a;
+    public final List<rl6> a;
     public final List<TextView> b;
     public final int c;
     public final int d;
@@ -48,7 +48,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public f o;
     public View.OnClickListener p;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +134,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,7 +169,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -203,7 +203,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -258,10 +258,10 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         public void onPageSelected(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                jl6 jl6Var = (jl6) ListUtils.getItem(this.a.a, i);
-                if (this.a.o == null || this.a.o.a(i, jl6Var)) {
+                rl6 rl6Var = (rl6) ListUtils.getItem(this.a.a, i);
+                if (this.a.o == null || this.a.o.a(i, rl6Var)) {
                     if (this.a.o != null) {
-                        this.a.o.b(i, jl6Var);
+                        this.a.o.b(i, rl6Var);
                     }
                     if (this.a.e) {
                         if (this.a.f != i) {
@@ -282,11 +282,11 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface f {
-        boolean a(int i, jl6 jl6Var);
+        boolean a(int i, rl6 rl6Var);
 
-        void b(int i, jl6 jl6Var);
+        void b(int i, rl6 rl6Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -309,8 +309,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.a = new ArrayList();
         this.b = new ArrayList();
-        this.c = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds4);
-        this.d = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+        this.c = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds4);
+        this.d = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds84);
         this.e = false;
         this.f = 0;
         this.g = SkinManager.getColor(R.color.CAM_X0106);
@@ -328,10 +328,10 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             int size = this.a.size();
             int size2 = this.b.size();
             for (int i = 0; i < size && i < size2; i++) {
-                jl6 jl6Var = this.a.get(i);
+                rl6 rl6Var = this.a.get(i);
                 TextView textView = this.b.get(i);
-                if (jl6Var != null && textView != null) {
-                    textView.setText(jl6Var.b);
+                if (rl6Var != null && textView != null) {
+                    textView.setText(rl6Var.b);
                 }
             }
         }
@@ -421,7 +421,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    public void setData(List<jl6> list) {
+    public void setData(List<rl6> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.a.clear();
@@ -519,7 +519,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             if (z) {
                 int[] iArr = new int[2];
                 ((View) ListUtils.getItem(this.b, i)).getLocationOnScreen(iArr);
-                int k = qi.k(getContext()) - iArr[0];
+                int k = ri.k(getContext()) - iArr[0];
                 int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070252);
                 if (iArr[0] < 0) {
                     post(new c(this, dimensionPixelSize));
@@ -556,8 +556,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.a = new ArrayList();
         this.b = new ArrayList();
-        this.c = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds4);
-        this.d = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+        this.c = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds4);
+        this.d = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds84);
         this.e = false;
         this.f = 0;
         this.g = SkinManager.getColor(R.color.CAM_X0106);
@@ -590,8 +590,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.a = new ArrayList();
         this.b = new ArrayList();
-        this.c = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds4);
-        this.d = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+        this.c = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds4);
+        this.d = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds84);
         this.e = false;
         this.f = 0;
         this.g = SkinManager.getColor(R.color.CAM_X0106);

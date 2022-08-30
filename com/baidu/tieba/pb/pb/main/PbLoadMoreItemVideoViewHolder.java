@@ -5,12 +5,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.R;
+import com.baidu.tieba.os4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ms4;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PbLoadMoreItemVideoViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,10 +37,10 @@ public class PbLoadMoreItemVideoViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view2;
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917ad);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917ac);
+        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917af);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917ae);
         this.c = textView;
-        ms4 d = ms4.d(textView);
+        os4 d = os4.d(textView);
         d.z(R.dimen.T_X12);
         d.A(R.string.F_X01);
         d.v(R.color.CAM_X0107);

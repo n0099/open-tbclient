@@ -19,6 +19,19 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.crius.parser.CriusData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bn0;
+import com.baidu.tieba.cj0;
+import com.baidu.tieba.ij0;
+import com.baidu.tieba.iy0;
+import com.baidu.tieba.jn0;
+import com.baidu.tieba.pi0;
+import com.baidu.tieba.q01;
+import com.baidu.tieba.v51;
+import com.baidu.tieba.vm0;
+import com.baidu.tieba.wh0;
+import com.baidu.tieba.x51;
+import com.baidu.tieba.xh0;
+import com.baidu.tieba.ym0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,28 +39,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.an0;
-import com.repackage.bj0;
-import com.repackage.hj0;
-import com.repackage.hy0;
-import com.repackage.in0;
-import com.repackage.oi0;
-import com.repackage.p01;
-import com.repackage.u51;
-import com.repackage.um0;
-import com.repackage.vh0;
-import com.repackage.w51;
-import com.repackage.wh0;
-import com.repackage.xm0;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.OnClickListener, w51<View> {
+public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.OnClickListener, x51<View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bj0 e;
+    public cj0 e;
     public Animation f;
     public Animation g;
-    public u51 h;
+    public v51 h;
     public boolean i;
 
     /* loaded from: classes2.dex */
@@ -166,7 +166,7 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
         }
     }
 
-    @Override // com.repackage.w51
+    @Override // com.baidu.tieba.x51
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -183,17 +183,17 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
         }
     }
 
-    @Override // com.repackage.w51
+    @Override // com.baidu.tieba.x51
     public void b(String str, boolean z) {
-        xm0 xm0Var;
+        ym0 ym0Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
             this.i = false;
             this.f = null;
             if (!z || this.g == null) {
-                u51 u51Var = this.h;
-                if (u51Var != null) {
-                    u51Var.a(z, 480L);
+                v51 v51Var = this.h;
+                if (v51Var != null) {
+                    v51Var.a(z, 480L);
                 }
                 if (z) {
                     Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100ab);
@@ -204,17 +204,17 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
                 } else {
                     setVisibility(8);
                 }
-                if ((getTag() instanceof an0) && (xm0Var = ((an0) getTag()).e) != null) {
-                    xm0Var.a();
-                    xm0Var.c = ClogBuilder.LogType.NAVIDEO_POP_CLOSE.type;
-                    xm0Var.g = str;
-                    p(xm0Var);
+                if ((getTag() instanceof bn0) && (ym0Var = ((bn0) getTag()).e) != null) {
+                    ym0Var.a();
+                    ym0Var.c = ClogBuilder.LogType.NAVIDEO_POP_CLOSE.type;
+                    ym0Var.g = str;
+                    p(ym0Var);
                 }
             }
         }
     }
 
-    @Override // com.repackage.w51
+    @Override // com.baidu.tieba.x51
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || getVisibility() == 0) {
@@ -225,9 +225,9 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
             return;
         }
         setVisibility(0);
-        u51 u51Var = this.h;
-        if (u51Var != null) {
-            u51Var.c();
+        v51 v51Var = this.h;
+        if (v51Var != null) {
+            v51Var.c();
         }
     }
 
@@ -235,7 +235,7 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.id.obfuscated_res_0x7f0915ae : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.id.obfuscated_res_0x7f0915b0 : invokeV.intValue;
     }
 
     @Override // com.baidu.nadcore.crius.view.AdCriusBaseView
@@ -245,15 +245,15 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
             View viewByComponent = this.d.getViewByComponent(NativeConstants.COMPONENT_CLOSEAD);
             if (viewByComponent instanceof ImageView) {
                 ImageView imageView = (ImageView) viewByComponent;
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080dd0);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080dd1);
                 imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
                 imageView.setOnClickListener(this);
             }
             View viewByComponent2 = this.d.getViewByComponent("download");
             if (viewByComponent2 instanceof ApkDownloadView) {
-                wh0 realDownloadView = ((ApkDownloadView) viewByComponent2).getRealDownloadView();
-                if ((realDownloadView instanceof hj0) && (getTag() instanceof an0)) {
-                    n((an0) getTag(), (hj0) realDownloadView);
+                xh0 realDownloadView = ((ApkDownloadView) viewByComponent2).getRealDownloadView();
+                if ((realDownloadView instanceof ij0) && (getTag() instanceof bn0)) {
+                    n((bn0) getTag(), (ij0) realDownloadView);
                     return;
                 } else {
                     this.e = null;
@@ -268,7 +268,7 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
     public void f(View view2, String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, view2, str, map) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0915a8) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0915aa) {
                 b("1", true);
             } else {
                 o(str, map);
@@ -278,7 +278,7 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.w51
+    @Override // com.baidu.tieba.x51
     public View getRealView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -289,29 +289,29 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? R.layout.obfuscated_res_0x7f0d05cc : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? R.layout.obfuscated_res_0x7f0d05ce : invokeV.intValue;
     }
 
     @Override // com.baidu.nadcore.crius.view.AdCriusBaseView
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? R.id.obfuscated_res_0x7f0915af : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? R.id.obfuscated_res_0x7f0915b1 : invokeV.intValue;
     }
 
-    public final void n(@NonNull an0 an0Var, hj0 hj0Var) {
+    public final void n(@NonNull bn0 bn0Var, ij0 ij0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, an0Var, hj0Var) == null) {
-            um0 um0Var = an0Var.d;
-            xm0 xm0Var = an0Var.e;
-            if (um0Var == null || xm0Var == null) {
+        if (interceptable == null || interceptable.invokeLL(1048586, this, bn0Var, ij0Var) == null) {
+            vm0 vm0Var = bn0Var.d;
+            ym0 ym0Var = bn0Var.e;
+            if (vm0Var == null || ym0Var == null) {
                 return;
             }
-            an0Var.a = 2;
-            this.e = new bj0(oi0.d(um0Var, xm0Var.d, ""), hj0Var);
-            if (hj0Var instanceof NadCriusMiniVideoDownloadView) {
-                NadCriusMiniVideoDownloadView nadCriusMiniVideoDownloadView = (NadCriusMiniVideoDownloadView) hj0Var;
-                int a2 = p01.c.a(getContext(), 12.0f);
+            bn0Var.a = 2;
+            this.e = new cj0(pi0.d(vm0Var, ym0Var.d, ""), ij0Var);
+            if (ij0Var instanceof NadCriusMiniVideoDownloadView) {
+                NadCriusMiniVideoDownloadView nadCriusMiniVideoDownloadView = (NadCriusMiniVideoDownloadView) ij0Var;
+                int a2 = q01.c.a(getContext(), 12.0f);
                 nadCriusMiniVideoDownloadView.setImageViewLayout(new FrameLayout.LayoutParams(a2, a2));
                 nadCriusMiniVideoDownloadView.setVisibility(0);
                 nadCriusMiniVideoDownloadView.setOnClickListener(new b(this));
@@ -332,14 +332,14 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
                 str2 = ClogBuilder.Area.HOTAREA.type;
             }
             if (this.h != null) {
-                in0 in0Var = new in0();
-                in0Var.a = str;
-                in0Var.b = str2;
-                in0Var.c = true;
+                jn0 jn0Var = new jn0();
+                jn0Var.a = str;
+                jn0Var.b = str2;
+                jn0Var.c = true;
                 if (map != null) {
                     TextUtils.equals("1", map.get(NativeConstants.CHARGE_TYPE));
                 }
-                this.h.b(in0Var);
+                this.h.b(jn0Var);
             }
         }
     }
@@ -347,15 +347,15 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0915a8) {
+        if ((interceptable == null || interceptable.invokeL(1048588, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0915aa) {
             b("1", true);
         }
     }
 
-    public final void p(xm0 xm0Var) {
+    public final void p(ym0 ym0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, xm0Var) == null) {
-            hy0.b(new ClogBuilder().z(xm0Var.c).v(xm0Var.a).j(xm0Var.b).p(xm0Var.d).k(xm0Var.e).l(xm0Var.f).m(xm0Var.g));
+        if (interceptable == null || interceptable.invokeL(1048589, this, ym0Var) == null) {
+            iy0.b(new ClogBuilder().z(ym0Var.c).v(ym0Var.a).j(ym0Var.b).p(ym0Var.d).k(ym0Var.e).l(ym0Var.f).m(ym0Var.g));
         }
     }
 
@@ -367,15 +367,15 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
             loadAnimation.setDuration(480L);
             setVisibility(0);
             startAnimation(this.f);
-            u51 u51Var = this.h;
-            if (u51Var != null) {
-                u51Var.c();
+            v51 v51Var = this.h;
+            if (v51Var != null) {
+                v51Var.c();
             }
             this.i = true;
         }
     }
 
-    @Override // com.repackage.w51
+    @Override // com.baidu.tieba.x51
     public void setContainer(@Nullable ViewGroup viewGroup, @Nullable ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048591, this, viewGroup, layoutParams) == null) || viewGroup == null) {
@@ -393,28 +393,28 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
         setVisibility(8);
     }
 
-    @Override // com.repackage.w51
-    public void setCriusPopListener(@NonNull u51 u51Var) {
+    @Override // com.baidu.tieba.x51
+    public void setCriusPopListener(@NonNull v51 v51Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, u51Var) == null) {
-            this.h = u51Var;
+        if (interceptable == null || interceptable.invokeL(1048592, this, v51Var) == null) {
+            this.h = v51Var;
         }
     }
 
-    @Override // com.repackage.w51
-    public void setData(@NonNull an0 an0Var) {
+    @Override // com.baidu.tieba.x51
+    public void setData(@NonNull bn0 bn0Var) {
         CriusData criusData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, an0Var) == null) {
-            setTag(an0Var);
-            Object obj = an0Var.c;
-            if (obj instanceof vh0) {
-                Map<String, vh0.a> map = ((vh0) obj).b;
+        if (interceptable == null || interceptable.invokeL(1048593, this, bn0Var) == null) {
+            setTag(bn0Var);
+            Object obj = bn0Var.c;
+            if (obj instanceof wh0) {
+                Map<String, wh0.a> map = ((wh0) obj).b;
                 if (map == null) {
                     setVisibility(8);
                     return;
                 }
-                vh0.a aVar = map.get("crius_pop");
+                wh0.a aVar = map.get("crius_pop");
                 if (aVar != null && (criusData = aVar.a) != null) {
                     k(criusData, false);
                     a();
@@ -428,7 +428,7 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
     public void update(int i) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048594, this, i) == null) || !(getTag() instanceof an0) || (i2 = ((an0) getTag()).b) < 0 || this.i || i < i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048594, this, i) == null) || !(getTag() instanceof bn0) || (i2 = ((bn0) getTag()).b) < 0 || this.i || i < i2) {
             return;
         }
         q();

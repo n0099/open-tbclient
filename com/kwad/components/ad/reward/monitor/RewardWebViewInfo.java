@@ -11,7 +11,7 @@ import com.ksad.json.annotation.KsJson;
 import java.io.Serializable;
 import org.json.JSONObject;
 @KsJson
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RewardWebViewInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4316140680874648788L;

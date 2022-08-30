@@ -14,7 +14,7 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import okhttp3.CertificatePinner;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class a implements HostnameVerifier {
     public static final a a = new a();
     public static final Pattern b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");

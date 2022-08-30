@@ -20,7 +20,7 @@ import com.kwad.components.ad.reward.m;
 import com.kwad.components.core.video.DetailVideoView;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class d extends com.kwad.components.ad.reward.presenter.a implements b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +123,7 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
             }
             k kVar = this.nM;
             bVar.a(frameLayout, kVar.mRootContainer, adTemplate, kVar.mApkDownloadHelper, kVar.mScreenOrientation);
-            this.mn.a((b.InterfaceC0316b) null);
+            this.mn.a((b.InterfaceC0531b) null);
             ViewGroup.LayoutParams layoutParams = this.sF.getLayoutParams();
             ViewGroup.MarginLayoutParams marginLayoutParams = layoutParams instanceof ViewGroup.MarginLayoutParams ? (ViewGroup.MarginLayoutParams) layoutParams : null;
             if (marginLayoutParams != null) {
@@ -177,7 +177,7 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
             FrameLayout frameLayout = this.bS;
             k kVar2 = this.nM;
             bVar.a(frameLayout, kVar2.mRootContainer, adTemplate, kVar2.mApkDownloadHelper, kVar2.mScreenOrientation);
-            this.bb.a((b.InterfaceC0316b) null);
+            this.bb.a((b.InterfaceC0531b) null);
             com.kwad.components.ad.i.b bVar2 = this.nM.mn;
             this.mn = bVar2;
             if (bVar2 != null) {
@@ -192,9 +192,9 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09121c);
-            this.sF = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0910fd);
-            this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09120c);
+            this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09121e);
+            this.sF = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0910ff);
+            this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09120e);
         }
     }
 

@@ -20,6 +20,7 @@ import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
+import com.baidu.tieba.sb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +30,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
-import com.repackage.rb;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -738,7 +738,7 @@ public class SpeedStats {
             return;
         }
         this.isMainPageStatsEnd = true;
-        rb.b().d();
+        sb.b().d();
         this.mSpeedStatsManager.addStatsTimeStamp(6000);
         if (this.mSpeedStatsManager.getStatsFlag() == 0) {
             this.mUbcPage = SpeedStatsUtils.UBC_PAGE_ALLCACHE;
@@ -765,7 +765,7 @@ public class SpeedStats {
             return;
         }
         this.isSchemePushStatsEnd = true;
-        rb.b().d();
+        sb.b().d();
         if (this.mSpeedStatsManager.getStatsFlag() == 2 || this.mSpeedStatsManager.getStatsFlag() == 1) {
             this.mStartMainActivityType = i;
             this.mUbcPage = str;

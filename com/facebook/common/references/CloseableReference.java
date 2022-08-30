@@ -22,7 +22,7 @@ import java.util.Collection;
 import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class CloseableReference<T> implements Cloneable, Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ResourceReleaser<Closeable> DEFAULT_CLOSEABLE_RELEASER;
@@ -42,11 +42,11 @@ public abstract class CloseableReference<T> implements Cloneable, Closeable {
     @Nullable
     public final Throwable mStacktrace;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public @interface CloseableRefType {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface LeakHandler {
         void reportLeak(SharedReference<Object> sharedReference, @Nullable Throwable th);
 

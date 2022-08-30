@@ -12,7 +12,7 @@ import com.baidu.ugc.editvideo.subtitle.SubTitleUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlProtocol {
     public static final String FILTER_ORIGINAL = "FILTER_ORIGINAL";
 

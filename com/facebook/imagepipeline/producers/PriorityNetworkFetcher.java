@@ -25,7 +25,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PriorityNetworkFetcher<FETCH_STATE extends FetchState> implements NetworkFetcher<PriorityFetchState<FETCH_STATE>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PriorityNetworkFetcher";
@@ -40,7 +40,7 @@ public class PriorityNetworkFetcher<FETCH_STATE extends FetchState> implements N
     public final int mMaxOutstandingHiPri;
     public final int mMaxOutstandingLowPri;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class PriorityFetchState<FETCH_STATE extends FetchState> extends FetchState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

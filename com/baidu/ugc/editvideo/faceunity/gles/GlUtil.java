@@ -3,6 +3,7 @@ package com.baidu.ugc.editvideo.faceunity.gles;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.ac9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,11 +12,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.gles.GeneratedTexture;
-import com.repackage.rb9;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GlUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float[] HORI_FLIP_MATRIX;
@@ -83,7 +83,7 @@ public class GlUtil {
         if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || (glGetError = GLES20.glGetError()) == 0) {
             return;
         }
-        rb9.e("Grafika", str + ": glError 0x" + Integer.toHexString(glGetError));
+        ac9.e("Grafika", str + ": glError 0x" + Integer.toHexString(glGetError));
     }
 
     public static void checkLocation(int i, String str) {
@@ -160,7 +160,7 @@ public class GlUtil {
             int glCreateProgram = GLES20.glCreateProgram();
             checkGlError("glCreateProgram");
             if (glCreateProgram == 0) {
-                rb9.e("Grafika", "Could not create program");
+                ac9.e("Grafika", "Could not create program");
             }
             GLES20.glAttachShader(glCreateProgram, loadShader2);
             checkGlError("glAttachShader");
@@ -172,7 +172,7 @@ public class GlUtil {
             if (iArr[0] != 1) {
                 String str3 = "Could not link program: " + GLES20.glGetProgramInfoLog(glCreateProgram);
                 mGLErrorMsg = str3 + ",vertexShader:" + str + ",fragmentShader:" + str2;
-                rb9.e("Grafika", str3);
+                ac9.e("Grafika", str3);
                 GLES20.glDeleteProgram(glCreateProgram);
                 return 0;
             }
@@ -223,7 +223,7 @@ public class GlUtil {
             if (iArr[0] == 0) {
                 String str2 = "Could not compile shader, type:" + i + ":" + GLES20.glGetShaderInfoLog(glCreateShader);
                 mGLErrorMsg = str2 + ",shader:" + str;
-                rb9.e("Grafika", str2);
+                ac9.e("Grafika", str2);
                 GLES20.glDeleteShader(glCreateShader);
                 return 0;
             }
@@ -235,9 +235,9 @@ public class GlUtil {
     public static void logVersionInfo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            rb9.j("Grafika", "vendor  : " + GLES20.glGetString(7936));
-            rb9.j("Grafika", "renderer: " + GLES20.glGetString(7937));
-            rb9.j("Grafika", "version : " + GLES20.glGetString(7938));
+            ac9.j("Grafika", "vendor  : " + GLES20.glGetString(7936));
+            ac9.j("Grafika", "renderer: " + GLES20.glGetString(7937));
+            ac9.j("Grafika", "version : " + GLES20.glGetString(7938));
         }
     }
 

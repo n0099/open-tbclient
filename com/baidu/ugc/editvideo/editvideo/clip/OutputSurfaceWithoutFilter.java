@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class OutputSurfaceWithoutFilter extends BaseOutputSurface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

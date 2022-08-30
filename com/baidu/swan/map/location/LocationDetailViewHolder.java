@@ -7,13 +7,13 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.l64;
+import com.baidu.tieba.m64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k64;
-import com.repackage.l64;
 /* loaded from: classes3.dex */
 public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -22,17 +22,17 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
     public TextView b;
     public View c;
     public LocationDetailAdapter d;
-    public l64 e;
-    public k64 f;
+    public m64 e;
+    public l64 f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LocationDetailViewHolder(View view2, LocationDetailAdapter locationDetailAdapter, k64 k64Var) {
+    public LocationDetailViewHolder(View view2, LocationDetailAdapter locationDetailAdapter, l64 l64Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, locationDetailAdapter, k64Var};
+            Object[] objArr = {view2, locationDetailAdapter, l64Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,15 +45,15 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
         }
         a(view2);
         this.d = locationDetailAdapter;
-        this.f = k64Var;
+        this.f = l64Var;
     }
 
     public final void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091468);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f4d);
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091de3);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09146a);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f4f);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091de5);
             this.c = findViewById;
             findViewById.setVisibility(8);
             this.itemView.setOnClickListener(this);
@@ -82,32 +82,32 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
             this.d.f();
             this.e.b = true;
             this.d.notifyDataSetChanged();
-            k64 k64Var = this.f;
-            if (k64Var != null) {
-                k64Var.e(this.e);
+            l64 l64Var = this.f;
+            if (l64Var != null) {
+                l64Var.e(this.e);
             }
         }
     }
 
-    public void update(l64 l64Var) {
+    public void update(m64 m64Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, l64Var) == null) {
-            update(l64Var, null, false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, m64Var) == null) {
+            update(m64Var, null, false);
         }
     }
 
-    public void update(l64 l64Var, String str, boolean z) {
+    public void update(m64 m64Var, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048580, this, l64Var, str, z) == null) || l64Var == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(1048580, this, m64Var, str, z) == null) || m64Var == null) {
             return;
         }
-        this.e = l64Var;
-        this.a.setText(z ? b(l64Var.a.name, str) : l64Var.a.name);
+        this.e = m64Var;
+        this.a.setText(z ? b(m64Var.a.name, str) : m64Var.a.name);
         this.b.setVisibility(0);
-        this.b.setText(l64Var.a.address);
-        if (l64Var.c || TextUtils.isEmpty(l64Var.a.address)) {
+        this.b.setText(m64Var.a.address);
+        if (m64Var.c || TextUtils.isEmpty(m64Var.a.address)) {
             this.b.setVisibility(8);
         }
-        this.c.setVisibility(l64Var.b ? 0 : 8);
+        this.c.setVisibility(m64Var.b ? 0 : 8);
     }
 }

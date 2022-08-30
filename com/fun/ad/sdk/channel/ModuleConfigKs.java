@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.ModuleAdConfig;
 import com.kwad.sdk.api.KsCustomController;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ModuleConfigKs extends ModuleAdConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +18,7 @@ public class ModuleConfigKs extends ModuleAdConfig {
     public final KsCustomController ksCustomCtr;
     public final boolean ksVideoSoundEnable;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -8,14 +8,14 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.jn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.dynamic.IFragmentWrapper;
-import com.repackage.an9;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class SupportFragmentWrapper extends IFragmentWrapper.Stub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +135,7 @@ public final class SupportFragmentWrapper extends IFragmentWrapper.Stub {
         if (interceptable == null || interceptable.invokeL(1048586, this, iObjectWrapper) == null) {
             View view2 = (View) ObjectWrapper.unwrap(iObjectWrapper);
             Fragment fragment = this.zza;
-            an9.d(view2);
+            jn9.d(view2);
             fragment.registerForContextMenu(view2);
         }
     }
@@ -194,7 +194,7 @@ public final class SupportFragmentWrapper extends IFragmentWrapper.Stub {
         if (interceptable == null || interceptable.invokeL(1048593, this, iObjectWrapper) == null) {
             View view2 = (View) ObjectWrapper.unwrap(iObjectWrapper);
             Fragment fragment = this.zza;
-            an9.d(view2);
+            jn9.d(view2);
             fragment.unregisterForContextMenu(view2);
         }
     }

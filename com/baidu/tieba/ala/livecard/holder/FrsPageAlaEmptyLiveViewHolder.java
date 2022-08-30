@@ -2,25 +2,25 @@ package com.baidu.tieba.ala.livecard.holder;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.tieba.zv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rv5;
 /* loaded from: classes3.dex */
 public class FrsPageAlaEmptyLiveViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rv5 a;
+    public zv5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsPageAlaEmptyLiveViewHolder(rv5 rv5Var) {
-        super(rv5Var.h());
+    public FrsPageAlaEmptyLiveViewHolder(zv5 zv5Var) {
+        super(zv5Var.h());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rv5Var};
+            Object[] objArr = {zv5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,6 +31,6 @@ public class FrsPageAlaEmptyLiveViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = rv5Var;
+        this.a = zv5Var;
     }
 }

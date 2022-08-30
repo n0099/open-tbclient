@@ -12,7 +12,7 @@ import com.kwad.sdk.utils.ag;
 import com.kwad.sdk.utils.ax;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static Random adc = new Random();
 

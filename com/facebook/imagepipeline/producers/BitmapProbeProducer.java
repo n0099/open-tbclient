@@ -16,7 +16,7 @@ import com.facebook.imagepipeline.cache.MemoryCache;
 import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BitmapProbeProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "BitmapProbeProducer";
@@ -29,7 +29,7 @@ public class BitmapProbeProducer implements Producer<CloseableReference<Closeabl
     public final Producer<CloseableReference<CloseableImage>> mInputProducer;
     public final BufferedDiskCache mSmallImageBufferedDiskCache;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class ProbeConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

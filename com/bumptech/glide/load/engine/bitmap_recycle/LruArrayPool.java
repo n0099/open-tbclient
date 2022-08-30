@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class LruArrayPool implements ArrayPool {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SIZE = 4194304;
@@ -30,7 +30,7 @@ public final class LruArrayPool implements ArrayPool {
     public final int maxSize;
     public final Map<Class<?>, NavigableMap<Integer, Integer>> sortedSizes;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class Key implements Poolable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,7 +106,7 @@ public final class LruArrayPool implements ArrayPool {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class KeyPool extends BaseKeyPool<Key> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

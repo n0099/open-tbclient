@@ -28,7 +28,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.mvp.Presenter;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b extends com.kwad.components.core.page.recycle.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public final class b extends com.kwad.components.core.page.recycle.a {
     public LinearLayout mWebTipBarLayout;
     public TextView mWebTipBarTitle;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a extends com.kwad.components.core.page.recycle.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public final class b extends com.kwad.components.core.page.recycle.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
                 if (i == 1) {
-                    View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0410, viewGroup, false);
+                    View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0411, viewGroup, false);
                     Presenter presenter = new Presenter();
                     presenter.a(new com.kwad.components.core.page.kwai.b());
                     return new com.kwad.components.core.page.recycle.c(inflate, presenter, this.Fz);
@@ -149,9 +149,9 @@ public final class b extends com.kwad.components.core.page.recycle.a {
     public void t(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, view2) == null) {
-            this.mWebTipBarLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091224);
-            this.mWebTipBarTitle = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091225);
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091226);
+            this.mWebTipBarLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091226);
+            this.mWebTipBarTitle = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091227);
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091228);
             this.mWebTipBarCloseBtn = imageView;
             imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.b.1
                 public static /* synthetic */ Interceptable $ic;
@@ -227,7 +227,7 @@ public final class b extends com.kwad.components.core.page.recycle.a {
     public final int nw() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0411 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0412 : invokeV.intValue;
     }
 
     @Override // com.kwad.components.core.page.recycle.a, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -310,7 +310,7 @@ public final class b extends com.kwad.components.core.page.recycle.a {
                         }
                         if (this.Fy.getChildCount() > 1) {
                             View view4 = this.Fy.findViewHolderForAdapterPosition(1).itemView;
-                            this.Fx.Fv = (WebView) view4.findViewById(R.id.obfuscated_res_0x7f09121a);
+                            this.Fx.Fv = (WebView) view4.findViewById(R.id.obfuscated_res_0x7f09121c);
                             this.Fx.t(view4);
                         }
                         com.kwad.sdk.core.e.b.d("AdRecycleWebFragment", "onGlobalLayout");

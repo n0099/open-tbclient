@@ -6,7 +6,7 @@ import android.graphics.drawable.Drawable;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.sina.weibo.sdk.utils.ResourceManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ResUtil {
     public static int getAttrId(Context context, String str) {
         return getIdentifier(context, str, "attr");

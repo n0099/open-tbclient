@@ -15,6 +15,7 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.tq4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +23,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rq4;
 /* loaded from: classes3.dex */
 public class PbActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -808,13 +808,13 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("lego_pre_load_data", str);
     }
 
-    public void setRecomData(rq4 rq4Var) {
+    public void setRecomData(tq4 tq4Var) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048618, this, rq4Var) == null) || (intent = getIntent()) == null || rq4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048618, this, tq4Var) == null) || (intent = getIntent()) == null || tq4Var == null) {
             return;
         }
-        rq4Var.c(intent);
+        tq4Var.c(intent);
     }
 
     public void setSmartFrsPosition(int i) {

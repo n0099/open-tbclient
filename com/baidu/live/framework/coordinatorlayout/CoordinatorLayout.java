@@ -48,6 +48,8 @@ import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.framework.appbar.AppBarLayout;
 import com.baidu.tieba.R;
+import com.baidu.tieba.v90;
+import com.baidu.tieba.w90;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,8 +58,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
-import com.repackage.u90;
-import com.repackage.v90;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Constructor;
@@ -77,7 +77,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     public static final Pools.Pool<Rect> y;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<View> a;
-    public final u90<View> b;
+    public final v90<View> b;
     public final List<View> c;
     public final List<View> d;
     public Paint e;
@@ -1258,7 +1258,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     public void n(View view2, Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048612, this, view2, rect) == null) {
-            v90.a(this, view2, rect);
+            w90.a(this, view2, rect);
         }
     }
 
@@ -2194,7 +2194,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             }
         }
         this.a = new ArrayList();
-        this.b = new u90<>();
+        this.b = new v90<>();
         this.c = new ArrayList();
         this.d = new ArrayList();
         this.f = new int[2];

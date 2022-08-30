@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.util.ParsableBitArray;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.TimestampAdjuster;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class SpliceInfoDecoder implements MetadataDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_PRIVATE_COMMAND = 255;

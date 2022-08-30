@@ -7,18 +7,18 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cn2;
+import com.baidu.tieba.z72;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bn2;
-import com.repackage.y72;
 /* loaded from: classes2.dex */
 public class SwanAppFavoriteProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile y72 a;
+    public volatile z72 a;
 
     public SwanAppFavoriteProvider() {
         Interceptable interceptable = $ic;
@@ -34,20 +34,20 @@ public class SwanAppFavoriteProvider extends ContentProvider {
         }
     }
 
-    public final y72 a() {
+    public final z72 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.a == null) {
                 synchronized (SwanAppFavoriteProvider.class) {
                     if (this.a == null) {
-                        this.a = new y72();
+                        this.a = new z72();
                     }
                 }
             }
             return this.a;
         }
-        return (y72) invokeV.objValue;
+        return (z72) invokeV.objValue;
     }
 
     @Override // android.content.ContentProvider
@@ -78,7 +78,7 @@ public class SwanAppFavoriteProvider extends ContentProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            bn2.a().b(getContext());
+            cn2.a().b(getContext());
             return true;
         }
         return invokeV.booleanValue;

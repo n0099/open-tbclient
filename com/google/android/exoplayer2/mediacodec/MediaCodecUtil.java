@@ -30,7 +30,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 @SuppressLint({"InlinedApi"})
 @TargetApi(16)
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class MediaCodecUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final SparseIntArray AVC_LEVEL_NUMBER_TO_CONST;
@@ -50,13 +50,13 @@ public final class MediaCodecUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.android.exoplayer2.mediacodec.MediaCodecUtil$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class CodecKey {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public final class MediaCodecUtil {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class DecoderQueryException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,7 +140,7 @@ public final class MediaCodecUtil {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface MediaCodecListCompat {
         int getCodecCount();
 
@@ -151,7 +151,7 @@ public final class MediaCodecUtil {
         boolean secureDecodersExplicit();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class MediaCodecListCompatV16 implements MediaCodecListCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -207,7 +207,7 @@ public final class MediaCodecUtil {
     }
 
     @TargetApi(21)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class MediaCodecListCompatV21 implements MediaCodecListCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

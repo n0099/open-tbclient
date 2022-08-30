@@ -9,46 +9,46 @@ import android.view.SurfaceHolder;
 import androidx.annotation.NonNull;
 import java.io.FileDescriptor;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface c {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void ai(int i);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void ns();
     }
 
     /* renamed from: com.kwad.sdk.core.video.kwai.c$c  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0395c {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0610c {
         boolean j(int i, int i2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface d {
         boolean k(int i, int i2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface e {
         void a(c cVar);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface f {
         void nt();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface g {
         void a(TimedText timedText);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface h {
         void i(int i, int i2);
     }
@@ -59,7 +59,7 @@ public interface c {
 
     void a(b bVar);
 
-    void a(InterfaceC0395c interfaceC0395c);
+    void a(InterfaceC0610c interfaceC0610c);
 
     void a(f fVar);
 

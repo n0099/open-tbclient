@@ -2,12 +2,12 @@ package com.baidu.bdtask.strategy.impl.lifecycle;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.ctrl.SubTaskState;
+import com.baidu.tieba.yq;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xq;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
@@ -49,7 +49,7 @@ public final class BaseLifecycleStrategy$finishAborted$2 extends Lambda implemen
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("abort by ");
-            xq g = this.this$0.g(this.$subState);
+            yq g = this.this$0.g(this.$subState);
             sb.append(g != null ? g.e() : null);
             return sb.toString();
         }

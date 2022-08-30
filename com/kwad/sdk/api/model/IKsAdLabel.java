@@ -2,7 +2,7 @@ package com.kwad.sdk.api.model;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IKsAdLabel {
     @Keep
     String getChannel();

@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.sticker;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public @interface StickerDataChangeType {
     public static final String ADD = "add";
     public static final String DELETE = "delete";

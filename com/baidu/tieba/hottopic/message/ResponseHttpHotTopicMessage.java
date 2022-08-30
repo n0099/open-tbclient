@@ -3,19 +3,19 @@ package com.baidu.tieba.hottopic.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
+import com.baidu.tieba.d57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.v47;
 import com.squareup.wire.Wire;
 import tbclient.Hottopic.HottopicResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseHttpHotTopicMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v47 topicData;
+    public d57 topicData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpHotTopicMessage() {
@@ -36,10 +36,10 @@ public class ResponseHttpHotTopicMessage extends TbHttpResponsedMessage {
         this.topicData = null;
     }
 
-    public v47 getHotTopicData() {
+    public d57 getHotTopicData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.topicData : (v47) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.topicData : (d57) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -66,10 +66,10 @@ public class ResponseHttpHotTopicMessage extends TbHttpResponsedMessage {
         }
         Object extra = getOrginalMessage().getExtra();
         Integer num = extra instanceof Integer ? (Integer) extra : null;
-        v47 v47Var = new v47();
-        this.topicData = v47Var;
+        d57 d57Var = new d57();
+        this.topicData = d57Var;
         if (num != null) {
-            v47Var.p = num.intValue();
+            d57Var.p = num.intValue();
         }
         this.topicData.h(hottopicResIdl.data);
     }

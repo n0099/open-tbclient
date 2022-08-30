@@ -7,14 +7,14 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.lt7;
+import com.baidu.tieba.os4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dt7;
-import com.repackage.ms4;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,17 +42,17 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view2;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f0917ae);
-        this.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091c14);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092377);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f0917b0);
+        this.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091c16);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092380);
         this.d = textView;
-        ms4.d(textView).A(R.string.F_X02);
+        os4.d(textView).A(R.string.F_X02);
     }
 
-    public void a(dt7 dt7Var) {
+    public void a(lt7 lt7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dt7Var) == null) {
-            this.d.setText(dt7Var.b());
+        if (interceptable == null || interceptable.invokeL(1048576, this, lt7Var) == null) {
+            this.d.setText(lt7Var.b());
         }
     }
 

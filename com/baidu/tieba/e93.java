@@ -1,0 +1,9 @@
+package com.baidu.tieba;
+/* loaded from: classes3.dex */
+public interface e93 {
+    boolean a(long j);
+
+    void b(long j);
+
+    long getMaxSize();
+}

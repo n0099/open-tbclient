@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.Dimension;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class HighLevelEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ASCII_ENCODATION = 0;

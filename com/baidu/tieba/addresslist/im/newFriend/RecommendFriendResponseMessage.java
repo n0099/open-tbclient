@@ -2,12 +2,12 @@ package com.baidu.tieba.addresslist.im.newFriend;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.o77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g77;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<g77> mDatas;
+    public List<o77> mDatas;
     public int mErrCode;
     public String mErrMsg;
 
@@ -59,25 +59,25 @@ public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
                 }
                 this.mDatas = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    g77 g77Var = new g77();
+                    o77 o77Var = new o77();
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                    g77Var.h(jSONObject2.optLong("user_id"));
-                    g77Var.j(jSONObject2.optString("user_name"));
-                    g77Var.k(jSONObject2.optString("portrait"));
-                    g77Var.g(jSONObject2.optString("message"));
+                    o77Var.h(jSONObject2.optLong("user_id"));
+                    o77Var.j(jSONObject2.optString("user_name"));
+                    o77Var.k(jSONObject2.optString("portrait"));
+                    o77Var.g(jSONObject2.optString("message"));
                     if (jSONObject2.optInt("type") == 0) {
-                        g77Var.l(0);
+                        o77Var.l(0);
                     } else {
-                        g77Var.l(1);
+                        o77Var.l(1);
                     }
-                    g77Var.i(1);
-                    this.mDatas.add(g77Var);
+                    o77Var.i(1);
+                    this.mDatas.add(o77Var);
                 }
             }
         }
     }
 
-    public List<g77> getDatas() {
+    public List<o77> getDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDatas : (List) invokeV.objValue;

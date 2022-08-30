@@ -14,7 +14,7 @@ import java.io.Closeable;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nonnull;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class CloseableImage implements Closeable, ImageInfo, HasImageMetadata {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CloseableImage";

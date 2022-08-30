@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,14 +22,14 @@ import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class ByteBufferUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final AtomicReference<byte[]> BUFFER_REF;
     public static final int BUFFER_SIZE = 16384;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class SafeArray {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -205,7 +206,7 @@ public final class ByteBufferUtil {
         byteBuffer.position(0);
         FileChannel fileChannel = null;
         try {
-            randomAccessFile = new RandomAccessFile(file, "rw");
+            randomAccessFile = new RandomAccessFile(file, rw.c);
             try {
                 fileChannel = randomAccessFile.getChannel();
                 fileChannel.write(byteBuffer);
@@ -267,7 +268,7 @@ public final class ByteBufferUtil {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class ByteBufferStream extends InputStream {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int UNSET = -1;

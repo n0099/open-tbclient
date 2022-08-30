@@ -35,7 +35,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.util.Arrays;
 import java.util.Formatter;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PlaybackControlView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     @Deprecated
@@ -89,7 +89,7 @@ public class PlaybackControlView extends FrameLayout {
     public VisibilityListener visibilityListener;
     public final Timeline.Window window;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public final class ComponentListener extends Player.DefaultEventListener implements TimeBar.OnScrubListener, View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -221,11 +221,11 @@ public class PlaybackControlView extends FrameLayout {
     }
 
     @Deprecated
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface ControlDispatcher extends com.google.android.exoplayer2.ControlDispatcher {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class DefaultControlDispatcher extends com.google.android.exoplayer2.DefaultControlDispatcher implements ControlDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -245,7 +245,7 @@ public class PlaybackControlView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface VisibilityListener {
         void onVisibilityChange(int i);
     }
@@ -1140,14 +1140,14 @@ public class PlaybackControlView extends FrameLayout {
         this.showTimeoutMs = 5000;
         this.repeatToggleModes = 0;
         this.showShuffleButton = false;
-        int i4 = R.layout.obfuscated_res_0x7f0d0276;
+        int i4 = R.layout.obfuscated_res_0x7f0d0277;
         if (attributeSet2 != null) {
             TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet2, new int[]{R.attr.obfuscated_res_0x7f04019c, R.attr.obfuscated_res_0x7f0402b2, R.attr.obfuscated_res_0x7f0405b9, R.attr.obfuscated_res_0x7f0405be, R.attr.obfuscated_res_0x7f040624, R.attr.obfuscated_res_0x7f040625}, 0, 0);
             try {
                 this.rewindMs = obtainStyledAttributes.getInt(3, this.rewindMs);
                 this.fastForwardMs = obtainStyledAttributes.getInt(1, this.fastForwardMs);
                 this.showTimeoutMs = obtainStyledAttributes.getInt(5, this.showTimeoutMs);
-                i4 = obtainStyledAttributes.getResourceId(0, R.layout.obfuscated_res_0x7f0d0276);
+                i4 = obtainStyledAttributes.getResourceId(0, R.layout.obfuscated_res_0x7f0d0277);
                 this.repeatToggleModes = getRepeatToggleModes(obtainStyledAttributes, this.repeatToggleModes);
                 this.showShuffleButton = obtainStyledAttributes.getBoolean(4, this.showShuffleButton);
             } finally {
@@ -1166,49 +1166,49 @@ public class PlaybackControlView extends FrameLayout {
         this.controlDispatcher = new com.google.android.exoplayer2.DefaultControlDispatcher();
         LayoutInflater.from(context).inflate(i4, this);
         setDescendantFocusability(262144);
-        this.durationView = (TextView) findViewById(R.id.obfuscated_res_0x7f09092c);
-        this.positionView = (TextView) findViewById(R.id.obfuscated_res_0x7f090932);
-        TimeBar timeBar = (TimeBar) findViewById(R.id.obfuscated_res_0x7f090934);
+        this.durationView = (TextView) findViewById(R.id.obfuscated_res_0x7f09092d);
+        this.positionView = (TextView) findViewById(R.id.obfuscated_res_0x7f090933);
+        TimeBar timeBar = (TimeBar) findViewById(R.id.obfuscated_res_0x7f090935);
         this.timeBar = timeBar;
         if (timeBar != null) {
             timeBar.addListener(this.componentListener);
         }
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f090931);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f090932);
         this.playButton = findViewById;
         if (findViewById != null) {
             findViewById.setOnClickListener(this.componentListener);
         }
-        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090930);
+        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090931);
         this.pauseButton = findViewById2;
         if (findViewById2 != null) {
             findViewById2.setOnClickListener(this.componentListener);
         }
-        View findViewById3 = findViewById(R.id.obfuscated_res_0x7f090933);
+        View findViewById3 = findViewById(R.id.obfuscated_res_0x7f090934);
         this.previousButton = findViewById3;
         if (findViewById3 != null) {
             findViewById3.setOnClickListener(this.componentListener);
         }
-        View findViewById4 = findViewById(R.id.obfuscated_res_0x7f09092e);
+        View findViewById4 = findViewById(R.id.obfuscated_res_0x7f09092f);
         this.nextButton = findViewById4;
         if (findViewById4 != null) {
             findViewById4.setOnClickListener(this.componentListener);
         }
-        View findViewById5 = findViewById(R.id.obfuscated_res_0x7f090936);
+        View findViewById5 = findViewById(R.id.obfuscated_res_0x7f090937);
         this.rewindButton = findViewById5;
         if (findViewById5 != null) {
             findViewById5.setOnClickListener(this.componentListener);
         }
-        View findViewById6 = findViewById(R.id.obfuscated_res_0x7f09092d);
+        View findViewById6 = findViewById(R.id.obfuscated_res_0x7f09092e);
         this.fastForwardButton = findViewById6;
         if (findViewById6 != null) {
             findViewById6.setOnClickListener(this.componentListener);
         }
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090935);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090936);
         this.repeatToggleButton = imageView;
         if (imageView != null) {
             imageView.setOnClickListener(this.componentListener);
         }
-        View findViewById7 = findViewById(R.id.obfuscated_res_0x7f090937);
+        View findViewById7 = findViewById(R.id.obfuscated_res_0x7f090938);
         this.shuffleButton = findViewById7;
         if (findViewById7 != null) {
             findViewById7.setOnClickListener(this.componentListener);
@@ -1217,8 +1217,8 @@ public class PlaybackControlView extends FrameLayout {
         this.repeatOffButtonDrawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f0804db);
         this.repeatOneButtonDrawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f0804dc);
         this.repeatAllButtonDrawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f0804da);
-        this.repeatOffButtonContentDescription = resources.getString(R.string.obfuscated_res_0x7f0f05d1);
-        this.repeatOneButtonContentDescription = resources.getString(R.string.obfuscated_res_0x7f0f05d2);
-        this.repeatAllButtonContentDescription = resources.getString(R.string.obfuscated_res_0x7f0f05d0);
+        this.repeatOffButtonContentDescription = resources.getString(R.string.obfuscated_res_0x7f0f05d2);
+        this.repeatOneButtonContentDescription = resources.getString(R.string.obfuscated_res_0x7f0f05d3);
+        this.repeatAllButtonContentDescription = resources.getString(R.string.obfuscated_res_0x7f0f05d1);
     }
 }

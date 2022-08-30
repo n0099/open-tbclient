@@ -18,7 +18,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.bd;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class d {
             boolean a = m.oF().a(ksScene, "loadDrawAd");
             ksScene.setAdStyle(6);
             KsAdLoadManager.ab();
-            KsAdLoadManager.a(new a.C0359a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c(drawAdListener) { // from class: com.kwad.components.ad.draw.d.1
+            KsAdLoadManager.a(new a.C0574a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c(drawAdListener) { // from class: com.kwad.components.ad.draw.d.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ KsLoadManager.DrawAdListener aV;

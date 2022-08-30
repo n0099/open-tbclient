@@ -20,6 +20,11 @@ import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRespMessage;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity;
 import com.baidu.tieba.ala.gamefrslivelist.AlaGameFrsLiveListActivity;
 import com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity;
+import com.baidu.tieba.bg6;
+import com.baidu.tieba.bv5;
+import com.baidu.tieba.cg6;
+import com.baidu.tieba.iv5;
+import com.baidu.tieba.jv5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,11 +32,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.av5;
-import com.repackage.bv5;
-import com.repackage.tf6;
-import com.repackage.tu5;
-import com.repackage.uf6;
 /* loaded from: classes3.dex */
 public class AlaFrsLiveStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -70,16 +70,16 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof uf6) {
-                uf6 uf6Var = (uf6) data;
-                tu5 tu5Var = new tu5(true);
-                tu5Var.b().e = 2;
-                tu5Var.h(uf6Var.c());
-                tu5Var.i(uf6Var.d());
-                tu5Var.g(uf6Var.b());
-                tu5Var.j(1);
-                tu5Var.k(false);
-                uf6Var.a(tu5Var);
+            if (data instanceof cg6) {
+                cg6 cg6Var = (cg6) data;
+                bv5 bv5Var = new bv5(true);
+                bv5Var.b().e = 2;
+                bv5Var.h(cg6Var.c());
+                bv5Var.i(cg6Var.d());
+                bv5Var.g(cg6Var.b());
+                bv5Var.j(1);
+                bv5Var.k(false);
+                cg6Var.a(bv5Var);
             }
         }
     }
@@ -117,17 +117,17 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof tf6) {
-                tf6 tf6Var = (tf6) data;
-                tu5 tu5Var = new tu5(true);
-                tu5Var.b().e = 9;
-                tu5Var.h(tf6Var.c());
-                tu5Var.i(tf6Var.d());
-                tu5Var.g(tf6Var.b());
-                tu5Var.j(1);
-                tu5Var.k(true);
-                if (tf6Var.h(9)) {
-                    tf6Var.a(tu5Var);
+            if (data instanceof bg6) {
+                bg6 bg6Var = (bg6) data;
+                bv5 bv5Var = new bv5(true);
+                bv5Var.b().e = 9;
+                bv5Var.h(bg6Var.c());
+                bv5Var.i(bg6Var.d());
+                bv5Var.g(bg6Var.b());
+                bv5Var.j(1);
+                bv5Var.k(true);
+                if (bg6Var.h(9)) {
+                    bg6Var.a(bv5Var);
                 }
             }
         }
@@ -166,16 +166,16 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof uf6) {
-                uf6 uf6Var = (uf6) data;
-                tu5 tu5Var = new tu5(false);
-                tu5Var.b().e = 1;
-                tu5Var.h(uf6Var.c());
-                tu5Var.i(uf6Var.d());
-                tu5Var.g(uf6Var.b());
-                tu5Var.j(2);
-                tu5Var.k(false);
-                uf6Var.a(tu5Var);
+            if (data instanceof cg6) {
+                cg6 cg6Var = (cg6) data;
+                bv5 bv5Var = new bv5(false);
+                bv5Var.b().e = 1;
+                bv5Var.h(cg6Var.c());
+                bv5Var.i(cg6Var.d());
+                bv5Var.g(cg6Var.b());
+                bv5Var.j(2);
+                bv5Var.k(false);
+                cg6Var.a(bv5Var);
             }
         }
     }
@@ -213,14 +213,14 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof uf6) {
-                uf6 uf6Var = (uf6) data;
-                bv5 bv5Var = new bv5();
-                bv5Var.b().e = 3;
-                bv5Var.g(uf6Var.c());
-                bv5Var.h(uf6Var.d());
-                bv5Var.i(false);
-                uf6Var.a(bv5Var);
+            if (data instanceof cg6) {
+                cg6 cg6Var = (cg6) data;
+                jv5 jv5Var = new jv5();
+                jv5Var.b().e = 3;
+                jv5Var.g(cg6Var.c());
+                jv5Var.h(cg6Var.d());
+                jv5Var.i(false);
+                cg6Var.a(jv5Var);
             }
         }
     }
@@ -258,16 +258,16 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof tf6) {
-                tf6 tf6Var = (tf6) data;
-                bv5 bv5Var = new bv5();
-                bv5Var.b().e = 8;
-                bv5Var.b().b = R.string.obfuscated_res_0x7f0f024e;
-                bv5Var.g(tf6Var.c());
-                bv5Var.h(tf6Var.d());
-                bv5Var.i(true);
-                if (tf6Var.h(8)) {
-                    tf6Var.a(bv5Var);
+            if (data instanceof bg6) {
+                bg6 bg6Var = (bg6) data;
+                jv5 jv5Var = new jv5();
+                jv5Var.b().e = 8;
+                jv5Var.b().b = R.string.obfuscated_res_0x7f0f024e;
+                jv5Var.g(bg6Var.c());
+                jv5Var.h(bg6Var.d());
+                jv5Var.i(true);
+                if (bg6Var.h(8)) {
+                    bg6Var.a(jv5Var);
                 }
             }
         }
@@ -306,13 +306,13 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof tf6) {
-                tf6 tf6Var = (tf6) data;
-                av5 av5Var = new av5();
-                av5Var.i(tf6Var.c());
-                av5Var.j(tf6Var.d());
-                av5Var.h(tf6Var.b());
-                av5Var.g(tf6Var);
+            if (data instanceof bg6) {
+                bg6 bg6Var = (bg6) data;
+                iv5 iv5Var = new iv5();
+                iv5Var.i(bg6Var.c());
+                iv5Var.j(bg6Var.d());
+                iv5Var.h(bg6Var.b());
+                iv5Var.g(bg6Var);
             }
         }
     }

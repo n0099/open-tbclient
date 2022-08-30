@@ -20,6 +20,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tbadk.data.UserData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.c87;
+import com.baidu.tieba.db;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.ResponseQueryUserInfoMessage;
 import com.baidu.tieba.im.model.BlackListModel;
@@ -27,28 +29,26 @@ import com.baidu.tieba.im.model.IMUserListHttpResponseMsg;
 import com.baidu.tieba.im.model.IMUserListModel;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
 import com.baidu.tieba.imMessageCenter.RequestQueryUserInfoMessage;
+import com.baidu.tieba.jf5;
+import com.baidu.tieba.nf5;
+import com.baidu.tieba.qe5;
+import com.baidu.tieba.tz4;
+import com.baidu.tieba.u97;
 import com.baidu.tieba.userblock.UserBlockInfoModel;
+import com.baidu.tieba.wm4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cb;
-import com.repackage.cf5;
-import com.repackage.gf5;
-import com.repackage.je5;
-import com.repackage.m97;
-import com.repackage.pz4;
-import com.repackage.u77;
-import com.repackage.vm4;
 import java.util.ArrayList;
 import protobuf.QueryUserInfos.DataRes;
 import tbclient.PermissionList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PersonalTalkSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pz4 a;
+    public tz4 a;
     public DataRes b;
     public boolean c;
     public boolean d;
@@ -62,12 +62,12 @@ public class PersonalTalkSettingModel extends BdBaseModel {
     public ImMessageCenterPojo l;
     public PersonalTalkSettingActivity m;
     public g n;
-    public cb o;
+    public db o;
     public CustomMessageListener p;
     public HttpMessageListener q;
 
-    /* loaded from: classes3.dex */
-    public class a extends cf5<PersonalSettingItemData> {
+    /* loaded from: classes4.dex */
+    public class a extends jf5<PersonalSettingItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -91,17 +91,17 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.cf5
+        @Override // com.baidu.tieba.jf5
         /* renamed from: a */
         public PersonalSettingItemData doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? m97.j().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a)) : (PersonalSettingItemData) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? u97.j().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a)) : (PersonalSettingItemData) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b implements je5<PersonalSettingItemData> {
+    /* loaded from: classes4.dex */
+    public class b implements qe5<PersonalSettingItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -129,7 +129,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.je5
+        @Override // com.baidu.tieba.qe5
         /* renamed from: a */
         public void onReturnDataInUI(PersonalSettingItemData personalSettingItemData) {
             Interceptable interceptable = $ic;
@@ -144,8 +144,8 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class c implements vm4 {
+    /* loaded from: classes4.dex */
+    public class c implements wm4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalTalkSettingModel a;
@@ -168,7 +168,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
             this.a = personalTalkSettingModel;
         }
 
-        @Override // com.repackage.vm4
+        @Override // com.baidu.tieba.wm4
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) || this.a.m == null) {
@@ -177,7 +177,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
             this.a.m.showToast(str);
         }
 
-        @Override // com.repackage.vm4
+        @Override // com.baidu.tieba.wm4
         public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (obj instanceof tbclient.GetUserBlackInfo.DataRes)) {
@@ -189,8 +189,8 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class d extends cb {
+    /* loaded from: classes4.dex */
+    public class d extends db {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalTalkSettingModel a;
@@ -266,7 +266,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -311,7 +311,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
                     if (this.a.c) {
                         this.a.m.showToast(R.string.obfuscated_res_0x7f0f00d2);
                     } else {
-                        this.a.m.showToast(R.string.obfuscated_res_0x7f0f0fd5);
+                        this.a.m.showToast(R.string.obfuscated_res_0x7f0f0fd8);
                     }
                 }
                 if (this.a.n != null) {
@@ -321,7 +321,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -358,7 +358,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
                     return;
                 }
                 this.a.k = iMUserListHttpResponseMsg.getUserDataResultList().get(0);
-                this.a.l = u77.f().g(String.valueOf(this.a.getUid()), 2);
+                this.a.l = c87.f().g(String.valueOf(this.a.getUid()), 2);
                 if (this.a.n != null) {
                     this.a.n.K();
                 }
@@ -366,7 +366,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface g {
         void K();
     }
@@ -394,7 +394,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         this.q = new f(this, CmdConfigHttp.CMD_GET_USER_LIST);
         this.m = personalTalkSettingActivity;
         this.n = gVar;
-        this.a = new pz4(personalTalkSettingActivity.getPageContext());
+        this.a = new tz4(personalTalkSettingActivity.getPageContext());
         this.g = new BlackListModel(personalTalkSettingActivity.getPageContext());
         personalTalkSettingActivity.showProgressBar();
         P();
@@ -404,7 +404,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         ArrayList arrayList = new ArrayList();
         arrayList.add(String.valueOf(j));
         this.j.request(false, arrayList);
-        gf5.c(new a(this, j), new b(this, j, personalTalkSettingActivity));
+        nf5.c(new a(this, j), new b(this, j, personalTalkSettingActivity));
     }
 
     public DataRes K() {
@@ -434,9 +434,9 @@ public class PersonalTalkSettingModel extends BdBaseModel {
     public void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            pz4 pz4Var = this.a;
-            if (pz4Var != null) {
-                pz4Var.g();
+            tz4 tz4Var = this.a;
+            if (tz4Var != null) {
+                tz4Var.g();
             }
             BlackListModel blackListModel = this.g;
             if (blackListModel != null) {

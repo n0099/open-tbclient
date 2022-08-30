@@ -1,0 +1,287 @@
+package com.baidu.tieba;
+
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.env.launch.SwanLauncher;
+import com.baidu.swan.apps.favordata.SwanFavorDataManager;
+import com.baidu.tieba.k92;
+import com.baidu.tieba.yx1;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public final class m92 implements k92.d {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
+    public transient /* synthetic */ FieldHolder $fh;
+    public k92 a;
+    public volatile boolean b;
+    public final boolean c;
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ km1 a;
+
+        public a(m92 m92Var, km1 km1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m92Var, km1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = km1Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(m92 m92Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m92Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                hk2.s0().b();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ Bundle b;
+        public final /* synthetic */ m92 c;
+
+        public c(m92 m92Var, int i, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m92Var, Integer.valueOf(i), bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = m92Var;
+            this.a = i;
+            this.b = bundle;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (m92.d) {
+                    Log.d("SwanAppEnv", "zygoteSwanProcess delay - run. switch: " + this.a);
+                }
+                yx2.k(this.c.a(), this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final m92 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-647502653, "Lcom/baidu/tieba/m92$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-647502653, "Lcom/baidu/tieba/m92$d;");
+                    return;
+                }
+            }
+            a = new m92(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947927427, "Lcom/baidu/tieba/m92;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947927427, "Lcom/baidu/tieba/m92;");
+                return;
+            }
+        }
+        d = kh1.a;
+    }
+
+    public /* synthetic */ m92(a aVar) {
+        this();
+    }
+
+    public static m92 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.a : (m92) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i92
+    @NonNull
+    public Context a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? AppRuntime.getAppContext() : (Context) invokeV.objValue;
+    }
+
+    public k92 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (k92) invokeV.objValue;
+    }
+
+    public void e(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) || this.b) {
+            return;
+        }
+        synchronized (this) {
+            if (!this.b) {
+                f(bundle);
+                this.b = true;
+            }
+        }
+    }
+
+    public final void f(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            g(bundle);
+            SwanLauncher.j().l(null);
+            yx1.b.d();
+            bf3.a();
+            if (d) {
+                Log.d("SwanAppEnv", "swan_env_init_thread_pool_optimize: " + this.c);
+            }
+            if (this.c) {
+                ExecutorUtilsExt.postOnElastic(new a(this, hk2.s0()), "requestBatchRebateInfo", 2);
+            } else {
+                ExecutorUtilsExt.postOnElastic(new b(this), "requestBatchRebateInfo", 2);
+            }
+        }
+    }
+
+    public final void g(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            if (d) {
+                Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess");
+            }
+            dl1 g = hk2.g();
+            if (g == null) {
+                return;
+            }
+            int a2 = g.a();
+            if (d) {
+                Log.d("SwanAppEnv", "zygoteSwanProcess switch : " + a2);
+            }
+            if (g.e()) {
+                return;
+            }
+            if (bundle == null) {
+                bundle = new Bundle();
+            }
+            if (TextUtils.isEmpty(bundle.getString("bundle_key_preload_preload_scene"))) {
+                bundle.putString("bundle_key_preload_preload_scene", "0");
+            }
+            if (bundle.getBoolean("bundle_key_preload_delay", false) && g.f()) {
+                if (d) {
+                    Log.d("SwanAppEnv", "zygoteSwanProcess delay - start. switch: " + a2);
+                }
+                ue3.b0(new c(this, a2, bundle), hk2.g().c());
+                return;
+            }
+            if (d) {
+                Log.d("SwanAppEnv", "zygoteSwanProcess start. switch: " + a2);
+            }
+            yx2.k(a(), bundle);
+        }
+    }
+
+    public m92() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = false;
+        hk2.g0().getSwitch("swan_env_init_thread_pool_optimize", true);
+        this.c = true;
+        this.a = new k92(this);
+        ne2.i();
+        SwanFavorDataManager.h();
+        nb2.d().f();
+    }
+}

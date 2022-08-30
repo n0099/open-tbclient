@@ -32,7 +32,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})
@@ -124,7 +124,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(65542, this, bVar) == null) || this.PM.contains(bVar.ait)) {
             return;
         }
-        com.kwad.components.a.a.a.a(this.mContext, bVar, new a.InterfaceC0304a(this) { // from class: com.kwad.components.a.a.5
+        com.kwad.components.a.a.a.a(this.mContext, bVar, new a.InterfaceC0519a(this) { // from class: com.kwad.components.a.a.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a PO;
@@ -147,7 +147,7 @@ public class a {
                 this.PO = this;
             }
 
-            @Override // com.kwad.components.a.a.a.InterfaceC0304a
+            @Override // com.kwad.components.a.a.a.InterfaceC0519a
             public final void c(com.kwad.sdk.e.kwai.b bVar2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, bVar2) == null) {
@@ -156,7 +156,7 @@ public class a {
                 }
             }
 
-            @Override // com.kwad.components.a.a.a.InterfaceC0304a
+            @Override // com.kwad.components.a.a.a.InterfaceC0519a
             public final void d(com.kwad.sdk.e.kwai.b bVar2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar2) == null) {
@@ -172,7 +172,7 @@ public class a {
                 }
             }
 
-            @Override // com.kwad.components.a.a.a.InterfaceC0304a
+            @Override // com.kwad.components.a.a.a.InterfaceC0519a
             public final void e(com.kwad.sdk.e.kwai.b bVar2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar2) == null) {

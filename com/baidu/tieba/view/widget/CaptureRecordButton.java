@@ -13,14 +13,14 @@ import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ay8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rx8;
-/* loaded from: classes4.dex */
-public class CaptureRecordButton extends FrameLayout implements rx8 {
+/* loaded from: classes6.dex */
+public class CaptureRecordButton extends FrameLayout implements ay8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -32,7 +32,7 @@ public class CaptureRecordButton extends FrameLayout implements rx8 {
     public AnimatorSet g;
     public AnimatorSet h;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public class CaptureRecordButton extends FrameLayout implements rx8 {
         }
     }
 
-    @Override // com.repackage.rx8
+    @Override // com.baidu.tieba.ay8
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -97,7 +97,7 @@ public class CaptureRecordButton extends FrameLayout implements rx8 {
         }
     }
 
-    @Override // com.repackage.rx8
+    @Override // com.baidu.tieba.ay8
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -107,13 +107,13 @@ public class CaptureRecordButton extends FrameLayout implements rx8 {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d048b, this);
-            this.a = findViewById(R.id.obfuscated_res_0x7f091b68);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091b6b);
+            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d048c, this);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091b6a);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091b6d);
             this.c = findViewById;
             findViewById.setAlpha(0.0f);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091b69);
-            this.d = (RecordCircleProgressBar) findViewById(R.id.obfuscated_res_0x7f091b6c);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091b6b);
+            this.d = (RecordCircleProgressBar) findViewById(R.id.obfuscated_res_0x7f091b6e);
             AnimatorSet animatorSet = new AnimatorSet();
             this.g = animatorSet;
             animatorSet.play(ObjectAnimator.ofFloat(this.a, Key.SCALE_X, 1.0f, 0.388f)).with(ObjectAnimator.ofFloat(this.a, Key.SCALE_Y, 1.0f, 0.388f)).with(ObjectAnimator.ofFloat(this.b, Key.SCALE_X, 0.8f, 1.0f)).with(ObjectAnimator.ofFloat(this.b, Key.SCALE_Y, 0.8f, 1.0f)).with(ObjectAnimator.ofFloat(this.b, Key.ALPHA, 1.0f, 0.66f));
@@ -161,7 +161,7 @@ public class CaptureRecordButton extends FrameLayout implements rx8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.rx8
+    @Override // com.baidu.tieba.ay8
     public int getMaxDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -174,14 +174,14 @@ public class CaptureRecordButton extends FrameLayout implements rx8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.rx8
+    @Override // com.baidu.tieba.ay8
     public float getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.d.getProgress() : invokeV.floatValue;
     }
 
-    @Override // com.repackage.rx8
+    @Override // com.baidu.tieba.ay8
     public int getSlideNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -249,7 +249,7 @@ public class CaptureRecordButton extends FrameLayout implements rx8 {
         }
     }
 
-    @Override // com.repackage.rx8
+    @Override // com.baidu.tieba.ay8
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
@@ -257,7 +257,7 @@ public class CaptureRecordButton extends FrameLayout implements rx8 {
         }
     }
 
-    @Override // com.repackage.rx8
+    @Override // com.baidu.tieba.ay8
     public void setMaxDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
@@ -265,7 +265,7 @@ public class CaptureRecordButton extends FrameLayout implements rx8 {
         }
     }
 
-    @Override // com.repackage.rx8
+    @Override // com.baidu.tieba.ay8
     public void setMinDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
@@ -273,15 +273,15 @@ public class CaptureRecordButton extends FrameLayout implements rx8 {
         }
     }
 
-    @Override // com.repackage.rx8
-    public void setOnProgressListener(rx8.a aVar) {
+    @Override // com.baidu.tieba.ay8
+    public void setOnProgressListener(ay8.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, aVar) == null) {
             this.d.setOnProgressListener(aVar);
         }
     }
 
-    @Override // com.repackage.rx8
+    @Override // com.baidu.tieba.ay8
     public void setProgress(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
@@ -289,7 +289,7 @@ public class CaptureRecordButton extends FrameLayout implements rx8 {
         }
     }
 
-    @Override // com.repackage.rx8
+    @Override // com.baidu.tieba.ay8
     public void setShowDeleteLastTip(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
@@ -297,7 +297,7 @@ public class CaptureRecordButton extends FrameLayout implements rx8 {
         }
     }
 
-    @Override // com.repackage.rx8
+    @Override // com.baidu.tieba.ay8
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
@@ -305,7 +305,7 @@ public class CaptureRecordButton extends FrameLayout implements rx8 {
         }
     }
 
-    @Override // com.repackage.rx8
+    @Override // com.baidu.tieba.ay8
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {

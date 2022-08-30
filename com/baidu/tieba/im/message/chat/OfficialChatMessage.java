@@ -1,15 +1,15 @@
 package com.baidu.tieba.im.message.chat;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.og;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgReqIdl;
 import protobuf.CommitPersonalMsg.DataReq;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class OfficialChatMessage extends ChatMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class OfficialChatMessage extends ChatMessage {
                 builder.toUid = Long.valueOf(getToUserId());
                 builder.msgType = Integer.valueOf(getMsgType());
                 builder.recordId = Long.valueOf(getRecordId());
-                if (og.g(TbadkCoreApplication.getCurrentAccount(), 0L) != getUserInfo().getUserIdLong()) {
+                if (pg.g(TbadkCoreApplication.getCurrentAccount(), 0L) != getUserInfo().getUserIdLong()) {
                     userType = getUserInfo().getUserType();
                 } else {
                     userType = getToUserInfo().getUserType();

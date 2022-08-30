@@ -6,16 +6,16 @@ import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ac9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rb9;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @TargetApi(18)
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class InnerMuxerWrapper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InnerMuxerWrapper";
@@ -54,7 +54,7 @@ public class InnerMuxerWrapper {
         if (!(interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
-        rb9.i(str2);
+        ac9.i(str2);
     }
 
     public synchronized int addTrack(MediaFormat mediaFormat) {

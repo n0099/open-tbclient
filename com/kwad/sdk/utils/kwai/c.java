@@ -2,6 +2,7 @@ package com.kwad.sdk.utils.kwai;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.tieba.rw;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.kwad.sdk.utils.kwai.a;
 import java.io.File;
@@ -20,7 +21,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executor;
 import kotlin.UShort;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static final int PAGE_SIZE;
     public static final int apA;
@@ -54,10 +55,10 @@ public final class c {
     public boolean apY = true;
     public final Executor apZ = new f();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static int aqb = 11;
-        public static final C0403c aqc = new C0403c(11);
+        public static final C0618c aqc = new C0618c(11);
         public final String apC;
         public int apX = 0;
         public b[] aqd;
@@ -79,27 +80,27 @@ public final class c {
 
         public final c Bq() {
             String str = this.apC + this.name;
-            c ei = C0403c.ei(str);
+            c ei = C0618c.ei(str);
             if (ei == null) {
                 synchronized (a.class) {
-                    ei = C0403c.ei(str);
+                    ei = C0618c.ei(str);
                     if (ei == null) {
                         ei = new c(this.apC, this.name, this.aqd, this.apX);
-                        C0403c.b(str, ei);
+                        C0618c.b(str, ei);
                     }
                 }
             }
-            Integer num = C0403c.aqh.get(str);
+            Integer num = C0618c.aqh.get(str);
             if (num != null) {
-                C0403c.aqh.put(str, Integer.valueOf(num.intValue() + 1));
+                C0618c.aqh.put(str, Integer.valueOf(num.intValue() + 1));
             } else {
-                C0403c.aqh.put(str, 1);
+                C0618c.aqh.put(str, 1);
             }
             return ei;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface b<T> {
         String Br();
 
@@ -109,14 +110,14 @@ public final class c {
     }
 
     /* renamed from: com.kwad.sdk.utils.kwai.c$c  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0403c {
+    /* loaded from: classes7.dex */
+    public static class C0618c {
         public static Map<String, c> aqe;
         public static List<String> aqf;
         public static int aqg;
         public static Map<String, Integer> aqh;
 
-        public C0403c(int i) {
+        public C0618c(int i) {
             int size = getSize(i);
             aqe = new ConcurrentHashMap(size);
             aqh = new HashMap(size);
@@ -189,7 +190,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface d {
         void a(String str, Exception exc);
 
@@ -198,7 +199,7 @@ public final class c {
         void i(String str, String str2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class e implements Comparable<e> {
         public int end;
         public int start;
@@ -294,8 +295,8 @@ public final class c {
         File file2 = new File(str2, this.name + ".kvb");
         try {
             if (h.aa(file) && h.aa(file2)) {
-                this.apH = new RandomAccessFile(file, "rw");
-                this.apI = new RandomAccessFile(file2, "rw");
+                this.apH = new RandomAccessFile(file, rw.c);
+                this.apI = new RandomAccessFile(file2, rw.c);
                 long length = this.apH.length();
                 long length2 = this.apI.length();
                 this.apF = this.apH.getChannel();
@@ -490,7 +491,7 @@ public final class c {
                         } else if (b3 == 7) {
                             Object string2 = z ? bVar.getString(i5) : bVar.getBytes(i5);
                             map = this.apO;
-                            cVar = new a.C0402a(i, i4 + 2, string2, i5, z);
+                            cVar = new a.C0617a(i, i4 + 2, string2, i5, z);
                         } else if (z) {
                             String string3 = bVar.getString(i5);
                             map = this.apO;
@@ -573,7 +574,7 @@ public final class c {
             String str = this.apC;
             File file = new File(str, this.name + ".tmp");
             if (h.aa(file)) {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, rw.c);
                 randomAccessFile.setLength(this.apM);
                 randomAccessFile.write(this.apL.apw, 0, this.apM);
                 randomAccessFile.close();
@@ -984,7 +985,7 @@ public final class c {
                 str2 = obj;
                 length = bArr.length;
             }
-            this.apO.put(str, b2 == 6 ? new a.i(this.apQ, a2, (String) str2, length, z) : b2 == 7 ? new a.C0402a(this.apQ, a2, str2, length, z) : new a.h(this.apQ, a2, str2, length, z));
+            this.apO.put(str, b2 == 6 ? new a.i(this.apQ, a2, (String) str2, length, z) : b2 == 7 ? new a.C0617a(this.apQ, a2, str2, length, z) : new a.h(this.apQ, a2, str2, length, z));
             Bk();
         }
     }
@@ -1188,8 +1189,8 @@ public final class c {
         File file2 = new File(this.apC, this.name + ".kvb");
         try {
             if (h.aa(file) && h.aa(file2)) {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-                RandomAccessFile randomAccessFile2 = new RandomAccessFile(file2, "rw");
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, rw.c);
+                RandomAccessFile randomAccessFile2 = new RandomAccessFile(file2, rw.c);
                 long j = length;
                 randomAccessFile.setLength(j);
                 randomAccessFile2.setLength(j);
@@ -1212,9 +1213,9 @@ public final class c {
         }
     }
 
-    private byte[] a(a.C0402a c0402a) {
+    private byte[] a(a.C0617a c0617a) {
         try {
-            byte[] ab = h.ab(new File(this.apC + this.name, (String) c0402a.value));
+            byte[] ab = h.ab(new File(this.apC + this.name, (String) c0617a.value));
             return ab != null ? ab : apy;
         } catch (Exception e2) {
             b(e2);
@@ -1273,7 +1274,7 @@ public final class c {
         if (bArr == null) {
             remove(str);
         } else {
-            a(str, bArr, bArr, (a.C0402a) this.apO.get(str), (byte) 7);
+            a(str, bArr, bArr, (a.C0617a) this.apO.get(str), (byte) 7);
         }
     }
 
@@ -1692,11 +1693,11 @@ public final class c {
                     valueOf = jVar.value;
                     break;
                 case 7:
-                    a.C0402a c0402a = (a.C0402a) value;
-                    boolean z2 = c0402a.apu;
-                    jVar = c0402a;
+                    a.C0617a c0617a = (a.C0617a) value;
+                    boolean z2 = c0617a.apu;
+                    jVar = c0617a;
                     if (z2) {
-                        valueOf = a(c0402a);
+                        valueOf = a(c0617a);
                         break;
                     }
                     valueOf = jVar.value;
@@ -1879,8 +1880,8 @@ public final class c {
         this.apG = null;
         this.apJ = null;
         this.apK = null;
-        C0403c c0403c = a.aqc;
-        C0403c.remove(this.apC + this.name);
+        C0618c c0618c = a.aqc;
+        C0618c.remove(this.apC + this.name);
     }
 
     public final synchronized void remove(String str) {

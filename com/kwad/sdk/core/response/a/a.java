@@ -18,7 +18,7 @@ import com.kwad.sdk.utils.ax;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static String A(@NonNull AdInfo adInfo) {
         return au(adInfo).materialUrl;

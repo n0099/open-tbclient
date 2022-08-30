@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class CustomToast2 {
     public static /* synthetic */ Interceptable $ic;
@@ -93,7 +93,7 @@ public class CustomToast2 {
         } else {
             mText = str;
             mToast = Toast.makeText(TbadkCoreApplication.getInst(), str, 0);
-            mToast.setGravity(17, 0, qi.d(context, 100.0f));
+            mToast.setGravity(17, 0, ri.d(context, 100.0f));
         }
         mHandler.postDelayed(r, i);
         mToast.show();

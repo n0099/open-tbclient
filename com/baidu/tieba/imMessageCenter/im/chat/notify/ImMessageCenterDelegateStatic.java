@@ -17,6 +17,11 @@ import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
 import com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment;
+import com.baidu.tieba.s65;
+import com.baidu.tieba.t65;
+import com.baidu.tieba.u65;
+import com.baidu.tieba.v65;
+import com.baidu.tieba.y65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,21 +29,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m65;
-import com.repackage.n65;
-import com.repackage.o65;
-import com.repackage.p65;
-import com.repackage.s65;
 import com.vivo.push.PushClientConstants;
-/* loaded from: classes3.dex */
-public class ImMessageCenterDelegateStatic extends m65 {
+/* loaded from: classes4.dex */
+public class ImMessageCenterDelegateStatic extends s65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageRedDotView c;
     public CustomMessageListener d;
 
-    /* loaded from: classes3.dex */
-    public class a implements p65.a {
+    /* loaded from: classes4.dex */
+    public class a implements v65.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -61,7 +61,7 @@ public class ImMessageCenterDelegateStatic extends m65 {
             this.a = context;
         }
 
-        @Override // com.repackage.p65.a
+        @Override // com.baidu.tieba.v65.a
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class ImMessageCenterDelegateStatic extends m65 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,11 +101,11 @@ public class ImMessageCenterDelegateStatic extends m65 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
-            ((o65) customResponsedMessage.getData()).a(new ImMessageCenterDelegateStatic());
+            ((u65) customResponsedMessage.getData()).a(new ImMessageCenterDelegateStatic());
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -186,29 +186,29 @@ public class ImMessageCenterDelegateStatic extends m65 {
         }
     }
 
-    @Override // com.repackage.m65
-    public n65 a() {
+    @Override // com.baidu.tieba.s65
+    public t65 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            n65 n65Var = new n65();
-            n65Var.a = new MessageCenterFragment();
-            n65Var.e = 3;
-            n65Var.b = R.string.obfuscated_res_0x7f0f0b50;
-            n65Var.f = R.raw.lottie_tab_msg;
-            n65Var.i = n65.l;
-            n65Var.h = s65.d().c("message");
-            return n65Var;
+            t65 t65Var = new t65();
+            t65Var.a = new MessageCenterFragment();
+            t65Var.e = 3;
+            t65Var.b = R.string.obfuscated_res_0x7f0f0b53;
+            t65Var.f = R.raw.lottie_tab_msg;
+            t65Var.i = t65.l;
+            t65Var.h = y65.d().c("message");
+            return t65Var;
         }
-        return (n65) invokeV.objValue;
+        return (t65) invokeV.objValue;
     }
 
-    @Override // com.repackage.m65
+    @Override // com.baidu.tieba.s65
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.b = (MaintabBottomIndicator) p65.e().d(1004, new a(this, context));
+            this.b = (MaintabBottomIndicator) v65.e().d(1004, new a(this, context));
             this.c = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             TbFragmentTabIndicator tbFragmentTabIndicator = this.b;
@@ -225,14 +225,14 @@ public class ImMessageCenterDelegateStatic extends m65 {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.repackage.m65
+    @Override // com.baidu.tieba.s65
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? MainTabActivityConfig.IMMESSAGE_CENTER_DELEGATE_AVAIBLE : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.m65
+    @Override // com.baidu.tieba.s65
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -241,7 +241,7 @@ public class ImMessageCenterDelegateStatic extends m65 {
         }
     }
 
-    @Override // com.repackage.m65
+    @Override // com.baidu.tieba.s65
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

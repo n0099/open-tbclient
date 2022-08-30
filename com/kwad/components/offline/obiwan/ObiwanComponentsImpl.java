@@ -15,7 +15,7 @@ import com.kwad.components.offline.api.obiwan.IObiwanLogcat;
 import com.kwad.components.offline.api.obiwan.IObiwanOfflineCompo;
 import com.kwad.components.offline.api.obiwan.IObiwanOfflineCompoInitConfig;
 import com.kwad.sdk.api.SdkConfig;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ObiwanComponentsImpl extends DefaultOfflineCompo implements ObiwanComponents {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

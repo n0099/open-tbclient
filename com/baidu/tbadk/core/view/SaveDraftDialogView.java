@@ -10,12 +10,12 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class SaveDraftDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -57,7 +57,7 @@ public class SaveDraftDialogView extends LinearLayout {
             if (this.e == null) {
                 GradientDrawable gradientDrawable = new GradientDrawable();
                 this.e = gradientDrawable;
-                gradientDrawable.setCornerRadii(new float[]{qi.f(getContext(), R.dimen.tbds31), qi.f(getContext(), R.dimen.tbds31), qi.f(getContext(), R.dimen.tbds31), qi.f(getContext(), R.dimen.tbds31), 0.0f, 0.0f, 0.0f, 0.0f});
+                gradientDrawable.setCornerRadii(new float[]{ri.f(getContext(), R.dimen.tbds31), ri.f(getContext(), R.dimen.tbds31), ri.f(getContext(), R.dimen.tbds31), ri.f(getContext(), R.dimen.tbds31), 0.0f, 0.0f, 0.0f, 0.0f});
             }
             this.e.setColor(SkinManager.getColor(R.color.CAM_X0211));
             setBackground(this.e);
@@ -68,36 +68,36 @@ public class SaveDraftDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(1);
-            setPadding(0, qi.f(context, R.dimen.M_H_X003), 0, 0);
+            setPadding(0, ri.f(context, R.dimen.M_H_X003), 0, 0);
             TextView textView = new TextView(context);
             this.a = textView;
-            textView.setTextSize(0, qi.f(context, R.dimen.tbds40));
+            textView.setTextSize(0, ri.f(context, R.dimen.tbds40));
             this.a.setGravity(17);
-            addView(this.a, -1, qi.f(context, R.dimen.tbds96));
-            int f = qi.f(context, R.dimen.tbds44);
-            int f2 = qi.f(context, R.dimen.tbds125);
+            addView(this.a, -1, ri.f(context, R.dimen.tbds96));
+            int f = ri.f(context, R.dimen.tbds44);
+            int f2 = ri.f(context, R.dimen.tbds125);
             TextView textView2 = new TextView(context);
             this.c = textView2;
-            textView2.setId(R.id.obfuscated_res_0x7f091d5e);
+            textView2.setId(R.id.obfuscated_res_0x7f091d60);
             float f3 = f;
             this.c.setTextSize(0, f3);
             this.c.setGravity(17);
             addView(this.c, -1, f2);
             TextView textView3 = new TextView(context);
             this.b = textView3;
-            textView3.setId(R.id.obfuscated_res_0x7f091d5d);
+            textView3.setId(R.id.obfuscated_res_0x7f091d5f);
             this.b.setTextSize(0, f3);
             this.b.setGravity(17);
-            this.b.setText(R.string.obfuscated_res_0x7f0f0ca6);
+            this.b.setText(R.string.obfuscated_res_0x7f0f0ca9);
             addView(this.b, -1, f2);
             TextView textView4 = new TextView(context);
             this.d = textView4;
-            textView4.setId(R.id.obfuscated_res_0x7f091d5c);
+            textView4.setId(R.id.obfuscated_res_0x7f091d5e);
             this.d.setTextSize(0, f3);
             this.d.setGravity(17);
-            this.d.setText(R.string.obfuscated_res_0x7f0f0370);
+            this.d.setText(R.string.obfuscated_res_0x7f0f0371);
             addView(this.d, -1, f2);
-            addView(new TextView(context), -1, qi.f(context, R.dimen.tbds36));
+            addView(new TextView(context), -1, ri.f(context, R.dimen.tbds36));
             a();
         }
     }
@@ -163,7 +163,7 @@ public class SaveDraftDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) {
             this.a.setText(str);
             this.c.setText(str2);
-            if (pi.isEmpty(str3)) {
+            if (qi.isEmpty(str3)) {
                 return;
             }
             this.b.setText(str3);

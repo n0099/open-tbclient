@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.baidubce.http.Headers;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class dk implements com.kwad.sdk.core.d<com.kwad.components.a.kwai.b> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(com.kwad.components.a.kwai.b bVar, JSONObject jSONObject) {

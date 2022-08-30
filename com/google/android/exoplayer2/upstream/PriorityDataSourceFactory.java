@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.util.PriorityTaskManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class PriorityDataSourceFactory implements DataSource.Factory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

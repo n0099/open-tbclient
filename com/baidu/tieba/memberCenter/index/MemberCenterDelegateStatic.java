@@ -14,6 +14,11 @@ import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.s65;
+import com.baidu.tieba.t65;
+import com.baidu.tieba.tu4;
+import com.baidu.tieba.u65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,19 +26,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m65;
-import com.repackage.n65;
-import com.repackage.o65;
-import com.repackage.qi;
-import com.repackage.ru4;
-/* loaded from: classes3.dex */
-public class MemberCenterDelegateStatic extends m65 {
+/* loaded from: classes5.dex */
+public class MemberCenterDelegateStatic extends s65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView c;
     public CustomMessageListener d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,21 +61,21 @@ public class MemberCenterDelegateStatic extends m65 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            n65 b;
+            t65 b;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
             MemberCenterDelegateStatic memberCenterDelegateStatic = new MemberCenterDelegateStatic();
-            ((o65) customResponsedMessage.getData()).a(memberCenterDelegateStatic);
-            if (((o65) customResponsedMessage.getData()).getContext() == null || (b = memberCenterDelegateStatic.b()) == null) {
+            ((u65) customResponsedMessage.getData()).a(memberCenterDelegateStatic);
+            if (((u65) customResponsedMessage.getData()).getContext() == null || (b = memberCenterDelegateStatic.b()) == null) {
                 return;
             }
             b.a.setArguments(new Bundle());
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public class MemberCenterDelegateStatic extends m65 {
                     this.a.c.setVisibility(8);
                 } else {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    ru4 k = ru4.k();
+                    tu4 k = tu4.k();
                     if (TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime() > k.m("maintab_member_center_red_tip_" + currentAccount, 0L)) {
                         this.a.c.setVisibility(0);
                     } else {
@@ -154,30 +154,30 @@ public class MemberCenterDelegateStatic extends m65 {
         }
     }
 
-    @Override // com.repackage.m65
-    public n65 a() {
+    @Override // com.baidu.tieba.s65
+    public t65 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            n65 n65Var = new n65();
-            n65Var.a = new MemberCenterFragment();
-            n65Var.e = 14;
-            n65Var.b = R.string.obfuscated_res_0x7f0f0aad;
-            return n65Var;
+            t65 t65Var = new t65();
+            t65Var.a = new MemberCenterFragment();
+            t65Var.e = 14;
+            t65Var.b = R.string.obfuscated_res_0x7f0f0ab0;
+            return t65Var;
         }
-        return (n65) invokeV.objValue;
+        return (t65) invokeV.objValue;
     }
 
-    @Override // com.repackage.m65
+    @Override // com.baidu.tieba.s65
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.b = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02e8, (ViewGroup) null);
+            this.b = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02e9, (ViewGroup) null);
             this.c = new ImageView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             aVar.f = this.b;
-            aVar.c = qi.d(context, 3.0f);
+            aVar.c = ri.d(context, 3.0f);
             ImageView imageView = this.c;
             aVar.a = imageView;
             aVar.d = R.drawable.icon_news_down_bar_one;
@@ -188,14 +188,14 @@ public class MemberCenterDelegateStatic extends m65 {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.repackage.m65
+    @Override // com.baidu.tieba.s65
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? MainTabActivityConfig.MEMBER_CENTER_TAB_AVAILABLE : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.m65
+    @Override // com.baidu.tieba.s65
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -204,7 +204,7 @@ public class MemberCenterDelegateStatic extends m65 {
         }
     }
 
-    @Override // com.repackage.m65
+    @Override // com.baidu.tieba.s65
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

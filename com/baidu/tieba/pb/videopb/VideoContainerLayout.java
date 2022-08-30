@@ -6,13 +6,13 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class VideoContainerLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.d = qi.k(context) / 10;
+        this.d = ri.k(context) / 10;
     }
 
     public int getMaxHeight() {
@@ -113,7 +113,7 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.d = qi.k(context) / 10;
+        this.d = ri.k(context) / 10;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -135,6 +135,6 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.d = qi.k(context) / 10;
+        this.d = ri.k(context) / 10;
     }
 }

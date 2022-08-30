@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.extractor.flv.TagPayloadReader;
 import com.google.android.exoplayer2.util.NalUnitUtil;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.video.AvcConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class VideoTagPayloadReader extends TagPayloadReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AVC_PACKET_TYPE_AVC_NALU = 1;

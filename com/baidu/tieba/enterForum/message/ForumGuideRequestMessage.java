@@ -3,12 +3,12 @@ package com.baidu.tieba.enterForum.message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.af5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.te5;
 import tbclient.ForumGuide.DataReq;
 import tbclient.ForumGuide.ForumGuideReqIdl;
 /* loaded from: classes3.dex */
@@ -47,7 +47,7 @@ public class ForumGuideRequestMessage extends NetMessage {
                 builder.sort_type = this.sortType;
                 builder.call_from = this.callFrom;
                 if (z) {
-                    te5.a(builder, true);
+                    af5.a(builder, true);
                 }
                 ForumGuideReqIdl.Builder builder2 = new ForumGuideReqIdl.Builder();
                 builder2.data = builder.build(false);

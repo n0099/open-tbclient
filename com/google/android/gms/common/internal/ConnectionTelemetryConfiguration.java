@@ -5,6 +5,8 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ln9;
+import com.baidu.tieba.wn9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,9 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
-import com.repackage.cn9;
-import com.repackage.nn9;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ConnectionTelemetryConfiguration extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
     @NonNull
@@ -43,7 +43,7 @@ public class ConnectionTelemetryConfiguration extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new nn9();
+        CREATOR = new wn9();
     }
 
     public ConnectionTelemetryConfiguration(@NonNull RootTelemetryConfiguration rootTelemetryConfiguration, boolean z, boolean z2, @Nullable int[] iArr, int i, @Nullable int[] iArr2) {
@@ -105,14 +105,14 @@ public class ConnectionTelemetryConfiguration extends AbstractSafeParcelable {
     public final void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
-            int a = cn9.a(parcel);
-            cn9.j(parcel, 1, this.zza, i, false);
-            cn9.c(parcel, 2, getMethodInvocationTelemetryEnabled());
-            cn9.c(parcel, 3, getMethodTimingTelemetryEnabled());
-            cn9.h(parcel, 4, getMethodInvocationMethodKeyAllowlist(), false);
-            cn9.g(parcel, 5, getMaxMethodInvocationsLogged());
-            cn9.h(parcel, 6, getMethodInvocationMethodKeyDisallowlist(), false);
-            cn9.b(parcel, a);
+            int a = ln9.a(parcel);
+            ln9.j(parcel, 1, this.zza, i, false);
+            ln9.c(parcel, 2, getMethodInvocationTelemetryEnabled());
+            ln9.c(parcel, 3, getMethodTimingTelemetryEnabled());
+            ln9.h(parcel, 4, getMethodInvocationMethodKeyAllowlist(), false);
+            ln9.g(parcel, 5, getMaxMethodInvocationsLogged());
+            ln9.h(parcel, 6, getMethodInvocationMethodKeyDisallowlist(), false);
+            ln9.b(parcel, a);
         }
     }
 

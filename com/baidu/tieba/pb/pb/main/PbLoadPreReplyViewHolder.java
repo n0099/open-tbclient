@@ -8,12 +8,12 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.os4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ms4;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,15 +43,15 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
             return;
         }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235a);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ed0);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092363);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ed1);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ms4.d(this.b).v(R.color.CAM_X0304);
-            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080a31, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
+            os4.d(this.b).v(R.color.CAM_X0304);
+            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080a32, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
         }
     }
 
@@ -59,14 +59,14 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == 0) {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0f7e);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0f81);
                 this.c.setVisibility(0);
             } else if (i == 1) {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0a42);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0a45);
                 this.c.setVisibility(8);
             } else if (i != 2) {
             } else {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0a40);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0a43);
                 this.c.setVisibility(8);
             }
         }

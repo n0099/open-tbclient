@@ -1,7 +1,7 @@
 package com.kwad.sdk.service.kwai;
 
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface h {
     boolean ln();
 

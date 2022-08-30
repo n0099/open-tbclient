@@ -3,23 +3,23 @@ package com.baidu.tieba.frs.adModel;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.wh6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oh6;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;
 import tbclient.GetADList.GetADListResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ADSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int has_more;
-    public List<oh6> list;
+    public List<wh6> list;
     public long offset;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -65,15 +65,15 @@ public class ADSocketResponseMessage extends SocketResponsedMessage {
                 return getADListResIdl;
             }
             for (int i2 = 0; i2 < getADListResIdl.data.ad_list.size(); i2++) {
-                oh6 oh6Var = new oh6();
-                oh6Var.s(getADListResIdl.data.ad_list.get(i2));
+                wh6 wh6Var = new wh6();
+                wh6Var.s(getADListResIdl.data.ad_list.get(i2));
                 if (getADListResIdl.data.ad_list.size() - 1 == i2) {
-                    oh6Var.t(true);
+                    wh6Var.t(true);
                 } else {
-                    oh6Var.t(false);
+                    wh6Var.t(false);
                 }
-                if (oh6Var.r() == 0 || oh6Var.r() == 2) {
-                    this.list.add(oh6Var);
+                if (wh6Var.r() == 0 || wh6Var.r() == 2) {
+                    this.list.add(wh6Var);
                 }
             }
             this.has_more = getADListResIdl.data.has_more.intValue();
@@ -89,7 +89,7 @@ public class ADSocketResponseMessage extends SocketResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.has_more : invokeV.intValue;
     }
 
-    public List<oh6> getList() {
+    public List<wh6> getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.list : (List) invokeV.objValue;

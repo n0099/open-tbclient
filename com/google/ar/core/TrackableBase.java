@@ -1,14 +1,14 @@
 package com.google.ar.core;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.hp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yo9;
-/* loaded from: classes5.dex */
-public class TrackableBase implements yo9 {
+/* loaded from: classes7.dex */
+public class TrackableBase implements hp9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long a;

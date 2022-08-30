@@ -2,15 +2,15 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cf;
+import com.baidu.tieba.df;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bf;
-import com.repackage.cf;
 /* loaded from: classes3.dex */
-public class KeepAliveSwitch extends bf {
+public class KeepAliveSwitch extends cf {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEEP_ALIVE_KEY = "android_new_keep_alive";
     public static final int OFF_TYPE = 0;
@@ -31,26 +31,26 @@ public class KeepAliveSwitch extends bf {
         }
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public void addToManager() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            cf cfVar = new cf(this.mName, this.mDefaultType, this.mSwitchListener);
-            cfVar.i(this.mMaxCrashTimes, this.mKey, this.mOffType);
-            cfVar.k(getSwitchLibs());
-            cfVar.j(true);
-            SwitchManager.getInstance().addSwitchData(cfVar);
+            df dfVar = new df(this.mName, this.mDefaultType, this.mSwitchListener);
+            dfVar.i(this.mMaxCrashTimes, this.mKey, this.mOffType);
+            dfVar.k(getSwitchLibs());
+            dfVar.j(true);
+            SwitchManager.getInstance().addSwitchData(dfVar);
         }
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class KeepAliveSwitch extends bf {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class KeepAliveSwitch extends bf {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -80,14 +80,14 @@ public class KeepAliveSwitch extends bf {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? KEEP_ALIVE_KEY : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

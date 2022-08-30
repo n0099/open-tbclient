@@ -15,7 +15,7 @@ import com.facebook.common.memory.PooledByteBufferOutputStream;
 import com.facebook.common.references.CloseableReference;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class EmptyJpegGenerator {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] EMPTY_JPEG_PREFIX;

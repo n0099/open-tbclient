@@ -4,6 +4,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.Signature;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wi;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -112,7 +112,7 @@ public class TbMd5 {
             File file = new File(packageInfo.applicationInfo.publicSourceDir);
             if (file.exists()) {
                 try {
-                    return wi.b(new FileInputStream(file));
+                    return xi.b(new FileInputStream(file));
                 } catch (FileNotFoundException e) {
                     BdLog.detailException(e);
                 }
@@ -125,7 +125,7 @@ public class TbMd5 {
     public static String getNameMd5FromUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? wi.c(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? xi.c(str) : (String) invokeL.objValue;
     }
 
     public static String getSignMd5(PackageInfo packageInfo) {
@@ -137,7 +137,7 @@ public class TbMd5 {
                 return null;
             }
             try {
-                return wi.d(signatureArr[0].toCharsString().getBytes());
+                return xi.d(signatureArr[0].toCharsString().getBytes());
             } catch (Exception e) {
                 BdLog.detailException(e);
                 return null;

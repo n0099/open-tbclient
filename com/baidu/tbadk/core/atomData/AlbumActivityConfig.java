@@ -25,6 +25,7 @@ public class AlbumActivityConfig extends IntentConfig {
     public static final String FROM_AIAPPS = "aiapps";
     public static final int FROM_DEFAULT = 0;
     public static final String FROM_FLUTTER = "flutterpicker";
+    public static final String FROM_FLUTTER_GAME_VIDEO = "flutter_game_video_picker";
     public static final String FROM_FLUTTER_MULTI = "flutter_multi_picker";
     public static final String FROM_FRS = "frs";
     public static final int FROM_HOME_OR_FRS_PUBLISH = 4;

@@ -16,7 +16,7 @@ import com.bytedance.pangle.transform.ZeusTransformUtils;
 import com.bytedance.pangle.util.MethodUtils;
 import java.lang.reflect.InvocationTargetException;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ZeusFragmentV4 extends Fragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class ZeusFragmentV4 extends Fragment {
         a.a(ZeusFragmentV4.class);
     }
 
-    @Override // androidx.fragment.app.Fragment, com.repackage.g2
+    @Override // androidx.fragment.app.Fragment, com.baidu.tieba.g2
     @Nullable
     public Context getContext() {
         InterceptResult invokeV;

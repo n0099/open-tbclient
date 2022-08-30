@@ -13,13 +13,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d3a;
+import com.baidu.tieba.h3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.u2a;
-import com.repackage.y2a;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
@@ -30,7 +30,7 @@ import tv.athena.revenue.payui.view.WindowParams;
 import tv.athena.revenue.payui.view.adapter.PayAmountCampaignListAdapter;
 import tv.athena.revenue.payui.view.adapter.PayCampaignListItemDecoration;
 /* loaded from: classes9.dex */
-public class YYPayCampaignView extends LinearLayout implements y2a {
+public class YYPayCampaignView extends LinearLayout implements h3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Activity a;
@@ -69,9 +69,9 @@ public class YYPayCampaignView extends LinearLayout implements y2a {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, u2a.a.a(this.e))).inflate(R.layout.obfuscated_res_0x7f0d0692, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c4a);
-            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c08);
+            LayoutInflater.from(new ContextThemeWrapper(context, d3a.a.a(this.e))).inflate(R.layout.obfuscated_res_0x7f0d0694, (ViewGroup) this, true);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c4c);
+            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c0a);
             this.h = new LinearLayoutManager(context, 0, false);
             this.g = new PayAmountCampaignListAdapter(this.a, this.f, this.e);
             this.b.setLayoutManager(this.h);
@@ -80,21 +80,21 @@ public class YYPayCampaignView extends LinearLayout implements y2a {
         }
     }
 
-    @Override // com.repackage.x2a
+    @Override // com.baidu.tieba.g3a
     public void attachWindow(Window window) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, window) == null) {
         }
     }
 
-    @Override // com.repackage.x2a
+    @Override // com.baidu.tieba.g3a
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.x2a
+    @Override // com.baidu.tieba.g3a
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -114,14 +114,14 @@ public class YYPayCampaignView extends LinearLayout implements y2a {
         }
     }
 
-    @Override // com.repackage.x2a
+    @Override // com.baidu.tieba.g3a
     public void refreshWindow(WindowParams windowParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, windowParams) == null) {
         }
     }
 
-    @Override // com.repackage.y2a
+    @Override // com.baidu.tieba.h3a
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, giftBagsInfo) == null) {

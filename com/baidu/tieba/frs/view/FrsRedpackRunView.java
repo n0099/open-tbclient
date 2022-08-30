@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FrsRedpackRunView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class FrsRedpackRunView extends RelativeLayout {
     public View c;
     public Context d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class FrsRedpackRunView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,9 +145,9 @@ public class FrsRedpackRunView extends RelativeLayout {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.c = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d032f, this);
-            this.a = (AutoScrollTextView) findViewById(R.id.obfuscated_res_0x7f092396);
-            this.b = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090bf1);
+            this.c = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0330, this);
+            this.a = (AutoScrollTextView) findViewById(R.id.obfuscated_res_0x7f09239f);
+            this.b = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090bf2);
         }
     }
 

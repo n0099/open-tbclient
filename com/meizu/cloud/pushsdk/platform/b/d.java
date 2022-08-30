@@ -11,7 +11,7 @@ import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class d extends c<SubAliasStatus> {
     public String a;
     public int b;

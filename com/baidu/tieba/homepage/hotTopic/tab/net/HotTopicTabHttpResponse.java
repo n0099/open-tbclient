@@ -3,23 +3,23 @@ package com.baidu.tieba.homepage.hotTopic.tab.net;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
+import com.baidu.tieba.cy6;
+import com.baidu.tieba.kx6;
+import com.baidu.tieba.pn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cx6;
-import com.repackage.on;
-import com.repackage.ux6;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
-/* loaded from: classes3.dex */
-public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements ux6 {
+/* loaded from: classes4.dex */
+public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements cy6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotThreadListResIdl mData;
-    public List<on> mHotTopicDataList;
+    public List<pn> mHotTopicDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicTabHttpResponse() {
@@ -39,14 +39,14 @@ public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements u
         }
     }
 
-    @Override // com.repackage.ux6
-    public List<on> getDataList() {
+    @Override // com.baidu.tieba.cy6
+    public List<pn> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mHotTopicDataList : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.ux6
+    @Override // com.baidu.tieba.cy6
     public HotThreadListResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements u
             setError(hotThreadListResIdl.error.errorno.intValue());
             setErrorString(hotThreadListResIdl.error.usermsg);
             if (getError() == 0 && hotThreadListResIdl.data != null) {
-                this.mHotTopicDataList = cx6.c(hotThreadListResIdl);
+                this.mHotTopicDataList = kx6.c(hotThreadListResIdl);
             }
         }
     }

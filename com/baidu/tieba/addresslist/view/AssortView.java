@@ -10,12 +10,12 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yz4;
 /* loaded from: classes3.dex */
 public class AssortView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -75,7 +75,7 @@ public class AssortView extends View {
             int height = getHeight();
             int width = getWidth();
             float f = (float) (width / 48.0d);
-            String[] strArr = yz4.a;
+            String[] strArr = d05.a;
             int length = height / strArr.length;
             int length2 = strArr.length;
             for (int i = 0; i < length2; i++) {
@@ -83,7 +83,7 @@ public class AssortView extends View {
                 this.a.setTypeface(Typeface.DEFAULT_BOLD);
                 this.a.setColor(SkinManager.getColor(R.color.CAM_X0108));
                 this.a.setTextSize(26.0f * f);
-                canvas.drawText(yz4.a[i], (width / 2.0f) - (this.a.measureText(yz4.a[i]) / 2.0f), (length * i) + length, this.a);
+                canvas.drawText(d05.a[i], (width / 2.0f) - (this.a.measureText(d05.a[i]) / 2.0f), (length * i) + length, this.a);
                 this.a.reset();
             }
         }
@@ -96,7 +96,7 @@ public class AssortView extends View {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
             super.onTouchEvent(motionEvent);
             float y = motionEvent.getY() / getHeight();
-            String[] strArr = yz4.a;
+            String[] strArr = d05.a;
             int length = (int) (y * strArr.length);
             if (length >= 0 && length < strArr.length) {
                 int action = motionEvent.getAction();
@@ -104,14 +104,14 @@ public class AssortView extends View {
                     this.b = length;
                     a aVar = this.c;
                     if (aVar != null) {
-                        aVar.b1(yz4.a[length]);
+                        aVar.b1(d05.a[length]);
                     }
                 } else if (action != 1) {
                     if (action == 2 && this.b != length) {
                         this.b = length;
                         a aVar2 = this.c;
                         if (aVar2 != null) {
-                            aVar2.b1(yz4.a[length]);
+                            aVar2.b1(d05.a[length]);
                         }
                     }
                 } else {

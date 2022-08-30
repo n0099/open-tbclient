@@ -10,6 +10,7 @@ import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.ala.ILoginListener;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.iu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gu4;
 /* loaded from: classes3.dex */
 public class LoginActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -206,7 +206,7 @@ public class LoginActivityConfig extends IntentConfig {
                 return;
             }
         }
-        gu4.a(DI.ACCOUNT, -1L, 0, context.getClass().toString(), 0, "", new Object[0]);
+        iu4.a(DI.ACCOUNT, -1L, 0, context.getClass().toString(), 0, "", new Object[0]);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,15 +47,15 @@ public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d029f, this);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a34);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a0, this);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a35);
             this.a = linearLayout;
-            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090a36);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a35);
-            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091023);
-            this.c.setText(R.string.obfuscated_res_0x7f0f1218);
-            this.d.setText(R.string.obfuscated_res_0x7f0f0662);
-            this.e.setText(R.string.obfuscated_res_0x7f0f09a1);
+            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090a37);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a36);
+            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091025);
+            this.c.setText(R.string.obfuscated_res_0x7f0f121b);
+            this.d.setText(R.string.obfuscated_res_0x7f0f0663);
+            this.e.setText(R.string.obfuscated_res_0x7f0f09a4);
             SkinManager.setBackgroundResource(this.a, R.drawable.bg_frs_private_dialog);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);

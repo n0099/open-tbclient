@@ -12,24 +12,24 @@ import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ct4;
+import com.baidu.tieba.ft4;
+import com.baidu.tieba.sn;
+import com.baidu.tieba.ux7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.at4;
-import com.repackage.dt4;
-import com.repackage.mx7;
-import com.repackage.rn;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PbActivity extends AbsPbActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean u;
 
-    /* loaded from: classes3.dex */
-    public class a implements rn {
+    /* loaded from: classes5.dex */
+    public class a implements sn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -56,7 +56,7 @@ public class PbActivity extends AbsPbActivity {
             this.b = i2;
         }
 
-        @Override // com.repackage.rn
+        @Override // com.baidu.tieba.sn
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -65,8 +65,8 @@ public class PbActivity extends AbsPbActivity {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b implements rn {
+    /* loaded from: classes5.dex */
+    public class b implements sn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -93,7 +93,7 @@ public class PbActivity extends AbsPbActivity {
             this.b = i2;
         }
 
-        @Override // com.repackage.rn
+        @Override // com.baidu.tieba.sn
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -122,7 +122,7 @@ public class PbActivity extends AbsPbActivity {
     public int V0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06b5 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06b7 : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
@@ -169,15 +169,15 @@ public class PbActivity extends AbsPbActivity {
         if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DRAW_DISPATCH_STAMP_KEY);
-                int i3 = dt4.a().c == 1 ? 8 : -1;
-                if (dt4.a().c == 2) {
+                int i3 = ft4.a().c == 1 ? 8 : -1;
+                if (ft4.a().c == 2) {
                     i3 = 9;
                 }
-                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, dt4.a().d);
+                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, ft4.a().d);
             }
             long currentTimeMillis = System.currentTimeMillis() - W0();
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_OPTIMIZE_LOAD_DURATION);
-            statisticItem.addParam("obj_type", i2).addParam("obj_locate", i).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, at4.e());
+            statisticItem.addParam("obj_type", i2).addParam("obj_locate", i).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, ct4.e());
             TiebaStatic.log(statisticItem);
         }
     }
@@ -211,9 +211,9 @@ public class PbActivity extends AbsPbActivity {
         bdTypeRecyclerView.w = true;
     }
 
-    public void u1(int i, mx7 mx7Var) {
+    public void u1(int i, ux7 ux7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, mx7Var) == null) || this.u || b1() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, ux7Var) == null) || this.u || b1() == null) {
             return;
         }
         int i2 = 1;
@@ -226,6 +226,6 @@ public class PbActivity extends AbsPbActivity {
         if (i2 != 3) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
         }
-        mx7Var.o2(new b(this, i, i2));
+        ux7Var.o2(new b(this, i, i2));
     }
 }

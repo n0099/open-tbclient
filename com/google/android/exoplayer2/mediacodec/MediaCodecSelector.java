@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.mediacodec.MediaCodecUtil;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface MediaCodecSelector {
     public static final MediaCodecSelector DEFAULT = new MediaCodecSelector() { // from class: com.google.android.exoplayer2.mediacodec.MediaCodecSelector.1
         public static /* synthetic */ Interceptable $ic;

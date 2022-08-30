@@ -5,6 +5,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.AddressField;
 import com.baidu.pass.face.platform.ConstPath;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.cc9;
+import com.baidu.tieba.jc9;
+import com.baidu.tieba.uc9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,16 +15,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.producers.ProducerConstants;
 import com.google.gson.annotations.SerializedName;
-import com.repackage.ac9;
-import com.repackage.lc9;
-import com.repackage.tb9;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TextWordsEntity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class TextWordsEntity {
     public List<TextStyleEntity> mCoverStyleList;
     public List<TextColorEntity> mCoverTextColorList;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class StyleBackgroudInfoEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -175,13 +175,13 @@ public class TextWordsEntity {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (lc9.a(this.mBackgroudImageUrl)) {
+                if (uc9.a(this.mBackgroudImageUrl)) {
                     return new File("");
                 }
                 if (this.mSourceFile == null) {
                     String str = this.mLocalParentFile;
                     StringBuilder sb = new StringBuilder();
-                    sb.append(ac9.b(this.mBackgroudImageUrl));
+                    sb.append(jc9.b(this.mBackgroudImageUrl));
                     String str2 = this.mBackgroudImageUrl;
                     sb.append(str2.substring(str2.lastIndexOf(".")));
                     this.mSourceFile = new File(str, sb.toString());
@@ -200,11 +200,11 @@ public class TextWordsEntity {
         public boolean isNeedDown() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? lc9.a(this.mBackgroudImageUrl) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? uc9.a(this.mBackgroudImageUrl) : invokeV.booleanValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class StyleShadowInfoEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -280,7 +280,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class StyleStrokeInfoEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -346,7 +346,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class StyleTextInfoEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -408,7 +408,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class TextColorEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -442,7 +442,7 @@ public class TextWordsEntity {
                     textColorEntity.mColor = jSONObject.optString("color");
                     String optString = jSONObject.optString(Key.ALPHA);
                     textColorEntity.mAlpha = optString;
-                    textColorEntity.mColorInfo = tb9.b(textColorEntity.mColor, optString);
+                    textColorEntity.mColorInfo = cc9.b(textColorEntity.mColor, optString);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -472,7 +472,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class TextFontEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -551,7 +551,7 @@ public class TextWordsEntity {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (this.mSourceFile == null) {
                     File file = this.mRootDir;
-                    this.mSourceFile = new File(file, ac9.b(this.mDownloadUrl) + getSuffix());
+                    this.mSourceFile = new File(file, jc9.b(this.mDownloadUrl) + getSuffix());
                 }
                 return this.mSourceFile;
             }
@@ -591,7 +591,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class TextStyleEntity {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TEXT_STYLE_TYPE_1 = 1;

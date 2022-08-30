@@ -21,7 +21,7 @@ import com.kwad.sdk.components.h;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.az;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b extends a implements com.kwad.components.ad.reward.presenter.platdetail.actionbar.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -252,7 +252,7 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
             this.tp = ig();
             this.nM.a(this.mt);
             hVar.c(this.tp);
-            hVar.c(new com.kwad.components.core.webview.b.a(new a.InterfaceC0367a(this) { // from class: com.kwad.components.ad.reward.presenter.c.b.1
+            hVar.c(new com.kwad.components.core.webview.b.a(new a.InterfaceC0582a(this) { // from class: com.kwad.components.ad.reward.presenter.c.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b tq;
@@ -275,7 +275,7 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
                     this.tq = this;
                 }
 
-                @Override // com.kwad.components.core.webview.b.a.InterfaceC0367a
+                @Override // com.kwad.components.core.webview.b.a.InterfaceC0582a
                 public final void ii() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -377,12 +377,12 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onCreate();
-            this.to = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0910c1);
-            this.tj = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910c3);
-            this.tl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910fe);
-            this.tk = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910c0);
-            this.tn = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091104);
-            this.tm = findViewById(R.id.obfuscated_res_0x7f091067);
+            this.to = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0910c3);
+            this.tj = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910c5);
+            this.tl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091100);
+            this.tk = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910c2);
+            this.tn = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091106);
+            this.tm = findViewById(R.id.obfuscated_res_0x7f091069);
         }
     }
 

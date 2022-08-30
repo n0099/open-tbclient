@@ -12,6 +12,7 @@ import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tieba.ff9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +23,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.caverock.androidsvg.SVG;
 import com.caverock.androidsvg.SVGParser;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.repackage.we9;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CSSParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class CSSParser {
     public boolean c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class AttribOp {
         public static final /* synthetic */ AttribOp[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -103,7 +103,7 @@ public class CSSParser {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class Combinator {
         public static final /* synthetic */ Combinator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -165,7 +165,7 @@ public class CSSParser {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class MediaType {
         public static final /* synthetic */ MediaType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -245,7 +245,7 @@ public class CSSParser {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class PseudoClassIdents {
         public static final /* synthetic */ PseudoClassIdents[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -369,7 +369,7 @@ public class CSSParser {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class Source {
         public static final /* synthetic */ Source[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -428,7 +428,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -563,7 +563,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -592,12 +592,12 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class c extends SVGParser.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes7.dex */
         public static class a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -665,7 +665,7 @@ public class CSSParser {
 
         public final a D() throws CSSParseException {
             InterceptResult invokeV;
-            we9 we9Var;
+            ff9 ff9Var;
             a aVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -683,13 +683,13 @@ public class CSSParser {
                             aVar = new a(2, 0);
                         } else {
                             int i3 = (!f('+') && f(SignatureImpl.SEP)) ? -1 : 1;
-                            we9 c = we9.c(this.a, this.b, this.c, false);
+                            ff9 c = ff9.c(this.a, this.b, this.c, false);
                             if (c != null) {
                                 this.b = c.a();
                             }
                             if (f('n') || f('N')) {
                                 if (c == null) {
-                                    c = new we9(1L, this.b);
+                                    c = new ff9(1L, this.b);
                                 }
                                 A();
                                 boolean f = f('+');
@@ -698,24 +698,24 @@ public class CSSParser {
                                 }
                                 if (f) {
                                     A();
-                                    we9Var = we9.c(this.a, this.b, this.c, false);
-                                    if (we9Var != null) {
-                                        this.b = we9Var.a();
+                                    ff9Var = ff9.c(this.a, this.b, this.c, false);
+                                    if (ff9Var != null) {
+                                        this.b = ff9Var.a();
                                     } else {
                                         this.b = i;
                                         return null;
                                     }
                                 } else {
-                                    we9Var = null;
+                                    ff9Var = null;
                                 }
                                 int i4 = i2;
                                 i2 = i3;
                                 i3 = i4;
                             } else {
-                                we9Var = c;
+                                ff9Var = c;
                                 c = null;
                             }
-                            aVar = new a(c == null ? 0 : i2 * c.d(), we9Var != null ? i3 * we9Var.d() : 0);
+                            aVar = new a(c == null ? 0 : i2 * c.d(), ff9Var != null ? i3 * ff9Var.d() : 0);
                         }
                     }
                     A();
@@ -1249,12 +1249,12 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface d {
         boolean a(m mVar, SVG.j0 j0Var);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class e implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1337,7 +1337,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class f implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1374,7 +1374,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class g implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1439,7 +1439,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class h implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1480,7 +1480,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class i implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1538,7 +1538,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class j implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1575,7 +1575,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class k implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1612,7 +1612,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1652,7 +1652,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class m {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1683,7 +1683,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class n {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1795,7 +1795,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2334,7 +2334,7 @@ public class CSSParser {
         this.b = source;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class o {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

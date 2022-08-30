@@ -29,7 +29,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class Mp3Extractor implements Extractor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ExtractorsFactory FACTORY;
@@ -59,11 +59,11 @@ public final class Mp3Extractor implements Extractor {
     public TrackOutput trackOutput;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public @interface Flags {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface Seeker extends SeekMap {
         long getTimeUs(long j);
     }

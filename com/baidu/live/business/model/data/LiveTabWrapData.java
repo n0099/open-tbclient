@@ -1,11 +1,11 @@
 package com.baidu.live.business.model.data;
 
 import android.text.TextUtils;
+import com.baidu.tieba.p80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o80;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -64,15 +64,15 @@ public class LiveTabWrapData {
                 JSONArray optJSONArray = jSONObject.optJSONArray("items");
                 getTabListByJson(optJSONArray);
                 if (z && optJSONArray != null && (list = this.tabList) != null && !list.isEmpty() && z2) {
-                    o80.e(LIVE_FEED_PAGE_TAB_CACHE_TIME, System.currentTimeMillis());
-                    o80.f(LIVE_FEED_PAGE_TAB_CACHE_KEY, optJSONArray.toString());
+                    p80.e(LIVE_FEED_PAGE_TAB_CACHE_TIME, System.currentTimeMillis());
+                    p80.f(LIVE_FEED_PAGE_TAB_CACHE_KEY, optJSONArray.toString());
                 }
             }
             if (z2 && z) {
                 List<LiveTabEntity> list2 = this.tabList;
                 if (list2 == null || list2.isEmpty()) {
                     this.cacheCause = 2;
-                    String b = o80.b(LIVE_FEED_PAGE_TAB_CACHE_KEY, "");
+                    String b = p80.b(LIVE_FEED_PAGE_TAB_CACHE_KEY, "");
                     if (TextUtils.isEmpty(b)) {
                         return;
                     }
@@ -84,10 +84,10 @@ public class LiveTabWrapData {
                         } else if (this.errCode != 0) {
                             this.cacheCause = 3;
                         }
-                        this.cacheTime = o80.c(LIVE_FEED_PAGE_TAB_CACHE_TIME, 0L);
+                        this.cacheTime = p80.c(LIVE_FEED_PAGE_TAB_CACHE_TIME, 0L);
                     } catch (JSONException unused) {
-                        o80.g(LIVE_FEED_PAGE_TAB_CACHE_KEY);
-                        o80.g(LIVE_FEED_PAGE_TAB_CACHE_TIME);
+                        p80.g(LIVE_FEED_PAGE_TAB_CACHE_KEY);
+                        p80.g(LIVE_FEED_PAGE_TAB_CACHE_TIME);
                     }
                 }
             }

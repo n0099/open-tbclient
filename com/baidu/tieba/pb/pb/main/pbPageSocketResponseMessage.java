@@ -5,30 +5,30 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ew7;
+import com.baidu.tieba.kt7;
+import com.baidu.tieba.mt7;
 import com.baidu.tieba.pb.PbPageRequestMessage;
+import com.baidu.tieba.sd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ct7;
-import com.repackage.et7;
-import com.repackage.kd8;
-import com.repackage.wv7;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.PbPage.AppealInfo;
 import tbclient.PbPage.DataRes;
 import tbclient.PbPage.PbPageResIdl;
 import tbclient.SimpleForum;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String cacheKey;
     public boolean isFromMark;
-    public ct7 mAppealInfo;
-    public et7 pbData;
+    public kt7 mAppealInfo;
+    public mt7 pbData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -62,12 +62,12 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 if (getError() != 4 || pbPageResIdl.data == null) {
                     return pbPageResIdl;
                 }
-                ct7 ct7Var = new ct7();
-                this.mAppealInfo = ct7Var;
+                kt7 kt7Var = new kt7();
+                this.mAppealInfo = kt7Var;
                 AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
                 if (appealInfo != null) {
-                    ct7Var.a = appealInfo.source;
-                    ct7Var.c = appealInfo.appeal_url;
+                    kt7Var.a = appealInfo.source;
+                    kt7Var.c = appealInfo.appeal_url;
                 }
                 SimpleForum simpleForum = pbPageResIdl.data.forum;
                 if (simpleForum != null) {
@@ -75,18 +75,18 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 }
                 return pbPageResIdl;
             }
-            et7 et7Var = new et7();
-            this.pbData = et7Var;
-            et7Var.B0(2);
+            mt7 mt7Var = new mt7();
+            this.pbData = mt7Var;
+            mt7Var.B0(2);
             this.pbData.A0(pbPageResIdl.data);
             DataRes dataRes = pbPageResIdl.data;
             if (dataRes != null) {
-                JSONObject b = kd8.b(dataRes.thread);
+                JSONObject b = sd8.b(dataRes.thread);
                 ArrayList arrayList = new ArrayList();
                 if (b != null) {
                     arrayList.add(b);
                 }
-                kd8.f().h("PB", arrayList);
+                sd8.f().h("PB", arrayList);
             }
             BdLog.detailException(null);
             return pbPageResIdl;
@@ -94,16 +94,16 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public ct7 getAppealInfo() {
+    public kt7 getAppealInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAppealInfo : (ct7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAppealInfo : (kt7) invokeV.objValue;
     }
 
-    public et7 getPbData() {
+    public mt7 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.pbData : (et7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.pbData : (mt7) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -133,10 +133,10 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             int i2 = this.updateType;
             if (i2 == 3) {
-                wv7.b().e(this.cacheKey, this.isFromMark, bArr);
+                ew7.b().e(this.cacheKey, this.isFromMark, bArr);
             } else if (i2 != 4) {
             } else {
-                wv7.b().f(this.cacheKey, bArr);
+                ew7.b().f(this.cacheKey, bArr);
             }
         }
     }

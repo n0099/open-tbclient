@@ -8,12 +8,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PushDialogUserLikeButton extends CommonUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,13 +48,13 @@ public class PushDialogUserLikeButton extends CommonUserLikeButton {
                 setBackgroundDrawable(null);
                 return;
             }
-            int f = qi.f(getContext(), R.dimen.tbds32);
+            int f = ri.f(getContext(), R.dimen.tbds32);
             Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.icon_add_follow_blue_s);
             drawable.setBounds(0, 0, f, f);
             setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            setTextSize(0, qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds34));
+            setTextSize(0, ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds34));
             setTextColor(ContextCompat.getColor(getContext(), R.color.CAM_X0111));
-            setBackgroundResource(R.drawable.obfuscated_res_0x7f081098);
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f081099);
         }
     }
 

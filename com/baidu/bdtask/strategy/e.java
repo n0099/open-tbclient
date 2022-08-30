@@ -6,18 +6,18 @@ import com.baidu.bdtask.TaskState;
 import com.baidu.bdtask.ctrl.SubTaskState;
 import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.tieba.au;
+import com.baidu.tieba.bu;
+import com.baidu.tieba.pu;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.au;
-import com.repackage.ou;
-import com.repackage.zt;
 import kotlin.Metadata;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006¨\u0006\t"}, d2 = {"Lcom/baidu/bdtask/strategy/PassiveLifecycleStrategy;", "Lcom/repackage/ou;", "Lcom/baidu/bdtask/ctrl/SubTaskState;", TaskState.key, "", "onInterruptException", "(Lcom/baidu/bdtask/ctrl/SubTaskState;)V", "<init>", "()V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006¨\u0006\t"}, d2 = {"Lcom/baidu/bdtask/strategy/PassiveLifecycleStrategy;", "Lcom/baidu/tieba/pu;", "Lcom/baidu/bdtask/ctrl/SubTaskState;", TaskState.key, "", "onInterruptException", "(Lcom/baidu/bdtask/ctrl/SubTaskState;)V", "<init>", "()V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
-public final class e implements ou {
+public final class e implements pu {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,17 +35,17 @@ public final class e implements ou {
         }
     }
 
-    @Override // com.repackage.ou
+    @Override // com.baidu.tieba.pu
     public void a(SubTaskState subTaskState) {
-        au d;
-        au d2;
+        bu d;
+        bu d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subTaskState) == null) {
-            ou.a.c(this, subTaskState);
+            pu.a.c(this, subTaskState);
             int curStatusCode = subTaskState.getTaskStatus().getCurStatusCode();
             DebugTrace.a.c(new PassiveLifecycleStrategy$onInterruptException$1(curStatusCode));
             if (curStatusCode == 103) {
-                zt v = BDPTask.m.v();
+                au v = BDPTask.m.v();
                 if (v == null || (d = v.d()) == null) {
                     return;
                 }
@@ -56,7 +56,7 @@ public final class e implements ou {
                     t.Q(subTaskState.getTaskInfo(), curStatusCode);
                 }
             } else {
-                zt v2 = BDPTask.m.v();
+                au v2 = BDPTask.m.v();
                 if (v2 == null || (d2 = v2.d()) == null) {
                     return;
                 }
@@ -65,17 +65,17 @@ public final class e implements ou {
         }
     }
 
-    @Override // com.repackage.ou
+    @Override // com.baidu.tieba.pu
     public boolean b(TaskInfo taskInfo, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i)) == null) ? ou.a.b(this, taskInfo, i) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i)) == null) ? pu.a.b(this, taskInfo, i) : invokeLI.booleanValue;
     }
 
     public void c(SubTaskState subTaskState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subTaskState) == null) {
-            ou.a.a(this, subTaskState);
+            pu.a.a(this, subTaskState);
         }
     }
 }

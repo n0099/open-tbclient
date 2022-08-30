@@ -9,21 +9,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a25;
+import com.baidu.tieba.pn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.on;
-import com.repackage.u15;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView a;
     public TextView b;
     public View c;
-    public on d;
+    public pn d;
     public int e;
     public View.OnClickListener f;
 
@@ -46,20 +46,20 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.e = 3;
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091981);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091983);
         this.a = tbImageView;
         tbImageView.setDefaultBgResource(R.color.CAM_X0205);
-        this.c = view2.findViewById(R.id.obfuscated_res_0x7f0916c0);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921a2);
+        this.c = view2.findViewById(R.id.obfuscated_res_0x7f0916c2);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921a7);
     }
 
-    public void a(on onVar) {
+    public void a(pn pnVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, onVar) == null) && (onVar instanceof u15)) {
-            this.d = onVar;
-            u15 u15Var = (u15) onVar;
-            if (u15Var.c()) {
-                String b = u15Var.b();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, pnVar) == null) && (pnVar instanceof a25)) {
+            this.d = pnVar;
+            a25 a25Var = (a25) pnVar;
+            if (a25Var.c()) {
+                String b = a25Var.b();
                 this.b.setVisibility(0);
                 if (StringUtils.isNull(b)) {
                     this.a.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
@@ -67,19 +67,19 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
                     this.a.K(b, 25, false);
                 }
             } else {
-                this.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080bc2);
+                this.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080bc3);
                 this.b.setVisibility(8);
-                this.a.K(u15Var.b(), 10, false);
+                this.a.K(a25Var.b(), 10, false);
             }
             getView().setOnClickListener(this.f);
             c(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public on b() {
+    public pn b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (on) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (pn) invokeV.objValue;
     }
 
     public void c(int i) {

@@ -7,7 +7,7 @@ import android.location.LocationManager;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import com.kwad.sdk.service.ServiceProvider;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class p {
     public static boolean anx;
     public static Location any;

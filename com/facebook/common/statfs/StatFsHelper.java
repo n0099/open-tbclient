@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class StatFsHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_DISK_OLIVE_LEVEL_IN_BYTES = 1048576000;
@@ -46,7 +46,7 @@ public class StatFsHelper {
     public long mLastRestatTime;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class StorageType {
         public static final /* synthetic */ StorageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

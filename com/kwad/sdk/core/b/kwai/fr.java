@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.kwad.sdk.core.response.model.SdkConfigData;
 import com.kwad.sdk.core.response.model.TemplateConfig;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class fr implements com.kwad.sdk.core.d<SdkConfigData.TemplateConfigMap> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(SdkConfigData.TemplateConfigMap templateConfigMap, JSONObject jSONObject) {

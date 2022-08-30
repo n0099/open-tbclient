@@ -5,17 +5,17 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pz4;
+import com.baidu.tieba.ue5;
+import com.baidu.tieba.xz4;
+import com.baidu.tieba.y05;
+import com.baidu.tieba.ya5;
+import com.baidu.tieba.z8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lz4;
-import com.repackage.ne5;
-import com.repackage.ra5;
-import com.repackage.s05;
-import com.repackage.sz4;
-import com.repackage.z8;
 /* loaded from: classes2.dex */
 public class InitAppSettingTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -40,8 +40,8 @@ public class InitAppSettingTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             TbadkCoreApplication.getInst().mVoiceHeadsetMode = TbadkSettings.getInst().loadInt("voice_headset_mode", 0);
-            ne5.c();
-            ra5.b().r(System.currentTimeMillis() - currentTimeMillis);
+            ue5.c();
+            ya5.b().r(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -54,8 +54,8 @@ public class InitAppSettingTask extends LaunchTask {
             initSettings();
             TbadkCoreApplication.getInst().initSetting();
             long currentTimeMillis = System.currentTimeMillis();
-            lz4.d().p();
-            ra5.b().y(System.currentTimeMillis() - currentTimeMillis);
+            pz4.d().p();
+            ya5.b().y(System.currentTimeMillis() - currentTimeMillis);
             z8.g().r(20);
         }
     }
@@ -84,14 +84,14 @@ public class InitAppSettingTask extends LaunchTask {
             if (TextUtils.isEmpty(loadString)) {
                 return;
             }
-            sz4 sz4Var = new sz4();
-            sz4Var.e(loadString);
-            s05 a = s05.a();
-            a.g(sz4Var.b() == 1);
-            a.h(sz4Var.c());
-            a.i(sz4Var.d() * 1000);
-            if (sz4Var.a() != null) {
-                a.j(sz4Var.a());
+            xz4 xz4Var = new xz4();
+            xz4Var.e(loadString);
+            y05 a = y05.a();
+            a.g(xz4Var.b() == 1);
+            a.h(xz4Var.c());
+            a.i(xz4Var.d() * 1000);
+            if (xz4Var.a() != null) {
+                a.j(xz4Var.a());
             }
         }
     }

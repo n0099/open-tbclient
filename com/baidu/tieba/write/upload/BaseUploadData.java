@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BaseUploadData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -14,14 +14,14 @@ public class BaseUploadData implements Serializable {
     public Poi poi;
     public String publishType;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Poi implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public PositionLatLng positionLatLng;
         public QmUserPosition qmUserPosition;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public static class PositionLatLng implements Serializable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class BaseUploadData implements Serializable {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public static class QmUserPosition implements Serializable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

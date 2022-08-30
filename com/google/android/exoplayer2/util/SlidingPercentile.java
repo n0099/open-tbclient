@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SlidingPercentile {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Comparator<Sample> INDEX_COMPARATOR;
@@ -29,7 +29,7 @@ public class SlidingPercentile {
     public final ArrayList<Sample> samples;
     public int totalWeight;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Sample {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

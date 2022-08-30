@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.platform.message;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class UnRegisterStatus extends BasicPushStatus {
     public boolean isUnRegisterSuccess;
 

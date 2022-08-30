@@ -10,14 +10,14 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabYYSubFragment;
+import com.baidu.tieba.nq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fq5;
 /* loaded from: classes3.dex */
-public class ForumUserLiveActivity extends BaseFragmentActivity implements fq5 {
+public class ForumUserLiveActivity extends BaseFragmentActivity implements nq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -71,14 +71,14 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements fq5 {
         }
     }
 
-    @Override // com.repackage.fq5
+    @Override // com.baidu.tieba.nq5
     public String getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.fq5
+    @Override // com.baidu.tieba.nq5
     public boolean n0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -105,11 +105,11 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements fq5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d02ca);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0915ff);
+            setContentView(R.layout.obfuscated_res_0x7f0d02cb);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091601);
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f06c8));
+            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f06c9));
             this.b = LiveTabYYSubFragment.J1(false, 2);
             getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906bd, this.b).commitAllowingStateLoss();
             String stringExtra = getIntent().getStringExtra("KEY_FORUM_ID");

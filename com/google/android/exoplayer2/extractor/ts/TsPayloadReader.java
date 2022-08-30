@@ -13,10 +13,10 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.TimestampAdjuster;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface TsPayloadReader {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class DvbSubtitleInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public interface TsPayloadReader {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class EsInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,14 +82,14 @@ public interface TsPayloadReader {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface Factory {
         SparseArray<TsPayloadReader> createInitialPayloadReaders();
 
         TsPayloadReader createPayloadReader(int i, EsInfo esInfo);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class TrackIdGenerator {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ID_UNSET = Integer.MIN_VALUE;

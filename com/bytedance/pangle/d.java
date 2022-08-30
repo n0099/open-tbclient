@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface d extends IInterface {
     ComponentName a(Intent intent, String str);
 
@@ -23,7 +23,7 @@ public interface d extends IInterface {
 
     boolean b(Intent intent, String str);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a extends Binder implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public interface d extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof d)) {
                     return (d) queryLocalInterface;
                 }
-                return new C0278a(iBinder);
+                return new C0493a(iBinder);
             }
             return (d) invokeL.objValue;
         }
@@ -114,18 +114,18 @@ public interface d extends IInterface {
         public static d a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0278a.a : (d) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0493a.a : (d) invokeV.objValue;
         }
 
         /* renamed from: com.bytedance.pangle.d$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public static class C0278a implements d {
+        /* loaded from: classes7.dex */
+        public static class C0493a implements d {
             public static /* synthetic */ Interceptable $ic;
             public static d a;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder b;
 
-            public C0278a(IBinder iBinder) {
+            public C0493a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();

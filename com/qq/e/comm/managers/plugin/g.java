@@ -11,7 +11,7 @@ import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.Md5Util;
 import com.qq.e.comm.util.StringUtil;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

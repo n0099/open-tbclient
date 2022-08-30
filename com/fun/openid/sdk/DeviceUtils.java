@@ -2,10 +2,10 @@ package com.fun.openid.sdk;
 
 import android.content.Context;
 import android.os.Build;
-import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DeviceUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class DeviceUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             if (context != null) {
                 try {
-                    return Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+                    return ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
                 } catch (Exception e) {
                     e.printStackTrace();
                     return null;
@@ -116,7 +116,7 @@ public class DeviceUtils {
                     if (telephonyManager == null || !checkPermission(context, com.kuaishou.weapon.p0.h.c)) {
                         return null;
                     }
-                    return telephonyManager.getDeviceId();
+                    return ApiReplaceUtil.getDeviceId(telephonyManager);
                 } catch (Exception e) {
                     e.printStackTrace();
                     return null;
@@ -150,7 +150,7 @@ public class DeviceUtils {
                             return str;
                         }
                     }
-                    return telephonyManager.getDeviceId();
+                    return ApiReplaceUtil.getDeviceId(telephonyManager);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     return null;

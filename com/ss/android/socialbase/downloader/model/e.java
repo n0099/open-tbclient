@@ -1,5 +1,6 @@
 package com.ss.android.socialbase.downloader.model;
 
+import com.baidu.tieba.rw;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.i.f;
 import java.io.BufferedOutputStream;
@@ -17,7 +18,7 @@ public class e implements Closeable {
 
     public e(File file, int i) throws BaseException {
         try {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, rw.c);
             this.c = randomAccessFile;
             this.b = randomAccessFile.getFD();
             if (i > 0) {

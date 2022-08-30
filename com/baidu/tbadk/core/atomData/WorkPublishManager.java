@@ -2,13 +2,13 @@ package com.baidu.tbadk.core.atomData;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.dn8;
+import com.baidu.tieba.sz8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jz8;
-import com.repackage.vm8;
 /* loaded from: classes3.dex */
 public class WorkPublishManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -62,21 +62,21 @@ public class WorkPublishManager {
         }
         objLocate = str;
         if (str != null && str.equals("7")) {
-            vm8.k().z(true);
-            vm8.k().x(str2);
+            dn8.k().z(true);
+            dn8.k().x(str2);
             i = 7;
         } else if (TextUtils.equals(str, "8")) {
-            vm8.k().y(8);
-            vm8.k().x(str2);
+            dn8.k().y(8);
+            dn8.k().x(str2);
             i = 8;
         } else {
             i = 6;
         }
-        if (jz8.b()) {
-            jz8.h(null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
+        if (sz8.b()) {
+            sz8.h(null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
             return;
         }
-        jz8.k(false, false, null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
+        sz8.k(false, false, null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
     }
 
     public static void setObjLocate(String str) {

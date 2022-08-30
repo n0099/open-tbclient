@@ -5,7 +5,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @Keep
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public @interface MaterialType {
     public static final int GROUP_IMG = 3;
     public static final int SINGLE_IMG = 2;

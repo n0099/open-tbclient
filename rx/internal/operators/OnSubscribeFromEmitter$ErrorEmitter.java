@@ -1,12 +1,12 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.gv9;
+import com.baidu.tieba.hz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xu9;
-import com.repackage.yy9;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes8.dex */
 public final class OnSubscribeFromEmitter$ErrorEmitter<T> extends OnSubscribeFromEmitter$NoOverflowBaseEmitter<T> {
@@ -16,18 +16,18 @@ public final class OnSubscribeFromEmitter$ErrorEmitter<T> extends OnSubscribeFro
     public boolean done;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OnSubscribeFromEmitter$ErrorEmitter(xu9<? super T> xu9Var) {
-        super(xu9Var);
+    public OnSubscribeFromEmitter$ErrorEmitter(gv9<? super T> gv9Var) {
+        super(gv9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xu9Var};
+            Object[] objArr = {gv9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((xu9) newInitContext.callArgs[0]);
+                super((gv9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,7 +50,7 @@ public final class OnSubscribeFromEmitter$ErrorEmitter<T> extends OnSubscribeFro
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
             if (this.done) {
-                yy9.j(th);
+                hz9.j(th);
                 return;
             }
             this.done = true;

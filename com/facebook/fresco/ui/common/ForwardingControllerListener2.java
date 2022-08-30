@@ -10,7 +10,7 @@ import com.facebook.fresco.ui.common.ControllerListener2;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ForwardingControllerListener2<I> extends BaseControllerListener2<I> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FwdControllerListener2";

@@ -23,7 +23,7 @@ import com.cmic.sso.sdk.e.p;
 import com.cmic.sso.sdk.e.q;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a a;

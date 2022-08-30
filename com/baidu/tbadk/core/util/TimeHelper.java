@@ -1,12 +1,12 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.pg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.og;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes3.dex */
@@ -37,7 +37,7 @@ public class TimeHelper {
     public static long getFormatDateLong() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? og.g(new SimpleDateFormat("yyyyMMdd").format(getNow()), 0L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? pg.g(new SimpleDateFormat("yyyyMMdd").format(getNow()), 0L) : invokeV.longValue;
     }
 
     public static long getHourDifference(Date date, Date date2) {

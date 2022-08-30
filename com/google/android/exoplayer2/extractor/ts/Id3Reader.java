@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.extractor.ts.TsPayloadReader;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.ParsableByteArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class Id3Reader implements ElementaryStreamReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ID3_HEADER_SIZE = 10;

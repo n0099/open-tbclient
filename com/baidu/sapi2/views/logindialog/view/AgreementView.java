@@ -277,9 +277,9 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
             this.e = booleanValue;
             ImageView imageView = this.d;
             if (booleanValue) {
-                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081043);
-            } else {
                 drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081044);
+            } else {
+                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081045);
             }
             imageView.setBackgroundDrawable(drawable);
         }
@@ -288,10 +288,10 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04c1, this);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04c3, this);
             setPadding(0, ViewUtils.dp2px(this.a, 25.0f), 0, 0);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091d48);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cf1);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091d4a);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cf3);
             this.d = imageView;
             imageView.setOnClickListener(this);
             Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f010119);
@@ -362,9 +362,9 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
             this.e = z;
             ImageView imageView = this.d;
             if (z) {
-                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081043);
-            } else {
                 drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081044);
+            } else {
+                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081045);
             }
             imageView.setBackgroundDrawable(drawable);
         }

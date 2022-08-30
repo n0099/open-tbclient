@@ -14,7 +14,7 @@ import com.googlecode.mp4parser.h264.write.CAVLCWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SeqParameterSet extends BitstreamElement {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

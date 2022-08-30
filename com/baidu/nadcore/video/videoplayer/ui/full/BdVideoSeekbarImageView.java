@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.x11;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +22,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w11;
 /* loaded from: classes2.dex */
 public class BdVideoSeekbarImageView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -74,26 +74,26 @@ public class BdVideoSeekbarImageView extends View {
                 return;
             }
         }
-        p = w11.a(12.0f);
-        q = w11.d(30.0f);
-        r = w11.a(17.0f);
-        s = w11.a(13.0f);
-        t = w11.a(2.0f);
-        w11.a(9.0f);
-        u = w11.b(90.0f);
-        v = w11.b(90.0f);
-        w = w11.a(77.0f);
-        x = w11.a(7.0f);
-        y = w11.a(1.0f);
-        z = w11.a(23.0f);
-        A = w11.a(21.0f);
-        B = w11.a(64.0f);
-        C = w11.a(34.0f);
-        D = w11.a(27.0f);
-        E = w11.a(25.0f);
-        F = w11.a(11.0f);
-        G = w11.a(9.0f);
-        H = w11.a(60.0f);
+        p = x11.a(12.0f);
+        q = x11.d(30.0f);
+        r = x11.a(17.0f);
+        s = x11.a(13.0f);
+        t = x11.a(2.0f);
+        x11.a(9.0f);
+        u = x11.b(90.0f);
+        v = x11.b(90.0f);
+        w = x11.a(77.0f);
+        x = x11.a(7.0f);
+        y = x11.a(1.0f);
+        z = x11.a(23.0f);
+        A = x11.a(21.0f);
+        B = x11.a(64.0f);
+        C = x11.a(34.0f);
+        D = x11.a(27.0f);
+        E = x11.a(25.0f);
+        F = x11.a(11.0f);
+        G = x11.a(9.0f);
+        H = x11.a(60.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -150,7 +150,7 @@ public class BdVideoSeekbarImageView extends View {
             this.d.setTextSize(p);
             this.d.setColor(-7829368);
             this.k = new Rect();
-            this.j = this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e09);
+            this.j = this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e0a);
             BdThumbSeekBar bdThumbSeekBar = new BdThumbSeekBar(this.b, y);
             this.a = bdThumbSeekBar;
             bdThumbSeekBar.setDragable(false);

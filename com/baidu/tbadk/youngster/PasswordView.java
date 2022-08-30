@@ -17,14 +17,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.nj8;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fj8;
-import com.repackage.qi;
-import com.repackage.rg;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -80,7 +80,7 @@ public class PasswordView extends RelativeLayout {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.e == null) {
                 return;
             }
-            qi.L(this.a.getContext(), this.a.e);
+            ri.L(this.a.getContext(), this.a.e);
         }
     }
 
@@ -242,7 +242,7 @@ public class PasswordView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 if (editable.length() > 0) {
                     this.a.setVisibility(0);
-                    rg.a().post(this.b.p);
+                    sg.a().post(this.b.p);
                     return;
                 }
                 this.a.setVisibility(8);
@@ -348,7 +348,7 @@ public class PasswordView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setStroke(qi.f(getContext(), R.dimen.tbds3), fj8.a(SkinManager.getColor(R.color.CAM_X0105), 0.16f));
+            gradientDrawable.setStroke(ri.f(getContext(), R.dimen.tbds3), nj8.a(SkinManager.getColor(R.color.CAM_X0105), 0.16f));
             return gradientDrawable;
         }
         return (Drawable) invokeV.objValue;
@@ -383,24 +383,24 @@ public class PasswordView extends RelativeLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d08ce, this);
-            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f090860);
-            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090861);
-            this.c = (EditText) findViewById(R.id.obfuscated_res_0x7f090862);
-            this.d = (EditText) findViewById(R.id.obfuscated_res_0x7f090863);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d08d0, this);
+            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f090861);
+            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090862);
+            this.c = (EditText) findViewById(R.id.obfuscated_res_0x7f090863);
+            this.d = (EditText) findViewById(R.id.obfuscated_res_0x7f090864);
             this.k.add(this.a);
             this.k.add(this.b);
             this.k.add(this.c);
             this.k.add(this.d);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090858);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090859);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f09085a);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f09085b);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090859);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f09085a);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f09085b);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f09085c);
             this.l.add(this.f);
             this.l.add(this.g);
             this.l.add(this.h);
             this.l.add(this.i);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091776);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091778);
             this.j = frameLayout;
             frameLayout.setOnClickListener(new c(this));
             l();
@@ -533,8 +533,8 @@ public class PasswordView extends RelativeLayout {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            rg.a().removeCallbacks(this.o);
-            rg.a().postDelayed(this.o, 300L);
+            sg.a().removeCallbacks(this.o);
+            sg.a().postDelayed(this.o, 300L);
         }
     }
 
@@ -543,8 +543,8 @@ public class PasswordView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDetachedFromWindow();
-            rg.a().removeCallbacks(this.o);
-            rg.a().removeCallbacks(this.p);
+            sg.a().removeCallbacks(this.o);
+            sg.a().removeCallbacks(this.p);
             i();
         }
     }

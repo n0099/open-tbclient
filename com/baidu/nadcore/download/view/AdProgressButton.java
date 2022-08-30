@@ -18,16 +18,16 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ij0;
+import com.baidu.tieba.pi0;
+import com.baidu.tieba.q01;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hj0;
-import com.repackage.oi0;
-import com.repackage.p01;
 /* loaded from: classes2.dex */
-public class AdProgressButton extends View implements hj0<AdProgressButton> {
+public class AdProgressButton extends View implements ij0<AdProgressButton> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -69,7 +69,7 @@ public class AdProgressButton extends View implements hj0<AdProgressButton> {
         d(context, null);
     }
 
-    @Override // com.repackage.hj0
+    @Override // com.baidu.tieba.ij0
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof RelativeLayout)) {
@@ -100,10 +100,10 @@ public class AdProgressButton extends View implements hj0<AdProgressButton> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404e8, R.attr.obfuscated_res_0x7f0404e9, R.attr.obfuscated_res_0x7f0404ea, R.attr.obfuscated_res_0x7f0404eb, R.attr.obfuscated_res_0x7f0404ec, R.attr.obfuscated_res_0x7f0404ed, R.attr.obfuscated_res_0x7f0404ee, R.attr.obfuscated_res_0x7f0404ef, R.attr.obfuscated_res_0x7f0404f0, R.attr.obfuscated_res_0x7f0404f1, R.attr.obfuscated_res_0x7f0404f2, R.attr.obfuscated_res_0x7f0404f3, R.attr.obfuscated_res_0x7f0404f4});
-            int color = getResources().getColor(R.color.obfuscated_res_0x7f060852);
-            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f060851);
-            int a = p01.c.a(getContext(), 11.0f);
-            int a2 = p01.c.a(getContext(), 12.0f);
+            int color = getResources().getColor(R.color.obfuscated_res_0x7f060855);
+            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f060854);
+            int a = q01.c.a(getContext(), 11.0f);
+            int a2 = q01.c.a(getContext(), 12.0f);
             this.j = 1;
             this.f = obtainStyledAttributes.getInteger(0, color2);
             this.b = obtainStyledAttributes.getColor(8, color);
@@ -114,7 +114,7 @@ public class AdProgressButton extends View implements hj0<AdProgressButton> {
             this.i = obtainStyledAttributes.getDimensionPixelSize(5, a2);
             obtainStyledAttributes.recycle();
             this.k = Typeface.defaultFromStyle(1);
-            setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080da8));
+            setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080da9));
             e();
         }
     }
@@ -141,7 +141,7 @@ public class AdProgressButton extends View implements hj0<AdProgressButton> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.hj0
+    @Override // com.baidu.tieba.ij0
     @NonNull
     public AdProgressButton getRealView() {
         InterceptResult invokeV;
@@ -233,12 +233,12 @@ public class AdProgressButton extends View implements hj0<AdProgressButton> {
         }
     }
 
-    @Override // com.repackage.hj0
-    public void update(String str, @NonNull oi0 oi0Var) {
+    @Override // com.baidu.tieba.ij0
+    public void update(String str, @NonNull pi0 pi0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, str, oi0Var) == null) {
-            if (oi0Var.c == AdDownloadStatus.DOWNLOADING) {
-                setProgress((int) (oi0Var.i * 100.0f));
+        if (interceptable == null || interceptable.invokeLL(1048592, this, str, pi0Var) == null) {
+            if (pi0Var.c == AdDownloadStatus.DOWNLOADING) {
+                setProgress((int) (pi0Var.i * 100.0f));
                 return;
             }
             setProgressNoText(0);

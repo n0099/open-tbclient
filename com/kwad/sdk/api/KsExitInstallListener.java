@@ -4,7 +4,7 @@ import androidx.annotation.Keep;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface KsExitInstallListener {
     @KsAdSdkApi
     @Keep

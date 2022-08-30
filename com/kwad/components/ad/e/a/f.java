@@ -16,7 +16,7 @@ import com.kwad.sdk.api.KsAppDownloadListener;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class f extends com.kwad.components.ad.e.kwai.a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +110,7 @@ public final class f extends com.kwad.components.ad.e.kwai.a implements View.OnC
     private void G(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65537, this, i) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0354a(this.jY.getContext()).L(this.mAdTemplate).ae(i).b(this.mApkDownloadHelper).a(new a.b(this) { // from class: com.kwad.components.ad.e.a.f.3
+            com.kwad.components.core.c.a.a.a(new a.C0569a(this.jY.getContext()).L(this.mAdTemplate).ae(i).b(this.mApkDownloadHelper).a(new a.b(this) { // from class: com.kwad.components.ad.e.a.f.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ f kb;
@@ -237,10 +237,10 @@ public final class f extends com.kwad.components.ad.e.kwai.a implements View.OnC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.jY = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0911f2);
-            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091042);
-            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091044);
-            this.jZ = (TextView) findViewById(R.id.obfuscated_res_0x7f09103f);
+            this.jY = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0911f4);
+            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091044);
+            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091046);
+            this.jZ = (TextView) findViewById(R.id.obfuscated_res_0x7f091041);
         }
     }
 

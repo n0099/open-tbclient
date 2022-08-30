@@ -28,12 +28,12 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Random;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a implements com.kwad.sdk.core.download.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,12 +66,12 @@ public final class b {
     }
 
     /* renamed from: com.kwad.components.core.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0353b implements com.kwad.sdk.service.kwai.b {
+    /* loaded from: classes7.dex */
+    public static class C0568b implements com.kwad.sdk.service.kwai.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0353b() {
+        public C0568b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,7 +86,7 @@ public final class b {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class c implements com.kwad.sdk.service.kwai.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -212,7 +212,7 @@ public final class b {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class d implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -512,7 +512,7 @@ public final class b {
     public static void lj() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            ServiceProvider.put(com.kwad.sdk.service.kwai.b.class, new C0353b());
+            ServiceProvider.put(com.kwad.sdk.service.kwai.b.class, new C0568b());
         }
     }
 

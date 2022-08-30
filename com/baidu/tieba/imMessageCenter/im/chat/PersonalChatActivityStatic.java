@@ -27,6 +27,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.f87;
+import com.baidu.tieba.ic7;
 import com.baidu.tieba.im.chat.MsgAdapterScanMessage;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
@@ -45,6 +47,15 @@ import com.baidu.tieba.imMessageCenter.mention.AtMeActivity;
 import com.baidu.tieba.imMessageCenter.mention.MessageCenterActivity;
 import com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity;
 import com.baidu.tieba.imMessageCenter.mention.reply.ReplyMeActivity;
+import com.baidu.tieba.jf5;
+import com.baidu.tieba.nf5;
+import com.baidu.tieba.pb7;
+import com.baidu.tieba.qb7;
+import com.baidu.tieba.qe5;
+import com.baidu.tieba.rb7;
+import com.baidu.tieba.sb7;
+import com.baidu.tieba.yf5;
+import com.baidu.tieba.z57;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,26 +63,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ac7;
-import com.repackage.cf5;
-import com.repackage.gf5;
-import com.repackage.hb7;
-import com.repackage.ib7;
-import com.repackage.jb7;
-import com.repackage.je5;
-import com.repackage.kb7;
-import com.repackage.r57;
-import com.repackage.rf5;
-import com.repackage.x77;
 import java.util.LinkedList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PersonalChatActivityStatic {
     public static /* synthetic */ Interceptable $ic;
-    public static kb7 a;
+    public static sb7 a;
     public static CustomMessageListener b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,18 +101,18 @@ public class PersonalChatActivityStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                kb7 unused = PersonalChatActivityStatic.a = null;
+                sb7 unused = PersonalChatActivityStatic.a = null;
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b implements CustomMessageTask.CustomRunnable<PersonalChatActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes3.dex */
-        public class a extends cf5<Void> {
+        /* loaded from: classes4.dex */
+        public class a extends jf5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ LinkedList a;
@@ -136,23 +136,23 @@ public class PersonalChatActivityStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.cf5
+            @Override // com.baidu.tieba.jf5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? x77.w().a(this.a) : (Void) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f87.w().a(this.a) : (Void) invokeV.objValue;
             }
         }
 
         /* renamed from: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic$b$b  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0223b implements je5<Void> {
+        /* loaded from: classes4.dex */
+        public class C0290b implements qe5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomMessage a;
 
-            public C0223b(b bVar, CustomMessage customMessage) {
+            public C0290b(b bVar, CustomMessage customMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -171,7 +171,7 @@ public class PersonalChatActivityStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.je5
+            @Override // com.baidu.tieba.qe5
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
@@ -210,14 +210,14 @@ public class PersonalChatActivityStatic {
                 }
                 LinkedList linkedList = new LinkedList();
                 linkedList.add(String.valueOf(userData.getUserId()));
-                gf5.c(new a(this, linkedList), new C0223b(this, customMessage));
+                nf5.c(new a(this, linkedList), new C0290b(this, customMessage));
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -245,9 +245,9 @@ public class PersonalChatActivityStatic {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains(UrlSchemaHelper.GOTO_PERSONAL_CHAT)) {
                         if (ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst().getContext())) {
-                            String c = rf5.c(str, "userid=");
-                            String c2 = rf5.c(str, "username=");
-                            String c3 = rf5.c(str, "portrait=");
+                            String c = yf5.c(str, "userid=");
+                            String c2 = yf5.c(str, "username=");
+                            String c3 = yf5.c(str, "portrait=");
                             if (c != null && c.length() > 0) {
                                 try {
                                     MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(tbPageContext.getPageActivity(), Long.parseLong(c), c2, c2, c3, 0)));
@@ -269,7 +269,7 @@ public class PersonalChatActivityStatic {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -312,7 +312,7 @@ public class PersonalChatActivityStatic {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -343,15 +343,15 @@ public class PersonalChatActivityStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 if (TbadkCoreApplication.isLogin()) {
-                    ac7.e().f();
+                    ic7.e().f();
                 } else {
-                    ac7.e().d();
+                    ic7.e().d();
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class f implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -435,12 +435,12 @@ public class PersonalChatActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(AddFriendActivityConfig.class, AddFriendActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(PersonalChatActivityConfig.class, PersonalChatActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(GamePersonalChatActivityConfig.class, GamePersonalChatActivity.class);
-        r57.b(205001, ResponseCommitPersonalMessage.class, false);
-        r57.b(205003, ResponseQueryUserInfoMessage.class, false);
-        r57.b(205006, ResponsedPersonalMsgReadMessage.class, false);
-        r57.a(2001143, hb7.class);
-        r57.a(2001146, jb7.class);
-        r57.a(2001149, ib7.class);
+        z57.b(205001, ResponseCommitPersonalMessage.class, false);
+        z57.b(205003, ResponseQueryUserInfoMessage.class, false);
+        z57.b(205006, ResponsedPersonalMsgReadMessage.class, false);
+        z57.a(2001143, pb7.class);
+        z57.a(2001146, rb7.class);
+        z57.a(2001149, qb7.class);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FRIEND_LIST, TbConfig.SERVER_ADDRESS + "c/u/follow/list");
         tbHttpMessageTask.setResponsedClass(ResponseFriendListMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -468,10 +468,10 @@ public class PersonalChatActivityStatic {
         }
     }
 
-    public static kb7 b() {
+    public static sb7 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a : (kb7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a : (sb7) invokeV.objValue;
     }
 
     public static void c() {
@@ -481,10 +481,10 @@ public class PersonalChatActivityStatic {
         }
     }
 
-    public static void d(kb7 kb7Var) {
+    public static void d(sb7 sb7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, kb7Var) == null) {
-            a = kb7Var;
+        if (interceptable == null || interceptable.invokeL(65541, null, sb7Var) == null) {
+            a = sb7Var;
         }
     }
 }

@@ -4,14 +4,14 @@ import android.util.Log;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static boolean XL = true;
     public static boolean XM;
     public static final com.kwad.sdk.core.e.kwai.a XN = new com.kwad.sdk.core.e.a();
     public static final List<com.kwad.sdk.core.e.kwai.a> XO = new CopyOnWriteArrayList();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void b(com.kwad.sdk.core.e.kwai.a aVar);
     }

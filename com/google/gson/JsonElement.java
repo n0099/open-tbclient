@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class JsonElement {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

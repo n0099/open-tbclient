@@ -40,20 +40,20 @@ import com.baidu.tbadk.coreExtra.floatCardView.AlaLiveTipView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.personalize.view.HomeTabBarView;
+import com.baidu.tieba.iz4;
+import com.baidu.tieba.mn4;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.tu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.appbar.AppBarLayout;
-import com.repackage.fz4;
-import com.repackage.ln4;
-import com.repackage.ms4;
-import com.repackage.og;
-import com.repackage.qi;
-import com.repackage.rg;
-import com.repackage.ru4;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FixedAppBarLayout extends AppBarLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class FixedAppBarLayout extends AppBarLayout {
     public View.OnClickListener f;
     public Runnable g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +102,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +135,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,13 +169,13 @@ public class FixedAppBarLayout extends AppBarLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FixedAppBarLayout a;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -211,7 +211,7 @@ public class FixedAppBarLayout extends AppBarLayout {
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class b implements Animator.AnimatorListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -320,7 +320,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -356,14 +356,14 @@ public class FixedAppBarLayout extends AppBarLayout {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 e eVar = new e();
                 eVar.a = view2;
-                eVar.b = (AlaLiveTipView) view2.findViewById(R.id.obfuscated_res_0x7f091390);
-                eVar.c = (HomeTabBarView) view2.findViewById(R.id.obfuscated_res_0x7f090d85);
-                eVar.d = view2.findViewById(R.id.obfuscated_res_0x7f09075b);
-                eVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091da8);
-                eVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091dbc);
-                eVar.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091dc3);
-                eVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d88);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eab);
+                eVar.b = (AlaLiveTipView) view2.findViewById(R.id.obfuscated_res_0x7f091392);
+                eVar.c = (HomeTabBarView) view2.findViewById(R.id.obfuscated_res_0x7f090d86);
+                eVar.d = view2.findViewById(R.id.obfuscated_res_0x7f09075c);
+                eVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091daa);
+                eVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091dbe);
+                eVar.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091dc5);
+                eVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d8a);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eac);
                 eVar.i = tbImageView;
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 eVar.i.setUseNightOrDarkMask(false);
@@ -402,7 +402,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.b = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0288, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0289, (ViewGroup) this, true);
             this.a = e.a(this);
             o();
             p();
@@ -417,7 +417,7 @@ public class FixedAppBarLayout extends AppBarLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.d.setVisibility(ln4.h() ? 0 : 8);
+            this.a.d.setVisibility(mn4.h() ? 0 : 8);
             this.a.d.setOnClickListener(new b(this));
         }
     }
@@ -431,7 +431,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         alaLiveTipView.setViewLocate(1);
         this.a.b.setHasBubble(false);
         if (this.a.b.getVisibility() != 0) {
-            fz4.d();
+            iz4.f();
         }
         this.a.b.setVisibility(0);
     }
@@ -439,7 +439,7 @@ public class FixedAppBarLayout extends AppBarLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.g.setText(this.b.getString(R.string.obfuscated_res_0x7f0f10b3));
+            this.a.g.setText(this.b.getString(R.string.obfuscated_res_0x7f0f10b6));
             if (k()) {
                 this.d = true;
                 this.a.h.setVisibility(0);
@@ -464,7 +464,7 @@ public class FixedAppBarLayout extends AppBarLayout {
             }
             if (this.a.i.getLayoutParams() instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.a.i.getLayoutParams();
-                layoutParams2.height = UtilHelper.getStatusBarHeight() + qi.f(getContext(), R.dimen.tbds156);
+                layoutParams2.height = UtilHelper.getStatusBarHeight() + ri.f(getContext(), R.dimen.tbds156);
                 this.a.i.setLayoutParams(layoutParams2);
             }
         }
@@ -482,12 +482,12 @@ public class FixedAppBarLayout extends AppBarLayout {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String[] split = ru4.k().q("key_home_page_seacher_anim_show_number", "").split(",");
+            String[] split = tu4.k().q("key_home_page_seacher_anim_show_number", "").split(",");
             long currentTimeMillis = System.currentTimeMillis();
-            if (split.length >= 7 || TimeHelper.isSameDay(og.g(split[split.length - 1], 0L), currentTimeMillis)) {
+            if (split.length >= 7 || TimeHelper.isSameDay(pg.g(split[split.length - 1], 0L), currentTimeMillis)) {
                 return false;
             }
-            ru4 k = ru4.k();
+            tu4 k = tu4.k();
             if (split.length == 6) {
                 str = String.valueOf(currentTimeMillis);
             } else {
@@ -504,29 +504,29 @@ public class FixedAppBarLayout extends AppBarLayout {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             setImageBackgroundVisibility(8);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0208);
-            this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a06, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            ms4 d2 = ms4.d(this.a.g);
+            this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a07, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            os4 d2 = os4.d(this.a.g);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0105);
             if (TbadkApplication.getInst().getSkinType() != 1 && TbadkApplication.getInst().getSkinType() != 4) {
-                ms4 d3 = ms4.d(this.a.h);
+                os4 d3 = os4.d(this.a.h);
                 d3.l(R.dimen.L_X01);
                 d3.k(R.color.CAM_X0113);
                 d3.n(R.string.J_X01);
                 d3.f(R.color.CAM_X0211);
             } else {
-                ms4 d4 = ms4.d(this.a.h);
+                os4 d4 = os4.d(this.a.h);
                 d4.n(R.string.J_X01);
                 d4.f(R.color.CAM_X0211);
             }
-            this.a.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08074e, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
+            this.a.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08074f, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
         }
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            rg.a().removeCallbacks(this.g);
+            sg.a().removeCallbacks(this.g);
             AnimatorSet animatorSet = this.c;
             if (animatorSet != null) {
                 animatorSet.cancel();
@@ -537,7 +537,7 @@ public class FixedAppBarLayout extends AppBarLayout {
     public void n() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.d) {
-            rg.a().postDelayed(this.g, 2000L);
+            sg.a().postDelayed(this.g, 2000L);
             this.d = false;
         }
     }
@@ -601,10 +601,10 @@ public class FixedAppBarLayout extends AppBarLayout {
                 if (z2) {
                     i = R.color.CAM_X0105;
                 }
-                this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a06, getResources().getColor(i), WebPManager.ResourceStateType.NORMAL_PRESS));
+                this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a07, getResources().getColor(i), WebPManager.ResourceStateType.NORMAL_PRESS));
                 return;
             }
-            this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a06, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a07, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
 

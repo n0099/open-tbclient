@@ -2,7 +2,7 @@ package com.kwad.sdk.utils;
 
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class am {
     public static String T(String str, @Nullable String str2) {
         if (TextUtils.isEmpty(str)) {

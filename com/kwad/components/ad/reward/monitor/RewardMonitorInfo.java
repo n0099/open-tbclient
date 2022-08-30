@@ -12,7 +12,7 @@ import com.kwad.sdk.utils.r;
 import java.io.Serializable;
 import org.json.JSONObject;
 @KsJson
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RewardMonitorInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DOWNLOAD_TYPE_ALL = 2;

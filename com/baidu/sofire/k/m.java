@@ -5,12 +5,12 @@ import android.content.Context;
 import android.os.Build;
 import android.os.PowerManager;
 import android.os.Process;
-import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.sofire.ac.DeviceInfoCallback;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -156,7 +156,7 @@ public class m {
                         if (!e(context)) {
                             return d;
                         }
-                        String string2 = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+                        String string2 = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
                         if (!TextUtils.isEmpty(string2)) {
                             d = string2;
                             e = System.currentTimeMillis();
@@ -252,7 +252,7 @@ public class m {
                         if (!e(context)) {
                             return b;
                         }
-                        String deviceId = Build.VERSION.SDK_INT < 29 ? ((TelephonyManager) context.getSystemService("phone")).getDeviceId() : "";
+                        String deviceId = Build.VERSION.SDK_INT < 29 ? ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone")) : "";
                         if (!TextUtils.isEmpty(deviceId)) {
                             b = deviceId;
                             c = System.currentTimeMillis();

@@ -8,22 +8,22 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.util.AdExtParam;
+import com.baidu.tieba.af5;
+import com.baidu.tieba.ee5;
+import com.baidu.tieba.nq4;
+import com.baidu.tieba.pd8;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hd8;
-import com.repackage.kd8;
-import com.repackage.lq4;
-import com.repackage.og;
-import com.repackage.oi;
-import com.repackage.qi;
-import com.repackage.te5;
-import com.repackage.xd5;
 import tbclient.Personalized.DataReq;
 import tbclient.Personalized.PersonalizedReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RecPersonalizeRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOAD_TYPE_LOAD_MORE = 2;
@@ -34,6 +34,7 @@ public class RecPersonalizeRequest extends NetMessage {
     public int needForumlist;
     public int pn;
     public int preAdThreadCount;
+    public long pushTid;
     public int requestTime;
     public String sourceFrom;
     public int suggestCount;
@@ -59,6 +60,7 @@ public class RecPersonalizeRequest extends NetMessage {
         this.requestTime = 0;
         this.sourceFrom = "";
         this.adFloorInfo = "";
+        this.pushTid = -1L;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -67,7 +69,7 @@ public class RecPersonalizeRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            te5.c(builder, true, false, true);
+            af5.c(builder, true, false, true);
             builder.need_tags = 0;
             builder.load_type = Integer.valueOf(this.loadType);
             builder.page_thread_count = Integer.valueOf(this.threadCount);
@@ -75,20 +77,20 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.sug_count = Integer.valueOf(this.suggestCount);
             builder.tag_code = 0;
-            builder.scr_w = Integer.valueOf(qi.k(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(qi.i(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(qi.h(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(ri.k(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(ri.i(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(ri.h(TbadkCoreApplication.getInst()));
             builder.q_type = Integer.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
             builder.need_forumlist = Integer.valueOf(this.needForumlist);
-            builder.new_net_type = Integer.valueOf(oi.I());
+            builder.new_net_type = Integer.valueOf(pi.I());
             builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
             builder.request_times = Integer.valueOf(this.requestTime);
             builder.invoke_source = this.sourceFrom;
-            builder.ad_context_list = kd8.f().d("HOME");
-            builder.app_pos = hd8.e().c();
+            builder.ad_context_list = sd8.f().d("HOME");
+            builder.app_pos = pd8.e().c();
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
-                lq4 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
-                builder.from_tid = Long.valueOf(og.g(pbToHomeUpdateData.a, 0L));
+                nq4 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
+                builder.from_tid = Long.valueOf(pg.g(pbToHomeUpdateData.a, 0L));
                 builder.query_eqid = pbToHomeUpdateData.b;
                 builder.first_dir = pbToHomeUpdateData.c;
                 builder.second_dir = pbToHomeUpdateData.d;
@@ -97,7 +99,11 @@ public class RecPersonalizeRequest extends NetMessage {
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.adFloorInfo);
             builder.ad_ext_params = b.a();
-            builder.app_transmit_data = xd5.b();
+            builder.app_transmit_data = ee5.b();
+            long j = this.pushTid;
+            if (j != -1) {
+                builder.push_tid = Long.valueOf(j);
+            }
             PersonalizedReqIdl.Builder builder2 = new PersonalizedReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
@@ -156,30 +162,37 @@ public class RecPersonalizeRequest extends NetMessage {
         }
     }
 
+    public void setPushTid(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.pushTid = j;
+        }
+    }
+
     public void setRequestTime(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.requestTime = i;
         }
     }
 
     public void setSourceFrom(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.sourceFrom = str;
         }
     }
 
     public void setSuggestCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             this.suggestCount = i;
         }
     }
 
     public void setThreadCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             if (i > 0) {
                 this.threadCount = i;
             } else {

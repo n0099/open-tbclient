@@ -20,7 +20,7 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.bd;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public final class e {
             ksScene.setAdStyle(13);
             com.kwad.components.ad.interstitial.monitor.b.cr().cs();
             KsAdLoadManager.ab();
-            KsAdLoadManager.a(new a.C0359a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c(interstitialAdListener, elapsedRealtime, ksScene) { // from class: com.kwad.components.ad.interstitial.e.1
+            KsAdLoadManager.a(new a.C0574a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c(interstitialAdListener, elapsedRealtime, ksScene) { // from class: com.kwad.components.ad.interstitial.e.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ KsScene cU;

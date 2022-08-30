@@ -26,7 +26,6 @@ import android.os.Environment;
 import android.os.Process;
 import android.os.StatFs;
 import android.os.SystemClock;
-import android.provider.Settings;
 import android.provider.Telephony;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
@@ -52,6 +51,7 @@ import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -430,7 +430,7 @@ public class SapiUtils implements NoProguard {
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, context)) == null) {
             try {
                 SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
-                return (confignation == null || !confignation.isAgreeDangerousProtocol()) ? "" : Settings.Secure.getString(context.getContentResolver(), "bluetooth_name");
+                return (confignation == null || !confignation.isAgreeDangerousProtocol()) ? "" : ApiReplaceUtil.Overload.getString(context.getContentResolver(), "bluetooth_name");
             } catch (Exception e) {
                 Log.e(e);
                 return "";
@@ -627,7 +627,7 @@ public class SapiUtils implements NoProguard {
                     } else {
                         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                         if (telephonyManager != null) {
-                            String simSerialNumber = telephonyManager.getSimSerialNumber();
+                            String simSerialNumber = ApiReplaceUtil.getSimSerialNumber(telephonyManager);
                             iccid = simSerialNumber;
                             return simSerialNumber;
                         }

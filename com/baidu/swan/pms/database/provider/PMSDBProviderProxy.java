@@ -10,6 +10,8 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ae4;
+import com.baidu.tieba.p94;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,15 +19,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o94;
-import com.repackage.zd4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class PMSDBProviderProxy extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
-    public static final zd4 b;
+    public static final ae4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile o94 a;
+    public volatile p94 a;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public class PMSDBProviderProxy extends ContentProvider {
                 return;
             }
         }
-        b = zd4.c();
+        b = ae4.c();
     }
 
     public PMSDBProviderProxy() {
@@ -57,20 +57,20 @@ public class PMSDBProviderProxy extends ContentProvider {
         }
     }
 
-    public o94 a() {
+    public p94 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.a == null) {
-                synchronized (o94.class) {
+                synchronized (p94.class) {
                     if (this.a == null) {
-                        this.a = new o94(getContext());
+                        this.a = new p94(getContext());
                     }
                 }
             }
             return this.a;
         }
-        return (o94) invokeV.objValue;
+        return (p94) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0040, code lost:

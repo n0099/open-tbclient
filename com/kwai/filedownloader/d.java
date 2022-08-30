@@ -15,7 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class d implements a.c, x, x.a, x.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,11 +35,11 @@ public final class d implements a.c, x, x.a, x.b {
     public String asZ;
     public boolean ata;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         com.kwai.filedownloader.c.b Cv();
 
-        a.InterfaceC0405a Cw();
+        a.InterfaceC0620a Cw();
 
         ArrayList<Object> Cx();
 
@@ -253,7 +253,7 @@ public final class d implements a.c, x, x.a, x.b {
                     return;
                 }
                 c((byte) 10);
-                a.InterfaceC0405a Cw = this.asO.Cw();
+                a.InterfaceC0620a Cw = this.asO.Cw();
                 com.kwai.filedownloader.a Ci = Cw.Ci();
                 if (com.kwai.filedownloader.e.d.awL) {
                     com.kwai.filedownloader.e.d.g(this, "call start Url[%s], Path[%s] Listener[%s], Tag[%s]", Ci.getUrl(), Ci.getPath(), Ci.BX(), Ci.getTag());
@@ -410,7 +410,7 @@ public final class d implements a.c, x, x.a, x.b {
                 return false;
             }
             c((byte) -2);
-            a.InterfaceC0405a Cw = this.asO.Cw();
+            a.InterfaceC0620a Cw = this.asO.Cw();
             com.kwai.filedownloader.a Ci = Cw.Ci();
             q.CX().b(this);
             if (com.kwai.filedownloader.e.d.awL) {
@@ -461,7 +461,7 @@ public final class d implements a.c, x, x.a, x.b {
                 com.kwai.filedownloader.e.d.f(this, "High concurrent cause, this task %d will not start, because the of status isn't toLaunchPool: %d", Integer.valueOf(getId()), Byte.valueOf(this.asP));
                 return;
             }
-            a.InterfaceC0405a Cw = this.asO.Cw();
+            a.InterfaceC0620a Cw = this.asO.Cw();
             com.kwai.filedownloader.a Ci = Cw.Ci();
             v Dd = r.CZ().Dd();
             try {

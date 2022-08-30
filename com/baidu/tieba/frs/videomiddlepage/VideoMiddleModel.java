@@ -13,15 +13,15 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.ee5;
+import com.baidu.tieba.ii6;
 import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
+import com.baidu.tieba.zl4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ai6;
-import com.repackage.xd5;
-import com.repackage.yl4;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -29,7 +29,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VideoMiddleModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_CALL_FROM_FRS = "client_frs";
@@ -45,7 +45,7 @@ public class VideoMiddleModel extends BdBaseModel {
     public String g;
     public String h;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class VideoMiddleDataResponseMessage extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,10 +87,10 @@ public class VideoMiddleModel extends BdBaseModel {
                     this.mDataList = new ArrayList();
                     JSONArray jSONArray = new JSONArray(optString);
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        ai6 ai6Var = new ai6();
-                        ai6Var.f(jSONArray.optString(i2));
-                        if (ai6Var.n != null) {
-                            this.mDataList.add(ai6Var);
+                        ii6 ii6Var = new ii6();
+                        ii6Var.f(jSONArray.optString(i2));
+                        if (ii6Var.n != null) {
+                            this.mDataList.add(ii6Var);
                         }
                     }
                 }
@@ -143,7 +143,7 @@ public class VideoMiddleModel extends BdBaseModel {
                 httpMessage.addParam("ori_ugc_vid", this.e.mBaijiahaoData.oriUgcVid);
                 httpMessage.addParam("ori_ugc_tid", this.e.mBaijiahaoData.oriUgcTid);
             }
-            httpMessage.addParam("app_transmit_data", xd5.a());
+            httpMessage.addParam("app_transmit_data", ee5.a());
             sendMessage(httpMessage);
             return true;
         }
@@ -155,13 +155,13 @@ public class VideoMiddleModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            LinkedList<yl4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
+            LinkedList<zl4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
             if (videoRecordList != null) {
                 try {
                     if (videoRecordList.size() > 0) {
-                        Iterator<yl4> it = videoRecordList.iterator();
+                        Iterator<zl4> it = videoRecordList.iterator();
                         while (it.hasNext()) {
-                            yl4 next = it.next();
+                            zl4 next = it.next();
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("tid", next.a());
                             jSONObject.put("duration", next.b());

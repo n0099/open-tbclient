@@ -13,18 +13,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.ym6;
+import com.baidu.tieba.zm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-import com.repackage.qm6;
-import com.repackage.rm6;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
-/* loaded from: classes3.dex */
-public class HeaderComponentMultiView extends FrameLayout implements rm6 {
+/* loaded from: classes4.dex */
+public class HeaderComponentMultiView extends FrameLayout implements zm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -54,7 +54,7 @@ public class HeaderComponentMultiView extends FrameLayout implements rm6 {
         c();
     }
 
-    @Override // com.repackage.rm6
+    @Override // com.baidu.tieba.zm6
     public void a() {
         HeaderComponentMultiAdapter headerComponentMultiAdapter;
         Interceptable interceptable = $ic;
@@ -64,13 +64,13 @@ public class HeaderComponentMultiView extends FrameLayout implements rm6 {
         headerComponentMultiAdapter.e();
     }
 
-    @Override // com.repackage.rm6
-    public void b(List<LiveFuseForumData> list, qm6 qm6Var) {
+    @Override // com.baidu.tieba.zm6
+    public void b(List<LiveFuseForumData> list, ym6 ym6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, qm6Var) == null) || ListUtils.isEmpty(list)) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, ym6Var) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.d.g(qm6Var);
+        this.d.g(ym6Var);
         this.c.clear();
         this.c.addAll(list);
         this.d.notifyDataSetChanged();
@@ -79,8 +79,8 @@ public class HeaderComponentMultiView extends FrameLayout implements rm6 {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int k = qi.k(getContext());
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0312, (ViewGroup) null);
+            int k = ri.k(getContext());
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0313, (ViewGroup) null);
             this.a = inflate;
             addView(inflate);
             RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f090697);

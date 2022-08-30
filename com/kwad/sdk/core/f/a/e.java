@@ -4,10 +4,10 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import com.samsung.android.deviceidservice.IDeviceIdService;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface e extends IInterface {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a implements e {
         public IBinder Zz;
 

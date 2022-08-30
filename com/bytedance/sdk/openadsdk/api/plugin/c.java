@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk.api.plugin;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class c extends Exception {
     public final int a;
 

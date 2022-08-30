@@ -10,11 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.xa0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wa0;
 /* loaded from: classes2.dex */
 public class LiveSearchGuideView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -46,9 +46,9 @@ public class LiveSearchGuideView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0532, this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091346);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091347);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0534, this);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091348);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091349);
             c();
         }
     }
@@ -59,16 +59,16 @@ public class LiveSearchGuideView extends FrameLayout {
             return;
         }
         if (z) {
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080cde);
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cdc);
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080cdf);
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cdd);
             this.b.setTextColor(-1);
         } else if ("day".equals(str)) {
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080cdd);
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cdb);
-            this.b.setTextColor(-1);
-        } else if ("night".equals(str)) {
             this.a.setImageResource(R.drawable.obfuscated_res_0x7f080cde);
             this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cdc);
+            this.b.setTextColor(-1);
+        } else if ("night".equals(str)) {
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080cdf);
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cdd);
             this.b.setTextColor(-1);
         }
     }
@@ -79,7 +79,7 @@ public class LiveSearchGuideView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (textView = this.b) == null) {
             return;
         }
-        wa0.h(textView, 1, 12.0f);
+        xa0.h(textView, 1, 12.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

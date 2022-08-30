@@ -17,7 +17,7 @@ import com.qq.e.comm.pi.UBVI;
 import com.qq.e.comm.util.AdErrorConvertor;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class UnifiedBannerAD extends LiteAbstractAD<UBVI> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

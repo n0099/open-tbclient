@@ -22,12 +22,12 @@ import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.tieba.m60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l60;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -562,7 +562,7 @@ public final class IMConnection {
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || l60.e) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || m60.e) {
                     return;
                 }
                 this.this$0.internalConnect(false);
@@ -660,7 +660,7 @@ public final class IMConnection {
 
     private void connectImpl(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65567, this, z) == null) || l60.e) {
+        if (!(interceptable == null || interceptable.invokeZ(65567, this, z) == null) || m60.e) {
             return;
         }
         if (!this.mConnected.get() && !this.mConnectting.get()) {
@@ -786,7 +786,7 @@ public final class IMConnection {
 
     private void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65569, this) == null) || l60.e) {
+        if (!(interceptable == null || interceptable.invokeV(65569, this) == null) || m60.e) {
             return;
         }
         LogUtils.i(TAG, "destroy");
@@ -877,7 +877,7 @@ public final class IMConnection {
 
     public void disconnectedByPeer() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || l60.e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || m60.e) {
             return;
         }
         LogUtils.i(TAG, "disconnectedByPeer, mStoped == " + this.mStoped);

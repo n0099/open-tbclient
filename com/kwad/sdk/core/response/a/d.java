@@ -12,7 +12,7 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.ax;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class d {
     @Nullable
     public static AdTemplate a(List<AdTemplate> list, long j, int i) {

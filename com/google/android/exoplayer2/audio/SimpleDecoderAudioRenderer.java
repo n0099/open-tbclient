@@ -29,7 +29,7 @@ import com.google.android.exoplayer2.util.MediaClock;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.TraceUtil;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements MediaClock {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REINITIALIZATION_STATE_NONE = 0;
@@ -61,13 +61,13 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
     public boolean waitingForKeys;
 
     /* renamed from: com.google.android.exoplayer2.audio.SimpleDecoderAudioRenderer$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public final class AudioSinkListener implements AudioSink.Listener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

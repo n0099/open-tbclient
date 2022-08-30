@@ -20,12 +20,12 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.LinearGradientView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
     public View q;
     public View.OnClickListener r;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +126,7 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
                 z = false;
             }
             if (z) {
-                int f = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds690);
+                int f = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds690);
                 ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
                 if (layoutParams instanceof LinearLayout.LayoutParams) {
                     ((LinearLayout.LayoutParams) layoutParams).height = f;
@@ -168,28 +168,28 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0496);
-            this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a65);
-            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091a70);
-            this.j = (LinearGradientView) findViewById(R.id.obfuscated_res_0x7f091a66);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a6d);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091a6e);
+            setContentView(R.layout.obfuscated_res_0x7f0d0498);
+            this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a67);
+            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091a72);
+            this.j = (LinearGradientView) findViewById(R.id.obfuscated_res_0x7f091a68);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a6f);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091a70);
             this.d = findViewById(R.id.obfuscated_res_0x7f0903f7);
-            this.f = findViewById(R.id.obfuscated_res_0x7f091a69);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091a6b);
             this.e = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.r);
-            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f1e));
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091a68);
+            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f21));
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091a6a);
             this.i = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f080f0d);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091a67);
-            this.g = findViewById(R.id.obfuscated_res_0x7f091a74);
-            this.l = findViewById(R.id.obfuscated_res_0x7f091a6a);
-            this.p = findViewById(R.id.obfuscated_res_0x7f091a6b);
-            this.n = findViewById(R.id.obfuscated_res_0x7f091a6c);
-            this.m = findViewById(R.id.obfuscated_res_0x7f091a71);
-            this.q = findViewById(R.id.obfuscated_res_0x7f091a72);
-            this.o = findViewById(R.id.obfuscated_res_0x7f091a73);
+            this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f080f0e);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091a69);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091a76);
+            this.l = findViewById(R.id.obfuscated_res_0x7f091a6c);
+            this.p = findViewById(R.id.obfuscated_res_0x7f091a6d);
+            this.n = findViewById(R.id.obfuscated_res_0x7f091a6e);
+            this.m = findViewById(R.id.obfuscated_res_0x7f091a73);
+            this.q = findViewById(R.id.obfuscated_res_0x7f091a74);
+            this.o = findViewById(R.id.obfuscated_res_0x7f091a75);
             this.b.setEnabled(true);
             this.b.setOnClickListener(this.r);
             this.c.setOnClickListener(this.r);

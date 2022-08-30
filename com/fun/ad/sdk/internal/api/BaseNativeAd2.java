@@ -16,7 +16,7 @@ import com.fun.ad.sdk.FunNativeInfo;
 import com.fun.ad.sdk.NativeInflater;
 import com.fun.ad.sdk.internal.api.flavor.Flavors;
 import com.fun.ad.sdk.internal.api.flavor.RCInterceptor;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BaseNativeAd2<A, B extends View> implements FunNativeAd2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

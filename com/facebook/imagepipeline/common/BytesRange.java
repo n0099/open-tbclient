@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BytesRange {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TO_END_OF_CONTENT = Integer.MAX_VALUE;

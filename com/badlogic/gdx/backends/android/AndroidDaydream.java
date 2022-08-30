@@ -17,6 +17,31 @@ import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.Net;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.a7;
+import com.baidu.tieba.b1;
+import com.baidu.tieba.c1;
+import com.baidu.tieba.c3;
+import com.baidu.tieba.d1;
+import com.baidu.tieba.d3;
+import com.baidu.tieba.e1;
+import com.baidu.tieba.e3;
+import com.baidu.tieba.e7;
+import com.baidu.tieba.g1;
+import com.baidu.tieba.g2;
+import com.baidu.tieba.g3;
+import com.baidu.tieba.g8;
+import com.baidu.tieba.h1;
+import com.baidu.tieba.h2;
+import com.baidu.tieba.i2;
+import com.baidu.tieba.i3;
+import com.baidu.tieba.j2;
+import com.baidu.tieba.j7;
+import com.baidu.tieba.k2;
+import com.baidu.tieba.n2;
+import com.baidu.tieba.q2;
+import com.baidu.tieba.s2;
+import com.baidu.tieba.w2;
+import com.baidu.tieba.x2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,31 +49,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a7;
-import com.repackage.b1;
-import com.repackage.c1;
-import com.repackage.c3;
-import com.repackage.d1;
-import com.repackage.d3;
-import com.repackage.e1;
-import com.repackage.e3;
-import com.repackage.e7;
-import com.repackage.g1;
-import com.repackage.g2;
-import com.repackage.g3;
-import com.repackage.g8;
-import com.repackage.h1;
-import com.repackage.h2;
-import com.repackage.i2;
-import com.repackage.i3;
-import com.repackage.j2;
-import com.repackage.j7;
-import com.repackage.k2;
-import com.repackage.n2;
-import com.repackage.q2;
-import com.repackage.s2;
-import com.repackage.w2;
-import com.repackage.x2;
 @TargetApi(17)
 /* loaded from: classes.dex */
 public class AndroidDaydream extends DreamService implements g2 {
@@ -93,7 +93,7 @@ public class AndroidDaydream extends DreamService implements g2 {
             this.a = androidDaydream;
         }
 
-        @Override // com.repackage.g1
+        @Override // com.baidu.tieba.g1
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -102,7 +102,7 @@ public class AndroidDaydream extends DreamService implements g2 {
             }
         }
 
-        @Override // com.repackage.g1
+        @Override // com.baidu.tieba.g1
         public void pause() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -110,7 +110,7 @@ public class AndroidDaydream extends DreamService implements g2 {
             }
         }
 
-        @Override // com.repackage.g1
+        @Override // com.baidu.tieba.g1
         public void resume() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -311,7 +311,7 @@ public class AndroidDaydream extends DreamService implements g2 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.applicationLogger : (c1) invokeV.objValue;
     }
 
-    @Override // com.repackage.g2
+    @Override // com.baidu.tieba.g2
     public Window getApplicationWindow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -330,14 +330,14 @@ public class AndroidDaydream extends DreamService implements g2 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.clipboard : (e7) invokeV.objValue;
     }
 
-    @Override // com.repackage.g2
+    @Override // com.baidu.tieba.g2
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this : (Context) invokeV.objValue;
     }
 
-    @Override // com.repackage.g2
+    @Override // com.baidu.tieba.g2
     public a7<Runnable> getExecutedRunnables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -369,7 +369,7 @@ public class AndroidDaydream extends DreamService implements g2 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory() : invokeV.longValue;
     }
 
-    @Override // com.repackage.g2
+    @Override // com.baidu.tieba.g2
     public g8<g1> getLifecycleListeners() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -400,7 +400,7 @@ public class AndroidDaydream extends DreamService implements g2 {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) ? new x2(getSharedPreferences(str, 0)) : (h1) invokeL.objValue;
     }
 
-    @Override // com.repackage.g2
+    @Override // com.baidu.tieba.g2
     public a7<Runnable> getRunnables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -578,7 +578,7 @@ public class AndroidDaydream extends DreamService implements g2 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.g2
+    @Override // com.baidu.tieba.g2
     public s2 getInput() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

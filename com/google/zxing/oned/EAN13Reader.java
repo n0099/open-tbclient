@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class EAN13Reader extends UPCEANReader {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] FIRST_DIGIT_ENCODINGS;

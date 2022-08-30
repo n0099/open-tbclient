@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.fresco.ui.common.ControllerListener2;
 import javax.annotation.Nullable;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BaseControllerListener2<INFO> implements ControllerListener2<INFO> {
     public static /* synthetic */ Interceptable $ic;
     public static final ControllerListener2 NO_OP_LISTENER;

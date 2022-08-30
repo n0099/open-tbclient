@@ -4,13 +4,13 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Parcel;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.sm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jm9;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class c extends com.google.a.a.a implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,8 +43,8 @@ public final class c extends com.google.a.a.a implements a {
             Parcel a = a();
             a.writeString(str);
             a.writeTypedList(list);
-            jm9.c(a, bundle);
-            jm9.b(a, dVar);
+            sm9.c(a, bundle);
+            sm9.b(a, dVar);
             b(1, a);
         }
     }
@@ -55,8 +55,8 @@ public final class c extends com.google.a.a.a implements a {
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, dVar) == null) {
             Parcel a = a();
             a.writeString(str);
-            jm9.c(a, bundle);
-            jm9.b(a, dVar);
+            sm9.c(a, bundle);
+            sm9.b(a, dVar);
             b(2, a);
         }
     }

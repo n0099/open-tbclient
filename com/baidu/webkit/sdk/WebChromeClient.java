@@ -33,7 +33,7 @@ import java.lang.reflect.Method;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class WebChromeClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -56,12 +56,12 @@ public class WebChromeClient {
     public transient /* synthetic */ FieldHolder $fh;
     public WebView mWebView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface CustomViewCallback {
         void onCustomViewHidden();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class FileChooserParams {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MODE_OPEN = 0;

@@ -3,6 +3,14 @@ package com.baidu.swan.config.core;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.al3;
+import com.baidu.tieba.bl3;
+import com.baidu.tieba.cl3;
+import com.baidu.tieba.dl3;
+import com.baidu.tieba.el3;
+import com.baidu.tieba.gl3;
+import com.baidu.tieba.hl3;
+import com.baidu.tieba.zk3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,14 +19,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ETAG;
-import com.repackage.al3;
-import com.repackage.bl3;
-import com.repackage.cl3;
-import com.repackage.dl3;
-import com.repackage.fl3;
-import com.repackage.gl3;
-import com.repackage.yk3;
-import com.repackage.zk3;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes3.dex */
 public final class ConfigNode {
@@ -46,10 +46,10 @@ public final class ConfigNode {
                 return;
             }
         }
-        HOST_INFO = new ConfigNode("HOST_INFO", 0, "host_info", cl3.class, dl3.class);
-        FRAMEWORK = new ConfigNode("FRAMEWORK", 1, "framework", al3.class, bl3.class);
-        EXTENSION = new ConfigNode("EXTENSION", 2, ETAG.KEY_EXTENSION, yk3.class, zk3.class);
-        ConfigNode configNode = new ConfigNode("TIP_MSG", 3, "tipmsgs", fl3.class, gl3.class);
+        HOST_INFO = new ConfigNode("HOST_INFO", 0, "host_info", dl3.class, el3.class);
+        FRAMEWORK = new ConfigNode("FRAMEWORK", 1, "framework", bl3.class, cl3.class);
+        EXTENSION = new ConfigNode("EXTENSION", 2, ETAG.KEY_EXTENSION, zk3.class, al3.class);
+        ConfigNode configNode = new ConfigNode("TIP_MSG", 3, "tipmsgs", gl3.class, hl3.class);
         TIP_MSG = configNode;
         $VALUES = new ConfigNode[]{HOST_INFO, FRAMEWORK, EXTENSION, configNode};
     }

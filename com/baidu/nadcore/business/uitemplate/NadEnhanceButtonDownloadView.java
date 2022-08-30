@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
+import com.baidu.tieba.pi0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi0;
 /* loaded from: classes2.dex */
 public class NadEnhanceButtonDownloadView extends NadMiniVideoDownloadView {
     public static /* synthetic */ Interceptable $ic;
@@ -92,13 +92,13 @@ public class NadEnhanceButtonDownloadView extends NadMiniVideoDownloadView {
 
     @Override // com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView
     @DrawableRes
-    public int f(@NonNull oi0 oi0Var) {
+    public int f(@NonNull pi0 pi0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, oi0Var)) == null) {
-            int i = a.a[oi0Var.c.ordinal()];
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pi0Var)) == null) {
+            int i = a.a[pi0Var.c.ordinal()];
             if (i == 1 || i == 5 || i == 6) {
-                return R.drawable.obfuscated_res_0x7f080da5;
+                return R.drawable.obfuscated_res_0x7f080da6;
             }
             return -1;
         }
@@ -109,7 +109,7 @@ public class NadEnhanceButtonDownloadView extends NadMiniVideoDownloadView {
     public int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d05e4 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d05e6 : invokeV.intValue;
     }
 
     @Override // com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView

@@ -23,7 +23,7 @@ import com.facebook.fresco.ui.common.DimensionsInfo;
 import com.facebook.fresco.ui.common.OnDrawControllerListener;
 import com.facebook.imagepipeline.image.ImageInfo;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ImagePerfControllerListener2 extends BaseControllerListener2<ImageInfo> implements OnDrawControllerListener<ImageInfo> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ImagePerfControllerListener2";
@@ -37,7 +37,7 @@ public class ImagePerfControllerListener2 extends BaseControllerListener2<ImageI
     public final ImagePerfNotifier mImagePerfNotifier;
     public final ImagePerfState mImagePerfState;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class LogHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

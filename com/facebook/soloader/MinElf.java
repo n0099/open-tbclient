@@ -18,7 +18,7 @@ import java.nio.ByteOrder;
 import java.nio.channels.FileChannel;
 import kotlin.UShort;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class MinElf {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DT_NEEDED = 1;
@@ -30,7 +30,7 @@ public final class MinElf {
     public static final int PT_LOAD = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class ElfError extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +57,7 @@ public final class MinElf {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class ISA {
         public static final /* synthetic */ ISA[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

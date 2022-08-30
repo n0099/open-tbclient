@@ -25,7 +25,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ag;
 import com.kwad.sdk.widget.KSRatingBar;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class n extends d implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public final class n extends d implements View.OnClickListener {
     public TextView vQ;
     public ViewStub vk;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -186,15 +186,15 @@ public final class n extends d implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f0910f5);
-            this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910f9);
-            this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910f8);
-            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910fc);
-            this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f0910fb);
-            this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910f6);
-            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910f7);
-            this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f0910f4);
-            this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910f3);
+            this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f0910f7);
+            this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910fb);
+            this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910fa);
+            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910fe);
+            this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f0910fd);
+            this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910f8);
+            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910f9);
+            this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f0910f6);
+            this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910f5);
             this.vM.setOnClickListener(this);
             this.vQ.setOnClickListener(this);
             this.vP.setOnClickListener(this);
@@ -295,17 +295,17 @@ public final class n extends d implements View.OnClickListener {
                     marginLayoutParams.bottomMargin = fR().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07038e);
                 }
                 this.vM.setBackgroundColor(-1);
-                this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06076b));
-                this.iu.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060767));
+                this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06076e));
+                this.iu.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06076a));
                 this.qC = com.kwad.sdk.b.kwai.a.A(this.mj);
                 com.kwad.sdk.b.kwai.a.i(this.mj, 49);
             } else {
                 if (marginLayoutParams != null) {
                     marginLayoutParams.bottomMargin = 0;
                 }
-                this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06076c));
-                this.iu.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060768));
-                this.vM.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060769));
+                this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06076f));
+                this.iu.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06076b));
+                this.vM.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f06076c));
             }
             if (marginLayoutParams != null) {
                 this.vM.setLayoutParams(marginLayoutParams);

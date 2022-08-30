@@ -10,12 +10,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,21 +51,21 @@ public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02fa, this);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090ae5);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02fb, this);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090ae6);
             this.a = linearLayout;
-            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090ae6);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090ae4);
-            this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090cf1);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09220e);
-            this.c.setText(R.string.obfuscated_res_0x7f0f065d);
-            this.d.setText(R.string.obfuscated_res_0x7f0f065c);
-            this.f.setText(R.string.obfuscated_res_0x7f0f040c);
+            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090ae7);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090ae5);
+            this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090cf2);
+            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092217);
+            this.c.setText(R.string.obfuscated_res_0x7f0f065e);
+            this.d.setText(R.string.obfuscated_res_0x7f0f065d);
+            this.f.setText(R.string.obfuscated_res_0x7f0f040d);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0302);
             SkinManager.setImageResource(this.e, R.drawable.pic_frs_guide_copylink);
-            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0211).blRadius(qi.f(this.b, R.dimen.tbds30)).brRadius(qi.f(this.b, R.dimen.tbds30)).tlRadius(qi.f(this.b, R.dimen.tbds32)).trRadius(qi.f(this.b, R.dimen.tbds32)).into(this.a);
+            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0211).blRadius(ri.f(this.b, R.dimen.tbds30)).brRadius(ri.f(this.b, R.dimen.tbds30)).tlRadius(ri.f(this.b, R.dimen.tbds32)).trRadius(ri.f(this.b, R.dimen.tbds32)).into(this.a);
         }
     }
 

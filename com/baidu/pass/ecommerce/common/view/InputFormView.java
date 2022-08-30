@@ -63,12 +63,12 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04d7, (ViewGroup) this, true);
-            this.mEditText = (LengthLimitEditText) inflate.findViewById(R.id.obfuscated_res_0x7f091cec);
-            this.mImg = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091cee);
-            this.mBottomLine = inflate.findViewById(R.id.obfuscated_res_0x7f091cef);
-            this.mCleanEtBtn = inflate.findViewById(R.id.obfuscated_res_0x7f091cea);
-            this.mCleanEtBtnDarkShape = inflate.findViewById(R.id.obfuscated_res_0x7f091ceb);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04d9, (ViewGroup) this, true);
+            this.mEditText = (LengthLimitEditText) inflate.findViewById(R.id.obfuscated_res_0x7f091cee);
+            this.mImg = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091cf0);
+            this.mBottomLine = inflate.findViewById(R.id.obfuscated_res_0x7f091cf1);
+            this.mCleanEtBtn = inflate.findViewById(R.id.obfuscated_res_0x7f091cec);
+            this.mCleanEtBtnDarkShape = inflate.findViewById(R.id.obfuscated_res_0x7f091ced);
             this.mCleanEtBtn.setOnClickListener(this);
             this.mEditText.setOnFocusChangeListener(this);
             this.mEditText.setLengthLimit(this.mMaxLength);
@@ -117,7 +117,7 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091cea) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091cec) {
             this.mEditText.setText("");
             this.mCleanEtBtn.setVisibility(8);
         }
@@ -140,9 +140,9 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             this.isDarkMode = z;
             if (z) {
-                this.mEditText.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060940));
-                this.mEditText.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060944));
-                this.mBottomLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06093e));
+                this.mEditText.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060943));
+                this.mEditText.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060947));
+                this.mBottomLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060941));
             }
         }
     }

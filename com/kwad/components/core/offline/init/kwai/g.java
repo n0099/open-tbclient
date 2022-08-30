@@ -27,7 +27,7 @@ import com.kwai.adclient.kscommerciallogger.model.BusinessType;
 import com.kwai.adclient.kscommerciallogger.model.SubBusinessType;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class g implements IOfflineHostApi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

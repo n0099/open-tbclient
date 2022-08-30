@@ -7,12 +7,12 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
 /* loaded from: classes3.dex */
 public abstract class CollectFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -112,7 +112,7 @@ public abstract class CollectFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             Bundle bundle = new Bundle();
-            boolean z = !r1() && oi.z();
+            boolean z = !r1() && pi.z();
             this.a = z;
             bundle.putBoolean("is_enable_edit", z);
             bundle.putInt("fragment_type", i);

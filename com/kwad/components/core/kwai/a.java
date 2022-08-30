@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,14 +21,14 @@ public final class a implements View.OnClickListener {
     @Nullable
     public ImageView CP;
     @Nullable
-    public InterfaceC0360a CQ;
+    public InterfaceC0575a CQ;
     @Nullable
     public TextView mTitle;
     public ViewGroup pV;
 
     /* renamed from: com.kwad.components.core.kwai.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0360a {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0575a {
         void r(View view2);
 
         void s(View view2);
@@ -52,7 +52,7 @@ public final class a implements View.OnClickListener {
         if (viewGroup == null) {
             return;
         }
-        ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f0910c8);
+        ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f0910ca);
         this.pV = viewGroup2;
         if (viewGroup2 == null) {
             return;
@@ -63,19 +63,19 @@ public final class a implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.mTitle = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910c5);
-            this.CO = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910c6);
-            ImageView imageView = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910c7);
+            this.mTitle = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910c7);
+            this.CO = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910c8);
+            ImageView imageView = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910c9);
             this.CP = imageView;
             imageView.setOnClickListener(this);
             this.CO.setOnClickListener(this);
         }
     }
 
-    public final void a(@Nullable InterfaceC0360a interfaceC0360a) {
+    public final void a(@Nullable InterfaceC0575a interfaceC0575a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0360a) == null) {
-            this.CQ = interfaceC0360a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0575a) == null) {
+            this.CQ = interfaceC0575a;
         }
     }
 

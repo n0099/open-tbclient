@@ -1,7 +1,7 @@
 package com.kwai.filedownloader.services;
 
 import android.os.IBinder;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface i {
     void EC();
 

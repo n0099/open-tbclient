@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements BlockingDeque<E>, Serializable {
     public static final long serialVersionUID = -387911632671998426L;
     public final int capacity;
@@ -23,7 +23,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
     public final Condition notEmpty;
     public final Condition notFull;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public abstract class AbstractItr implements Iterator<E> {
         public Node<E> lastRet;
         public Node<E> next;
@@ -109,7 +109,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class DescendingItr extends LinkedBlockingDeque<E>.AbstractItr {
         public DescendingItr() {
             super();
@@ -126,7 +126,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class Itr extends LinkedBlockingDeque<E>.AbstractItr {
         public Itr() {
             super();
@@ -143,7 +143,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class Node<E> {
         public E item;
         public Node<E> next;

@@ -5,12 +5,12 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.RemoteAudioSamplesInterceptor;
+import com.baidu.tieba.su9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ju9;
 import java.io.File;
 import java.io.IOException;
 import org.webrtc.VideoTrack;
@@ -84,7 +84,7 @@ public class RTCMediaRecorderImpl implements IMediaRecord {
                                 return;
                             }
                         }
-                        RTCVideoFileRenderer rTCVideoFileRenderer = new RTCVideoFileRenderer(file.getAbsolutePath(), mediaEncodeParams, ju9.a().getEglBaseContext(), this.audioInterceptor != null, recorderCallback);
+                        RTCVideoFileRenderer rTCVideoFileRenderer = new RTCVideoFileRenderer(file.getAbsolutePath(), mediaEncodeParams, su9.a().getEglBaseContext(), this.audioInterceptor != null, recorderCallback);
                         this.videoFileRenderer = rTCVideoFileRenderer;
                         this.videoTrack.addSink(rTCVideoFileRenderer);
                         if (this.audioInterceptor != null) {

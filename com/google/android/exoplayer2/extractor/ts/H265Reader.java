@@ -17,7 +17,7 @@ import com.google.android.exoplayer2.util.NalUnitUtil;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.ParsableNalUnitBitArray;
 import java.util.Collections;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class H265Reader implements ElementaryStreamReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLA_W_LP = 16;
@@ -45,7 +45,7 @@ public final class H265Reader implements ElementaryStreamReader {
     public long totalBytesWritten;
     public final NalUnitTargetBuffer vps;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class SampleReader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FIRST_SLICE_FLAG_OFFSET = 2;

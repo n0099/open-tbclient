@@ -19,7 +19,7 @@ import com.google.android.exoplayer2.util.NalUnitUtil;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.Arrays;
 import java.util.Collections;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class H262Reader implements ElementaryStreamReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double[] FRAME_RATE_VALUES;
@@ -42,7 +42,7 @@ public final class H262Reader implements ElementaryStreamReader {
     public boolean startedFirstSample;
     public long totalBytesWritten;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class CsdBuffer {
         public static /* synthetic */ Interceptable $ic;
         public static final byte[] START_CODE;

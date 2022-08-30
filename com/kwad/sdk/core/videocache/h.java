@@ -12,7 +12,7 @@ import java.io.InterruptedIOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class h implements l {
     public m aeG;
     public HttpURLConnection aeH;

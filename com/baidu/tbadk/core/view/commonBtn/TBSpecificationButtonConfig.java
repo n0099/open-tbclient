@@ -10,6 +10,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
 /* loaded from: classes3.dex */
 public abstract class TBSpecificationButtonConfig {
     public static /* synthetic */ Interceptable $ic;
@@ -191,13 +191,13 @@ public abstract class TBSpecificationButtonConfig {
         this.r = 0;
         this.s = GradientDrawable.Orientation.LEFT_RIGHT;
         this.e = new int[2];
-        this.j = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-        this.k = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-        this.l = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-        this.m = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
-        this.n = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
-        this.o = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
-        this.g = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+        this.j = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+        this.k = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+        this.l = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+        this.m = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
+        this.n = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
+        this.o = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
+        this.g = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
     }
 
     public abstract Drawable a(float f);

@@ -120,9 +120,9 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_GAME_PLAY_PUSH_PLAYER_SHOW = "c14730";
     public static final String KEY_GAME_PLAY_PUSH_REJECT_CLICK = "c14855";
     public static final String KEY_GAME_PLAY_PUSH_REJECT_SHOW = "c14851";
+    public static final String KEY_GAME_PLAY_PUSH_RING_DIALOG_COMMON = "c14926";
     public static final String KEY_GAME_PLAY_PUSH_SYSTEM_GROUP_ACCEPT_CLICK = "c14728";
     public static final String KEY_GAME_PLAY_PUSH_SYSTEM_GROUP_REJECT_CLICK = "c14729";
-    public static final String KEY_GAME_PLAY_PUSH_SYSTEM_GROUP_SHOW = "c14727";
     public static final String KEY_H5_OFFLINE_PACKAGE_DOWNLOAD = "c13435";
     public static final String KEY_HOME_LIVE_ICON_CLICK = "c14695";
     public static final String KEY_HOME_LIVE_ICON_SHOW = "c14694";

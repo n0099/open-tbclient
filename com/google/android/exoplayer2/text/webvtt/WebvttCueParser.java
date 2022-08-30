@@ -35,7 +35,7 @@ import java.util.List;
 import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class WebvttCueParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char CHAR_AMPERSAND = '&';
@@ -62,7 +62,7 @@ public final class WebvttCueParser {
     public transient /* synthetic */ FieldHolder $fh;
     public final StringBuilder textBuilder;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class StartTag {
         public static /* synthetic */ Interceptable $ic;
         public static final String[] NO_CLASSES;
@@ -146,7 +146,7 @@ public final class WebvttCueParser {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class StyleMatch implements Comparable<StyleMatch> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

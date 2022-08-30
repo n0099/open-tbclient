@@ -19,7 +19,7 @@ import com.qq.e.comm.constants.LoadAdParams;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.Map;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplianceInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

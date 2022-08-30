@@ -2,10 +2,10 @@ package com.google.android.exoplayer2.upstream;
 
 import android.net.Uri;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface DataSource {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface Factory {
         DataSource createDataSource();
     }

@@ -8,12 +8,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.compatible.EditorHelper;
+import com.baidu.tieba.tu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ru4;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -180,7 +180,7 @@ public class ABTestSwitchManager {
                     this.mSwitchs.putAll(hashMap);
                 }
                 EditorHelper.putString(getSharedPreferences(), PREF_KEY_SWITCHS, jSONArray.toString());
-                ru4.k().w("perf_start_open", isATest(ABTestConst.KEY_PERF_START_TEST) ? 1 : 0);
+                tu4.k().w("perf_start_open", isATest(ABTestConst.KEY_PERF_START_TEST) ? 1 : 0);
             } catch (Exception e) {
                 e.printStackTrace();
             }

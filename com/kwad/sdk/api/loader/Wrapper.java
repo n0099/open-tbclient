@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.WeakHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class Wrapper {
     public static final String CLAZZ_NAME = "com.kwad.sdk.api.loader.Wrapper";
     public static final int COUNT_LIMIT_AUTO_UN_WRAP = 5;
@@ -33,7 +33,7 @@ public class Wrapper {
     public static final List<String> sAutoUnWrapStackList = new CopyOnWriteArrayList();
     public static Map<Context, Context> sResContextCache = new WeakHashMap();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public WeakReference<Context> Sc;
         public StackTraceElement[] Sd;

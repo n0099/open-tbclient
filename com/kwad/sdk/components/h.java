@@ -1,7 +1,7 @@
 package com.kwad.sdk.components;
 
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface h {
     void a(String str, String str2, g gVar);
 

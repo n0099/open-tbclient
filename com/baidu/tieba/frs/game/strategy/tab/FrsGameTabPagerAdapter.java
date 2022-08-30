@@ -9,33 +9,33 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView;
+import com.baidu.tieba.nl6;
+import com.baidu.tieba.pl6;
+import com.baidu.tieba.rl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fl6;
-import com.repackage.hl6;
-import com.repackage.jl6;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FrsGameTabPagerAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final FrsGameStrategyItemListView[] a;
     public int b;
     public Context c;
-    public fl6 d;
-    public hl6 e;
+    public nl6 d;
+    public pl6 e;
     public FrsGameStrategyItemListView f;
     public int g;
     public BdUniqueId h;
 
-    public FrsGameTabPagerAdapter(Context context, fl6 fl6Var, hl6 hl6Var) {
+    public FrsGameTabPagerAdapter(Context context, nl6 nl6Var, pl6 pl6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, fl6Var, hl6Var};
+            Object[] objArr = {context, nl6Var, pl6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -49,8 +49,8 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
         this.b = 0;
         this.g = -1;
         this.c = context;
-        this.d = fl6Var;
-        this.e = hl6Var;
+        this.d = nl6Var;
+        this.e = pl6Var;
     }
 
     public FrsGameStrategyItemListView b() {
@@ -160,7 +160,7 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
-        jl6 a;
+        rl6 a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, viewGroup, i)) == null) {
             int i2 = i % 3;
@@ -182,8 +182,8 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
                 viewGroup.removeView(d);
             }
             viewGroup.addView(d);
-            hl6 hl6Var = this.e;
-            if (hl6Var != null && (a = hl6Var.a(i)) != null) {
+            pl6 pl6Var = this.e;
+            if (pl6Var != null && (a = pl6Var.a(i)) != null) {
                 Object obj = a.c;
                 if (obj instanceof LabelDataList) {
                     d.o(a.a, ((LabelDataList) obj).getSelectedLabelId());

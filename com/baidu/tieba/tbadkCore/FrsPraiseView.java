@@ -15,15 +15,15 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.PraiseData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.ze5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.og;
-import com.repackage.se5;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FrsPraiseView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class FrsPraiseView extends LinearLayout {
     public boolean i;
     public boolean j;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,12 +66,12 @@ public class FrsPraiseView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                se5.b(new PraiseListActivityConfig(this.a.a, this.a.g, this.a.h, this.a.f != null ? this.a.f.getTitle() : "", this.a.i));
+                ze5.b(new PraiseListActivityConfig(this.a.a, this.a.g, this.a.h, this.a.f != null ? this.a.f.getTitle() : "", this.a.i));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,11 +102,11 @@ public class FrsPraiseView extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (metaData = this.a.f.getUser().get(1)) == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.a).createNormalConfig(og.g(metaData.getUserId(), 0L), false, metaData.isBigV())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.a).createNormalConfig(pg.g(metaData.getUserId(), 0L), false, metaData.isBigV())));
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +137,7 @@ public class FrsPraiseView extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (metaData = this.a.f.getUser().get(0)) == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.a).createNormalConfig(og.g(metaData.getUserId(), 0L), false, metaData.isBigV())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.a).createNormalConfig(pg.g(metaData.getUserId(), 0L), false, metaData.isBigV())));
         }
     }
 
@@ -191,13 +191,13 @@ public class FrsPraiseView extends LinearLayout {
                     }
                 }
                 if (num <= 2) {
-                    this.c.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0418));
+                    this.c.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0419));
                 } else if (num <= 999999) {
                     TextView textView2 = this.c;
-                    textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f05bd) + num + this.a.getString(R.string.obfuscated_res_0x7f0f0419));
+                    textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f05be) + num + this.a.getString(R.string.obfuscated_res_0x7f0f041a));
                 } else {
                     TextView textView3 = this.c;
-                    textView3.setText(this.a.getString(R.string.obfuscated_res_0x7f0f05bd) + "999999+" + this.a.getString(R.string.obfuscated_res_0x7f0f0419));
+                    textView3.setText(this.a.getString(R.string.obfuscated_res_0x7f0f05be) + "999999+" + this.a.getString(R.string.obfuscated_res_0x7f0f041a));
                 }
             }
         }
@@ -212,11 +212,11 @@ public class FrsPraiseView extends LinearLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d0327, this);
+            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d0328, this);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b1d);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bb8);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bb9);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b1e);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bb9);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bba);
             setOnClickListener(new a(this));
             this.e.setOnClickListener(new b(this));
             this.d.setOnClickListener(new c(this));

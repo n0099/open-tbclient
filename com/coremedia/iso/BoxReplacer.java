@@ -1,5 +1,6 @@
 package com.coremedia.iso;
 
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,7 @@ import java.nio.channels.FileChannel;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BoxReplacer {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -61,7 +62,7 @@ public class BoxReplacer {
                 hashMap.put(Path.createPath(Path.getPath(isoFile, entry.getKey())), entry.getValue());
             }
             isoFile.close();
-            FileChannel channel = new RandomAccessFile(file, "rw").getChannel();
+            FileChannel channel = new RandomAccessFile(file, rw.c).getChannel();
             Iterator it = hashMap.entrySet().iterator();
             if (!it.hasNext()) {
                 channel.close();

@@ -13,12 +13,12 @@ import com.kwad.sdk.service.ServiceProvider;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class bi {
     public static boolean apo;
     public static final List<a> app = new ArrayList();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a implements com.kwad.sdk.core.b {
         public String apq;
         public String apr;

@@ -7,14 +7,14 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaSharedPrefHelper;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.si;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.p0.i1;
-import com.repackage.ri;
-import com.repackage.wi;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -147,7 +147,7 @@ public class DownloaderHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
-            String b = wi.b(FileHelper.GetStreamFromFile(file));
+            String b = xi.b(FileHelper.GetStreamFromFile(file));
             return !StringUtils.isNull(b) ? b.toLowerCase() : b;
         }
         return (String) invokeL.objValue;
@@ -226,10 +226,10 @@ public class DownloaderHelper {
         try {
             try {
                 if (file.exists() && !file.delete()) {
-                    ri.f(null);
+                    si.f(null);
                     return null;
                 } else if (!file.createNewFile()) {
-                    ri.f(null);
+                    si.f(null);
                     return null;
                 } else {
                     fileOutputStream = new FileOutputStream(file);
@@ -242,7 +242,7 @@ public class DownloaderHelper {
                             } else {
                                 fileOutputStream.flush();
                                 String path = file.getPath();
-                                ri.f(fileOutputStream);
+                                si.f(fileOutputStream);
                                 return path;
                             }
                         }
@@ -250,14 +250,14 @@ public class DownloaderHelper {
                         e = e2;
                         BdLog.e(e.getMessage());
                         TiebaStatic.file(e, "FileHelper.saveFile " + str + "/" + str2);
-                        ri.f(fileOutputStream);
+                        si.f(fileOutputStream);
                         return null;
                     }
                 }
             } catch (Throwable th) {
                 th = th;
                 outputStream = str3;
-                ri.f(outputStream);
+                si.f(outputStream);
                 throw th;
             }
         } catch (IOException e3) {
@@ -265,7 +265,7 @@ public class DownloaderHelper {
             fileOutputStream = null;
         } catch (Throwable th2) {
             th = th2;
-            ri.f(outputStream);
+            si.f(outputStream);
             throw th;
         }
     }
@@ -290,25 +290,25 @@ public class DownloaderHelper {
                         } else {
                             zipInputStream2.close();
                             FileHelper.deleteFile(new File(str));
-                            ri.e(zipInputStream2);
+                            si.e(zipInputStream2);
                             return true;
                         }
                     } catch (FileNotFoundException e) {
                         e = e;
                         zipInputStream = zipInputStream2;
                         e.printStackTrace();
-                        ri.e(zipInputStream);
+                        si.e(zipInputStream);
                         return false;
                     } catch (IOException e2) {
                         e = e2;
                         zipInputStream = zipInputStream2;
                         e.printStackTrace();
-                        ri.e(zipInputStream);
+                        si.e(zipInputStream);
                         return false;
                     } catch (Throwable th) {
                         th = th;
                         zipInputStream = zipInputStream2;
-                        ri.e(zipInputStream);
+                        si.e(zipInputStream);
                         throw th;
                     }
                 }

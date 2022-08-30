@@ -11,6 +11,12 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.media.audio.service.BgMusicPlayState;
+import com.baidu.tieba.ao2;
+import com.baidu.tieba.cl1;
+import com.baidu.tieba.g83;
+import com.baidu.tieba.ho2;
+import com.baidu.tieba.kh1;
+import com.baidu.tieba.ue3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,24 +25,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import com.repackage.bl1;
-import com.repackage.f83;
-import com.repackage.go2;
-import com.repackage.jh1;
-import com.repackage.te3;
-import com.repackage.zn2;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class DefaultSwanAppBgMusicPlayer implements bl1 {
+public class DefaultSwanAppBgMusicPlayer implements cl1 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean h;
     public static volatile DefaultSwanAppBgMusicPlayer i;
     public transient /* synthetic */ FieldHolder $fh;
     public MediaPlayer a;
     public PlayerStatus b;
-    public go2 c;
+    public ho2 c;
     public AudioManager d;
     public boolean e;
     public b f;
@@ -182,7 +182,7 @@ public class DefaultSwanAppBgMusicPlayer implements bl1 {
         public void onAudioFocusChange(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                te3.e0(new a(this, i));
+                ue3.e0(new a(this, i));
             }
         }
 
@@ -253,7 +253,7 @@ public class DefaultSwanAppBgMusicPlayer implements bl1 {
                 if (DefaultSwanAppBgMusicPlayer.h) {
                     Log.d("AudioPlayerListener", "--onError -> what: " + i + " extra: " + i2);
                 }
-                f83.b("audio", 2008, "--onError -> what: " + i + " extra: " + i2, -1, "");
+                g83.b("audio", 2008, "--onError -> what: " + i + " extra: " + i2, -1, "");
                 return true;
             }
             return invokeLII.booleanValue;
@@ -347,7 +347,7 @@ public class DefaultSwanAppBgMusicPlayer implements bl1 {
                 return;
             }
         }
-        h = jh1.a;
+        h = kh1.a;
     }
 
     public DefaultSwanAppBgMusicPlayer() {
@@ -382,17 +382,17 @@ public class DefaultSwanAppBgMusicPlayer implements bl1 {
         return (DefaultSwanAppBgMusicPlayer) invokeV.objValue;
     }
 
-    @Override // com.repackage.bl1
-    public void a(String str, go2 go2Var) {
+    @Override // com.baidu.tieba.cl1
+    public void a(String str, ho2 ho2Var) {
         String str2;
-        zn2 b2;
+        ao2 b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, go2Var) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, ho2Var) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.c = go2Var;
+        this.c = ho2Var;
         try {
-            b2 = zn2.b(new JSONObject(str), new zn2());
+            b2 = ao2.b(new JSONObject(str), new ao2());
             str2 = b2.c;
         } catch (IOException | JSONException e) {
             e = e;
@@ -408,12 +408,12 @@ public class DefaultSwanAppBgMusicPlayer implements bl1 {
             play();
         } catch (IOException e2) {
             e = e2;
-            f83.b("audio", 1001, "audio src error, src is" + str2, -1, "");
+            g83.b("audio", 1001, "audio src error, src is" + str2, -1, "");
             e.printStackTrace();
             this.c.onInvokeFailed();
         } catch (JSONException e3) {
             e = e3;
-            f83.b("audio", 1001, "audio src error, src is" + str2, -1, "");
+            g83.b("audio", 1001, "audio src error, src is" + str2, -1, "");
             e.printStackTrace();
             this.c.onInvokeFailed();
         }
@@ -436,14 +436,14 @@ public class DefaultSwanAppBgMusicPlayer implements bl1 {
         }
     }
 
-    @Override // com.repackage.bl1
+    @Override // com.baidu.tieba.cl1
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? k().getDuration() : invokeV.intValue;
     }
 
-    @Override // com.repackage.bl1
+    @Override // com.baidu.tieba.cl1
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -504,7 +504,7 @@ public class DefaultSwanAppBgMusicPlayer implements bl1 {
         }
     }
 
-    @Override // com.repackage.bl1
+    @Override // com.baidu.tieba.cl1
     public void onRelease() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -520,7 +520,7 @@ public class DefaultSwanAppBgMusicPlayer implements bl1 {
         }
     }
 
-    @Override // com.repackage.bl1
+    @Override // com.baidu.tieba.cl1
     public void pause() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && k().isPlaying()) {
@@ -533,7 +533,7 @@ public class DefaultSwanAppBgMusicPlayer implements bl1 {
         }
     }
 
-    @Override // com.repackage.bl1
+    @Override // com.baidu.tieba.cl1
     public void play() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -552,7 +552,7 @@ public class DefaultSwanAppBgMusicPlayer implements bl1 {
         }
     }
 
-    @Override // com.repackage.bl1
+    @Override // com.baidu.tieba.cl1
     public void seek(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
@@ -560,7 +560,7 @@ public class DefaultSwanAppBgMusicPlayer implements bl1 {
         }
     }
 
-    @Override // com.repackage.bl1
+    @Override // com.baidu.tieba.cl1
     public void stop() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.b == PlayerStatus.PREPARED) {

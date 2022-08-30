@@ -28,7 +28,7 @@ import com.sina.weibo.sdk.constant.WBConstants;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ComponentManager {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, String> stubString2PluginPkgName;

@@ -20,15 +20,15 @@ import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.InviteMsgData;
+import com.baidu.tieba.qe5;
+import com.baidu.tieba.r97;
+import com.baidu.tieba.t87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j97;
-import com.repackage.je5;
-import com.repackage.l87;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Invite2GroupView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public final class Invite2GroupView extends LinearLayout {
     public TextView d;
     public InviteMsgData e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +72,7 @@ public final class Invite2GroupView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +112,7 @@ public final class Invite2GroupView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,14 +145,14 @@ public final class Invite2GroupView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class d implements je5<Boolean> {
+    /* loaded from: classes4.dex */
+    public class d implements qe5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
         public final /* synthetic */ Invite2GroupView b;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -180,7 +180,7 @@ public final class Invite2GroupView extends LinearLayout {
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.b.getContext() instanceof Activity)) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0832);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0833);
                 }
             }
         }
@@ -205,7 +205,7 @@ public final class Invite2GroupView extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.je5
+        @Override // com.baidu.tieba.qe5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -247,12 +247,12 @@ public final class Invite2GroupView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03e3, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03e4, this);
             setOrientation(1);
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0905f9);
             this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905ef);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905ee);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090f69);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090f6a);
             this.b.setIsRound(false);
         }
     }
@@ -262,7 +262,7 @@ public final class Invite2GroupView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
             this.d.setEnabled(true);
             this.d.setTag(String.valueOf(this.e.getGroupId()));
-            this.d.setText(R.string.obfuscated_res_0x7f0f08a8);
+            this.d.setText(R.string.obfuscated_res_0x7f0f08ab);
             this.d.setTextColor(getContext().getResources().getColor(R.color.CAM_X0201));
             this.d.setOnClickListener(new a(this));
             this.a.setText(this.e.getTitle());
@@ -270,15 +270,15 @@ public final class Invite2GroupView extends LinearLayout {
             this.b.K(this.e.getPortrait(), 10, false);
             this.c.setText(this.e.getNotice());
             setOnClickListener(new b(this, tbPageContext));
-            if (l87.o().i(String.valueOf(this.e.getGroupId()), 1) != null) {
+            if (t87.o().i(String.valueOf(this.e.getGroupId()), 1) != null) {
                 if (String.valueOf(this.e.getGroupId()).equals(this.d.getTag())) {
-                    this.d.setText(R.string.obfuscated_res_0x7f0f08a9);
+                    this.d.setText(R.string.obfuscated_res_0x7f0f08ac);
                     this.d.setOnClickListener(new c(this));
                     return;
                 }
                 return;
             }
-            j97.k().m(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.e.getGroupId()), 60000L, new d(this, tbPageContext));
+            r97.k().m(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.e.getGroupId()), 60000L, new d(this, tbPageContext));
         }
     }
 

@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ContentProviderManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PLUGIN_PKG_NAME = "plugin_pkg_name";
@@ -48,7 +48,7 @@ public class ContentProviderManager {
     public final Map<b, a> mContentProviderMap;
     public final Map<String, c> mSystemProviderInfoMap;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class ContentProviderManager {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,7 +133,7 @@ public class ContentProviderManager {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class c extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

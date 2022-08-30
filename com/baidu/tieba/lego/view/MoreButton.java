@@ -6,31 +6,31 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.hf7;
+import com.baidu.tieba.ik8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ak8;
-import com.repackage.ze7;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MoreButton extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ ze7 b;
+        public final /* synthetic */ hf7 b;
         public final /* synthetic */ MoreButton c;
 
-        public a(MoreButton moreButton, TbPageContext tbPageContext, ze7 ze7Var) {
+        public a(MoreButton moreButton, TbPageContext tbPageContext, hf7 hf7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {moreButton, tbPageContext, ze7Var};
+                Object[] objArr = {moreButton, tbPageContext, hf7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,14 +42,14 @@ public class MoreButton extends TextView {
             }
             this.c = moreButton;
             this.a = tbPageContext;
-            this.b = ze7Var;
+            this.b = hf7Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ak8.c(this.a, this.b.d());
+                ik8.c(this.a, this.b.d());
             }
         }
     }
@@ -75,17 +75,17 @@ public class MoreButton extends TextView {
         }
     }
 
-    public void setData(ze7 ze7Var, TbPageContext tbPageContext) {
+    public void setData(hf7 hf7Var, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, ze7Var, tbPageContext) == null) {
-            if (ze7Var == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, hf7Var, tbPageContext) == null) {
+            if (hf7Var == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            setText(ze7Var.e());
-            if (!TextUtils.isEmpty(ze7Var.d())) {
-                setOnClickListener(new a(this, tbPageContext, ze7Var));
+            setText(hf7Var.e());
+            if (!TextUtils.isEmpty(hf7Var.d())) {
+                setOnClickListener(new a(this, tbPageContext, hf7Var));
             } else {
                 setOnClickListener(null);
             }

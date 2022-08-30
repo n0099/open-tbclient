@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class DefaultDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_ASSET = "asset";

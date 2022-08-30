@@ -13,6 +13,7 @@ import com.baidu.rtc.RtcParameterSettings;
 import com.baidu.rtc.SdpPrefer;
 import com.baidu.rtc.logreport.ErrorInfoReport;
 import com.baidu.rtc.logreport.SLIReportInterface;
+import com.baidu.tieba.tu9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ku9;
 import java.io.File;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
@@ -245,7 +245,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         @Override // org.webrtc.PeerConnection.Observer
         @CalledByNative("Observer")
         public /* synthetic */ void onConnectionChange(PeerConnection.PeerConnectionState peerConnectionState) {
-            ku9.$default$onConnectionChange(this, peerConnectionState);
+            tu9.$default$onConnectionChange(this, peerConnectionState);
         }
 
         @Override // org.webrtc.PeerConnection.Observer
@@ -474,7 +474,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         @Override // org.webrtc.PeerConnection.Observer
         @CalledByNative("Observer")
         public /* synthetic */ void onTrack(RtpTransceiver rtpTransceiver) {
-            ku9.$default$onTrack(this, rtpTransceiver);
+            tu9.$default$onTrack(this, rtpTransceiver);
         }
 
         public void setConnection(JanusConnection janusConnection) {
@@ -2407,7 +2407,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.executor.isShutdown()) {
                 Log.w(TAG, "executor is already shutdown");
             } else {
-                this.executor.execute(new Runnable() { // from class: com.repackage.xc1
+                this.executor.execute(new Runnable() { // from class: com.baidu.tieba.yc1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

@@ -137,16 +137,69 @@ import com.baidu.tbadk.util.InsertGalleryAsyncTask;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a35;
+import com.baidu.tieba.an;
+import com.baidu.tieba.b29;
+import com.baidu.tieba.b55;
+import com.baidu.tieba.bn8;
+import com.baidu.tieba.c9;
+import com.baidu.tieba.cu6;
+import com.baidu.tieba.cx4;
+import com.baidu.tieba.dn8;
+import com.baidu.tieba.ds8;
+import com.baidu.tieba.ep4;
+import com.baidu.tieba.f19;
+import com.baidu.tieba.fn8;
 import com.baidu.tieba.frs.FrsPublishFineGoodsDialogView;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.tieba.frs.SerializableItemInfo;
+import com.baidu.tieba.fs4;
+import com.baidu.tieba.g35;
+import com.baidu.tieba.h19;
+import com.baidu.tieba.hk8;
+import com.baidu.tieba.i09;
+import com.baidu.tieba.j35;
+import com.baidu.tieba.jf5;
+import com.baidu.tieba.jy4;
+import com.baidu.tieba.k19;
+import com.baidu.tieba.kg;
+import com.baidu.tieba.l35;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.m19;
+import com.baidu.tieba.m35;
+import com.baidu.tieba.mk8;
+import com.baidu.tieba.n25;
+import com.baidu.tieba.nf5;
+import com.baidu.tieba.nw4;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.p19;
+import com.baidu.tieba.pa6;
+import com.baidu.tieba.pe5;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.q25;
+import com.baidu.tieba.qe5;
+import com.baidu.tieba.qf5;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.s28;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.sz8;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 import com.baidu.tieba.tbadkCore.util.MercatorModel;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.tu4;
+import com.baidu.tieba.u09;
+import com.baidu.tieba.ug;
+import com.baidu.tieba.uk8;
+import com.baidu.tieba.v75;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.view.EBusinessProtocolView;
+import com.baidu.tieba.w16;
+import com.baidu.tieba.w19;
+import com.baidu.tieba.wr4;
 import com.baidu.tieba.write.WritePrefixItemLayout;
 import com.baidu.tieba.write.data.QuestionTagListData;
 import com.baidu.tieba.write.view.AssociatedItemContainer;
@@ -155,6 +208,10 @@ import com.baidu.tieba.write.view.ForumTabSelectedView;
 import com.baidu.tieba.write.view.LocalChannelTopicSelectView;
 import com.baidu.tieba.write.view.WriteEvaluationHeaderView;
 import com.baidu.tieba.write.view.xrichtext.RichTextEditor;
+import com.baidu.tieba.y25;
+import com.baidu.tieba.z19;
+import com.baidu.tieba.z25;
+import com.baidu.tieba.z45;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -163,63 +220,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
-import com.repackage.a35;
-import com.repackage.b19;
-import com.repackage.c9;
-import com.repackage.cf5;
-import com.repackage.cp4;
-import com.repackage.d19;
-import com.repackage.d35;
-import com.repackage.ds4;
-import com.repackage.ek8;
-import com.repackage.f35;
-import com.repackage.g19;
-import com.repackage.g35;
-import com.repackage.gf5;
-import com.repackage.gy4;
-import com.repackage.h25;
-import com.repackage.ha6;
-import com.repackage.ie5;
-import com.repackage.je5;
-import com.repackage.jf5;
-import com.repackage.jg;
-import com.repackage.jz8;
-import com.repackage.k25;
-import com.repackage.k28;
-import com.repackage.kg;
-import com.repackage.kw4;
-import com.repackage.l09;
-import com.repackage.mk8;
-import com.repackage.ms4;
-import com.repackage.n19;
-import com.repackage.o16;
-import com.repackage.og;
-import com.repackage.oi;
-import com.repackage.p75;
-import com.repackage.pi;
-import com.repackage.q19;
-import com.repackage.qi;
-import com.repackage.rg;
-import com.repackage.ru4;
-import com.repackage.s19;
-import com.repackage.s25;
-import com.repackage.t25;
-import com.repackage.t45;
-import com.repackage.tg;
-import com.repackage.tm8;
-import com.repackage.u25;
-import com.repackage.ur4;
-import com.repackage.ur8;
-import com.repackage.ut6;
-import com.repackage.v45;
-import com.repackage.vm8;
-import com.repackage.w09;
-import com.repackage.xm8;
-import com.repackage.y09;
-import com.repackage.zj8;
-import com.repackage.zm;
-import com.repackage.zw4;
-import com.repackage.zz8;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -230,17 +230,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes4.dex */
-public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implements VoiceManager.j, ek8.g, ActivityCompat.OnRequestPermissionsResultCallback {
+/* loaded from: classes6.dex */
+public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implements VoiceManager.j, mk8.g, ActivityCompat.OnRequestPermissionsResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public static int z2;
     public transient /* synthetic */ FieldHolder $fh;
-    public q19 A0;
-    public o16 A1;
+    public z19 A0;
+    public w16 A1;
     public VoiceData.VoiceModel B0;
     public WriteTipBubbleController B1;
     public boolean C0;
-    public w09 C1;
+    public f19 C1;
     public boolean D0;
     public String D1;
     public boolean E0;
@@ -260,11 +260,11 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public View L0;
     public View L1;
     public String M0;
-    public ds4 M1;
+    public fs4 M1;
     public TextView N0;
     public SaveDraftDialogView N1;
     public TextView O0;
-    public s19 O1;
+    public b29 O1;
     public NormalItemCell P0;
     public RelativeLayout P1;
     public NormalItemCell Q0;
@@ -288,17 +288,17 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public boolean Z0;
     public AssociatedItemContainer Z1;
     public String a1;
-    public final y09.d a2;
-    public vm8 b1;
-    public y09 b2;
+    public final h19.d a2;
+    public dn8 b1;
+    public h19 b2;
     public VoiceManager c1;
     public LinearLayout c2;
-    public d19 d1;
+    public m19 d1;
     public ImageView d2;
     public boolean e1;
     public TextView e2;
     public boolean f1;
-    public List<ut6> f2;
+    public List<cu6> f2;
     public String g1;
     public EBusinessProtocolView g2;
     public boolean h1;
@@ -320,7 +320,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public boolean p1;
     public WriteImageGridView p2;
     public long q1;
-    public g35 q2;
+    public m35 q2;
     public boolean r1;
     public CustomMessageListener r2;
     public boolean s1;
@@ -328,18 +328,18 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public String t1;
     public CustomMessageListener t2;
     public int u1;
-    public p75 u2;
+    public v75 u2;
     public boolean v1;
     public boolean v2;
     public boolean w1;
     public int w2;
     public boolean x1;
-    public final mk8.f x2;
+    public final uk8.f x2;
     public String y1;
     public final Runnable y2;
     public boolean z1;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -373,13 +373,13 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             }
             if (writeActivity.C1 == null) {
                 WriteActivity writeActivity2 = this.a;
-                writeActivity2.C1 = new w09(writeActivity2.getPageContext());
+                writeActivity2.C1 = new f19(writeActivity2.getPageContext());
             }
             this.a.C1.b(this.a.e0.a.s(2));
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a0 implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -410,7 +410,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
                     view2.requestFocus();
-                    this.a.e0.A(new h25(5, -1, null));
+                    this.a.e0.A(new n25(5, -1, null));
                     this.a.L.requestFocus();
                     return false;
                 }
@@ -420,7 +420,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -456,8 +456,8 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b0 extends jg<zm> {
+    /* loaded from: classes6.dex */
+    public class b0 extends kg<an> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -483,28 +483,28 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jg
-        public void onLoaded(zm zmVar, String str, int i) {
+        @Override // com.baidu.tieba.kg
+        public void onLoaded(an anVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, zmVar, str, i) == null) {
-                super.onLoaded((b0) zmVar, str, i);
-                if (zmVar == null || zmVar.p() == null || zmVar.o() == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, anVar, str, i) == null) {
+                super.onLoaded((b0) anVar, str, i);
+                if (anVar == null || anVar.p() == null || anVar.o() == null) {
                     return;
                 }
-                NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(TbadkCoreApplication.getInst().getResources(), zmVar.p(), zmVar.p().getNinePatchChunk(), zmVar.o(), null);
+                NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(TbadkCoreApplication.getInst().getResources(), anVar.p(), anVar.p().getNinePatchChunk(), anVar.o(), null);
                 if (TbadkCoreApplication.getInst().getSkinType() == 1 || TbadkCoreApplication.getInst().getSkinType() == 4) {
                     ninePatchDrawable.getPaint().setAlpha(TbConfig.ALPHA_80);
                 }
                 this.b.J0.setBackgroundDrawable(ninePatchDrawable);
                 if (this.a) {
-                    mk8.c(this.b.getPageContext(), this.b.W1(), true, this.b.x2);
+                    uk8.c(this.b.getPageContext(), this.b.W1(), true, this.b.x2);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001353, Boolean.TRUE));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -537,14 +537,14 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 return;
             }
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f091d5d) {
+            if (id == R.id.obfuscated_res_0x7f091d5f) {
                 this.b.Q4();
                 if (this.a) {
                     this.b.d6();
                 }
                 this.b.setResult(100);
                 this.b.finish();
-            } else if (id == R.id.obfuscated_res_0x7f091d5e) {
+            } else if (id == R.id.obfuscated_res_0x7f091d60) {
                 this.b.y6();
                 if (this.a) {
                     this.b.d6();
@@ -556,8 +556,8 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c0 implements mk8.f {
+    /* loaded from: classes6.dex */
+    public class c0 implements uk8.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteActivity a;
@@ -580,18 +580,18 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             this.a = writeActivity;
         }
 
-        @Override // com.repackage.mk8.f
+        @Override // com.baidu.tieba.uk8.f
         public void onRefresh() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.M0 = null;
                 this.a.A6(false);
-                this.a.e0.A(new h25(2, 12, null));
+                this.a.e0.A(new n25(2, 12, null));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -624,13 +624,13 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                     this.a.U2();
                     this.a.N1();
                 } else if (this.a.h1) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.getPageContext().getPageActivity(), "", qi.P(TbConfig.QUESTION_THREAD_RULE, "refer=3"), true, true, true)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.getPageContext().getPageActivity(), "", ri.P(TbConfig.QUESTION_THREAD_RULE, "refer=3"), true, true, true)));
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class d0 implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -657,45 +657,45 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && this.a.b2 != null && (this.a.b2.getItem(i) instanceof cp4)) {
-                cp4 cp4Var = (cp4) this.a.b2.getItem(i);
-                int i2 = cp4Var.b;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && this.a.b2 != null && (this.a.b2.getItem(i) instanceof ep4)) {
+                ep4 ep4Var = (ep4) this.a.b2.getItem(i);
+                int i2 = ep4Var.b;
                 if (i2 == 1) {
-                    if (cp4Var.o == 1) {
-                        UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{cp4Var.g});
+                    if (ep4Var.o == 1) {
+                        UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{ep4Var.g});
                         return;
                     }
                     UrlManager urlManager = UrlManager.getInstance();
                     TbPageContext<WriteActivity> pageContext = this.a.getPageContext();
-                    urlManager.dealOneLink(pageContext, new String[]{"https://tieba.baidu.com/mo/q/checkurl?url=" + pi.getUrlEncode(cp4Var.g)});
+                    urlManager.dealOneLink(pageContext, new String[]{"https://tieba.baidu.com/mo/q/checkurl?url=" + qi.getUrlEncode(ep4Var.g)});
                 } else if (i2 == 2) {
-                    if (!TextUtils.isEmpty(cp4Var.j)) {
-                        if (cp4Var.j.startsWith("tiebaclient://")) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, cp4Var.j));
+                    if (!TextUtils.isEmpty(ep4Var.j)) {
+                        if (ep4Var.j.startsWith("tiebaclient://")) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, ep4Var.j));
                             return;
                         }
-                        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(cp4Var.j));
+                        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(ep4Var.j));
                         intent.addFlags(268468224);
                         if (UtilHelper.isHaveActivityCanHandleIntent(intent)) {
                             this.a.startActivity(intent);
-                        } else if (TextUtils.isEmpty(cp4Var.k)) {
+                        } else if (TextUtils.isEmpty(ep4Var.k)) {
                         } else {
                             UrlManager urlManager2 = UrlManager.getInstance();
                             TbPageContext<WriteActivity> pageContext2 = this.a.getPageContext();
-                            urlManager2.dealOneLink(pageContext2, new String[]{"https://tieba.baidu.com/mo/q/checkurl?url=" + pi.getUrlEncode(cp4Var.k)});
+                            urlManager2.dealOneLink(pageContext2, new String[]{"https://tieba.baidu.com/mo/q/checkurl?url=" + qi.getUrlEncode(ep4Var.k)});
                         }
-                    } else if (TextUtils.isEmpty(cp4Var.k)) {
+                    } else if (TextUtils.isEmpty(ep4Var.k)) {
                     } else {
                         UrlManager urlManager3 = UrlManager.getInstance();
                         TbPageContext<WriteActivity> pageContext3 = this.a.getPageContext();
-                        urlManager3.dealOneLink(pageContext3, new String[]{"https://tieba.baidu.com/mo/q/checkurl?url=" + pi.getUrlEncode(cp4Var.k)});
+                        urlManager3.dealOneLink(pageContext3, new String[]{"https://tieba.baidu.com/mo/q/checkurl?url=" + qi.getUrlEncode(ep4Var.k)});
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -729,7 +729,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class e0 implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -757,12 +757,12 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         public void run() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.V1) {
-                this.a.s0.callback(false, xm8.c, xm8.d, xm8.e, xm8.f);
+                this.a.s0.callback(false, fn8.c, fn8.d, fn8.e, fn8.f);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -797,7 +797,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class f0 implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -825,12 +825,12 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qi.x(this.a.getActivity(), this.a.getCurrentFocus());
+                ri.x(this.a.getActivity(), this.a.getCurrentFocus());
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -865,7 +865,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class g0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -906,7 +906,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class h implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -939,7 +939,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class h0 extends BdAsyncTask<Void, Integer, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -976,7 +976,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class i implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1018,13 +1018,13 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 }
                 BdTopToast bdTopToast = new BdTopToast(this.a, 3000);
                 bdTopToast.h(false);
-                bdTopToast.g(this.a.getString(R.string.obfuscated_res_0x7f0f03c2));
+                bdTopToast.g(this.a.getString(R.string.obfuscated_res_0x7f0f03c3));
                 bdTopToast.i((ViewGroup) this.a.C);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class i0 extends InsertGalleryAsyncTask.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1074,8 +1074,8 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class j implements n19 {
+    /* loaded from: classes6.dex */
+    public class j implements w19 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteActivity a;
@@ -1098,7 +1098,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             this.a = writeActivity;
         }
 
-        @Override // com.repackage.n19
+        @Override // com.baidu.tieba.w19
         public void a(@NonNull QuestionTagListData.QuestionTag questionTag) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, questionTag) == null) {
@@ -1114,7 +1114,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class j0 implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1149,8 +1149,8 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class k implements y09.d {
+    /* loaded from: classes6.dex */
+    public class k implements h19.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteActivity a;
@@ -1173,15 +1173,15 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             this.a = writeActivity;
         }
 
-        @Override // com.repackage.y09.d
-        public void a(List<cp4> list) {
+        @Override // com.baidu.tieba.h19.d
+        public void a(List<ep4> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 this.a.O6(list);
             }
         }
 
-        @Override // com.repackage.y09.d
+        @Override // com.baidu.tieba.h19.d
         public void b(int i) {
             SpanGroupEditText spanGroupEditText;
             Interceptable interceptable = $ic;
@@ -1192,7 +1192,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class k0 implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1220,13 +1220,13 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) && this.a.p1) {
-                qi.x(this.a.getPageContext().getPageActivity(), this.a.getCurrentFocus());
+                ri.x(this.a.getPageContext().getPageActivity(), this.a.getCurrentFocus());
                 this.a.q1 = System.currentTimeMillis();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class l implements AssociatedItemContainer.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1263,14 +1263,14 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class l0 implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteActivity a;
 
-        /* loaded from: classes4.dex */
-        public class a extends cf5<String> {
+        /* loaded from: classes6.dex */
+        public class a extends jf5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1291,7 +1291,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.cf5
+            @Override // com.baidu.tieba.jf5
             public String doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -1299,8 +1299,8 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             }
         }
 
-        /* loaded from: classes4.dex */
-        public class b implements je5<String> {
+        /* loaded from: classes6.dex */
+        public class b implements qe5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ l0 a;
@@ -1324,18 +1324,18 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.je5
+            @Override // com.baidu.tieba.qe5
             /* renamed from: a */
             public void onReturnDataInUI(String str) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !pi.isEmpty(str) && UrlManager.getInstance().isUrlValid(str)) {
+                if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !qi.isEmpty(str) && UrlManager.getInstance().isUrlValid(str)) {
                     if (this.a.a.B1 == null) {
                         WriteActivity writeActivity = this.a.a;
                         writeActivity.B1 = new WriteTipBubbleController(writeActivity.getPageContext(), this.a.a.n2);
                     }
                     View s = this.a.a.e0.a.s(31);
                     WriteTipBubbleController writeTipBubbleController = this.a.a.B1;
-                    writeTipBubbleController.d(s, this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f062d) + "\n" + str, str, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDITOR_TOOL);
+                    writeTipBubbleController.d(s, this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f062e) + "\n" + str, str, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDITOR_TOOL);
                 }
             }
         }
@@ -1366,11 +1366,11 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 return;
             }
             if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-                gf5.b(new a(this), new b(this));
+                nf5.b(new a(this), new b(this));
                 return;
             }
             String clipBoardContent = UtilHelper.getClipBoardContent();
-            if (pi.isEmpty(clipBoardContent) || !UrlManager.getInstance().isUrlValid(clipBoardContent)) {
+            if (qi.isEmpty(clipBoardContent) || !UrlManager.getInstance().isUrlValid(clipBoardContent)) {
                 return;
             }
             if (this.a.B1 == null) {
@@ -1379,11 +1379,11 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             }
             View s = this.a.e0.a.s(31);
             WriteTipBubbleController writeTipBubbleController = this.a.B1;
-            writeTipBubbleController.d(s, this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f062d) + "\n" + clipBoardContent, clipBoardContent, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDITOR_TOOL);
+            writeTipBubbleController.d(s, this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f062e) + "\n" + clipBoardContent, clipBoardContent, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDITOR_TOOL);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class m implements AssociatedItemContainer.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1420,19 +1420,19 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class m0 implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ur4 a;
+        public final /* synthetic */ wr4 a;
         public final /* synthetic */ WriteActivity b;
 
-        public m0(WriteActivity writeActivity, ur4 ur4Var) {
+        public m0(WriteActivity writeActivity, wr4 wr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {writeActivity, ur4Var};
+                Object[] objArr = {writeActivity, wr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -1443,18 +1443,18 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 }
             }
             this.b = writeActivity;
-            this.a = ur4Var;
+            this.a = wr4Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            ur4 ur4Var;
+            wr4 wr4Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (ur4Var = this.a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (wr4Var = this.a) == null) {
                 return;
             }
-            ur4Var.dismiss();
-            ru4.k().u("commodity_goods_show_first_dialog", true);
+            wr4Var.dismiss();
+            tu4.k().u("commodity_goods_show_first_dialog", true);
             StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_WRITE_GOODS_NEW_DIALOG_CLICK).param("obj_locate", 2);
             WriteData writeData = this.b.r;
             StatisticItem param2 = param.param("fid", writeData != null ? writeData.getForumId() : "");
@@ -1465,7 +1465,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class n implements WriteEvaluationHeaderView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1502,7 +1502,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class n0 implements CustomMessageTask.CustomRunnable<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1536,7 +1536,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 }
                 BdTopToast bdTopToast = new BdTopToast(this.a);
                 bdTopToast.h(false);
-                bdTopToast.g(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14da));
+                bdTopToast.g(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14dd));
                 bdTopToast.i((ViewGroup) this.a.C);
                 return null;
             }
@@ -1544,7 +1544,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class o implements WriteEvaluationHeaderView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1577,7 +1577,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class o0 implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1610,7 +1610,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class p extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1638,7 +1638,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                tg.i(this.a.g2, this.a);
+                ug.i(this.a.g2, this.a);
             }
         }
 
@@ -1651,7 +1651,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class p0 implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1684,14 +1684,14 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class q implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteActivity a;
 
-        /* loaded from: classes4.dex */
-        public class a implements ur4.e {
+        /* loaded from: classes6.dex */
+        public class a implements wr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1711,19 +1711,19 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 }
             }
 
-            @Override // com.repackage.ur4.e
-            public void onClick(ur4 ur4Var) {
+            @Override // com.baidu.tieba.wr4.e
+            public void onClick(wr4 wr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, ur4Var) == null) {
-                    ru4 k = ru4.k();
+                if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
+                    tu4 k = tu4.k();
                     k.u(TbadkCoreApplication.getCurrentAccount() + "is_agree_protocol", true);
-                    ur4Var.dismiss();
+                    wr4Var.dismiss();
                 }
             }
         }
 
-        /* loaded from: classes4.dex */
-        public class b implements ur4.e {
+        /* loaded from: classes6.dex */
+        public class b implements wr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1743,13 +1743,13 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 }
             }
 
-            @Override // com.repackage.ur4.e
-            public void onClick(ur4 ur4Var) {
+            @Override // com.baidu.tieba.wr4.e
+            public void onClick(wr4 wr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, ur4Var) == null) {
-                    ru4 k = ru4.k();
+                if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
+                    tu4 k = tu4.k();
                     k.u(TbadkCoreApplication.getCurrentAccount() + "is_agree_protocol", false);
-                    ur4Var.dismiss();
+                    wr4Var.dismiss();
                 }
             }
         }
@@ -1778,28 +1778,28 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.h2) {
                     this.a.h2 = false;
-                    this.a.d2.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a12, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
+                    this.a.d2.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a13, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
                 } else {
                     this.a.h2 = true;
-                    this.a.d2.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080823, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+                    this.a.d2.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080824, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
                 }
-                ru4 k = ru4.k();
+                tu4 k = tu4.k();
                 if (k.h(TbadkCoreApplication.getCurrentAccount() + "is_agree_protocol", false) || !this.a.h2) {
                     return;
                 }
-                ur4 ur4Var = new ur4(this.a);
-                ur4Var.setNegativeTextColor(R.color.CAM_X0105);
-                ur4Var.setTitle("");
-                ur4Var.setMessage(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f30));
-                ur4Var.setContentViewSize(1);
-                ur4Var.setPositiveButton("同意", new a(this));
-                ur4Var.setNegativeButton(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new b(this));
-                ur4Var.create(this.a.getPageContext()).show();
+                wr4 wr4Var = new wr4(this.a);
+                wr4Var.setNegativeTextColor(R.color.CAM_X0105);
+                wr4Var.setTitle("");
+                wr4Var.setMessage(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f33));
+                wr4Var.setContentViewSize(1);
+                wr4Var.setPositiveButton("同意", new a(this));
+                wr4Var.setNegativeButton(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new b(this));
+                wr4Var.create(this.a.getPageContext()).show();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class q0 implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1832,7 +1832,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class r implements EBusinessProtocolView.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1865,16 +1865,16 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                         return;
                     }
                     this.a.h2 = true;
-                    this.a.d2.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080823, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+                    this.a.d2.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080824, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
                 } else if (this.a.h2) {
                     this.a.h2 = false;
-                    this.a.d2.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a12, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
+                    this.a.d2.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a13, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class r0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1913,7 +1913,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class s implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1946,7 +1946,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class s0 implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1978,7 +1978,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class t implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2009,9 +2009,9 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 TiebaStatic.log(new StatisticItem("c13013").param("fid", this.a.r.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccountId()));
                 this.a.U.setVisibility(0);
                 this.a.X.setSelected(true);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.W, R.drawable.obfuscated_res_0x7f080932, R.color.CAM_X0105, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.W, R.drawable.obfuscated_res_0x7f080933, R.color.CAM_X0105, null);
                 WriteActivity writeActivity = this.a;
-                tg.l(writeActivity.V, view2, 0, qi.d(writeActivity.getPageContext().getPageActivity(), 1.0f));
+                ug.l(writeActivity.V, view2, 0, ri.d(writeActivity.getPageContext().getPageActivity(), 1.0f));
                 this.a.e0.q();
                 WriteActivity writeActivity2 = this.a;
                 writeActivity2.HidenSoftKeyPad(writeActivity2.f0, writeActivity2.H);
@@ -2021,7 +2021,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class t0 implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2051,7 +2051,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.x1) {
                     this.a.x1 = false;
-                    ru4 k = ru4.k();
+                    tu4 k = tu4.k();
                     k.u("key_write_virtual_image_enable" + TbadkCoreApplication.getCurrentAccount(), this.a.x1);
                     WriteActivity writeActivity = this.a;
                     writeActivity.r.setShowCustomFigure(writeActivity.x1);
@@ -2062,7 +2062,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class u implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2092,9 +2092,9 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log(new StatisticItem("c13013").param("fid", this.a.r.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccountId()));
                 this.a.U.setSelected(true);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.W, R.drawable.obfuscated_res_0x7f080932, R.color.CAM_X0105, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.W, R.drawable.obfuscated_res_0x7f080933, R.color.CAM_X0105, null);
                 WriteActivity writeActivity = this.a;
-                tg.l(writeActivity.V, view2, 0, qi.d(writeActivity.getPageContext().getPageActivity(), 1.0f));
+                ug.l(writeActivity.V, view2, 0, ri.d(writeActivity.getPageContext().getPageActivity(), 1.0f));
                 this.a.e0.q();
                 WriteActivity writeActivity2 = this.a;
                 writeActivity2.HidenSoftKeyPad(writeActivity2.f0, writeActivity2.X1());
@@ -2104,7 +2104,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class u0 implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2138,7 +2138,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class v extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2185,7 +2185,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class v0 implements WriteTipBubbleController.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2222,7 +2222,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class w extends c9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2246,7 +2246,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             this.a = writeActivity;
         }
 
-        @Override // com.repackage.c9
+        @Override // com.baidu.tieba.c9
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -2254,7 +2254,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 if (obj == null || !(obj instanceof FeedBackModel)) {
                     this.a.H0.setVisibility(8);
                     this.a.I0.setVisibility(8);
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c40);
                     return;
                 }
                 FeedBackModel feedBackModel = (FeedBackModel) obj;
@@ -2268,7 +2268,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class w0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2306,7 +2306,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class x implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2335,7 +2335,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             String string;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                g19.b(1);
+                p19.b(1);
                 if (this.a.M4()) {
                     return;
                 }
@@ -2343,11 +2343,11 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 if (spanGroupEditText != null && spanGroupEditText.getText() != null && this.a.L.getText().toString() != null) {
                     if (this.a.L.getText().toString().length() > 1000) {
                         WriteActivity writeActivity = this.a;
-                        writeActivity.showToast(writeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0ed1));
+                        writeActivity.showToast(writeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0ed4));
                         return;
                     } else if (this.a.L.getText().toString().contains("ܷ") || this.a.L.getText().toString().contains("ܶ")) {
                         WriteActivity writeActivity2 = this.a;
-                        writeActivity2.showToast(writeActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0ed0));
+                        writeActivity2.showToast(writeActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0ed3));
                         return;
                     }
                 }
@@ -2358,17 +2358,17 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                                 if (this.a.L4()) {
                                     int O4 = this.a.O4();
                                     if (O4 == 1) {
-                                        this.a.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f142f));
+                                        this.a.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1432));
                                         return;
                                     } else if (O4 == 2) {
-                                        this.a.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1430));
+                                        this.a.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1433));
                                         return;
                                     }
                                 }
-                                if (!oi.z()) {
-                                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
+                                if (!pi.z()) {
+                                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c40);
                                 }
-                                if (jf5.a()) {
+                                if (qf5.a()) {
                                     return;
                                 }
                                 WriteActivity writeActivity3 = this.a;
@@ -2392,10 +2392,10 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                                 return;
                             }
                             WriteActivity writeActivity7 = this.a;
-                            writeActivity7.showToast(writeActivity7.getResources().getString(R.string.obfuscated_res_0x7f0f0f37));
+                            writeActivity7.showToast(writeActivity7.getResources().getString(R.string.obfuscated_res_0x7f0f0f3a));
                             return;
                         }
-                        this.a.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f142a));
+                        this.a.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f142d));
                         return;
                     }
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectForumConfig(this.a)));
@@ -2404,9 +2404,9 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 BdTopToast bdTopToast = new BdTopToast(this.a, 3000);
                 bdTopToast.h(false);
                 if (this.a.h1) {
-                    string = this.a.getString(R.string.obfuscated_res_0x7f0f0f73);
+                    string = this.a.getString(R.string.obfuscated_res_0x7f0f0f76);
                 } else {
-                    string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f141e);
+                    string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1421);
                 }
                 bdTopToast.g(string);
                 bdTopToast.i((ViewGroup) this.a.C);
@@ -2414,7 +2414,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class x0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2453,8 +2453,8 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class y implements l09.c {
+    /* loaded from: classes6.dex */
+    public class y implements u09.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteActivity a;
@@ -2477,16 +2477,16 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             this.a = writeActivity;
         }
 
-        @Override // com.repackage.l09.c
+        @Override // com.baidu.tieba.u09.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qi.N(TbadkCoreApplication.getInst(), String.format(this.a.getString(R.string.obfuscated_res_0x7f0f15d5), 31));
+                ri.N(TbadkCoreApplication.getInst(), String.format(this.a.getString(R.string.obfuscated_res_0x7f0f15d8), 31));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class y0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2523,8 +2523,8 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class z implements kw4.a {
+    /* loaded from: classes6.dex */
+    public class z implements nw4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteActivity a;
@@ -2547,7 +2547,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             this.a = writeActivity;
         }
 
-        @Override // com.repackage.kw4.a
+        @Override // com.baidu.tieba.nw4.a
         public void a(int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
@@ -2557,8 +2557,8 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class z0 extends p75<GoodsEvent> {
+    /* loaded from: classes6.dex */
+    public class z0 extends v75<GoodsEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteActivity c;
@@ -2582,7 +2582,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.i75
+        @Override // com.baidu.tieba.o75
         /* renamed from: a */
         public boolean onEvent(GoodsEvent goodsEvent) {
             InterceptResult invokeL;
@@ -2678,7 +2678,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         if (interceptable == null || (invokeLF = interceptable.invokeLF(65590, null, str, f2)) == null) {
             int i2 = (int) f2;
             Bitmap bitmap2 = null;
-            if (!pi.isEmpty(str) && i2 > 0) {
+            if (!qi.isEmpty(str) && i2 > 0) {
                 try {
                     BitmapFactory.Options options = new BitmapFactory.Options();
                     options.inJustDecodeBounds = true;
@@ -2721,18 +2721,18 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
 
     public final void A4() {
         CustomResponsedMessage runTask;
-        s25 s25Var;
+        y25 y25Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             boolean booleanValue = X5().booleanValue();
-            if (this.C0 || !booleanValue || !tm8.a() || !zj8.a(this.r.getForumName(), Boolean.TRUE) || (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, getActivity()), s25.class)) == null || (s25Var = (s25) runTask.getData()) == null) {
+            if (this.C0 || !booleanValue || !bn8.a() || !hk8.a(this.r.getForumName(), Boolean.TRUE) || (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, getActivity()), y25.class)) == null || (y25Var = (y25) runTask.getData()) == null) {
                 return;
             }
-            s25Var.l = 3;
+            y25Var.l = 3;
             if (WriteActivityConfig.FROM_FORUM_SHARE.equals(this.f)) {
                 return;
             }
-            this.e0.d(s25Var);
+            this.e0.d(y25Var);
         }
     }
 
@@ -2758,7 +2758,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         if (TextUtils.isEmpty(this.M0) || this.s != null) {
             return;
         }
-        kg.h().m(this.M0, 19, new b0(this, z3), getUniqueId());
+        lg.h().m(this.M0, 19, new b0(this, z3), getUniqueId());
     }
 
     @Override // com.baidu.tieba.write.write.AbsBaseWriteActivity
@@ -2782,9 +2782,9 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.s == null) {
             if (this.g0 == null) {
-                zz8 zz8Var = new zz8(getActivity(), this.l);
-                this.g0 = zz8Var;
-                zz8Var.m(0);
+                i09 i09Var = new i09(getActivity(), this.l);
+                this.g0 = i09Var;
+                i09Var.m(0);
                 this.g0.n(SwitchManager.getInstance().findType(RepostToDynamicDefaultSwitch.KEY) == 1);
                 if (this.s1 || this.h1) {
                     this.g0.p(false);
@@ -2930,9 +2930,9 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             this.o2 = (ListView) this.C.findViewById(R.id.obfuscated_res_0x7f09067e);
-            y09 y09Var = new y09(getPageContext());
-            this.b2 = y09Var;
-            y09Var.j(this.a2);
+            h19 h19Var = new h19(getPageContext());
+            this.b2 = h19Var;
+            h19Var.j(this.a2);
             this.o2.setAdapter((ListAdapter) this.b2);
             this.o2.setOnItemClickListener(new d0(this));
         }
@@ -2968,7 +2968,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public final void E5() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.s1) {
-            LocalChannelTopicSelectView localChannelTopicSelectView = (LocalChannelTopicSelectView) findViewById(R.id.obfuscated_res_0x7f09264f);
+            LocalChannelTopicSelectView localChannelTopicSelectView = (LocalChannelTopicSelectView) findViewById(R.id.obfuscated_res_0x7f092659);
             this.G1 = localChannelTopicSelectView;
             localChannelTopicSelectView.setVisibility(0);
             this.G1.setLocalChannelTopic(this.t1);
@@ -2979,27 +2979,27 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         SpanGroupEditText spanGroupEditText;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            y09 y09Var = this.b2;
-            if (y09Var != null && y09Var.f() == null && (spanGroupEditText = this.L) != null && spanGroupEditText.getSpanGroupManager() != null) {
+            h19 h19Var = this.b2;
+            if (h19Var != null && h19Var.f() == null && (spanGroupEditText = this.L) != null && spanGroupEditText.getSpanGroupManager() != null) {
                 this.b2.i(this.L.getSpanGroupManager().F());
                 this.b2.h();
             } else {
-                y09 y09Var2 = this.b2;
-                if (y09Var2 != null && y09Var2.f() != null) {
+                h19 h19Var2 = this.b2;
+                if (h19Var2 != null && h19Var2.f() != null) {
                     this.b2.h();
                 }
             }
-            y09 y09Var3 = this.b2;
-            if (y09Var3 != null) {
-                if (y09Var3.getCount() == 0) {
+            h19 h19Var3 = this.b2;
+            if (h19Var3 != null) {
+                if (h19Var3.getCount() == 0) {
                     this.o2.setVisibility(8);
                 } else {
                     this.o2.setVisibility(0);
                 }
             }
-            y09 y09Var4 = this.b2;
-            if (y09Var4 != null) {
-                O6(y09Var4.d());
+            h19 h19Var4 = this.b2;
+            if (h19Var4 != null) {
+                O6(h19Var4.d());
             }
         }
     }
@@ -3049,7 +3049,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             if (postPrefixData != null && postPrefixData.getPrefixs().size() > 1) {
                 this.X.setVisibility(0);
                 this.M.setVisibility(0);
-                this.A1.y0(getString(R.string.obfuscated_res_0x7f0f15e8), "write_title_prefix_tip_key", true);
+                this.A1.y0(getString(R.string.obfuscated_res_0x7f0f15eb), "write_title_prefix_tip_key", true);
                 ArrayList<String> prefixs = this.d.getPrefixs();
                 int size = prefixs.size();
                 this.i = 0;
@@ -3057,7 +3057,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 this.U.setOnClickListener(new u(this));
                 int color = SkinManager.getColor(R.color.CAM_X0105);
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.W, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, null);
-                ms4 d2 = ms4.d(this.U);
+                os4 d2 = os4.d(this.U);
                 d2.v(R.color.CAM_X0105);
                 d2.A(R.string.F_X02);
                 d2.f(R.color.CAM_X0201);
@@ -3094,9 +3094,9 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         if (interceptable == null || interceptable.invokeZ(1048597, this, z3) == null) {
             WriteData writeData = this.r;
             String forumId = writeData == null ? "" : writeData.getForumId();
-            d19 d19Var = this.d1;
-            if (d19Var != null) {
-                d19Var.m(this.u, this.f, forumId);
+            m19 m19Var = this.d1;
+            if (m19Var != null) {
+                m19Var.m(this.u, this.f, forumId);
             }
         }
     }
@@ -3115,7 +3115,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         if (!(interceptable == null || interceptable.invokeL(1048599, this, hotTopicBussinessData) == null) || hotTopicBussinessData == null || (hotTopicBussinessData2 = (HotTopicBussinessData) ListUtils.getItem(this.v, 0)) == null || TextUtils.isEmpty(hotTopicBussinessData2.mTopicName)) {
             return;
         }
-        SpannableString i2 = ie5.i(ie5.a(hotTopicBussinessData.mTopicName));
+        SpannableString i2 = pe5.i(pe5.a(hotTopicBussinessData.mTopicName));
         if (i2 != null) {
             this.H.setText(i2);
         }
@@ -3163,28 +3163,28 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public final void H5() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            this.c2 = (LinearLayout) this.C.findViewById(R.id.obfuscated_res_0x7f091a8f);
-            this.d2 = (ImageView) this.C.findViewById(R.id.obfuscated_res_0x7f091a94);
-            TextView textView = (TextView) this.C.findViewById(R.id.obfuscated_res_0x7f091a91);
+            this.c2 = (LinearLayout) this.C.findViewById(R.id.obfuscated_res_0x7f091a91);
+            this.d2 = (ImageView) this.C.findViewById(R.id.obfuscated_res_0x7f091a96);
+            TextView textView = (TextView) this.C.findViewById(R.id.obfuscated_res_0x7f091a93);
             this.e2 = textView;
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0107);
             EBusinessProtocolView eBusinessProtocolView = new EBusinessProtocolView(this, EBusinessProtocolView.WindowType.PROTOCOL);
             this.g2 = eBusinessProtocolView;
-            eBusinessProtocolView.o(getResources().getString(R.string.obfuscated_res_0x7f0f0f31));
+            eBusinessProtocolView.o(getResources().getString(R.string.obfuscated_res_0x7f0f0f34));
             this.g2.i("file:///android_asset/protocol.html");
-            SpannableString spannableString = new SpannableString(getResources().getString(R.string.obfuscated_res_0x7f0f0f7f));
+            SpannableString spannableString = new SpannableString(getResources().getString(R.string.obfuscated_res_0x7f0f0f82));
             spannableString.setSpan(new p(this), 6, 17, 34);
             spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0302)), 6, 17, 34);
             this.e2.setText(spannableString);
             this.e2.setMovementMethod(LinkMovementMethod.getInstance());
             this.d2.setOnClickListener(new q(this));
-            ru4 k2 = ru4.k();
+            tu4 k2 = tu4.k();
             if (k2.h(TbadkCoreApplication.getCurrentAccount() + "is_agree_protocol", false)) {
                 this.h2 = true;
-                this.d2.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080823, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+                this.d2.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080824, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
             } else {
                 this.h2 = false;
-                this.d2.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a12, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
+                this.d2.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a13, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
             }
             this.g2.m(new r(this));
         }
@@ -3226,9 +3226,9 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             if (super.I2()) {
                 WriteData writeData = this.r;
                 String forumId = writeData == null ? "" : writeData.getForumId();
-                d19 d19Var = this.d1;
-                if (d19Var != null) {
-                    d19Var.m(this.u, this.f, forumId);
+                m19 m19Var = this.d1;
+                if (m19Var != null) {
+                    m19Var.m(this.u, this.f, forumId);
                     return true;
                 }
                 return true;
@@ -3256,7 +3256,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             }
             BdTopToast bdTopToast = new BdTopToast(this);
             bdTopToast.h(false);
-            bdTopToast.g(getResources().getString(R.string.obfuscated_res_0x7f0f0529));
+            bdTopToast.g(getResources().getString(R.string.obfuscated_res_0x7f0f052a));
             bdTopToast.i((ViewGroup) this.C);
             H4(0);
         }
@@ -3268,7 +3268,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         if (!(interceptable == null || interceptable.invokeV(1048609, this) == null) || this.G == null || (writeData = this.r) == null || writeData.getProZone() != 1) {
             return;
         }
-        this.G.setText(R.string.obfuscated_res_0x7f0f15f7);
+        this.G.setText(R.string.obfuscated_res_0x7f0f15fa);
     }
 
     public void I6() {
@@ -3315,9 +3315,9 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             this.G.setLayoutParams(layoutParams);
             ImageView imageView = (ImageView) this.D.getCenterImgBox();
             this.W0 = imageView;
-            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080923, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
-            int f2 = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-            int f3 = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds47);
+            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080924, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
+            int f2 = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+            int f3 = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds47);
             this.W0.setPadding(f2, f2, f2, f2);
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.W0.getLayoutParams();
             int i2 = f3 + f2 + f2;
@@ -3360,12 +3360,12 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public final void K5() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
-            this.N0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091af2);
-            this.O0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091aec);
+            this.N0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091af4);
+            this.O0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091aee);
             this.N0.setVisibility(0);
             this.O0.setVisibility(0);
-            this.N0.setText(getString(R.string.obfuscated_res_0x7f0f08f7, new Object[]{0, 31}));
-            this.O0.setText(getString(R.string.obfuscated_res_0x7f0f08f7, new Object[]{0, 500}));
+            this.N0.setText(getString(R.string.obfuscated_res_0x7f0f08fa, new Object[]{0, 31}));
+            this.O0.setText(getString(R.string.obfuscated_res_0x7f0f08fa, new Object[]{0, 500}));
             this.N0.post(new f(this));
             this.O0.post(new g(this));
         }
@@ -3377,7 +3377,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         if (!(interceptable == null || interceptable.invokeV(1048619, this) == null) || (editorTools = this.e0) == null) {
             return;
         }
-        editorTools.A(new h25(57, 15, null));
+        editorTools.A(new n25(57, 15, null));
     }
 
     @Override // com.baidu.tieba.write.write.AbsBaseWriteActivity
@@ -3400,14 +3400,14 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public void L2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
-            String string = getPageContext().getString(R.string.obfuscated_res_0x7f0f110c);
+            String string = getPageContext().getString(R.string.obfuscated_res_0x7f0f110f);
             if (WriteActivityConfig.FROM_FORUM_SHARE.equals(this.f)) {
-                string = getPageContext().getString(R.string.obfuscated_res_0x7f0f1126);
+                string = getPageContext().getString(R.string.obfuscated_res_0x7f0f1129);
             }
             TextView addTextButton = this.D.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, string);
             this.F = addTextButton;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) addTextButton.getLayoutParams();
-            layoutParams.rightMargin = qi.f(getPageContext().getPageActivity(), R.dimen.tbds2);
+            layoutParams.rightMargin = ri.f(getPageContext().getPageActivity(), R.dimen.tbds2);
             this.F.setLayoutParams(layoutParams);
             this.F.setOnFocusChangeListener(this.x0);
         }
@@ -3433,15 +3433,15 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public final void L5() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
-            NormalItemCell normalItemCell = (NormalItemCell) findViewById(R.id.obfuscated_res_0x7f091aed);
+            NormalItemCell normalItemCell = (NormalItemCell) findViewById(R.id.obfuscated_res_0x7f091aef);
             this.P0 = normalItemCell;
             normalItemCell.setVisibility(0);
             NormalItemCell.a aVar = new NormalItemCell.a();
             aVar.a = R.color.CAM_X0206;
             aVar.c = R.drawable.icon_pure_ba16;
             aVar.b = 1;
-            aVar.f = getString(R.string.obfuscated_res_0x7f0f03c3);
-            aVar.e = getString(R.string.obfuscated_res_0x7f0f03c1);
+            aVar.f = getString(R.string.obfuscated_res_0x7f0f03c4);
+            aVar.e = getString(R.string.obfuscated_res_0x7f0f03c2);
             this.P0.setConfig(aVar);
             this.P0.setOnClickListener(new h(this));
             if (!"2".equals(this.l) || TextUtils.isEmpty(this.r.getForumName())) {
@@ -3459,7 +3459,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         if (!(interceptable == null || interceptable.invokeV(1048624, this) == null) || (editorTools = this.e0) == null) {
             return;
         }
-        editorTools.A(new h25(65, 15, null));
+        editorTools.A(new n25(65, 15, null));
     }
 
     @Override // com.baidu.tieba.write.write.AbsBaseWriteActivity
@@ -3487,7 +3487,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             if (this.H.getText().toString().length() > 31 || this.L.getText().toString().length() > 500) {
                 BdTopToast bdTopToast = new BdTopToast(this, 3000);
                 bdTopToast.h(false);
-                bdTopToast.g(getString(R.string.obfuscated_res_0x7f0f0f6f));
+                bdTopToast.g(getString(R.string.obfuscated_res_0x7f0f0f72));
                 bdTopToast.i((ViewGroup) this.C);
                 return true;
             }
@@ -3500,13 +3500,13 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         ForumTagInfo forumTagInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
-            NormalItemCell normalItemCell = (NormalItemCell) findViewById(R.id.obfuscated_res_0x7f091af1);
+            NormalItemCell normalItemCell = (NormalItemCell) findViewById(R.id.obfuscated_res_0x7f091af3);
             this.Q0 = normalItemCell;
             normalItemCell.setVisibility(0);
             NormalItemCell.a aVar = new NormalItemCell.a();
             aVar.b = 1;
-            aVar.f = getString(R.string.obfuscated_res_0x7f0f03cf);
-            aVar.e = getString(R.string.obfuscated_res_0x7f0f03ce);
+            aVar.f = getString(R.string.obfuscated_res_0x7f0f03d0);
+            aVar.e = getString(R.string.obfuscated_res_0x7f0f03cf);
             this.Q0.setConfig(aVar);
             this.Q0.setOnClickListener(new i(this));
             if ("2".equals(this.l) && (forumTagInfo = this.j1) != null && forumTagInfo.isValid()) {
@@ -3523,7 +3523,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048629, this, bool) == null) {
             WriteData writeData = this.r;
-            if (getPageContext().getString(R.string.obfuscated_res_0x7f0f060a).equals(writeData != null ? writeData.getForumName() : null)) {
+            if (getPageContext().getString(R.string.obfuscated_res_0x7f0f060b).equals(writeData != null ? writeData.getForumName() : null)) {
                 this.C0 = true;
             }
         }
@@ -3531,7 +3531,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
 
     @Override // com.baidu.tieba.write.write.AbsBaseWriteActivity
     public void N1() {
-        g35 g35Var;
+        m35 m35Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048630, this) == null) {
             super.N1();
@@ -3545,20 +3545,20 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 if (this.s1 || this.H.hasFocus()) {
                     this.e0.setToolEnabled(false, 31);
                 }
-                s25 n2 = this.e0.n(5);
+                y25 n2 = this.e0.n(5);
                 if (n2 != null) {
                     n2.d(true);
                 }
-                zz8 zz8Var = this.g0;
-                if (zz8Var != null && !this.s1 && !this.h1) {
-                    zz8Var.p(true);
+                i09 i09Var = this.g0;
+                if (i09Var != null && !this.s1 && !this.h1) {
+                    i09Var.p(true);
                 }
                 C6();
                 H6();
                 D6();
                 B6();
                 I6();
-                if (this.R1 && (g35Var = this.q2) != null && !g35Var.c()) {
+                if (this.R1 && (m35Var = this.q2) != null && !m35Var.c()) {
                     this.e0.setToolEnabled(false, 31);
                 } else {
                     this.e0.setToolEnabled((this.e1 || this.H.hasFocus()) ? false : true, 31);
@@ -3623,8 +3623,8 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
-            y09 y09Var = this.b2;
-            boolean z3 = y09Var == null || y09Var.e();
+            h19 h19Var = this.b2;
+            boolean z3 = h19Var == null || h19Var.e();
             ForumTabSelectedView forumTabSelectedView = this.c0;
             boolean z4 = (forumTabSelectedView == null || forumTabSelectedView.getSelectedTabItemData() == null || this.c0.getSelectedTabItemData().tabType != 3) ? false : true;
             if (z3 && z4) {
@@ -3639,15 +3639,15 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048638, this) == null) && this.k1 != null && this.r.getType() == 0 && this.r.getType() == 9 && this.r.getType() == 11) {
             h5(getActivity());
-            View inflate = getPageContext().getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d074b, (ViewGroup) null);
+            View inflate = getPageContext().getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d074d, (ViewGroup) null);
             this.m1 = inflate;
             inflate.setOnClickListener(new j0(this));
-            this.l1 = (TbImageView) this.m1.findViewById(R.id.obfuscated_res_0x7f091b21);
-            this.o1 = (LinearLayout) this.m1.findViewById(R.id.obfuscated_res_0x7f091b20);
-            if (ru4.k().q("write_rec_pic_path", "").equalsIgnoreCase(this.k1.getAbsolutePath())) {
+            this.l1 = (TbImageView) this.m1.findViewById(R.id.obfuscated_res_0x7f091b23);
+            this.o1 = (LinearLayout) this.m1.findViewById(R.id.obfuscated_res_0x7f091b22);
+            if (tu4.k().q("write_rec_pic_path", "").equalsIgnoreCase(this.k1.getAbsolutePath())) {
                 return;
             }
-            ru4.k().y("write_rec_pic_path", this.k1.getAbsolutePath());
+            tu4.k().y("write_rec_pic_path", this.k1.getAbsolutePath());
             Bitmap l5 = l5(this.k1.getAbsolutePath(), getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070252));
             if (l5 != null) {
                 this.l1.setImageBitmap(l5);
@@ -3672,14 +3672,14 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    public final void O6(List<cp4> list) {
+    public final void O6(List<ep4> list) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048639, this, list) == null) || list == null) {
             return;
         }
         boolean z3 = false;
-        Iterator<cp4> it = list.iterator();
+        Iterator<ep4> it = list.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -3707,7 +3707,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
 
     public final void P4(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048641, this, str) == null) || pi.isEmpty(str) || this.n1 == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048641, this, str) == null) || qi.isEmpty(str) || this.n1 == null) {
             return;
         }
         m5(str);
@@ -3726,7 +3726,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             this.r.setForumName(this.I1.forumName);
             SpanGroupEditText spanGroupEditText = this.L;
             if (spanGroupEditText != null) {
-                spanGroupEditText.setForumId(og.g(this.I1.forumId, 0L));
+                spanGroupEditText.setForumId(pg.g(this.I1.forumId, 0L));
             }
         }
         NormalItemCell normalItemCell = this.P0;
@@ -3770,7 +3770,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         if (postPrefixData != null && !ListUtils.isEmpty(postPrefixData.getPrefixs())) {
             PostPrefixData postPrefixData2 = this.I1.postPrefix;
             this.d = postPrefixData2;
-            postPrefixData2.getPrefixs().add(getPageContext().getString(R.string.obfuscated_res_0x7f0f15d4));
+            postPrefixData2.getPrefixs().add(getPageContext().getString(R.string.obfuscated_res_0x7f0f15d7));
         }
         F5();
     }
@@ -3794,7 +3794,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 return;
             }
             ItemData itemData = new ItemData();
-            itemData.itemId = og.g(evaluateRelevanceItemSelectedMessage.item_id, 0L);
+            itemData.itemId = pg.g(evaluateRelevanceItemSelectedMessage.item_id, 0L);
             itemData.mTags = evaluateRelevanceItemSelectedMessage.tags;
             itemData.mScore = evaluateRelevanceItemSelectedMessage.score;
             itemData.mStar = evaluateRelevanceItemSelectedMessage.star;
@@ -3810,19 +3810,19 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         if (interceptable == null || interceptable.invokeV(1048644, this) == null) {
             if (this.r.getType() != 0 && this.r.getType() != 9 && this.r.getType() != 11) {
                 if (this.r.getType() == 1) {
-                    ek8.y(this.r.getThreadId(), null);
+                    mk8.y(this.r.getThreadId(), null);
                 }
             } else if (this.U1) {
                 if (this.s1) {
-                    ek8.v(null);
+                    mk8.v(null);
                 } else if (this.h1) {
-                    ek8.z(this.r.getForumId(), this.r, true);
+                    mk8.z(this.r.getForumId(), this.r, true);
                 } else if (this.r.isEvaluate()) {
-                    ek8.s(this.r.getItem_id(), null);
+                    mk8.s(this.r.getItem_id(), null);
                 } else if (TextUtils.isEmpty(this.r.getTopicId())) {
-                    ek8.u(this.r.getForumId(), this.r, true);
+                    mk8.u(this.r.getForumId(), this.r, true);
                 } else {
-                    ek8.B(this.r.getTopicId(), null);
+                    mk8.B(this.r.getTopicId(), null);
                 }
             }
             this.v2 = true;
@@ -3833,13 +3833,13 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048645, this) == null) {
             if ("main_tab".equals(this.f) && !this.V1 && !this.h1) {
-                ForumSelectedView forumSelectedView = (ForumSelectedView) findViewById(R.id.obfuscated_res_0x7f092657);
+                ForumSelectedView forumSelectedView = (ForumSelectedView) findViewById(R.id.obfuscated_res_0x7f092661);
                 this.H1 = forumSelectedView;
                 forumSelectedView.setVisibility(0);
             } else if (this.h1) {
             } else {
                 if (this.f1 || Z5() || b6()) {
-                    ForumSelectedView forumSelectedView2 = (ForumSelectedView) findViewById(R.id.obfuscated_res_0x7f092657);
+                    ForumSelectedView forumSelectedView2 = (ForumSelectedView) findViewById(R.id.obfuscated_res_0x7f092661);
                     this.H1 = forumSelectedView2;
                     forumSelectedView2.setVisibility(0);
                     this.H1.setSelectedForum(this.r.getForumName());
@@ -3873,7 +3873,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048648, this) == null) {
             if (this.A0 == null) {
-                this.A0 = new q19();
+                this.A0 = new z19();
             }
             this.A0.u(this, this.j1 == null ? this.Q0.getSubTitleContent() : null, this.r.getForumId(), new j(this));
         }
@@ -3897,7 +3897,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048650, this) == null) {
             if (this.h0 == null) {
-                this.h0 = new b19(getPageContext());
+                this.h0 = new k19(getPageContext());
             }
             this.h0.c(this.e0);
         }
@@ -3907,7 +3907,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public boolean S1(@NonNull PostWriteCallBackData postWriteCallBackData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048651, this, postWriteCallBackData)) == null) ? !ur8.d(postWriteCallBackData.getErrorCode()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048651, this, postWriteCallBackData)) == null) ? !ds8.d(postWriteCallBackData.getErrorCode()) : invokeL.booleanValue;
     }
 
     public final void S4(Intent intent) {
@@ -3926,8 +3926,8 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public final void S5() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048653, this) == null) {
-            this.P1 = (RelativeLayout) this.C.findViewById(R.id.obfuscated_res_0x7f0925c9);
-            this.O1 = new s19(getPageContext(), this.P1);
+            this.P1 = (RelativeLayout) this.C.findViewById(R.id.obfuscated_res_0x7f0925d3);
+            this.O1 = new b29(getPageContext(), this.P1);
             W6();
         }
     }
@@ -3953,7 +3953,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    @Override // com.baidu.tieba.write.write.AbsBaseWriteActivity, com.repackage.hz8.a
+    @Override // com.baidu.tieba.write.write.AbsBaseWriteActivity, com.baidu.tieba.qz8.a
     public void T0(int i2) {
         PostPrefixData postPrefixData;
         Interceptable interceptable = $ic;
@@ -4023,15 +4023,15 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048659, this) == null) {
             EBusinessProtocolView eBusinessProtocolView = new EBusinessProtocolView(this, EBusinessProtocolView.WindowType.TIP);
-            eBusinessProtocolView.o(getResources().getString(R.string.obfuscated_res_0x7f0f1411));
+            eBusinessProtocolView.o(getResources().getString(R.string.obfuscated_res_0x7f0f1414));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f13fe)).append((CharSequence) "\n");
-            spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f13ff)).append((CharSequence) "\n");
-            spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f1400)).append((CharSequence) "\n");
             spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f1401)).append((CharSequence) "\n");
-            spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f1402));
+            spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f1402)).append((CharSequence) "\n");
+            spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f1403)).append((CharSequence) "\n");
+            spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f1404)).append((CharSequence) "\n");
+            spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f1405));
             eBusinessProtocolView.k(spannableStringBuilder);
-            tg.i(eBusinessProtocolView, this);
+            ug.i(eBusinessProtocolView, this);
         }
     }
 
@@ -4052,12 +4052,12 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         int type = writeData.getType();
         if (type != 0 && type != 9) {
             if (type != 11) {
-                this.G.setText(R.string.obfuscated_res_0x7f0f110e);
+                this.G.setText(R.string.obfuscated_res_0x7f0f1111);
                 this.L.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1000)});
                 this.H.setVisibility(8);
                 return;
             }
-            this.G.setText(R.string.obfuscated_res_0x7f0f0f34);
+            this.G.setText(R.string.obfuscated_res_0x7f0f0f37);
             this.H.setVisibility(0);
             this.L.setFilters(new InputFilter[]{new InputFilter.LengthFilter(5000)});
             return;
@@ -4065,32 +4065,32 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         this.L.setFilters(new InputFilter[]{new InputFilter.LengthFilter(5000)});
         if (!this.C0 && !this.p) {
             if (this.s1) {
-                this.G.setText(R.string.obfuscated_res_0x7f0f0ede);
+                this.G.setText(R.string.obfuscated_res_0x7f0f0ee1);
             } else if (this.f1) {
                 if (this.e1) {
-                    this.G.setText(R.string.obfuscated_res_0x7f0f100f);
+                    this.G.setText(R.string.obfuscated_res_0x7f0f1012);
                 } else {
-                    this.G.setText(R.string.obfuscated_res_0x7f0f0c4f);
+                    this.G.setText(R.string.obfuscated_res_0x7f0f0c52);
                 }
             } else {
                 String str = this.l;
                 if (str != null && str.equals("1")) {
-                    this.G.setText(R.string.obfuscated_res_0x7f0f0ee2);
+                    this.G.setText(R.string.obfuscated_res_0x7f0f0ee5);
                 } else {
                     String str2 = this.l;
                     if (str2 != null && str2.equals("2")) {
                         if (this.R1) {
-                            this.G.setText(R.string.obfuscated_res_0x7f0f0f34);
+                            this.G.setText(R.string.obfuscated_res_0x7f0f0f37);
                         } else if (a6()) {
-                            this.G.setText(R.string.obfuscated_res_0x7f0f0ece);
+                            this.G.setText(R.string.obfuscated_res_0x7f0f0ed1);
                         } else if (this.h1) {
-                            this.G.setText(R.string.obfuscated_res_0x7f0f0ee3);
+                            this.G.setText(R.string.obfuscated_res_0x7f0f0ee6);
                             this.L.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
                         } else {
-                            this.G.setText(R.string.obfuscated_res_0x7f0f0ee4);
+                            this.G.setText(R.string.obfuscated_res_0x7f0f0ee7);
                         }
                     } else if (WriteActivityConfig.FROM_FORUM_SHARE.equals(this.f)) {
-                        this.G.setText(getResources().getString(R.string.obfuscated_res_0x7f0f115f) + this.r.getForumName() + getResources().getString(R.string.obfuscated_res_0x7f0f02d9));
+                        this.G.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1162) + this.r.getForumName() + getResources().getString(R.string.obfuscated_res_0x7f0f02da));
                         this.H.setVisibility(8);
                         String str3 = this.D1 + " " + this.E1;
                         if (!StringUtils.isNull(str3)) {
@@ -4102,9 +4102,9 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 }
             }
         } else if (this.E0) {
-            this.G.setText(R.string.obfuscated_res_0x7f0f060d);
+            this.G.setText(R.string.obfuscated_res_0x7f0f060e);
         } else {
-            this.G.setText(R.string.obfuscated_res_0x7f0f0609);
+            this.G.setText(R.string.obfuscated_res_0x7f0f060a);
         }
         this.H.setVisibility(0);
     }
@@ -4124,8 +4124,8 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public final void U5() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048663, this) == null) && this.R1) {
-            this.K1 = (TextView) findViewById(R.id.obfuscated_res_0x7f0919fe);
-            WriteEvaluationHeaderView writeEvaluationHeaderView = (WriteEvaluationHeaderView) findViewById(R.id.obfuscated_res_0x7f092649);
+            this.K1 = (TextView) findViewById(R.id.obfuscated_res_0x7f091a00);
+            WriteEvaluationHeaderView writeEvaluationHeaderView = (WriteEvaluationHeaderView) findViewById(R.id.obfuscated_res_0x7f092653);
             this.J1 = writeEvaluationHeaderView;
             writeEvaluationHeaderView.setStarChangeListener(new n(this));
             this.J1.setItemCloseListener(new o(this));
@@ -4134,33 +4134,33 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
 
     public final void U6() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048664, this) == null) || ru4.k().h("key_virtual_image_setting_guide_has_show", false)) {
+        if (!(interceptable == null || interceptable.invokeV(1048664, this) == null) || tu4.k().h("key_virtual_image_setting_guide_has_show", false)) {
             return;
         }
-        ru4.k().u("key_virtual_image_setting_guide_has_show", true);
-        ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09259e)).inflate();
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f09259d);
+        tu4.k().u("key_virtual_image_setting_guide_has_show", true);
+        ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0925a8)).inflate();
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f0925a7);
         this.L0 = findViewById;
         findViewById.setVisibility(0);
         this.L0.setOnClickListener(new o0(this));
-        ms4 d2 = ms4.d(this.L0);
+        os4 d2 = os4.d(this.L0);
         d2.e(R.string.A_X05);
         d2.f(R.color.CAM_X0611);
-        ms4 d3 = ms4.d(this.L0.findViewById(R.id.obfuscated_res_0x7f09259a));
+        os4 d3 = os4.d(this.L0.findViewById(R.id.obfuscated_res_0x7f0925a4));
         d3.n(R.string.J_X06);
         d3.f(R.color.CAM_X0201);
-        ((GifView) this.L0.findViewById(R.id.obfuscated_res_0x7f092599)).setGifRaw(R.raw.obfuscated_res_0x7f110071);
-        ms4 d4 = ms4.d(this.L0.findViewById(R.id.obfuscated_res_0x7f092597));
+        ((GifView) this.L0.findViewById(R.id.obfuscated_res_0x7f0925a3)).setGifRaw(R.raw.obfuscated_res_0x7f110071);
+        os4 d4 = os4.d(this.L0.findViewById(R.id.obfuscated_res_0x7f0925a1));
         d4.n(R.string.J_X07);
         d4.f(R.color.CAM_X0205);
-        k28 a2 = k28.a();
-        ms4.d((TextView) this.L0.findViewById(R.id.obfuscated_res_0x7f09259b)).v(R.color.CAM_X0105);
-        ms4.d((TextView) this.L0.findViewById(R.id.obfuscated_res_0x7f092598)).v(R.color.CAM_X0105);
-        TextView textView = (TextView) this.L0.findViewById(R.id.obfuscated_res_0x7f092595);
+        s28 a2 = s28.a();
+        os4.d((TextView) this.L0.findViewById(R.id.obfuscated_res_0x7f0925a5)).v(R.color.CAM_X0105);
+        os4.d((TextView) this.L0.findViewById(R.id.obfuscated_res_0x7f0925a2)).v(R.color.CAM_X0105);
+        TextView textView = (TextView) this.L0.findViewById(R.id.obfuscated_res_0x7f09259f);
         if (a2 != null && a2.b() == 1) {
             textView.setVisibility(8);
         } else {
-            ms4 d5 = ms4.d(textView);
+            os4 d5 = os4.d(textView);
             d5.A(R.string.F_X01);
             d5.z(R.dimen.T_X07);
             d5.v(R.color.CAM_X0304);
@@ -4198,19 +4198,19 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048668, this) == null) {
             if (this.j2 == null) {
-                ((ViewStub) findViewById(R.id.obfuscated_res_0x7f092592)).inflate();
-                this.j2 = findViewById(R.id.obfuscated_res_0x7f092591);
+                ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09259c)).inflate();
+                this.j2 = findViewById(R.id.obfuscated_res_0x7f09259b);
             }
             this.j2.setOnClickListener(new s0(this));
             this.j2.setVisibility(0);
-            ms4 d2 = ms4.d(this.j2);
+            os4 d2 = os4.d(this.j2);
             d2.e(R.string.A_X05);
             d2.f(R.color.CAM_X0611);
-            ms4 d3 = ms4.d(this.j2.findViewById(R.id.obfuscated_res_0x7f092590));
+            os4 d3 = os4.d(this.j2.findViewById(R.id.obfuscated_res_0x7f09259a));
             d3.n(R.string.J_X06);
             d3.f(R.color.CAM_X0201);
-            TextView textView = (TextView) this.j2.findViewById(R.id.obfuscated_res_0x7f09258e);
-            ms4 d4 = ms4.d(textView);
+            TextView textView = (TextView) this.j2.findViewById(R.id.obfuscated_res_0x7f092598);
+            os4 d4 = os4.d(textView);
             d4.A(R.string.F_X01);
             d4.z(R.dimen.T_X07);
             d4.v(R.color.CAM_X0105);
@@ -4219,8 +4219,8 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             d4.k(R.color.CAM_X0105);
             d4.j(R.string.A_X07);
             textView.setOnClickListener(new t0(this));
-            TextView textView2 = (TextView) this.j2.findViewById(R.id.obfuscated_res_0x7f09258d);
-            ms4 d5 = ms4.d(textView2);
+            TextView textView2 = (TextView) this.j2.findViewById(R.id.obfuscated_res_0x7f092597);
+            os4 d5 = os4.d(textView2);
             d5.A(R.string.F_X01);
             d5.z(R.dimen.T_X07);
             d5.v(R.color.CAM_X0304);
@@ -4240,21 +4240,21 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     }
 
     public final void W4() {
-        t25 t25Var;
+        z25 z25Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048670, this) == null) {
             VoiceData.VoiceModel voiceModel = this.B0;
             if (voiceModel != null) {
-                zw4.a(zw4.b(voiceModel.voiceId));
+                cx4.a(cx4.b(voiceModel.voiceId));
             }
             this.B0 = null;
             this.r.setVoiceModel(null);
             this.R0.setVisibility(8);
             this.S0.p();
             this.S0.setVoiceModel(null);
-            s25 n2 = this.e0.n(6);
-            if (n2 != null && (t25Var = n2.m) != null) {
-                t25Var.A(new h25(52, 0, null));
+            y25 n2 = this.e0.n(6);
+            if (n2 != null && (z25Var = n2.m) != null) {
+                z25Var.A(new n25(52, 0, null));
             }
             C2();
         }
@@ -4302,11 +4302,11 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         if (interceptable == null || interceptable.invokeLZ(1048674, this, view2, z3) == null) {
             super.X2(view2, z3);
             if (view2 != this.L && (view2 instanceof SpanGroupEditText)) {
-                Object tag = view2.getTag(R.id.obfuscated_res_0x7f09101d);
+                Object tag = view2.getTag(R.id.obfuscated_res_0x7f09101f);
                 if ((tag instanceof Boolean) && ((Boolean) tag).booleanValue() && z3) {
                     this.m = false;
                     N1();
-                    qi.L(getActivity(), view2);
+                    ri.L(getActivity(), view2);
                     EditorTools editorTools = this.e0;
                     if (editorTools != null) {
                         editorTools.q();
@@ -4356,7 +4356,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048677, this) == null) {
             this.b1.I();
-            l09.e(this.r);
+            u09.e(this.r);
             b7();
             y6();
             if (PersonPolymericActivityConfig.VIDEO_PERSON_FROM_TOPIC_DETAIL.equals(this.f)) {
@@ -4388,11 +4388,11 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048680, this) == null) {
             if (!this.A.H(getPageContext().getPageActivity())) {
-                showToast(R.string.obfuscated_res_0x7f0f0a56);
+                showToast(R.string.obfuscated_res_0x7f0f0a59);
                 H2(0, true, null);
-                zz8 zz8Var = this.g0;
-                if (zz8Var != null) {
-                    zz8Var.g();
+                i09 i09Var = this.g0;
+                if (i09Var != null) {
+                    i09Var.g();
                 }
             } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
                 S2();
@@ -4412,7 +4412,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         String a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048681, this, writeData) == null) {
-            if (pi.isEmpty(this.r.getTitle())) {
+            if (qi.isEmpty(this.r.getTitle())) {
                 this.r.setTitle(writeData.getTitle());
             }
             if (!ListUtils.isEmpty(this.v)) {
@@ -4421,9 +4421,9 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 if (StringUtils.isNull(str)) {
                     a2 = this.r.getTitle();
                 } else {
-                    a2 = ie5.a(str);
+                    a2 = pe5.a(str);
                 }
-                SpannableString i2 = ie5.i(a2);
+                SpannableString i2 = pe5.i(a2);
                 if (i2 != null) {
                     X1().setText(i2);
                     int length = i2.length() > a2.length() ? a2.length() : i2.length();
@@ -4435,7 +4435,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 }
                 return;
             }
-            SpannableString i3 = ie5.i(this.r.getTitle());
+            SpannableString i3 = pe5.i(this.r.getTitle());
             if (i3 != null) {
                 X1().setText(i3);
                 int length2 = this.r.getTitle().length() > i3.length() ? i3.length() : this.r.getTitle().length();
@@ -4492,11 +4492,11 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     }
 
     public void a7(boolean z3) {
-        vm8 vm8Var;
+        dn8 dn8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048687, this, z3) == null) {
-            if (!z3 && (vm8Var = this.b1) != null) {
-                vm8Var.d();
+            if (!z3 && (dn8Var = this.b1) != null) {
+                dn8Var.d();
             }
             FeedBackModel feedBackModel = this.B;
             if (feedBackModel != null) {
@@ -4592,7 +4592,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         WriteData writeData;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048695, this, bundle) == null) {
-            vm8 k2 = vm8.k();
+            dn8 k2 = dn8.k();
             this.b1 = k2;
             k2.p(this);
             super.d2(bundle);
@@ -4661,7 +4661,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 this.h1 = intent.getBooleanExtra(WriteActivityConfig.IS_QUESTION_THREAD, false);
                 this.j1 = (ForumTagInfo) intent.getSerializableExtra(WriteActivityConfig.FORUM_TAG_INFO);
                 this.i1 = intent.getStringExtra(WriteActivityConfig.FORUM_FIRST_CATEGORY);
-                if (this.V1 && (writeData = xm8.e) != null) {
+                if (this.V1 && (writeData = fn8.e) != null) {
                     this.r = writeData;
                     writeData.setType(9);
                     WriteData writeData2 = this.r;
@@ -4679,7 +4679,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             }
             PostPrefixData postPrefixData = this.d;
             if (postPrefixData != null && postPrefixData.getPrefixs().size() > 0) {
-                this.d.getPrefixs().add(getPageContext().getString(R.string.obfuscated_res_0x7f0f15d4));
+                this.d.getPrefixs().add(getPageContext().getString(R.string.obfuscated_res_0x7f0f15d7));
             }
             this.r.setLocalChannelDynamic(this.s1);
             this.r.setLocalChannelTopic(this.t1);
@@ -4712,7 +4712,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 try {
                     int readPictureDegree = BitmapHelper.readPictureDegree(str);
                     if (readPictureDegree != 0) {
-                        Bitmap loadResizedBitmap = BitmapHelper.loadResizedBitmap(str, qi.d(getPageContext().getPageActivity(), qi.k(getPageContext().getPageActivity())), qi.d(getPageContext().getPageActivity(), qi.i(getPageContext().getPageActivity())));
+                        Bitmap loadResizedBitmap = BitmapHelper.loadResizedBitmap(str, ri.d(getPageContext().getPageActivity(), ri.k(getPageContext().getPageActivity())), ri.d(getPageContext().getPageActivity(), ri.i(getPageContext().getPageActivity())));
                         Bitmap rotateBitmapBydegree = BitmapHelper.rotateBitmapBydegree(loadResizedBitmap, readPictureDegree);
                         if (loadResizedBitmap != rotateBitmapBydegree) {
                             loadResizedBitmap.recycle();
@@ -4764,14 +4764,14 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048699, this) == null) {
             super.e2();
-            int l2 = ru4.k().l("write_associate_item_hint_tip_key", 0);
-            if (ru4.k().l("commodity_tip_show_controller", 0) != 0 || !this.v1) {
+            int l2 = tu4.k().l("write_associate_item_hint_tip_key", 0);
+            if (tu4.k().l("commodity_tip_show_controller", 0) != 0 || !this.v1) {
                 R6();
                 K4();
             } else if (l2 > 0) {
                 Q6();
             } else {
-                ru4.k().w("commodity_tip_show_controller", ru4.k().l("commodity_tip_show_controller", 0) + 1);
+                tu4.k().w("commodity_tip_show_controller", tu4.k().l("commodity_tip_show_controller", 0) + 1);
             }
         }
     }
@@ -4912,7 +4912,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048706, this) == null) {
             super.g2();
-            this.L1 = findViewById(R.id.obfuscated_res_0x7f090bea);
+            this.L1 = findViewById(R.id.obfuscated_res_0x7f090beb);
             if (this.c0.getVisibility() == 0) {
                 this.L1.setVisibility(0);
             }
@@ -4935,14 +4935,14 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(getPageContext().getPageActivity(), 12012, this.u, i2)));
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.u95
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ba5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048709, this)) == null) ? "a094" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.ek8.g
+    @Override // com.baidu.tieba.mk8.g
     public void h0(WriteData writeData) {
         WriteImagesInfo writeImagesInfo;
         Interceptable interceptable = $ic;
@@ -4953,10 +4953,10 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             if (writeData != null) {
                 if (this.r != null && writeData.isEvaluate() == this.r.isEvaluate()) {
                     boolean z3 = (this.r.getWriteImagesInfo() == null || ListUtils.isEmpty(this.r.getWriteImagesInfo().getChosedFiles())) ? false : true;
-                    boolean z4 = !pi.isEmpty(X1().getText().toString());
-                    boolean z5 = !pi.isEmpty(W1().getText().toString());
-                    boolean z6 = !pi.isEmpty(writeData.getTitle());
-                    boolean z7 = !pi.isEmpty(writeData.getContent());
+                    boolean z4 = !qi.isEmpty(X1().getText().toString());
+                    boolean z5 = !qi.isEmpty(W1().getText().toString());
+                    boolean z6 = !qi.isEmpty(writeData.getTitle());
+                    boolean z7 = !qi.isEmpty(writeData.getContent());
                     boolean z8 = !ListUtils.isEmpty(writeData.getRichContentData());
                     this.r.setHaveDraft(true);
                     if (!this.f1 && !a6()) {
@@ -5023,7 +5023,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public final void h5(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048711, this, context) == null) {
-            z2 = qi.i(context);
+            z2 = ri.i(context);
         }
     }
 
@@ -5155,19 +5155,19 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         if (interceptable == null || interceptable.invokeV(1048717, this) == null) {
             if (this.r.getType() != 0 && this.r.getType() != 9 && this.r.getType() != 11) {
                 if (this.r.getType() == 1) {
-                    ek8.o(this.r.getThreadId(), this);
+                    mk8.o(this.r.getThreadId(), this);
                 }
             } else if (this.U1) {
                 if (this.r.isLocalChannelDynamic()) {
-                    ek8.l(this);
+                    mk8.l(this);
                 } else if (this.r.isQuestionThread()) {
-                    ek8.p(this.r.getForumId(), this);
+                    mk8.p(this.r.getForumId(), this);
                 } else if (this.r.isEvaluate()) {
-                    ek8.j(this.r.getItem_id(), this);
+                    mk8.j(this.r.getItem_id(), this);
                 } else if (TextUtils.isEmpty(this.r.getTopicId())) {
-                    ek8.k(this.r.getForumId(), this);
+                    mk8.k(this.r.getForumId(), this);
                 } else {
-                    ek8.r(this.r.getTopicId(), this);
+                    mk8.r(this.r.getTopicId(), this);
                 }
             }
         }
@@ -5179,13 +5179,13 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         if (interceptable == null || interceptable.invokeV(1048718, this) == null) {
             super.k2();
             if (this.A1 == null) {
-                o16 o16Var = new o16(getPageContext(), this.X);
-                this.A1 = o16Var;
-                o16Var.q0(R.drawable.obfuscated_res_0x7f0802f1);
+                w16 w16Var = new w16(getPageContext(), this.X);
+                this.A1 = w16Var;
+                w16Var.q0(R.drawable.obfuscated_res_0x7f0802f1);
                 this.A1.T(16);
                 this.A1.c0(true);
                 this.A1.r0(true);
-                this.A1.u0(qi.f(getActivity(), R.dimen.obfuscated_res_0x7f070207));
+                this.A1.u0(ri.f(getActivity(), R.dimen.obfuscated_res_0x7f070207));
             }
             F5();
         }
@@ -5221,10 +5221,10 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 } else if (this.h1) {
                     i2 = 5;
                 }
-                g19.a(i2);
+                p19.a(i2);
             }
             i2 = 4;
-            g19.a(i2);
+            p19.a(i2);
         }
     }
 
@@ -5232,30 +5232,30 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048721, this) == null) {
             if (!L4()) {
-                BdToast b2 = BdToast.b(this, getString(R.string.obfuscated_res_0x7f0f0eda));
+                BdToast b2 = BdToast.b(this, getString(R.string.obfuscated_res_0x7f0f0edd));
                 b2.f(BdToast.ToastIcon.FAILURE);
                 b2.i();
             } else if (!this.v1) {
-                BdToast b3 = BdToast.b(this, getString(R.string.obfuscated_res_0x7f0f0edb));
+                BdToast b3 = BdToast.b(this, getString(R.string.obfuscated_res_0x7f0f0ede));
                 b3.f(BdToast.ToastIcon.FAILURE);
                 b3.i();
             } else {
                 if (this.r != null) {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_COMMODITY_ENTRANCE_CLICK).param("obj_locate", 2).param("fid", this.r.getForumId()).param("fname", this.r.getForumName()));
                 }
-                if (!ru4.k().h("commodity_goods_show_first_dialog", false)) {
-                    ur4 ur4Var = new ur4(getPageContext().getPageActivity());
-                    ur4Var.setContentViewSize(2);
-                    ur4Var.setCanceledOnTouchOutside(false);
+                if (!tu4.k().h("commodity_goods_show_first_dialog", false)) {
+                    wr4 wr4Var = new wr4(getPageContext().getPageActivity());
+                    wr4Var.setContentViewSize(2);
+                    wr4Var.setCanceledOnTouchOutside(false);
                     FrsPublishFineGoodsDialogView frsPublishFineGoodsDialogView = new FrsPublishFineGoodsDialogView(getPageContext().getPageActivity());
-                    frsPublishFineGoodsDialogView.setConfirmButtonListener(new m0(this, ur4Var));
-                    ur4Var.setContentView(frsPublishFineGoodsDialogView);
+                    frsPublishFineGoodsDialogView.setConfirmButtonListener(new m0(this, wr4Var));
+                    wr4Var.setContentView(frsPublishFineGoodsDialogView);
                     StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_WRITE_GOODS_NEW_DIALOG_SHOW).param("obj_locate", 2);
                     WriteData writeData = this.r;
                     StatisticItem param2 = param.param("fid", writeData != null ? writeData.getForumId() : "");
                     WriteData writeData2 = this.r;
                     TiebaStatic.log(param2.param("fname", writeData2 != null ? writeData2.getForumName() : ""));
-                    ur4Var.create(getPageContext()).show();
+                    wr4Var.create(getPageContext()).show();
                     return;
                 }
                 String uk = TbadkCoreApplication.getCurrentAccountInfo().getUk();
@@ -5278,7 +5278,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 }
                 this.G0.setVisibility(8);
             } else {
-                this.H.setHint(R.string.obfuscated_res_0x7f0f141c);
+                this.H.setHint(R.string.obfuscated_res_0x7f0f141f);
                 this.J.setVisibility(0);
                 WriteImageGridView writeImageGridView2 = this.p2;
                 if (writeImageGridView2 != null) {
@@ -5290,10 +5290,10 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 this.J.requestFocus();
             }
             if (this.s1) {
-                this.H.setHint(R.string.obfuscated_res_0x7f0f141d);
+                this.H.setHint(R.string.obfuscated_res_0x7f0f1420);
             }
             if (this.h1) {
-                this.H.setHint(getString(R.string.obfuscated_res_0x7f0f0f72));
+                this.H.setHint(getString(R.string.obfuscated_res_0x7f0f0f75));
                 this.H.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
                 this.H.setSingleLine(false);
             }
@@ -5304,7 +5304,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048723, this, str) == null) {
             if (this.u.getChosedFiles() != null && this.u.getChosedFiles().size() >= this.u.getMaxImagesAllowed()) {
-                showToast(String.format(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0aa5), Integer.valueOf(this.u.getMaxImagesAllowed())));
+                showToast(String.format(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0aa8), Integer.valueOf(this.u.getMaxImagesAllowed())));
                 return;
             }
             this.u.addChooseFileFromCamera(str);
@@ -5324,7 +5324,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048724, this) == null) {
             if (!this.r.canAddItem()) {
-                qi.M(getActivity(), R.string.obfuscated_res_0x7f0f15f4);
+                ri.M(getActivity(), R.string.obfuscated_res_0x7f0f15f7);
                 return;
             }
             RelevanceItemSearchActivityConfig relevanceItemSearchActivityConfig = new RelevanceItemSearchActivityConfig(getActivity(), 0);
@@ -5365,9 +5365,9 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         if (interceptable == null || interceptable.invokeV(1048727, this) == null) {
             this.L.setVisibility(0);
             this.K0.setVisibility(8);
-            d19 d19Var = this.d1;
-            if (d19Var != null) {
-                d19Var.j(false);
+            m19 m19Var = this.d1;
+            if (m19Var != null) {
+                m19Var.j(false);
             }
         }
     }
@@ -5387,29 +5387,29 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 layoutParams.leftMargin = 0;
                 this.G.setLayoutParams(layoutParams);
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.V0.getLayoutParams();
-                layoutParams2.width = qi.f(this, R.dimen.tbds31);
-                layoutParams2.height = qi.f(this, R.dimen.tbds31);
+                layoutParams2.width = ri.f(this, R.dimen.tbds31);
+                layoutParams2.height = ri.f(this, R.dimen.tbds31);
                 this.V0.setLayoutParams(layoutParams2);
-                this.V0.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08098f, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_DISABLE));
+                this.V0.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080990, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_DISABLE));
                 this.V0.setVisibility(0);
             } else if (this.h1) {
                 LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.G.getLayoutParams();
-                layoutParams3.rightMargin = qi.f(this, R.dimen.M_W_X002);
+                layoutParams3.rightMargin = ri.f(this, R.dimen.M_W_X002);
                 layoutParams3.leftMargin = 0;
                 this.G.setLayoutParams(layoutParams3);
                 LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.V0.getLayoutParams();
-                layoutParams4.width = qi.f(this, R.dimen.tbds42);
-                layoutParams4.height = qi.f(this, R.dimen.tbds42);
-                layoutParams4.topMargin = qi.f(this, R.dimen.tbds3);
+                layoutParams4.width = ri.f(this, R.dimen.tbds42);
+                layoutParams4.height = ri.f(this, R.dimen.tbds42);
+                layoutParams4.topMargin = ri.f(this, R.dimen.tbds3);
                 this.V0.setLayoutParams(layoutParams4);
-                this.V0.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809ae, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_DISABLE));
+                this.V0.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809af, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_DISABLE));
                 this.V0.setVisibility(0);
             }
-            this.H0 = (FeedBackTopListView) findViewById(R.id.obfuscated_res_0x7f0909a0);
-            this.I0 = findViewById(R.id.obfuscated_res_0x7f09099e);
-            this.p2 = (WriteImageGridView) findViewById(R.id.obfuscated_res_0x7f09264a);
-            this.G0 = findViewById(R.id.obfuscated_res_0x7f0921ed);
-            this.d1 = new d19(getPageContext(), this.C);
+            this.H0 = (FeedBackTopListView) findViewById(R.id.obfuscated_res_0x7f0909a1);
+            this.I0 = findViewById(R.id.obfuscated_res_0x7f09099f);
+            this.p2 = (WriteImageGridView) findViewById(R.id.obfuscated_res_0x7f092654);
+            this.G0 = findViewById(R.id.obfuscated_res_0x7f0921f6);
+            this.d1 = new m19(getPageContext(), this.C);
             if (WriteActivityConfig.FROM_FORUM_SHARE.equals(this.f)) {
                 this.d1.k(false);
             } else {
@@ -5421,9 +5421,9 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             if (this.C0 || this.p) {
                 getWindow().setSoftInputMode(18);
             }
-            this.R0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091290);
+            this.R0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091292);
             this.S0 = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f090447);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fe5);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fe7);
             this.T0 = imageView;
             imageView.setOnClickListener(new e(this));
             z4(this.B0);
@@ -5446,7 +5446,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public final void o4() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048729, this) == null) {
-            this.e0.d(new u25(getActivity(), 7));
+            this.e0.d(new a35(getActivity(), 7));
         }
     }
 
@@ -5462,14 +5462,14 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             return;
         }
         if (!TextUtils.isEmpty(editable)) {
-            SpannableString spannableString = new SpannableString(getString(R.string.obfuscated_res_0x7f0f08f7, new Object[]{Integer.valueOf(editable.length()), 500}));
+            SpannableString spannableString = new SpannableString(getString(R.string.obfuscated_res_0x7f0f08fa, new Object[]{Integer.valueOf(editable.length()), 500}));
             if (editable.length() > 500) {
                 spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301)), 0, String.valueOf(editable.length()).length(), 17);
             }
             this.O0.setText(spannableString);
             return;
         }
-        this.O0.setText(getString(R.string.obfuscated_res_0x7f0f08f7, new Object[]{0, 500}));
+        this.O0.setText(getString(R.string.obfuscated_res_0x7f0f08fa, new Object[]{0, 500}));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -5561,7 +5561,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                             S4(intent);
                         } else {
                             T4(intent);
-                            rg.a().post(new f0(this));
+                            sg.a().post(new f0(this));
                         }
                         S6(ListUtils.getCount(this.u.getChosedFiles()) > 0, false);
                         if (this.z1) {
@@ -5580,10 +5580,10 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                         videoInfo.parseFromIntent(intent);
                         if (videoInfo.isAvaliable()) {
                             this.r.setVideoInfo(videoInfo);
-                            this.e0.A(new h25(2, 19, " "));
-                            this.e0.A(new h25(28, 20, videoInfo));
+                            this.e0.A(new n25(2, 19, " "));
+                            this.e0.A(new n25(28, 20, videoInfo));
                         } else {
-                            this.e0.A(new h25(5, -1, null));
+                            this.e0.A(new n25(5, -1, null));
                         }
                         C2();
                     } else if (i2 == 23004) {
@@ -5626,7 +5626,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                                 }
                             }
                         } else if (i2 == 25064) {
-                            if (jz8.b()) {
+                            if (sz8.b()) {
                                 if (this.u == null || this.r == null) {
                                     return;
                                 }
@@ -5638,9 +5638,9 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                                     i4 = 1;
                                 }
                                 if (this.I1 == null && this.r.getForumName() != null) {
-                                    jz8.f(getPageContext(), str, this.L.getText().toString(), this.r.getForumId(), this.r.getForumName(), 3, Boolean.FALSE, "", "", "");
+                                    sz8.f(getPageContext(), str, this.L.getText().toString(), this.r.getForumId(), this.r.getForumName(), 3, Boolean.FALSE, "", "", "");
                                 } else {
-                                    jz8.f(getPageContext(), str, this.L.getText().toString(), this.r.getForumId(), this.r.getForumName(), i4, Boolean.TRUE, "", "", "");
+                                    sz8.f(getPageContext(), str, this.L.getText().toString(), this.r.getForumId(), this.r.getForumName(), i4, Boolean.TRUE, "", "", "");
                                 }
                             } else {
                                 h6(0);
@@ -5730,17 +5730,17 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 richTextEditor.v();
             }
             if (this.D.getBackImageView() != null) {
-                this.D.getBackImageView().setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809f2, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+                this.D.getBackImageView().setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809f3, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             }
             SkinManager.setBackgroundColor(X1(), R.color.CAM_X0205);
-            this.T0.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080941, SkinManager.getColor(R.color.CAM_X0107), null));
+            this.T0.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080942, SkinManager.getColor(R.color.CAM_X0107), null));
             this.S0.e();
             if (TextUtils.isEmpty(this.M0)) {
                 SkinManager.setBackgroundColor(this.J0, R.color.CAM_X0205);
             }
-            y09 y09Var = this.b2;
-            if (y09Var != null) {
-                y09Var.notifyDataSetChanged();
+            h19 h19Var = this.b2;
+            if (h19Var != null) {
+                h19Var.notifyDataSetChanged();
             }
             this.d1.d.notifyDataSetChanged();
             A6(false);
@@ -5756,9 +5756,9 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             if (writeEvaluationHeaderView != null) {
                 writeEvaluationHeaderView.f();
             }
-            s19 s19Var = this.O1;
-            if (s19Var != null) {
-                s19Var.d(i2);
+            b29 b29Var = this.O1;
+            if (b29Var != null) {
+                b29Var.d(i2);
             }
             EBusinessProtocolView eBusinessProtocolView = this.g2;
             if (eBusinessProtocolView != null) {
@@ -5795,9 +5795,9 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 if (normalItemCell2 != null) {
                     normalItemCell2.c();
                 }
-                q19 q19Var = this.A0;
-                if (q19Var != null) {
-                    q19Var.r();
+                z19 z19Var = this.A0;
+                if (z19Var != null) {
+                    z19Var.r();
                 }
             }
         }
@@ -5808,30 +5808,30 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048734, this) == null) {
             this.D.removeCallbacks(this.y2);
-            vm8 vm8Var = this.b1;
-            if (vm8Var != null) {
-                vm8Var.t();
+            dn8 dn8Var = this.b1;
+            if (dn8Var != null) {
+                dn8Var.t();
             }
             v5();
             a7(true);
             if (!this.v2) {
                 y6();
             }
-            tg.a(this.M1, this);
-            mk8.d();
+            ug.a(this.M1, this);
+            uk8.d();
             super.onDestroy();
             t0().onDestory(getPageContext());
-            d19 d19Var = this.d1;
-            if (d19Var != null) {
-                d19Var.g();
+            m19 m19Var = this.d1;
+            if (m19Var != null) {
+                m19Var.g();
             }
-            o16 o16Var = this.A1;
-            if (o16Var != null) {
-                o16Var.N();
+            w16 w16Var = this.A1;
+            if (w16Var != null) {
+                w16Var.N();
             }
-            q19 q19Var = this.A0;
-            if (q19Var != null) {
-                q19Var.s();
+            z19 z19Var = this.A0;
+            if (z19Var != null) {
+                z19Var.s();
             }
             MessageManager.getInstance().unRegisterTask(2921500);
         }
@@ -5853,7 +5853,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         if (interceptable == null || interceptable.invokeZ(1048736, this, z3) == null) {
             super.onKeyboardVisibilityChanged(z3);
             if (this.p1 && System.currentTimeMillis() - this.q1 < 800) {
-                qi.x(getPageContext().getPageActivity(), getCurrentFocus());
+                ri.x(getPageContext().getPageActivity(), getCurrentFocus());
                 this.p1 = false;
             }
             if (this.C1 != null && !z3) {
@@ -5915,12 +5915,12 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 if (PermissionUtil.checkCamera(getApplicationContext())) {
                     SelectImageHelper.takePhoto(getPageContext(), this.a1);
                 } else {
-                    showToast(R.string.obfuscated_res_0x7f0f1340);
+                    showToast(R.string.obfuscated_res_0x7f0f1343);
                 }
                 if (!transformPermissionResult.containsKey("android.permission.WRITE_EXTERNAL_STORAGE") || transformPermissionResult.get("android.permission.WRITE_EXTERNAL_STORAGE").booleanValue()) {
                     return;
                 }
-                showToast(R.string.obfuscated_res_0x7f0f109d);
+                showToast(R.string.obfuscated_res_0x7f0f10a0);
                 return;
             }
             super.onRequestPermissionsResult(i2, strArr, iArr);
@@ -5987,21 +5987,21 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public void p2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048744, this) == null) {
-            this.J0 = findViewById(R.id.obfuscated_res_0x7f0919fc);
-            RichTextEditor richTextEditor = (RichTextEditor) findViewById(R.id.obfuscated_res_0x7f091bd4);
+            this.J0 = findViewById(R.id.obfuscated_res_0x7f0919fe);
+            RichTextEditor richTextEditor = (RichTextEditor) findViewById(R.id.obfuscated_res_0x7f091bd6);
             this.K0 = richTextEditor;
             richTextEditor.setWriteImagesInfo(this.u);
-            SpanGroupEditText spanGroupEditText = (SpanGroupEditText) findViewById(R.id.obfuscated_res_0x7f0919fb);
+            SpanGroupEditText spanGroupEditText = (SpanGroupEditText) findViewById(R.id.obfuscated_res_0x7f0919fd);
             this.L = spanGroupEditText;
             spanGroupEditText.setDrawingCacheEnabled(false);
             this.L.setOnClickListener(this.w0);
             z zVar = new z(this);
             this.L.setOnSpanGroupChangedListener(zVar);
             this.L.setType(SpanGroupEditText.EDIT_TEXT_TYPE.TYPE_COMMODITY);
-            this.L.setForumId(og.g(this.r.getForumId(), 0L));
-            vm8 vm8Var = this.b1;
-            if (vm8Var != null) {
-                vm8Var.G(this.L.getSpanGroupManager());
+            this.L.setForumId(pg.g(this.r.getForumId(), 0L));
+            dn8 dn8Var = this.b1;
+            if (dn8Var != null) {
+                dn8Var.G(this.L.getSpanGroupManager());
             }
             WriteData writeData = this.r;
             if (writeData != null) {
@@ -6017,12 +6017,12 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 if (this.X0) {
                     String str = this.Y0;
                     if (str != null && str.length() > 0) {
-                        this.L.setText(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0fec, new Object[]{this.Y0}));
+                        this.L.setText(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0fef, new Object[]{this.Y0}));
                         SpanGroupEditText spanGroupEditText3 = this.L;
                         spanGroupEditText3.setSelection(spanGroupEditText3.getText().length());
                     }
                 } else if (this.r.getFloorNum() > 0) {
-                    this.L.setText(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f0fee), Integer.valueOf(this.r.getFloorNum())));
+                    this.L.setText(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f0ff1), Integer.valueOf(this.r.getFloorNum())));
                     SpanGroupEditText spanGroupEditText4 = this.L;
                     spanGroupEditText4.setSelection(spanGroupEditText4.getText().length());
                 }
@@ -6037,20 +6037,20 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 this.z1 = false;
             }
             if (this.R1) {
-                SpannableString spannableString = new SpannableString(" " + ((Object) getResources().getText(R.string.obfuscated_res_0x7f0f15cd)));
-                Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809af, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL);
+                SpannableString spannableString = new SpannableString(" " + ((Object) getResources().getText(R.string.obfuscated_res_0x7f0f15d0)));
+                Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b0, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL);
                 pureDrawable.setBounds(0, 0, pureDrawable.getIntrinsicWidth(), pureDrawable.getIntrinsicHeight());
-                spannableString.setSpan(new ha6(pureDrawable, 1, qi.f(this, R.dimen.tbds4)), 0, 1, 17);
+                spannableString.setSpan(new pa6(pureDrawable, 1, ri.f(this, R.dimen.tbds4)), 0, 1, 17);
                 this.L.setHint(spannableString);
             } else if (this.r.isUserFeedback()) {
-                this.L.setHint(R.string.obfuscated_res_0x7f0f15d1);
+                this.L.setHint(R.string.obfuscated_res_0x7f0f15d4);
             } else if (this.h1) {
-                this.L.setHint(getString(R.string.obfuscated_res_0x7f0f0f6e));
+                this.L.setHint(getString(R.string.obfuscated_res_0x7f0f0f71));
             } else {
-                this.L.setHint(R.string.obfuscated_res_0x7f0f0a7e);
+                this.L.setHint(R.string.obfuscated_res_0x7f0f0a81);
             }
             this.K0.setOnSpanGroupChangedListener(zVar);
-            this.K0.setForumId(og.g(this.r.getForumId(), 0L));
+            this.K0.setForumId(pg.g(this.r.getForumId(), 0L));
             this.K0.setEditOnClickListener(this.w0);
             this.K0.setEditOnFocusChangeListener(this.x0);
             this.K0.setBigEmotionSpanHandler(this.q0);
@@ -6062,17 +6062,17 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
 
     public final void p4() {
         CustomResponsedMessage runTask;
-        s25 s25Var;
+        y25 y25Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048745, this) == null) || (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, getActivity()), s25.class)) == null || (s25Var = (s25) runTask.getData()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048745, this) == null) || (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, getActivity()), y25.class)) == null || (y25Var = (y25) runTask.getData()) == null) {
             return;
         }
-        s25Var.o = true;
-        s25Var.l = 9;
+        y25Var.o = true;
+        y25Var.l = 9;
         if (WriteActivityConfig.FROM_FORUM_SHARE.equals(this.f)) {
             return;
         }
-        this.e0.d(s25Var);
+        this.e0.d(y25Var);
     }
 
     public final int p5() {
@@ -6094,21 +6094,21 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             return;
         }
         if (!TextUtils.isEmpty(editable)) {
-            SpannableString spannableString = new SpannableString(getString(R.string.obfuscated_res_0x7f0f08f7, new Object[]{Integer.valueOf(editable.length()), 31}));
+            SpannableString spannableString = new SpannableString(getString(R.string.obfuscated_res_0x7f0f08fa, new Object[]{Integer.valueOf(editable.length()), 31}));
             if (editable.length() > 31) {
                 spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301)), 0, String.valueOf(editable.length()).length(), 17);
             }
             this.N0.setText(spannableString);
             return;
         }
-        this.N0.setText(getString(R.string.obfuscated_res_0x7f0f08f7, new Object[]{0, 31}));
+        this.N0.setText(getString(R.string.obfuscated_res_0x7f0f08fa, new Object[]{0, 31}));
     }
 
     @Override // com.baidu.tieba.write.write.AbsBaseWriteActivity
     public void q2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048748, this) == null) {
-            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f09243e);
+            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f092447);
             this.F0 = headImageView;
             headImageView.setIsRound(true);
             this.F0.setDrawBorder(false);
@@ -6121,7 +6121,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             if (this.r.isUserFeedback()) {
                 this.F0.setVisibility(0);
             }
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f091a18);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f091a1a);
             this.H = editText;
             editText.setOnClickListener(this.w0);
             this.H.setOnFocusChangeListener(this.x0);
@@ -6130,12 +6130,12 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                     this.H.setText(this.r.getTitle());
                     this.H.setSelection(this.r.getTitle().length());
                 } else if (this.E0) {
-                    this.H.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14fb));
+                    this.H.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14fe));
                 }
             }
             this.H.addTextChangedListener(this.j0);
-            this.H.setFilters(new InputFilter[]{new l09.b(this.H, 31, new y(this))});
-            ms4.d(this.H).A(R.string.F_X02);
+            this.H.setFilters(new InputFilter[]{new u09.b(this.H, 31, new y(this))});
+            os4.d(this.H).A(R.string.F_X02);
             if (this.r.getHaveDraft()) {
                 return;
             }
@@ -6178,9 +6178,9 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         if (interceptable == null || interceptable.invokeV(1048751, this) == null) {
             this.L.setVisibility(8);
             this.K0.setVisibility(0);
-            d19 d19Var = this.d1;
-            if (d19Var != null) {
-                d19Var.j(true);
+            m19 m19Var = this.d1;
+            if (m19Var != null) {
+                m19Var.j(true);
             }
         }
     }
@@ -6191,9 +6191,9 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             return;
         }
         if (!"main_tab".equals(this.f)) {
-            this.e0.d(new k25(getActivity(), 10));
+            this.e0.d(new q25(getActivity(), 10));
         }
-        this.e0.d(new f35(getActivity(), 11));
+        this.e0.d(new l35(getActivity(), 11));
     }
 
     public final void r5() {
@@ -6246,7 +6246,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
             this.e0.h(arrayList);
-            s25 n2 = this.e0.n(5);
+            y25 n2 = this.e0.n(5);
             if (n2 != null) {
                 n2.l = 5;
             }
@@ -6275,9 +6275,9 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         }
     }
 
-    public void s6(h25 h25Var) {
+    public void s6(n25 n25Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048758, this, h25Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048758, this, n25Var) == null) {
             if (this.e0.u()) {
                 this.e0.q();
             }
@@ -6318,24 +6318,24 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048761, this)) == null) {
-            s19 s19Var = this.O1;
-            return (s19Var == null || this.P1 == null || s19Var.c() == null || this.P1.getVisibility() != 0) ? false : true;
+            b29 b29Var = this.O1;
+            return (b29Var == null || this.P1 == null || b29Var.c() == null || this.P1.getVisibility() != 0) ? false : true;
         }
         return invokeV.booleanValue;
     }
 
-    public void t6(h25 h25Var) {
+    public void t6(n25 n25Var) {
         String str;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048762, this, h25Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048762, this, n25Var) == null) {
             if (this.e0.u()) {
                 this.e0.q();
             }
-            int a2 = jz8.a();
-            if (jz8.c(a2)) {
-                jz8.e(getPageContext().getPageActivity(), a2, WorkPublishOpenHelper.OPEN_WORK_PUBLISH_FROM_FRS_WRITE);
-            } else if (jz8.b()) {
+            int a2 = sz8.a();
+            if (sz8.c(a2)) {
+                sz8.e(getPageContext().getPageActivity(), a2, WorkPublishOpenHelper.OPEN_WORK_PUBLISH_FROM_FRS_WRITE);
+            } else if (sz8.b()) {
                 if (this.u == null || this.r == null) {
                     return;
                 }
@@ -6347,9 +6347,9 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                     i2 = 1;
                 }
                 if (this.I1 == null && this.r.getForumName() != null) {
-                    jz8.f(getPageContext(), str, this.L.getText().toString(), this.r.getForumId(), this.r.getForumName(), 3, Boolean.FALSE, "", "", "");
+                    sz8.f(getPageContext(), str, this.L.getText().toString(), this.r.getForumId(), this.r.getForumName(), 3, Boolean.FALSE, "", "", "");
                 } else {
-                    jz8.f(getPageContext(), str, this.L.getText().toString(), this.r.getForumId(), this.r.getForumName(), i2, Boolean.TRUE, "", "", "");
+                    sz8.f(getPageContext(), str, this.L.getText().toString(), this.r.getForumId(), this.r.getForumName(), i2, Boolean.TRUE, "", "", "");
                 }
             } else {
                 h6(0);
@@ -6358,23 +6358,23 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     }
 
     @Override // com.baidu.tieba.write.write.AbsBaseWriteActivity
-    public void u2(@NonNull h25 h25Var) {
+    public void u2(@NonNull n25 n25Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048763, this, h25Var) == null) {
-            super.u2(h25Var);
-            int i2 = h25Var.a;
+        if (interceptable == null || interceptable.invokeL(1048763, this, n25Var) == null) {
+            super.u2(n25Var);
+            int i2 = n25Var.a;
             if (i2 == 16) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 9));
             } else if (i2 == 14 || i2 == 48) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 1));
-                s6(h25Var);
+                s6(n25Var);
             } else if (i2 == 60) {
-                t6(h25Var);
+                t6(n25Var);
             } else if (i2 == 24) {
-                Object obj = h25Var.c;
-                if (obj instanceof gy4) {
-                    gy4 gy4Var = (gy4) obj;
-                    if (EmotionGroupType.isSendAsPic(gy4Var.getType())) {
+                Object obj = n25Var.c;
+                if (obj instanceof jy4) {
+                    jy4 jy4Var = (jy4) obj;
+                    if (EmotionGroupType.isSendAsPic(jy4Var.getType())) {
                         if (this.mCurrentPermissionJudgePolicy == null) {
                             this.mCurrentPermissionJudgePolicy = new PermissionJudgePolicy();
                         }
@@ -6384,14 +6384,14 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                             return;
                         }
                         if (this.u.size() >= this.u.getMaxImagesAllowed()) {
-                            showToast(String.format(getString(R.string.obfuscated_res_0x7f0f0aa5), Integer.valueOf(this.u.getMaxImagesAllowed())));
+                            showToast(String.format(getString(R.string.obfuscated_res_0x7f0f0aa8), Integer.valueOf(this.u.getMaxImagesAllowed())));
                             return;
                         }
                         ImageFileInfo imageFileInfo = new ImageFileInfo();
                         imageFileInfo.setImageType(1);
-                        imageFileInfo.setFilePath(gy4Var.d());
-                        imageFileInfo.width = gy4Var.h();
-                        imageFileInfo.height = gy4Var.b();
+                        imageFileInfo.setFilePath(jy4Var.d());
+                        imageFileInfo.width = jy4Var.h();
+                        imageFileInfo.height = jy4Var.b();
                         this.u.addChooseFile(imageFileInfo);
                         this.u.updateQuality();
                         q4(imageFileInfo);
@@ -6400,13 +6400,13 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                         C6();
                         C2();
                     } else if (t2()) {
-                        showToast(R.string.obfuscated_res_0x7f0f0d1a);
+                        showToast(R.string.obfuscated_res_0x7f0f0d1d);
                     } else {
-                        r2(gy4Var);
+                        r2(jy4Var);
                     }
                 }
             } else if (i2 == 10) {
-                Object obj2 = h25Var.c;
+                Object obj2 = n25Var.c;
                 if (obj2 instanceof VoiceData.VoiceModel) {
                     z4((VoiceData.VoiceModel) obj2);
                     H6();
@@ -6419,7 +6419,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 H6();
                 C2();
             } else if (i2 == 15 || i2 == 47) {
-                Object obj3 = h25Var.c;
+                Object obj3 = n25Var.c;
                 if (obj3 instanceof Integer) {
                     g6(((Integer) obj3).intValue());
                 }
@@ -6429,7 +6429,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 WriteVoteData writeVoteData = null;
                 str = null;
                 if (i2 == 25) {
-                    Object obj4 = h25Var.c;
+                    Object obj4 = n25Var.c;
                     if (obj4 instanceof String) {
                         this.M0 = (String) obj4;
                     } else {
@@ -6438,8 +6438,8 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                     A6(false);
                 } else if (i2 == 43) {
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 4));
-                    ru4.k().u("hot_topic_has_click", true);
-                    this.e0.A(new h25(2, 26, null));
+                    tu4.k().u("hot_topic_has_click", true);
+                    this.e0.A(new n25(2, 26, null));
                     this.o = true;
                     A2(true);
                     if (X1().isFocused() && this.J.getVisibility() == 0) {
@@ -6448,14 +6448,14 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                         this.g = "from_content";
                     }
                 } else if (i2 == 58) {
-                    Object obj5 = h25Var.c;
+                    Object obj5 = n25Var.c;
                     if (obj5 instanceof Boolean) {
                         this.w1 = ((Boolean) obj5).booleanValue();
                     }
                 } else if (i2 == 22) {
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 10));
-                    s19 s19Var = this.O1;
-                    if (s19Var != null && s19Var.c() != null) {
+                    b29 b29Var = this.O1;
+                    if (b29Var != null && b29Var.c() != null) {
                         writeVoteData = this.O1.c();
                     }
                     i6(writeVoteData);
@@ -6473,7 +6473,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 } else if (i2 == 61) {
                     m6();
                 } else if (i2 == 66) {
-                    Object obj6 = h25Var.c;
+                    Object obj6 = n25Var.c;
                     if (obj6 instanceof Boolean) {
                         this.x1 = ((Boolean) obj6).booleanValue();
                     }
@@ -6502,7 +6502,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         if (!(interceptable == null || interceptable.invokeV(1048764, this) == null) || this.R1) {
             return;
         }
-        this.e0.d(new a35(getActivity(), 12));
+        this.e0.d(new g35(getActivity(), 12));
     }
 
     public final void u5() {
@@ -6529,7 +6529,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                     String string = jSONArray.getString(i2);
                     JSONObject jSONObject = jSONArray.getJSONObject(i2);
                     arrayList.add(string);
-                    this.f2.add(ut6.g(jSONObject));
+                    this.f2.add(cu6.g(jSONObject));
                 }
                 if (this.f2.size() > 0) {
                     this.i2 = true;
@@ -6547,27 +6547,27 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public final void v4() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048767, this) == null) && StringHelper.equals(this.l, "2")) {
-            g35 g35Var = new g35(getActivity(), 4);
-            this.q2 = g35Var;
+            m35 m35Var = new m35(getActivity(), 4);
+            this.q2 = m35Var;
             if (this.R1) {
-                g35Var.g(false);
+                m35Var.g(false);
                 this.q2.h(false);
             }
             this.e0.d(this.q2);
             if (this.R1) {
                 return;
             }
-            this.e0.d(new v45(getActivity(), 8));
+            this.e0.d(new b55(getActivity(), 8));
         }
     }
 
     public final void v5() {
-        w09 w09Var;
+        f19 f19Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048768, this) == null) || (w09Var = this.C1) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048768, this) == null) || (f19Var = this.C1) == null) {
             return;
         }
-        w09Var.a();
+        f19Var.a();
     }
 
     public final void v6(boolean z3) {
@@ -6580,11 +6580,11 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                     this.N1.setOnClickListener(new c(this, z3));
                 }
                 if (this.M1 == null) {
-                    ds4 ds4Var = new ds4(getPageContext());
-                    this.M1 = ds4Var;
-                    ds4Var.setContentView(this.N1);
+                    fs4 fs4Var = new fs4(getPageContext());
+                    this.M1 = fs4Var;
+                    fs4Var.setContentView(this.N1);
                 }
-                this.N1.setText(getString(R.string.obfuscated_res_0x7f0f15d9), getString(R.string.obfuscated_res_0x7f0f1082));
+                this.N1.setText(getString(R.string.obfuscated_res_0x7f0f15dc), getString(R.string.obfuscated_res_0x7f0f1085));
                 this.M1.k();
                 return;
             }
@@ -6597,11 +6597,11 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public final void w4() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048770, this) == null) {
-            d35 d35Var = new d35(getActivity(), 1);
+            j35 j35Var = new j35(getActivity(), 1);
             if (WriteActivityConfig.FROM_FORUM_SHARE.equals(this.f)) {
                 return;
             }
-            this.e0.d(d35Var);
+            this.e0.d(j35Var);
         }
     }
 
@@ -6620,11 +6620,11 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             this.r.setContent(g5());
             z6(q5());
             if (this.C0 || this.p) {
-                String string = getResources().getString(R.string.obfuscated_res_0x7f0f0282);
+                String string = getResources().getString(R.string.obfuscated_res_0x7f0f0283);
                 if (TextUtils.isEmpty(this.r.getTitle()) || !this.r.getTitle().startsWith(string)) {
                     z6(string + this.r.getTitle());
                 }
-                String str = getResources().getString(R.string.obfuscated_res_0x7f0f029e) + getResources().getString(R.string.obfuscated_res_0x7f0f13e2);
+                String str = getResources().getString(R.string.obfuscated_res_0x7f0f029e) + getResources().getString(R.string.obfuscated_res_0x7f0f13e5);
                 if (TextUtils.isEmpty(this.r.getContent()) || !this.r.getContent().startsWith(str)) {
                     StringBuilder sb = new StringBuilder();
                     sb.append(str);
@@ -6634,8 +6634,8 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                     sb.append(Build.MODEL);
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    if (oi.z()) {
-                        sb.append(oi.K());
+                    if (pi.z()) {
+                        sb.append(pi.K());
                     } else {
                         sb.append(RomUtils.UNKNOWN);
                     }
@@ -6645,13 +6645,13 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 }
             }
             if (this.D0) {
-                this.r.setZhongcePrefix(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0867), Build.MODEL, TbadkCoreApplication.getInst().getVersionName(), oi.K(), Build.VERSION.RELEASE));
+                this.r.setZhongcePrefix(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0868), Build.MODEL, TbadkCoreApplication.getInst().getVersionName(), pi.K(), Build.VERSION.RELEASE));
             }
             this.r.setWriteImagesInfo(this.u);
             this.K0.setWriteImagesInfo(this.u);
-            s19 s19Var = this.O1;
-            if (s19Var != null) {
-                this.r.setWriteVoteData(s19Var.c());
+            b29 b29Var = this.O1;
+            if (b29Var != null) {
+                this.r.setWriteVoteData(b29Var.c());
             }
             WriteImagesInfo writeImagesInfo = this.u;
             if (writeImagesInfo != null && writeImagesInfo.size() > 0) {
@@ -6707,10 +6707,10 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 this.r.setServerRichContent(this.K0.getPostServerContentData());
             }
             if (!this.b1.e()) {
-                showToast(R.string.obfuscated_res_0x7f0f15d0);
-            } else if (!oi.z()) {
-                showToast(R.string.obfuscated_res_0x7f0f0c3d);
-            } else if (k28.a().b() == 0 && this.x1) {
+                showToast(R.string.obfuscated_res_0x7f0f15d3);
+            } else if (!pi.z()) {
+                showToast(R.string.obfuscated_res_0x7f0f0c40);
+            } else if (s28.a().b() == 0 && this.x1) {
                 V6();
             } else {
                 X6();
@@ -6730,17 +6730,17 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
 
     public final void x4() {
         CustomResponsedMessage runTask;
-        s25 s25Var;
+        y25 y25Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048774, this) == null) || (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, getActivity()), s25.class)) == null || (s25Var = (s25) runTask.getData()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048774, this) == null) || (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, getActivity()), y25.class)) == null || (y25Var = (y25) runTask.getData()) == null) {
             return;
         }
-        s25Var.o = true;
-        s25Var.l = 10;
+        y25Var.o = true;
+        y25Var.l = 10;
         if (WriteActivityConfig.FROM_FORUM_SHARE.equals(this.f)) {
             return;
         }
-        this.e0.d(s25Var);
+        this.e0.d(y25Var);
     }
 
     public final void x5() {
@@ -6779,7 +6779,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 TiebaStatic.log("c10063");
             }
             WriteData writeData = this.r;
-            ru4 k2 = ru4.k();
+            tu4 k2 = tu4.k();
             writeData.setShowCustomFigure(k2.h("key_write_virtual_image_enable" + TbadkCoreApplication.getCurrentAccount(), true));
             w6();
         }
@@ -6790,13 +6790,13 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048777, this, postWriteCallBackData, writeData) == null) {
             super.y2(postWriteCallBackData, writeData);
-            l09.e(this.r);
+            u09.e(this.r);
             Q4();
             if ((this.r.getType() == 0 || this.r.getType() == 9 || this.r.getType() == 11) && !ListUtils.isEmpty(this.v) && !StringUtils.isNull(this.y1)) {
                 TiebaStatic.log(new StatisticItem("c11731").param("obj_id", this.y1));
             }
-            if (!pi.isEmpty(postWriteCallBackData.getVideoid()) && this.r.getVideoInfo() != null) {
-                if (!pi.isEmpty(this.r.getForumName())) {
+            if (!qi.isEmpty(postWriteCallBackData.getVideoid()) && this.r.getVideoInfo() != null) {
+                if (!qi.isEmpty(this.r.getForumName())) {
                     postWriteCallBackData.mFrom = 2;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001374, postWriteCallBackData));
@@ -6810,11 +6810,11 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public final void y4() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048778, this) == null) {
-            t45 t45Var = new t45(getActivity(), 2);
+            z45 z45Var = new z45(getActivity(), 2);
             if (WriteActivityConfig.FROM_FORUM_SHARE.equals(this.f)) {
                 return;
             }
-            this.e0.d(t45Var);
+            this.e0.d(z45Var);
         }
     }
 
@@ -6858,19 +6858,19 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
                 if (type == 0 || type == 9 || type == 11) {
                     if (this.U1) {
                         if (this.s1) {
-                            ek8.v(this.r);
+                            mk8.v(this.r);
                         } else if (this.h1) {
-                            ek8.z(this.r.getForumId(), this.r, false);
+                            mk8.z(this.r.getForumId(), this.r, false);
                         } else if (this.r.isEvaluate()) {
-                            ek8.s(this.r.getItem_id(), this.r);
+                            mk8.s(this.r.getItem_id(), this.r);
                         } else if (TextUtils.isEmpty(this.r.getTopicId())) {
-                            ek8.t(this.r.getForumId(), this.r);
+                            mk8.t(this.r.getForumId(), this.r);
                         } else {
-                            ek8.B(this.r.getTopicId(), this.r);
+                            mk8.B(this.r.getTopicId(), this.r);
                         }
                     }
                 } else if (type == 1) {
-                    ek8.y(this.r.getThreadId(), this.r);
+                    mk8.y(this.r.getThreadId(), this.r);
                 }
                 this.v2 = true;
             }

@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.kwad.components.offline.api.core.api.INet;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class c extends com.kwad.sdk.core.network.b {
     @NonNull
     public final Map<String, String> ahK;

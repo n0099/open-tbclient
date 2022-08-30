@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class Track {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TRANSFORMATION_CEA608_CDAT = 1;
@@ -31,7 +31,7 @@ public final class Track {
     public final int type;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public @interface Transformation {
     }
 

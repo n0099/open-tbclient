@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AnimationFrameCacheKey implements CacheKey {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String URI_PREFIX = "anim://";

@@ -17,7 +17,7 @@ import com.kwad.components.offline.api.core.video.mdoel.KsPlayerLogParams;
 import com.kwad.components.offline.api.core.video.mdoel.PlayVideoInfo;
 import com.kwad.sdk.contentalliance.kwai.kwai.b;
 import com.kwad.sdk.core.video.kwai.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -295,14 +295,14 @@ public final class d {
         return (c.b) invokeLL.objValue;
     }
 
-    public static c.InterfaceC0395c a(IMediaPlayer iMediaPlayer, IMediaPlayer.OnErrorListener onErrorListener) {
+    public static c.InterfaceC0610c a(IMediaPlayer iMediaPlayer, IMediaPlayer.OnErrorListener onErrorListener) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, iMediaPlayer, onErrorListener)) == null) {
             if (onErrorListener == null) {
                 return null;
             }
-            return new c.InterfaceC0395c(onErrorListener, iMediaPlayer) { // from class: com.kwad.components.core.offline.init.a.d.7
+            return new c.InterfaceC0610c(onErrorListener, iMediaPlayer) { // from class: com.kwad.components.core.offline.init.a.d.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ IMediaPlayer Fj;
@@ -327,7 +327,7 @@ public final class d {
                     this.Fj = iMediaPlayer;
                 }
 
-                @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0395c
+                @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0610c
                 public final boolean j(int i, int i2) {
                     InterceptResult invokeII;
                     Interceptable interceptable2 = $ic;
@@ -335,7 +335,7 @@ public final class d {
                 }
             };
         }
-        return (c.InterfaceC0395c) invokeLL.objValue;
+        return (c.InterfaceC0610c) invokeLL.objValue;
     }
 
     public static c.d a(IMediaPlayer iMediaPlayer, IMediaPlayer.OnInfoListener onInfoListener) {

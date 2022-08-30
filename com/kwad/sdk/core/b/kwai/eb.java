@@ -1,9 +1,8 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.tbadk.core.atomData.TbPreviewVideoActivityConfig;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class eb implements com.kwad.sdk.core.d<PhotoInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(PhotoInfo photoInfo, JSONObject jSONObject) {
@@ -19,7 +18,7 @@ public final class eb implements com.kwad.sdk.core.d<PhotoInfo> {
         baseInfo.parseJson(jSONObject.optJSONObject("baseInfo"));
         PhotoInfo.VideoInfo videoInfo = new PhotoInfo.VideoInfo();
         photoInfo.videoInfo = videoInfo;
-        videoInfo.parseJson(jSONObject.optJSONObject(TbPreviewVideoActivityConfig.KEY_VIDEO_INFO));
+        videoInfo.parseJson(jSONObject.optJSONObject("videoInfo"));
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
@@ -32,7 +31,7 @@ public final class eb implements com.kwad.sdk.core.d<PhotoInfo> {
             com.kwad.sdk.utils.r.putValue(jSONObject, "mOriginJString", photoInfo.mOriginJString);
         }
         com.kwad.sdk.utils.r.a(jSONObject, "baseInfo", photoInfo.baseInfo);
-        com.kwad.sdk.utils.r.a(jSONObject, TbPreviewVideoActivityConfig.KEY_VIDEO_INFO, photoInfo.videoInfo);
+        com.kwad.sdk.utils.r.a(jSONObject, "videoInfo", photoInfo.videoInfo);
         return jSONObject;
     }
 

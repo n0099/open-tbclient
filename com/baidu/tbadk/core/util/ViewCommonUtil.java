@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 import androidx.annotation.DimenRes;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.compatible.menukey.MenuKeyUtils;
-import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class ViewCommonUtil {
     public static /* synthetic */ Interceptable $ic;
@@ -47,7 +47,7 @@ public class ViewCommonUtil {
                     iArr[1] = iArr[1] - findViewById.getHeight();
                 }
             }
-            int[] q = qi.q(activity);
+            int[] q = ri.q(activity);
             if (iArr[0] == 0 || iArr[1] == 0) {
                 iArr[0] = q[0];
                 iArr[1] = q[1];
@@ -68,8 +68,8 @@ public class ViewCommonUtil {
             if (windowVisibility != 8) {
                 rect.top = 0;
             }
-            int s = qi.s(activity);
-            int d = MenuKeyUtils.hasSmartBar() ? qi.d(activity, 48.0f) : 0;
+            int s = ri.s(activity);
+            int d = MenuKeyUtils.hasSmartBar() ? ri.d(activity, 48.0f) : 0;
             int i = UtilHelper.canUseStyleImmersiveSticky() ? 0 : s;
             rect.bottom -= d;
             rect.top += i;

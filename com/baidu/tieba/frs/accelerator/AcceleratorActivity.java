@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AcceleratorActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class AcceleratorActivity extends BaseFragmentActivity {
                 Intent intent = getIntent();
                 AcceleratorFragment acceleratorFragment = new AcceleratorFragment();
                 acceleratorFragment.c2(intent);
-                getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f09145c, acceleratorFragment).commit();
+                getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f09145e, acceleratorFragment).commit();
                 return;
             }
             finish();

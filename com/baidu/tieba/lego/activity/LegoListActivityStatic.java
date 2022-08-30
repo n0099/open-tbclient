@@ -6,6 +6,17 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.tieba.dl4;
+import com.baidu.tieba.el4;
+import com.baidu.tieba.fg7;
+import com.baidu.tieba.oe7;
+import com.baidu.tieba.pe7;
+import com.baidu.tieba.qe7;
+import com.baidu.tieba.re7;
+import com.baidu.tieba.se7;
+import com.baidu.tieba.te7;
+import com.baidu.tieba.we7;
+import com.baidu.tieba.xe7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,23 +24,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cl4;
-import com.repackage.dl4;
-import com.repackage.ge7;
-import com.repackage.he7;
-import com.repackage.ie7;
-import com.repackage.je7;
-import com.repackage.ke7;
-import com.repackage.le7;
-import com.repackage.oe7;
-import com.repackage.pe7;
-import com.repackage.xf7;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LegoListActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements CustomMessageTask.CustomRunnable<LegoListActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,19 +75,19 @@ public class LegoListActivityStatic {
                 return;
             }
         }
-        xf7.a.set(new ge7());
+        fg7.a.set(new oe7());
         TbConfig.setLegoLibVersion("3.0.0");
-        oe7.h().g(pe7.f());
+        we7.h().g(xe7.f());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016447, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerStickyMode(2016470);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016470, Boolean.TRUE));
-        ie7.a().b(new le7());
-        he7.a().b(new je7());
-        he7.a().b(new ke7());
-        dl4.a.set(ie7.a());
-        cl4.a.set(he7.a());
+        qe7.a().b(new te7());
+        pe7.a().b(new re7());
+        pe7.a().b(new se7());
+        el4.a.set(qe7.a());
+        dl4.a.set(pe7.a());
     }
 
     public LegoListActivityStatic() {

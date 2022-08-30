@@ -6,7 +6,7 @@ import com.kwad.sdk.service.ServiceProvider;
 import java.io.Serializable;
 import java.util.List;
 @KsJson
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class StatusInfo extends com.kwad.sdk.core.response.kwai.a {
     public SplashAdInfo acU;
     public int acS = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).isPersonalRecommend() ? 1 : 0;
@@ -14,7 +14,7 @@ public class StatusInfo extends com.kwad.sdk.core.response.kwai.a {
     public List<f> acV = com.kwad.sdk.core.d.a.ts();
 
     @KsJson
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SplashAdInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 7910709346852904072L;
         public int dailyShowCount;
@@ -29,7 +29,7 @@ public class StatusInfo extends com.kwad.sdk.core.response.kwai.a {
     }
 
     @KsJson
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SplashStyleControl extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = -6510852657198503314L;
         public boolean disableRotate;

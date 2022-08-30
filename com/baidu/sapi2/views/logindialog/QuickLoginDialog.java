@@ -503,10 +503,10 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091ccb) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091ccd) {
                 com.baidu.sapi2.views.logindialog.utils.a.a("close");
                 cancel();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091cbc) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091cbe) {
                 com.baidu.sapi2.views.logindialog.utils.a.a("back");
                 onChange2LoginPage();
             }
@@ -774,7 +774,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d04c0);
+            setContentView(R.layout.obfuscated_res_0x7f0d04c2);
             Window window = getWindow();
             window.setGravity(83);
             WindowManager.LayoutParams attributes = window.getAttributes();
@@ -785,12 +785,12 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
             window.setAttributes(attributes);
             setCancelable(true);
             setCanceledOnTouchOutside(true);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d00);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cbc);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d4e);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ccb);
-            this.h = (LoadingView) findViewById(R.id.obfuscated_res_0x7f091d0e);
-            this.g = (NoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f091d13);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d02);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cbe);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d50);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ccd);
+            this.h = (LoadingView) findViewById(R.id.obfuscated_res_0x7f091d10);
+            this.g = (NoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f091d15);
             this.d.setOnClickListener(this);
             this.f.setOnClickListener(this);
             c();
@@ -868,7 +868,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     private void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65541, this) == null) && ColorType.DARK == this.b) {
-            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e71));
+            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e72));
             this.e.setTextColor(Color.parseColor("#FFFFFF"));
             this.h.a();
         }

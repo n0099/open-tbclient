@@ -20,7 +20,7 @@ import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.utils.ax;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class c extends e implements com.kwad.sdk.core.h.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +136,7 @@ public final class c extends e implements com.kwad.sdk.core.h.b {
     private void q(AdInfo adInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, adInfo) == null) {
-            TextView textView = (TextView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911da);
+            TextView textView = (TextView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911dc);
             this.yx = textView;
             this.yz = adInfo.adPreloadInfo;
             textView.setVisibility(8);
@@ -153,7 +153,7 @@ public final class c extends e implements com.kwad.sdk.core.h.b {
     private void r(AdInfo adInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, adInfo) == null) {
-            this.yB = this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911c9);
+            this.yB = this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911cb);
             if (!com.kwad.sdk.core.response.a.a.by(adInfo)) {
                 this.yB.setVisibility(8);
                 return;
@@ -290,10 +290,10 @@ public final class c extends e implements com.kwad.sdk.core.h.b {
             q(bQ);
             if (p(this.py)) {
                 adBaseFrameLayout = this.yF.mRootContainer;
-                i = R.id.obfuscated_res_0x7f0911dc;
+                i = R.id.obfuscated_res_0x7f0911de;
             } else {
                 adBaseFrameLayout = this.yF.mRootContainer;
-                i = R.id.obfuscated_res_0x7f0911d5;
+                i = R.id.obfuscated_res_0x7f0911d7;
             }
             this.yy = (com.kwad.components.ad.splashscreen.widget.a) adBaseFrameLayout.findViewById(i);
             this.yy.a(jW(), this.py);

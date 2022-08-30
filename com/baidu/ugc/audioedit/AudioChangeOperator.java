@@ -4,17 +4,17 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.audioprocesswrapper.DuAudioProcess;
 import com.baidu.audioprocesswrapper.DuDelayProcess;
+import com.baidu.tieba.ac9;
+import com.baidu.tieba.o89;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f89;
-import com.repackage.rb9;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
-public class AudioChangeOperator implements f89 {
+/* loaded from: classes6.dex */
+public class AudioChangeOperator implements o89 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DU_AUDIO_EFFECT_SHIFT_AGC = 4;
     public static final int DU_AUDIO_EFFECT_SHIFT_AIR = 20;
@@ -95,8 +95,8 @@ public class AudioChangeOperator implements f89 {
             }
             this.mDuAudioProcess.g(Math.max(this.mAirType + ErrorCode.SERVER_ERROR, 0));
             this.mDuAudioProcess.j(this.mHarmonyType >= 700 ? 1 : 0);
-            rb9.d("AudioChangeOperatorNew: 切换效果 mPitchType = " + this.mPitchType);
-            rb9.d("AudioChangeOperatorNew: 切换效果 mReverbType = " + this.mReverbType);
+            ac9.d("AudioChangeOperatorNew: 切换效果 mPitchType = " + this.mPitchType);
+            ac9.d("AudioChangeOperatorNew: 切换效果 mReverbType = " + this.mReverbType);
         }
     }
 
@@ -187,14 +187,14 @@ public class AudioChangeOperator implements f89 {
                 if (i3 > 300) {
                     j |= (i3 - 300) << 4;
                 }
-                rb9.d("AudioChangeOperatorNew: 创建DuAudioProcess开始");
+                ac9.d("AudioChangeOperatorNew: 创建DuAudioProcess开始");
                 this.mDuAudioProcess = new DuAudioProcess(this.mSampleRate, this.mChannelCount, j);
                 audioSwitch();
-                rb9.d("AudioChangeOperatorNew: 创建DuAudioProcess完成");
-                rb9.d("AudioChangeOperatorNew: 创建DuDelayProcess开始");
+                ac9.d("AudioChangeOperatorNew: 创建DuAudioProcess完成");
+                ac9.d("AudioChangeOperatorNew: 创建DuDelayProcess开始");
                 this.mDelayProcess = new DuDelayProcess(this.mSampleRate, 1);
                 setDelayConfig();
-                rb9.d("AudioChangeOperatorNew: 创建DuDelayProcess完成");
+                ac9.d("AudioChangeOperatorNew: 创建DuDelayProcess完成");
             }
         }
     }
@@ -266,7 +266,7 @@ public class AudioChangeOperator implements f89 {
             duDelayProcess3.h(2);
             this.mDelayProcess.i(newPosition);
         }
-        rb9.d("AudioChangeOperatorNew: delayConfig = " + delayConfig.toString());
+        ac9.d("AudioChangeOperatorNew: delayConfig = " + delayConfig.toString());
     }
 
     private boolean shouldClose(DelayConfig delayConfig) {
@@ -286,14 +286,14 @@ public class AudioChangeOperator implements f89 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.f89
+    @Override // com.baidu.tieba.o89
     public boolean available() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mReverbType > 100 || this.mPitchType > 0 || this.mDenoiseType > 200 || this.mAgcType > 300 || this.mEQType > 400 || this.mAirType > 500 || this.mHarmonyType > 700 || delayAvailable() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.f89
+    @Override // com.baidu.tieba.o89
     public int availableBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -310,7 +310,7 @@ public class AudioChangeOperator implements f89 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.f89
+    @Override // com.baidu.tieba.o89
     public void clearQueues() {
         DuAudioProcess duAudioProcess;
         Interceptable interceptable = $ic;
@@ -320,7 +320,7 @@ public class AudioChangeOperator implements f89 {
         duAudioProcess.b();
     }
 
-    @Override // com.repackage.f89
+    @Override // com.baidu.tieba.o89
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -336,7 +336,7 @@ public class AudioChangeOperator implements f89 {
         }
     }
 
-    @Override // com.repackage.f89
+    @Override // com.baidu.tieba.o89
     public void flush() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -350,7 +350,7 @@ public class AudioChangeOperator implements f89 {
         }
     }
 
-    @Override // com.repackage.f89
+    @Override // com.baidu.tieba.o89
     public int getBytes(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -367,7 +367,7 @@ public class AudioChangeOperator implements f89 {
         return invokeLI.intValue;
     }
 
-    @Override // com.repackage.f89
+    @Override // com.baidu.tieba.o89
     public void initVoiceChanger(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
@@ -377,7 +377,7 @@ public class AudioChangeOperator implements f89 {
         }
     }
 
-    @Override // com.repackage.f89
+    @Override // com.baidu.tieba.o89
     public boolean putBytes(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -399,7 +399,7 @@ public class AudioChangeOperator implements f89 {
         }
     }
 
-    @Override // com.repackage.f89
+    @Override // com.baidu.tieba.o89
     public void setVoiceChangeType(int[] iArr) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048585, this, iArr) == null) || checkTypesEquals(iArr, this.mLastEQparams, this.mLastReverbParams)) {
@@ -429,7 +429,7 @@ public class AudioChangeOperator implements f89 {
         }
     }
 
-    @Override // com.repackage.f89
+    @Override // com.baidu.tieba.o89
     public void setVoiceChangeType(int[] iArr, int[] iArr2, double[] dArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048586, this, iArr, iArr2, dArr) == null) {

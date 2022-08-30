@@ -3,13 +3,13 @@ package com.google.vr.dynamite.client;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
+import com.baidu.tieba.sm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jm9;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a extends com.google.a.a.a implements ILoadedInstanceCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,8 +42,8 @@ public final class a extends com.google.a.a.a implements ILoadedInstanceCreator 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, iObjectWrapper, iObjectWrapper2)) == null) {
             Parcel a = a();
-            jm9.b(a, iObjectWrapper);
-            jm9.b(a, iObjectWrapper2);
+            sm9.b(a, iObjectWrapper);
+            sm9.b(a, iObjectWrapper2);
             Parcel a2 = a(1, a);
             IBinder readStrongBinder = a2.readStrongBinder();
             if (readStrongBinder == null) {

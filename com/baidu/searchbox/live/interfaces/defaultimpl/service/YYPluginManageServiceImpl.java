@@ -25,6 +25,8 @@ import com.baidu.searchbox.live.interfaces.service.yy.YYPluginManageService;
 import com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginBundleInfo;
 import com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginDownloadCallback;
 import com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginInstallCallback;
+import com.baidu.tieba.l71;
+import com.baidu.tieba.q61;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,8 +35,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.repackage.k71;
-import com.repackage.p61;
 import java.io.File;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
@@ -317,7 +317,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
     public void downloadBundle(final String str, final YYPluginDownloadCallback yYPluginDownloadCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, yYPluginDownloadCallback) == null) {
-            NPSPackageManager.getInstance().downloadUpdatePackage(str, new p61(yYPluginDownloadCallback, str) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceImpl$downloadBundle$1
+            NPSPackageManager.getInstance().downloadUpdatePackage(str, new q61(yYPluginDownloadCallback, str) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceImpl$downloadBundle$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ YYPluginDownloadCallback $callback;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -342,7 +342,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                     this.$pluginPackageName = str;
                 }
 
-                @Override // com.repackage.p61
+                @Override // com.baidu.tieba.q61
                 public void onProgress(long j, long j2) {
                     YYPluginDownloadCallback yYPluginDownloadCallback2;
                     Interceptable interceptable2 = $ic;
@@ -352,7 +352,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                     yYPluginDownloadCallback2.onProgress(this.$pluginPackageName, j, j2);
                 }
 
-                @Override // com.repackage.p61
+                @Override // com.baidu.tieba.q61
                 public void onResult(int i, String str2) {
                     YYPluginDownloadCallback yYPluginDownloadCallback2;
                     Interceptable interceptable2 = $ic;
@@ -489,7 +489,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
     public void installBundle(final String str, final YYPluginInstallCallback yYPluginInstallCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, yYPluginInstallCallback) == null) {
-            NPSPackageManager.getInstance().downloadBundle(str, new p61(this, str, yYPluginInstallCallback) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceImpl$installBundle$1
+            NPSPackageManager.getInstance().downloadBundle(str, new q61(this, str, yYPluginInstallCallback) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceImpl$installBundle$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ YYPluginInstallCallback $callback;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -516,7 +516,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                     this.$callback = yYPluginInstallCallback;
                 }
 
-                @Override // com.repackage.p61
+                @Override // com.baidu.tieba.q61
                 public void onProgress(long j, long j2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -524,7 +524,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                     }
                 }
 
-                @Override // com.repackage.p61
+                @Override // com.baidu.tieba.q61
                 public void onResult(int i, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2) == null) {
@@ -580,7 +580,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                 } else if (!StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) "media.business", false, 2, (Object) null)) {
                     str2 = "直播插件";
                     str4 = BD_LIVE_ICON_URL;
-                    if (new File(str).exists() && (a = k71.a(str, 128)) != null) {
+                    if (new File(str).exists() && (a = l71.a(str, 128)) != null) {
                         BundleInfo bundleInfo = new BundleInfo();
                         bundleInfo.setName(str2);
                         bundleInfo.setIconUrl(str4);

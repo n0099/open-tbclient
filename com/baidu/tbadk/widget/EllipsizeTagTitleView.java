@@ -18,6 +18,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.jx;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,10 +27,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ix;
-import com.repackage.qi;
 /* loaded from: classes3.dex */
-public class EllipsizeTagTitleView extends View implements ix {
+public class EllipsizeTagTitleView extends View implements jx {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: A */
@@ -83,13 +83,13 @@ public class EllipsizeTagTitleView extends View implements ix {
                 return;
             }
         }
-        B = qi.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
-        C = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds16);
-        D = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-        E = qi.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-        F = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds12);
-        G = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-        H = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        B = ri.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
+        C = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds16);
+        D = ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
+        E = ri.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+        F = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds12);
+        G = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        H = ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -337,7 +337,7 @@ public class EllipsizeTagTitleView extends View implements ix {
             TextPaint textPaint2 = new TextPaint(1);
             this.w = textPaint2;
             textPaint2.setColor(SkinManager.getColor(this.k));
-            this.w.setTextSize(qi.f(TbadkCoreApplication.getInst(), R.dimen.T_X10));
+            this.w.setTextSize(ri.f(TbadkCoreApplication.getInst(), R.dimen.T_X10));
             if (this.w.getFontMetrics() != null) {
                 this.p = this.w.getFontMetrics().descent - this.w.getFontMetrics().ascent;
                 this.q = this.w.getFontMetrics().descent;
@@ -345,7 +345,7 @@ public class EllipsizeTagTitleView extends View implements ix {
         }
     }
 
-    @Override // com.repackage.ix
+    @Override // com.baidu.tieba.jx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, tbPageContext, i) == null) {

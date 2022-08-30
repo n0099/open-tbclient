@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class j implements com.kwai.sodler.lib.a.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,20 +21,20 @@ public class j implements com.kwai.sodler.lib.a.e {
     public final com.kwai.sodler.lib.a.b axv;
     public final com.kwai.sodler.lib.ext.a axw;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final com.kwai.sodler.lib.a.e axx;
 
         /* renamed from: com.kwai.sodler.lib.j$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public static class C0419a extends a {
+        /* loaded from: classes7.dex */
+        public static class C0634a extends a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0419a(com.kwai.sodler.lib.a.e eVar) {
+            public C0634a(com.kwai.sodler.lib.a.e eVar) {
                 super(eVar);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -62,7 +62,7 @@ public class j implements com.kwai.sodler.lib.a.e {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static class b extends a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +96,7 @@ public class j implements com.kwai.sodler.lib.a.e {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes7.dex */
         public static class c extends a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -151,7 +151,7 @@ public class j implements com.kwai.sodler.lib.a.e {
         public static a a(com.kwai.sodler.lib.a.e eVar, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, eVar, i)) == null) ? i != 1 ? i != 256 ? new b(eVar) : new C0419a(eVar) : new c(eVar) : (a) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, eVar, i)) == null) ? i != 1 ? i != 256 ? new b(eVar) : new C0634a(eVar) : new c(eVar) : (a) invokeLI.objValue;
         }
 
         public abstract void m(com.kwai.sodler.lib.a.f fVar);

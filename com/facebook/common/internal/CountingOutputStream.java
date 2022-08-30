@@ -11,7 +11,7 @@ import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 @Nullsafe(Nullsafe.Mode.STRICT)
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CountingOutputStream extends FilterOutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

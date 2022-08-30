@@ -2,7 +2,7 @@ package com.kwad.sdk.core.report;
 
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class d extends com.kwad.sdk.core.network.d {
     public d(List<m> list) {
         if (list == null || list.size() <= 0) {

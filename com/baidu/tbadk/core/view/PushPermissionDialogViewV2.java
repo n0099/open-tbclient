@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.rv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ms4;
-import com.repackage.ov4;
 /* loaded from: classes3.dex */
 public class PushPermissionDialogViewV2 extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -102,9 +102,9 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
             setGravity(1);
             setLayoutParams(layoutParams);
             if (UbsABTestHelper.isPushPermissionDialogBtnBottom()) {
-                LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0743, this);
+                LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0745, this);
             } else {
-                LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0742, this);
+                LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0744, this);
             }
             c();
         }
@@ -120,30 +120,30 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
         gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
         gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0211));
         setBackgroundDrawable(gradientDrawable);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ba);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0921c3);
         this.a = textView;
         if (textView != null) {
-            ms4 d = ms4.d(textView);
+            os4 d = os4.d(textView);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X05);
             d.A(R.string.F_X02);
         }
-        TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09078b);
+        TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09078c);
         this.b = textView2;
         if (textView2 != null) {
-            ms4 d2 = ms4.d(textView2);
+            os4 d2 = os4.d(textView2);
             d2.v(R.color.CAM_X0108);
             d2.z(R.dimen.T_X07);
             d2.A(R.string.F_X01);
         }
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090896);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091ad7);
-        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091ad8);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090897);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091ad9);
+        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091ada);
         this.e = tBSpecificationBtn;
         if (tBSpecificationBtn != null) {
             tBSpecificationBtn.setTextSize(R.dimen.T_X06);
-            this.e.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f52));
-            this.e.setConfig(new ov4());
+            this.e.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f55));
+            this.e.setConfig(new rv4());
         }
         this.f = skinType;
     }

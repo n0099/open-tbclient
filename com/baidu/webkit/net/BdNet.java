@@ -35,7 +35,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BdNet implements INoProGuard, BdNetEngine.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CORE_POOL_SIZE = 2;
@@ -58,7 +58,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     public Vector<b> mWorkerList;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class HttpMethod implements INoProGuard {
         public static final /* synthetic */ HttpMethod[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -122,7 +122,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class NetError implements INoProGuard {
         public static final /* synthetic */ NetError[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -196,7 +196,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class NetState implements INoProGuard {
         public static final /* synthetic */ NetState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -259,7 +259,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

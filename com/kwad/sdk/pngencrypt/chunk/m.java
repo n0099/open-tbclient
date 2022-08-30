@@ -1,7 +1,7 @@
 package com.kwad.sdk.pngencrypt.chunk;
 
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class m extends p {
     public int amb;
     public int[] amc;

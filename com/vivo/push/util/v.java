@@ -4,6 +4,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.provider.Settings;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,7 +63,7 @@ public final class v implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
             try {
-                return Settings.System.getString(this.a, str);
+                return ApiReplaceUtil.getString(this.a, str);
             } catch (Exception e) {
                 e.printStackTrace();
                 p.b("SettingsCache", "getString error by ".concat(String.valueOf(str)));

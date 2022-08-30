@@ -6,12 +6,12 @@ import android.content.Intent;
 import android.os.Build;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.f65;
+import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.z55;
 /* loaded from: classes3.dex */
 public class TiebaSocketReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
@@ -36,18 +36,18 @@ public class TiebaSocketReceiver extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
-                if (Build.VERSION.SDK_INT >= 24 || !oi.z()) {
+                if (Build.VERSION.SDK_INT >= 24 || !pi.z()) {
                     return;
                 }
-                z55.b(0, 0, 0, 1, 6);
+                f65.b(0, 0, 0, 1, 6);
                 BdSocketLinkService.setAvailable(true);
                 BdSocketLinkService.startService(false, "net succ");
             } else if ("com.baidu.android.pushservice.action.BIND_SYNC".equals(intent.getAction())) {
-                if (!oi.z() || BdSocketLinkService.isOpen()) {
+                if (!pi.z() || BdSocketLinkService.isOpen()) {
                     TiebaStatic.eventStat(context, "baidupushservice_activate_tieba", "socket", 1, "iscon", 0);
                     return;
                 }
-                z55.b(0, 0, 0, 1, 7);
+                f65.b(0, 0, 0, 1, 7);
                 BdSocketLinkService.startService(false, "frombaidupushservice");
                 TiebaStatic.eventStat(context, "baidupushservice_activate_tieba", "socket", 1, "iscon", 1);
             } else {

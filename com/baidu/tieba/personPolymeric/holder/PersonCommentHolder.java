@@ -19,18 +19,18 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.an;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.tieba.personPolymeric.view.ReplyLinearLayout;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-import com.repackage.zm;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static zm p;
+    public static an p;
     public static String q;
     public transient /* synthetic */ FieldHolder $fh;
     public ReplyLinearLayout a;
@@ -72,18 +72,18 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
         ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906d3);
         this.a = replyLinearLayout;
         replyLinearLayout.setIsHost(this.o);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091728);
-        this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09224a);
-        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919f2);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09247a);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bb3);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a73);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ba4);
-        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f7a);
-        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f8e);
-        this.f = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f84);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0918db);
-        this.g = qi.d(view2.getContext(), 42.0f);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09172a);
+        this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092253);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919f4);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092483);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bb5);
+        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a74);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ba6);
+        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f7b);
+        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f8f);
+        this.f = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f85);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0918dd);
+        this.g = ri.d(view2.getContext(), 42.0f);
         LinearLayout linearLayout = this.d;
         if (linearLayout != null) {
             linearLayout.setOnClickListener(this);
@@ -117,9 +117,9 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
             if (str2 != null && !str2.equals(str)) {
                 p = null;
             }
-            zm zmVar = p;
-            if (zmVar != null) {
-                this.i.setImageBitmap(zmVar.p());
+            an anVar = p;
+            if (anVar != null) {
+                this.i.setImageBitmap(anVar.p());
                 q = str;
                 return;
             }
@@ -288,7 +288,7 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
             this.k.setText(r2);
             this.l.setText(r3);
             this.l.setTag(r3);
-            this.m.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f040b), new Object[]{obj6}));
+            this.m.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f040c), new Object[]{obj6}));
             this.l.setOnClickListener(this);
             b(str);
             LinearLayout linearLayout = this.d;

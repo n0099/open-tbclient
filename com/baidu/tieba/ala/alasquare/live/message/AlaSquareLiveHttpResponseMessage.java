@@ -6,14 +6,14 @@ import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.pq5;
+import com.baidu.tieba.tq5;
+import com.baidu.tieba.ve;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hq5;
-import com.repackage.lq5;
-import com.repackage.ue;
 import com.squareup.wire.Wire;
 import java.util.LinkedList;
 import tbclient.LiveSquare.DataRes;
@@ -24,7 +24,7 @@ import tbclient.LiveSquare.LiveSquareResIdl;
 public class AlaSquareLiveHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<lq5> categoryList;
+    public LinkedList<tq5> categoryList;
     public LinkedList<FunctionListInfo> functionList;
     public HeadLiveInfo headLiveInfo;
     public int isSmallFollow;
@@ -50,7 +50,7 @@ public class AlaSquareLiveHttpResponseMessage extends HttpResponsedMessage {
         this.mPn = 0;
     }
 
-    public LinkedList<lq5> getCategoryList() {
+    public LinkedList<tq5> getCategoryList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.categoryList : (LinkedList) invokeV.objValue;
@@ -90,7 +90,7 @@ public class AlaSquareLiveHttpResponseMessage extends HttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        ue<byte[]> a;
+        ve<byte[]> a;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || hasError() || ListUtils.isEmpty(this.categoryList) || this.mPn != 1 || (a = BdCacheService.k().a("ala_square_space", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20)) == null) {
             return;
@@ -110,9 +110,9 @@ public class AlaSquareLiveHttpResponseMessage extends HttpResponsedMessage {
                 return;
             }
             this.functionList = new LinkedList<>();
-            LinkedList<lq5> linkedList = new LinkedList<>();
+            LinkedList<tq5> linkedList = new LinkedList<>();
             this.categoryList = linkedList;
-            linkedList.addAll(hq5.a(liveSquareResIdl.data.live_with_category));
+            linkedList.addAll(pq5.a(liveSquareResIdl.data.live_with_category));
             this.functionList.addAll(liveSquareResIdl.data.function_list_info);
             DataRes dataRes = liveSquareResIdl.data;
             this.headLiveInfo = dataRes.head_live_info;

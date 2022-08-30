@@ -28,7 +28,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import kotlin.UShort;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DTSTrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

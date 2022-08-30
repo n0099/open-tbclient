@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.res.Resources;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.hk2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gk2;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
@@ -65,13 +65,13 @@ public final class SwanLoadingTips$loadingTips$2 extends Lambda implements Funct
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (((int) (Math.random() * 2)) != 0) {
-                Application c = gk2.c();
+                Application c = hk2.c();
                 if (c == null || (resources2 = c.getResources()) == null) {
                     return null;
                 }
                 return resources2.getStringArray(R.array.obfuscated_res_0x7f03000c);
             }
-            Application c2 = gk2.c();
+            Application c2 = hk2.c();
             if (c2 == null || (resources = c2.getResources()) == null) {
                 return null;
             }

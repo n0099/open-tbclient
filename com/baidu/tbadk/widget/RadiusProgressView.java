@@ -15,11 +15,11 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.nj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fj8;
 /* loaded from: classes3.dex */
 public class RadiusProgressView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -64,7 +64,7 @@ public class RadiusProgressView extends View {
         this.d = 100;
         this.e = Color.parseColor("#FFFFFFFF");
         this.f = Color.parseColor("#FFFFFFFF");
-        this.g = fj8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+        this.g = nj8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
         this.h = SkinManager.getColor(R.color.CAM_X0336);
         this.i = new RectF();
         this.j = new RectF();
@@ -106,7 +106,7 @@ public class RadiusProgressView extends View {
             int i = this.b;
             canvas.drawRoundRect(rectF, i, i, this.a);
             canvas.restore();
-            this.g = fj8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+            this.g = nj8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
             this.h = SkinManager.getColor(R.color.CAM_X0336);
             this.f = SkinManager.getColor(R.color.CAM_X0336);
             PointF pointF = this.k;
@@ -203,7 +203,7 @@ public class RadiusProgressView extends View {
         this.d = 100;
         this.e = Color.parseColor("#FFFFFFFF");
         this.f = Color.parseColor("#FFFFFFFF");
-        this.g = fj8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+        this.g = nj8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
         this.h = SkinManager.getColor(R.color.CAM_X0336);
         this.i = new RectF();
         this.j = new RectF();
@@ -244,7 +244,7 @@ public class RadiusProgressView extends View {
         this.d = 100;
         this.e = Color.parseColor("#FFFFFFFF");
         this.f = Color.parseColor("#FFFFFFFF");
-        this.g = fj8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+        this.g = nj8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
         this.h = SkinManager.getColor(R.color.CAM_X0336);
         this.i = new RectF();
         this.j = new RectF();

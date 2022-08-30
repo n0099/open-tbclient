@@ -8,12 +8,13 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static String a = "";
     public static String b = "";
@@ -78,7 +79,7 @@ public class c {
             if (Build.VERSION.SDK_INT < 23) {
                 WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                 if (wifiManager != null && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
-                    macAddress = connectionInfo.getMacAddress();
+                    macAddress = ApiReplaceUtil.getMacAddress(connectionInfo);
                     str = macAddress;
                 }
                 a = str;
@@ -124,6 +125,6 @@ public class c {
 
     public static String d(Context context) {
         com.meizu.cloud.pushsdk.base.a.d a2 = com.meizu.cloud.pushsdk.base.a.a.a("android.telephony.MzTelephonyManager").a("getDeviceId", new Class[0]).a(new Object[0]);
-        return a2.a ? (String) a2.b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+        return a2.a ? (String) a2.b : ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
     }
 }

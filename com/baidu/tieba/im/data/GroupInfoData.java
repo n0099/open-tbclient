@@ -7,6 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.PreLoadImageProvider;
+import com.baidu.tieba.pn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,11 +15,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.on;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
-public class GroupInfoData extends AbstractImageProvider implements on, Serializable, PreLoadImageProvider {
+/* loaded from: classes4.dex */
+public class GroupInfoData extends AbstractImageProvider implements pn, Serializable, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId TYPE_FRS_GROUP;
     public static final int TYPE_USER_MEIZHI_TRUE = 1;
@@ -194,7 +194,7 @@ public class GroupInfoData extends AbstractImageProvider implements on, Serializ
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.portrait : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.on
+    @Override // com.baidu.tieba.pn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

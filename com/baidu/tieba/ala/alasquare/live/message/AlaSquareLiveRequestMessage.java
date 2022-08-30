@@ -6,14 +6,14 @@ import com.baidu.ala.AlaCmdConfigSocket;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tieba.af5;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.qi;
-import com.repackage.te5;
 import tbclient.LiveSquare.DataReq;
 import tbclient.LiveSquare.LiveSquareReqIdl;
 /* loaded from: classes3.dex */
@@ -53,13 +53,13 @@ public class AlaSquareLiveRequestMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.pn = this.mPn;
-                builder.scr_w = Integer.valueOf(qi.k(TbadkCoreApplication.getInst()));
-                builder.scr_h = Integer.valueOf(qi.i(TbadkCoreApplication.getInst()));
+                builder.scr_w = Integer.valueOf(ri.k(TbadkCoreApplication.getInst()));
+                builder.scr_h = Integer.valueOf(ri.i(TbadkCoreApplication.getInst()));
                 builder.q_type = 0;
-                builder.scr_dip = Integer.valueOf((int) qi.h(TbadkCoreApplication.getInst()));
-                builder.network_type = String.valueOf(oi.K());
+                builder.scr_dip = Integer.valueOf((int) ri.h(TbadkCoreApplication.getInst()));
+                builder.network_type = String.valueOf(pi.K());
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    te5.a(builder, true);
+                    af5.a(builder, true);
                 }
                 LiveSquareReqIdl.Builder builder2 = new LiveSquareReqIdl.Builder();
                 builder2.data = builder.build(false);

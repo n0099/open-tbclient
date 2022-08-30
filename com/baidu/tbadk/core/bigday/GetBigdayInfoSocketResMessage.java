@@ -3,14 +3,14 @@ package com.baidu.tbadk.core.bigday;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.co4;
+import com.baidu.tieba.ve;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ao4;
-import com.repackage.tr4;
-import com.repackage.ue;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.Error;
@@ -21,7 +21,7 @@ import tbclient.GetBigday.GetBigdayResIdl;
 public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ao4> bigdayInfos;
+    public ArrayList<co4> bigdayInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetBigdayInfoSocketResMessage() {
@@ -59,10 +59,10 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
                     this.bigdayInfos = new ArrayList<>();
                     for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
                         if (bigdayInfo != null) {
-                            ao4 ao4Var = new ao4();
-                            ao4Var.b(bigdayInfo);
-                            if (ao4Var.a()) {
-                                this.bigdayInfos.add(ao4Var);
+                            co4 co4Var = new co4();
+                            co4Var.b(bigdayInfo);
+                            if (co4Var.a()) {
+                                this.bigdayInfos.add(co4Var);
                             }
                         }
                     }
@@ -82,8 +82,8 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
             if (bArr == null) {
                 return;
             }
-            tr4.f();
-            ue<byte[]> d = tr4.d("tb.bigday_datas");
+            vr4.f();
+            ve<byte[]> d = vr4.d("tb.bigday_datas");
             d.remove("tb.bigday_datas");
             d.g("tb.bigday_datas", bArr);
         }

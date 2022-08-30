@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.base.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DebugLogger {
     public static /* synthetic */ Interceptable $ic;
     public static boolean debug;

@@ -20,6 +20,8 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendIdleView;
 import com.baidu.tbadk.suspended.TranView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.rg5;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,8 +29,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kg5;
-import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class FloatWebLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -42,7 +42,7 @@ public class FloatWebLayout extends FrameLayout {
     public ImageView f;
     public TextView g;
     public LinearLayout h;
-    public kg5 i;
+    public rg5 i;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -156,7 +156,7 @@ public class FloatWebLayout extends FrameLayout {
                 return;
             }
         }
-        j = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        j = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds104);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -200,9 +200,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null && suspendIdleView.getRatio() == 1.0f) {
                 this.b.h();
             }
-            kg5 kg5Var = this.i;
-            if (kg5Var != null) {
-                kg5Var.A();
+            rg5 rg5Var = this.i;
+            if (rg5Var != null) {
+                rg5Var.A();
             }
             this.a.setOnClickListener(null);
         }
@@ -226,10 +226,10 @@ public class FloatWebLayout extends FrameLayout {
     public final void e(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0493, (ViewGroup) this, true);
-            this.b = (SuspendIdleView) findViewById(R.id.obfuscated_res_0x7f091f67);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091627);
-            this.d = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091f65);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0495, (ViewGroup) this, true);
+            this.b = (SuspendIdleView) findViewById(R.id.obfuscated_res_0x7f091f69);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091629);
+            this.d = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091f67);
             this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906bd);
             h(context);
             g(context);
@@ -243,21 +243,21 @@ public class FloatWebLayout extends FrameLayout {
     public final void f(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            kg5 kg5Var = new kg5(context, this.h, this);
-            this.i = kg5Var;
-            this.b.setContentViewTop(kg5Var);
+            rg5 rg5Var = new rg5(context, this.h, this);
+            this.i = rg5Var;
+            this.b.setContentViewTop(rg5Var);
         }
     }
 
     public final void g(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            View addCustomView = this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0492, (View.OnClickListener) null);
+            View addCustomView = this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0494, (View.OnClickListener) null);
             this.e = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09030f);
             this.f = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09064f);
             this.g = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f0905d3);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f0809f4, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080612, R.color.CAM_X0105, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f0809f5, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080613, R.color.CAM_X0105, null);
             SkinManager.setNavbarTitleColor(this.g, R.color.CAM_X0105, R.color.s_navbar_title_color);
             this.e.setOnClickListener(new a(this));
             this.f.setOnClickListener(new b(this));
@@ -272,7 +272,7 @@ public class FloatWebLayout extends FrameLayout {
     public int getTranViewHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? qi.f(getContext(), R.dimen.tbds153) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ri.f(getContext(), R.dimen.tbds153) : invokeV.intValue;
     }
 
     public final void h(@NonNull Context context) {
@@ -302,9 +302,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null) {
                 suspendIdleView.i();
             }
-            kg5 kg5Var = this.i;
-            if (kg5Var != null) {
-                kg5Var.z(str, false);
+            rg5 rg5Var = this.i;
+            if (rg5Var != null) {
+                rg5Var.z(str, false);
                 this.i.onResume();
             }
             this.a.setOnClickListener(new c(this));
@@ -331,9 +331,9 @@ public class FloatWebLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDetachedFromWindow();
-            kg5 kg5Var = this.i;
-            if (kg5Var != null) {
-                kg5Var.onDestroy();
+            rg5 rg5Var = this.i;
+            if (rg5Var != null) {
+                rg5Var.onDestroy();
             }
         }
     }

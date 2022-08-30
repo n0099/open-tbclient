@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class SimpleCacheSpan extends CacheSpan {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern CACHE_FILE_PATTERN_V1;

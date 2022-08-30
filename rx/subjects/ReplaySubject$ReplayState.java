@@ -1,6 +1,11 @@
 package rx.subjects;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.av9;
+import com.baidu.tieba.bv9;
+import com.baidu.tieba.gv9;
+import com.baidu.tieba.mv9;
+import com.baidu.tieba.qz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,21 +13,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dv9;
-import com.repackage.hz9;
-import com.repackage.ru9;
-import com.repackage.su9;
-import com.repackage.xu9;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySubject$ReplayProducer<T>[]> implements ru9.a<T>, su9<T> {
+public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySubject$ReplayProducer<T>[]> implements av9.a<T>, bv9<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ReplaySubject$ReplayProducer[] EMPTY;
     public static final ReplaySubject$ReplayProducer[] TERMINATED;
     public static final long serialVersionUID = 5952362471246910544L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final hz9<T> buffer;
+    public final qz9<T> buffer;
 
     static {
         InterceptResult invokeClinit;
@@ -41,12 +41,12 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
         TERMINATED = new ReplaySubject$ReplayProducer[0];
     }
 
-    public ReplaySubject$ReplayState(hz9<T> hz9Var) {
+    public ReplaySubject$ReplayState(qz9<T> qz9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hz9Var};
+            Object[] objArr = {qz9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -56,7 +56,7 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
                 return;
             }
         }
-        this.buffer = hz9Var;
+        this.buffer = qz9Var;
         lazySet(EMPTY);
     }
 
@@ -81,9 +81,9 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.ru9.a, com.repackage.fv9
+    @Override // com.baidu.tieba.av9.a, com.baidu.tieba.ov9
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((xu9) ((xu9) obj));
+        call((gv9) ((gv9) obj));
     }
 
     public boolean isTerminated() {
@@ -92,28 +92,28 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? get() == TERMINATED : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.su9
+    @Override // com.baidu.tieba.bv9
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            hz9<T> hz9Var = this.buffer;
-            hz9Var.complete();
+            qz9<T> qz9Var = this.buffer;
+            qz9Var.complete();
             for (ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer : getAndSet(TERMINATED)) {
-                hz9Var.a(replaySubject$ReplayProducer);
+                qz9Var.a(replaySubject$ReplayProducer);
             }
         }
     }
 
-    @Override // com.repackage.su9
+    @Override // com.baidu.tieba.bv9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
-            hz9<T> hz9Var = this.buffer;
-            hz9Var.error(th);
+            qz9<T> qz9Var = this.buffer;
+            qz9Var.error(th);
             ArrayList arrayList = null;
             for (ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer : getAndSet(TERMINATED)) {
                 try {
-                    hz9Var.a(replaySubject$ReplayProducer);
+                    qz9Var.a(replaySubject$ReplayProducer);
                 } catch (Throwable th2) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
@@ -121,18 +121,18 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
                     arrayList.add(th2);
                 }
             }
-            dv9.d(arrayList);
+            mv9.d(arrayList);
         }
     }
 
-    @Override // com.repackage.su9
+    @Override // com.baidu.tieba.bv9
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
-            hz9<T> hz9Var = this.buffer;
-            hz9Var.next(t);
+            qz9<T> qz9Var = this.buffer;
+            qz9Var.next(t);
             for (ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer : get()) {
-                hz9Var.a(replaySubject$ReplayProducer);
+                qz9Var.a(replaySubject$ReplayProducer);
             }
         }
     }
@@ -175,12 +175,12 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
         }
     }
 
-    public void call(xu9<? super T> xu9Var) {
+    public void call(gv9<? super T> gv9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xu9Var) == null) {
-            ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer = new ReplaySubject$ReplayProducer<>(xu9Var, this);
-            xu9Var.b(replaySubject$ReplayProducer);
-            xu9Var.f(replaySubject$ReplayProducer);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gv9Var) == null) {
+            ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer = new ReplaySubject$ReplayProducer<>(gv9Var, this);
+            gv9Var.b(replaySubject$ReplayProducer);
+            gv9Var.f(replaySubject$ReplayProducer);
             if (add(replaySubject$ReplayProducer) && replaySubject$ReplayProducer.isUnsubscribed()) {
                 remove(replaySubject$ReplayProducer);
             } else {

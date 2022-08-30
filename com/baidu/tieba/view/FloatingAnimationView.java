@@ -13,14 +13,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.qi;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FloatingAnimationView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class FloatingAnimationView extends FrameLayout {
     public ImageView c;
     public d d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class FloatingAnimationView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class b implements TbImageView.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,13 +97,13 @@ public class FloatingAnimationView extends FrameLayout {
         @Override // com.baidu.tbadk.widget.TbImageView.h
         public void b(TbImageView tbImageView, Canvas canvas) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) && this.a.a.getBdImage() == null && !pi.isEmpty(this.a.a.getUrl())) {
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) && this.a.a.getBdImage() == null && !qi.isEmpty(this.a.a.getUrl())) {
                 this.a.a.K(this.a.a.getUrl(), 10, false);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +137,7 @@ public class FloatingAnimationView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface d {
         void a();
 
@@ -172,13 +172,13 @@ public class FloatingAnimationView extends FrameLayout {
             FrameAnimationView frameAnimationView = new FrameAnimationView(context);
             this.a = frameAnimationView;
             frameAnimationView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(qi.f(context, R.dimen.tbds200), qi.f(context, R.dimen.tbds200));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ri.f(context, R.dimen.tbds200), ri.f(context, R.dimen.tbds200));
             layoutParams.gravity = 17;
             addView(this.a, layoutParams);
             TbImageView tbImageView = new TbImageView(context);
             this.b = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(qi.f(context, R.dimen.tbds62), qi.f(context, R.dimen.tbds62));
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(ri.f(context, R.dimen.tbds62), ri.f(context, R.dimen.tbds62));
             layoutParams2.gravity = 53;
             this.b.setAutoChangeStyle(false);
             addView(this.b, layoutParams2);
@@ -187,7 +187,7 @@ public class FloatingAnimationView extends FrameLayout {
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
             layoutParams3.gravity = 51;
-            layoutParams3.topMargin = qi.f(context, R.dimen.tbds14);
+            layoutParams3.topMargin = ri.f(context, R.dimen.tbds14);
             addView(this.c, layoutParams3);
             this.a.setOnClickListener(new a(this));
             this.a.setOnDrawListener(new b(this));
@@ -199,7 +199,7 @@ public class FloatingAnimationView extends FrameLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080794);
+            SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080795);
         }
     }
 
@@ -212,7 +212,7 @@ public class FloatingAnimationView extends FrameLayout {
 
     public void setData(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || pi.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || qi.isEmpty(str)) {
             return;
         }
         this.a.setData(str);

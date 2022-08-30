@@ -4,18 +4,18 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.e45;
+import com.baidu.tieba.f45;
+import com.baidu.tieba.l45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f45;
-import com.repackage.y35;
-import com.repackage.z35;
 /* loaded from: classes3.dex */
-public class KPSwitchFSPanelFrameLayout extends FrameLayout implements y35 {
+public class KPSwitchFSPanelFrameLayout extends FrameLayout implements e45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z35 a;
+    public f45 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchFSPanelFrameLayout(Context context) {
@@ -38,7 +38,7 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements y35 {
         b();
     }
 
-    @Override // com.repackage.y35
+    @Override // com.baidu.tieba.e45
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -49,15 +49,15 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements y35 {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = new z35(this);
+            this.a = new f45(this);
         }
     }
 
-    @Override // com.repackage.y35
+    @Override // com.baidu.tieba.e45
     public void refreshHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            f45.d(this, i);
+            l45.d(this, i);
         }
     }
 

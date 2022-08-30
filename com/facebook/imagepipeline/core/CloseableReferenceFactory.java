@@ -15,7 +15,7 @@ import java.io.Closeable;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CloseableReferenceFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

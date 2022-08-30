@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk;
 import android.text.TextUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class TTAdConstant {
     public static final int ADULT = 0;
     public static final int AD_ID_IS_NULL_CODE = 401;
@@ -160,26 +160,26 @@ public class TTAdConstant {
     public static final String VIDEO_URL_MSG = "video type video url is empty";
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public @interface AGE_GROUP {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public @interface NATIVE_AD_TYPE {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public @interface NETWORK_STATE {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public @interface ORIENTATION_STATE {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public enum RitScenes {
         CUSTOMIZE_SCENES("customize_scenes"),
         HOME_OPEN_BONUS("home_open_bonus"),
@@ -206,7 +206,7 @@ public class TTAdConstant {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public @interface TITLE_BAR_THEME {
     }
 

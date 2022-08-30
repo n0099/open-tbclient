@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FaceBuyQueryData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -21,7 +21,7 @@ public class FaceBuyQueryData extends OrmObject implements Serializable {
     public int time;
     public String usermsg;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class BuyResult extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -34451984893L;

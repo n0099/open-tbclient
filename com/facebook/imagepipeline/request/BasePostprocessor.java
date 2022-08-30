@@ -18,7 +18,7 @@ import com.facebook.imagepipeline.core.NativeCodeSetup;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class BasePostprocessor implements Postprocessor {
     public static /* synthetic */ Interceptable $ic;
     public static final Bitmap.Config FALLBACK_BITMAP_CONFIGURATION;

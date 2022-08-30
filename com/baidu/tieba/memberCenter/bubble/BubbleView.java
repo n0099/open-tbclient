@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class BubbleView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,24 +79,24 @@ public class BubbleView extends RelativeLayout {
             this.b = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090467);
             this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090465);
             this.d = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090464);
-            this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090abb);
-            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090767);
+            this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090abc);
+            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090768);
             this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090469);
             this.h = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09046d);
             this.i = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09046c);
             this.j = inflate.findViewById(R.id.obfuscated_res_0x7f090462);
             this.k = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090460);
-            this.l = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090d07);
-            this.m = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e0e);
+            this.l = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090d08);
+            this.m = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e0f);
             this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090468);
-            this.o = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09169b);
+            this.o = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09169d);
         }
     }
 
     public int getXmlLayoutResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0167 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0168 : invokeV.intValue;
     }
 
     public void setCurrentNotUse() {
@@ -118,7 +118,7 @@ public class BubbleView extends RelativeLayout {
             this.i.setVisibility(8);
             this.l.setVisibility(8);
             this.o.setVisibility(0);
-            this.o.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0352));
+            this.o.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0353));
         }
     }
 

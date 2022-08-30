@@ -4,26 +4,26 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.media.chooser.adapter.SwanAppThumbnailAdapter;
+import com.baidu.tieba.yo2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xo2;
 import java.util.Collections;
 /* loaded from: classes2.dex */
 public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xo2 a;
+    public yo2 a;
     public SwanAppThumbnailAdapter b;
 
-    public SwanAppThumbnailTouchCallback(xo2 xo2Var, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
+    public SwanAppThumbnailTouchCallback(yo2 yo2Var, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xo2Var, swanAppThumbnailAdapter};
+            Object[] objArr = {yo2Var, swanAppThumbnailAdapter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,7 +33,7 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
                 return;
             }
         }
-        this.a = xo2Var;
+        this.a = yo2Var;
         this.b = swanAppThumbnailAdapter;
     }
 
@@ -92,9 +92,9 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
                 Collections.swap(swanAppThumbnailAdapter.e(), adapterPosition, adapterPosition2);
                 this.b.notifyItemMoved(adapterPosition, adapterPosition2);
             }
-            xo2 xo2Var = this.a;
-            if (xo2Var != null) {
-                xo2Var.onMove(adapterPosition, adapterPosition2);
+            yo2 yo2Var = this.a;
+            if (yo2Var != null) {
+                yo2Var.onMove(adapterPosition, adapterPosition2);
                 return true;
             }
             return true;

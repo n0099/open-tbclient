@@ -5,6 +5,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tm9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,11 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.km9;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b extends Binder implements IInterface {
     public static /* synthetic */ Interceptable $ic;
-    public static km9 a;
+    public static tm9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

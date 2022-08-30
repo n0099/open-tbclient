@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.core.widget.KsStyledTextButton;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class o extends d implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,15 +37,15 @@ public final class o extends d implements View.OnClickListener {
                 return;
             }
         }
-        this.vl = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0441, viewGroup, false);
+        this.vl = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0442, viewGroup, false);
         initView();
     }
 
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.vU = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f0910ef);
-            this.vV = this.vl.findViewById(R.id.obfuscated_res_0x7f0910f0);
+            this.vU = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f0910f1);
+            this.vV = this.vl.findViewById(R.id.obfuscated_res_0x7f0910f2);
             this.vU.setOnClickListener(this);
             this.vV.setOnClickListener(this);
         }

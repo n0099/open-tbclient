@@ -1,5 +1,5 @@
 package com.kwad.components.ad.interstitial.widget;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface h {
     void k(boolean z);
 }

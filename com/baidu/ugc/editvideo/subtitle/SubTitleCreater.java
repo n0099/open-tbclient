@@ -11,18 +11,18 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ac9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.TextWordsEntity;
-import com.repackage.rb9;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SubTitleCreater {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public class SubTitleCreater {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, subTitleUnit)) == null) {
             if (this.mVideoWidth <= 0 || this.mSubTitleY <= 0 || TextUtils.isEmpty(subTitleUnit.line)) {
-                rb9.e("SubTitleCreater", "mVideoWidth:" + this.mVideoWidth + ",mSubTitleY:" + this.mSubTitleY + "title:" + subTitleUnit.line);
+                ac9.e("SubTitleCreater", "mVideoWidth:" + this.mVideoWidth + ",mSubTitleY:" + this.mSubTitleY + "title:" + subTitleUnit.line);
                 return null;
             }
             Bitmap createBitmap = Bitmap.createBitmap(this.mVideoWidth, this.mSubTitleY, Bitmap.Config.ARGB_8888);
@@ -305,7 +305,7 @@ public class SubTitleCreater {
                                         return;
                                     }
                                     synchronized (this.this$0.mSubtitleCache) {
-                                        rb9.e("subcreater", this.val$subTitleUnit.line + "," + this.val$subTitleUnit.engLine + "," + this.val$time);
+                                        ac9.e("subcreater", this.val$subTitleUnit.line + "," + this.val$subTitleUnit.engLine + "," + this.val$time);
                                         this.this$0.mSubtitleCache.put(this.this$0.getCacheKey(this.val$subTitleUnit), createSubtitleBitmap);
                                     }
                                 }
@@ -315,7 +315,7 @@ public class SubTitleCreater {
                         Bitmap createSubtitleBitmap = createSubtitleBitmap(subTitleUnit);
                         if (createSubtitleBitmap != null && !createSubtitleBitmap.isRecycled()) {
                             this.mSubtitleCache.put(getCacheKey(subTitleUnit), createSubtitleBitmap);
-                            rb9.e("subcreater", subTitleUnit.line + "," + subTitleUnit.engLine + "," + j);
+                            ac9.e("subcreater", subTitleUnit.line + "," + subTitleUnit.engLine + "," + j);
                         }
                         SubTitleUnit subTitleUnit3 = new SubTitleUnit();
                         subTitleUnit3.line = subTitleUnit.line;
@@ -384,7 +384,7 @@ public class SubTitleCreater {
                         bitmap = createSubtitleBitmap(subTitleUnit2);
                         if (bitmap != null && !bitmap.isRecycled()) {
                             this.mSubtitleCache.put(getCacheKey(subTitleUnit2), bitmap);
-                            rb9.e("subcreater", subTitleUnit2.line + "," + subTitleUnit2.engLine + "," + j);
+                            ac9.e("subcreater", subTitleUnit2.line + "," + subTitleUnit2.engLine + "," + j);
                         }
                         subTitleUnit = new SubTitleUnit();
                     } else {

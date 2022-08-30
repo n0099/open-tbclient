@@ -3,7 +3,7 @@ package com.facebook.datasource;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface DataSource<T> {
     boolean close();
 

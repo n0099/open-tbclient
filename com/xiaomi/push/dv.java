@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,7 +69,7 @@ public class dv extends al.a {
                 try {
                     File file2 = new File(this.a.getExternalFilesDir(null), "push_cdata.lock");
                     ab.m161a(file2);
-                    randomAccessFile = new RandomAccessFile(file2, "rw");
+                    randomAccessFile = new RandomAccessFile(file2, rw.c);
                     try {
                         FileLock lock = randomAccessFile.getChannel().lock();
                         try {

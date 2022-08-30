@@ -6,6 +6,13 @@ import com.baidu.mario.audio.AudioParams;
 import com.baidu.smallgame.sdk.delegate.AREngineDelegate;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.nalib.audio.SwanAudioPlayer;
+import com.baidu.tieba.cv3;
+import com.baidu.tieba.fb0;
+import com.baidu.tieba.m74;
+import com.baidu.tieba.n74;
+import com.baidu.tieba.nm2;
+import com.baidu.tieba.xb0;
+import com.baidu.tieba.zb0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,24 +20,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bv3;
-import com.repackage.eb0;
-import com.repackage.l74;
-import com.repackage.m74;
-import com.repackage.mm2;
-import com.repackage.wb0;
-import com.repackage.yb0;
 import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public class GameRecorderController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AREngineDelegate a;
-    public yb0 b;
+    public zb0 b;
     public RecorderState c;
-    public eb0 d;
+    public fb0 d;
     public long e;
-    public m74 f;
+    public n74 f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
@@ -97,7 +97,7 @@ public class GameRecorderController {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements m74 {
+    public class a implements n74 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GameRecorderController a;
@@ -120,13 +120,13 @@ public class GameRecorderController {
             this.a = gameRecorderController;
         }
 
-        @Override // com.repackage.m74
-        public void a(l74 l74Var) {
+        @Override // com.baidu.tieba.n74
+        public void a(m74 m74Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, l74Var) == null) || this.a.d == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, m74Var) == null) || this.a.d == null) {
                 return;
             }
-            this.a.d.onAudioFrameAvailable(ByteBuffer.wrap(l74Var.a), (int) l74Var.b, l74Var.c - this.a.e);
+            this.a.d.onAudioFrameAvailable(ByteBuffer.wrap(m74Var.a), (int) m74Var.b, m74Var.c - this.a.e);
         }
     }
 
@@ -164,7 +164,7 @@ public class GameRecorderController {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements wb0 {
+    public class c implements xb0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GameRecorderController a;
@@ -187,11 +187,11 @@ public class GameRecorderController {
             this.a = gameRecorderController;
         }
 
-        @Override // com.repackage.wb0
-        public void a(eb0 eb0Var) {
+        @Override // com.baidu.tieba.xb0
+        public void a(fb0 fb0Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, eb0Var) == null) {
-                this.a.d = eb0Var;
+            if (interceptable == null || interceptable.invokeL(1048576, this, fb0Var) == null) {
+                this.a.d = fb0Var;
                 this.a.e = System.nanoTime();
                 this.a.m();
             }
@@ -232,7 +232,7 @@ public class GameRecorderController {
     }
 
     /* loaded from: classes3.dex */
-    public class e implements yb0 {
+    public class e implements zb0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GameRecorderController a;
@@ -255,7 +255,7 @@ public class GameRecorderController {
             this.a = gameRecorderController;
         }
 
-        @Override // com.repackage.yb0
+        @Override // com.baidu.tieba.zb0
         public void onError(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -266,7 +266,7 @@ public class GameRecorderController {
             }
         }
 
-        @Override // com.repackage.yb0
+        @Override // com.baidu.tieba.zb0
         public void onPause() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -277,7 +277,7 @@ public class GameRecorderController {
             }
         }
 
-        @Override // com.repackage.yb0
+        @Override // com.baidu.tieba.zb0
         public void onResume() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -288,7 +288,7 @@ public class GameRecorderController {
             }
         }
 
-        @Override // com.repackage.yb0
+        @Override // com.baidu.tieba.zb0
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -299,7 +299,7 @@ public class GameRecorderController {
             }
         }
 
-        @Override // com.repackage.yb0
+        @Override // com.baidu.tieba.zb0
         public void w(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
@@ -337,7 +337,7 @@ public class GameRecorderController {
             this.c = RecorderState.IDLE;
             aREngineDelegate.setGameRecordCallback(new e(this, null));
         }
-        bv3.h().e().post(new b(this));
+        cv3.h().e().post(new b(this));
     }
 
     public static GameRecorderController j() {
@@ -384,9 +384,9 @@ public class GameRecorderController {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            eb0 eb0Var = this.d;
-            if (eb0Var != null) {
-                eb0Var.onAudioStop(true);
+            fb0 fb0Var = this.d;
+            if (fb0Var != null) {
+                fb0Var.onAudioStop(true);
             }
             r(false);
         }
@@ -428,14 +428,14 @@ public class GameRecorderController {
     public final void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            bv3.h().e().post(new d(this, z));
+            cv3.h().e().post(new d(this, z));
         }
     }
 
-    public void s(yb0 yb0Var) {
+    public void s(zb0 zb0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yb0Var) == null) {
-            this.b = yb0Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, zb0Var) == null) {
+            this.b = zb0Var;
         }
     }
 
@@ -444,7 +444,7 @@ public class GameRecorderController {
         if (!(interceptable == null || interceptable.invokeIL(1048585, this, i, str) == null) || this.a == null) {
             return;
         }
-        SwanAppActivity activity = mm2.U().getActivity();
+        SwanAppActivity activity = nm2.U().getActivity();
         boolean z = activity != null && activity.i0();
         this.a.setAudioEngineProxy(new c(this));
         this.a.startRecord(true, i, str, z);

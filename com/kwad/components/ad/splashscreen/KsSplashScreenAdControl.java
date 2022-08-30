@@ -22,7 +22,7 @@ import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.api.model.AdExposureFailedReason;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class KsSplashScreenAdControl extends AbstrackKsSplashScreenAd implements com.kwad.components.core.internal.api.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

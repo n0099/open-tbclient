@@ -14,19 +14,19 @@ import com.baidu.nadcore.appframework.BaseActivity;
 import com.baidu.nadcore.webview.container.base.AbsContainer;
 import com.baidu.nadcore.widget.SlideInterceptor;
 import com.baidu.tieba.R;
+import com.baidu.tieba.n21;
+import com.baidu.tieba.rk0;
+import com.baidu.tieba.t21;
+import com.baidu.tieba.u21;
+import com.baidu.tieba.x21;
+import com.baidu.tieba.y21;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m21;
-import com.repackage.qk0;
-import com.repackage.s21;
-import com.repackage.t21;
-import com.repackage.w21;
-import com.repackage.x21;
 /* loaded from: classes2.dex */
-public class AdWebActivity extends BaseActivity implements SlideInterceptor, s21, t21 {
+public class AdWebActivity extends BaseActivity implements SlideInterceptor, t21, u21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final AbsContainer u;
@@ -44,7 +44,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, s21
                 return;
             }
         }
-        this.u = m21.a.a(this, this, qk0.b().a().a("key_webview_core_type", 1));
+        this.u = n21.a.a(this, this, rk0.b().a().a("key_webview_core_type", 1));
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
@@ -61,7 +61,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, s21
             }
             this.u.y("1");
             this.u.p();
-            w21.f().a(getActivity());
+            x21.f().a(getActivity());
         }
     }
 
@@ -126,7 +126,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, s21
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bundle)) == null) {
             if (super.c1(bundle)) {
                 requestWindowFeature(1);
-                if (x21.b.a().a(getIntent())) {
+                if (y21.b.a().a(getIntent())) {
                     k1(0, 0, 0, 0);
                     forceActivityTransparent(true);
                 } else {
@@ -146,7 +146,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, s21
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.s21
+    @Override // com.baidu.tieba.t21
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -154,7 +154,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, s21
         }
     }
 
-    @Override // com.repackage.s21
+    @Override // com.baidu.tieba.t21
     @NonNull
     public Activity getActivity() {
         InterceptResult invokeV;
@@ -197,7 +197,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, s21
         return invokeIL.booleanValue;
     }
 
-    @Override // com.repackage.s21
+    @Override // com.baidu.tieba.t21
     public boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -207,7 +207,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, s21
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.t21
+    @Override // com.baidu.tieba.u21
     public boolean w0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

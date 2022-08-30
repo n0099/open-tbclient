@@ -16,7 +16,7 @@ import com.google.zxing.Result;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ITFReader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] DEFAULT_ALLOWED_LENGTHS;

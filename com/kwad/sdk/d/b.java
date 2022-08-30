@@ -1,5 +1,5 @@
 package com.kwad.sdk.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface b<T> {
     T get();
 }

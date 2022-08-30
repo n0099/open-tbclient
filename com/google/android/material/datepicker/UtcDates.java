@@ -19,7 +19,7 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class UtcDates {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String UTC = "UTC";
@@ -175,7 +175,7 @@ public class UtcDates {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, resources, simpleDateFormat)) == null) {
-            return simpleDateFormat.toLocalizedPattern().replaceAll("d", resources.getString(R.string.obfuscated_res_0x7f0f0b1c)).replaceAll("M", resources.getString(R.string.obfuscated_res_0x7f0f0b1d)).replaceAll("y", resources.getString(R.string.obfuscated_res_0x7f0f0b1e));
+            return simpleDateFormat.toLocalizedPattern().replaceAll("d", resources.getString(R.string.obfuscated_res_0x7f0f0b1f)).replaceAll("M", resources.getString(R.string.obfuscated_res_0x7f0f0b20)).replaceAll("y", resources.getString(R.string.obfuscated_res_0x7f0f0b21));
         }
         return (String) invokeLL.objValue;
     }

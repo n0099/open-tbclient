@@ -5,7 +5,7 @@ import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.image.QualityInfo;
 import javax.annotation.Nonnull;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface ImageDecoder {
     CloseableImage decode(@Nonnull EncodedImage encodedImage, int i, @Nonnull QualityInfo qualityInfo, @Nonnull ImageDecodeOptions imageDecodeOptions);
 }

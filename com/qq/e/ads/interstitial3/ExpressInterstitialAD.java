@@ -26,7 +26,7 @@ import com.qq.e.comm.util.VideoAdValidity;
 import java.util.HashMap;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
     public ExpressInterstitialAdListener k;
     public ServerSideVerificationOptions l;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class AdListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -11,7 +11,7 @@ import com.baidu.tieba.R;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.ai;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a extends com.kwad.components.core.i.d {
     @SuppressLint({"StaticFieldLeak"})
     public static a QY;
@@ -79,13 +79,13 @@ public final class a extends com.kwad.components.core.i.d {
 
     @Override // com.kwad.components.core.i.d
     public final int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d042a;
+        return R.layout.obfuscated_res_0x7f0d042b;
     }
 
     @Override // com.kwad.components.core.i.d
     public final void u(View view2) {
-        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910a3)).setText(this.mContext.getString(R.string.obfuscated_res_0x7f0f09ac, com.kwad.sdk.core.response.a.a.ae(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate))));
-        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910a1)).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.kwai.kwai.a.1
+        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910a5)).setText(this.mContext.getString(R.string.obfuscated_res_0x7f0f09af, com.kwad.sdk.core.response.a.a.ae(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate))));
+        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910a3)).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.kwai.kwai.a.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view3) {
                 a.this.dismiss();
@@ -94,7 +94,7 @@ public final class a extends com.kwad.components.core.i.d {
                 }
             }
         });
-        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910a6)).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.kwai.kwai.a.2
+        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910a8)).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.kwai.kwai.a.2
             @Override // android.view.View.OnClickListener
             public final void onClick(View view3) {
                 if (a.this.mOnClickListener != null) {

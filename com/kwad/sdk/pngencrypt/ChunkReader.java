@@ -1,5 +1,5 @@
 package com.kwad.sdk.pngencrypt;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class ChunkReader implements f {
     public final ChunkReaderMode ajs;
     public final com.kwad.sdk.pngencrypt.chunk.d ajt;
@@ -8,7 +8,7 @@ public abstract class ChunkReader implements f {
     public int ajv = 0;
     public ErrorBehaviour ajx = ErrorBehaviour.STRICT;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public enum ChunkReaderMode {
         BUFFER,
         PROCESS,

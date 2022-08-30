@@ -19,15 +19,15 @@ import com.baidu.tbadk.core.data.ThemeCardInUserData;
 import com.baidu.tbadk.coreExtra.data.BazhuGradeData;
 import com.baidu.tbadk.coreExtra.data.NewGodData;
 import com.baidu.tbadk.coreExtra.data.PrivSetsData;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.uw4;
+import com.baidu.tieba.z15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.og;
-import com.repackage.pi;
-import com.repackage.rw4;
-import com.repackage.t15;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +46,7 @@ import tbclient.TbVipInfo;
 import tbclient.TshowInfo;
 import tbclient.User;
 /* loaded from: classes3.dex */
-public class MetaData extends OrmObject implements Serializable, rw4 {
+public class MetaData extends OrmObject implements Serializable, uw4 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2658065756886586092L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +125,7 @@ public class MetaData extends OrmObject implements Serializable, rw4 {
     public String tiebaUid;
     public int type;
     public String uk;
-    public t15 userGrowthData;
+    public z15 userGrowthData;
     public String userId;
     public String userName;
     public String virtualUserUrl;
@@ -327,7 +327,7 @@ public class MetaData extends OrmObject implements Serializable, rw4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.fansNickName : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.rw4
+    @Override // com.baidu.tieba.uw4
     public int getFansNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -419,7 +419,7 @@ public class MetaData extends OrmObject implements Serializable, rw4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.is_god_user : invokeV.intValue;
     }
 
-    @Override // com.repackage.rw4
+    @Override // com.baidu.tieba.uw4
     public boolean getIsLike() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -492,7 +492,7 @@ public class MetaData extends OrmObject implements Serializable, rw4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.likeNum : invokeV.intValue;
     }
 
-    @Override // com.repackage.rw4
+    @Override // com.baidu.tieba.uw4
     public int getLikeStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -535,7 +535,7 @@ public class MetaData extends OrmObject implements Serializable, rw4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.pendantData : (UserPendantData) invokeV.objValue;
     }
 
-    @Override // com.repackage.rw4
+    @Override // com.baidu.tieba.uw4
     public String getPortrait() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -602,13 +602,13 @@ public class MetaData extends OrmObject implements Serializable, rw4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? this.uk : (String) invokeV.objValue;
     }
 
-    public t15 getUserGrowthData() {
+    public z15 getUserGrowthData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? this.userGrowthData : (t15) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? this.userGrowthData : (z15) invokeV.objValue;
     }
 
-    @Override // com.repackage.rw4
+    @Override // com.baidu.tieba.uw4
     public String getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -618,7 +618,7 @@ public class MetaData extends OrmObject implements Serializable, rw4 {
     public long getUserIdLong() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) ? og.g(this.userId, 0L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) ? pg.g(this.userId, 0L) : invokeV.longValue;
     }
 
     public String getUserName() {
@@ -681,7 +681,7 @@ public class MetaData extends OrmObject implements Serializable, rw4 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.rw4
+    @Override // com.baidu.tieba.uw4
     public boolean isGod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -917,9 +917,9 @@ public class MetaData extends OrmObject implements Serializable, rw4 {
             workCreateAutherData.parseProto(user.work_creator_info);
         }
         this.ipAddress = user.ip_address;
-        t15 t15Var = new t15();
-        this.userGrowthData = t15Var;
-        t15Var.g(user.user_growth);
+        z15 z15Var = new z15();
+        this.userGrowthData = z15Var;
+        z15Var.g(user.user_growth);
     }
 
     public void setAuthDesc(String str) {
@@ -1006,7 +1006,7 @@ public class MetaData extends OrmObject implements Serializable, rw4 {
         }
     }
 
-    @Override // com.repackage.rw4
+    @Override // com.baidu.tieba.uw4
     public void setFansNum(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048674, this, i) == null) {
@@ -1113,7 +1113,7 @@ public class MetaData extends OrmObject implements Serializable, rw4 {
         }
     }
 
-    @Override // com.repackage.rw4
+    @Override // com.baidu.tieba.uw4
     public void setIsFromNetWork(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048689, this, z) == null) {
@@ -1206,7 +1206,7 @@ public class MetaData extends OrmObject implements Serializable, rw4 {
         }
     }
 
-    @Override // com.repackage.rw4
+    @Override // com.baidu.tieba.uw4
     public void setLikeStatus(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048701, this, i) == null) {
@@ -1298,10 +1298,10 @@ public class MetaData extends OrmObject implements Serializable, rw4 {
         }
     }
 
-    public void setUserGrowthData(t15 t15Var) {
+    public void setUserGrowthData(z15 z15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048714, this, t15Var) == null) {
-            this.userGrowthData = t15Var;
+        if (interceptable == null || interceptable.invokeL(1048714, this, z15Var) == null) {
+            this.userGrowthData = z15Var;
         }
     }
 
@@ -1345,7 +1345,7 @@ public class MetaData extends OrmObject implements Serializable, rw4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048720, this)) == null) {
             BazhuGradeData bazhuGradeData = this.mBazhuGrade;
-            if (bazhuGradeData == null || pi.isEmpty(bazhuGradeData.getDesc())) {
+            if (bazhuGradeData == null || qi.isEmpty(bazhuGradeData.getDesc())) {
                 return false;
             }
             return (this.is_bawu == 1 && "manager".equals(this.bawu_type)) ? this.privSetsData.getBazhuShowInside() != 3 : this.privSetsData.getBazhuShowOutside() != 3;
@@ -1555,9 +1555,9 @@ public class MetaData extends OrmObject implements Serializable, rw4 {
                 this.mRelation = jSONObject.optInt("relation");
                 optJSONObject11 = jSONObject.optJSONObject("user_growth");
                 if (optJSONObject11 == null) {
-                    t15 t15Var = new t15();
-                    this.userGrowthData = t15Var;
-                    t15Var.f(optJSONObject11);
+                    z15 z15Var = new z15();
+                    this.userGrowthData = z15Var;
+                    z15Var.f(optJSONObject11);
                     return;
                 }
                 return;

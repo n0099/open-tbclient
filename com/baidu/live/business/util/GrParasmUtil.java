@@ -2,6 +2,8 @@ package com.baidu.live.business.util;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.live.business.model.data.LiveGrParams;
+import com.baidu.tieba.ma0;
+import com.baidu.tieba.pa0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,8 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.la0;
-import com.repackage.oa0;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -58,7 +58,7 @@ public class GrParasmUtil {
 
     public static void clear(List<String> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, list) == null) || grParamsMap.isEmpty() || la0.c(list)) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, list) == null) || grParamsMap.isEmpty() || ma0.c(list)) {
             return;
         }
         Iterator<Map.Entry<String, LiveGrParams>> it = grParamsMap.entrySet().iterator();
@@ -97,7 +97,7 @@ public class GrParasmUtil {
     public static void logGrParam(String str, boolean z, boolean z2) {
         LiveGrParams liveGrParams;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || oa0.a(str)) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || pa0.a(str)) {
             return;
         }
         if (grParamsMap.containsKey(str)) {

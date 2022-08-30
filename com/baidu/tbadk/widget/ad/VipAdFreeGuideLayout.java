@@ -29,6 +29,8 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ad.AbsDataRecorder;
+import com.baidu.tieba.cm5;
+import com.baidu.tieba.os4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,8 +38,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ms4;
-import com.repackage.ul5;
 /* loaded from: classes3.dex */
 public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -187,7 +187,7 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ImageView imageView = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f09257e);
+            ImageView imageView = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f092588);
             this.f = imageView;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
             if (layoutParams == null) {
@@ -215,9 +215,9 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setClipToPadding(false);
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08e1, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08e3, (ViewGroup) null);
             this.d = linearLayout;
-            this.e = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09257d);
+            this.e = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092587);
             b();
             if (this.g) {
                 this.c = t;
@@ -265,13 +265,13 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
             } else {
                 TBSelector.makeDrawableSelector().setShape(0).gradientLinear(DrawableSelector.TOP_BOTTOM, strArr).blRadius(this.m ? v : 0.0f).brRadius(this.m ? v : 0.0f).into(this);
             }
-            ms4 d = ms4.d(this.e);
+            os4 d = os4.d(this.e);
             d.z(R.dimen.T_X07);
             d.v(R.color.CAM_X0311);
             if (this.g) {
-                WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a2b, R.color.CAM_X0626, null);
+                WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a2c, R.color.CAM_X0626, null);
             } else {
-                WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a2a, R.color.CAM_X0311, null);
+                WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a2b, R.color.CAM_X0311, null);
             }
         }
     }
@@ -299,7 +299,7 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onAttachedToWindow();
-            setGuideContent(ul5.e().h(), ul5.e().g());
+            setGuideContent(cm5.e().h(), cm5.e().g());
         }
     }
 

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdProductInfo;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class EcOrderCardStyle {
     public static final /* synthetic */ EcOrderCardStyle[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

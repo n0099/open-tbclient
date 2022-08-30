@@ -8,6 +8,8 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.wr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,10 +17,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kuaishou.weapon.p0.h;
-import com.repackage.d9;
-import com.repackage.ur4;
 /* loaded from: classes3.dex */
-public class PermissionRequestDialog extends ur4 {
+public class PermissionRequestDialog extends wr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mCloseView;
@@ -64,23 +64,23 @@ public class PermissionRequestDialog extends ur4 {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0229, (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d022a, (ViewGroup) null);
             this.mRootView = viewGroup;
-            this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092383);
-            this.mDetailView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092382);
-            TextView textView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092380);
+            this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09238c);
+            this.mDetailView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09238b);
+            TextView textView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092389);
             this.mCloseView = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f03f3);
-            TextView textView2 = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092381);
+            textView.setText(R.string.obfuscated_res_0x7f0f03f4);
+            TextView textView2 = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09238a);
             this.mContinueView = textView2;
-            textView2.setText(R.string.obfuscated_res_0x7f0f0265);
+            textView2.setText(R.string.obfuscated_res_0x7f0f0266);
             onChangeSkinType();
             setContentView(this.mRootView);
         }
     }
 
-    @Override // com.repackage.ur4
-    public ur4 create(d9<?> d9Var) {
+    @Override // com.baidu.tieba.wr4
+    public wr4 create(d9<?> d9Var) {
         InterceptResult invokeL;
         char c;
         String string;
@@ -107,16 +107,16 @@ public class PermissionRequestDialog extends ur4 {
             }
             String str2 = null;
             if (c == 0) {
-                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f1005);
-                string = d9Var.getString(R.string.obfuscated_res_0x7f0f0fff);
+                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f1008);
+                string = d9Var.getString(R.string.obfuscated_res_0x7f0f1002);
             } else if (c == 1) {
-                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f1007);
-                string = d9Var.getString(R.string.obfuscated_res_0x7f0f1001);
+                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f100a);
+                string = d9Var.getString(R.string.obfuscated_res_0x7f0f1004);
             } else if (c != 2) {
                 string = null;
             } else {
-                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f1006);
-                string = d9Var.getString(R.string.obfuscated_res_0x7f0f1000);
+                str2 = d9Var.getString(R.string.obfuscated_res_0x7f0f1009);
+                string = d9Var.getString(R.string.obfuscated_res_0x7f0f1003);
             }
             this.mTitleView.setText(str2);
             this.mDetailView.setText(string);
@@ -186,7 +186,7 @@ public class PermissionRequestDialog extends ur4 {
             });
             return this;
         }
-        return (ur4) invokeL.objValue;
+        return (wr4) invokeL.objValue;
     }
 
     public void onChangeSkinType() {

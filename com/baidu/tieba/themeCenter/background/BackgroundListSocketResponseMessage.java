@@ -4,12 +4,12 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.pr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gr8;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,14 +17,14 @@ import tbclient.Error;
 import tbclient.GetBgList.DataRes;
 import tbclient.GetBgList.GetBgListResIdl;
 import tbclient.ThemeBgProp;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BackgroundListSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public List<DressItemData> mBackgroundList;
     public int mIsDefault;
-    public gr8 mRecommand;
+    public pr8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackgroundListSocketResponseMessage() {
@@ -64,9 +64,9 @@ public class BackgroundListSocketResponseMessage extends SocketResponsedMessage 
             DataRes dataRes = getBgListResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    gr8 gr8Var = new gr8();
-                    this.mRecommand = gr8Var;
-                    gr8Var.d(getBgListResIdl.data.recommend);
+                    pr8 pr8Var = new pr8();
+                    this.mRecommand = pr8Var;
+                    pr8Var.d(getBgListResIdl.data.recommend);
                 }
                 this.mIsDefault = getBgListResIdl.data.is_default.intValue();
                 if (getBgListResIdl.data.bgs != null) {
@@ -96,10 +96,10 @@ public class BackgroundListSocketResponseMessage extends SocketResponsedMessage 
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIsDefault == 1 : invokeV.booleanValue;
     }
 
-    public gr8 getRecommand() {
+    public pr8 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (gr8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (pr8) invokeV.objValue;
     }
 
     public boolean hasMore() {

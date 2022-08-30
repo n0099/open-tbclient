@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static int s(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {

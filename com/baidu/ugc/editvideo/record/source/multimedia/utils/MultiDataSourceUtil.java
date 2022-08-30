@@ -9,6 +9,7 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransitionConfig;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
+import com.baidu.tieba.fc9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,23 +19,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.data.MultiMediaDataTrack;
-import com.repackage.wb9;
 import java.nio.Buffer;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MultiDataSourceUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_SINGLE_MEDIA_TIME = 3.0f;
     public static String sDefaultScaleType = "center_inside";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface OnInitMultiMediaListener {
         void onInitMultiMedia(MultiMediaData multiMediaData);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface OnReleaseMultiMediaListener {
         void onReleaseMultiMedia(MultiMediaData multiMediaData);
     }
@@ -186,10 +186,10 @@ public class MultiDataSourceUtil {
         MediaSegment mediaSegment;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65556, null, mediaTrack, i)) == null) {
-            if (i < 0 || mediaTrack == null || wb9.e(mediaTrack.mediaSegments) || (mediaSegment = (MediaSegment) wb9.c(mediaTrack.mediaSegments, i)) == null) {
+            if (i < 0 || mediaTrack == null || fc9.e(mediaTrack.mediaSegments) || (mediaSegment = (MediaSegment) fc9.c(mediaTrack.mediaSegments, i)) == null) {
                 return 0L;
             }
-            MediaTransition mediaTransition = (MediaTransition) wb9.c(mediaTrack.mediaTransitions, i);
+            MediaTransition mediaTransition = (MediaTransition) fc9.c(mediaTrack.mediaTransitions, i);
             return (mediaSegment.end - mediaSegment.start) - (mediaTransition != null ? mediaTransition.duration : 0L);
         }
         return invokeLI.longValue;

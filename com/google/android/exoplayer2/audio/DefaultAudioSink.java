@@ -35,7 +35,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class DefaultAudioSink implements AudioSink {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_MULTIPLICATION_FACTOR = 4;
@@ -125,7 +125,7 @@ public final class DefaultAudioSink implements AudioSink {
     public long writtenEncodedFrames;
     public long writtenPcmBytes;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class AudioTrackUtil {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long FORCE_RESET_WORKAROUND_TIMEOUT_MS = 200;
@@ -265,7 +265,7 @@ public final class DefaultAudioSink implements AudioSink {
     }
 
     @TargetApi(19)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class AudioTrackUtilV19 extends AudioTrackUtil {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -338,7 +338,7 @@ public final class DefaultAudioSink implements AudioSink {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class InvalidAudioTrackTimestampException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -364,7 +364,7 @@ public final class DefaultAudioSink implements AudioSink {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class PlaybackParametersCheckpoint {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

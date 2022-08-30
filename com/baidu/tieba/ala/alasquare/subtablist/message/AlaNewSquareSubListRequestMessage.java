@@ -7,13 +7,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
@@ -64,9 +64,9 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     public void setHttpParams() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int k = qi.k(TbadkCoreApplication.getInst());
-            int i = qi.i(TbadkCoreApplication.getInst());
-            float h = qi.h(TbadkCoreApplication.getInst());
+            int k = ri.k(TbadkCoreApplication.getInst());
+            int i = ri.i(TbadkCoreApplication.getInst());
+            float h = ri.h(TbadkCoreApplication.getInst());
             addParam("entry_name", this.entryName);
             addParam("pn", this.pn);
             addParam("ps", this.ps);
@@ -79,14 +79,14 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
             addParam(SuggestAddrField.KEY_LAT, this.lat);
             addParam(SuggestAddrField.KEY_LNG, this.lng);
             String str = "N";
-            if (oi.z()) {
-                if (oi.H()) {
+            if (pi.z()) {
+                if (pi.H()) {
                     str = "1_0";
-                } else if (oi.v()) {
+                } else if (pi.v()) {
                     str = "0_13";
-                } else if (oi.u()) {
+                } else if (pi.u()) {
                     str = "0_3";
-                } else if (oi.t()) {
+                } else if (pi.t()) {
                     str = "0_2";
                 }
             }

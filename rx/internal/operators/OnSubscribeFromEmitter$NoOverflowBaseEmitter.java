@@ -1,11 +1,11 @@
 package rx.internal.operators;
 
+import com.baidu.tieba.gv9;
+import com.baidu.tieba.vv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mv9;
-import com.repackage.xu9;
 /* loaded from: classes8.dex */
 public abstract class OnSubscribeFromEmitter$NoOverflowBaseEmitter<T> extends OnSubscribeFromEmitter$BaseEmitter<T> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -13,18 +13,18 @@ public abstract class OnSubscribeFromEmitter$NoOverflowBaseEmitter<T> extends On
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OnSubscribeFromEmitter$NoOverflowBaseEmitter(xu9<? super T> xu9Var) {
-        super(xu9Var);
+    public OnSubscribeFromEmitter$NoOverflowBaseEmitter(gv9<? super T> gv9Var) {
+        super(gv9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xu9Var};
+            Object[] objArr = {gv9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((xu9) newInitContext.callArgs[0]);
+                super((gv9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,7 +40,7 @@ public abstract class OnSubscribeFromEmitter$NoOverflowBaseEmitter<T> extends On
         }
         if (get() != 0) {
             this.actual.onNext(t);
-            mv9.g(this, 1L);
+            vv9.g(this, 1L);
             return;
         }
         onOverflow();

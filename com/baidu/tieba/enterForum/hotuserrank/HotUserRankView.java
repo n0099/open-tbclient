@@ -28,16 +28,16 @@ import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.r76;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.u76;
+import com.baidu.tieba.v76;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j76;
-import com.repackage.m76;
-import com.repackage.n76;
-import com.repackage.qi;
-import com.repackage.rg;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -53,7 +53,7 @@ public class HotUserRankView {
     public CustomViewPager g;
     public FragmentAdapter h;
     public List<e> i;
-    public j76 j;
+    public r76 j;
     public View k;
     public TextView l;
     public String m;
@@ -203,7 +203,7 @@ public class HotUserRankView {
                     this.a.a.finish();
                 } else if (view2 == this.a.l) {
                     if (TextUtils.isEmpty(this.a.m)) {
-                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0a38);
+                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0a3b);
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(this.a.a.getPageContext(), new String[]{this.a.m});
@@ -305,14 +305,14 @@ public class HotUserRankView {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof m76) || customResponsedMessage.getOrginalMessage() == null || customResponsedMessage.getOrginalMessage().getTag() == null || !customResponsedMessage.getOrginalMessage().getTag().equals(this.a.a.getUniqueId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof u76) || customResponsedMessage.getOrginalMessage() == null || customResponsedMessage.getOrginalMessage().getTag() == null || !customResponsedMessage.getOrginalMessage().getTag().equals(this.a.a.getUniqueId())) {
                 return;
             }
-            m76 m76Var = (m76) customResponsedMessage.getData();
-            if (m76Var.c == null) {
+            u76 u76Var = (u76) customResponsedMessage.getData();
+            if (u76Var.c == null) {
                 return;
             }
-            this.a.j.e(m76Var);
+            this.a.j.e(u76Var);
         }
     }
 
@@ -361,22 +361,22 @@ public class HotUserRankView {
         this.t = new c(this);
         this.u = new d(this, 2921447);
         this.a = baseFragmentActivity;
-        View inflate = LayoutInflater.from(baseFragmentActivity).inflate(R.layout.obfuscated_res_0x7f0d003b, (ViewGroup) null);
+        View inflate = LayoutInflater.from(baseFragmentActivity).inflate(R.layout.obfuscated_res_0x7f0d003c, (ViewGroup) null);
         this.b = inflate;
-        NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f091624);
+        NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f091626);
         this.c = navigationBar;
         View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.k = addSystemImageButton;
         addSystemImageButton.setOnClickListener(this.s);
-        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f08a0));
+        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f08a3));
         this.l = addTextButton;
         addTextButton.setOnClickListener(this.s);
-        TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091fd9);
+        TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091fdb);
         this.d = tbTabLayout;
-        tbTabLayout.setTabTextSize(qi.f(baseFragmentActivity, R.dimen.tbds46));
-        this.e = this.b.findViewById(R.id.obfuscated_res_0x7f091fbb);
-        this.f = this.b.findViewById(R.id.obfuscated_res_0x7f091fbc);
-        CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f092571);
+        tbTabLayout.setTabTextSize(ri.f(baseFragmentActivity, R.dimen.tbds46));
+        this.e = this.b.findViewById(R.id.obfuscated_res_0x7f091fbd);
+        this.f = this.b.findViewById(R.id.obfuscated_res_0x7f091fbe);
+        CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f09257b);
         this.g = customViewPager;
         customViewPager.addOnPageChangeListener(this.t);
         this.g.setViewPagerScroll(0);
@@ -384,10 +384,10 @@ public class HotUserRankView {
         this.h = fragmentAdapter;
         this.g.setAdapter(fragmentAdapter);
         this.d.setupWithViewPager(this.g);
-        this.j = new j76(this.a.getPageContext(), this.b.findViewById(R.id.obfuscated_res_0x7f0903f7));
+        this.j = new r76(this.a.getPageContext(), this.b.findViewById(R.id.obfuscated_res_0x7f0903f7));
         this.a.registerListener(this.u);
-        this.n = this.b.findViewById(R.id.obfuscated_res_0x7f092411);
-        this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092412);
+        this.n = this.b.findViewById(R.id.obfuscated_res_0x7f09241a);
+        this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09241b);
         this.p = this.b.findViewById(R.id.obfuscated_res_0x7f0903f8);
     }
 
@@ -407,15 +407,15 @@ public class HotUserRankView {
             SkinManager.setBackgroundColor(this.d, R.color.CAM_X0207);
             SkinManager.setViewTextColorSelector(this.l, R.color.CAM_X0105, R.color.cp_cont_b_alpha50);
             this.j.d(i);
-            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0810f3, R.color.CAM_X0302, null);
-            int f = qi.f(this.a, R.dimen.tbds63);
-            int f2 = qi.f(this.a, R.dimen.tbds2);
+            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0810f4, R.color.CAM_X0302, null);
+            int f = ri.f(this.a, R.dimen.tbds63);
+            int f2 = ri.f(this.a, R.dimen.tbds2);
             if (pureDrawable != null) {
                 pureDrawable.setBounds(0, f2, f, f + f2);
                 this.o.setCompoundDrawables(pureDrawable, null, null, null);
             }
-            this.o.setCompoundDrawablePadding(qi.f(this.a, R.dimen.tbds9));
-            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.ALL).setShadowRadius(qi.f(this.a, R.dimen.tbds21)).setOffsetX(0).setOffsetY(0).into(this.n);
+            this.o.setCompoundDrawablePadding(ri.f(this.a, R.dimen.tbds9));
+            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.ALL).setShadowRadius(ri.f(this.a, R.dimen.tbds21)).setOffsetX(0).setOffsetY(0).into(this.n);
             SkinManager.setBackgroundResource(this.e, R.drawable.hot_user_rank_tab_cover_left);
             SkinManager.setBackgroundResource(this.f, R.drawable.hot_user_rank_tab_cover_right);
             this.p.setVisibility(i != 0 ? 8 : 0);
@@ -425,11 +425,11 @@ public class HotUserRankView {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            rg.a().removeCallbacks(this.r);
+            sg.a().removeCallbacks(this.r);
         }
     }
 
-    public void l(List<n76> list, long j, int i, String str) {
+    public void l(List<v76> list, long j, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
             this.m = str;
@@ -446,27 +446,27 @@ public class HotUserRankView {
                     this.j.f(1);
                     return;
                 }
-                for (n76 n76Var : list) {
+                for (v76 v76Var : list) {
                     this.d.d(this.d.z());
                     e eVar2 = new e(this);
                     HotUserRankFragment hotUserRankFragment2 = new HotUserRankFragment();
                     eVar2.a = hotUserRankFragment2;
-                    hotUserRankFragment2.E1(n76Var.b);
+                    hotUserRankFragment2.E1(v76Var.b);
                     eVar2.a.G1(this.q);
-                    eVar2.b = n76Var.a;
+                    eVar2.b = v76Var.a;
                     this.i.add(eVar2);
                 }
                 if (this.q) {
-                    this.c.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f026d));
-                } else {
                     this.c.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f026e));
+                } else {
+                    this.c.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f026f));
                 }
                 this.h.b(this.i);
                 this.j.f(2);
                 if (i != 0) {
                     this.g.setCurrentItem(i);
                 }
-                rg.a().postDelayed(this.r, 100L);
+                sg.a().postDelayed(this.r, 100L);
             }
         }
     }

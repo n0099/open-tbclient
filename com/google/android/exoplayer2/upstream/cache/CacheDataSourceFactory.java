@@ -10,7 +10,7 @@ import com.google.android.exoplayer2.upstream.DataSink;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.FileDataSourceFactory;
 import com.google.android.exoplayer2.upstream.cache.CacheDataSource;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class CacheDataSourceFactory implements DataSource.Factory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

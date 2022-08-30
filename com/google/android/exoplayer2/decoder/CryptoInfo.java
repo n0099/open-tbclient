@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class CryptoInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,14 +25,14 @@ public final class CryptoInfo {
     public final PatternHolderV24 patternHolder;
 
     /* renamed from: com.google.android.exoplayer2.decoder.CryptoInfo$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     @TargetApi(24)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class PatternHolderV24 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

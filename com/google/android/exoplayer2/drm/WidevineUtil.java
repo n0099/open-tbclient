@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.C;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class WidevineUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROPERTY_LICENSE_DURATION_REMAINING = "LicenseDurationRemaining";

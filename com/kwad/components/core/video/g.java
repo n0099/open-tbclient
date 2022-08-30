@@ -1,5 +1,5 @@
 package com.kwad.components.core.video;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface g {
     void onVideoPlayBufferingPaused();
 

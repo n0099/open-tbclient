@@ -28,12 +28,12 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CustomViewTarget";
     @IdRes
-    public static final int VIEW_TAG_ID = 2131299502;
+    public static final int VIEW_TAG_ID = 2131299503;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public View.OnAttachStateChangeListener attachStateListener;
@@ -47,7 +47,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     public final T f1061view;
 
     @VisibleForTesting
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class SizeDeterminer {
         public static /* synthetic */ Interceptable $ic;
         public static final int PENDING_SIZE = 0;
@@ -63,7 +63,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
         public final View f1062view;
         public boolean waitForLayout;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes7.dex */
         public static final class SizeDeterminerLayoutListener implements ViewTreeObserver.OnPreDrawListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

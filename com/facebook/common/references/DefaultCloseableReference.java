@@ -10,7 +10,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.logging.FLog;
 import com.facebook.common.references.CloseableReference;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DefaultCloseableReference<T> extends CloseableReference<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DefaultCloseableReference";

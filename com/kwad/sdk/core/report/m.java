@@ -15,7 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @KsJson
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class m extends c {
     public long HD;
     public long HE;
@@ -110,7 +110,7 @@ public class m extends c {
     public int abj = 0;
 
     @KsJson
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public int abo;
         public int abp;
@@ -123,7 +123,7 @@ public class m extends c {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static int abo;
         public static int abp;

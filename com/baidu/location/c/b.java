@@ -22,6 +22,7 @@ import android.telephony.gsm.GsmCellLocation;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.location.e.k;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -451,7 +452,7 @@ public class b {
         File file = new File(i + File.separator + "lcvif.dat");
         if (file.exists()) {
             try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, rw.c);
                 long j = 0;
                 randomAccessFile.seek(0L);
                 if (System.currentTimeMillis() - randomAccessFile.readLong() > 60000) {
@@ -509,7 +510,7 @@ public class b {
                     file.delete();
                 }
                 file.createNewFile();
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, rw.c);
                 randomAccessFile.seek(0L);
                 randomAccessFile.writeLong(this.g.get(size - 1).g);
                 randomAccessFile.writeInt(size);

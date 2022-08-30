@@ -8,14 +8,14 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.bb;
+import com.baidu.tieba.c9;
+import com.baidu.tieba.d9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab;
-import com.repackage.c9;
-import com.repackage.d9;
 /* loaded from: classes.dex */
 public abstract class BdBaseModel<T> extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
@@ -187,25 +187,25 @@ public abstract class BdBaseModel<T> extends OrmObject {
         this.unique_id = d9Var.getUniqueId();
     }
 
-    public void registerListener(ab abVar) {
+    public void registerListener(bb bbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, abVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, bbVar) == null) {
             check();
-            if (abVar != null && abVar.getTag() == null) {
-                abVar.setTag(this.unique_id);
+            if (bbVar != null && bbVar.getTag() == null) {
+                bbVar.setTag(this.unique_id);
             }
-            MessageManager.getInstance().registerListener(abVar);
+            MessageManager.getInstance().registerListener(bbVar);
         }
     }
 
-    public void registerListener(int i, ab abVar) {
+    public void registerListener(int i, bb bbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, abVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, bbVar) == null) {
             check();
-            if (abVar != null && abVar.getTag() == null) {
-                abVar.setTag(this.unique_id);
+            if (bbVar != null && bbVar.getTag() == null) {
+                bbVar.setTag(this.unique_id);
             }
-            MessageManager.getInstance().registerListener(i, abVar);
+            MessageManager.getInstance().registerListener(i, bbVar);
         }
     }
 }

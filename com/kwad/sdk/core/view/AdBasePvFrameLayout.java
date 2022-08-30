@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.core.e.b;
 import com.kwad.sdk.utils.bf;
 import com.kwad.sdk.widget.j;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AdBasePvFrameLayout extends AdBaseFrameLayout {
     public int GD;
     public long afe;

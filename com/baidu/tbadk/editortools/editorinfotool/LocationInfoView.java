@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pv4;
-import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class LocationInfoView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -58,21 +58,21 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(0);
             setGravity(16);
-            pv4 pv4Var = new pv4();
-            pv4Var.p(R.color.CAM_X0209, R.color.CAM_X0105);
-            pv4Var.i(R.drawable.obfuscated_res_0x7f0805ff, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            pv4Var.h(R.color.CAM_X0110);
-            pv4Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-            pv4Var.m(qi.f(getContext(), R.dimen.M_W_X004), qi.f(getContext(), R.dimen.M_W_X004));
-            pv4Var.n(qi.f(getContext(), R.dimen.M_H_X002));
-            pv4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+            sv4 sv4Var = new sv4();
+            sv4Var.p(R.color.CAM_X0209, R.color.CAM_X0105);
+            sv4Var.i(R.drawable.obfuscated_res_0x7f080600, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            sv4Var.h(R.color.CAM_X0110);
+            sv4Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+            sv4Var.m(ri.f(getContext(), R.dimen.M_W_X004), ri.f(getContext(), R.dimen.M_W_X004));
+            sv4Var.n(ri.f(getContext(), R.dimen.M_H_X002));
+            sv4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
             this.a = tBSpecificationBtn;
-            tBSpecificationBtn.setConfig(pv4Var);
+            tBSpecificationBtn.setConfig(sv4Var);
             this.a.setTextSize(R.dimen.T_X09);
             this.a.setOnClickListener(this);
-            this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0539));
-            addView(this.a, new LinearLayout.LayoutParams(-2, qi.f(getContext(), R.dimen.tbds62)));
+            this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f053a));
+            addView(this.a, new LinearLayout.LayoutParams(-2, ri.f(getContext(), R.dimen.tbds62)));
             b(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -119,9 +119,9 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
                 }
                 this.a.setText(StringHelper.cutChineseAndEnglishWithSuffix(str, 8, StringHelper.STRING_MORE));
             } else if (i == 1) {
-                this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a53));
+                this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a56));
             } else {
-                this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a59));
+                this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a5c));
             }
             this.a.a = Integer.valueOf(i);
         }

@@ -2,12 +2,12 @@ package com.baidu.searchbox.task.async.appcreate;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
+import com.baidu.tieba.qo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.io5;
 /* loaded from: classes2.dex */
 public class InitSwanAppTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +31,7 @@ public class InitSwanAppTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            io5.a();
+            qo5.a();
         }
     }
 

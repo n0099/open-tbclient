@@ -124,12 +124,12 @@ public class BannerDownloadView extends AppCompatTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404e8, R.attr.obfuscated_res_0x7f0404e9, R.attr.obfuscated_res_0x7f0404ea, R.attr.obfuscated_res_0x7f0404eb, R.attr.obfuscated_res_0x7f0404ec, R.attr.obfuscated_res_0x7f0404ed, R.attr.obfuscated_res_0x7f0404ee, R.attr.obfuscated_res_0x7f0404ef, R.attr.obfuscated_res_0x7f0404f0, R.attr.obfuscated_res_0x7f0404f1, R.attr.obfuscated_res_0x7f0404f2, R.attr.obfuscated_res_0x7f0404f3, R.attr.obfuscated_res_0x7f0404f4});
-            int color = getResources().getColor(R.color.obfuscated_res_0x7f060829);
-            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f060828);
+            int color = getResources().getColor(R.color.obfuscated_res_0x7f06082c);
+            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f06082b);
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070563);
             this.i = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070562);
             this.d = obtainStyledAttributes.getInteger(0, color2);
-            this.e = obtainStyledAttributes.getColor(1, getResources().getColor(R.color.obfuscated_res_0x7f060827));
+            this.e = obtainStyledAttributes.getColor(1, getResources().getColor(R.color.obfuscated_res_0x7f06082a));
             this.b = obtainStyledAttributes.getColor(8, color);
             this.g = obtainStyledAttributes.getFloat(2, this.g);
             this.a = obtainStyledAttributes.getFloat(4, 0.0f);

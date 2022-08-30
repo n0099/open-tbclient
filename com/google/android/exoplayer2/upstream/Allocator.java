@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2.upstream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface Allocator {
     Allocation allocate();
 

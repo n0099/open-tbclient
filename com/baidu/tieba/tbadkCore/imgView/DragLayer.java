@@ -8,19 +8,19 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tl8;
+import com.baidu.tieba.ul8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ll8;
-import com.repackage.ml8;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class DragLayer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ll8 a;
-    public ml8 b;
+    public tl8 a;
+    public ul8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DragLayer(Context context) {
@@ -44,12 +44,12 @@ public class DragLayer extends FrameLayout {
     }
 
     public void a() {
-        ml8 ml8Var;
+        ul8 ul8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ml8Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ul8Var = this.b) == null) {
             return;
         }
-        Bitmap bitmap = ml8Var.a;
+        Bitmap bitmap = ul8Var.a;
         if (bitmap != null) {
             bitmap.recycle();
             this.b.a = null;
@@ -68,24 +68,24 @@ public class DragLayer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            ml8 ml8Var = this.b;
-            if (ml8Var == null || !this.a.a) {
+            ul8 ul8Var = this.b;
+            if (ul8Var == null || !this.a.a) {
                 return;
             }
-            ml8Var.a(canvas);
+            ul8Var.a(canvas);
         }
     }
 
-    public ll8 getDragController() {
+    public tl8 getDragController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (ll8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (tl8) invokeV.objValue;
     }
 
-    public ml8 getDragObject() {
+    public ul8 getDragObject() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (ml8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (ul8) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -119,17 +119,17 @@ public class DragLayer extends FrameLayout {
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) ? this.a.b(motionEvent) : invokeL.booleanValue;
     }
 
-    public void setDragController(ll8 ll8Var) {
+    public void setDragController(tl8 tl8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, ll8Var) == null) {
-            this.a = ll8Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, tl8Var) == null) {
+            this.a = tl8Var;
         }
     }
 
-    public void setDragObject(ml8 ml8Var) {
+    public void setDragObject(ul8 ul8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ml8Var) == null) {
-            this.b = ml8Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, ul8Var) == null) {
+            this.b = ul8Var;
             invalidate();
         }
     }

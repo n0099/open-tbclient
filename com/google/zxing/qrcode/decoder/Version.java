@@ -14,7 +14,7 @@ import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class Version {
     public static /* synthetic */ Interceptable $ic;
     public static final Version[] VERSIONS;
@@ -25,7 +25,7 @@ public final class Version {
     public final int totalCodewords;
     public final int versionNumber;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class ECB {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public final class Version {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class ECBlocks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

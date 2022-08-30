@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.target.Target;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface RequestListener<R> {
     boolean onLoadFailed(@Nullable GlideException glideException, Object obj, Target<R> target, boolean z);
 

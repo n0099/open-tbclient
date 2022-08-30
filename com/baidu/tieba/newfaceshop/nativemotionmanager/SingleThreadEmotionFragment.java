@@ -11,25 +11,25 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.iq7;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.SingleThreadEmotionModel;
+import com.baidu.tieba.oq7;
+import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aq7;
-import com.repackage.gq7;
-import com.repackage.rg;
 import java.util.List;
-/* loaded from: classes3.dex */
-public class SingleThreadEmotionFragment extends BaseFragment implements aq7<List<EmotionPackageData>> {
+/* loaded from: classes5.dex */
+public class SingleThreadEmotionFragment extends BaseFragment implements iq7<List<EmotionPackageData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gq7 a;
+    public oq7 a;
     public SingleThreadEmotionModel b;
     public CustomMessageListener c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements aq7<Lis
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +104,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements aq7<Lis
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,7 +154,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements aq7<Lis
         this.c = new a(this, 2921314);
     }
 
-    @Override // com.repackage.aq7
+    @Override // com.baidu.tieba.iq7
     public void L0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -166,9 +166,9 @@ public class SingleThreadEmotionFragment extends BaseFragment implements aq7<Lis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            gq7 gq7Var = this.a;
-            if (gq7Var != null) {
-                gq7Var.d(i);
+            oq7 oq7Var = this.a;
+            if (oq7Var != null) {
+                oq7Var.d(i);
             }
         }
     }
@@ -178,7 +178,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements aq7<Lis
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.a = new gq7(getPageContext());
+            this.a = new oq7(getPageContext());
             SingleThreadEmotionModel singleThreadEmotionModel = new SingleThreadEmotionModel();
             this.b = singleThreadEmotionModel;
             singleThreadEmotionModel.H(this);
@@ -204,11 +204,11 @@ public class SingleThreadEmotionFragment extends BaseFragment implements aq7<Lis
         }
     }
 
-    @Override // com.repackage.aq7
+    @Override // com.baidu.tieba.iq7
     public void onFail() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            rg.a().post(new c(this));
+            sg.a().post(new c(this));
         }
     }
 
@@ -222,21 +222,21 @@ public class SingleThreadEmotionFragment extends BaseFragment implements aq7<Lis
     }
 
     public final void v1() {
-        gq7 gq7Var;
+        oq7 oq7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (gq7Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (oq7Var = this.a) == null) {
             return;
         }
-        gq7Var.b();
+        oq7Var.b();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.aq7
+    @Override // com.baidu.tieba.iq7
     /* renamed from: w1 */
     public void onSuccess(List<EmotionPackageData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            rg.a().post(new b(this, list));
+            sg.a().post(new b(this, list));
         }
     }
 }

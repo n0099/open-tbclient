@@ -4,12 +4,12 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tieba.af5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.te5;
 import tbclient.GetClientConfig.DataReq;
 import tbclient.GetClientConfig.GetClientConfigReqIdl;
 /* loaded from: classes3.dex */
@@ -45,7 +45,7 @@ public class ClientConfigNetMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.type = this.mType;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                te5.a(builder, true);
+                af5.a(builder, true);
             }
             GetClientConfigReqIdl.Builder builder2 = new GetClientConfigReqIdl.Builder();
             builder2.data = builder.build(false);

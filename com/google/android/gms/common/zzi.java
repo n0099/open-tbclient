@@ -4,6 +4,7 @@ import android.os.RemoteException;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.jn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,10 +14,9 @@ import com.google.android.gms.common.internal.zzy;
 import com.google.android.gms.common.internal.zzz;
 import com.google.android.gms.dynamic.IObjectWrapper;
 import com.google.android.gms.dynamic.ObjectWrapper;
-import com.repackage.an9;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class zzi extends zzy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public abstract class zzi extends zzy {
                 return;
             }
         }
-        an9.a(bArr.length == 25);
+        jn9.a(bArr.length == 25);
         this.zza = Arrays.hashCode(bArr);
     }
 

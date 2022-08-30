@@ -17,7 +17,7 @@ import com.bumptech.glide.util.Preconditions;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DecodePath<DataType, ResourceType, Transcode> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DecodePath";
@@ -28,7 +28,7 @@ public class DecodePath<DataType, ResourceType, Transcode> {
     public final Pools.Pool<List<Throwable>> listPool;
     public final ResourceTranscoder<ResourceType, Transcode> transcoder;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface DecodeCallback<ResourceType> {
         @NonNull
         Resource<ResourceType> onResourceDecoded(@NonNull Resource<ResourceType> resource);

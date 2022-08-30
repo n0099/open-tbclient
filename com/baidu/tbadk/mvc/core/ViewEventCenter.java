@@ -1,12 +1,12 @@
 package com.baidu.tbadk.mvc.core;
 
+import com.baidu.tieba.e95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.x85;
 /* loaded from: classes3.dex */
-public final class ViewEventCenter extends x85 {
+public final class ViewEventCenter extends e95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

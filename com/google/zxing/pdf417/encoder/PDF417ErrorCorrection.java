@@ -38,7 +38,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.WriterException;
 import com.google.zxing.pdf417.PDF417Common;
 import org.apache.http.HttpStatus;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class PDF417ErrorCorrection {
     public static /* synthetic */ Interceptable $ic;
     public static final int[][] EC_COEFFICIENTS;

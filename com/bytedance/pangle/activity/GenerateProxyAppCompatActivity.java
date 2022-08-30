@@ -68,7 +68,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.function.Consumer;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

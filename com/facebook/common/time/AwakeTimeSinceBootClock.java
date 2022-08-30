@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.DoNotStrip;
 @DoNotStrip
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AwakeTimeSinceBootClock implements MonotonicClock, MonotonicNanoClock {
     public static /* synthetic */ Interceptable $ic;
     @DoNotStrip

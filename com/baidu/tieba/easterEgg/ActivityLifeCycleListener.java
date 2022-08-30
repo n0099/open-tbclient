@@ -1,11 +1,11 @@
 package com.baidu.tieba.easterEgg;
 
 import android.app.Fragment;
+import com.baidu.tieba.x56;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p56;
 /* loaded from: classes3.dex */
 public class ActivityLifeCycleListener extends Fragment {
     public static /* synthetic */ Interceptable $ic;
@@ -29,7 +29,7 @@ public class ActivityLifeCycleListener extends Fragment {
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            p56.f().e();
+            x56.f().e();
             super.onStop();
         }
     }

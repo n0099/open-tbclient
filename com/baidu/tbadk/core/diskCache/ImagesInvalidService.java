@@ -5,14 +5,14 @@ import android.os.IBinder;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ls4;
+import com.baidu.tieba.tb;
+import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.js4;
-import com.repackage.sb;
-import com.repackage.vb;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class ImagesInvalidService extends BdBaseService {
@@ -24,7 +24,7 @@ public class ImagesInvalidService extends BdBaseService {
     public DiskFileOperate mDiskFileOperate;
 
     /* loaded from: classes3.dex */
-    public static class a extends DiskFileOperate implements sb {
+    public static class a extends DiskFileOperate implements tb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,12 +54,12 @@ public class ImagesInvalidService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
-                js4.stopService();
+                ls4.stopService();
                 ImagesInvalidReceiver.broadcast(z);
             }
         }
 
-        @Override // com.repackage.sb
+        @Override // com.baidu.tieba.tb
         public boolean compare(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -86,7 +86,7 @@ public class ImagesInvalidService extends BdBaseService {
     public static void setSuccess(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            js4.e(z);
+            ls4.e(z);
         }
     }
 
@@ -106,7 +106,7 @@ public class ImagesInvalidService extends BdBaseService {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
             this.mDiskFileOperate = new a("images", null, DiskFileOperate.Action.DELETE_FILES);
-            vb.f().a(this.mDiskFileOperate);
+            wb.f().a(this.mDiskFileOperate);
         }
     }
 
@@ -115,7 +115,7 @@ public class ImagesInvalidService extends BdBaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            vb.f().d(this.mDiskFileOperate);
+            wb.f().d(this.mDiskFileOperate);
             this.mDiskFileOperate = null;
         }
     }

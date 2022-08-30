@@ -17,7 +17,7 @@ import com.google.android.exoplayer2.util.CodecSpecificDataUtil;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.Collections;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class AudioTagPayloadReader extends TagPayloadReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AAC_PACKET_TYPE_AAC_RAW = 1;

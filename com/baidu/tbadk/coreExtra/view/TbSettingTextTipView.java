@@ -14,13 +14,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ms4;
-import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class TbSettingTextTipView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -75,13 +75,13 @@ public class TbSettingTextTipView extends FrameLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int f = qi.f(this.a, R.dimen.tbds42);
-            int f2 = qi.f(this.a, R.dimen.tbds33);
+            int f = ri.f(this.a, R.dimen.tbds42);
+            int f2 = ri.f(this.a, R.dimen.tbds33);
             setMainTextSize(f);
             setTipTextSize(f2);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.d.getLayoutParams();
             layoutParams.setMargins(layoutParams.leftMargin, 0, layoutParams.rightMargin, 0);
-            ((LinearLayout.LayoutParams) this.e.getLayoutParams()).setMargins(0, 0, qi.f(this.a, R.dimen.tbds18), 0);
+            ((LinearLayout.LayoutParams) this.e.getLayoutParams()).setMargins(0, 0, ri.f(this.a, R.dimen.tbds18), 0);
             this.c.getLayoutParams().height = -1;
             requestLayout();
         }
@@ -106,10 +106,10 @@ public class TbSettingTextTipView extends FrameLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0849, (ViewGroup) this, true);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d084b, (ViewGroup) this, true);
             this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906bd);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0920a9);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092196);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ac);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092199);
             this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902b3);
         }
     }
@@ -151,7 +151,7 @@ public class TbSettingTextTipView extends FrameLayout {
             }
             SkinManager.setViewTextColor(textView, i2);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            ms4.d(this).f(R.color.CAM_X0205);
+            os4.d(this).f(R.color.CAM_X0205);
         }
     }
 

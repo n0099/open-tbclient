@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.b.c;
 
 import com.meizu.cloud.pushsdk.b.c.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class k {
     public final i a;
     public final int b;
@@ -12,7 +12,7 @@ public class k {
     public k g;
     public final k h;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public i a;
         public String c;

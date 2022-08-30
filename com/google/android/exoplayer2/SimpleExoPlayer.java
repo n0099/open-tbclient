@@ -37,7 +37,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArraySet;
 @TargetApi(16)
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SimpleExoPlayer implements ExoPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SimpleExoPlayer";
@@ -66,13 +66,13 @@ public class SimpleExoPlayer implements ExoPlayer {
     public int videoScalingMode;
 
     /* renamed from: com.google.android.exoplayer2.SimpleExoPlayer$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public final class ComponentListener implements VideoRendererEventListener, AudioRendererEventListener, TextOutput, MetadataOutput, SurfaceHolder.Callback, TextureView.SurfaceTextureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -325,7 +325,7 @@ public class SimpleExoPlayer implements ExoPlayer {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface VideoListener {
         void onRenderedFirstFrame();
 

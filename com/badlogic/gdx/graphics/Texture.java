@@ -6,6 +6,14 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.TextureData;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.a7;
+import com.baidu.tieba.c2;
+import com.baidu.tieba.e1;
+import com.baidu.tieba.j3;
+import com.baidu.tieba.k1;
+import com.baidu.tieba.m1;
+import com.baidu.tieba.o3;
+import com.baidu.tieba.q5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,14 +21,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a7;
-import com.repackage.c2;
-import com.repackage.e1;
-import com.repackage.j3;
-import com.repackage.k1;
-import com.repackage.m1;
-import com.repackage.o3;
-import com.repackage.q5;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -215,7 +215,7 @@ public class Texture extends o3 {
             this.a = i;
         }
 
-        @Override // com.repackage.k1.a
+        @Override // com.baidu.tieba.k1.a
         public void a(m1 m1Var, String str, Class cls) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, m1Var, str, cls) == null) {
@@ -370,7 +370,7 @@ public class Texture extends o3 {
         }
     }
 
-    @Override // com.repackage.o3, com.repackage.h7
+    @Override // com.baidu.tieba.o3, com.baidu.tieba.h7
     public void dispose() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.b == 0) {

@@ -11,10 +11,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class TipsConfigItem extends b<TipConfigData> {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class TipConfigData implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = 268961350883157950L;
         public String tipInfo;

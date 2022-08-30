@@ -3,13 +3,13 @@ package com.baidu.tbadk.core.util;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.m9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l9;
 /* loaded from: classes3.dex */
-public class TiebaMainSdDatabaseHelper extends l9 {
+public class TiebaMainSdDatabaseHelper extends m9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DATABASE_VERSION = 11;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class TiebaMainSdDatabaseHelper extends l9 {
         }
     }
 
-    @Override // com.repackage.l9
+    @Override // com.baidu.tieba.m9
     public void clearAllTables(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
@@ -51,7 +51,7 @@ public class TiebaMainSdDatabaseHelper extends l9 {
         }
     }
 
-    @Override // com.repackage.l9
+    @Override // com.baidu.tieba.m9
     public void createAllTables(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
@@ -63,7 +63,7 @@ public class TiebaMainSdDatabaseHelper extends l9 {
         }
     }
 
-    @Override // com.repackage.i9
+    @Override // com.baidu.tieba.j9
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i, i2) == null) {

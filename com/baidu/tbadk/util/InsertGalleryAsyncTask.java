@@ -15,6 +15,11 @@ import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.kb;
+import com.baidu.tieba.li;
+import com.baidu.tieba.og;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,11 +27,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.SevenZipUtils;
 import com.baidubce.http.Headers;
-import com.repackage.jb;
-import com.repackage.ki;
-import com.repackage.ng;
-import com.repackage.og;
-import com.repackage.oi;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -164,8 +164,8 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, this, str, str2, i)) == null) {
-            int b2 = jb.d().b().b();
-            int b3 = jb.d().c().b();
+            int b2 = kb.d().b().b();
+            int b3 = kb.d().c().b();
             boolean z = false;
             for (int i2 = 0; i2 < i; i2++) {
                 try {
@@ -197,9 +197,9 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (oi.z()) {
-                if (oi.x() && (c = oi.c()) != null && c.length() > 0) {
-                    if (oi.F(c) && oi.D()) {
+            if (pi.z()) {
+                if (pi.x() && (c = pi.c()) != null && c.length() > 0) {
+                    if (pi.F(c) && pi.D()) {
                         StringBuilder sb = new StringBuilder(80);
                         sb.append("http://");
                         sb.append(c);
@@ -210,7 +210,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
                         sb.append(file);
                         httpURLConnection = (HttpURLConnection) new URL(sb.toString()).openConnection();
                     } else {
-                        httpURLConnection = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(c, oi.d())));
+                        httpURLConnection = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(c, pi.d())));
                     }
                     httpURLConnection2 = httpURLConnection;
                 }
@@ -292,7 +292,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
-            ki.k(str);
+            li.k(str);
             return new File(str);
         }
         return (File) invokeL.objValue;
@@ -408,7 +408,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
                         responseCode = httpURLConnection.getResponseCode();
                         if (responseCode == 302) {
                             String headerField = httpURLConnection.getHeaderField(Headers.LOCATION);
-                            ng.f(httpURLConnection);
+                            og.f(httpURLConnection);
                             try {
                                 if (this.imageFile != null) {
                                     this.imageFile.delete();
@@ -429,7 +429,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
                             if (!this.imageFile.exists()) {
                                 this.imageFile.createNewFile();
                             }
-                            ng.d(fileOutputStream);
+                            og.d(fileOutputStream);
                             FileOutputStream fileOutputStream2 = new FileOutputStream(this.imageFile, true);
                             try {
                                 httpURLConnection = getConnect(new URL(headerField), i, i2);
@@ -455,7 +455,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
             }
             if (responseCode == 200) {
                 String headerField2 = httpURLConnection.getHeaderField("Content-Length");
-                if ((headerField2 != null ? og.e(headerField2, 0) : 0) != 0 || !this.careHeaderContentLength) {
+                if ((headerField2 != null ? pg.e(headerField2, 0) : 0) != 0 || !this.careHeaderContentLength) {
                     inputStream = httpURLConnection.getInputStream();
                     byte[] bArr = new byte[1024];
                     while (true) {
@@ -469,25 +469,25 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
                         } else {
                             try {
                                 fileOutputStream.flush();
-                                ng.c(inputStream);
-                                ng.f(httpURLConnection);
-                                ng.d(fileOutputStream);
+                                og.c(inputStream);
+                                og.f(httpURLConnection);
+                                og.d(fileOutputStream);
                                 return true;
                             } catch (Exception unused3) {
                                 throw new FileNotFoundException();
                             }
                         }
                         th = th2;
-                        ng.c(inputStream);
-                        ng.f(httpURLConnection);
-                        ng.d(fileOutputStream);
+                        og.c(inputStream);
+                        og.f(httpURLConnection);
+                        og.d(fileOutputStream);
                         throw th;
                     }
                 }
             }
-            ng.c(null);
-            ng.f(httpURLConnection);
-            ng.d(fileOutputStream);
+            og.c(null);
+            og.f(httpURLConnection);
+            og.d(fileOutputStream);
             return false;
         }
         return invokeLLII.booleanValue;
@@ -518,18 +518,18 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
             try {
                 fileOutputStream.write(decode);
                 fileOutputStream.flush();
-                ng.d(fileOutputStream);
+                og.d(fileOutputStream);
                 return true;
             } catch (Exception e2) {
                 e = e2;
                 fileOutputStream2 = fileOutputStream;
                 e.printStackTrace();
-                ng.d(fileOutputStream2);
+                og.d(fileOutputStream2);
                 return false;
             } catch (Throwable th2) {
                 th = th2;
                 fileOutputStream2 = fileOutputStream;
-                ng.d(fileOutputStream2);
+                og.d(fileOutputStream2);
                 throw th;
             }
         }

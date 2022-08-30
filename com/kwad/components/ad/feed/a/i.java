@@ -20,7 +20,7 @@ import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.RatioFrameLayout;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class i extends a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,11 +53,11 @@ public final class i extends a implements View.OnClickListener {
     public final void bg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091068)).setRatio(0.56f);
-            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f091027);
-            this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f09102d);
-            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f091029);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091094);
+            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f09106a)).setRatio(0.56f);
+            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f091029);
+            this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f09102f);
+            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f09102b);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091096);
         }
     }
 
@@ -86,7 +86,7 @@ public final class i extends a implements View.OnClickListener {
     public final int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0422 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0423 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -103,7 +103,7 @@ public final class i extends a implements View.OnClickListener {
             } else if (view2 == this.df) {
                 i = 100;
             }
-            if (com.kwad.components.core.c.a.d.a(new a.C0354a(getContext()).L(this.mAdTemplate), 1) == 1) {
+            if (com.kwad.components.core.c.a.d.a(new a.C0569a(getContext()).L(this.mAdTemplate), 1) == 1) {
                 aq(i);
                 return;
             }

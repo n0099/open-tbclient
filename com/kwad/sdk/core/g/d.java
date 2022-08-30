@@ -6,7 +6,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class d {
     public volatile boolean adk = true;
     public float ads;
@@ -15,7 +15,7 @@ public final class d {
     @Nullable
     public a adu;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements SensorEventListener {
         public a() {
         }

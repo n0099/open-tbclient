@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static String a(String str, String str2, String str3) {
         SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), "AES");

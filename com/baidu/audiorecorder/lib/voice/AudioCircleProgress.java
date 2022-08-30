@@ -15,11 +15,11 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
 /* loaded from: classes.dex */
 public class AudioCircleProgress extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -132,7 +132,7 @@ public class AudioCircleProgress extends View {
             this.d = obtainStyledAttributes.getDimension(1, 15.0f);
             this.m = obtainStyledAttributes.getFloat(5, 270.0f);
             this.n = obtainStyledAttributes.getFloat(6, 360.0f);
-            this.q = qi.f(context, R.dimen.tbds25);
+            this.q = ri.f(context, R.dimen.tbds25);
             e();
         }
     }

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class Detector {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BARCODE_MIN_HEIGHT = 10;

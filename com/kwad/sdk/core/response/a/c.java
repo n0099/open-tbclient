@@ -6,7 +6,7 @@ import com.kwad.sdk.core.response.model.AdStyleInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static long bC(@Nullable AdTemplate adTemplate) {
         if (adTemplate == null) {

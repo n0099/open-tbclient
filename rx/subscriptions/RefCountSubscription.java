@@ -1,6 +1,8 @@
 package rx.subscriptions;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.hv9;
+import com.baidu.tieba.xz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,20 +10,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oz9;
-import com.repackage.yu9;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class RefCountSubscription implements yu9 {
+public final class RefCountSubscription implements hv9 {
     public static /* synthetic */ Interceptable $ic;
     public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yu9 a;
+    public final hv9 a;
     public final AtomicReference<a> b;
 
     /* loaded from: classes8.dex */
-    public static final class InnerSubscription extends AtomicInteger implements yu9 {
+    public static final class InnerSubscription extends AtomicInteger implements hv9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7005765588239987643L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,14 +45,14 @@ public final class RefCountSubscription implements yu9 {
             this.parent = refCountSubscription;
         }
 
-        @Override // com.repackage.yu9
+        @Override // com.baidu.tieba.hv9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() != 0 : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.yu9
+        @Override // com.baidu.tieba.hv9
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && compareAndSet(0, 1)) {
@@ -122,12 +122,12 @@ public final class RefCountSubscription implements yu9 {
         c = new a(false, 0);
     }
 
-    public RefCountSubscription(yu9 yu9Var) {
+    public RefCountSubscription(hv9 hv9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yu9Var};
+            Object[] objArr = {hv9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -138,14 +138,14 @@ public final class RefCountSubscription implements yu9 {
             }
         }
         this.b = new AtomicReference<>(c);
-        if (yu9Var != null) {
-            this.a = yu9Var;
+        if (hv9Var != null) {
+            this.a = hv9Var;
             return;
         }
         throw new IllegalArgumentException("s");
     }
 
-    public yu9 a() {
+    public hv9 a() {
         InterceptResult invokeV;
         a aVar;
         Interceptable interceptable = $ic;
@@ -154,12 +154,12 @@ public final class RefCountSubscription implements yu9 {
             do {
                 aVar = atomicReference.get();
                 if (aVar.a) {
-                    return oz9.c();
+                    return xz9.c();
                 }
             } while (!atomicReference.compareAndSet(aVar, aVar.a()));
             return new InnerSubscription(this);
         }
-        return (yu9) invokeV.objValue;
+        return (hv9) invokeV.objValue;
     }
 
     public void b() {
@@ -183,14 +183,14 @@ public final class RefCountSubscription implements yu9 {
         }
     }
 
-    @Override // com.repackage.yu9
+    @Override // com.baidu.tieba.hv9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b.get().a : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.yu9
+    @Override // com.baidu.tieba.hv9
     public void unsubscribe() {
         a aVar;
         a c2;

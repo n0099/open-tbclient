@@ -3,6 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,7 +43,7 @@ public class aj {
             try {
                 File file = new File(new File(context.getExternalFilesDir(null), "/.vdevdir/"), "lcfp.lock");
                 ab.m161a(file);
-                randomAccessFile = new RandomAccessFile(file, "rw");
+                randomAccessFile = new RandomAccessFile(file, rw.c);
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
                     boolean b = b(context, str, j);

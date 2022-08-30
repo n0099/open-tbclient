@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.Util;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class CaptionStyleCompat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final CaptionStyleCompat DEFAULT;
@@ -33,7 +33,7 @@ public final class CaptionStyleCompat {
     public final int windowColor;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public @interface EdgeType {
     }
 

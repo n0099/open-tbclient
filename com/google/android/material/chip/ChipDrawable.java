@@ -61,7 +61,7 @@ import com.google.android.material.ripple.RippleUtils;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDrawable, Drawable.Callback, TextDrawableHelper.TextDrawableDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -163,7 +163,7 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
     public TextUtils.TruncateAt truncateAt;
     public boolean useCompatRipple;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface Delegate {
         void onChipDrawableSizeChange();
     }

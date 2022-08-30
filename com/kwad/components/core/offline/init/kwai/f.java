@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.offline.api.core.api.INet;
 import com.kwad.sdk.core.network.idc.DomainException;
 import com.kwad.sdk.utils.ae;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class f implements INet {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

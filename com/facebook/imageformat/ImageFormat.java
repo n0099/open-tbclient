@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ImageFormat {
     public static /* synthetic */ Interceptable $ic;
     public static final ImageFormat UNKNOWN;
@@ -20,7 +20,7 @@ public class ImageFormat {
     public final String mFileExtension;
     public final String mName;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface FormatChecker {
         @Nullable
         ImageFormat determineFormat(@Nonnull byte[] bArr, int i);

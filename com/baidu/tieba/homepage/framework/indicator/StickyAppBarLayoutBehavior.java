@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.appbar.AppBarLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
     public StickyAppBarLayout.b h;
     public AppBarLayout.OnOffsetChangedListener i;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements AppBarLayout.OnOffsetChangedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends AppBarLayout.Behavior.DragCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -258,15 +258,15 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048587, this, coordinatorLayout, appBarLayout, i)) == null) {
             if (this.b == null) {
                 this.b = appBarLayout;
-                View findViewById = appBarLayout.findViewById(R.id.obfuscated_res_0x7f090d78);
+                View findViewById = appBarLayout.findViewById(R.id.obfuscated_res_0x7f090d79);
                 if (findViewById instanceof NestedScrollHeader) {
                     this.d = (NestedScrollHeader) findViewById;
                 }
-                View findViewById2 = this.b.findViewById(R.id.obfuscated_res_0x7f090d85);
+                View findViewById2 = this.b.findViewById(R.id.obfuscated_res_0x7f090d86);
                 if (findViewById2 instanceof HomeTabBarView) {
                     this.e = (HomeTabBarView) findViewById2;
                 }
-                this.f = this.b.findViewById(R.id.obfuscated_res_0x7f0907f6);
+                this.f = this.b.findViewById(R.id.obfuscated_res_0x7f0907f7);
                 g();
             }
             AppBarLayout appBarLayout2 = this.b;

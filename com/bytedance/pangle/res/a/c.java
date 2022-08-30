@@ -3,6 +3,7 @@ package com.bytedance.pangle.res.a;
 import android.text.TextUtils;
 import androidx.appcompat.widget.ActivityChooserModel;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +24,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +51,7 @@ public final class c {
         if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, file)) != null) {
             return (MappedByteBuffer) invokeL.objValue;
         }
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, rw.c);
         try {
             FileChannel channel = randomAccessFile.getChannel();
             long size = channel.size();

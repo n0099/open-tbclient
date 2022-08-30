@@ -4,7 +4,7 @@ import com.bumptech.glide.disklrucache.StrictLineReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class n {
     public static Charset alc = Charset.forName("ISO-8859-1");
     public static Charset ald = Charset.forName("UTF-8");

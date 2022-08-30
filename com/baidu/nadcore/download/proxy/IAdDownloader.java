@@ -1,6 +1,8 @@
 package com.baidu.nadcore.download.proxy;
 
 import androidx.annotation.NonNull;
+import com.baidu.tieba.lj0;
+import com.baidu.tieba.pi0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,8 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kj0;
-import com.repackage.oi0;
 /* loaded from: classes2.dex */
 public interface IAdDownloader {
 
@@ -79,11 +79,11 @@ public interface IAdDownloader {
         }
     }
 
-    int a(@NonNull oi0 oi0Var, @NonNull kj0 kj0Var);
+    int a(@NonNull pi0 pi0Var, @NonNull lj0 lj0Var);
 
-    void b(@NonNull oi0 oi0Var);
+    void b(@NonNull pi0 pi0Var);
 
-    void c(@NonNull oi0 oi0Var);
+    void c(@NonNull pi0 pi0Var);
 
-    void d(@NonNull oi0 oi0Var, @NonNull kj0 kj0Var);
+    void d(@NonNull pi0 pi0Var, @NonNull lj0 lj0Var);
 }

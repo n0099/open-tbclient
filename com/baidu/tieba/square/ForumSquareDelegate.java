@@ -14,31 +14,31 @@ import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.ci8;
+import com.baidu.tieba.pn;
 import com.baidu.tieba.square.model.ForumSquareModel;
+import com.baidu.tieba.vh8;
+import com.baidu.tieba.wh8;
+import com.baidu.tieba.xh8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nh8;
-import com.repackage.oh8;
-import com.repackage.on;
-import com.repackage.ph8;
-import com.repackage.uh8;
 import java.util.List;
-/* loaded from: classes4.dex */
-public class ForumSquareDelegate implements ph8 {
+/* loaded from: classes5.dex */
+public class ForumSquareDelegate implements xh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context mContext;
     public String mCurrentClassName;
     public ForumSquareModel mForumSquareModel;
-    public nh8 mForumSquareView;
-    public oh8 mSquareViewController;
+    public vh8 mForumSquareView;
+    public wh8 mSquareViewController;
     public final TbPageContext mTbPageContext;
     public CustomMessageListener refreshForumSquareListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,11 +101,11 @@ public class ForumSquareDelegate implements ph8 {
         this.mTbPageContext = tbPageContext;
         this.mContext = context;
         this.mForumSquareModel = new ForumSquareModel(context, this);
-        this.mForumSquareView = new nh8(context, this.mTbPageContext);
+        this.mForumSquareView = new vh8(context, this.mTbPageContext);
         this.mTbPageContext.registerListener(this.refreshForumSquareListener);
     }
 
-    private void checkLoadMoreStateUI(String str, List<on> list) {
+    private void checkLoadMoreStateUI(String str, List<pn> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65539, this, str, list) == null) || this.mForumSquareView == null || this.mForumSquareModel == null) {
             return;
@@ -140,15 +140,15 @@ public class ForumSquareDelegate implements ph8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCurrentClassName : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.ph8
+    @Override // com.baidu.tieba.xh8
     public void onError(String str, ErrorData errorData) {
-        nh8 nh8Var;
+        vh8 vh8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, errorData) == null) || (nh8Var = this.mForumSquareView) == null || this.mForumSquareModel == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, errorData) == null) || (vh8Var = this.mForumSquareView) == null || this.mForumSquareModel == null) {
             return;
         }
-        nh8Var.J();
-        uh8 L = this.mForumSquareModel.L(str);
+        vh8Var.J();
+        ci8 L = this.mForumSquareModel.L(str);
         if (L != null && (!L.d || !ListUtils.isEmpty(L.a()))) {
             this.mForumSquareView.s(L.a());
             checkLoadMoreStateUI(str, L.a());
@@ -178,9 +178,9 @@ public class ForumSquareDelegate implements ph8 {
     public void onLoadRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            nh8 nh8Var = this.mForumSquareView;
-            if (nh8Var != null) {
-                nh8Var.F();
+            vh8 vh8Var = this.mForumSquareView;
+            if (vh8Var != null) {
+                vh8Var.F();
             }
             ForumSquareModel forumSquareModel = this.mForumSquareModel;
             if (forumSquareModel != null) {
@@ -189,14 +189,14 @@ public class ForumSquareDelegate implements ph8 {
         }
     }
 
-    @Override // com.repackage.ph8
+    @Override // com.baidu.tieba.xh8
     public void onNoData(ErrorData errorData) {
-        nh8 nh8Var;
+        vh8 vh8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, errorData) == null) || (nh8Var = this.mForumSquareView) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, errorData) == null) || (vh8Var = this.mForumSquareView) == null) {
             return;
         }
-        nh8Var.I();
+        vh8Var.I();
     }
 
     public void onSelected(String str) {
@@ -208,7 +208,7 @@ public class ForumSquareDelegate implements ph8 {
             if (forumSquareModel == null || this.mForumSquareView == null) {
                 return;
             }
-            uh8 L = forumSquareModel.L(str);
+            ci8 L = forumSquareModel.L(str);
             if (L != null && (!L.d || !ListUtils.isEmpty(L.a()))) {
                 this.mForumSquareView.J();
                 checkLoadMoreStateUI(str, L.a());
@@ -226,11 +226,11 @@ public class ForumSquareDelegate implements ph8 {
     /* JADX WARN: Code restructure failed: missing block: B:17:0x002f, code lost:
         if (r5.equals(r1) == false) goto L11;
      */
-    @Override // com.repackage.ph8
+    @Override // com.baidu.tieba.xh8
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onSucc(String str, List<String> list, List<on> list2) {
+    public void onSucc(String str, List<String> list, List<pn> list2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(1048583, this, str, list, list2) == null) || this.mForumSquareModel == null || this.mForumSquareView == null) {
             return;
@@ -269,7 +269,7 @@ public class ForumSquareDelegate implements ph8 {
     }
 
     public void saveScrollPosition(String str) {
-        uh8 L;
+        ci8 L;
         Pair<Integer, Integer> c;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || this.mForumSquareView == null || this.mForumSquareModel == null || TextUtils.isEmpty(str) || (L = this.mForumSquareModel.L(str)) == null || (c = this.mForumSquareView.c()) == null) {
@@ -291,9 +291,9 @@ public class ForumSquareDelegate implements ph8 {
     public void startLoadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            oh8 oh8Var = new oh8(this.mContext, this, this.mForumSquareView);
-            this.mSquareViewController = oh8Var;
-            oh8Var.e();
+            wh8 wh8Var = new wh8(this.mContext, this, this.mForumSquareView);
+            this.mSquareViewController = wh8Var;
+            wh8Var.e();
             startLoadNetData();
         }
     }

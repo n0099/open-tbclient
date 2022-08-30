@@ -11,18 +11,18 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.SmoothProgressBar;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bv2;
+import com.baidu.tieba.hk2;
+import com.baidu.tieba.j03;
+import com.baidu.tieba.kv2;
+import com.baidu.tieba.o63;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.av2;
-import com.repackage.gk2;
-import com.repackage.i03;
-import com.repackage.jv2;
-import com.repackage.n63;
 /* loaded from: classes2.dex */
-public class LoadingView extends FrameLayout implements i03<LoadingView> {
+public class LoadingView extends FrameLayout implements j03<LoadingView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -30,7 +30,7 @@ public class LoadingView extends FrameLayout implements i03<LoadingView> {
     public TextView c;
 
     /* loaded from: classes2.dex */
-    public class a implements n63 {
+    public class a implements o63 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingView a;
@@ -78,21 +78,21 @@ public class LoadingView extends FrameLayout implements i03<LoadingView> {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View d = av2.e() ? jv2.a().d(R.layout.obfuscated_res_0x7f0d00b6) : null;
+            View d = bv2.e() ? kv2.a().d(R.layout.obfuscated_res_0x7f0d00b7) : null;
             if (d != null) {
                 addView(d, 0, new LinearLayout.LayoutParams(-2, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07068b)));
             } else {
-                LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00b6, (ViewGroup) this, true);
+                LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00b7, (ViewGroup) this, true);
             }
-            this.a = findViewById(R.id.obfuscated_res_0x7f091c22);
-            this.b = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f0913f0);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0914ee);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091c24);
+            this.b = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f0913f2);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0914f0);
             setPageResources();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.i03
+    @Override // com.baidu.tieba.j03
     public LoadingView getLoadingView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class LoadingView extends FrameLayout implements i03<LoadingView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onAttachedToWindow();
-            gk2.M().f(this, new a(this));
+            hk2.M().f(this, new a(this));
         }
     }
 
@@ -113,7 +113,7 @@ public class LoadingView extends FrameLayout implements i03<LoadingView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
-            gk2.M().g(this);
+            hk2.M().g(this);
         }
     }
 
@@ -137,7 +137,7 @@ public class LoadingView extends FrameLayout implements i03<LoadingView> {
             }
             TextView textView = this.c;
             if (textView != null) {
-                textView.setTextColor(textView.getResources().getColor(R.color.obfuscated_res_0x7f0603ce));
+                textView.setTextColor(textView.getResources().getColor(R.color.obfuscated_res_0x7f0603d1));
             }
         }
     }

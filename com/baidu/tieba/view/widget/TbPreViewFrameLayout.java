@@ -9,13 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TbPreViewFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,16 +33,16 @@ public class TbPreViewFrameLayout extends FrameLayout {
     public float l;
     public float m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         int[] a();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface b {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         void a(MotionEvent motionEvent);
 
@@ -114,10 +114,10 @@ public class TbPreViewFrameLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int k = qi.k(getContext());
-            int i = qi.i(getContext());
+            int k = ri.k(getContext());
+            int i = ri.i(getContext());
             a aVar = this.g;
-            int[] a2 = aVar != null ? aVar.a() : new int[]{qi.k(getContext()), qi.i(getContext())};
+            int[] a2 = aVar != null ? aVar.a() : new int[]{ri.k(getContext()), ri.i(getContext())};
             a2[0] = Math.min(k, a2[0]);
             a2[1] = Math.min(i, a2[1]);
             return a2;
@@ -164,7 +164,7 @@ public class TbPreViewFrameLayout extends FrameLayout {
                 } else if (Math.abs(this.c - motionEvent.getX()) > this.e && (motionEvent.getX() - this.c) - 50.0f > Math.abs(this.d - motionEvent.getY()) && this.i && (cVar = this.f) != null) {
                     cVar.a(motionEvent);
                 }
-                if (Math.abs(this.c - motionEvent.getX()) < 30.0f && Math.abs(this.d - motionEvent.getY()) < 30.0f && motionEvent.getY() <= qi.i(getContext()) * 0.6d && (cVar2 = this.f) != null) {
+                if (Math.abs(this.c - motionEvent.getX()) < 30.0f && Math.abs(this.d - motionEvent.getY()) < 30.0f && motionEvent.getY() <= ri.i(getContext()) * 0.6d && (cVar2 = this.f) != null) {
                     cVar2.c(motionEvent);
                 }
             }

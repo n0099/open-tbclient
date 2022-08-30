@@ -17,8 +17,12 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.h67;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.t87;
+import com.baidu.tieba.tu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,13 +30,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l87;
-import com.repackage.qi;
-import com.repackage.ru4;
-import com.repackage.z57;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
-public class MsgleftView extends z57 {
+/* loaded from: classes4.dex */
+public class MsgleftView extends h67 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String N = "com.baidu.tieba.im.chat.MsgleftView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class MsgleftView extends z57 {
     public ImMessageCenterPojo L;
     public View.OnLongClickListener M;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public class MsgleftView extends z57 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,7 +150,7 @@ public class MsgleftView extends z57 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgleftView(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0582);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0584);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -171,16 +171,16 @@ public class MsgleftView extends z57 {
         this.M = new b(this);
         this.K = tbPageContext;
         q();
-        this.I = (ImageView) j(R.id.obfuscated_res_0x7f090ff5);
-        this.F = (TextView) j(R.id.obfuscated_res_0x7f0920a4);
+        this.I = (ImageView) j(R.id.obfuscated_res_0x7f090ff7);
+        this.F = (TextView) j(R.id.obfuscated_res_0x7f0920a7);
         this.G = (ViewGroup) j(R.id.obfuscated_res_0x7f0903fb);
-        HeadImageView headImageView = (HeadImageView) j(R.id.obfuscated_res_0x7f090ed7);
+        HeadImageView headImageView = (HeadImageView) j(R.id.obfuscated_res_0x7f090ed8);
         this.E = headImageView;
         headImageView.setAutoChangeStyle(false);
         this.E.setDrawerType(1);
-        this.E.setRadius(qi.d(this.K.getContext(), 4.0f));
+        this.E.setRadius(ri.d(this.K.getContext(), 4.0f));
         this.E.setPlaceHolder(1);
-        this.H = (UserIconBox) j(R.id.obfuscated_res_0x7f092472);
+        this.H = (UserIconBox) j(R.id.obfuscated_res_0x7f09247b);
         this.E.setLongClickable(true);
         this.E.setOnLongClickListener(this.M);
         this.E.setOnTouchListener(new a(this));
@@ -191,7 +191,7 @@ public class MsgleftView extends z57 {
     public final void U(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, chatMessage) == null) {
-            String q = ru4.k().q("live_room_chat_page_author_id", "");
+            String q = tu4.k().q("live_room_chat_page_author_id", "");
             if (chatMessage.getUserInfo() != null && chatMessage.getUserInfo().getUserId() != null && chatMessage.getUserInfo().getUserId().equals(q)) {
                 this.I.setVisibility(0);
             } else {
@@ -243,7 +243,7 @@ public class MsgleftView extends z57 {
         }
     }
 
-    @Override // com.repackage.z57
+    @Override // com.baidu.tieba.h67
     public void s() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.D == TbadkCoreApplication.getInst().getSkinType()) {
@@ -260,7 +260,7 @@ public class MsgleftView extends z57 {
 
     /* JADX WARN: Removed duplicated region for block: B:37:0x013f A[Catch: Exception -> 0x01dc, TryCatch #0 {Exception -> 0x01dc, blocks: (B:17:0x00b1, B:19:0x00b7, B:20:0x00d9, B:22:0x00e6, B:25:0x00f1, B:27:0x00f5, B:28:0x0107, B:30:0x010b, B:32:0x0117, B:33:0x011d, B:35:0x012c, B:37:0x013f, B:38:0x0162, B:50:0x01aa, B:52:0x01ae, B:53:0x01b2, B:54:0x01b6, B:55:0x01ba, B:56:0x01c0, B:57:0x01c6, B:58:0x01ca, B:59:0x01d0, B:60:0x01d6, B:34:0x0125), top: B:68:0x00b1 }] */
     /* JADX WARN: Removed duplicated region for block: B:40:0x0198  */
-    @Override // com.repackage.z57
+    @Override // com.baidu.tieba.h67
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -310,7 +310,7 @@ public class MsgleftView extends z57 {
                 }
                 if (chatMessage.getUserInfo().getUserType() != 1 && chatMessage.getUserInfo().getUserType() != 3) {
                     if (this.L == null) {
-                        this.L = l87.o().i(String.valueOf(chatMessage.getUserId()), 2);
+                        this.L = t87.o().i(String.valueOf(chatMessage.getUserId()), 2);
                     }
                     if (this.L != null && !TextUtils.isEmpty(this.L.getGroup_head())) {
                         str = this.L.getGroup_head();

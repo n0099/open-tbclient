@@ -1,5 +1,5 @@
 package com.kwad.components.core.g.kwai;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface a {
     void iK();
 

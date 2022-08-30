@@ -1,12 +1,12 @@
 package com.baidu.tieba.im.chat;
 
+import com.baidu.tieba.m97;
+import com.baidu.tieba.o97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e97;
-import com.repackage.g97;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GroupMsgImageActivity extends AbsMsgImageActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,10 +26,10 @@ public class GroupMsgImageActivity extends AbsMsgImageActivity {
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsgImageActivity
-    public void j2(String str, g97 g97Var) {
+    public void j2(String str, o97 o97Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, g97Var) == null) {
-            e97.k().o(str, g97Var);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, o97Var) == null) {
+            m97.k().o(str, o97Var);
         }
     }
 }

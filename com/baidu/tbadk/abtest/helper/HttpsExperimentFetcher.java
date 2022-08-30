@@ -5,18 +5,18 @@ import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.HttpsTestSwitch;
 import com.baidu.tbadk.switchs.Ipv6TestSwitch;
+import com.baidu.tieba.nf;
+import com.baidu.tieba.ny4;
+import com.baidu.tieba.vc1;
+import com.baidu.tieba.wf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ky4;
-import com.repackage.mf;
-import com.repackage.uc1;
-import com.repackage.vf;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HttpsExperimentFetcher extends uc1<mf> {
+public class HttpsExperimentFetcher extends vc1<nf> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +28,7 @@ public class HttpsExperimentFetcher extends uc1<mf> {
     }
 
     /* loaded from: classes3.dex */
-    public static final class HttpsExperimentImpl implements mf {
+    public static final class HttpsExperimentImpl implements nf {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,11 +46,11 @@ public class HttpsExperimentFetcher extends uc1<mf> {
             }
         }
 
-        public List<vf> getHttpsWhileList() {
+        public List<wf> getHttpsWhileList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ky4 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
+                ny4 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
                 if (httpsWhileData == null) {
                     return null;
                 }
@@ -63,7 +63,7 @@ public class HttpsExperimentFetcher extends uc1<mf> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                ky4 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
+                ny4 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
                 if (httpsWhileData == null) {
                     return false;
                 }
@@ -72,14 +72,14 @@ public class HttpsExperimentFetcher extends uc1<mf> {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.mf
+        @Override // com.baidu.tieba.nf
         public boolean isIpv6() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Ipv6TestSwitch.isOn() : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.mf
+        @Override // com.baidu.tieba.nf
         public boolean isSwitchOn() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -107,10 +107,10 @@ public class HttpsExperimentFetcher extends uc1<mf> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.uc1
-    public mf createService() throws ServiceNotFoundException {
+    @Override // com.baidu.tieba.vc1
+    public nf createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HttpsExperimentImpl(null) : (mf) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HttpsExperimentImpl(null) : (nf) invokeV.objValue;
     }
 }

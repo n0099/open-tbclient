@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.callback.BceProgressCallback;
 import com.baidubce.model.AbstractBceRequest;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class BosProgressCallback<T extends AbstractBceRequest> implements BceProgressCallback<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

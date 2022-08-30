@@ -13,7 +13,7 @@ import java.io.EOFException;
 import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.logging.Logger;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger f;
@@ -22,11 +22,11 @@ public class a {
     public final h b;
     public final g c;
     public final e d;
-    public C0284a e;
+    public C0499a e;
 
     /* renamed from: com.bytedance.pangle.res.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C0284a {
+    /* loaded from: classes7.dex */
+    public static class C0499a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final short a;
@@ -35,7 +35,7 @@ public class a {
         public final int d;
         public final int e;
 
-        public C0284a(short s, int i, int i2, int i3) {
+        public C0499a(short s, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,17 +57,17 @@ public class a {
             this.e = i3 + i2;
         }
 
-        public static C0284a a(g gVar, e eVar) {
+        public static C0499a a(g gVar, e eVar) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, gVar, eVar)) == null) {
                 try {
-                    return new C0284a(gVar.readShort(), gVar.readShort(), gVar.readInt(), eVar.a());
+                    return new C0499a(gVar.readShort(), gVar.readShort(), gVar.readInt(), eVar.a());
                 } catch (EOFException unused) {
-                    return new C0284a((short) -1, 0, 0, eVar.a());
+                    return new C0499a((short) -1, 0, 0, eVar.a());
                 }
             }
-            return (C0284a) invokeLL.objValue;
+            return (C0499a) invokeLL.objValue;
         }
     }
 
@@ -324,15 +324,15 @@ public class a {
         }
     }
 
-    private C0284a j() {
+    private C0499a j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            C0284a a = C0284a.a(this.c, this.d);
+            C0499a a = C0499a.a(this.c, this.d);
             this.e = a;
             return a;
         }
-        return (C0284a) invokeV.objValue;
+        return (C0499a) invokeV.objValue;
     }
 
     public final void a() {

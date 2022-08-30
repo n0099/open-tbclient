@@ -6,6 +6,23 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.a1a;
+import com.baidu.tieba.a2a;
+import com.baidu.tieba.b1a;
+import com.baidu.tieba.b2a;
+import com.baidu.tieba.d1a;
+import com.baidu.tieba.e1a;
+import com.baidu.tieba.e2a;
+import com.baidu.tieba.f1a;
+import com.baidu.tieba.g0a;
+import com.baidu.tieba.h2a;
+import com.baidu.tieba.j2a;
+import com.baidu.tieba.p2a;
+import com.baidu.tieba.q0a;
+import com.baidu.tieba.r0a;
+import com.baidu.tieba.s0a;
+import com.baidu.tieba.s1a;
+import com.baidu.tieba.z2a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,23 +30,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a2a;
-import com.repackage.g2a;
-import com.repackage.h0a;
-import com.repackage.i0a;
-import com.repackage.j0a;
-import com.repackage.j1a;
-import com.repackage.q2a;
-import com.repackage.r0a;
-import com.repackage.r1a;
-import com.repackage.s0a;
-import com.repackage.s1a;
-import com.repackage.u0a;
-import com.repackage.v0a;
-import com.repackage.v1a;
-import com.repackage.w0a;
-import com.repackage.xz9;
-import com.repackage.y1a;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
@@ -62,27 +62,27 @@ import tv.athena.revenue.payui.view.IYYPayWayView;
 import tv.athena.revenue.payui.view.WindowParams;
 @Keep
 /* loaded from: classes9.dex */
-public class YYPayUIKit extends h0a {
+public class YYPayUIKit extends q0a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "YYPayUiKit";
     public static IFeedbackServiceProxy mFeedbackServiceProxy;
     public static Map<String, YYPayUIKit> mPayUIKitMap;
-    public static j0a mTestFunListenerr;
+    public static s0a mTestFunListenerr;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mAppContext;
     public int mAppId;
     public AppPayServiceListener mAppPayServiceListener;
-    public i0a mControllerPayResultListener;
-    public r1a mPayFlowLifecycleManager;
+    public r0a mControllerPayResultListener;
+    public a2a mPayFlowLifecycleManager;
     public PayUIKitConfig mPayUIKitConfig;
-    public v1a mQueryParamsProvider;
+    public e2a mQueryParamsProvider;
     public IThirdPartPayApi mThirdPartPayApi;
     public int mUserChannel;
-    public s0a mYYPayController;
+    public b1a mYYPayController;
     public List<IYYPayListener> mYYPayListener;
 
     /* loaded from: classes9.dex */
-    public class a implements i0a {
+    public class a implements r0a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ YYPayUIKit a;
@@ -105,7 +105,7 @@ public class YYPayUIKit extends h0a {
             this.a = yYPayUIKit;
         }
 
-        @Override // com.repackage.i0a
+        @Override // com.baidu.tieba.r0a
         public void a(int i, String str, PayCallBackBean payCallBackBean) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, payCallBackBean) == null) {
@@ -163,8 +163,8 @@ public class YYPayUIKit extends h0a {
         }
         mPayUIKitMap = new HashMap();
         mFeedbackServiceProxy = null;
-        H5PayManager.getInstance().setYYPayWebviewActClass(PayCommonWebActivity.class, new j1a());
-        v0a.a(new w0a());
+        H5PayManager.getInstance().setYYPayWebviewActClass(PayCommonWebActivity.class, new s1a());
+        e1a.a(new f1a());
     }
 
     public YYPayUIKit(String str) {
@@ -185,7 +185,7 @@ public class YYPayUIKit extends h0a {
         this.mYYPayListener = new ArrayList();
         RLog.info(TAG, "create YYPayUiKit mapKey:" + str);
         preparePayResultListener();
-        this.mPayFlowLifecycleManager = new r1a(this);
+        this.mPayFlowLifecycleManager = new a2a(this);
     }
 
     public static synchronized void addLogDelegate(IRLogDelegate iRLogDelegate) {
@@ -209,10 +209,10 @@ public class YYPayUIKit extends h0a {
                     return mPayUIKitMap.get(uIKitMapKey);
                 }
                 if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                    y1a.g(payUIKitConfig.revenueConfig.isTestEnv());
+                    h2a.g(payUIKitConfig.revenueConfig.isTestEnv());
                     YYPayUIKit yYPayUIKit = new YYPayUIKit(uIKitMapKey);
                     yYPayUIKit.initYYPayUIKit(i, i2, payUIKitConfig.revenueConfig);
-                    yYPayUIKit.mQueryParamsProvider = new a2a(payUIKitConfig.revenueConfig);
+                    yYPayUIKit.mQueryParamsProvider = new j2a(payUIKitConfig.revenueConfig);
                     yYPayUIKit.mPayUIKitConfig = payUIKitConfig;
                     yYPayUIKit.mAppContext = payUIKitConfig.revenueConfig.getAppContext();
                     mPayUIKitMap.put(uIKitMapKey, yYPayUIKit);
@@ -226,16 +226,16 @@ public class YYPayUIKit extends h0a {
         return (YYPayUIKit) invokeIIL.objValue;
     }
 
-    private s0a getOrCreatePayController() {
+    private b1a getOrCreatePayController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             if (this.mYYPayController == null) {
-                this.mYYPayController = new s1a(this.mAppContext, this.mAppId, this.mUserChannel, this.mQueryParamsProvider, this.mControllerPayResultListener, this.mPayUIKitConfig);
+                this.mYYPayController = new b2a(this.mAppContext, this.mAppId, this.mUserChannel, this.mQueryParamsProvider, this.mControllerPayResultListener, this.mPayUIKitConfig);
             }
             return this.mYYPayController;
         }
-        return (s0a) invokeV.objValue;
+        return (b1a) invokeV.objValue;
     }
 
     public static YYPayUIKit getUIKit(int i, int i2) {
@@ -318,7 +318,7 @@ public class YYPayUIKit extends h0a {
     private void registerPayServiceListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            IAppPayService b2 = g2a.b(this.mAppId, this.mUserChannel);
+            IAppPayService b2 = p2a.b(this.mAppId, this.mUserChannel);
             if (b2 == null) {
                 RLog.error(TAG, "registerPayServiceListener error null appPayService", new Object[0]);
                 return;
@@ -345,10 +345,10 @@ public class YYPayUIKit extends h0a {
         }
     }
 
-    public static void setTestFunListener(j0a j0aVar) {
+    public static void setTestFunListener(s0a s0aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, j0aVar) == null) {
-            mTestFunListenerr = j0aVar;
+        if (interceptable == null || interceptable.invokeL(65552, null, s0aVar) == null) {
+            mTestFunListenerr = s0aVar;
         }
     }
 
@@ -365,7 +365,7 @@ public class YYPayUIKit extends h0a {
         if (!(interceptable == null || interceptable.invokeV(65554, this) == null) || this.mAppPayServiceListener == null) {
             return;
         }
-        IAppPayService b2 = g2a.b(this.mAppId, this.mUserChannel);
+        IAppPayService b2 = p2a.b(this.mAppId, this.mUserChannel);
         if (b2 != null) {
             b2.removePayListener(this.mAppPayServiceListener);
         }
@@ -384,11 +384,11 @@ public class YYPayUIKit extends h0a {
         }
     }
 
-    @Override // com.repackage.h0a
+    @Override // com.baidu.tieba.q0a
     public void cancelAllRequest() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            IAppPayService b2 = g2a.b(this.mAppId, this.mUserChannel);
+            IAppPayService b2 = p2a.b(this.mAppId, this.mUserChannel);
             if (b2 != null) {
                 RLog.info(TAG, "cancelAllRequest");
                 b2.cancelAllRequest();
@@ -417,11 +417,11 @@ public class YYPayUIKit extends h0a {
         }
     }
 
-    @Override // com.repackage.h0a
-    public s0a getCurPayController() {
+    @Override // com.baidu.tieba.q0a
+    public b1a getCurPayController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mYYPayController : (s0a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mYYPayController : (b1a) invokeV.objValue;
     }
 
     public synchronized IFeedbackServiceProxy getFeedbackServiceProxy() {
@@ -443,7 +443,7 @@ public class YYPayUIKit extends h0a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (this.mThirdPartPayApi == null) {
-                this.mThirdPartPayApi = (IThirdPartPayApi) xz9.a.a(IThirdPartPayApi.class, this.mAppId, this.mUserChannel, this.mAppContext, this.mPayUIKitConfig);
+                this.mThirdPartPayApi = (IThirdPartPayApi) g0a.a.a(IThirdPartPayApi.class, this.mAppId, this.mUserChannel, this.mAppContext, this.mPayUIKitConfig);
             }
             return this.mThirdPartPayApi;
         }
@@ -454,9 +454,9 @@ public class YYPayUIKit extends h0a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, payFlowType)) == null) {
-            s0a s0aVar = this.mYYPayController;
-            if (s0aVar != null) {
-                return s0aVar.a(payFlowType);
+            b1a b1aVar = this.mYYPayController;
+            if (b1aVar != null) {
+                return b1aVar.a(payFlowType);
             }
             return null;
         }
@@ -469,17 +469,17 @@ public class YYPayUIKit extends h0a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mPayUIKitConfig : (PayUIKitConfig) invokeV.objValue;
     }
 
-    public u0a getViewLifecycle() {
+    public d1a getViewLifecycle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mPayFlowLifecycleManager.e() : (u0a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mPayFlowLifecycleManager.e() : (d1a) invokeV.objValue;
     }
 
     public boolean isSupported(@NonNull Activity activity, @NonNull PayType payType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, activity, payType)) == null) {
-            IAppPayService b2 = g2a.b(this.mAppId, this.mUserChannel);
+            IAppPayService b2 = p2a.b(this.mAppId, this.mUserChannel);
             if (b2 == null) {
                 RLog.error(TAG, "isSupported error payService null", new Object[0]);
                 return false;
@@ -498,7 +498,7 @@ public class YYPayUIKit extends h0a {
                 RLog.error(TAG, "onQQPayResult error appid is 0", new Object[0]);
                 return;
             }
-            IAppPayService b2 = g2a.b(i2, this.mUserChannel);
+            IAppPayService b2 = p2a.b(i2, this.mUserChannel);
             if (b2 == null) {
                 RLog.error(TAG, "onQQPayResult error payService is null", new Object[0]);
             } else {
@@ -516,7 +516,7 @@ public class YYPayUIKit extends h0a {
                 RLog.error(TAG, "onWxPayResult error appid is 0", new Object[0]);
                 return;
             }
-            IAppPayService b2 = g2a.b(i2, this.mUserChannel);
+            IAppPayService b2 = p2a.b(i2, this.mUserChannel);
             if (b2 == null) {
                 RLog.error(TAG, "onWxPayResult error payService is null", new Object[0]);
             } else {
@@ -528,9 +528,9 @@ public class YYPayUIKit extends h0a {
     public void refreshWindowParams(WindowParams windowParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, windowParams) == null) {
-            s0a s0aVar = this.mYYPayController;
-            if (s0aVar != null) {
-                s0aVar.refreshWindow(windowParams);
+            b1a b1aVar = this.mYYPayController;
+            if (b1aVar != null) {
+                b1aVar.refreshWindow(windowParams);
             }
             RLog.info(TAG, "refreshWindowParams params:" + windowParams + " mYYPayController:" + this.mYYPayController);
         }
@@ -551,14 +551,14 @@ public class YYPayUIKit extends h0a {
         }
     }
 
-    @Override // com.repackage.h0a
+    @Override // com.baidu.tieba.q0a
     public synchronized void releaseAllPayFlowView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             synchronized (this) {
                 RLog.info(TAG, "releaseAllPayFlowView() mAppId:" + this.mAppId + " userChannel:" + this.mUserChannel);
                 if (this.mAppContext != null) {
-                    q2a.a(this.mAppContext);
+                    z2a.a(this.mAppContext);
                 } else {
                     RLog.error(TAG, "releaseAllPayFlowView error mAppContext null", new Object[0]);
                 }
@@ -566,7 +566,7 @@ public class YYPayUIKit extends h0a {
         }
     }
 
-    @Override // com.repackage.h0a
+    @Override // com.baidu.tieba.q0a
     public synchronized void releasePayController() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
@@ -618,24 +618,24 @@ public class YYPayUIKit extends h0a {
         }
     }
 
-    public void startThirdPartDialogPay(ThirdPartPayDialogParams thirdPartPayDialogParams, r0a r0aVar) {
+    public void startThirdPartDialogPay(ThirdPartPayDialogParams thirdPartPayDialogParams, a1a a1aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, thirdPartPayDialogParams, r0aVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048596, this, thirdPartPayDialogParams, a1aVar) == null) {
             IThirdPartPayApi orCreateThirdPartPayApi = getOrCreateThirdPartPayApi();
             if (orCreateThirdPartPayApi != null) {
-                orCreateThirdPartPayApi.startPayDialog(thirdPartPayDialogParams, r0aVar);
+                orCreateThirdPartPayApi.startPayDialog(thirdPartPayDialogParams, a1aVar);
             } else {
                 RLog.error(TAG, "startThirdPartDialogPay error payApi null", new Object[0]);
             }
         }
     }
 
-    public void startThirdPartPay(ThirdPartPayParams thirdPartPayParams, r0a r0aVar) {
+    public void startThirdPartPay(ThirdPartPayParams thirdPartPayParams, a1a a1aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, thirdPartPayParams, r0aVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048597, this, thirdPartPayParams, a1aVar) == null) {
             IThirdPartPayApi orCreateThirdPartPayApi = getOrCreateThirdPartPayApi();
             if (orCreateThirdPartPayApi != null) {
-                orCreateThirdPartPayApi.startPlay(thirdPartPayParams, r0aVar);
+                orCreateThirdPartPayApi.startPlay(thirdPartPayParams, a1aVar);
             } else {
                 RLog.error(TAG, "startThirdPartPay error payApi null", new Object[0]);
             }

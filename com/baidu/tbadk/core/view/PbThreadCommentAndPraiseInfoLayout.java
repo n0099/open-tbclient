@@ -19,15 +19,15 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.util.MaskView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.no4;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lo4;
-import com.repackage.ms4;
-import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseInfoLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -120,69 +120,69 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             }
             view2.setVisibility(0);
             this.j.setVisibility(0);
-            this.j.setText(this.C.getString(R.string.obfuscated_res_0x7f0f116e));
+            this.j.setText(this.C.getString(R.string.obfuscated_res_0x7f0f1171));
         }
     }
 
     public final void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f092131);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f092134);
             ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
             layoutParams.height = -1;
             findViewById.setLayoutParams(layoutParams);
-            int f = qi.f(getContext(), R.dimen.tbds68);
-            int f2 = qi.f(getContext(), R.dimen.T_X09);
-            int f3 = qi.f(getContext(), R.dimen.tbds15);
-            int f4 = qi.f(getContext(), R.dimen.tbds10);
-            this.v0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e43);
+            int f = ri.f(getContext(), R.dimen.tbds68);
+            int f2 = ri.f(getContext(), R.dimen.T_X09);
+            int f3 = ri.f(getContext(), R.dimen.tbds15);
+            int f4 = ri.f(getContext(), R.dimen.tbds10);
+            this.v0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e45);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -1);
             layoutParams2.weight = T() ? 0.2f : 0.25f;
             this.v0.setLayoutParams(layoutParams2);
             this.v0.setOrientation(1);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e44);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e46);
             LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(f, f);
             layoutParams3.topMargin = f3;
             imageView.setLayoutParams(layoutParams3);
             imageView.setImageResource(R.drawable.icon_share_wechat_n);
-            this.r0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091e42);
+            this.r0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091e44);
             LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams4.topMargin = f4;
             this.r0.setLayoutParams(layoutParams4);
             float f5 = f2;
             this.r0.setTextSize(0, f5);
-            this.r0.setText(this.C.getString(R.string.obfuscated_res_0x7f0f116e));
-            this.u0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ade);
+            this.r0.setText(this.C.getString(R.string.obfuscated_res_0x7f0f1171));
+            this.u0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ae0);
             LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(0, -1);
             layoutParams5.weight = T() ? 0.2f : 0.25f;
             this.u0.setLayoutParams(layoutParams5);
             this.u0.setOrientation(1);
-            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f091adf);
+            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ae1);
             LinearLayout.LayoutParams layoutParams6 = new LinearLayout.LayoutParams(f, f);
             layoutParams6.topMargin = f3;
             imageView2.setLayoutParams(layoutParams6);
             imageView2.setImageResource(R.drawable.icon_share_qq_n);
-            this.s0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091ae0);
+            this.s0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091ae2);
             LinearLayout.LayoutParams layoutParams7 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams7.topMargin = f4;
             this.s0.setLayoutParams(layoutParams7);
             this.s0.setTextSize(0, f5);
-            this.s0.setText(this.C.getString(R.string.obfuscated_res_0x7f0f1148));
+            this.s0.setText(this.C.getString(R.string.obfuscated_res_0x7f0f114b));
             if (T()) {
                 this.I = true;
                 setNeedAddReplyIcon(true);
-                LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09213e);
+                LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092141);
                 LinearLayout.LayoutParams layoutParams8 = new LinearLayout.LayoutParams(0, -1);
                 layoutParams8.weight = 0.2f;
                 linearLayout.setLayoutParams(layoutParams8);
                 linearLayout.setOrientation(1);
-                ImageView imageView3 = (ImageView) findViewById(R.id.obfuscated_res_0x7f092140);
+                ImageView imageView3 = (ImageView) findViewById(R.id.obfuscated_res_0x7f092143);
                 RelativeLayout.LayoutParams layoutParams9 = new RelativeLayout.LayoutParams(f, f);
-                layoutParams9.topMargin = qi.f(getContext(), R.dimen.tbds25);
+                layoutParams9.topMargin = ri.f(getContext(), R.dimen.tbds25);
                 layoutParams9.addRule(13, -1);
                 imageView3.setLayoutParams(layoutParams9);
-                WebPManager.setPureDrawable(imageView3, R.drawable.obfuscated_res_0x7f080915, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
-                this.q0 = (TextView) findViewById(R.id.obfuscated_res_0x7f092141);
+                WebPManager.setPureDrawable(imageView3, R.drawable.obfuscated_res_0x7f080916, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+                this.q0 = (TextView) findViewById(R.id.obfuscated_res_0x7f092144);
                 this.q0.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
                 this.q0.setTextSize(0, f5);
             } else {
@@ -207,9 +207,9 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             } else {
                 setCollectVisible(false);
             }
-            AgreeView agreeView = (AgreeView) findViewById(R.id.obfuscated_res_0x7f091650);
+            AgreeView agreeView = (AgreeView) findViewById(R.id.obfuscated_res_0x7f091652);
             LinearLayout.LayoutParams layoutParams13 = new LinearLayout.LayoutParams(0, -1);
-            layoutParams13.topMargin = qi.f(getContext(), R.dimen.tbds18);
+            layoutParams13.topMargin = ri.f(getContext(), R.dimen.tbds18);
             layoutParams2.weight = T() ? 0.2f : 0.25f;
             agreeView.setLayoutParams(layoutParams13);
             agreeView.t();
@@ -223,11 +223,11 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) || this.B == null || TextUtils.isEmpty(str) || !str.equals(this.B.getTid())) {
             return;
         }
-        lo4 lo4Var = new lo4();
-        lo4Var.b = 4;
-        lo4Var.d = 2;
-        lo4Var.j = str2;
-        this.e.setStatisticData(lo4Var);
+        no4 no4Var = new no4();
+        no4Var.b = 4;
+        no4Var.d = 2;
+        no4Var.j = str2;
+        this.e.setStatisticData(no4Var);
         this.e.J();
     }
 
@@ -278,19 +278,19 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onChangeSkinType();
             if (T()) {
-                WebPManager.setMaskDrawable(this.k, R.drawable.obfuscated_res_0x7f0807b5, null);
-                WebPManager.setMaskDrawable(this.t, R.drawable.obfuscated_res_0x7f0807b4, null);
+                WebPManager.setMaskDrawable(this.k, R.drawable.obfuscated_res_0x7f0807b6, null);
+                WebPManager.setMaskDrawable(this.t, R.drawable.obfuscated_res_0x7f0807b5, null);
             } else {
-                WebPManager.setMaskDrawable(this.k, R.drawable.obfuscated_res_0x7f0807b7, null);
-                WebPManager.setMaskDrawable(this.t, R.drawable.obfuscated_res_0x7f0807b6, null);
+                WebPManager.setMaskDrawable(this.k, R.drawable.obfuscated_res_0x7f0807b8, null);
+                WebPManager.setMaskDrawable(this.t, R.drawable.obfuscated_res_0x7f0807b7, null);
             }
-            WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f080969, R.color.CAM_X0107, null);
+            WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f08096a, R.color.CAM_X0107, null);
             EMTextView eMTextView = this.h;
             if (eMTextView != null) {
-                ms4 d = ms4.d(eMTextView);
+                os4 d = os4.d(eMTextView);
                 d.A(R.string.F_X02);
                 d.v(R.color.CAM_X0107);
-                SkinManager.setBackgroundShapeDrawable(this.h, qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18), R.color.CAM_X0207, R.color.CAM_X0207);
+                SkinManager.setBackgroundShapeDrawable(this.h, ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18), R.color.CAM_X0207, R.color.CAM_X0207);
             }
             SkinManager.setViewTextColor(this.r0, (int) R.drawable.selector_comment_and_prise_item_text_color);
             SkinManager.setViewTextColor(this.s0, (int) R.drawable.selector_comment_and_prise_item_text_color);

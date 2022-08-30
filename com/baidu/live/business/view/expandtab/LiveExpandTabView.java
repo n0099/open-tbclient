@@ -14,12 +14,12 @@ import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.business.view.expandtab.LiveExpandTabAdapter;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.n80;
+import com.baidu.tieba.t80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m80;
-import com.repackage.s80;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.TypeCastException;
@@ -232,12 +232,12 @@ public final class LiveExpandTabView extends ConstraintLayout {
             this.d = str;
             RecyclerView recyclerView = this.a;
             if (recyclerView != null) {
-                s80 s80Var = s80.a;
+                t80 t80Var = t80.a;
                 Context context = recyclerView.getContext();
                 Intrinsics.checkExpressionValueIsNotNull(context, "context");
-                recyclerView.setBackgroundDrawable(s80Var.c(context, str));
+                recyclerView.setBackgroundDrawable(t80Var.c(context, str));
                 recyclerView.setLayoutManager(new GridLayoutManager(recyclerView.getContext(), 4));
-                recyclerView.addItemDecoration(new LiveExpandTabItemDecoration(m80.b(recyclerView.getContext(), 14.0f)));
+                recyclerView.addItemDecoration(new LiveExpandTabItemDecoration(n80.b(recyclerView.getContext(), 14.0f)));
                 LiveExpandTabAdapter liveExpandTabAdapter = new LiveExpandTabAdapter(str);
                 liveExpandTabAdapter.i(new c(this, str));
                 this.b = liveExpandTabAdapter;
@@ -252,10 +252,10 @@ public final class LiveExpandTabView extends ConstraintLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (recyclerView = this.a) == null) {
             return;
         }
-        s80 s80Var = s80.a;
+        t80 t80Var = t80.a;
         Context context = getContext();
         Intrinsics.checkExpressionValueIsNotNull(context, "context");
-        recyclerView.setBackgroundDrawable(s80Var.c(context, this.d));
+        recyclerView.setBackgroundDrawable(t80Var.c(context, this.d));
     }
 
     public final void e() {
@@ -303,11 +303,11 @@ public final class LiveExpandTabView extends ConstraintLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0523, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0525, (ViewGroup) this, true);
         setClickable(true);
         setDescendantFocusability(393216);
-        this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091330);
-        setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060786));
+        this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091332);
+        setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060789));
         setOnClickListener(new a(this));
     }
 }

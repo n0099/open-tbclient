@@ -3,7 +3,7 @@ package com.kwad.sdk.core.imageloader.utils;
 import android.graphics.Bitmap;
 import androidx.annotation.IntRange;
 import java.lang.reflect.Array;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BlurUtils {
     public static Bitmap stackBlur(Bitmap bitmap, @IntRange(from = 1, to = 180) int i, boolean z) {
         Bitmap bitmap2;

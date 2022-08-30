@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 @Nullsafe(Nullsafe.Mode.STRICT)
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ImmutableMap<K, V> extends HashMap<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

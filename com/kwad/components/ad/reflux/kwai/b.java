@@ -22,7 +22,7 @@ import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener;
 import com.kwad.sdk.core.imageloader.utils.BlurUtils;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,16 +52,16 @@ public final class b extends a {
     public final void M(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d044a, this);
-            this.li = (TextView) findViewById(R.id.obfuscated_res_0x7f09112a);
-            this.lm = (ImageView) findViewById(R.id.obfuscated_res_0x7f091128);
-            this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091129);
-            this.ll = (ImageView) findViewById(R.id.obfuscated_res_0x7f091123);
-            this.lj = (TextView) findViewById(R.id.obfuscated_res_0x7f091124);
-            this.lk = (TextView) findViewById(R.id.obfuscated_res_0x7f091121);
-            this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09112b);
-            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091122);
-            this.lr = (ImageView) findViewById(R.id.obfuscated_res_0x7f091126);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d044b, this);
+            this.li = (TextView) findViewById(R.id.obfuscated_res_0x7f09112c);
+            this.lm = (ImageView) findViewById(R.id.obfuscated_res_0x7f09112a);
+            this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09112b);
+            this.ll = (ImageView) findViewById(R.id.obfuscated_res_0x7f091125);
+            this.lj = (TextView) findViewById(R.id.obfuscated_res_0x7f091126);
+            this.lk = (TextView) findViewById(R.id.obfuscated_res_0x7f091123);
+            this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09112d);
+            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091124);
+            this.lr = (ImageView) findViewById(R.id.obfuscated_res_0x7f091128);
         }
     }
 

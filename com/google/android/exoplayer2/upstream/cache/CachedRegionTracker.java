@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NavigableSet;
 import java.util.TreeSet;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class CachedRegionTracker implements Cache.Listener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHED_TO_END = -2;
@@ -27,7 +27,7 @@ public final class CachedRegionTracker implements Cache.Listener {
     public final Region lookupRegion;
     public final TreeSet<Region> regions;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Region implements Comparable<Region> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -14,7 +14,7 @@ import tbclient.Error;
 import tbclient.GetRepostRecommendForum.DataRes;
 import tbclient.GetRepostRecommendForum.GetRepostRecommendForumResIdl;
 import tbclient.SimpleForum;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GetRepostForumSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

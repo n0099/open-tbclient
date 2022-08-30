@@ -12,7 +12,7 @@ import com.baidubce.http.Headers;
 import com.baidubce.model.AbstractBceResponse;
 import com.baidubce.util.JsonUtils;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BceErrorResponseHandler implements HttpResponseHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

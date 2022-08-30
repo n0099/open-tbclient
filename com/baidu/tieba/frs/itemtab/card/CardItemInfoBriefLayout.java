@@ -11,16 +11,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.view.MultiLineEllipsizeTextView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.jx;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ix;
-import com.repackage.ms4;
-import com.repackage.qi;
 import tbclient.ItemInfo;
-/* loaded from: classes3.dex */
-public class CardItemInfoBriefLayout extends FrameLayout implements ix {
+/* loaded from: classes4.dex */
+public class CardItemInfoBriefLayout extends FrameLayout implements jx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiLineEllipsizeTextView a;
@@ -28,7 +28,7 @@ public class CardItemInfoBriefLayout extends FrameLayout implements ix {
     public String c;
     public boolean d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements MultiLineEllipsizeTextView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class CardItemInfoBriefLayout extends FrameLayout implements ix {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,11 +92,11 @@ public class CardItemInfoBriefLayout extends FrameLayout implements ix {
                 CardItemInfoBriefLayout cardItemInfoBriefLayout = this.a;
                 cardItemInfoBriefLayout.d = !cardItemInfoBriefLayout.d;
                 if (!this.a.d) {
-                    this.a.b.setText(R.string.obfuscated_res_0x7f0f05d6);
+                    this.a.b.setText(R.string.obfuscated_res_0x7f0f05d7);
                     this.a.a.setMaxLines(3);
                     return;
                 }
-                this.a.b.setText(R.string.obfuscated_res_0x7f0f063c);
+                this.a.b.setText(R.string.obfuscated_res_0x7f0f063d);
                 this.a.a.setMaxLines(Integer.MAX_VALUE);
                 this.a.a.setText(this.a.c);
             }
@@ -128,23 +128,23 @@ public class CardItemInfoBriefLayout extends FrameLayout implements ix {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            setPadding(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), 0);
+            setPadding(ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), 0);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView = new MultiLineEllipsizeTextView(getContext());
             this.a = multiLineEllipsizeTextView;
             multiLineEllipsizeTextView.setMaxLines(3);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.a;
-            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f05d6))));
-            ms4 d = ms4.d(this.a);
+            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f05d7))));
+            os4 d = os4.d(this.a);
             d.z(R.dimen.T_X07);
             d.w(R.dimen.M_T_X002);
-            this.a.setPadding(0, 0, 0, qi.f(getContext(), R.dimen.M_H_X005));
+            this.a.setPadding(0, 0, 0, ri.f(getContext(), R.dimen.M_H_X005));
             addView(this.a, new FrameLayout.LayoutParams(-1, -2));
             this.a.setOnTextMeasuredCallback(new a(this));
             EMTextView eMTextView = new EMTextView(getContext());
             this.b = eMTextView;
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f05d6);
-            ms4.d(this.a).z(R.dimen.T_X07);
-            this.b.setPadding(qi.f(getContext(), R.dimen.M_W_X005), qi.f(getContext(), R.dimen.M_H_X005), 0, qi.f(getContext(), R.dimen.M_H_X005));
+            eMTextView.setText(R.string.obfuscated_res_0x7f0f05d7);
+            os4.d(this.a).z(R.dimen.T_X07);
+            this.b.setPadding(ri.f(getContext(), R.dimen.M_W_X005), ri.f(getContext(), R.dimen.M_H_X005), 0, ri.f(getContext(), R.dimen.M_H_X005));
             this.b.setVisibility(8);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 85;
@@ -153,16 +153,16 @@ public class CardItemInfoBriefLayout extends FrameLayout implements ix {
         }
     }
 
-    @Override // com.repackage.ix
+    @Override // com.baidu.tieba.jx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            ms4 d = ms4.d(this);
+            os4 d = os4.d(this);
             d.m(2);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0205);
-            ms4.d(this.a).v(R.color.CAM_X0105);
-            ms4.d(this.b).v(R.color.CAM_X0304);
+            os4.d(this.a).v(R.color.CAM_X0105);
+            os4.d(this.b).v(R.color.CAM_X0304);
         }
     }
 

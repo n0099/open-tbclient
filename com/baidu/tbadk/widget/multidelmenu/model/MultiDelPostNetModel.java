@@ -7,6 +7,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tieba.th5;
+import com.baidu.tieba.uh5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,8 +16,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mh5;
-import com.repackage.nh5;
 /* loaded from: classes3.dex */
 public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
     public static /* synthetic */ Interceptable $ic;
@@ -23,7 +23,7 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
     public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiDelPostNetModel<T>.b a;
-    public mh5 b;
+    public th5 b;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -65,10 +65,10 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
         this.b = null;
     }
 
-    public void G(mh5 mh5Var) {
+    public void G(th5 th5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mh5Var) == null) {
-            this.b = mh5Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, th5Var) == null) {
+            this.b = th5Var;
         }
     }
 
@@ -109,7 +109,7 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends BdAsyncTask<String, Integer, nh5> {
+    public class b extends BdAsyncTask<String, Integer, uh5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -137,7 +137,7 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public nh5 doInBackground(String... strArr) {
+        public uh5 doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
@@ -153,30 +153,30 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
                 this.a.addPostData("type", this.b.b.e);
                 this.a.getNetContext().getRequest().mIsNeedTbs = true;
                 String postNetData = this.a.postNetData();
-                nh5 nh5Var = new nh5();
+                uh5 uh5Var = new uh5();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    nh5Var.a = true;
-                    nh5Var.a(postNetData);
+                    uh5Var.a = true;
+                    uh5Var.a(postNetData);
                 } else {
-                    nh5Var.a = false;
-                    nh5Var.b = this.a.getErrorString();
+                    uh5Var.a = false;
+                    uh5Var.b = this.a.getErrorString();
                     this.a.getServerErrorCode();
                 }
-                return nh5Var;
+                return uh5Var;
             }
-            return (nh5) invokeL.objValue;
+            return (uh5) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(nh5 nh5Var) {
+        public void onPostExecute(uh5 uh5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nh5Var) == null) {
-                super.onPostExecute(nh5Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uh5Var) == null) {
+                super.onPostExecute(uh5Var);
                 this.b.a = null;
                 if (this.b.mLoadDataCallBack != null) {
-                    this.b.mLoadDataCallBack.c(nh5Var);
+                    this.b.mLoadDataCallBack.c(uh5Var);
                 }
             }
         }

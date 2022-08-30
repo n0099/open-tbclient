@@ -20,7 +20,10 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.os4;
 import com.baidu.tieba.view.TbImageAutoSwitch;
+import com.baidu.tieba.ym6;
+import com.baidu.tieba.zm6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,14 +31,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ms4;
-import com.repackage.qm6;
-import com.repackage.rm6;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
-/* loaded from: classes3.dex */
-public class HeaderComponentSingleView extends FrameLayout implements rm6 {
+/* loaded from: classes4.dex */
+public class HeaderComponentSingleView extends FrameLayout implements zm6 {
     public static /* synthetic */ Interceptable $ic;
     public static final int m;
     public static final int n;
@@ -50,25 +50,25 @@ public class HeaderComponentSingleView extends FrameLayout implements rm6 {
     public HeadImageView g;
     public TbImageAutoSwitch h;
     public List<String> i;
-    public qm6 j;
+    public ym6 j;
     public LiveFuseForumData k;
     public TbImageAutoSwitch.b l;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements TbImageAutoSwitch.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HeaderComponentSingleView a;
 
         /* renamed from: com.baidu.tieba.frs.headercomponent.HeaderComponentSingleView$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class View$OnClickListenerC0211a implements View.OnClickListener {
+        /* loaded from: classes4.dex */
+        public class View$OnClickListenerC0256a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0211a(a aVar, int i) {
+            public View$OnClickListenerC0256a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,7 +121,7 @@ public class HeaderComponentSingleView extends FrameLayout implements rm6 {
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
                 HeadImageView headImageView = (HeadImageView) view2;
                 headImageView.K((String) this.a.i.get(i), 12, false);
-                headImageView.setOnClickListener(new View$OnClickListenerC0211a(this, i));
+                headImageView.setOnClickListener(new View$OnClickListenerC0256a(this, i));
             }
         }
 
@@ -158,7 +158,7 @@ public class HeaderComponentSingleView extends FrameLayout implements rm6 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -233,17 +233,17 @@ public class HeaderComponentSingleView extends FrameLayout implements rm6 {
         h();
     }
 
-    @Override // com.repackage.rm6
+    @Override // com.baidu.tieba.zm6
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int childCount = this.d.getChildCount();
             for (int i = 0; i < childCount; i++) {
-                ms4 d = ms4.d((TextView) this.d.getChildAt(i));
+                os4 d = os4.d((TextView) this.d.getChildAt(i));
                 d.v(R.color.CAM_X0105);
                 d.A(R.string.F_X02);
             }
-            ms4.d(this.b).v(R.color.CAM_X0108);
+            os4.d(this.b).v(R.color.CAM_X0108);
             i();
             if (!ListUtils.isEmpty(this.h.getChildViews())) {
                 for (View view2 : this.h.getChildViews()) {
@@ -253,21 +253,21 @@ public class HeaderComponentSingleView extends FrameLayout implements rm6 {
                 }
             }
             this.g.setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
-            ms4 d2 = ms4.d(this.f);
+            os4 d2 = os4.d(this.f);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0201);
         }
     }
 
-    @Override // com.repackage.rm6
-    public void b(List<LiveFuseForumData> list, qm6 qm6Var) {
+    @Override // com.baidu.tieba.zm6
+    public void b(List<LiveFuseForumData> list, ym6 ym6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, qm6Var) == null) || ListUtils.isEmpty(list)) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, ym6Var) == null) || ListUtils.isEmpty(list)) {
             return;
         }
         LiveFuseForumData liveFuseForumData = list.get(0);
         this.k = liveFuseForumData;
-        this.j = qm6Var;
+        this.j = ym6Var;
         List<String> list2 = liveFuseForumData.title;
         if (!ListUtils.isEmpty(list2)) {
             int size = list2.size();
@@ -277,7 +277,7 @@ public class HeaderComponentSingleView extends FrameLayout implements rm6 {
                 textView.setLines(1);
                 textView.setEllipsize(TextUtils.TruncateAt.END);
                 textView.setText(list2.get(i));
-                ms4 d = ms4.d(textView);
+                os4 d = os4.d(textView);
                 d.v(R.color.CAM_X0105);
                 d.A(R.string.F_X02);
                 d.z(R.dimen.T_X06);
@@ -308,16 +308,16 @@ public class HeaderComponentSingleView extends FrameLayout implements rm6 {
         }
         a();
         setOnClickListener(new b(this));
-        qm6 qm6Var2 = this.j;
-        if (qm6Var2 != null) {
-            qm6Var2.a(1, this.k);
+        ym6 ym6Var2 = this.j;
+        if (ym6Var2 != null) {
+            ym6Var2.a(1, this.k);
         }
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0313, this);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0314, this);
             this.a = inflate;
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090690);
             this.e = tbImageView;

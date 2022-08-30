@@ -23,7 +23,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class f {
     public final Object aet;
     public final ExecutorService aeu;
@@ -33,7 +33,7 @@ public final class f {
     public final com.kwad.sdk.core.videocache.c aey;
     public final int port;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public File aeh;
         public com.kwad.sdk.core.videocache.c.b aek;
@@ -60,7 +60,7 @@ public final class f {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public final class b implements Runnable {
         public final Socket aez;
 
@@ -75,7 +75,7 @@ public final class f {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public final class c implements Runnable {
         public final CountDownLatch aeB;
 
@@ -286,7 +286,7 @@ public final class f {
         return i;
     }
 
-    public final boolean a(String str, int i, a.C0396a c0396a) {
+    public final boolean a(String str, int i, a.C0611a c0611a) {
         HttpURLConnection httpURLConnection;
         com.kwad.sdk.core.e.b.d("HttpProxyCacheServer", "preloadSync preloadUrl " + str);
         if (cB(str)) {
@@ -325,7 +325,7 @@ public final class f {
                     th = th;
                     bufferedInputStream = bufferedInputStream2;
                     try {
-                        c0396a.Qd = Log.getStackTraceString(th);
+                        c0611a.Qd = Log.getStackTraceString(th);
                         com.kwad.sdk.core.e.b.printStackTraceOnly(th);
                         com.kwad.sdk.core.e.b.e("HttpProxyCacheServer", "downloadUrlToStream file crash", th);
                         com.kwad.sdk.crash.utils.b.closeQuietly(bufferedInputStream);

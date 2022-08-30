@@ -16,7 +16,7 @@ import tbclient.GetShoubaiThreadList.DataRes;
 import tbclient.GetShoubaiThreadList.GetShoubaiThreadListResIdl;
 import tbclient.GetShoubaiThreadList.PageInfo;
 import tbclient.ThreadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonCenterDynamicTabSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

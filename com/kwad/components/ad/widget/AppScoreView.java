@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AppScoreView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,9 +84,9 @@ public class AppScoreView extends LinearLayout {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0409, this);
-            this.Cj = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911bc);
-            this.Ck = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911bb);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d040a, this);
+            this.Cj = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911be);
+            this.Ck = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911bd);
         }
     }
 
@@ -95,22 +95,22 @@ public class AppScoreView extends LinearLayout {
         if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
             double d = f;
             if (d > 4.5d) {
-                this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080c6d);
-                this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080c6d);
-            } else if (d > 4.0d) {
-                this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080c6d);
+                this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080c6e);
                 this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080c6e);
-            } else if (d > 3.5d) {
-                this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080c6d);
+            } else if (d > 4.0d) {
+                this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080c6e);
                 this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080c6f);
+            } else if (d > 3.5d) {
+                this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080c6e);
+                this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080c70);
             } else {
                 int i = (d > 3.0d ? 1 : (d == 3.0d ? 0 : -1));
                 if (i > 0) {
-                    this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080c6e);
-                    this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080c6f);
-                } else if (i == 0) {
                     this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080c6f);
-                    this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080c6f);
+                    this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080c70);
+                } else if (i == 0) {
+                    this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080c70);
+                    this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080c70);
                 }
             }
         }

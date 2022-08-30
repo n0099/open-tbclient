@@ -28,13 +28,13 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.utils.t;
 import com.kwad.sdk.utils.u;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class e extends c implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public b DG;
-    public b.C0356b DH;
+    public b.C0571b DH;
     public Runnable DP;
     public boolean DQ;
     public KsAdWebView bF;
@@ -392,7 +392,7 @@ public final class e extends c implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091086);
+            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091088);
         }
     }
 

@@ -6,6 +6,7 @@ import android.os.Build;
 import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.UUID;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class s1 {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "Y29tLmt3YWkud2VhcG9u";
@@ -114,7 +115,7 @@ public final class s1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
             try {
-                return Settings.System.getString(context.getContentResolver(), str);
+                return ApiReplaceUtil.getString(context.getContentResolver(), str);
             } catch (Exception unused) {
                 return "";
             }

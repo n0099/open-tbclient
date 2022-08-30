@@ -59,7 +59,7 @@ public class H5OpenActivity extends Activity implements B2 {
         if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) && this.e) {
             e1.a(this).a(new f1(this.d), i, str2).a();
             this.e = false;
-            Toast.makeText(this, getString(R.string.obfuscated_res_0x7f0f15a5), 0).show();
+            Toast.makeText(this, getString(R.string.obfuscated_res_0x7f0f15a8), 0).show();
         }
     }
 
@@ -123,7 +123,7 @@ public class H5OpenActivity extends Activity implements B2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d090d);
+            setContentView(R.layout.obfuscated_res_0x7f0d090f);
             try {
                 this.d = (Info) getIntent().getSerializableExtra("Key_H5OpenActData");
             } catch (Exception e) {
@@ -142,8 +142,8 @@ public class H5OpenActivity extends Activity implements B2 {
             } catch (JSONException unused) {
             }
             a.a();
-            this.c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f092626);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092625);
+            this.c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f092630);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09262f);
             this.a = frameLayout;
             frameLayout.removeAllViews();
             try {

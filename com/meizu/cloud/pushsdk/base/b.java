@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class b implements g {
     public long d = 60;
     public int e = 10;
@@ -22,7 +22,7 @@ public class b implements g {
     public e f = new e();
     public String h = String.valueOf(Process.myPid());
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class a {
         public String a;
         public String b;

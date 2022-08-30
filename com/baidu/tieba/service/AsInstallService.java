@@ -15,13 +15,13 @@ import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tieba.rl5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jl5;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AsInstallService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AS_INSTALL_RECEIVING_DURATION_MILLS = 120000;
@@ -33,7 +33,7 @@ public class AsInstallService extends BdBaseService {
     public Runnable mStopReceivingRunnable;
     public VersionData mVersionData;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class AsInstallService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +98,7 @@ public class AsInstallService extends BdBaseService {
                 if (TextUtils.isEmpty(schemeSpecificPart) || !"com.baidu.appsearch".equals(schemeSpecificPart) || this.this$0.mVersionData == null) {
                     return;
                 }
-                jl5.b(context, this.this$0.mVersionData);
+                rl5.b(context, this.this$0.mVersionData);
                 TiebaStatic.log(TbadkCoreStatisticKey.INVOKE_AS);
             }
         }

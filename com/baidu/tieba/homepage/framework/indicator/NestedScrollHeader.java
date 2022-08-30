@@ -41,23 +41,23 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.coreExtra.floatCardView.AlaLiveTipView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.fe5;
+import com.baidu.tieba.i9;
+import com.baidu.tieba.iz4;
+import com.baidu.tieba.m15;
+import com.baidu.tieba.mn4;
+import com.baidu.tieba.nj8;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.t17;
+import com.baidu.tieba.v15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.badge.BadgeDrawable;
-import com.repackage.fj8;
-import com.repackage.fz4;
-import com.repackage.g15;
-import com.repackage.h9;
-import com.repackage.l17;
-import com.repackage.ln4;
-import com.repackage.ms4;
-import com.repackage.p15;
-import com.repackage.qi;
-import com.repackage.yd5;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NestedScrollHeader extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,19 +73,19 @@ public class NestedScrollHeader extends RelativeLayout {
     public CustomMessageListener j;
     public CustomMessageListener k;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yd5 a;
+        public final /* synthetic */ fe5 a;
         public final /* synthetic */ NestedScrollHeader b;
 
-        public a(NestedScrollHeader nestedScrollHeader, yd5 yd5Var) {
+        public a(NestedScrollHeader nestedScrollHeader, fe5 fe5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nestedScrollHeader, yd5Var};
+                Object[] objArr = {nestedScrollHeader, fe5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -96,7 +96,7 @@ public class NestedScrollHeader extends RelativeLayout {
                 }
             }
             this.b = nestedScrollHeader;
-            this.a = yd5Var;
+            this.a = fe5Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -109,7 +109,7 @@ public class NestedScrollHeader extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,7 +148,7 @@ public class NestedScrollHeader extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -192,7 +192,7 @@ public class NestedScrollHeader extends RelativeLayout {
                         } else if (WriteActivityConfig.isAsyncWriting()) {
                             return;
                         } else {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921452, new p15(1)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921452, new v15(1)));
                             TiebaStatic.log(new StatisticItem(CommonStatisticKey.UBS_TEST_PUBLISH_BUTTON_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()));
                             return;
                         }
@@ -205,7 +205,7 @@ public class NestedScrollHeader extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -242,7 +242,7 @@ public class NestedScrollHeader extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -279,7 +279,7 @@ public class NestedScrollHeader extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface f {
         void a(String str);
     }
@@ -317,11 +317,11 @@ public class NestedScrollHeader extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (Build.VERSION.SDK_INT <= 21) {
-                qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f00ea);
+                ri.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f00ea);
                 return;
             }
             try {
-                UrlManager.getInstance().dealOneLink((TbPageContext) h9.a(getContext()), new String[]{UrlSchemaHelper.SCHEME_SWAN_GAME_CENTER});
+                UrlManager.getInstance().dealOneLink((TbPageContext) i9.a(getContext()), new String[]{UrlSchemaHelper.SCHEME_SWAN_GAME_CENTER});
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -333,19 +333,19 @@ public class NestedScrollHeader extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(4012);
             this.h = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04b7, (ViewGroup) this, true);
-            this.a = (PublishButton) findViewById(R.id.obfuscated_res_0x7f091a99);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091d88);
-            this.e = findViewById(R.id.obfuscated_res_0x7f090c53);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c46);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09075b);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04b9, (ViewGroup) this, true);
+            this.a = (PublishButton) findViewById(R.id.obfuscated_res_0x7f091a9b);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091d8a);
+            this.e = findViewById(R.id.obfuscated_res_0x7f090c54);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c47);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09075c);
             if (!UbsABTestHelper.isHomeTabModifyABTestA()) {
-                AlaLiveTipView alaLiveTipView = (AlaLiveTipView) findViewById(R.id.obfuscated_res_0x7f091391);
+                AlaLiveTipView alaLiveTipView = (AlaLiveTipView) findViewById(R.id.obfuscated_res_0x7f091393);
                 this.g = alaLiveTipView;
                 alaLiveTipView.setViewLocate(1);
                 this.g.setHasBubble(false);
             }
-            yd5 c2 = yd5.c(this.h);
+            fe5 c2 = fe5.c(this.h);
             c2.h(BadgeDrawable.TOP_END);
             c2.g(-65536);
             c2.m(R.dimen.tbds15, false);
@@ -357,7 +357,7 @@ public class NestedScrollHeader extends RelativeLayout {
             this.c.setOnClickListener(this.i);
             this.f.setOnClickListener(this.i);
             this.b.setOnClickListener(this.i);
-            this.b.setVisibility(ln4.h() ? 0 : 8);
+            this.b.setVisibility(mn4.h() ? 0 : 8);
             if (UbsABTestHelper.isMainTabShowA()) {
                 this.a.setVisibility(8);
             }
@@ -384,9 +384,9 @@ public class NestedScrollHeader extends RelativeLayout {
     public final void j(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
-            g15 f3 = l17.f(TbadkApplication.getInst().getHomeBarShowTabName());
+            m15 f3 = t17.f(TbadkApplication.getInst().getHomeBarShowTabName());
             if (f3 != null) {
-                setBackgroundColor(fj8.a(fj8.f(l17.d(f3)), 1.0f - f2));
+                setBackgroundColor(nj8.a(nj8.f(t17.d(f3)), 1.0f - f2));
             } else {
                 SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, 1.0f - f2, TbadkCoreApplication.getInst().getSkinType());
             }
@@ -398,24 +398,24 @@ public class NestedScrollHeader extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (TbadkApplication.getInst().isUseLuckyHeader()) {
-                ms4 d2 = ms4.d(this.c);
+                os4 d2 = os4.d(this.c);
                 d2.v(R.color.CAM_X0619);
                 d2.n(R.string.J_X01);
                 d2.f(R.color.CAM_X0613);
-                WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080747, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
-                pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a4f, SkinManager.getColor(R.color.CAM_X0619), WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080748, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+                pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a50, SkinManager.getColor(R.color.CAM_X0619), WebPManager.ResourceStateType.NORMAL);
                 j(this.d);
             } else {
-                ms4 d3 = ms4.d(this.c);
+                os4 d3 = os4.d(this.c);
                 d3.v(R.color.CAM_X0109);
                 d3.n(R.string.J_X01);
                 d3.f(R.color.CAM_X0210);
                 WebPManager.setMaskDrawable(this.f, R.drawable.icon_home_new_games, WebPManager.ResourceStateType.NORMAL);
-                pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a4f, SkinManager.getColor(R.color.CAM_X0109), WebPManager.ResourceStateType.NORMAL);
+                pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a50, SkinManager.getColor(R.color.CAM_X0109), WebPManager.ResourceStateType.NORMAL);
                 SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, 1.0f - this.d, TbadkCoreApplication.getInst().getSkinType());
             }
             this.a.r();
-            SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f0806cd);
+            SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f0806ce);
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds42);
             pureDrawable.setBounds(0, 0, dimenPixelSize, dimenPixelSize);
             this.c.setCompoundDrawables(pureDrawable, null, null, null);
@@ -429,7 +429,7 @@ public class NestedScrollHeader extends RelativeLayout {
             return;
         }
         if (alaLiveTipView.getVisibility() != 0) {
-            fz4.d();
+            iz4.f();
         }
         this.g.setVisibility(0);
         m(this.g.getVisibility() == 0);
@@ -440,9 +440,9 @@ public class NestedScrollHeader extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || this.c == null) {
             return;
         }
-        int f2 = qi.f(getContext(), R.dimen.M_W_X007);
+        int f2 = ri.f(getContext(), R.dimen.M_W_X007);
         if (z) {
-            f2 = qi.f(getContext(), R.dimen.M_W_X002);
+            f2 = ri.f(getContext(), R.dimen.M_W_X002);
         }
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
         layoutParams.setMargins(f2, layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);

@@ -3,23 +3,23 @@ package com.baidu.tieba.im.message;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BaseGroupData;
+import com.baidu.tieba.ve;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ue;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.SearchGroup.SearchGroupResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseSearchGroupLocalMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ue.b<String>> cacheList;
+    public List<ve.b<String>> cacheList;
     public long gid;
     public List<BaseGroupData> searchResult;
 
@@ -80,7 +80,7 @@ public class ResponseSearchGroupLocalMessage extends CustomResponsedMessage<Obje
         }
     }
 
-    public List<ue.b<String>> getCacheList() {
+    public List<ve.b<String>> getCacheList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cacheList : (List) invokeV.objValue;
@@ -98,7 +98,7 @@ public class ResponseSearchGroupLocalMessage extends CustomResponsedMessage<Obje
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.searchResult : (List) invokeV.objValue;
     }
 
-    public void setCacheList(List<ue.b<String>> list) {
+    public void setCacheList(List<ve.b<String>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.cacheList = list;

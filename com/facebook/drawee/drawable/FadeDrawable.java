@@ -16,7 +16,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import java.util.Arrays;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FadeDrawable extends ArrayDrawable {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -51,7 +51,7 @@ public class FadeDrawable extends ArrayDrawable {
     @VisibleForTesting
     public int mTransitionState;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface OnFadeFinishedListener {
         void onFadeFinished();
     }

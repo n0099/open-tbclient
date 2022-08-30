@@ -11,11 +11,11 @@ import com.qq.e.comm.net.rr.Request;
 import com.qq.e.comm.net.rr.Response;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Future;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface NetworkClient {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static final class Priority {
         public static /* synthetic */ Interceptable $ic;
         public static final Priority High;

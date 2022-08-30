@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class MultiplexProducer<K, T extends Closeable> implements Producer<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRAS_STARTED_AS_PREFETCH = "started_as_prefetch";
@@ -39,14 +39,14 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
     public final String mProducerName;
 
     /* renamed from: com.facebook.imagepipeline.producers.MultiplexProducer$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     @VisibleForTesting
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class Multiplexer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
         public BaseProducerContext mMultiplexProducerContext;
         public final /* synthetic */ MultiplexProducer this$0;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes7.dex */
         public class ForwardingConsumer extends BaseConsumer<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

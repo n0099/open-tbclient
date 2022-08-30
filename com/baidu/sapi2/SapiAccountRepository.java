@@ -81,6 +81,7 @@ import com.baidu.sapi2.views.logindialog.view.a;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tieba.external.music.data.MusicData;
+import com.baidu.tieba.ye1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -90,7 +91,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.disk.DefaultDiskStorage;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-import com.repackage.xe1;
 import com.ss.android.download.api.constant.BaseConstants;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpCookie;
@@ -856,7 +856,7 @@ public final class SapiAccountRepository {
             OneKeyLoginStat.CheckAbility.statExtMap.put("connectTimeout", Integer.valueOf(i));
             OneKeyLoginStat.CheckAbility.statExtMap.put("scene", "api");
             OneKeyLoginStat.CheckAbility.statExtMap.put("netType", SapiUtils.getNetworkClass(this.configuration.context));
-            OneKeyLoginStat.CheckAbility.statExtMap.put("operator", xe1.d().c(this.configuration.context));
+            OneKeyLoginStat.CheckAbility.statExtMap.put("operator", ye1.d().c(this.configuration.context));
             new HttpClientWrap().get(oneKeyLoginAbilityUrl, ReqPriority.IMMEDIATE, httpHashMapWrap, buildNaCookie, getUaInfo(), i, new HttpHandlerWrap(this, Looper.getMainLooper(), currentTimeMillis, str, oneKeyLoginCallback) { // from class: com.baidu.sapi2.SapiAccountRepository.17
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -2532,7 +2532,7 @@ public final class SapiAccountRepository {
             String str3 = OneKeyLoginResult.secondJsCode;
             long currentTimeMillis = System.currentTimeMillis();
             OneKeyLoginStat.LoadLogin.statExtMap.put("netType", SapiUtils.getNetworkClass(this.configuration.context));
-            OneKeyLoginStat.LoadLogin.statExtMap.put("operator", xe1.d().c(this.configuration.context));
+            OneKeyLoginStat.LoadLogin.statExtMap.put("operator", ye1.d().c(this.configuration.context));
             SapiCoreUtil.executeJsCode(oneKeyLoginJsCode, str3, jSONObject.toString(), this.configuration.context, new ExecuteJsCallback(this, currentTimeMillis, oneKeyLoginCallback, loadExternalWebViewActivityCallback) { // from class: com.baidu.sapi2.SapiAccountRepository.19
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

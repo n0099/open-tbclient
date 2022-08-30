@@ -2,12 +2,12 @@ package com.baidu.searchbox.bddownload;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
+import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q9;
 @Autowired
 /* loaded from: classes2.dex */
 public class BdDownloadRuntime {
@@ -32,6 +32,6 @@ public class BdDownloadRuntime {
     public static IBdDownloadIoc getIBdDownloadIoc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new q9() : (IBdDownloadIoc) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new r9() : (IBdDownloadIoc) invokeV.objValue;
     }
 }

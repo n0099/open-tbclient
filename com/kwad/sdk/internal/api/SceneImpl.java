@@ -16,7 +16,7 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 @KsJson
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsScene, Serializable, Cloneable {
     public static final long serialVersionUID = 93865491903408451L;
     public int action;

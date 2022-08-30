@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class WebpUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String VP8L_HEADER = "VP8L";

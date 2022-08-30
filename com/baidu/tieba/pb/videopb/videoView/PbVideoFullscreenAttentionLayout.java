@@ -11,22 +11,22 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.AbsPbActivity;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.rv4;
+import com.baidu.tieba.rx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jx7;
-import com.repackage.ov4;
-import com.repackage.pi;
-import com.repackage.qi;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
     public PbVideoFullscreenLikeBtn b;
-    public jx7 c;
+    public rx7 c;
     public BdUniqueId d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -58,7 +58,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
                 return 0;
             }
             if (threadData.isMutiForumThread()) {
-                return !pi.isEmpty(threadData.getForum_name()) ? 2 : 0;
+                return !qi.isEmpty(threadData.getForum_name()) ? 2 : 0;
             }
             return 1;
         }
@@ -69,8 +69,8 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            jx7 jx7Var = this.c;
-            return (jx7Var == null || jx7Var.j() == null || !this.c.j().getIsLike()) ? false : true;
+            rx7 rx7Var = this.c;
+            return (rx7Var == null || rx7Var.j() == null || !this.c.j().getIsLike()) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -78,14 +78,14 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d06d1, this);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d06d3, this);
             this.a = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0902d4);
             this.b = (PbVideoFullscreenLikeBtn) findViewById(R.id.obfuscated_res_0x7f0906ae);
             this.a.setIsRound(true);
-            this.a.setBorderWidth(qi.f(context, R.dimen.tbds3));
+            this.a.setBorderWidth(ri.f(context, R.dimen.tbds3));
             this.a.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
             this.a.setAutoChangeStyle(false);
-            this.b.setConfig(new ov4());
+            this.b.setConfig(new rv4());
         }
     }
 
@@ -100,17 +100,17 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
             if (!(getContext() instanceof AbsPbActivity)) {
                 return;
             }
-            jx7 jx7Var = new jx7(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
-            this.c = jx7Var;
-            jx7Var.m("11");
+            rx7 rx7Var = new rx7(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
+            this.c = rx7Var;
+            rx7Var.m("11");
             this.c.l(this.d);
         }
         this.c.n(threadData.getAuthor());
         this.c.x(str);
         this.c.v(threadData);
-        jx7 jx7Var2 = this.c;
-        jx7Var2.p = true;
-        jx7Var2.w(a);
+        rx7 rx7Var2 = this.c;
+        rx7Var2.p = true;
+        rx7Var2.w(a);
     }
 
     public void setData(ThreadData threadData) {

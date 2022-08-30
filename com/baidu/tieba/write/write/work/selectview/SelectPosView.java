@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 @Metadata(d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u00002\u00020\u0001B\u0011\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003¢\u0006\u0002\u0010\u0004B\u001b\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007B#\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\u0006\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\u0010\u0010\u000b\u001a\u00020\f2\b\u0010\r\u001a\u0004\u0018\u00010\u000eJ\u0006\u0010\u000f\u001a\u00020\f¨\u0006\u0010"}, d2 = {"Lcom/baidu/tieba/write/write/work/selectview/SelectPosView;", "Lcom/baidu/tieba/write/write/work/selectview/SelectBarView;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "bindData", "", "bean", "Lcom/baidu/tieba/tbadkCore/location/ResponsedSelectLocation;", "initView", "write_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class SelectPosView extends SelectBarView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,8 +38,8 @@ public final class SelectPosView extends SelectBarView {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            getMLeftTitle().setText(getContext().getString(R.string.obfuscated_res_0x7f0f15bb));
-            getMCenterContentTips().setText(getContext().getString(R.string.obfuscated_res_0x7f0f15bc));
+            getMLeftTitle().setText(getContext().getString(R.string.obfuscated_res_0x7f0f15be));
+            getMCenterContentTips().setText(getContext().getString(R.string.obfuscated_res_0x7f0f15bf));
             getMCenterContent().setVisibility(8);
         }
     }

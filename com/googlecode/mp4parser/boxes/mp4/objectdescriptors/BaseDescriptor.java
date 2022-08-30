@@ -12,7 +12,7 @@ import com.coremedia.iso.IsoTypeReader;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @Descriptor(tags = {0})
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class BaseDescriptor {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;

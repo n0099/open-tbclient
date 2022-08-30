@@ -17,6 +17,9 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.permission.PermissionRequestDialog;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.i9;
+import com.baidu.tieba.wr4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,9 +29,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kuaishou.weapon.p0.h;
-import com.repackage.d9;
-import com.repackage.h9;
-import com.repackage.ur4;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -308,7 +308,7 @@ public class PermissionJudgePolicy {
     private int getPermissionDescriptionId(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) ? (TextUtils.isEmpty(str) || "android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) ? R.string.obfuscated_res_0x7f0f0ffd : (h.g.equals(str) || h.h.equals(str)) ? R.string.obfuscated_res_0x7f0f1002 : PermissionRequest.RESOURCE_VIDEO_CAPTURE.equals(str) ? R.string.obfuscated_res_0x7f0f0ffa : PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(str) ? R.string.obfuscated_res_0x7f0f1003 : h.c.equals(str) ? R.string.obfuscated_res_0x7f0f0ffc : "android.permission.SEND_SMS".equals(str) ? R.string.obfuscated_res_0x7f0f1004 : "android.permission.CALL_PHONE".equals(str) ? R.string.obfuscated_res_0x7f0f0ffb : R.string.obfuscated_res_0x7f0f0ffd : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) ? (TextUtils.isEmpty(str) || "android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) ? R.string.obfuscated_res_0x7f0f1000 : (h.g.equals(str) || h.h.equals(str)) ? R.string.obfuscated_res_0x7f0f1005 : PermissionRequest.RESOURCE_VIDEO_CAPTURE.equals(str) ? R.string.obfuscated_res_0x7f0f0ffd : PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(str) ? R.string.obfuscated_res_0x7f0f1006 : h.c.equals(str) ? R.string.obfuscated_res_0x7f0f0fff : "android.permission.SEND_SMS".equals(str) ? R.string.obfuscated_res_0x7f0f1007 : "android.permission.CALL_PHONE".equals(str) ? R.string.obfuscated_res_0x7f0f0ffe : R.string.obfuscated_res_0x7f0f1000 : invokeL.intValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -384,11 +384,11 @@ public class PermissionJudgePolicy {
             if (ActivityCompat.shouldShowRequestPermissionRationale(activity, str)) {
                 return true;
             }
-            ur4 ur4Var = new ur4(activity);
-            ur4Var.setCanceledOnTouchOutside(false);
-            ur4Var.setTitle(R.string.obfuscated_res_0x7f0f0ffe);
-            ur4Var.setMessageId(getPermissionDescriptionId(str));
-            ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0981, new ur4.e(this, activity, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
+            wr4 wr4Var = new wr4(activity);
+            wr4Var.setCanceledOnTouchOutside(false);
+            wr4Var.setTitle(R.string.obfuscated_res_0x7f0f1001);
+            wr4Var.setMessageId(getPermissionDescriptionId(str));
+            wr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0984, new wr4.e(this, activity, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PermissionJudgePolicy this$0;
@@ -415,11 +415,11 @@ public class PermissionJudgePolicy {
                     this.val$permission = str;
                 }
 
-                @Override // com.repackage.ur4.e
-                public void onClick(ur4 ur4Var2) {
+                @Override // com.baidu.tieba.wr4.e
+                public void onClick(wr4 wr4Var2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, ur4Var2) == null) {
-                        ur4Var2.dismiss();
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, wr4Var2) == null) {
+                        wr4Var2.dismiss();
                         Intent intent = new Intent();
                         intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                         intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
@@ -430,7 +430,7 @@ public class PermissionJudgePolicy {
                         }
                     }
                 }
-            }).setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new ur4.e(this, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.3
+            }).setNegativeButton(R.string.obfuscated_res_0x7f0f0371, new wr4.e(this, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PermissionJudgePolicy this$0;
@@ -455,18 +455,18 @@ public class PermissionJudgePolicy {
                     this.val$permission = str;
                 }
 
-                @Override // com.repackage.ur4.e
-                public void onClick(ur4 ur4Var2) {
+                @Override // com.baidu.tieba.wr4.e
+                public void onClick(wr4 wr4Var2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, ur4Var2) == null) {
-                        ur4Var2.dismiss();
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, wr4Var2) == null) {
+                        wr4Var2.dismiss();
                         if (this.this$0.mDialogClickListener != null) {
                             this.this$0.mDialogClickListener.onDialogCaneled(this.val$permission);
                         }
                     }
                 }
-            }).create(h9.a(activity));
-            ur4Var.show();
+            }).create(i9.a(activity));
+            wr4Var.show();
             return false;
         }
         return invokeLL.booleanValue;

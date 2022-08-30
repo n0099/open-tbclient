@@ -3,6 +3,7 @@ package com.baidu.turbonet.net;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.s39;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,29 +15,28 @@ import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 import com.baidu.turbonet.base.annotations.NativeClassQualifiedName;
 import com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect;
-import com.repackage.j39;
 import java.util.ArrayList;
 import java.util.Iterator;
 @JNINamespace
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class NetworkChangeNotifier {
     public static /* synthetic */ Interceptable $ic;
     public static NetworkChangeNotifier h;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public final ArrayList<Long> b;
-    public final j39<ConnectionTypeObserver> c;
+    public final s39<ConnectionTypeObserver> c;
     public NetworkChangeNotifierAutoDetect d;
     public int e;
     public double f;
     public int g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface ConnectionTypeObserver {
         void a(int i);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements NetworkChangeNotifierAutoDetect.Observer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +144,7 @@ public class NetworkChangeNotifier {
         this.g = 0;
         this.a = context.getApplicationContext();
         this.b = new ArrayList<>();
-        this.c = new j39<>();
+        this.c = new s39<>();
     }
 
     public static NetworkChangeNotifier e() {

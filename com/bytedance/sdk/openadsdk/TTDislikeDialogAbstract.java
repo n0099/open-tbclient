@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.bytedance.sdk.openadsdk.dislike.TTDislikeListView;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class TTDislikeDialogAbstract extends Dialog {
     public View a;
     public TTDislikeController b;

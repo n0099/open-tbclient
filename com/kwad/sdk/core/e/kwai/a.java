@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.e.kwai;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface a {
     void d(String str, String str2);
 

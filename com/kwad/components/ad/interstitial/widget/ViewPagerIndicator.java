@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ViewPagerIndicator extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class ViewPagerIndicator extends View {
     public ValueAnimator ju;
     public final Context mContext;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void dS();
     }
@@ -124,8 +124,8 @@ public class ViewPagerIndicator extends View {
             this.jm = obtainStyledAttributes.getDimension(2, com.kwad.sdk.b.kwai.a.a(this.mContext, 6.0f));
             this.jn = obtainStyledAttributes.getDimension(3, com.kwad.sdk.b.kwai.a.a(this.mContext, 50.0f));
             this.jo = obtainStyledAttributes.getDimension(4, com.kwad.sdk.b.kwai.a.a(this.mContext, 6.0f));
-            this.jg = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.obfuscated_res_0x7f06075a));
-            this.jf = obtainStyledAttributes.getColor(5, getResources().getColor(R.color.obfuscated_res_0x7f060775));
+            this.jg = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.obfuscated_res_0x7f06075d));
+            this.jf = obtainStyledAttributes.getColor(5, getResources().getColor(R.color.obfuscated_res_0x7f060778));
             obtainStyledAttributes.recycle();
         }
     }

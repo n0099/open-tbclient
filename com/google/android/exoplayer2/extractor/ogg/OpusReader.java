@@ -21,7 +21,7 @@ import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class OpusReader extends StreamReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SEEK_PRE_ROLL_SAMPLES = 3840;

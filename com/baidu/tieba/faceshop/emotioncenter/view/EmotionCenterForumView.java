@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EmotionCenterForumView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,10 +54,10 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d024e, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090aa0);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a7c);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a2d);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d024f, this);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090aa1);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a7d);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a2e);
             setOnClickListener(this);
         }
     }

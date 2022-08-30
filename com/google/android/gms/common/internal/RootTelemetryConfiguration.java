@@ -4,6 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ln9;
+import com.baidu.tieba.pn9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,9 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
-import com.repackage.cn9;
-import com.repackage.gn9;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RootTelemetryConfiguration extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
     @NonNull
@@ -39,7 +39,7 @@ public class RootTelemetryConfiguration extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new gn9();
+        CREATOR = new pn9();
     }
 
     public RootTelemetryConfiguration(int i, boolean z, boolean z2, int i2, int i3) {
@@ -98,13 +98,13 @@ public class RootTelemetryConfiguration extends AbstractSafeParcelable {
     public final void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
-            int a = cn9.a(parcel);
-            cn9.g(parcel, 1, getVersion());
-            cn9.c(parcel, 2, getMethodInvocationTelemetryEnabled());
-            cn9.c(parcel, 3, getMethodTimingTelemetryEnabled());
-            cn9.g(parcel, 4, getBatchPeriodMillis());
-            cn9.g(parcel, 5, getMaxMethodInvocationsInBatch());
-            cn9.b(parcel, a);
+            int a = ln9.a(parcel);
+            ln9.g(parcel, 1, getVersion());
+            ln9.c(parcel, 2, getMethodInvocationTelemetryEnabled());
+            ln9.c(parcel, 3, getMethodTimingTelemetryEnabled());
+            ln9.g(parcel, 4, getBatchPeriodMillis());
+            ln9.g(parcel, 5, getMaxMethodInvocationsInBatch());
+            ln9.b(parcel, a);
         }
     }
 }

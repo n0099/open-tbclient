@@ -16,7 +16,7 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.ParsableNalUnitBitArray;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class H264Reader implements ElementaryStreamReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NAL_UNIT_TYPE_PPS = 8;
@@ -39,13 +39,13 @@ public final class H264Reader implements ElementaryStreamReader {
     public long totalBytesWritten;
 
     /* renamed from: com.google.android.exoplayer2.extractor.ts.H264Reader$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class SampleReader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DEFAULT_BUFFER_SIZE = 128;
@@ -73,7 +73,7 @@ public final class H264Reader implements ElementaryStreamReader {
         public SliceHeaderData sliceHeader;
         public final SparseArray<NalUnitUtil.SpsData> sps;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes7.dex */
         public static final class SliceHeaderData {
             public static /* synthetic */ Interceptable $ic = null;
             public static final int SLICE_TYPE_ALL_I = 7;

@@ -12,14 +12,14 @@ import com.facebook.common.logging.FLog;
 import com.facebook.soloader.DoNotOptimize;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class HeifExifUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HeifExifUtil";
     public transient /* synthetic */ FieldHolder $fh;
 
     @DoNotOptimize
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class HeifExifUtilAndroidN {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

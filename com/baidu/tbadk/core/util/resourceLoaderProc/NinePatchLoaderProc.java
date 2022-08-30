@@ -7,15 +7,15 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tieba.ac;
+import com.baidu.tieba.an;
+import com.baidu.tieba.ig;
+import com.baidu.tieba.zb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hg;
-import com.repackage.yb;
-import com.repackage.zb;
-import com.repackage.zm;
 /* loaded from: classes3.dex */
 public class NinePatchLoaderProc extends AbstractImageLoaderProc {
     public static /* synthetic */ Interceptable $ic;
@@ -56,29 +56,29 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public zb createDiskPicOperate(String str) {
+    public ac createDiskPicOperate(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new yb("images", str, DiskFileOperate.Action.READ) : (zb) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new zb("images", str, DiskFileOperate.Action.READ) : (ac) invokeL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public zm createImageFromDiskPicOperate(zb zbVar, String str, int i, int i2) {
+    public an createImageFromDiskPicOperate(ac acVar, String str, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, zbVar, str, i, i2)) == null) {
-            if (zbVar instanceof yb) {
-                yb ybVar = (yb) zbVar;
-                zbVar.formatData(zbVar.getData());
-                Bitmap bitmap = zbVar.getBitmap();
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, acVar, str, i, i2)) == null) {
+            if (acVar instanceof zb) {
+                zb zbVar = (zb) acVar;
+                acVar.formatData(acVar.getData());
+                Bitmap bitmap = acVar.getBitmap();
                 if (bitmap != null) {
-                    return new zm(bitmap, false, str, ybVar.g());
+                    return new an(bitmap, false, str, zbVar.g());
                 }
                 return null;
             }
             return null;
         }
-        return (zm) invokeLLII.objValue;
+        return (an) invokeLLII.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
@@ -127,15 +127,15 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public zm decodeToResource(byte[] bArr, Object... objArr) {
+    public an decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bArr, objArr)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             Bitmap Bytes2NineBitmap = BitmapHelper.Bytes2NineBitmap(bArr, (Rect) objArr[0]);
-            hg.c(Bytes2NineBitmap != null, System.currentTimeMillis() - currentTimeMillis);
-            return new zm(Bytes2NineBitmap);
+            ig.c(Bytes2NineBitmap != null, System.currentTimeMillis() - currentTimeMillis);
+            return new an(Bytes2NineBitmap);
         }
-        return (zm) invokeLL.objValue;
+        return (an) invokeLL.objValue;
     }
 }

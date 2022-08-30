@@ -10,7 +10,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ImageLoaderEngine {
     public final ImageLoaderConfiguration configuration;
     public Executor taskDistributor;

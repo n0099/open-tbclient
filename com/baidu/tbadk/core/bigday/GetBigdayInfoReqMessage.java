@@ -4,13 +4,13 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tieba.af5;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-import com.repackage.te5;
 import tbclient.GetBigday.DataReq;
 import tbclient.GetBigday.GetBigdayReqIdl;
 /* loaded from: classes3.dex */
@@ -45,10 +45,10 @@ public class GetBigdayInfoReqMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    te5.a(builder, true);
+                    af5.a(builder, true);
                 }
-                builder.scr_h = Integer.valueOf(qi.i(TbadkCoreApplication.getInst().getContext()));
-                builder.scr_w = Integer.valueOf(qi.k(TbadkCoreApplication.getInst().getContext()));
+                builder.scr_h = Integer.valueOf(ri.i(TbadkCoreApplication.getInst().getContext()));
+                builder.scr_w = Integer.valueOf(ri.k(TbadkCoreApplication.getInst().getContext()));
                 GetBigdayReqIdl.Builder builder2 = new GetBigdayReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);

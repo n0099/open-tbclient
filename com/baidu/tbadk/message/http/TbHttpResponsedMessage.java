@@ -7,14 +7,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tbadk.core.util.NetWorkState;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.sf;
+import com.baidu.tieba.tf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.rf;
-import com.repackage.sf;
 /* loaded from: classes3.dex */
 public class TbHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
@@ -85,19 +85,19 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, sf sfVar) {
+    public void logStatInBackground(int i, tf tfVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, sfVar) == null) || sfVar.d().size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, tfVar) == null) || tfVar.d().size() <= 0) {
             return;
         }
-        rf rfVar = sfVar.d().get(sfVar.d().size() - 1);
-        NetWorkState.mErrorNums.addAndGet(sfVar.d().size() - 1);
+        sf sfVar = tfVar.d().get(tfVar.d().size() - 1);
+        NetWorkState.mErrorNums.addAndGet(tfVar.d().size() - 1);
         NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
-        statisticsData.mMode = getMode(oi.I());
-        statisticsData.mSize = rfVar.b;
-        statisticsData.mTime = rfVar.f;
-        statisticsData.mTimesNum = rfVar.e;
-        statisticsData.mMethod = sfVar.b().h() != HttpMessageTask.HTTP_METHOD.POST ? 2 : 1;
+        statisticsData.mMode = getMode(pi.I());
+        statisticsData.mSize = sfVar.b;
+        statisticsData.mTime = sfVar.f;
+        statisticsData.mTimesNum = sfVar.e;
+        statisticsData.mMethod = tfVar.b().h() != HttpMessageTask.HTTP_METHOD.POST ? 2 : 1;
         NetWorkState.addStatisticsData(statisticsData);
     }
 

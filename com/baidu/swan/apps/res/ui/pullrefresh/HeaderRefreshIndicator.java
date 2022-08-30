@@ -5,12 +5,12 @@ import android.util.AttributeSet;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.hk2;
+import com.baidu.tieba.re3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gk2;
-import com.repackage.qe3;
 /* loaded from: classes2.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
     public static /* synthetic */ Interceptable $ic;
@@ -45,10 +45,10 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
             return;
         }
         this.n = true;
-        this.o = gk2.M().a();
+        this.o = hk2.M().a();
         j();
         setTextSize(1, 11.0f);
-        setCompoundDrawablePadding(qe3.f(getContext(), 5.0f));
+        setCompoundDrawablePadding(re3.f(getContext(), 5.0f));
         b(0);
     }
 
@@ -56,15 +56,15 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801b8));
-            setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603e6));
-            c(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801b9), 0, qe3.f(getContext(), 11.0f), qe3.f(getContext(), 11.0f));
+            setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603e9));
+            c(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801b9), 0, re3.f(getContext(), 11.0f), re3.f(getContext(), 11.0f));
         }
     }
 
     public void k() {
         boolean a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.o == (a = gk2.M().a())) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.o == (a = hk2.M().a())) {
             return;
         }
         j();

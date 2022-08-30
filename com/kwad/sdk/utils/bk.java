@@ -18,10 +18,10 @@ import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class bk {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a extends ZipOutputStream {
         public Map<String, Integer> aps;
 

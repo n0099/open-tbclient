@@ -1,11 +1,11 @@
 package com.baidu.live.business.model.data;
 
+import com.baidu.tieba.ma0;
+import com.baidu.tieba.pa0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.la0;
-import com.repackage.oa0;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -55,11 +55,11 @@ public class LiveFollowWrapData {
                 }
             }
         }
-        if (la0.c(this.followList) || (optJSONObject = jSONObject.optJSONObject("more")) == null) {
+        if (ma0.c(this.followList) || (optJSONObject = jSONObject.optJSONObject("more")) == null) {
             return;
         }
         String optString = optJSONObject.optString("scheme");
-        if (oa0.a(optString)) {
+        if (pa0.a(optString)) {
             return;
         }
         LiveFollowEntity liveFollowEntity2 = new LiveFollowEntity();

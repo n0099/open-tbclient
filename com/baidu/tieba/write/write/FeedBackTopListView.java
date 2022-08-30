@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FeedBackTopListView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class FeedBackTopListView extends LinearLayout {
     public TbPageContext<?> c;
     public int d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,10 +96,10 @@ public class FeedBackTopListView extends LinearLayout {
             if (threadData == null) {
                 return null;
             }
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d034b, (ViewGroup) null);
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090bf9);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090bfb);
-            inflate.findViewById(R.id.obfuscated_res_0x7f090bf6);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d034c, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090bfa);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090bfc);
+            inflate.findViewById(R.id.obfuscated_res_0x7f090bf7);
             String tid = threadData.getTid();
             textView.setText(threadData.getTitle());
             this.c.getLayoutMode().l(this.d == 1);

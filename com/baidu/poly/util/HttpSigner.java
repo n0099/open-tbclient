@@ -1,6 +1,8 @@
 package com.baidu.poly.util;
 
 import android.text.TextUtils;
+import com.baidu.tieba.h91;
+import com.baidu.tieba.j81;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,8 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g91;
-import com.repackage.i81;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
@@ -48,14 +48,14 @@ public class HttpSigner {
         }
     }
 
-    public static String a(i81 i81Var, String str, int i) {
+    public static String a(j81 j81Var, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, i81Var, str, i)) == null) {
-            if (i81Var == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, j81Var, str, i)) == null) {
+            if (j81Var == null) {
                 return "";
             }
-            Map<String, String> b = i81Var.b();
+            Map<String, String> b = j81Var.b();
             ArrayList<String> arrayList = new ArrayList(b.keySet());
             Collections.sort(arrayList);
             StringBuilder sb = new StringBuilder();
@@ -71,17 +71,17 @@ public class HttpSigner {
             sb.append(str);
             sb.append("=");
             sb.append(nativeGetStatisticsKey(i));
-            return g91.c(sb.toString());
+            return h91.c(sb.toString());
         }
         return (String) invokeLLI.objValue;
     }
 
-    public static void b(i81 i81Var) {
+    public static void b(j81 j81Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, i81Var) == null) || i81Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, j81Var) == null) || j81Var == null) {
             return;
         }
-        Map<String, String> b = i81Var.b();
+        Map<String, String> b = j81Var.b();
         if (b.containsKey("timestamp")) {
             b.remove("timestamp");
         }
@@ -100,11 +100,11 @@ public class HttpSigner {
                 sb.append("&");
             }
         }
-        i81Var.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        j81Var.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
         sb.append(nativeGetCommissionSk());
         sb.append("&");
-        sb.append(i81Var.a("timestamp"));
-        i81Var.d("sign", g91.c(sb.toString()));
+        sb.append(j81Var.a("timestamp"));
+        j81Var.d("sign", h91.c(sb.toString()));
     }
 
     public static native String nativeGetAppId(int i);

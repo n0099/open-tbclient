@@ -12,6 +12,7 @@ import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -276,10 +277,10 @@ public class DeviceController {
                     WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                     if (wifiManager.isWifiEnabled() && wifiManager.getWifiState() == 3 && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
                         int ipAddress = connectionInfo.getIpAddress();
-                        connectionInfo.getMacAddress();
+                        ApiReplaceUtil.getMacAddress(connectionInfo);
                         DhcpInfo dhcpInfo = wifiManager.getDhcpInfo();
                         strArr[0] = a(ipAddress);
-                        strArr[1] = connectionInfo.getMacAddress();
+                        strArr[1] = ApiReplaceUtil.getMacAddress(connectionInfo);
                         strArr[2] = a(dhcpInfo.netmask);
                     }
                 }

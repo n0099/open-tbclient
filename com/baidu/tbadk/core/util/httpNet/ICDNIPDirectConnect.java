@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.util.httpNet;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.en4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dn4;
 import org.apache.http.client.methods.HttpGet;
 /* loaded from: classes3.dex */
 public abstract class ICDNIPDirectConnect {
@@ -71,7 +71,7 @@ public abstract class ICDNIPDirectConnect {
 
     public abstract String getAllIPListCanUsed();
 
-    public abstract dn4 getCDNImageTimeData();
+    public abstract en4 getCDNImageTimeData();
 
     public abstract String getCachedCdnIp(int i);
 
@@ -87,7 +87,7 @@ public abstract class ICDNIPDirectConnect {
 
     public abstract void result(String str, String str2, boolean z, boolean z2, boolean z3);
 
-    public abstract void setCDNImageTimeData(dn4 dn4Var);
+    public abstract void setCDNImageTimeData(en4 en4Var);
 
     public abstract void setIpDisableTime(int i);
 }

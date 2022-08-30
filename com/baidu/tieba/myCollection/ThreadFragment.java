@@ -31,30 +31,30 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ao7;
+import com.baidu.tieba.bo7;
+import com.baidu.tieba.do7;
+import com.baidu.tieba.dv4;
+import com.baidu.tieba.eo7;
+import com.baidu.tieba.nz4;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.wr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.av4;
-import com.repackage.jz4;
-import com.repackage.oi;
-import com.repackage.qi;
-import com.repackage.sn7;
-import com.repackage.tn7;
-import com.repackage.ur4;
-import com.repackage.vn7;
-import com.repackage.wn7;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
-public class ThreadFragment extends CollectFragment implements View.OnClickListener, av4.g, BdListView.p {
+/* loaded from: classes5.dex */
+public class ThreadFragment extends CollectFragment implements View.OnClickListener, dv4.g, BdListView.p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wn7 c;
-    public vn7 d;
+    public eo7 c;
+    public do7 d;
     public int e;
     public ArrayList<MarkData> f;
     public MarkData g;
@@ -62,8 +62,8 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
     public final CustomMessageListener i;
     public final AntiHelper.k j;
 
-    /* loaded from: classes3.dex */
-    public class a implements ur4.e {
+    /* loaded from: classes5.dex */
+    public class a implements wr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ThreadFragment a;
@@ -86,19 +86,19 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
             this.a = threadFragment;
         }
 
-        @Override // com.repackage.ur4.e
-        public void onClick(ur4 ur4Var) {
+        @Override // com.baidu.tieba.wr4.e
+        public void onClick(wr4 wr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ur4Var) == null) {
-                ur4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
+                wr4Var.dismiss();
                 this.a.d.v(this.a.c.q());
                 this.a.c.w(Boolean.TRUE);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b extends tn7 {
+    /* loaded from: classes5.dex */
+    public class b extends bo7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ThreadFragment a;
@@ -121,7 +121,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
             this.a = threadFragment;
         }
 
-        @Override // com.repackage.tn7
+        @Override // com.baidu.tieba.bo7
         public void a(Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, objArr) == null) {
@@ -168,7 +168,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -208,7 +208,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -240,12 +240,12 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                sn7.c("c14066", ((Boolean) customResponsedMessage.getData()).booleanValue(), this.a.g);
+                ao7.c("c14066", ((Boolean) customResponsedMessage.getData()).booleanValue(), this.a.g);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -277,7 +277,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-                if (!oi.z()) {
+                if (!pi.z()) {
                     this.a.d.j();
                     this.a.d.c();
                     this.a.d.r(false);
@@ -290,7 +290,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -344,7 +344,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class g implements AntiHelper.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -369,17 +369,17 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(ur4 ur4Var) {
+        public void onNavigationButtonClick(wr4 wr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ur4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
             }
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(ur4 ur4Var) {
+        public void onPositiveButtonClick(wr4 wr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ur4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wr4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
             }
         }
@@ -427,19 +427,19 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
     }
 
     public final void J1(MarkData markData) {
-        wn7 wn7Var;
+        eo7 eo7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, markData) == null) || markData == null || (wn7Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, markData) == null) || markData == null || (eo7Var = this.c) == null) {
             return;
         }
-        int o = wn7Var.o();
-        int v = jz4.h0().v();
+        int o = eo7Var.o();
+        int v = nz4.h0().v();
         TiebaStatic.eventStat(TbadkCoreApplication.getInst(), "my_favorite_content", "is_redpoint", markData.getNewCounts() > 0 ? 1 : 0, new Object[0]);
         if (markData.getNewCounts() > 0) {
             if (v > 0) {
-                jz4.h0().a0(v - 1);
+                nz4.h0().a0(v - 1);
             } else {
-                jz4.h0().a0(0);
+                nz4.h0().a0(0);
             }
             if (o > 0) {
                 this.c.C(o - 1);
@@ -450,14 +450,14 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
         markData.setNewCounts(0);
     }
 
-    @Override // com.repackage.av4.g
+    @Override // com.baidu.tieba.dv4.g
     public void e(boolean z) {
-        wn7 wn7Var;
+        eo7 eo7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (wn7Var = this.c) == null || this.d == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (eo7Var = this.c) == null || this.d == null) {
             return;
         }
-        wn7Var.z();
+        eo7Var.z();
         this.d.r(true);
         this.c.w(Boolean.FALSE);
     }
@@ -474,15 +474,15 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
 
     @Override // androidx.fragment.app.Fragment
     public void onActivityResult(int i, int i2, Intent intent) {
-        wn7 wn7Var;
+        eo7 eo7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i2 != -1) {
-                if (i2 != 1 || 17001 != i || (wn7Var = this.c) == null || this.d == null) {
+                if (i2 != 1 || 17001 != i || (eo7Var = this.c) == null || this.d == null) {
                     return;
                 }
-                int count = ListUtils.getCount(wn7Var.n());
+                int count = ListUtils.getCount(eo7Var.n());
                 int i3 = this.e;
                 if (count <= i3 || i3 < 0) {
                     return;
@@ -492,11 +492,11 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
                 this.d.p(this.c, false);
             } else if (17001 == i) {
                 MarkData markData = (MarkData) intent.getSerializableExtra("mark");
-                wn7 wn7Var2 = this.c;
-                if (wn7Var2 == null || markData == null || this.d == null) {
+                eo7 eo7Var2 = this.c;
+                if (eo7Var2 == null || markData == null || this.d == null) {
                     return;
                 }
-                int count2 = ListUtils.getCount(wn7Var2.n());
+                int count2 = ListUtils.getCount(eo7Var2.n());
                 int i4 = this.e;
                 if (count2 <= i4 || i4 < 0) {
                     return;
@@ -514,9 +514,9 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
-            vn7 vn7Var = this.d;
-            if (vn7Var != null) {
-                vn7Var.n(i);
+            do7 do7Var = this.d;
+            if (do7Var != null) {
+                do7Var.n(i);
             }
         }
     }
@@ -540,25 +540,25 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
                     if (!this.c.D(intValue)) {
                         this.d.j();
                     }
-                    sn7.b("c14069", markData);
+                    ao7.b("c14069", markData);
                     return;
                 }
                 return;
             }
             FragmentActivity activity = getActivity();
             if ((activity instanceof CollectTabActivity) && ((CollectTabActivity) activity).G0()) {
-                qi.N(activity, "请先退出编辑状态");
+                ri.N(activity, "请先退出编辑状态");
                 super.onClick(view2);
                 return;
             }
             if (view2.getId() == this.d.i(isShareThread)) {
                 this.d.l(markData);
                 statisticItem.param("obj_locate", 1);
-                sn7.b("c14064", markData);
+                ao7.b("c14064", markData);
             } else if (view2.getId() == this.d.h(isShareThread)) {
                 statisticItem.param("obj_locate", 3);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createMarkCfg(markData.getThreadId(), markData.getPostId(), markData.getHostMode(), markData.getSequence().booleanValue(), null, 17001)));
-                sn7.b("c14063", markData);
+                ao7.b("c14063", markData);
                 J1(markData);
             }
             statisticItem.param("tid", markData.getId());
@@ -585,12 +585,12 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0242, (ViewGroup) null);
-            this.c = new wn7();
-            vn7 vn7Var = new vn7(this, inflate);
-            this.d = vn7Var;
-            vn7Var.q(new a(this));
-            this.d.b(oi.z());
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0243, (ViewGroup) null);
+            this.c = new eo7();
+            do7 do7Var = new do7(this, inflate);
+            this.d = do7Var;
+            do7Var.q(new a(this));
+            this.d.b(pi.z());
             this.c.A(new b(this));
             return inflate;
         }
@@ -613,7 +613,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             FragmentActivity activity = getActivity();
             if ((activity instanceof CollectTabActivity) && ((CollectTabActivity) activity).G0()) {
-                qi.N(activity, "请先退出编辑状态");
+                ri.N(activity, "请先退出编辑状态");
                 super.onItemClick(adapterView, view2, i, j);
                 return;
             }
@@ -636,7 +636,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
                                 sendMessage(new CustomMessage(2002001, new MangaBrowserActivityConfig(getPageContext().getPageActivity(), markData.getCartoonId(), markData.getChapterId(), 3)));
                             }
                         } else {
-                            qi.M(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0a89);
+                            ri.M(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0a8c);
                         }
                     } else if (markData.getThreadType() == 40) {
                         ArrayList arrayList = new ArrayList();
@@ -651,7 +651,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
                         createMarkCfg.setStartFrom(10);
                         createMarkCfg.setJumpToCommentArea(true);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createMarkCfg));
-                        sn7.b("c14063", markData2);
+                        ao7.b("c14063", markData2);
                     }
                 }
                 J1(markData2);
@@ -666,9 +666,9 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onResume();
-            vn7 vn7Var = this.d;
-            if (vn7Var != null) {
-                vn7Var.w(this.f);
+            do7 do7Var = this.d;
+            if (do7Var != null) {
+                do7Var.w(this.f);
                 ArrayList<MarkData> arrayList = this.f;
                 this.a = (arrayList == null || arrayList.isEmpty()) ? false : true;
                 t1(1);
@@ -680,9 +680,9 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
 
     @Override // com.baidu.adp.widget.ListView.BdListView.p
     public void onScrollToBottom() {
-        wn7 wn7Var;
+        eo7 eo7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.d == null || (wn7Var = this.c) == null || !wn7Var.r()) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.d == null || (eo7Var = this.c) == null || !eo7Var.r()) {
             return;
         }
         this.d.v(this.c.q());
