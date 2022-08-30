@@ -2,7 +2,7 @@ package com.facebook.binaryresource;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface BinaryResource {
     InputStream openStream() throws IOException;
 

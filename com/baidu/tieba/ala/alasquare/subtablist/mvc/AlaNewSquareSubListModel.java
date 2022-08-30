@@ -14,16 +14,16 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListRequestMessage;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListResponseMessage;
+import com.baidu.tieba.cu5;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.du5;
+import com.baidu.tieba.pn;
+import com.baidu.tieba.qq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
-import com.repackage.iq5;
-import com.repackage.on;
-import com.repackage.ut5;
-import com.repackage.vt5;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -45,7 +45,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     public int k;
     public List<String> l;
     public List<ThreadData> m;
-    public List<on> n;
+    public List<pn> n;
     public boolean o;
     public b p;
     public BdUniqueId q;
@@ -178,46 +178,46 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         int size = list.size();
         for (int i = 0; i < size; i += 2) {
             if (this.o) {
-                ut5 ut5Var = new ut5();
-                iq5 iq5Var = new iq5();
-                iq5Var.e = this.i;
-                iq5Var.b = this.e;
-                iq5Var.c = this.d;
-                iq5Var.d = list.get(i);
-                ut5Var.a = iq5Var;
+                cu5 cu5Var = new cu5();
+                qq5 qq5Var = new qq5();
+                qq5Var.e = this.i;
+                qq5Var.b = this.e;
+                qq5Var.c = this.d;
+                qq5Var.d = list.get(i);
+                cu5Var.a = qq5Var;
                 int i2 = i + 1;
                 if (i2 < size) {
-                    iq5 iq5Var2 = new iq5();
-                    iq5Var2.e = this.i;
-                    iq5Var2.b = this.e;
-                    iq5Var2.c = this.d;
-                    iq5Var2.d = list.get(i2);
-                    ut5Var.b = iq5Var2;
+                    qq5 qq5Var2 = new qq5();
+                    qq5Var2.e = this.i;
+                    qq5Var2.b = this.e;
+                    qq5Var2.c = this.d;
+                    qq5Var2.d = list.get(i2);
+                    cu5Var.b = qq5Var2;
                 }
-                this.n.add(ut5Var);
+                this.n.add(cu5Var);
             } else {
-                vt5 vt5Var = new vt5();
-                iq5 iq5Var3 = new iq5();
-                iq5Var3.e = this.i;
-                iq5Var3.b = this.e;
-                iq5Var3.c = this.d;
-                iq5Var3.d = list.get(i);
-                vt5Var.a = iq5Var3;
+                du5 du5Var = new du5();
+                qq5 qq5Var3 = new qq5();
+                qq5Var3.e = this.i;
+                qq5Var3.b = this.e;
+                qq5Var3.c = this.d;
+                qq5Var3.d = list.get(i);
+                du5Var.a = qq5Var3;
                 int i3 = i + 1;
                 if (i3 < size) {
-                    iq5 iq5Var4 = new iq5();
-                    iq5Var4.e = this.i;
-                    iq5Var4.b = this.e;
-                    iq5Var4.c = this.d;
-                    iq5Var4.d = list.get(i3);
-                    vt5Var.b = iq5Var4;
+                    qq5 qq5Var4 = new qq5();
+                    qq5Var4.e = this.i;
+                    qq5Var4.b = this.e;
+                    qq5Var4.c = this.d;
+                    qq5Var4.d = list.get(i3);
+                    du5Var.b = qq5Var4;
                 }
-                this.n.add(vt5Var);
+                this.n.add(du5Var);
             }
         }
     }
 
-    public List<on> M() {
+    public List<pn> M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.n : (List) invokeV.objValue;

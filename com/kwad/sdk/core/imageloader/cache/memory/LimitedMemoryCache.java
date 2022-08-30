@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class LimitedMemoryCache extends BaseMemoryCache {
     public static final int MAX_NORMAL_CACHE_SIZE = 16777216;
     public static final int MAX_NORMAL_CACHE_SIZE_IN_MB = 16;

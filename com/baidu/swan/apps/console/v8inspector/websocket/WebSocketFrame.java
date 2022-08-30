@@ -6,6 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.map.Text;
 import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.kh1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.yunjiasu.ping.Ping;
-import com.repackage.jh1;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -326,7 +326,7 @@ public class WebSocketFrame {
                 return;
             }
         }
-        g = jh1.a;
+        g = kh1.a;
         h = Charset.forName("UTF-8");
     }
 

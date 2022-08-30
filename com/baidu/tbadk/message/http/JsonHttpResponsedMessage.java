@@ -7,12 +7,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.tf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sf;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
@@ -49,14 +49,14 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
             errorData.parserJson(str);
             setError(errorData.getError_code());
             if (getError() == -1) {
-                setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05b4));
+                setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05b5));
             } else {
                 setErrorString(errorData.getError_msg());
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             setError(-1);
-            setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05b4));
+            setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05b5));
         }
     }
 
@@ -81,10 +81,10 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, sf sfVar) {
+    public void logStatInBackground(int i, tf tfVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, sfVar) == null) {
-            super.logStatInBackground(i, sfVar);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, tfVar) == null) {
+            super.logStatInBackground(i, tfVar);
         }
     }
 

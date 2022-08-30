@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class WavHeaderReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "WavHeaderReader";
@@ -20,7 +20,7 @@ public final class WavHeaderReader {
     public static final int TYPE_WAVE_FORMAT_EXTENSIBLE = 65534;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class ChunkHeader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int SIZE_IN_BYTES = 8;

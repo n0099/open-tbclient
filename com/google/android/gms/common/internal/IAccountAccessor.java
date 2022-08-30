@@ -6,17 +6,17 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import androidx.annotation.NonNull;
+import com.baidu.tieba.ap9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.internal.common.zzb;
-import com.repackage.ro9;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IAccountAccessor extends IInterface {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static abstract class Stub extends zzb implements IAccountAccessor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public interface IAccountAccessor extends IInterface {
                 if (i == 2) {
                     Account zzb = zzb();
                     parcel2.writeNoException();
-                    ro9.d(parcel2, zzb);
+                    ap9.d(parcel2, zzb);
                     return true;
                 }
                 return false;

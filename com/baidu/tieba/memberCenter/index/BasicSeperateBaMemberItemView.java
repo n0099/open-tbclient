@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class BasicSeperateBaMemberItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,13 +49,13 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03db, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03dc, this);
             this.b = inflate;
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f09144d);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092079);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923dc);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923d4);
-            this.g = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091a5c);
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f09144f);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09207b);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923e5);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923dd);
+            this.g = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091a5e);
         }
     }
 

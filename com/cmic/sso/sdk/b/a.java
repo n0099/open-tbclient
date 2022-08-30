@@ -22,23 +22,23 @@ import com.cmic.sso.sdk.e.g;
 import com.cmic.sso.sdk.e.m;
 import com.kuaishou.weapon.p0.h;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
     public static long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0291a c;
+    public C0506a c;
 
     /* renamed from: com.cmic.sso.sdk.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C0291a {
+    /* loaded from: classes7.dex */
+    public static class C0506a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
         public int b;
 
-        public C0291a() {
+        public C0506a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,14 +145,14 @@ public class a {
         return invokeL.intValue;
     }
 
-    public C0291a b() {
+    public C0506a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            C0291a c0291a = this.c;
-            return c0291a == null ? new C0291a() : c0291a;
+            C0506a c0506a = this.c;
+            return c0506a == null ? new C0506a() : c0506a;
         }
-        return (C0291a) invokeV.objValue;
+        return (C0506a) invokeV.objValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
@@ -218,15 +218,15 @@ public class a {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             long currentTimeMillis = System.currentTimeMillis() - b;
             if (currentTimeMillis >= 5000 || currentTimeMillis <= 0) {
-                this.c = new C0291a();
+                this.c = new C0506a();
                 if (z2) {
                     a(context, z);
                     if (m.e() && m.d()) {
                         c.b("UMCTelephonyManagement", "华为手机兼容性处理");
                         if (this.c.b == 0 || this.c.b == 1) {
                             if (this.c.a == -1) {
-                                C0291a c0291a = this.c;
-                                c0291a.a = c0291a.b;
+                                C0506a c0506a = this.c;
+                                c0506a.a = c0506a.b;
                             }
                             this.c.b = -1;
                         }

@@ -22,6 +22,12 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ho4;
+import com.baidu.tieba.ix;
+import com.baidu.tieba.j06;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.tn4;
+import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,16 +35,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b06;
-import com.repackage.fo4;
-import com.repackage.hx;
-import com.repackage.qi;
-import com.repackage.rn4;
-import com.repackage.xm;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MutiImgSingleHorizontalLayout extends LinearLayout implements hx<fo4> {
+public class MutiImgSingleHorizontalLayout extends LinearLayout implements ix<ho4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public static final int g;
@@ -49,7 +49,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements hx<fo
     public TbImageView b;
     public ImageView c;
     public boolean d;
-    public b06<fo4> e;
+    public j06<ho4> e;
 
     static {
         InterceptResult invokeClinit;
@@ -64,8 +64,8 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements hx<fo
                 return;
             }
         }
-        f = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds88);
-        int k = qi.k(TbadkCoreApplication.getInst());
+        f = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds88);
+        int k = ri.k(TbadkCoreApplication.getInst());
         g = k;
         int i2 = k - f;
         h = i2;
@@ -97,7 +97,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements hx<fo
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, threadData) == null) {
             ArrayList<MediaData> medias = threadData.getMedias();
-            if (rn4.c().g() && ListUtils.getCount(medias) != 0) {
+            if (tn4.c().g() && ListUtils.getCount(medias) != 0) {
                 LinkedList linkedList = new LinkedList();
                 for (int i2 = 0; i2 < medias.size(); i2++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i2);
@@ -145,26 +145,26 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements hx<fo
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05b2, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05b4, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, i));
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09212b);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09212e);
             this.a = textView;
             HomeGroupUbsUIHelper.handleTextLineSpacingExtra(textView, R.dimen.tbds7, R.dimen.tbds10);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092128);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09212b);
             this.b = tbImageView;
             HomeGroupUbsUIHelper.handleContentInterval(tbImageView, R.dimen.tbds26, R.dimen.tbds14);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919aa);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919ac);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.hx
+    @Override // com.baidu.tieba.ix
     /* renamed from: d */
-    public void a(fo4 fo4Var) {
+    public void a(ho4 ho4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fo4Var) == null) {
-            ThreadData threadData = fo4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(1048579, this, ho4Var) == null) {
+            ThreadData threadData = ho4Var.getThreadData();
             ThreadCardUtils.setTitle(this.a, threadData);
             setImageData(threadData);
         }
@@ -179,7 +179,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements hx<fo
                 tbImageView.F();
             }
             if (z) {
-                tbImageView.setRadius(qi.f(getContext(), R.dimen.tbds10));
+                tbImageView.setRadius(ri.f(getContext(), R.dimen.tbds10));
                 tbImageView.setDrawBorder(true);
                 tbImageView.setForegroundColor(0);
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
@@ -190,10 +190,10 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements hx<fo
         }
     }
 
-    public b06<fo4> getSubClickListener() {
+    public j06<ho4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (b06) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (j06) invokeV.objValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -222,16 +222,16 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements hx<fo
         }
     }
 
-    public void setPreloadSizeReadyCallback(xm xmVar) {
+    public void setPreloadSizeReadyCallback(ym ymVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, xmVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, ymVar) == null) {
         }
     }
 
-    public void setSubClickListener(b06<fo4> b06Var) {
+    public void setSubClickListener(j06<ho4> j06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, b06Var) == null) {
-            this.e = b06Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, j06Var) == null) {
+            this.e = j06Var;
         }
     }
 

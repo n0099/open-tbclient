@@ -31,6 +31,6 @@ public class TbPreviewVideoActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra(KEY_VIDEO_INFO, videoInfo);
+        getIntent().putExtra("videoInfo", videoInfo);
     }
 }

@@ -5,13 +5,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
+import com.baidu.tieba.bd0;
+import com.baidu.tieba.h25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ad0;
-import com.repackage.b25;
 /* loaded from: classes2.dex */
 public class InitArTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -34,10 +34,10 @@ public class InitArTask extends LaunchTask {
     public static void initAR(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            ad0.r(BdUploadHandler.MEDIA_SOURCE_KEY);
-            ad0.j(context);
-            ad0.u(false);
-            b25.a();
+            bd0.r(BdUploadHandler.MEDIA_SOURCE_KEY);
+            bd0.j(context);
+            bd0.u(false);
+            h25.a();
         }
     }
 

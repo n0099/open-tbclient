@@ -10,13 +10,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.n16;
+import com.baidu.tieba.o16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f16;
-import com.repackage.g16;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActivity> {
@@ -25,8 +25,8 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public int a;
     public int b;
     public int c;
-    public ArrayList<f16> d;
-    public g16 e;
+    public ArrayList<n16> d;
+    public o16 e;
     public boolean f;
     public b g;
     public HttpMessageListener h;
@@ -87,7 +87,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public interface b {
         void a();
 
-        void b(int i, String str, ArrayList<f16> arrayList, g16 g16Var, boolean z);
+        void b(int i, String str, ArrayList<n16> arrayList, o16 o16Var, boolean z);
     }
 
     public ConsumptionRecordsModel(BdUniqueId bdUniqueId) {
@@ -156,11 +156,11 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         }
     }
 
-    public final void H(ArrayList<f16> arrayList, g16 g16Var, boolean z) {
+    public final void H(ArrayList<n16> arrayList, o16 o16Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, arrayList, g16Var, z) == null) {
-            if (g16Var != null) {
-                this.e = g16Var;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, arrayList, o16Var, z) == null) {
+            if (o16Var != null) {
+                this.e = o16Var;
             }
             this.f = z;
             if (arrayList == null) {

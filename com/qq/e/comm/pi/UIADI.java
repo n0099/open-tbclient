@@ -9,7 +9,7 @@ import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
 import com.qq.e.comm.constants.LoadAdParams;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface UIADI extends LADI {
     public static final Map<String, String> ext = new HashMap();
 

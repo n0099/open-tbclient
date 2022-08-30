@@ -19,7 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.kwad.sdk.api.loader.Loader;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class DelegateFragment extends Fragment implements IDelegateFragment {
     public static final String REAL_BASE_CLASS = "real_base_class";
     public IFragmentLifecycle mBase;

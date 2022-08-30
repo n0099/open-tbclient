@@ -13,7 +13,7 @@ import com.googlecode.mp4parser.authoring.Movie;
 import com.googlecode.mp4parser.authoring.Mp4TrackImpl;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class MovieCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

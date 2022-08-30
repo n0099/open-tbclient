@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     public PermissionJudgePolicy o;
     public BroadcastReceiver p;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +91,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
                 if (DownloadManager.ACTION_DOWNLOAD_PROGRESS_CHANGE.equals(intent.getAction())) {
                     int intExtra = intent.getIntExtra("progress", 0);
                     this.this$0.j.setVisibility(0);
-                    this.this$0.j.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09d2), String.valueOf(intExtra)));
+                    this.this$0.j.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09d5), String.valueOf(intExtra)));
                 } else if (DownloadManager.ACTION_DOWNLOAD_STATUS_CHANGE.equals(intent.getAction())) {
                     LcUpdateDialogActivity lcUpdateDialogActivity2 = this.this$0;
                     TbadkCoreApplication.saveClientId(lcUpdateDialogActivity2, String.valueOf(lcUpdateDialogActivity2.m));
@@ -193,15 +193,15 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     public final void F1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09129c);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091294);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09129b);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091299);
-            this.f = findViewById(R.id.obfuscated_res_0x7f091298);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091296);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091295);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091297);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09129a);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09129e);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091296);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09129d);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09129b);
+            this.f = findViewById(R.id.obfuscated_res_0x7f09129a);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091298);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091297);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091299);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09129c);
             this.b.setBackgroundColor(Color.parseColor("#A8000000"));
             ClientUpdateInfo clientUpdateInfo = this.k;
             if (clientUpdateInfo != null) {
@@ -257,7 +257,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
             if (view2 == this.g) {
                 finish();
             } else if (view2 == this.i && update()) {
-                showToast(R.string.obfuscated_res_0x7f0f04fe);
+                showToast(R.string.obfuscated_res_0x7f0f04ff);
                 finish();
             }
         }
@@ -269,7 +269,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d003f);
+            setContentView(R.layout.obfuscated_res_0x7f0d0040);
             E1(bundle);
             F1();
             registerReceiver();

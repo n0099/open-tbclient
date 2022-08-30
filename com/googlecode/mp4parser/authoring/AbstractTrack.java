@@ -10,7 +10,7 @@ import com.coremedia.iso.boxes.CompositionTimeToSample;
 import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractTrack implements Track {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

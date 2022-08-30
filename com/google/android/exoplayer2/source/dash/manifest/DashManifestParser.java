@@ -43,7 +43,7 @@ import org.xml.sax.helpers.DefaultHandler;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DashManifestParser extends DefaultHandler implements ParsingLoadable.Parser<DashManifest> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern CEA_608_ACCESSIBILITY_PATTERN;
@@ -54,7 +54,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
     public final String contentId;
     public final XmlPullParserFactory xmlParserFactory;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class RepresentationInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -10,6 +10,20 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a13;
+import com.baidu.tieba.at1;
+import com.baidu.tieba.ay1;
+import com.baidu.tieba.bp1;
+import com.baidu.tieba.c83;
+import com.baidu.tieba.dp1;
+import com.baidu.tieba.hk2;
+import com.baidu.tieba.i93;
+import com.baidu.tieba.np1;
+import com.baidu.tieba.o93;
+import com.baidu.tieba.t73;
+import com.baidu.tieba.ud3;
+import com.baidu.tieba.ue3;
+import com.baidu.tieba.y72;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,24 +31,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ap1;
-import com.repackage.b83;
-import com.repackage.cp1;
-import com.repackage.gk2;
-import com.repackage.h93;
-import com.repackage.mp1;
-import com.repackage.n93;
-import com.repackage.s73;
-import com.repackage.td3;
-import com.repackage.te3;
-import com.repackage.x72;
-import com.repackage.z03;
-import com.repackage.zs1;
-import com.repackage.zx1;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class ShowFavoriteGuideApi extends cp1 implements mp1.j {
+public class ShowFavoriteGuideApi extends dp1 implements np1.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String f;
@@ -137,7 +137,7 @@ public class ShowFavoriteGuideApi extends cp1 implements mp1.j {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
         public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ z03 c;
+        public final /* synthetic */ a13 c;
         public final /* synthetic */ Activity d;
         public final /* synthetic */ ShowFavoriteGuideApi e;
 
@@ -174,22 +174,22 @@ public class ShowFavoriteGuideApi extends cp1 implements mp1.j {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    mp1 l = mp1.l();
+                    np1 l = np1.l();
                     a aVar = this.c;
                     ShowFavoriteGuideApi showFavoriteGuideApi = aVar.e;
                     Activity activity = aVar.d;
-                    z03 z03Var = aVar.c;
-                    l.p(showFavoriteGuideApi, activity, z03Var, this.a, this.b, z03Var.W().Q(), this.c.e.g);
+                    a13 a13Var = aVar.c;
+                    l.p(showFavoriteGuideApi, activity, a13Var, this.a, this.b, a13Var.W().Q(), this.c.e.g);
                 }
             }
         }
 
-        public a(ShowFavoriteGuideApi showFavoriteGuideApi, String str, JSONObject jSONObject, z03 z03Var, Activity activity) {
+        public a(ShowFavoriteGuideApi showFavoriteGuideApi, String str, JSONObject jSONObject, a13 a13Var, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {showFavoriteGuideApi, str, jSONObject, z03Var, activity};
+                Object[] objArr = {showFavoriteGuideApi, str, jSONObject, a13Var, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -202,30 +202,30 @@ public class ShowFavoriteGuideApi extends cp1 implements mp1.j {
             this.e = showFavoriteGuideApi;
             this.a = str;
             this.b = jSONObject;
-            this.c = z03Var;
+            this.c = a13Var;
             this.d = activity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || gk2.y0().d()) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || hk2.y0().d()) {
                 return;
             }
-            h93 a = n93.a();
+            i93 a = o93.a();
             GuideType parse = GuideType.parse(this.a);
             String string = this.e.getContext().getString(parse.defaultText);
             this.e.f = this.b.optString("cb");
             String str = this.c.b;
             String str2 = "favorite_guide_count_" + str;
-            if (x72.n(str)) {
-                zx1.i("ShowFavoriteGuideApi", "favorite already");
-                n93.a().putString(str2, "-1");
+            if (y72.n(str)) {
+                ay1.i("ShowFavoriteGuideApi", "favorite already");
+                o93.a().putString(str2, "-1");
                 return;
             }
-            String string2 = n93.a().getString(str2, "");
+            String string2 = o93.a().getString(str2, "");
             if (TextUtils.equals("-1", string2)) {
-                zx1.i("ShowFavoriteGuideApi", "favorite at one time");
+                ay1.i("ShowFavoriteGuideApi", "favorite at one time");
                 return;
             }
             String[] split = string2.split("#");
@@ -240,13 +240,13 @@ public class ShowFavoriteGuideApi extends cp1 implements mp1.j {
             this.e.g = a.getLong("swan_favorite_guide_duration", 3L);
             this.e.h = a.getLong("swan_favorite_guide_intervalDays", 3L);
             this.e.i = a.getLong("swan_favorite_guide_maxTimes", 3L);
-            zx1.i("ShowFavoriteGuideApi", "duration=" + this.e.g + ", mIntervalDays=" + this.e.h + ", mMaxTimes=" + this.e.i + " ,storageValue=" + string2);
+            ay1.i("ShowFavoriteGuideApi", "duration=" + this.e.g + ", mIntervalDays=" + this.e.h + ", mMaxTimes=" + this.e.i + " ,storageValue=" + string2);
             if (i2 < this.e.i && currentTimeMillis - j > this.e.h * 86400000) {
-                n93.a().putString(str2, (i2 + 1) + "#" + currentTimeMillis);
-                te3.e0(new RunnableC0175a(this, parse, string));
+                o93.a().putString(str2, (i2 + 1) + "#" + currentTimeMillis);
+                ue3.e0(new RunnableC0175a(this, parse, string));
                 return;
             }
-            zx1.i("ShowFavoriteGuideApi", "Not satisfying display conditions");
+            ay1.i("ShowFavoriteGuideApi", "Not satisfying display conditions");
         }
     }
 
@@ -283,18 +283,18 @@ public class ShowFavoriteGuideApi extends cp1 implements mp1.j {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShowFavoriteGuideApi(@NonNull ap1 ap1Var) {
-        super(ap1Var);
+    public ShowFavoriteGuideApi(@NonNull bp1 bp1Var) {
+        super(bp1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ap1Var};
+            Object[] objArr = {bp1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ap1) newInitContext.callArgs[0]);
+                super((bp1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -306,57 +306,57 @@ public class ShowFavoriteGuideApi extends cp1 implements mp1.j {
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, null, guideType, str, str2) == null) {
-            String g0 = z03.g0();
-            b83 b83Var = new b83();
+            String g0 = a13.g0();
+            c83 c83Var = new c83();
             if (guideType == null) {
                 str3 = "window";
             } else {
                 int i = b.a[guideType.ordinal()];
                 str3 = i != 1 ? i != 2 ? "flow_close" : "flow" : "TIPS";
             }
-            b83Var.b = str3;
-            b83Var.c = str;
-            b83Var.e = str2;
-            b83Var.a("appkey", g0);
-            s73.x("923", b83Var);
+            c83Var.b = str3;
+            c83Var.c = str;
+            c83Var.e = str2;
+            c83Var.a("appkey", g0);
+            t73.x("923", c83Var);
         }
     }
 
-    public zs1 G(String str) {
+    public at1 G(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             q("#showFavoriteGuide", false);
-            z03 b0 = z03.b0();
+            a13 b0 = a13.b0();
             if (b0 == null) {
-                return new zs1(1001, "SwanApp is null");
+                return new at1(1001, "SwanApp is null");
             }
             SwanAppActivity w = b0.w();
             if (w == null) {
-                zx1.c("ShowFavoriteGuideApi", "null activity");
-                return new zs1(1001, "null activity");
-            } else if (!te3.G()) {
-                zx1.i("ShowFavoriteGuideApi", "not support outside baiduboxapp");
-                return new zs1(1001, "not support outside baiduboxapp");
+                ay1.c("ShowFavoriteGuideApi", "null activity");
+                return new at1(1001, "null activity");
+            } else if (!ue3.G()) {
+                ay1.i("ShowFavoriteGuideApi", "not support outside baiduboxapp");
+                return new at1(1001, "not support outside baiduboxapp");
             } else {
-                Pair<zs1, JSONObject> s = s(str);
-                zs1 zs1Var = (zs1) s.first;
-                if (zs1Var.isSuccess()) {
+                Pair<at1, JSONObject> s = s(str);
+                at1 at1Var = (at1) s.first;
+                if (at1Var.isSuccess()) {
                     JSONObject jSONObject = (JSONObject) s.second;
                     String optString = jSONObject.optString("type");
-                    if (mp1.l().n(optString)) {
-                        return new zs1(202);
+                    if (np1.l().n(optString)) {
+                        return new at1(202);
                     }
-                    td3.g().execute(new a(this, optString, jSONObject, b0, w), "ShowFavoriteGuideApi");
-                    return zs1.f();
+                    ud3.g().execute(new a(this, optString, jSONObject, b0, w), "ShowFavoriteGuideApi");
+                    return at1.f();
                 }
-                return zs1Var;
+                return at1Var;
             }
         }
-        return (zs1) invokeL.objValue;
+        return (at1) invokeL.objValue;
     }
 
-    @Override // com.repackage.mp1.j
+    @Override // com.baidu.tieba.np1.j
     @AnyThread
     public void e(boolean z) {
         Interceptable interceptable = $ic;
@@ -369,17 +369,17 @@ public class ShowFavoriteGuideApi extends cp1 implements mp1.j {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        d(this.f, new zs1(0, "success", jSONObject));
+        d(this.f, new at1(0, "success", jSONObject));
     }
 
-    @Override // com.repackage.cp1
+    @Override // com.baidu.tieba.dp1
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "Favorite" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.cp1
+    @Override // com.baidu.tieba.dp1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

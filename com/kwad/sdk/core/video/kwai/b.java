@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b extends com.kwad.sdk.core.video.kwai.a {
     public final MediaPlayer adE;
     public final a adF;
@@ -29,7 +29,7 @@ public final class b extends com.kwad.sdk.core.video.kwai.a {
     public final Object adI;
     public boolean adJ;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a implements MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnTimedTextListener, MediaPlayer.OnVideoSizeChangedListener {
         public final WeakReference<b> mWeakMediaPlayer;
 

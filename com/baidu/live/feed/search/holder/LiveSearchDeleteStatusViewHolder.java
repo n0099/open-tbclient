@@ -6,11 +6,11 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bb0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab0;
 /* loaded from: classes2.dex */
 public class LiveSearchDeleteStatusViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -40,23 +40,23 @@ public class LiveSearchDeleteStatusViewHolder extends RecyclerView.ViewHolder {
             }
         }
         this.a = view2;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091376);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090775);
-        this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091375);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f0913ab);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091378);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090776);
+        this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091377);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f0913ad);
     }
 
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.c.setTextColor(ab0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
-            String q = ab0.f().q();
+            this.c.setTextColor(bb0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
+            String q = bb0.f().q();
             if (q == "day") {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d07);
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cf5);
-            } else if (q == "night") {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d11);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d08);
                 this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cf6);
+            } else if (q == "night") {
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d12);
+                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cf7);
             }
         }
     }

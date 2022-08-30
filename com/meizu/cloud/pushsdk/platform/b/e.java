@@ -8,7 +8,7 @@ import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class e extends c<SubTagsStatus> {
     public String a;
     public int b;

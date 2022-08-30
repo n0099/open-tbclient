@@ -10,28 +10,28 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bb;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.rk8;
 import com.baidu.tieba.userblock.message.UserBlockSetHttpResponseMessage;
 import com.baidu.tieba.userblock.message.UserBlockSetRequestMessage;
 import com.baidu.tieba.userblock.message.UserBlockSetSocketResponseMessage;
+import com.baidu.tieba.wm4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab;
-import com.repackage.d9;
-import com.repackage.jk8;
-import com.repackage.vm4;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class UserBlockSetModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-    public vm4 b;
-    public ab c;
+    public wm4 b;
+    public bb c;
 
-    /* loaded from: classes4.dex */
-    public class a extends ab {
+    /* loaded from: classes6.dex */
+    public class a extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserBlockSetModel a;
@@ -58,7 +58,7 @@ public class UserBlockSetModel extends BdBaseModel {
             this.a = userBlockSetModel;
         }
 
-        @Override // com.repackage.ab
+        @Override // com.baidu.tieba.bb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             UserBlockSetRequestMessage userBlockSetRequestMessage;
             Interceptable interceptable = $ic;
@@ -66,19 +66,19 @@ public class UserBlockSetModel extends BdBaseModel {
                 return;
             }
             if (!(responsedMessage instanceof UserBlockSetSocketResponseMessage) && !(responsedMessage instanceof UserBlockSetHttpResponseMessage)) {
-                this.a.b.onError(-1, this.a.D(R.string.obfuscated_res_0x7f0f0320));
+                this.a.b.onError(-1, this.a.D(R.string.obfuscated_res_0x7f0f0321));
                 return;
             }
             int error = responsedMessage.getError();
             String errorString = responsedMessage.getErrorString();
             if (error == 0 && !responsedMessage.hasError()) {
                 if (StringUtils.isNull(errorString)) {
-                    errorString = this.a.D(R.string.obfuscated_res_0x7f0f0322);
+                    errorString = this.a.D(R.string.obfuscated_res_0x7f0f0323);
                 }
                 this.a.b.onSuccess(errorString);
             } else {
                 if (StringUtils.isNull(errorString)) {
-                    errorString = this.a.D(R.string.obfuscated_res_0x7f0f0320);
+                    errorString = this.a.D(R.string.obfuscated_res_0x7f0f0321);
                 }
                 this.a.b.onError(error, errorString);
             }
@@ -118,8 +118,8 @@ public class UserBlockSetModel extends BdBaseModel {
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            jk8.h(309697, UserBlockSetSocketResponseMessage.class, false, false);
-            jk8.c(309697, CmdConfigHttp.CMD_USER_BLOCK_SET, TbConfig.URL_USER_BLOCK_SET, UserBlockSetHttpResponseMessage.class, true, false, true, false);
+            rk8.h(309697, UserBlockSetSocketResponseMessage.class, false, false);
+            rk8.c(309697, CmdConfigHttp.CMD_USER_BLOCK_SET, TbConfig.URL_USER_BLOCK_SET, UserBlockSetHttpResponseMessage.class, true, false, true, false);
             this.c.getHttpMessageListener().setSelfListener(true);
             this.c.getSocketMessageListener().setSelfListener(true);
             registerListener(this.c);
@@ -139,10 +139,10 @@ public class UserBlockSetModel extends BdBaseModel {
         }
     }
 
-    public void G(vm4 vm4Var) {
+    public void G(wm4 wm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, vm4Var) == null) {
-            this.b = vm4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, wm4Var) == null) {
+            this.b = wm4Var;
         }
     }
 

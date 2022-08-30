@@ -30,15 +30,15 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.tieba.horizonalList.widget.AbsHListView;
+import com.baidu.tieba.v47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n47;
 import java.util.ArrayList;
 @RemoteViews.RemoteView
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HListView extends AbsHListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "HListView";
@@ -66,13 +66,13 @@ public class HListView extends AbsHListView {
     public Drawable mOverScrollHeader;
     public final Rect mTempRect;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public class HListView extends AbsHListView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -141,7 +141,7 @@ public class HListView extends AbsHListView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -191,7 +191,7 @@ public class HListView extends AbsHListView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1435,7 +1435,7 @@ public class HListView extends AbsHListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048579, this, view2, obj, z) == null) {
             ListAdapter listAdapter = this.mAdapter;
-            if (listAdapter != null && !(listAdapter instanceof n47)) {
+            if (listAdapter != null && !(listAdapter instanceof v47)) {
                 throw new IllegalStateException("Cannot add header view to list -- setAdapter has already been called.");
             }
             c cVar2 = new c();
@@ -2571,7 +2571,7 @@ public class HListView extends AbsHListView {
             boolean z = false;
             if (this.mFooterViewInfos.size() > 0) {
                 ListAdapter listAdapter = this.mAdapter;
-                if (listAdapter != null && ((n47) listAdapter).d(view2)) {
+                if (listAdapter != null && ((v47) listAdapter).d(view2)) {
                     AbsHListView.c cVar = this.mDataSetObserver;
                     if (cVar != null) {
                         cVar.onChanged();
@@ -2592,7 +2592,7 @@ public class HListView extends AbsHListView {
             boolean z = false;
             if (this.mHeaderViewInfos.size() > 0) {
                 ListAdapter listAdapter = this.mAdapter;
-                if (listAdapter != null && ((n47) listAdapter).e(view2)) {
+                if (listAdapter != null && ((v47) listAdapter).e(view2)) {
                     AbsHListView.c cVar = this.mDataSetObserver;
                     if (cVar != null) {
                         cVar.onChanged();
@@ -2895,7 +2895,7 @@ public class HListView extends AbsHListView {
             if (this.mHeaderViewInfos.size() <= 0 && this.mFooterViewInfos.size() <= 0) {
                 this.mAdapter = listAdapter;
             } else {
-                this.mAdapter = new n47(this.mHeaderViewInfos, this.mFooterViewInfos, listAdapter);
+                this.mAdapter = new v47(this.mHeaderViewInfos, this.mFooterViewInfos, listAdapter);
             }
             this.mOldSelectedPosition = -1;
             this.mOldSelectedColId = Long.MIN_VALUE;

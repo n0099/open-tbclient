@@ -17,7 +17,7 @@ import com.kwad.sdk.utils.bg;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class a implements com.kwad.sdk.core.h.a, bg.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

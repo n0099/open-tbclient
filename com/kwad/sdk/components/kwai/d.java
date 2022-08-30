@@ -1,5 +1,5 @@
 package com.kwad.sdk.components.kwai;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class d {
     public static void rA() {
         com.kwad.sdk.components.a aVar = (com.kwad.sdk.components.a) com.kwad.components.ad.interstitial.a.class.newInstance();

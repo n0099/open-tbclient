@@ -10,6 +10,7 @@ import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.down.request.task.AbstractTask;
 import com.baidu.down.retry.HttpRetryStatistic;
 import com.baidu.down.utils.Utils;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,7 +75,7 @@ public class WriteThread implements Runnable {
             File file2 = new File(abstractTask.mFilePath);
             abstractTask.mFile = file2;
             abstractTask.mFilename = file2.getName();
-            return new RandomAccessFile(abstractTask.mFilePath, "rw");
+            return new RandomAccessFile(abstractTask.mFilePath, rw.c);
         }
         return (RandomAccessFile) invokeL.objValue;
     }

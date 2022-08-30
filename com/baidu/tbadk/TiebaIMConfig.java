@@ -4,6 +4,8 @@ import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,8 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hi;
-import com.repackage.qi;
 import java.io.IOException;
 /* loaded from: classes3.dex */
 public class TiebaIMConfig {
@@ -76,7 +76,7 @@ public class TiebaIMConfig {
     public static int getMaxChatImageWidthInPx(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? qi.d(context, 300.0f) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? ri.d(context, 300.0f) : invokeL.intValue;
     }
 
     public static BdAsyncTaskParallel getParallel() {
@@ -88,6 +88,6 @@ public class TiebaIMConfig {
     public static byte[] getRSAPublicKey() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? hi.d(PUBLIC_KEY_BASE64) : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? ii.d(PUBLIC_KEY_BASE64) : (byte[]) invokeV.objValue;
     }
 }

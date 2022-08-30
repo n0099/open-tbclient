@@ -32,7 +32,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class d extends com.kwad.components.core.g.c<h> implements DialogInterface.OnDismissListener, DialogInterface.OnShowListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,8 +76,8 @@ public final class d extends com.kwad.components.core.g.c<h> implements DialogIn
             this.xV = i;
             ViewGroup jt = jt();
             this.iB = jt;
-            this.mRootContainer = (AdBaseFrameLayout) jt.findViewById(R.id.obfuscated_res_0x7f0911db);
-            DetailVideoView detailVideoView = (DetailVideoView) this.iB.findViewById(R.id.obfuscated_res_0x7f0911e4);
+            this.mRootContainer = (AdBaseFrameLayout) jt.findViewById(R.id.obfuscated_res_0x7f0911dd);
+            DetailVideoView detailVideoView = (DetailVideoView) this.iB.findViewById(R.id.obfuscated_res_0x7f0911e6);
             this.mDetailVideoView = detailVideoView;
             detailVideoView.setAd(true);
             this.mDetailVideoView.setVisibility(8);
@@ -215,7 +215,7 @@ public final class d extends com.kwad.components.core.g.c<h> implements DialogIn
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             int i = this.xV;
-            return i == 1 ? R.layout.obfuscated_res_0x7f0d046b : i == 0 ? R.layout.obfuscated_res_0x7f0d046c : i == 2 ? R.layout.obfuscated_res_0x7f0d0469 : i == 3 ? R.layout.obfuscated_res_0x7f0d046a : R.layout.obfuscated_res_0x7f0d046c;
+            return i == 1 ? R.layout.obfuscated_res_0x7f0d046c : i == 0 ? R.layout.obfuscated_res_0x7f0d046d : i == 2 ? R.layout.obfuscated_res_0x7f0d046a : i == 3 ? R.layout.obfuscated_res_0x7f0d046b : R.layout.obfuscated_res_0x7f0d046d;
         }
         return invokeV.intValue;
     }
@@ -260,9 +260,9 @@ public final class d extends com.kwad.components.core.g.c<h> implements DialogIn
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65548, this) == null) && com.kwad.components.ad.splashscreen.d.c.d(getContext(), getWidth(), getHeight()) && this.xV != 0) {
             if (com.kwad.components.ad.splashscreen.d.c.c((h) this.EH) == 2) {
-                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f0911d9), -1, 16, 16, -1);
+                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f0911db), -1, 16, 16, -1);
             } else if (com.kwad.components.ad.splashscreen.d.c.c((h) this.EH) == 3) {
-                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f0911d9), -1, 16, -1, 16);
+                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f0911db), -1, 16, -1, 16);
             }
         }
     }

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class ZeusPluginStateListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EVENT_DOWNLOAD_FAILED = 4;

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.fresco.animation.bitmap.BitmapFrameCache;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class NoOpCache implements BitmapFrameCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

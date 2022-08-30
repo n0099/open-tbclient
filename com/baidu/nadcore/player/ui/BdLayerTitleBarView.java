@@ -16,11 +16,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.video.videoplayer.ui.full.BdVideoBattery;
 import com.baidu.nadcore.video.videoplayer.widget.BdTextProgressView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.cx0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bx0;
 import java.util.Calendar;
 import java.util.Locale;
 /* loaded from: classes2.dex */
@@ -66,7 +66,7 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                startAnimation(bx0.d());
+                startAnimation(cx0.d());
             }
             setVisibility(4);
         }
@@ -75,18 +75,18 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).cloneInContext(this.a).inflate(R.layout.obfuscated_res_0x7f0d0603, this);
-            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09145c);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091469);
+            LayoutInflater.from(this.a).cloneInContext(this.a).inflate(R.layout.obfuscated_res_0x7f0d0605, this);
+            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09145e);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09146b);
             this.c = imageView;
             imageView.setOnClickListener(this);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09146a);
-            BdVideoBattery bdVideoBattery = (BdVideoBattery) findViewById(R.id.obfuscated_res_0x7f09145b);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09146c);
+            BdVideoBattery bdVideoBattery = (BdVideoBattery) findViewById(R.id.obfuscated_res_0x7f09145d);
             this.e = bdVideoBattery;
-            bdVideoBattery.setImage(R.drawable.obfuscated_res_0x7f080e0b);
-            this.f = (BdTextProgressView) findViewById(R.id.obfuscated_res_0x7f091464);
+            bdVideoBattery.setImage(R.drawable.obfuscated_res_0x7f080e0c);
+            this.f = (BdTextProgressView) findViewById(R.id.obfuscated_res_0x7f091466);
             f();
-            this.h = findViewById(R.id.obfuscated_res_0x7f092240);
+            this.h = findViewById(R.id.obfuscated_res_0x7f092249);
         }
     }
 
@@ -94,7 +94,7 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                startAnimation(bx0.c());
+                startAnimation(cx0.c());
             }
             f();
             setVisibility(0);
@@ -105,9 +105,9 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z2) {
-                this.b.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060874));
+                this.b.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060878));
             } else {
-                this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de4));
+                this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de5));
             }
             c(z);
         }

@@ -16,7 +16,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.LazyBitmapDrawableResource;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BitmapDrawableTranscoder implements ResourceTranscoder<Bitmap, BitmapDrawable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

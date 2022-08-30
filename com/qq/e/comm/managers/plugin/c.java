@@ -31,7 +31,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.Executor;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern d;
@@ -40,7 +40,7 @@ public class c {
     public f b;
     public Executor c;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class a implements NetworkCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

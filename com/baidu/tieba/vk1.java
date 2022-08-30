@@ -1,0 +1,5 @@
+package com.baidu.tieba;
+/* loaded from: classes6.dex */
+public interface vk1 {
+    void a(String str, zx2 zx2Var);
+}

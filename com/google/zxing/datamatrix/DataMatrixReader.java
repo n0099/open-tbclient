@@ -25,7 +25,7 @@ import com.google.zxing.datamatrix.decoder.Decoder;
 import com.google.zxing.datamatrix.detector.Detector;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class DataMatrixReader implements Reader {
     public static /* synthetic */ Interceptable $ic;
     public static final ResultPoint[] NO_POINTS;

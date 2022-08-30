@@ -15,7 +15,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class Request {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String METHOD_GET = "GET";

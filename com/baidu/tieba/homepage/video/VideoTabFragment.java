@@ -16,21 +16,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.b47;
+import com.baidu.tieba.gg6;
+import com.baidu.tieba.v65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p65;
-import com.repackage.t37;
-import com.repackage.yf6;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
-public class VideoTabFragment extends BaseFragment implements yf6 {
+/* loaded from: classes4.dex */
+public class VideoTabFragment extends BaseFragment implements gg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t37 a;
+    public b47 a;
     public boolean b;
 
     public VideoTabFragment() {
@@ -49,14 +49,14 @@ public class VideoTabFragment extends BaseFragment implements yf6 {
         this.b = false;
     }
 
-    @Override // com.repackage.yf6
+    @Override // com.baidu.tieba.gg6
     public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.repackage.yf6
+    @Override // com.baidu.tieba.gg6
     public void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -64,14 +64,14 @@ public class VideoTabFragment extends BaseFragment implements yf6 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.u95
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ba5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a067" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.u95
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ba5
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -92,12 +92,12 @@ public class VideoTabFragment extends BaseFragment implements yf6 {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void notifyColourHeaderData() {
-        t37 t37Var;
+        b47 b47Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (t37Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (b47Var = this.a) == null) {
             return;
         }
-        t37Var.m();
+        b47Var.m();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -105,9 +105,9 @@ public class VideoTabFragment extends BaseFragment implements yf6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            t37 t37Var = this.a;
-            if (t37Var != null) {
-                t37Var.g();
+            b47 b47Var = this.a;
+            if (b47Var != null) {
+                b47Var.g();
             }
         }
     }
@@ -119,7 +119,7 @@ public class VideoTabFragment extends BaseFragment implements yf6 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.VIDEO_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(bundle);
             if (this.a == null) {
-                this.a = new t37(this, getPageContext(), getUniqueId());
+                this.a = new b47(this, getPageContext(), getUniqueId());
             }
             this.a.k();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.VIDEO_TAB_ON_CREATE_END_STAMP_KEY);
@@ -133,8 +133,8 @@ public class VideoTabFragment extends BaseFragment implements yf6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.VIDEO_TAB_ON_CREATE_VIEW_START_STAMP_KEY);
-            t37 t37Var = this.a;
-            if (t37Var != null && t37Var.j() != null) {
+            b47 b47Var = this.a;
+            if (b47Var != null && b47Var.j() != null) {
                 if (this.a.j().getParent() instanceof ViewGroup) {
                     ((ViewGroup) this.a.j().getParent()).removeView(this.a.j());
                 }
@@ -152,11 +152,11 @@ public class VideoTabFragment extends BaseFragment implements yf6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            t37 t37Var = this.a;
-            if (t37Var != null) {
-                t37Var.n();
+            b47 b47Var = this.a;
+            if (b47Var != null) {
+                b47Var.n();
             }
-            p65.e().b();
+            v65.e().b();
         }
     }
 
@@ -165,9 +165,9 @@ public class VideoTabFragment extends BaseFragment implements yf6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onLazyLoad();
-            t37 t37Var = this.a;
-            if (t37Var != null) {
-                t37Var.l();
+            b47 b47Var = this.a;
+            if (b47Var != null) {
+                b47Var.l();
             }
         }
     }
@@ -177,9 +177,9 @@ public class VideoTabFragment extends BaseFragment implements yf6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
-            t37 t37Var = this.a;
-            if (t37Var != null) {
-                t37Var.o();
+            b47 b47Var = this.a;
+            if (b47Var != null) {
+                b47Var.o();
             }
         }
     }
@@ -196,24 +196,24 @@ public class VideoTabFragment extends BaseFragment implements yf6 {
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
             }
-            t37 t37Var = this.a;
-            if (t37Var != null) {
-                t37Var.q(isPrimary());
+            b47 b47Var = this.a;
+            if (b47Var != null) {
+                b47Var.q(isPrimary());
             }
         }
     }
 
-    @Override // com.repackage.yf6
+    @Override // com.baidu.tieba.gg6
     public void t() {
-        t37 t37Var;
+        b47 b47Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (t37Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (b47Var = this.a) == null) {
             return;
         }
-        t37Var.p();
+        b47Var.p();
     }
 
-    @Override // com.repackage.yf6
+    @Override // com.baidu.tieba.gg6
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {

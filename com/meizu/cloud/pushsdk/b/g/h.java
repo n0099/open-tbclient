@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.b.g;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class h implements c {
     public final b a;
     public final l b;

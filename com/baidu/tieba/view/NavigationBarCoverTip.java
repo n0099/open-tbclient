@@ -13,12 +13,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rg;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class NavigationBarCoverTip extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class NavigationBarCoverTip extends LinearLayout {
     public int f;
     public View g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,13 +58,13 @@ public class NavigationBarCoverTip extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                rg.a().removeCallbacks(this.a.c);
+                sg.a().removeCallbacks(this.a.c);
                 this.a.e();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class b implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class NavigationBarCoverTip extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class c implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +166,7 @@ public class NavigationBarCoverTip extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -199,7 +199,7 @@ public class NavigationBarCoverTip extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface e {
         void a();
 
@@ -282,7 +282,7 @@ public class NavigationBarCoverTip extends LinearLayout {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            rg.a().removeCallbacks(this.c);
+            sg.a().removeCallbacks(this.c);
             clearAnimation();
             setVisibility(8);
             Activity activity = this.e;
@@ -303,8 +303,8 @@ public class NavigationBarCoverTip extends LinearLayout {
             setVisibility(0);
             clearAnimation();
             startAnimation(this.a);
-            rg.a().removeCallbacks(this.c);
-            rg.a().postDelayed(this.c, i);
+            sg.a().removeCallbacks(this.c);
+            sg.a().postDelayed(this.c, i);
         }
     }
 
@@ -330,8 +330,8 @@ public class NavigationBarCoverTip extends LinearLayout {
             setVisibility(0);
             clearAnimation();
             startAnimation(this.a);
-            rg.a().removeCallbacks(this.c);
-            rg.a().postDelayed(this.c, i);
+            sg.a().removeCallbacks(this.c);
+            sg.a().postDelayed(this.c, i);
         }
     }
 

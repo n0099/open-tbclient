@@ -2,12 +2,12 @@ package com.baidu.ubc;
 
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import com.repackage.j49;
-import com.repackage.p49;
-import com.repackage.t49;
+import com.baidu.tieba.c59;
+import com.baidu.tieba.s49;
+import com.baidu.tieba.y49;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface UBCManager {
     public static final String CONTENT_KEY_DURATION = "duration";
     public static final String CONTENT_KEY_EXT = "ext";
@@ -78,11 +78,11 @@ public interface UBCManager {
 
     void onEvent(String str, JSONObject jSONObject, int i);
 
-    void registerConfig(t49 t49Var);
+    void registerConfig(c59 c59Var);
 
-    void registerConfig(t49 t49Var, boolean z, p49 p49Var);
+    void registerConfig(c59 c59Var, boolean z, y49 y49Var);
 
-    void setDefaultConfig(j49 j49Var);
+    void setDefaultConfig(s49 s49Var);
 
     void setUBCDebug(boolean z);
 

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class NewVoteCountDownView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class NewVoteCountDownView extends LinearLayout {
     public CountDownTimer l;
     public b m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public class NewVoteCountDownView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a();
     }
@@ -122,16 +122,16 @@ public class NewVoteCountDownView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a25);
-            this.c = findViewById(R.id.obfuscated_res_0x7f090759);
-            this.d = findViewById(R.id.obfuscated_res_0x7f090df0);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091517);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09075a);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090df1);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091518);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090757);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090def);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091516);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a27);
+            this.c = findViewById(R.id.obfuscated_res_0x7f09075a);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090df1);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091519);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09075b);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090df2);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09151a);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090758);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090df0);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091518);
         }
     }
 
@@ -145,7 +145,7 @@ public class NewVoteCountDownView extends LinearLayout {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
             layoutParams.gravity = 1;
             setLayoutParams(layoutParams);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d063f, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0641, (ViewGroup) this, true);
             c();
         }
     }

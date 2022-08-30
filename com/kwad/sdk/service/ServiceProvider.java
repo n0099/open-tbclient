@@ -2,10 +2,10 @@ package com.kwad.sdk.service;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ServiceProvider {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public enum ServiceProviderDelegate {
         INSTANCE;
         

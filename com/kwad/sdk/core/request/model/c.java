@@ -6,7 +6,7 @@ import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.ar;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class c implements com.kwad.sdk.core.b {
     public static c acL;
     public double acM;

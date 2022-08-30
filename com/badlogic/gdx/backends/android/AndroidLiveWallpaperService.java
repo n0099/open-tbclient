@@ -13,6 +13,13 @@ import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.Application;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.a3;
+import com.baidu.tieba.b1;
+import com.baidu.tieba.e1;
+import com.baidu.tieba.h2;
+import com.baidu.tieba.j7;
+import com.baidu.tieba.k3;
+import com.baidu.tieba.t2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,13 +27,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a3;
-import com.repackage.b1;
-import com.repackage.e1;
-import com.repackage.h2;
-import com.repackage.j7;
-import com.repackage.k3;
-import com.repackage.t2;
 /* loaded from: classes.dex */
 public abstract class AndroidLiveWallpaperService extends WallpaperService {
     public static /* synthetic */ Interceptable $ic = null;

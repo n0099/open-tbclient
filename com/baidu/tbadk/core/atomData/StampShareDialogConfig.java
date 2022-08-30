@@ -2,26 +2,26 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tieba.aj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.si8;
 /* loaded from: classes3.dex */
 public class StampShareDialogConfig extends ShareDialogConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public si8 mStampShareData;
+    public aj8 mStampShareData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public StampShareDialogConfig(Context context, ShareItem shareItem, boolean z, si8 si8Var) {
+    public StampShareDialogConfig(Context context, ShareItem shareItem, boolean z, aj8 aj8Var) {
         super(context, shareItem, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, shareItem, Boolean.valueOf(z), si8Var};
+            Object[] objArr = {context, shareItem, Boolean.valueOf(z), aj8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,12 +33,12 @@ public class StampShareDialogConfig extends ShareDialogConfig {
                 return;
             }
         }
-        this.mStampShareData = si8Var;
+        this.mStampShareData = aj8Var;
     }
 
-    public si8 getStampShareData() {
+    public aj8 getStampShareData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mStampShareData : (si8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mStampShareData : (aj8) invokeV.objValue;
     }
 }

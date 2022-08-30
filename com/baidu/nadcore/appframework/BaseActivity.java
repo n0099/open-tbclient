@@ -21,6 +21,15 @@ import com.baidu.nadcore.widget.SlideHelper;
 import com.baidu.nadcore.widget.SlideInterceptor;
 import com.baidu.nadcore.widget.SlidingPaneLayout;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d11;
+import com.baidu.tieba.j41;
+import com.baidu.tieba.jl0;
+import com.baidu.tieba.k41;
+import com.baidu.tieba.q01;
+import com.baidu.tieba.rh0;
+import com.baidu.tieba.ue0;
+import com.baidu.tieba.we0;
+import com.baidu.tieba.yz0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,15 +37,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c11;
-import com.repackage.i41;
-import com.repackage.il0;
-import com.repackage.j41;
-import com.repackage.p01;
-import com.repackage.qh0;
-import com.repackage.te0;
-import com.repackage.ve0;
-import com.repackage.xz0;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -67,7 +67,7 @@ public class BaseActivity extends FragmentActivity {
     public SlidingPaneLayout.e n;
 
     /* loaded from: classes2.dex */
-    public class a implements i41 {
+    public class a implements j41 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseActivity a;
@@ -90,7 +90,7 @@ public class BaseActivity extends FragmentActivity {
             this.a = baseActivity;
         }
 
-        @Override // com.repackage.i41
+        @Override // com.baidu.tieba.j41
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -138,7 +138,7 @@ public class BaseActivity extends FragmentActivity {
                 }
                 if (!this.c.g && !this.c.i && this.a) {
                     this.a = false;
-                    j41.c(this.c, null);
+                    k41.c(this.c, null);
                 }
                 this.c.m1(0.0f);
             }
@@ -181,7 +181,7 @@ public class BaseActivity extends FragmentActivity {
                 }
                 if (!this.c.g && !this.c.i && !this.a) {
                     this.a = true;
-                    j41.d(this.c, null);
+                    k41.d(this.c, null);
                 }
                 float f3 = this.b >> 2;
                 this.c.m1((f * f3) - f3);
@@ -293,7 +293,7 @@ public class BaseActivity extends FragmentActivity {
             if (this.h || !isTaskRoot()) {
                 z = z2;
             }
-            int e = p01.c.e(this);
+            int e = q01.c.e(this);
             SlideHelper slideHelper = new SlideHelper();
             this.k = slideHelper;
             slideHelper.attachSlideView(this, findViewById(16908290));
@@ -310,7 +310,7 @@ public class BaseActivity extends FragmentActivity {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             String stringExtra = (getIntent() == null || !getIntent().hasExtra("winAccelerate")) ? "0" : getIntent().getStringExtra("winAccelerate");
             if ((this.e || TextUtils.equals("1", stringExtra)) && findViewById(16908290) != null) {
-                qh0.b(new c(this));
+                rh0.b(new c(this));
             }
         }
     }
@@ -393,7 +393,7 @@ public class BaseActivity extends FragmentActivity {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            if (p01.b.d()) {
+            if (q01.b.d()) {
                 return super.checkSelfPermission(str);
             }
             return 0;
@@ -486,10 +486,10 @@ public class BaseActivity extends FragmentActivity {
         if (interceptable == null || interceptable.invokeF(1048597, this, f) == null) {
             try {
                 if (this.m == null || this.m.get() == null) {
-                    this.m = new WeakReference<>(il0.d());
+                    this.m = new WeakReference<>(jl0.d());
                 }
                 if (this.m.get() != null) {
-                    Activity e = il0.e();
+                    Activity e = jl0.e();
                     Activity activity = this.m.get();
                     if (e != null && activity != null && e.getLocalClassName().equals(activity.getLocalClassName())) {
                         l1(activity, 0.0f);
@@ -572,13 +572,13 @@ public class BaseActivity extends FragmentActivity {
     public final void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, bundle) == null) {
-            if (ve0.a(this)) {
+            if (we0.a(this)) {
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }
             try {
                 if (!c1(bundle)) {
-                    if (!te0.a) {
+                    if (!ue0.a) {
                         finish();
                         LogUtil.logActivity(this, "onCreate");
                         return;
@@ -587,14 +587,14 @@ public class BaseActivity extends FragmentActivity {
                     LogUtil.logActivity(this, "onCreate");
                     throw runtimeException;
                 }
-                int d2 = c11.d(this);
+                int d2 = d11.d(this);
                 super.onCreate(bundle);
-                c11.a(this, d2);
+                d11.a(this, d2);
                 d1();
                 try {
                     P0(bundle);
                 } catch (Throwable th) {
-                    if (!te0.a) {
+                    if (!ue0.a) {
                         finish();
                     } else {
                         RuntimeException runtimeException2 = new RuntimeException(th);
@@ -604,7 +604,7 @@ public class BaseActivity extends FragmentActivity {
                 }
                 LogUtil.logActivity(this, "onCreate");
             } catch (Throwable unused) {
-                if (!te0.a) {
+                if (!ue0.a) {
                     finish();
                     LogUtil.logActivity(this, "onCreate");
                     return;
@@ -652,9 +652,9 @@ public class BaseActivity extends FragmentActivity {
         if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
             super.onMultiWindowModeChanged(z);
             if (z && !s) {
-                xz0.a().b(getApplicationContext(), R.string.obfuscated_res_0x7f0f0b60, 1);
+                yz0.a().b(getApplicationContext(), R.string.obfuscated_res_0x7f0f0b63, 1);
                 i1(true);
-            } else if (z || p01.a()) {
+            } else if (z || q01.a()) {
             } else {
                 i1(false);
             }
@@ -682,7 +682,7 @@ public class BaseActivity extends FragmentActivity {
             try {
                 T0(intent);
             } catch (Throwable th) {
-                if (!te0.a) {
+                if (!ue0.a) {
                     finish();
                     return;
                 }
@@ -785,7 +785,7 @@ public class BaseActivity extends FragmentActivity {
     public void setCurrentActivityNoTransparent() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
-            j41.c(this, new a(this));
+            k41.c(this, new a(this));
         }
     }
 
@@ -800,6 +800,6 @@ public class BaseActivity extends FragmentActivity {
     public boolean shouldShowRequestPermissionRationale(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, str)) == null) ? p01.b.d() && super.shouldShowRequestPermissionRationale(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, str)) == null) ? q01.b.d() && super.shouldShowRequestPermissionRationale(str) : invokeL.booleanValue;
     }
 }

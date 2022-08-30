@@ -17,6 +17,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.ug;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,13 +27,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
-import com.repackage.qi;
-import com.repackage.tg;
 import java.util.List;
 import tbclient.BottomMenu;
 import tbclient.SubBottomMenu;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BottomMenuView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,12 +39,12 @@ public class BottomMenuView extends LinearLayout {
     public View c;
     public LinearLayout d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class MenuItemView extends LinearLayout implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: i */
-        public static final int icon_card_morelist_n = 2131232413;
+        public static final int icon_card_morelist_n = 2131232414;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
         public TbPageContext<?> b;
@@ -91,10 +91,10 @@ public class BottomMenuView extends LinearLayout {
             this.a = icon_card_morelist_n;
             setGravity(17);
             setOnClickListener(this);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d015a, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d015b, this);
             this.b = tbPageContext;
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f93);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090fbf);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f94);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090fc0);
         }
 
         private b getSubMenuGenerator() {
@@ -173,7 +173,7 @@ public class BottomMenuView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SubMenuItemView extends LinearLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -199,10 +199,10 @@ public class BottomMenuView extends LinearLayout {
                     return;
                 }
             }
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d015b, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d015c, this);
             setOrientation(1);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090fbf);
-            this.b = findViewById(R.id.obfuscated_res_0x7f0907f6);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090fc0);
+            this.b = findViewById(R.id.obfuscated_res_0x7f0907f7);
         }
 
         public SubBottomMenu getSubMenuData() {
@@ -229,14 +229,14 @@ public class BottomMenuView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(SubMenuItemView subMenuItemView, SubBottomMenu subBottomMenu);
 
         void b(MenuItemView menuItemView, BottomMenu bottomMenu);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -302,7 +302,7 @@ public class BottomMenuView extends LinearLayout {
             this.b.setClippingEnabled(false);
             this.b.setBackgroundDrawable(new ColorDrawable());
             this.b.setSoftInputMode(16);
-            tg.m(this.b, menuItemView, 51, 0, 0);
+            ug.m(this.b, menuItemView, 51, 0, 0);
         }
 
         @Override // android.view.View.OnClickListener
@@ -310,14 +310,14 @@ public class BottomMenuView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
                 if (view2 instanceof SubMenuItemView) {
-                    tg.c(this.b);
+                    ug.c(this.b);
                     SubMenuItemView subMenuItemView = (SubMenuItemView) view2;
                     a aVar = this.a;
                     if (aVar != null) {
                         aVar.a(subMenuItemView, subMenuItemView.getSubMenuData());
                     }
                 } else if (view2 == this.c) {
-                    tg.c(this.b);
+                    ug.c(this.b);
                 }
             }
         }
@@ -373,7 +373,7 @@ public class BottomMenuView extends LinearLayout {
         }
         removeAllViews();
         this.c = new View(getContext());
-        this.c.setLayoutParams(new LinearLayout.LayoutParams(-1, qi.f(getContext(), R.dimen.tbds16)));
+        this.c.setLayoutParams(new LinearLayout.LayoutParams(-1, ri.f(getContext(), R.dimen.tbds16)));
         this.c.setBackgroundResource(R.drawable.bottom_view_shadow);
         addView(this.c);
         LinearLayout linearLayout = new LinearLayout(getContext());

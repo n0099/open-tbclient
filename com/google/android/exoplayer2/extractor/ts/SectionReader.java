@@ -10,7 +10,7 @@ import com.google.android.exoplayer2.extractor.ts.TsPayloadReader;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.TimestampAdjuster;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class SectionReader implements TsPayloadReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SECTION_BUFFER_LENGTH = 32;

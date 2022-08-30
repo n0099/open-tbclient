@@ -6,12 +6,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.enterForum.data.HotSearchInfoData;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tr4;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -133,8 +133,8 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
         if (!(interceptable == null || interceptable.invokeIL(1048580, this, i, bArr) == null) || bArr == null || bArr.length <= 0 || getError() != 0) {
             return;
         }
-        tr4.f();
-        tr4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
+        vr4.f();
+        vr4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.ad.widget.DownloadProgressView;
 import com.kwad.components.core.widget.ComplianceTextView;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class a extends com.kwad.components.core.widget.b<AdTemplate> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public abstract class a extends com.kwad.components.core.widget.b<AdTemplate> {
     public final void bf() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f091067);
+            ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f091069);
             if (!com.kwad.sdk.core.response.a.a.ao(this.mAdInfo)) {
                 complianceTextView.setVisibility(8);
                 return;
@@ -56,7 +56,7 @@ public abstract class a extends com.kwad.components.core.widget.b<AdTemplate> {
     public final void g(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && com.kwad.sdk.core.response.a.a.am(this.mAdInfo) && com.kwad.components.ad.feed.kwai.b.bd() && getApkDownloadHelper() != null) {
-            DownloadProgressView downloadProgressView = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091040);
+            DownloadProgressView downloadProgressView = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091042);
             if (!z || getApkDownloadHelper().mI() == 2) {
                 com.kwad.components.ad.feed.b bVar = this.dd;
                 if (bVar != null) {

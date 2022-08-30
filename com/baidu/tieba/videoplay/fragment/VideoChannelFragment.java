@@ -11,6 +11,9 @@ import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.dj4;
+import com.baidu.tieba.ej4;
+import com.baidu.tieba.t65;
 import com.baidu.tieba.videoplay.view.VideoChannelHeaderLayout;
 import com.baidu.tieba.videoplay.view.VideoChannelViewPager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,16 +21,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cj4;
-import com.repackage.dj4;
-import com.repackage.n65;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoChannelFragment extends AbsVideoChannelFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CustomMessageListener L;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class b implements BdSwipeRefreshLayout.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class c implements BdSwipeRefreshLayout.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,7 +130,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class d implements VideoChannelHeaderLayout.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -164,9 +164,9 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
                     return;
                 }
                 VideoChannelFragment videoChannelFragment2 = this.a;
-                if (((n65) ListUtils.getItem(videoChannelFragment2.n, videoChannelFragment2.h.getCurrentItem())).a instanceof BaseFragment) {
+                if (((t65) ListUtils.getItem(videoChannelFragment2.n, videoChannelFragment2.h.getCurrentItem())).a instanceof BaseFragment) {
                     VideoChannelFragment videoChannelFragment3 = this.a;
-                    videoChannelFragment3.i.f(((BaseFragment) ((n65) ListUtils.getItem(videoChannelFragment3.n, videoChannelFragment3.h.getCurrentItem())).a).getUniqueId());
+                    videoChannelFragment3.i.f(((BaseFragment) ((t65) ListUtils.getItem(videoChannelFragment3.n, videoChannelFragment3.h.getCurrentItem())).a).getUniqueId());
                 }
             }
         }
@@ -245,8 +245,8 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
-            if (dj4.w().y(cj4.e0)) {
-                dj4.w().E();
+            if (ej4.w().y(dj4.e0)) {
+                ej4.w().E();
             }
         }
     }
@@ -258,8 +258,8 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
             super.onPrimary();
             if (isPrimary()) {
                 startBrowseTimeMission();
-            } else if (dj4.w().y(cj4.e0)) {
-                dj4.w().E();
+            } else if (ej4.w().y(dj4.e0)) {
+                ej4.w().E();
             }
         }
     }
@@ -276,7 +276,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
     public final void startBrowseTimeMission() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            dj4.w().N(cj4.e0);
+            ej4.w().N(dj4.e0);
         }
     }
 

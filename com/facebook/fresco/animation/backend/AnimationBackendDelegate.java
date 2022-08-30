@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.fresco.animation.backend.AnimationBackend;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AnimationBackendDelegate<T extends AnimationBackend> implements AnimationBackend {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALPHA_UNSET = -1;

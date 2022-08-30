@@ -10,7 +10,7 @@ import com.baidubce.util.CheckUtils;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RestartableMultiByteArrayInputStream extends RestartableInputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

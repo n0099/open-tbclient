@@ -4,7 +4,6 @@ import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,7 +32,6 @@ public class PermissionUtilTask extends LaunchTask {
     private void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, context) == null) {
-            PermissionUtil.syncAgreeStatus(TbadkCoreApplication.getInst().isMainProcess(false, context));
             PermissionUtil.registerMutiProcessPrivacyPolicy();
         }
     }

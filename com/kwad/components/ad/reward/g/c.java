@@ -1,5 +1,5 @@
 package com.kwad.components.ad.reward.g;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface c {
     void onPlayAgainClick();
 }

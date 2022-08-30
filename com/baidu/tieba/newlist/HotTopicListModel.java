@@ -7,30 +7,30 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.bb;
+import com.baidu.tieba.d9;
 import com.baidu.tieba.hottopic.message.RequestHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseHttpHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotRanklistMessage;
+import com.baidu.tieba.i57;
+import com.baidu.tieba.mr7;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.qr7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a57;
-import com.repackage.ab;
-import com.repackage.d9;
-import com.repackage.er7;
-import com.repackage.ir7;
-import com.repackage.oi;
 import java.util.LinkedList;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class HotTopicListModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public er7 a;
+    public mr7 a;
     public boolean b;
 
-    /* loaded from: classes3.dex */
-    public class a extends ab {
+    /* loaded from: classes5.dex */
+    public class a extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotTopicListModel a;
@@ -59,12 +59,12 @@ public class HotTopicListModel extends BdBaseModel {
 
         /* JADX WARN: Removed duplicated region for block: B:23:0x003d  */
         /* JADX WARN: Removed duplicated region for block: B:27:0x004c  */
-        @Override // com.repackage.ab
+        @Override // com.baidu.tieba.bb
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            a57 a57Var;
+            i57 i57Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 int i = 0;
@@ -77,19 +77,19 @@ public class HotTopicListModel extends BdBaseModel {
                     if (z) {
                         ResponseHttpHotRanklistMessage responseHttpHotRanklistMessage = (ResponseHttpHotRanklistMessage) responsedMessage;
                         if (responseHttpHotRanklistMessage.getHotRanklistData() != null) {
-                            a57Var = responseHttpHotRanklistMessage.getHotRanklistData();
+                            i57Var = responseHttpHotRanklistMessage.getHotRanklistData();
                             if (responsedMessage instanceof ResponseSocketHotRanklistMessage) {
                                 ResponseSocketHotRanklistMessage responseSocketHotRanklistMessage = (ResponseSocketHotRanklistMessage) responsedMessage;
                                 if (responseSocketHotRanklistMessage.getHotRanklistData() != null) {
-                                    a57Var = responseSocketHotRanklistMessage.getHotRanklistData();
+                                    i57Var = responseSocketHotRanklistMessage.getHotRanklistData();
                                 }
                             }
-                            if (a57Var != null) {
-                                if (!ListUtils.isEmpty(a57Var.g)) {
+                            if (i57Var != null) {
+                                if (!ListUtils.isEmpty(i57Var.g)) {
                                     LinkedList linkedList = new LinkedList();
-                                    int size = a57Var.g.size();
+                                    int size = i57Var.g.size();
                                     while (i < size) {
-                                        linkedList.add(new ir7(a57Var.g.get(i), i));
+                                        linkedList.add(new qr7(i57Var.g.get(i), i));
                                         i++;
                                     }
                                     this.a.a.j(responsedMessage.getError(), linkedList);
@@ -102,10 +102,10 @@ public class HotTopicListModel extends BdBaseModel {
                             this.a.a.j(-1, null);
                         }
                     }
-                    a57Var = null;
+                    i57Var = null;
                     if (responsedMessage instanceof ResponseSocketHotRanklistMessage) {
                     }
-                    if (a57Var != null) {
+                    if (i57Var != null) {
                     }
                     this.a.a.j(-1, null);
                 }
@@ -114,13 +114,13 @@ public class HotTopicListModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicListModel(TbPageContext<?> tbPageContext, er7 er7Var) {
+    public HotTopicListModel(TbPageContext<?> tbPageContext, mr7 mr7Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, er7Var};
+            Object[] objArr = {tbPageContext, mr7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -132,7 +132,7 @@ public class HotTopicListModel extends BdBaseModel {
             }
         }
         B();
-        this.a = er7Var;
+        this.a = mr7Var;
     }
 
     public final void B() {
@@ -158,7 +158,7 @@ public class HotTopicListModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!oi.A() || this.b) {
+            if (!pi.A() || this.b) {
                 return false;
             }
             cancelLoadData();

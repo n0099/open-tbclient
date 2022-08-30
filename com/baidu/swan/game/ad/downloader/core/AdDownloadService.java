@@ -7,19 +7,19 @@ import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.baidu.tieba.dp3;
+import com.baidu.tieba.uo3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cp3;
-import com.repackage.to3;
 /* loaded from: classes3.dex */
 public class AdDownloadService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a mBinder;
-    public cp3 mDownloadManager;
+    public dp3 mDownloadManager;
 
     /* loaded from: classes3.dex */
     public class a extends Binder {
@@ -117,7 +117,7 @@ public class AdDownloadService extends Service {
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mDownloadManager = to3.m(AppRuntime.getAppContext(), null);
+            this.mDownloadManager = uo3.m(AppRuntime.getAppContext(), null);
             super.onCreate();
         }
     }
@@ -126,9 +126,9 @@ public class AdDownloadService extends Service {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            cp3 cp3Var = this.mDownloadManager;
-            if (cp3Var != null) {
-                cp3Var.destroy();
+            dp3 dp3Var = this.mDownloadManager;
+            if (dp3Var != null) {
+                dp3Var.destroy();
                 this.mDownloadManager = null;
             }
             super.onDestroy();

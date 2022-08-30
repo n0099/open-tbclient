@@ -2,7 +2,7 @@ package com.kwad.sdk.utils;
 
 import android.content.Context;
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class i<T> {
     public boolean Dv;
     public boolean anc = false;

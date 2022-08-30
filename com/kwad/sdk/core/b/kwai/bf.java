@@ -19,7 +19,7 @@ import com.kwad.components.core.webview.jshandler.x;
 import com.kwad.components.core.webview.jshandler.y;
 import com.kwad.components.splash.SplashPreloadManager;
 import com.kwad.components.splash.monitor.SplashMonitorInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class bf {
     @InvokeBy(invokerClass = dd.class, methodId = "registerHolder")
     public static void tl() {
@@ -47,10 +47,10 @@ public final class bf {
         dd.tm().put(SplashMonitorInfo.class, new fi());
         dd.tm().put(com.kwad.components.core.webview.b.a.n.class, new ew());
         dd.tm().put(com.kwad.components.core.webview.b.a.c.class, new ak());
-        dd.tm().put(a.C0366a.class, new bo());
+        dd.tm().put(a.C0581a.class, new bo());
         dd.tm().put(com.kwad.components.core.webview.b.a.o.class, new ex());
         dd.tm().put(com.kwad.components.core.f.a.class, new n());
-        dd.tm().put(a.C0371a.class, new ci());
+        dd.tm().put(a.C0586a.class, new ci());
         dd.tm().put(com.kwad.components.core.webview.b.a.e.class, new av());
         dd.tm().put(com.kwad.components.a.kwai.b.class, new dk());
         dd.tm().put(m.a.class, new eg());

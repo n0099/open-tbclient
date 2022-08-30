@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.t85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m85;
-import com.repackage.pi;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +26,8 @@ import tbclient.PbContent;
 import tbclient.ReplyMe.ReplyList;
 import tbclient.User;
 import tbclient.Zan;
-/* loaded from: classes3.dex */
-public class FeedData implements Serializable, m85 {
+/* loaded from: classes4.dex */
+public class FeedData implements Serializable, t85 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_DECLARE = "declare";
     public static final String TYPE_GRAFFITI = "graffiti";
@@ -304,7 +304,7 @@ public class FeedData implements Serializable, m85 {
                 this.mOriginalThreadInfo = originalThreadInfo;
                 originalThreadInfo.q(jSONObject.optJSONObject("origin_thread_info"));
             }
-            if (((!pi.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
+            if (((!qi.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
                 this.mPraiseNum = optJSONObject.optInt("num");
                 this.isAuthor = optJSONObject.optInt("consent_type") == 2;
                 JSONArray optJSONArray = optJSONObject.optJSONArray("liker_list");
@@ -372,7 +372,7 @@ public class FeedData implements Serializable, m85 {
         this.mPraiseItemType = replyList.item_type;
         this.hideForumName = replyList.hide_fname.intValue();
         this.fromForumId = replyList.v_forum_id.longValue();
-        if (((!pi.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
+        if (((!qi.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
             this.mPraiseNum = zan.num.intValue();
             this.isAuthor = zan.consent_type.intValue() == 2;
             List<User> list = zan.liker_list;

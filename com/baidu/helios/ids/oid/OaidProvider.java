@@ -10,6 +10,10 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.a40;
+import com.baidu.tieba.d40;
+import com.baidu.tieba.g40;
+import com.baidu.tieba.j40;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,10 +23,6 @@ import com.bun.miitmdid.core.InfoCode;
 import com.bun.miitmdid.core.MdidSdkHelper;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
 import com.bun.miitmdid.interfaces.IdSupplier;
-import com.repackage.c40;
-import com.repackage.f40;
-import com.repackage.i40;
-import com.repackage.z30;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -32,13 +32,13 @@ import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class OaidProvider extends i40 {
+public class OaidProvider extends j40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f40.a d;
+    public g40.a d;
     public g e;
     public f f;
-    public List<i40.c<String>> g;
+    public List<j40.c<String>> g;
     public boolean h;
     public boolean i;
 
@@ -292,7 +292,7 @@ public class OaidProvider extends i40 {
                 this.d.e.o(this.b);
                 if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.b, "00000000-0000-0000-0000-000000000000")) {
                     try {
-                        String b = i40.b("A10", new z30("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(this.b.getBytes("UTF-8")));
+                        String b = j40.b("A10", new a40("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(this.b.getBytes("UTF-8")));
                         this.d.e.h(b);
                         this.d.e.e(b);
                         this.d.e.d(32L, 124L);
@@ -364,10 +364,10 @@ public class OaidProvider extends i40 {
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i40.c a;
+        public final /* synthetic */ j40.c a;
         public final /* synthetic */ OaidProvider b;
 
-        public e(OaidProvider oaidProvider, i40.c cVar) {
+        public e(OaidProvider oaidProvider, j40.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -432,7 +432,7 @@ public class OaidProvider extends i40 {
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
         public boolean b;
-        public c40 c;
+        public d40 c;
         public String d;
         public int e;
         public ArrayList<String> f;
@@ -459,7 +459,7 @@ public class OaidProvider extends i40 {
             }
             this.k = oaidProvider;
             this.b = true;
-            this.c = new c40();
+            this.c = new d40();
             this.f = new ArrayList<>();
         }
 
@@ -713,15 +713,15 @@ public class OaidProvider extends i40 {
         this.i = false;
     }
 
-    @Override // com.repackage.i40
+    @Override // com.baidu.tieba.j40
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e.f() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.i40
-    public void f(i40.b bVar) {
+    @Override // com.baidu.tieba.j40
+    public void f(j40.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.d = this.a.f(e());
@@ -743,8 +743,8 @@ public class OaidProvider extends i40 {
         }
     }
 
-    @Override // com.repackage.i40
-    public void g(i40.c<String> cVar) {
+    @Override // com.baidu.tieba.j40
+    public void g(j40.c<String> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
             this.b.d.submit(new e(this, cVar));
@@ -776,14 +776,14 @@ public class OaidProvider extends i40 {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            for (i40.c<String> cVar : this.g) {
+            for (j40.c<String> cVar : this.g) {
                 l(cVar);
             }
             this.g.clear();
         }
     }
 
-    public final void l(i40.c<String> cVar) {
+    public final void l(j40.c<String> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
             Bundle bundle = new Bundle();

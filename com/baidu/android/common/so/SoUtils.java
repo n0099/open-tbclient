@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.tieba.mn4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ln4;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -75,7 +75,7 @@ public final class SoUtils {
                 return;
             }
         }
-        DEBUG = ln4.e();
+        DEBUG = mn4.e();
         uris = new String[]{"lib/arm64", "lib/armeabi", "lib/x86", "lib/mips"};
     }
 

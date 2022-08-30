@@ -29,7 +29,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class TextTrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class TextTrackImpl extends AbstractTrack {
     public List<Line> subs;
     public TrackMetaData trackMetaData;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Line {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

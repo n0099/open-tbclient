@@ -4,12 +4,12 @@ import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.tieba.ay1;
+import com.baidu.tieba.xl2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wl2;
-import com.repackage.zx1;
 /* loaded from: classes2.dex */
 public class SwanAppClearCacheErrorActivity extends SwanAppErrorActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -48,13 +48,13 @@ public class SwanAppClearCacheErrorActivity extends SwanAppErrorActivity {
             if (this.v) {
                 this.v = false;
                 try {
-                    wl2 x = x();
+                    xl2 x = x();
                     if (SwanAppNetworkUtils.i(this)) {
                         SwanLauncher.j().n(x, null);
                         finish();
                     }
                 } catch (Exception e) {
-                    zx1.l("SwanAppClearCacheErrorActivity", "SwanAppClearCacheErrorActivity#onRestart", e);
+                    ay1.l("SwanAppClearCacheErrorActivity", "SwanAppClearCacheErrorActivity#onRestart", e);
                 }
             }
         }

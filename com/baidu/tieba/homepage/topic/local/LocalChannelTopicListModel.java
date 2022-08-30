@@ -6,22 +6,22 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.c37;
+import com.baidu.tieba.d9;
 import com.baidu.tieba.homepage.topic.local.message.LocalChannelTopicListResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
-import com.repackage.u27;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicListModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public final HttpMessageListener b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,17 +60,17 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
                     }
                     return;
                 }
-                u27 u27Var = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
+                c37 c37Var = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
                 if (this.a.a != null) {
-                    this.a.a.a(u27Var);
+                    this.a.a.a(c37Var);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
-        void a(u27 u27Var);
+        void a(c37 c37Var);
 
         void onFail(String str);
     }

@@ -7,16 +7,16 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
+import com.baidu.tieba.gi;
+import com.baidu.tieba.jf5;
+import com.baidu.tieba.nf5;
+import com.baidu.tieba.qe5;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cf5;
-import com.repackage.fi;
-import com.repackage.gf5;
-import com.repackage.je5;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class ForumBroadcastHelper {
@@ -59,7 +59,7 @@ public class ForumBroadcastHelper {
     public void clipCopy(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            fi.a("https://tieba.baidu.com/p/" + str + "?share=9105&fr=share");
+            gi.a("https://tieba.baidu.com/p/" + str + "?share=9105&fr=share");
         }
     }
 
@@ -92,7 +92,7 @@ public class ForumBroadcastHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-                gf5.b(new cf5<String>(this) { // from class: com.baidu.tbadk.core.util.ForumBroadcastHelper.1
+                nf5.b(new jf5<String>(this) { // from class: com.baidu.tbadk.core.util.ForumBroadcastHelper.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ForumBroadcastHelper this$0;
@@ -116,13 +116,13 @@ public class ForumBroadcastHelper {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.repackage.cf5
+                    @Override // com.baidu.tieba.jf5
                     public String doInBackground() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? UtilHelper.getClipBoardContent() : (String) invokeV.objValue;
                     }
-                }, new je5<String>(this) { // from class: com.baidu.tbadk.core.util.ForumBroadcastHelper.2
+                }, new qe5<String>(this) { // from class: com.baidu.tbadk.core.util.ForumBroadcastHelper.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ForumBroadcastHelper this$0;
@@ -146,7 +146,7 @@ public class ForumBroadcastHelper {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.repackage.je5
+                    @Override // com.baidu.tieba.qe5
                     public void onReturnDataInUI(String str) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {

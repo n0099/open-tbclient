@@ -3,13 +3,13 @@ package com.baidu.tieba.ala.alasquare.recent_history.message;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.at5;
+import com.baidu.tieba.zs5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rs5;
-import com.repackage.ss5;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rs5 mHistoryData;
+    public zs5 mHistoryData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaRecentHistoryResponseMessage() {
@@ -45,18 +45,18 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            rs5 rs5Var = new rs5();
-            this.mHistoryData = rs5Var;
-            rs5Var.a = jSONObject.optInt("has_more") == 1;
+            zs5 zs5Var = new zs5();
+            this.mHistoryData = zs5Var;
+            zs5Var.a = jSONObject.optInt("has_more") == 1;
             ArrayList arrayList = null;
             JSONArray optJSONArray = jSONObject.optJSONArray("host_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 int length = optJSONArray.length();
                 ArrayList arrayList2 = new ArrayList(length);
                 for (int i2 = 0; i2 < length; i2++) {
-                    ss5 ss5Var = new ss5();
-                    ss5Var.a(optJSONArray.optJSONObject(i2));
-                    arrayList2.add(ss5Var);
+                    at5 at5Var = new at5();
+                    at5Var.a(optJSONArray.optJSONObject(i2));
+                    arrayList2.add(at5Var);
                 }
                 arrayList = arrayList2;
             }
@@ -64,9 +64,9 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public rs5 getRecentHistoryData() {
+    public zs5 getRecentHistoryData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHistoryData : (rs5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHistoryData : (zs5) invokeV.objValue;
     }
 }

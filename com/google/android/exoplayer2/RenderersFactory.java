@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.audio.AudioRendererEventListener;
 import com.google.android.exoplayer2.metadata.MetadataOutput;
 import com.google.android.exoplayer2.text.TextOutput;
 import com.google.android.exoplayer2.video.VideoRendererEventListener;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface RenderersFactory {
     Renderer[] createRenderers(Handler handler, VideoRendererEventListener videoRendererEventListener, AudioRendererEventListener audioRendererEventListener, TextOutput textOutput, MetadataOutput metadataOutput);
 }

@@ -14,7 +14,7 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.MulticastSocket;
 import java.net.SocketException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class UdpDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEAFULT_SOCKET_TIMEOUT_MILLIS = 8000;
@@ -32,7 +32,7 @@ public final class UdpDataSource implements DataSource {
     public final int socketTimeoutMillis;
     public Uri uri;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class UdpDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

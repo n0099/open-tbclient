@@ -2,15 +2,15 @@ package com.baidu.turbonet.base;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.r39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.JNINamespace;
-import com.repackage.i39;
 @JNINamespace
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ContextUtils {
     public static /* synthetic */ Interceptable $ic;
     public static Context a;
@@ -41,7 +41,7 @@ public class ContextUtils {
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             Context context2 = a;
             if (context2 != null && context2 != context) {
-                i39.a(org.webrtc.ContextUtils.TAG, "Multiple contexts detected, ignoring new application context.");
+                r39.a(org.webrtc.ContextUtils.TAG, "Multiple contexts detected, ignoring new application context.");
             } else {
                 d(context);
             }

@@ -4,15 +4,15 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tieba.af5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.te5;
 import tbclient.GetGiftList.DataReq;
 import tbclient.GetGiftList.GetGiftListReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DefaultGiftListRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class DefaultGiftListRequest extends NetMessage {
             builder.scene_from = this.from;
             builder.benefit_userid = Long.valueOf(this.toUserId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                te5.a(builder, true);
+                af5.a(builder, true);
             }
             GetGiftListReqIdl.Builder builder2 = new GetGiftListReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -5,11 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.de5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wd5;
 /* loaded from: classes3.dex */
 public class PackageChangedReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
@@ -42,7 +42,7 @@ public class PackageChangedReceiver extends BroadcastReceiver {
         } else if (ACTION_UNINSTALL.equals(intent.getAction())) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002502, intent));
         }
-        wd5.r(intent);
+        de5.r(intent);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002504, intent));
     }
 }

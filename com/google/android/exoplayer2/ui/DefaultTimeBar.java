@@ -34,7 +34,7 @@ import java.util.Formatter;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DefaultTimeBar extends View implements TimeBar {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_AD_MARKER_COLOR = -1291845888;

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SlideTipsView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -82,6 +82,6 @@ public class SlideTipsView extends FrameLayout {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403aa}, i, 0);
         boolean z = obtainStyledAttributes.getBoolean(0, true);
         obtainStyledAttributes.recycle();
-        FrameLayout.inflate(context, z ? R.layout.obfuscated_res_0x7f0d0430 : R.layout.obfuscated_res_0x7f0d0435, this);
+        FrameLayout.inflate(context, z ? R.layout.obfuscated_res_0x7f0d0431 : R.layout.obfuscated_res_0x7f0d0436, this);
     }
 }

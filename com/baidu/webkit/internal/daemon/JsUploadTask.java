@@ -21,7 +21,7 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class JsUploadTask implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CONN_TIMEOUT = 5000;
@@ -82,7 +82,7 @@ public class JsUploadTask implements INoProGuard {
     public boolean responded;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class JumpType {
         public static final /* synthetic */ JumpType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

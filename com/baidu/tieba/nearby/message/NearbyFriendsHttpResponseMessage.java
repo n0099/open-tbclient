@@ -3,18 +3,18 @@ package com.baidu.tieba.nearby.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.mo7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eo7;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class NearbyFriendsHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public eo7 nearbyFriendData;
+    public mo7 nearbyFriendData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NearbyFriendsHttpResponseMessage() {
@@ -40,16 +40,16 @@ public class NearbyFriendsHttpResponseMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null && jSONObject.optInt("error_code", -1) == 0) {
-                eo7 eo7Var = new eo7();
-                this.nearbyFriendData = eo7Var;
-                eo7Var.a(jSONObject);
+                mo7 mo7Var = new mo7();
+                this.nearbyFriendData = mo7Var;
+                mo7Var.a(jSONObject);
             }
         }
     }
 
-    public eo7 getNearbyFriendData() {
+    public mo7 getNearbyFriendData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.nearbyFriendData : (eo7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.nearbyFriendData : (mo7) invokeV.objValue;
     }
 }

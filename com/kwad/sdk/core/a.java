@@ -7,14 +7,14 @@ import com.kwad.sdk.service.ServiceProvider;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public ConcurrentHashMap<String, DownloadParams> Tf;
     public ConcurrentHashMap<String, AdTemplate> Tg;
 
     /* renamed from: com.kwad.sdk.core.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class C0384a {
+    /* loaded from: classes7.dex */
+    public static final class C0599a {
         public static final a Th = new a((byte) 0);
     }
 
@@ -28,7 +28,7 @@ public final class a {
     }
 
     public static a rD() {
-        return C0384a.Th;
+        return C0599a.Th;
     }
 
     public final void a(String str, DownloadParams downloadParams) {

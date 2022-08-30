@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class g extends d {
     public static final Pattern ahF = Pattern.compile("(.*)\\s\\(tid=(\\d+), index=(\\d+)*");
     public static final Pattern ahG = Pattern.compile("\\sd+\\spc");

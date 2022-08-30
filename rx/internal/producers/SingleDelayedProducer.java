@@ -1,16 +1,16 @@
 package rx.internal.producers;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cv9;
+import com.baidu.tieba.gv9;
+import com.baidu.tieba.mv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dv9;
-import com.repackage.tu9;
-import com.repackage.xu9;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public final class SingleDelayedProducer<T> extends AtomicInteger implements tu9 {
+public final class SingleDelayedProducer<T> extends AtomicInteger implements cv9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HAS_REQUEST_HAS_VALUE = 3;
     public static final int HAS_REQUEST_NO_VALUE = 2;
@@ -18,15 +18,15 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements tu9
     public static final int NO_REQUEST_NO_VALUE = 0;
     public static final long serialVersionUID = -2873467947112093874L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xu9<? super T> child;
+    public final gv9<? super T> child;
     public T value;
 
-    public SingleDelayedProducer(xu9<? super T> xu9Var) {
+    public SingleDelayedProducer(gv9<? super T> gv9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xu9Var};
+            Object[] objArr = {gv9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,28 +36,28 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements tu9
                 return;
             }
         }
-        this.child = xu9Var;
+        this.child = gv9Var;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: T */
     /* JADX WARN: Multi-variable type inference failed */
-    public static <T> void emit(xu9<? super T> xu9Var, T t) {
+    public static <T> void emit(gv9<? super T> gv9Var, T t) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, xu9Var, t) == null) || xu9Var.isUnsubscribed()) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, gv9Var, t) == null) || gv9Var.isUnsubscribed()) {
             return;
         }
         try {
-            xu9Var.onNext(t);
-            if (xu9Var.isUnsubscribed()) {
+            gv9Var.onNext(t);
+            if (gv9Var.isUnsubscribed()) {
                 return;
             }
-            xu9Var.onCompleted();
+            gv9Var.onCompleted();
         } catch (Throwable th) {
-            dv9.g(th, xu9Var, t);
+            mv9.g(th, gv9Var, t);
         }
     }
 
-    @Override // com.repackage.tu9
+    @Override // com.baidu.tieba.cv9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {

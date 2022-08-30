@@ -24,7 +24,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ImagePerfMonitor implements ImagePerfNotifier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -6,11 +6,11 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.gi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fi;
 /* loaded from: classes3.dex */
 public class BottomInputLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -53,7 +53,7 @@ public class BottomInputLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.d = (int) getResources().getDimension(R.dimen.tbds117);
-            this.e = fi.b(context);
+            this.e = gi.b(context);
         }
     }
 

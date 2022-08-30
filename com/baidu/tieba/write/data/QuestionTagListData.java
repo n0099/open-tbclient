@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.pn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,9 +13,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
-import com.repackage.on;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class QuestionTagListData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,8 +23,8 @@ public class QuestionTagListData {
     @SerializedName("tag_list")
     public List<QuestionTag> b;
 
-    /* loaded from: classes4.dex */
-    public static class QuestionTag implements Parcelable, on {
+    /* loaded from: classes6.dex */
+    public static class QuestionTag implements Parcelable, pn {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<QuestionTag> CREATOR;
         public static final BdUniqueId TYPE_TAG;
@@ -35,7 +35,7 @@ public class QuestionTagListData {
         @SerializedName("name")
         public String tagName;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public static class a implements Parcelable.Creator<QuestionTag> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +114,7 @@ public class QuestionTagListData {
             return invokeV.intValue;
         }
 
-        @Override // com.repackage.on
+        @Override // com.baidu.tieba.pn
         public BdUniqueId getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;

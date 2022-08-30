@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ChunkSampleStream<T extends ChunkSource> implements SampleStream, SequenceableLoader, Loader.Callback<Chunk>, Loader.ReleaseCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ChunkSampleStream";
@@ -48,7 +48,7 @@ public class ChunkSampleStream<T extends ChunkSource> implements SampleStream, S
     public final int primaryTrackType;
     public final List<BaseMediaChunk> readOnlyMediaChunks;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public final class EmbeddedSampleStream implements SampleStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

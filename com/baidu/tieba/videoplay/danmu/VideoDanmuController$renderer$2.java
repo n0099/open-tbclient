@@ -1,18 +1,18 @@
 package com.baidu.tieba.videoplay.danmu;
 
+import com.baidu.tieba.n46;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f46;
 import kotlin.Metadata;
 import kotlin.Pair;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u0006\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001H\n"}, d2 = {"<anonymous>", "Lcom/baidu/tieba/danmu/render/TypedDanmakuRenderer;"}, k = 3, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes4.dex */
-public final class VideoDanmuController$renderer$2 extends Lambda implements Function0<f46> {
+/* loaded from: classes6.dex */
+public final class VideoDanmuController$renderer$2 extends Lambda implements Function0<n46> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ VideoDanmuController this$0;
@@ -41,14 +41,14 @@ public final class VideoDanmuController$renderer$2 extends Lambda implements Fun
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
-    public final f46 invoke() {
+    public final n46 invoke() {
         InterceptResult invokeV;
         DefaultRenderer defaultRenderer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             defaultRenderer = this.this$0.A;
-            return new f46(defaultRenderer, new Pair[0]);
+            return new n46(defaultRenderer, new Pair[0]);
         }
-        return (f46) invokeV.objValue;
+        return (n46) invokeV.objValue;
     }
 }

@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class Thread2GroupShareView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,10 +63,10 @@ public final class Thread2GroupShareView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d086d, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d086f, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e2c);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091e5d);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e2e);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091e5f);
             this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f0905f6);
             this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905ef);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905ee);
@@ -109,7 +109,7 @@ public final class Thread2GroupShareView extends LinearLayout {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             EditText editText = this.b;
             if (editText != null) {
-                return pi.charSequence2String(editText.getText(), null);
+                return qi.charSequence2String(editText.getText(), null);
             }
             return null;
         }

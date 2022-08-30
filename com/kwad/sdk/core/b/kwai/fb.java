@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.kwad.sdk.core.response.model.AdProductInfo;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class fb implements com.kwad.sdk.core.d<AdProductInfo.SpikeInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(AdProductInfo.SpikeInfo spikeInfo, JSONObject jSONObject) {

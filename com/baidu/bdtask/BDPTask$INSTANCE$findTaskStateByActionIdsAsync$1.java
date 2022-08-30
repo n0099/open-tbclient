@@ -1,12 +1,12 @@
 package com.baidu.bdtask;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.dp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cp;
 import java.util.Arrays;
 import kotlin.Metadata;
 import kotlin.Unit;
@@ -17,17 +17,17 @@ import kotlin.jvm.internal.Lambda;
 public final class BDPTask$INSTANCE$findTaskStateByActionIdsAsync$1 extends Lambda implements Function0<Unit> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ String[] $actionIds;
-    public final /* synthetic */ cp $callback;
+    public final /* synthetic */ dp $callback;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$findTaskStateByActionIdsAsync$1(cp cpVar, String[] strArr) {
+    public BDPTask$INSTANCE$findTaskStateByActionIdsAsync$1(dp dpVar, String[] strArr) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cpVar, strArr};
+            Object[] objArr = {dpVar, strArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,7 +38,7 @@ public final class BDPTask$INSTANCE$findTaskStateByActionIdsAsync$1 extends Lamb
                 return;
             }
         }
-        this.$callback = cpVar;
+        this.$callback = dpVar;
         this.$actionIds = strArr;
     }
 
@@ -50,9 +50,9 @@ public final class BDPTask$INSTANCE$findTaskStateByActionIdsAsync$1 extends Lamb
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             BDPTask u = BDPTask.m.u();
             if (u != null) {
-                cp cpVar = this.$callback;
+                dp dpVar = this.$callback;
                 String[] strArr = this.$actionIds;
-                u.N(cpVar, (String[]) Arrays.copyOf(strArr, strArr.length));
+                u.N(dpVar, (String[]) Arrays.copyOf(strArr, strArr.length));
                 return Unit.INSTANCE;
             }
             return null;

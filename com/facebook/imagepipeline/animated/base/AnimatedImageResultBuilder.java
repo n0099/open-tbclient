@@ -12,7 +12,7 @@ import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.transformation.BitmapTransformation;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AnimatedImageResultBuilder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

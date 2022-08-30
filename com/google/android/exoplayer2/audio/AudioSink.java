@@ -9,11 +9,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.PlaybackParameters;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface AudioSink {
     public static final long CURRENT_POSITION_NOT_SET = Long.MIN_VALUE;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class ConfigurationException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public interface AudioSink {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class InitializationException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public interface AudioSink {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface Listener {
         void onAudioSessionId(int i);
 
@@ -96,7 +96,7 @@ public interface AudioSink {
         void onUnderrun(int i, long j, long j2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class WriteException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

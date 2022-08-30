@@ -7,12 +7,12 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.tu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ru4;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.List;
 import org.json.JSONException;
@@ -56,7 +56,7 @@ public class TrackConfigResponseMessage extends JsonHttpResponsedMessage {
                         z = false;
                     }
                     this.isOpenTrack = z;
-                    ru4.k().u("key_is_open_track", this.isOpenTrack);
+                    tu4.k().u("key_is_open_track", this.isOpenTrack);
                     TbSingleton.getInstance().setIsOpenTrack(this.isOpenTrack);
                 } catch (JSONException e) {
                     BdLog.e("open track parese exception " + e.toString());

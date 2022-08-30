@@ -20,7 +20,7 @@ import com.google.android.exoplayer2.extractor.ts.PsExtractor;
 import com.google.android.exoplayer2.extractor.ts.TsExtractor;
 import com.google.android.exoplayer2.extractor.wav.WavExtractor;
 import java.lang.reflect.Constructor;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class DefaultExtractorsFactory implements ExtractorsFactory {
     public static /* synthetic */ Interceptable $ic;
     public static final Constructor<? extends Extractor> FLAC_EXTRACTOR_CONSTRUCTOR;

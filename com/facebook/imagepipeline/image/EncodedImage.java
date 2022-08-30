@@ -32,7 +32,7 @@ import java.io.InputStream;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class EncodedImage implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SAMPLE_SIZE = 1;

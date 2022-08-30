@@ -13,13 +13,13 @@ import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.ms7;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.es7;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ShareSuccessReplyToServerModel extends BdBaseModel {
@@ -64,7 +64,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
                 if (statusCode != 200 || error < 0 || jSONObject == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                     return;
                 }
-                this.mActDialogData = es7.a(optJSONObject);
+                this.mActDialogData = ms7.a(optJSONObject);
             }
         }
 

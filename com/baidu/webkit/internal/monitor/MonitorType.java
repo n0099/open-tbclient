@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MonitorType implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MONITOR_TYPE_AD = 24577;

@@ -16,12 +16,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RichGuideHollowView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,10 +84,10 @@ public class RichGuideHollowView extends View {
         rect.right += i;
         rect.bottom += i2;
         RectF rectF = new RectF();
-        rectF.left = rect.left - qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds60);
-        rectF.right = rect.right + qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds60);
-        rectF.top = rect.top + qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-        float f = rect.bottom - qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        rectF.left = rect.left - ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds60);
+        rectF.right = rect.right + ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds60);
+        rectF.top = rect.top + ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        float f = rect.bottom - ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
         rectF.bottom = f;
         float f2 = rectF.top;
         canvas.drawRoundRect(rectF, f - f2, f - f2, this.b);

@@ -19,7 +19,7 @@ import javax.annotation.concurrent.ThreadSafe;
 @DoNotStrip
 @ThreadSafe
 @TargetApi(19)
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class KitKatPurgeableDecoder extends DalvikPurgeableDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

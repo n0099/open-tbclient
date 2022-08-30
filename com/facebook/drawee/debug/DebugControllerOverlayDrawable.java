@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DebugControllerOverlayDrawable extends Drawable implements ImageLoadingTimeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float IMAGE_SIZE_THRESHOLD_NOT_OK = 0.5f;

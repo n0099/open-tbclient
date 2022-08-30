@@ -5,18 +5,18 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cg5;
 import com.baidu.tieba.view.AdapterLinearLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vf5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SelectRuleRowItem extends AdapterLinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vf5 c;
+    public cg5 c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SelectRuleRowItem(Context context) {
@@ -45,9 +45,9 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
             setOrientation(0);
             setGravity(16);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            vf5 vf5Var = new vf5(getContext());
-            this.c = vf5Var;
-            setAdapter(vf5Var);
+            cg5 cg5Var = new cg5(getContext());
+            this.c = cg5Var;
+            setAdapter(cg5Var);
         }
     }
 

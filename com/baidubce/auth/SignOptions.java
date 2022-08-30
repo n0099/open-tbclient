@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SignOptions {
     public static /* synthetic */ Interceptable $ic = null;
     public static final SignOptions DEFAULT;

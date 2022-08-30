@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
@@ -115,17 +115,17 @@ public class MaxSignItemView extends FrameLayout {
                     return;
                 }
             }
-            this.a = R.drawable.obfuscated_res_0x7f08063d;
-            this.b = R.drawable.obfuscated_res_0x7f08063e;
-            this.c = R.drawable.obfuscated_res_0x7f08063c;
-            this.d = R.drawable.obfuscated_res_0x7f08063f;
-            this.e = R.drawable.obfuscated_res_0x7f08063c;
+            this.a = R.drawable.obfuscated_res_0x7f08063e;
+            this.b = R.drawable.obfuscated_res_0x7f08063f;
+            this.c = R.drawable.obfuscated_res_0x7f08063d;
+            this.d = R.drawable.obfuscated_res_0x7f080640;
+            this.e = R.drawable.obfuscated_res_0x7f08063d;
             this.j = false;
             this.k = activeCenterStatusData;
             this.f = view2;
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f92);
-            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090fbf);
-            CircleView circleView = (CircleView) this.f.findViewById(R.id.obfuscated_res_0x7f091de8);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f93);
+            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090fc0);
+            CircleView circleView = (CircleView) this.f.findViewById(R.id.obfuscated_res_0x7f091dea);
             this.i = circleView;
             circleView.setVisibility(4);
             int i3 = activeCenterStatusData.is_today_mission;
@@ -184,8 +184,8 @@ public class MaxSignItemView extends FrameLayout {
             }
         }
         this.c = new ArrayList<>();
-        this.g = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.h = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.g = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.h = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();
     }
 
@@ -193,7 +193,7 @@ public class MaxSignItemView extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activeCenterStatusData)) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d055e, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0560, (ViewGroup) null);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
             layoutParams.weight = 1.0f;
             this.a.addView(inflate, layoutParams);
@@ -207,11 +207,11 @@ public class MaxSignItemView extends FrameLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d055d, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e7f);
-            this.b = (LineView) findViewById(R.id.obfuscated_res_0x7f0912fa);
-            this.e = qi.f(getContext(), R.dimen.tbds3);
-            this.f = qi.f(getContext(), R.dimen.tbds0);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d055f, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e81);
+            this.b = (LineView) findViewById(R.id.obfuscated_res_0x7f0912fc);
+            this.e = ri.f(getContext(), R.dimen.tbds3);
+            this.f = ri.f(getContext(), R.dimen.tbds0);
         }
     }
 
@@ -304,8 +304,8 @@ public class MaxSignItemView extends FrameLayout {
             }
         }
         this.c = new ArrayList<>();
-        this.g = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.h = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.g = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.h = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();
     }
 
@@ -329,8 +329,8 @@ public class MaxSignItemView extends FrameLayout {
             }
         }
         this.c = new ArrayList<>();
-        this.g = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.h = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.g = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.h = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();
     }
 }

@@ -6,10 +6,10 @@ import com.facebook.imagepipeline.image.EncodedImageOrigin;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface ProducerContext {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public @interface ExtraKeys {
         public static final String ENCODED_HEIGHT = "encoded_height";
         public static final String ENCODED_SIZE = "encoded_size";

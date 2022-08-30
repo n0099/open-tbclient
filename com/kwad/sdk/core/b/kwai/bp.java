@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.download.DownloadParams;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class bp implements com.kwad.sdk.core.d<DownloadParams> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(DownloadParams downloadParams, JSONObject jSONObject) {

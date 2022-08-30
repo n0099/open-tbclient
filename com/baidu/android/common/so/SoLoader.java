@@ -7,6 +7,8 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.mn4;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ln4;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -54,7 +55,7 @@ public final class SoLoader {
                 return;
             }
         }
-        DEBUG = ln4.e();
+        DEBUG = mn4.e();
         sLoadedLibraries = Collections.synchronizedSet(new HashSet());
         soSources = new ArrayList();
     }
@@ -141,7 +142,7 @@ public final class SoLoader {
                         }
                     }
                     try {
-                        fileChannel2 = new RandomAccessFile(file2, "rw").getChannel();
+                        fileChannel2 = new RandomAccessFile(file2, rw.c).getChannel();
                     } catch (FileNotFoundException e2) {
                         e = e2;
                         fileChannel2 = null;

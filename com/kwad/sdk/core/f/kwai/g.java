@@ -7,7 +7,7 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import com.kwad.sdk.core.f.a.e;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class g {
     public final LinkedBlockingQueue<IBinder> Zp = new LinkedBlockingQueue<>(1);
     public ServiceConnection Zq = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.g.1

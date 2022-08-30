@@ -1,14 +1,14 @@
 package com.google.android.gms.common;
 
 import android.support.v4.media.session.MediaSessionCompat;
+import com.baidu.tieba.zm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.annotation.KeepName;
-import com.repackage.qm9;
 @KeepName
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class GooglePlayServicesIncorrectManifestValueException extends GooglePlayServicesManifestException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public final class GooglePlayServicesIncorrectManifestValueException extends Goo
                 return;
             }
         }
-        int i4 = qm9.a;
+        int i4 = zm9.a;
         StringBuilder sb = new StringBuilder((int) MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP);
         sb.append("The meta-data tag in your app's AndroidManifest.xml does not have the right value.  Expected ");
         sb.append(i4);

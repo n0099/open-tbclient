@@ -19,7 +19,7 @@ import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.Deferred;
 @Metadata(d1 = {"\u0000\u0004\n\u0002\b\u0003\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u00012\u0006\u0010\u0002\u001a\u0002H\u0001H\u008a@"}, d2 = {"<anonymous>", "T", AdvanceSetting.NETWORK_TYPE}, k = 3, mv = {1, 5, 1}, xi = 48)
 @DebugMetadata(c = "com.baidu.tun2tornadolite.booster.Utils$amb$2$1", f = "Utils.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class Utils$amb$2$1 extends SuspendLambda implements Function2<T, Continuation<? super T>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

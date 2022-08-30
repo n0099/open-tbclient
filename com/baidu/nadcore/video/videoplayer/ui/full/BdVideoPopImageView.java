@@ -11,6 +11,7 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.x11;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +19,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w11;
 /* loaded from: classes2.dex */
 public class BdVideoPopImageView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -54,12 +54,12 @@ public class BdVideoPopImageView extends View {
                 return;
             }
         }
-        l = w11.a(12.0f);
-        m = w11.d(30.0f);
-        n = w11.a(16.0f);
-        o = w11.a(9.0f) + n;
-        p = w11.b(90.0f);
-        q = w11.b(90.0f);
+        l = x11.a(12.0f);
+        m = x11.d(30.0f);
+        n = x11.a(16.0f);
+        o = x11.a(9.0f) + n;
+        p = x11.b(90.0f);
+        q = x11.b(90.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -100,7 +100,7 @@ public class BdVideoPopImageView extends View {
             this.f.setColor(-1);
             this.f.setTextAlign(Paint.Align.CENTER);
             this.h = new Rect();
-            this.g = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e08);
+            this.g = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e09);
         }
     }
 

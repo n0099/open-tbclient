@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.tieba.oe9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fe9;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -198,7 +198,7 @@ public class ContentUtils {
                     stringBuffer.append((String) entry.getValue());
                 }
                 stringBuffer.append(str);
-                return fe9.c(stringBuffer.toString().getBytes(), false);
+                return oe9.c(stringBuffer.toString().getBytes(), false);
             }
             return "";
         }

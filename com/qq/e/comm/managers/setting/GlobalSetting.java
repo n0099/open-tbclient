@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.pi.CustomLandingPageListener;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class GlobalSetting {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BD_SDK_WRAPPER = "BD";

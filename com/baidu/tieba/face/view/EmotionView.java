@@ -13,17 +13,17 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.an;
 import com.baidu.tieba.face.data.EmotionImageData;
+import com.baidu.tieba.kg;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jg;
-import com.repackage.kg;
-import com.repackage.qi;
-import com.repackage.zm;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EmotionView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,8 +44,8 @@ public class EmotionView extends TbImageView {
     public int y0;
     public FrameLayout z0;
 
-    /* loaded from: classes3.dex */
-    public class a extends jg<zm> {
+    /* loaded from: classes4.dex */
+    public class a extends kg<an> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionView a;
@@ -69,24 +69,24 @@ public class EmotionView extends TbImageView {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jg
-        public void onLoaded(zm zmVar, String str, int i) {
+        @Override // com.baidu.tieba.kg
+        public void onLoaded(an anVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, zmVar, str, i) == null) || zmVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, anVar, str, i) == null) || anVar == null) {
                 return;
             }
-            this.a.H = zmVar.t();
+            this.a.H = anVar.t();
             View findViewWithTag = this.a.findViewWithTag(str);
             if (findViewWithTag == null || !(findViewWithTag instanceof TbImageView) || str == null) {
                 return;
             }
             TbImageView tbImageView = (TbImageView) findViewWithTag;
-            zmVar.h(tbImageView);
+            anVar.h(tbImageView);
             tbImageView.setTag(null);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -146,7 +146,7 @@ public class EmotionView extends TbImageView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void b();
 
@@ -157,7 +157,7 @@ public class EmotionView extends TbImageView {
         boolean e();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -298,10 +298,10 @@ public class EmotionView extends TbImageView {
     public final void n0(EmotionImageData emotionImageData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, emotionImageData) == null) {
-            Object k = kg.h().k(emotionImageData.getThumbUrl(), 20, new a(this), 0, 0, null, null, emotionImageData.getThumbUrl(), Boolean.FALSE, null);
-            zm zmVar = (k == null || !(k instanceof zm)) ? null : (zm) k;
-            if (zmVar != null) {
-                zmVar.h(this);
+            Object k = lg.h().k(emotionImageData.getThumbUrl(), 20, new a(this), 0, 0, null, null, emotionImageData.getThumbUrl(), Boolean.FALSE, null);
+            an anVar = (k == null || !(k instanceof an)) ? null : (an) k;
+            if (anVar != null) {
+                anVar.h(this);
                 setTag(null);
             }
         }
@@ -330,8 +330,8 @@ public class EmotionView extends TbImageView {
         if (i < 0) {
             layoutParams.leftMargin = 0;
         }
-        if (layoutParams.leftMargin + this.x0 > qi.k(getContext())) {
-            layoutParams.leftMargin = qi.k(getContext()) - this.x0;
+        if (layoutParams.leftMargin + this.x0 > ri.k(getContext())) {
+            layoutParams.leftMargin = ri.k(getContext()) - this.x0;
         }
         if (this.z0 == null) {
             this.z0 = (FrameLayout) ((Activity) getContext()).getWindow().getDecorView();
@@ -390,8 +390,8 @@ public class EmotionView extends TbImageView {
     public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.x0 = qi.f(getContext(), R.dimen.obfuscated_res_0x7f070283);
-            this.y0 = qi.f(getContext(), R.dimen.obfuscated_res_0x7f07028a);
+            this.x0 = ri.f(getContext(), R.dimen.obfuscated_res_0x7f070283);
+            this.y0 = ri.f(getContext(), R.dimen.obfuscated_res_0x7f07028a);
             this.I0 = ViewConfiguration.get(getContext()).getScaledTouchSlop() * 2;
         }
     }

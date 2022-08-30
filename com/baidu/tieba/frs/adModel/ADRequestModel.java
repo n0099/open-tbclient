@@ -7,23 +7,23 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.bb;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.rk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab;
-import com.repackage.d9;
-import com.repackage.jk8;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public final ab b;
+    public final bb b;
 
-    /* loaded from: classes3.dex */
-    public class a extends ab {
+    /* loaded from: classes4.dex */
+    public class a extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ADRequestModel a;
@@ -50,7 +50,7 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
             this.a = aDRequestModel;
         }
 
-        @Override // com.repackage.ab
+        @Override // com.baidu.tieba.bb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -67,7 +67,7 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(ADSocketResponseMessage aDSocketResponseMessage);
 
@@ -93,8 +93,8 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
             }
         }
         this.b = new a(this, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, 309611);
-        jk8.h(309611, ADSocketResponseMessage.class, false, false);
-        jk8.c(309611, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, "c/f/frs/getadlist", ADHttpResponseMessage.class, false, false, true, false);
+        rk8.h(309611, ADSocketResponseMessage.class, false, false);
+        rk8.c(309611, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, "c/f/frs/getadlist", ADHttpResponseMessage.class, false, false, true, false);
         registerListener(this.b);
     }
 

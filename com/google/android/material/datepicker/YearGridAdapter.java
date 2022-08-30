@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.datepicker.MaterialCalendar;
 import java.util.Calendar;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class YearGridAdapter extends RecyclerView.Adapter<ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MaterialCalendar<?> materialCalendar;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,7 +133,7 @@ public class YearGridAdapter extends RecyclerView.Adapter<ViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, viewHolder, i) == null) {
             int yearForPosition = getYearForPosition(i);
-            String string = viewHolder.textView.getContext().getString(R.string.obfuscated_res_0x7f0f0b11);
+            String string = viewHolder.textView.getContext().getString(R.string.obfuscated_res_0x7f0f0b14);
             viewHolder.textView.setText(String.format(Locale.getDefault(), "%d", Integer.valueOf(yearForPosition)));
             viewHolder.textView.setContentDescription(String.format(string, Integer.valueOf(yearForPosition)));
             CalendarStyle calendarStyle = this.materialCalendar.getCalendarStyle();
@@ -156,6 +156,6 @@ public class YearGridAdapter extends RecyclerView.Adapter<ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) ? new ViewHolder((TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d059f, viewGroup, false)) : (ViewHolder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) ? new ViewHolder((TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05a1, viewGroup, false)) : (ViewHolder) invokeLI.objValue;
     }
 }

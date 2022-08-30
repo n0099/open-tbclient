@@ -4,11 +4,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ks;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.js;
 import kotlin.Metadata;
 import kotlin.TypeCastException;
 import kotlin.Unit;
@@ -56,39 +56,39 @@ public final class BuoyComponent$attachToWindow$1 extends Lambda implements Func
     @Override // kotlin.jvm.functions.Function0
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2() {
-        js jsVar;
-        js jsVar2;
-        js jsVar3;
-        js jsVar4;
-        js jsVar5;
-        js jsVar6;
-        js jsVar7;
-        js jsVar8;
+        ks ksVar;
+        ks ksVar2;
+        ks ksVar3;
+        ks ksVar4;
+        ks ksVar5;
+        ks ksVar6;
+        ks ksVar7;
+        ks ksVar8;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            jsVar = this.this$0.f;
-            View contentView = jsVar.getContentView();
+            ksVar = this.this$0.f;
+            View contentView = ksVar.getContentView();
             if ((contentView != null ? contentView.getParent() : null) != null) {
-                jsVar6 = this.this$0.f;
-                View contentView2 = jsVar6.getContentView();
+                ksVar6 = this.this$0.f;
+                View contentView2 = ksVar6.getContentView();
                 ViewParent parent = contentView2 != null ? contentView2.getParent() : null;
                 if (!(parent instanceof ViewGroup)) {
                     parent = null;
                 }
                 if (((ViewGroup) parent) != null) {
-                    jsVar7 = this.this$0.f;
-                    View contentView3 = jsVar7.getContentView();
+                    ksVar7 = this.this$0.f;
+                    View contentView3 = ksVar7.getContentView();
                     ViewParent parent2 = contentView3 != null ? contentView3.getParent() : null;
                     if (parent2 == null) {
                         throw new TypeCastException("null cannot be cast to non-null type android.view.ViewGroup");
                     }
-                    jsVar8 = this.this$0.f;
-                    ((ViewGroup) parent2).removeView(jsVar8.getContentView());
+                    ksVar8 = this.this$0.f;
+                    ((ViewGroup) parent2).removeView(ksVar8.getContentView());
                 }
             }
             ViewGroup viewGroup = this.$viewGroup;
-            jsVar2 = this.this$0.f;
-            if (viewGroup.indexOfChild(jsVar2.getContentView()) != -1) {
+            ksVar2 = this.this$0.f;
+            if (viewGroup.indexOfChild(ksVar2.getContentView()) != -1) {
                 ViewGroup viewGroup2 = this.$viewGroup;
                 viewGroup2.removeView(viewGroup2);
             }
@@ -96,20 +96,20 @@ public final class BuoyComponent$attachToWindow$1 extends Lambda implements Func
             if (findViewWithTag != null) {
                 this.$viewGroup.removeView(findViewWithTag);
             }
-            jsVar3 = this.this$0.f;
-            View contentView4 = jsVar3.getContentView();
+            ksVar3 = this.this$0.f;
+            View contentView4 = ksVar3.getContentView();
             if (contentView4 != null) {
                 contentView4.setTag("TaskSDKBuoyViewTag");
             }
             if (this.$layoutParams == null) {
                 ViewGroup viewGroup3 = this.$viewGroup;
-                jsVar5 = this.this$0.f;
-                viewGroup3.addView(jsVar5.getContentView());
+                ksVar5 = this.this$0.f;
+                viewGroup3.addView(ksVar5.getContentView());
                 return;
             }
             ViewGroup viewGroup4 = this.$viewGroup;
-            jsVar4 = this.this$0.f;
-            viewGroup4.addView(jsVar4.getContentView(), this.$layoutParams);
+            ksVar4 = this.this$0.f;
+            viewGroup4.addView(ksVar4.getContentView(), this.$layoutParams);
         }
     }
 }

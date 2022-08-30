@@ -3,12 +3,12 @@ package com.baidu.tbadk.editortools.pb;
 import androidx.annotation.Nullable;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.d9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
 /* loaded from: classes3.dex */
 public abstract class DataModel<T> extends BdBaseModel<T> {
     public static /* synthetic */ Interceptable $ic;

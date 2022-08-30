@@ -3,7 +3,7 @@ package com.kwad.sdk.core;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.b;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface d<T extends b> {
     void a(T t, @Nullable JSONObject jSONObject);
 

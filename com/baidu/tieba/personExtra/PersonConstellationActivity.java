@@ -15,17 +15,17 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bj5;
+import com.baidu.tieba.gj5;
+import com.baidu.tieba.lj5;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.zi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dj5;
-import com.repackage.qi;
-import com.repackage.ri5;
-import com.repackage.ti5;
-import com.repackage.yi5;
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonConstellationActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class PersonConstellationActivity extends BaseActivity {
     public View c;
     public ImageView d;
     public BdSwitchView e;
-    public dj5 f;
+    public lj5 f;
     public RelativeLayout g;
     public RelativeLayout h;
     public TextView i;
@@ -46,9 +46,9 @@ public class PersonConstellationActivity extends BaseActivity {
     public int o;
     public BdSwitchView.b p;
     public View.OnClickListener q;
-    public yi5 r;
+    public gj5 r;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements BdSwitchView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class PersonConstellationActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,13 +126,13 @@ public class PersonConstellationActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c implements ti5 {
+    /* loaded from: classes5.dex */
+    public class c implements bj5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonConstellationActivity a;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +166,7 @@ public class PersonConstellationActivity extends BaseActivity {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class b implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -219,23 +219,23 @@ public class PersonConstellationActivity extends BaseActivity {
             this.a = personConstellationActivity;
         }
 
-        @Override // com.repackage.ti5
+        @Override // com.baidu.tieba.bj5
         public void a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 SkinManager.setBackgroundResource(view2, R.drawable.person_birthday_select_top_bg);
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918e3);
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918e5);
                 textView.setOnClickListener(new a(this));
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1, TbadkCoreApplication.getInst().getSkinType());
-                TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918e2);
+                TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918e4);
                 SkinManager.setViewTextColor(textView2, R.color.CAM_X0302, 1, TbadkCoreApplication.getInst().getSkinType());
                 textView2.setOnClickListener(new b(this));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class d implements yi5 {
+    /* loaded from: classes5.dex */
+    public class d implements gj5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonConstellationActivity a;
@@ -258,14 +258,14 @@ public class PersonConstellationActivity extends BaseActivity {
             this.a = personConstellationActivity;
         }
 
-        @Override // com.repackage.yi5
+        @Override // com.baidu.tieba.gj5
         public void a(Date date, View view2) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, date, view2) == null) || date == null) {
                 return;
             }
             if (date.getTime() > System.currentTimeMillis()) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0e1b);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0e1e);
                 return;
             }
             this.a.i.setText(StringHelper.dateToConstellation(date));
@@ -317,22 +317,22 @@ public class PersonConstellationActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.f == null) {
-                ri5 ri5Var = new ri5(getActivity(), this.r);
-                ri5Var.k(R.layout.obfuscated_res_0x7f0d06da, new c(this));
-                ri5Var.f(18);
-                ri5Var.p(new boolean[]{true, true, true, false, false, false});
-                ri5Var.j("年", "月", "日", "时", "分", "秒");
-                ri5Var.l(2.0f);
-                ri5Var.o(0, 0, 0, 0, 0, 0);
-                ri5Var.b(false);
-                ri5Var.i(SkinManager.getColor(R.color.CAM_X0206));
-                ri5Var.m(SkinManager.getColor(R.color.CAM_X0105));
-                ri5Var.n(SkinManager.getColor(R.color.CAM_X0109));
-                ri5Var.d(SkinManager.getColor(R.color.black_alpha30));
-                ri5Var.e(SkinManager.getColor(R.color.CAM_X0201));
-                ri5Var.c(false);
-                ri5Var.h(this.h);
-                this.f = ri5Var.a();
+                zi5 zi5Var = new zi5(getActivity(), this.r);
+                zi5Var.k(R.layout.obfuscated_res_0x7f0d06dc, new c(this));
+                zi5Var.f(18);
+                zi5Var.p(new boolean[]{true, true, true, false, false, false});
+                zi5Var.j("年", "月", "日", "时", "分", "秒");
+                zi5Var.l(2.0f);
+                zi5Var.o(0, 0, 0, 0, 0, 0);
+                zi5Var.b(false);
+                zi5Var.i(SkinManager.getColor(R.color.CAM_X0206));
+                zi5Var.m(SkinManager.getColor(R.color.CAM_X0105));
+                zi5Var.n(SkinManager.getColor(R.color.CAM_X0109));
+                zi5Var.d(SkinManager.getColor(R.color.black_alpha30));
+                zi5Var.e(SkinManager.getColor(R.color.CAM_X0201));
+                zi5Var.c(false);
+                zi5Var.h(this.h);
+                this.f = zi5Var.a();
             }
             this.f.u();
         }
@@ -380,36 +380,36 @@ public class PersonConstellationActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d06ee);
+            setContentView(R.layout.obfuscated_res_0x7f0d06f0);
             initData();
-            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0918e5);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255c);
+            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0918e7);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092566);
             this.a = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0e37)).setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
-            View addCustomView = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0612, (View.OnClickListener) null);
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0e3a)).setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
+            View addCustomView = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0614, (View.OnClickListener) null);
             this.c = addCustomView;
-            TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091bf8);
+            TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091bfa);
             this.b = textView;
             textView.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
-            this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0e33));
+            this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0e36));
             SkinManager.setViewTextColor(this.b, R.color.navi_op_text, 1);
             this.c.setOnClickListener(this.q);
-            ImageView imageView = (ImageView) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d08d8, (View.OnClickListener) null);
+            ImageView imageView = (ImageView) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d08da, (View.OnClickListener) null);
             this.d = imageView;
             imageView.setOnClickListener(this.q);
             SkinManager.setImageResource(this.d, R.drawable.selector_topbar_return_black);
-            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f0918e6);
+            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f0918e8);
             this.e = bdSwitchView;
             bdSwitchView.setOnSwitchStateChangeListener(this.p);
-            qi.b(getPageContext().getPageActivity(), this.e, 10, 10, 10, 10);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0918e1);
+            ri.b(getPageContext().getPageActivity(), this.e, 10, 10, 10, 10);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0918e3);
             this.g = relativeLayout;
             relativeLayout.setOnClickListener(this.q);
             this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0906bb);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0906b9);
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090389);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0918e4);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0918e7);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0918e6);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0918e9);
             this.k = textView2;
             if (this.n == 0) {
                 textView2.setVisibility(0);

@@ -5,12 +5,12 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.NoProGuard;
+import com.baidu.tieba.yl2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xl2;
 import java.io.Serializable;
 /* loaded from: classes2.dex */
 public class SwanFavorItemData implements Serializable, NoProGuard {
@@ -138,7 +138,7 @@ public class SwanFavorItemData implements Serializable, NoProGuard {
     public String getSchema(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? TextUtils.isEmpty(str) ? "" : xl2.h1(getAppKey(), str, getAppFrameType()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? TextUtils.isEmpty(str) ? "" : yl2.h1(getAppKey(), str, getAppFrameType()) : (String) invokeL.objValue;
     }
 
     public void setAppFrameType(int i) {

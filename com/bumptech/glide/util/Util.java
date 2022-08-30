@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HASH_ACCUMULATOR = 17;
@@ -31,7 +31,7 @@ public final class Util {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.bumptech.glide.util.Util$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
         public static /* synthetic */ Interceptable $ic;

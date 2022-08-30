@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.kh1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jh1;
 /* loaded from: classes3.dex */
 public class SwanAppWebPopPullLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -154,7 +154,7 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
                 return;
             }
         }
-        f = jh1.a;
+        f = kh1.a;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

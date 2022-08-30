@@ -1,6 +1,7 @@
 package tv.athena.revenue.payui.view;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.g3a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,10 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.x2a;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
 /* loaded from: classes9.dex */
-public interface IYYPayResultView extends x2a {
+public interface IYYPayResultView extends g3a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */

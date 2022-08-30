@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class HandlerBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "hdlr";

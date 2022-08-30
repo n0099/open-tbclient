@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BdExpandListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static int d0 = 1;
@@ -43,7 +43,7 @@ public class BdExpandListView extends BdTypeListView {
     public Runnable b0;
     public int c0;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +78,7 @@ public class BdExpandListView extends BdTypeListView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(float f);
 
@@ -87,7 +87,7 @@ public class BdExpandListView extends BdTypeListView {
         void onRefresh();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

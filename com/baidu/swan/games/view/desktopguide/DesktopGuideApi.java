@@ -22,6 +22,22 @@ import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.menu.PopupWindow;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a13;
+import com.baidu.tieba.b44;
+import com.baidu.tieba.c44;
+import com.baidu.tieba.ht1;
+import com.baidu.tieba.i93;
+import com.baidu.tieba.k82;
+import com.baidu.tieba.kh1;
+import com.baidu.tieba.l34;
+import com.baidu.tieba.lp1;
+import com.baidu.tieba.n63;
+import com.baidu.tieba.o93;
+import com.baidu.tieba.re3;
+import com.baidu.tieba.s34;
+import com.baidu.tieba.t73;
+import com.baidu.tieba.ue3;
+import com.baidu.tieba.xl2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,34 +45,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a44;
-import com.repackage.b44;
-import com.repackage.gt1;
-import com.repackage.h93;
-import com.repackage.j82;
-import com.repackage.jh1;
-import com.repackage.k34;
-import com.repackage.kp1;
-import com.repackage.m63;
-import com.repackage.n93;
-import com.repackage.qe3;
-import com.repackage.r34;
-import com.repackage.s73;
-import com.repackage.te3;
-import com.repackage.wl2;
-import com.repackage.z03;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
-public class DesktopGuideApi implements b44 {
+public class DesktopGuideApi implements c44 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile gt1 b;
+    public volatile ht1 b;
     public volatile DesktopGuideType c;
     public PopupWindow d;
     public Runnable e;
     public AtomicBoolean f;
-    public r34 g;
+    public s34 g;
     public volatile long h;
     public volatile long i;
     public volatile long j;
@@ -169,8 +169,8 @@ public class DesktopGuideApi implements b44 {
                     return;
                 }
             }
-            BAR = new DesktopGuideType("BAR", 0, "bar", -1, 992, "desk_flow", R.string.obfuscated_res_0x7f0f132c);
-            DesktopGuideType desktopGuideType = new DesktopGuideType("BAR_AUTOHIDE", 1, "bar-autohide", -1, 865, "desk_flow_close", R.string.obfuscated_res_0x7f0f132c);
+            BAR = new DesktopGuideType("BAR", 0, "bar", -1, 992, "desk_flow", R.string.obfuscated_res_0x7f0f132f);
+            DesktopGuideType desktopGuideType = new DesktopGuideType("BAR_AUTOHIDE", 1, "bar-autohide", -1, 865, "desk_flow_close", R.string.obfuscated_res_0x7f0f132f);
             BAR_AUTOHIDE = desktopGuideType;
             $VALUES = new DesktopGuideType[]{BAR, desktopGuideType};
         }
@@ -229,7 +229,7 @@ public class DesktopGuideApi implements b44 {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements kp1.a {
+    public class a implements lp1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DesktopGuideApi a;
@@ -252,7 +252,7 @@ public class DesktopGuideApi implements b44 {
             this.a = desktopGuideApi;
         }
 
-        @Override // com.repackage.kp1.a
+        @Override // com.baidu.tieba.lp1.a
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null && this.a.d.x()) {
@@ -261,7 +261,7 @@ public class DesktopGuideApi implements b44 {
             }
         }
 
-        @Override // com.repackage.kp1.a
+        @Override // com.baidu.tieba.lp1.a
         public void b(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && i == 0 && this.a.d != null && this.a.d.x()) {
@@ -310,17 +310,17 @@ public class DesktopGuideApi implements b44 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppActivity a;
-        public final /* synthetic */ z03 b;
+        public final /* synthetic */ a13 b;
         public final /* synthetic */ String c;
         public final /* synthetic */ Bitmap d;
         public final /* synthetic */ DesktopGuideApi e;
 
-        public c(DesktopGuideApi desktopGuideApi, SwanAppActivity swanAppActivity, z03 z03Var, String str, Bitmap bitmap) {
+        public c(DesktopGuideApi desktopGuideApi, SwanAppActivity swanAppActivity, a13 a13Var, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {desktopGuideApi, swanAppActivity, z03Var, str, bitmap};
+                Object[] objArr = {desktopGuideApi, swanAppActivity, a13Var, str, bitmap};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -332,7 +332,7 @@ public class DesktopGuideApi implements b44 {
             }
             this.e = desktopGuideApi;
             this.a = swanAppActivity;
-            this.b = z03Var;
+            this.b = a13Var;
             this.c = str;
             this.d = bitmap;
         }
@@ -379,7 +379,7 @@ public class DesktopGuideApi implements b44 {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.b.p();
                 this.b.o(DesktopApiStatus.USER_CANCEL);
-                s73.f(this.a.ubcType, "flow_close_close", "click");
+                t73.f(this.a.ubcType, "flow_close_close", "click");
             }
         }
     }
@@ -389,16 +389,16 @@ public class DesktopGuideApi implements b44 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Activity a;
-        public final /* synthetic */ z03 b;
+        public final /* synthetic */ a13 b;
         public final /* synthetic */ DesktopGuideType c;
         public final /* synthetic */ DesktopGuideApi d;
 
-        public e(DesktopGuideApi desktopGuideApi, Activity activity, z03 z03Var, DesktopGuideType desktopGuideType) {
+        public e(DesktopGuideApi desktopGuideApi, Activity activity, a13 a13Var, DesktopGuideType desktopGuideType) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {desktopGuideApi, activity, z03Var, desktopGuideType};
+                Object[] objArr = {desktopGuideApi, activity, a13Var, desktopGuideType};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -410,7 +410,7 @@ public class DesktopGuideApi implements b44 {
             }
             this.d = desktopGuideApi;
             this.a = activity;
-            this.b = z03Var;
+            this.b = a13Var;
             this.c = desktopGuideType;
         }
 
@@ -420,7 +420,7 @@ public class DesktopGuideApi implements b44 {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.d.p();
                 this.d.m(this.a, this.b);
-                s73.f(this.c.ubcType, "desk_flow".equals(this.c.ubcType) ? "flow_close_add" : "flow_add", "click");
+                t73.f(this.c.ubcType, "desk_flow".equals(this.c.ubcType) ? "flow_close_add" : "flow_add", "click");
             }
         }
     }
@@ -494,18 +494,18 @@ public class DesktopGuideApi implements b44 {
     }
 
     /* loaded from: classes3.dex */
-    public class h implements m63.f {
+    public class h implements n63.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z03 a;
+        public final /* synthetic */ a13 a;
         public final /* synthetic */ DesktopGuideApi b;
 
-        public h(DesktopGuideApi desktopGuideApi, z03 z03Var) {
+        public h(DesktopGuideApi desktopGuideApi, a13 a13Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {desktopGuideApi, z03Var};
+                Object[] objArr = {desktopGuideApi, a13Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -516,10 +516,10 @@ public class DesktopGuideApi implements b44 {
                 }
             }
             this.b = desktopGuideApi;
-            this.a = z03Var;
+            this.a = a13Var;
         }
 
-        @Override // com.repackage.m63.f
+        @Override // com.baidu.tieba.n63.f
         public void a(int i) {
             DesktopApiStatus desktopApiStatus;
             String str;
@@ -540,7 +540,7 @@ public class DesktopGuideApi implements b44 {
                     str = "desk_success";
                 }
                 this.b.o(desktopApiStatus);
-                s73.f(this.b.c.ubcType, str, "click");
+                t73.f(this.b.c.ubcType, str, "click");
             }
         }
     }
@@ -558,15 +558,15 @@ public class DesktopGuideApi implements b44 {
                 return;
             }
         }
-        n = jh1.a;
+        n = kh1.a;
     }
 
-    public DesktopGuideApi(j82 j82Var) {
+    public DesktopGuideApi(k82 k82Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {j82Var};
+            Object[] objArr = {k82Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -581,14 +581,14 @@ public class DesktopGuideApi implements b44 {
         q();
     }
 
-    public final void m(@NonNull Context context, @NonNull z03 z03Var) {
+    public final void m(@NonNull Context context, @NonNull a13 a13Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, z03Var) == null) {
-            wl2.a Y = z03Var.Y();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, a13Var) == null) {
+            xl2.a Y = a13Var.Y();
             if (Y == null) {
                 o(DesktopApiStatus.EXEC_FAILURE);
             } else {
-                m63.k(context, Y, new h(this, z03Var));
+                n63.k(context, Y, new h(this, a13Var));
             }
         }
     }
@@ -598,8 +598,8 @@ public class DesktopGuideApi implements b44 {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, desktopGuideType) == null) {
             ViewGroup.LayoutParams layoutParams = viewGroup.getLayoutParams();
             int i = desktopGuideType.showWidth4px;
-            int g2 = qe3.g(7.0f);
-            int o = qe3.o(null);
+            int g2 = re3.g(7.0f);
+            int o = re3.o(null);
             int i2 = g2 * 2;
             if (o - i < i2) {
                 i = o - i2;
@@ -615,7 +615,7 @@ public class DesktopGuideApi implements b44 {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, desktopApiStatus) == null) || this.b == null) {
             return;
         }
-        k34.call(this.b, desktopApiStatus.success, new a44(desktopApiStatus.statusCode, desktopApiStatus.statusMsg));
+        l34.call(this.b, desktopApiStatus.success, new b44(desktopApiStatus.statusCode, desktopApiStatus.statusMsg));
     }
 
     @AnyThread
@@ -624,9 +624,9 @@ public class DesktopGuideApi implements b44 {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Runnable runnable = this.e;
             if (runnable != null) {
-                te3.d0(runnable);
+                ue3.d0(runnable);
             }
-            te3.e0(new g(this));
+            ue3.e0(new g(this));
         }
     }
 
@@ -640,7 +640,7 @@ public class DesktopGuideApi implements b44 {
     public final void r() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.g == null) {
-            r34 c2 = r34.c();
+            s34 c2 = s34.c();
             this.g = c2;
             if (c2 != null) {
                 c2.a(new a(this));
@@ -648,16 +648,16 @@ public class DesktopGuideApi implements b44 {
         }
     }
 
-    public final boolean s(@NonNull Context context, @NonNull z03 z03Var) {
+    public final boolean s(@NonNull Context context, @NonNull a13 a13Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, context, z03Var)) == null) ? m63.s(context, z03Var.Z(), z03Var.b) == 1 : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, context, a13Var)) == null) ? n63.s(context, a13Var.Z(), a13Var.b) == 1 : invokeLL.booleanValue;
     }
 
     public final void t(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            String string = n93.a().getString(str, "");
+            String string = o93.a().getString(str, "");
             String[] split = string.split("#");
             if (split.length == 3 && TextUtils.isDigitsOnly(split[0]) && TextUtils.isDigitsOnly(split[1]) && TextUtils.isDigitsOnly(split[2])) {
                 this.h = Long.parseLong(split[0]);
@@ -670,23 +670,23 @@ public class DesktopGuideApi implements b44 {
         }
     }
 
-    public final void u(@NonNull z03 z03Var, long j, long j2, long j3) {
+    public final void u(@NonNull a13 a13Var, long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{z03Var, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            h93 a2 = n93.a();
-            a2.putString("desktop_guide_count_" + z03Var.b, j + "#" + j2 + "#" + j3);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{a13Var, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            i93 a2 = o93.a();
+            a2.putString("desktop_guide_count_" + a13Var.b, j + "#" + j2 + "#" + j3);
         }
     }
 
     public void v(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, jsObject) == null) {
-            gt1 F = gt1.F(jsObject);
+            ht1 F = ht1.F(jsObject);
             if (F == null) {
-                F = new gt1();
+                F = new ht1();
             }
             this.b = F;
-            z03 M = z03.M();
+            a13 M = a13.M();
             if (M == null) {
                 o(DesktopApiStatus.EXEC_FAILURE);
                 return;
@@ -714,7 +714,7 @@ public class DesktopGuideApi implements b44 {
                 }
                 this.f.set(true);
                 u(M, 1 + this.h, currentTimeMillis, 0L);
-                te3.e0(new c(this, w, M, B, te3.i(M.Y(), "ShowAddToDesktopGuide", false)));
+                ue3.e0(new c(this, w, M, B, ue3.i(M.Y(), "ShowAddToDesktopGuide", false)));
                 return;
             }
             o(DesktopApiStatus.REACH_MAX_TIMES);
@@ -722,54 +722,54 @@ public class DesktopGuideApi implements b44 {
     }
 
     @UiThread
-    public final void w(@NonNull Activity activity, @NonNull z03 z03Var, @NonNull DesktopGuideType desktopGuideType, @NonNull String str, Bitmap bitmap) {
+    public final void w(@NonNull Activity activity, @NonNull a13 a13Var, @NonNull DesktopGuideType desktopGuideType, @NonNull String str, Bitmap bitmap) {
         Runnable runnable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048586, this, activity, z03Var, desktopGuideType, str, bitmap) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(1048586, this, activity, a13Var, desktopGuideType, str, bitmap) == null) {
             r();
-            r34 r34Var = this.g;
-            if (r34Var != null) {
-                r34Var.b(1);
+            s34 s34Var = this.g;
+            if (s34Var != null) {
+                s34Var.b(1);
             }
-            View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d00a1, (ViewGroup) null, false);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09098c);
+            View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d00a2, (ViewGroup) null, false);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09098d);
             if (desktopGuideType.limit != -1 && str.length() > desktopGuideType.limit) {
                 str = str.substring(0, desktopGuideType.limit - 1) + StringHelper.STRING_MORE;
             }
             textView.setText(str);
-            n((ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f09098b), desktopGuideType);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09098d);
+            n((ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f09098c), desktopGuideType);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09098e);
             if (bitmap != null) {
                 imageView.setImageBitmap(bitmap);
             } else {
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f08013e);
             }
-            ImageView imageView2 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09098a);
+            ImageView imageView2 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09098b);
             if (desktopGuideType == DesktopGuideType.BAR_AUTOHIDE) {
                 imageView2.setVisibility(8);
             } else {
                 imageView2.setOnClickListener(new d(this, desktopGuideType));
             }
-            Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090988);
+            Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090989);
             button.setText(R.string.obfuscated_res_0x7f0f0167);
-            button.setOnClickListener(new e(this, activity, z03Var, desktopGuideType));
+            button.setOnClickListener(new e(this, activity, a13Var, desktopGuideType));
             PopupWindow popupWindow = new PopupWindow(inflate, -1, -2);
             this.d = popupWindow;
             popupWindow.L(16);
-            this.d.O(activity.getWindow().getDecorView(), 81, 0, qe3.g(50.0f));
+            this.d.O(activity.getWindow().getDecorView(), 81, 0, re3.g(50.0f));
             this.d.J(new f(this));
             if (desktopGuideType == DesktopGuideType.BAR_AUTOHIDE && (runnable = this.e) != null) {
-                te3.d0(runnable);
-                te3.b0(this.e, this.k * 1000);
+                ue3.d0(runnable);
+                ue3.b0(this.e, this.k * 1000);
             }
-            s73.f(desktopGuideType.ubcType, b44.a, "show");
+            t73.f(desktopGuideType.ubcType, c44.a, "show");
         }
     }
 
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            h93 a2 = n93.a();
+            i93 a2 = o93.a();
             this.k = a2.getLong("swan_favorite_guide_duration", 3L);
             this.l = a2.getLong("swan_favorite_guide_intervalDays", 3L);
             this.m = a2.getLong("swan_favorite_guide_maxTimes", 3L);

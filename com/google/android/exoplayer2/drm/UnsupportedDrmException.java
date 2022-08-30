@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class UnsupportedDrmException extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REASON_INSTANTIATION_ERROR = 2;
@@ -15,7 +15,7 @@ public final class UnsupportedDrmException extends Exception {
     public final int reason;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public @interface Reason {
     }
 

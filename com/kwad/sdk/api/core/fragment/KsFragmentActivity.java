@@ -12,7 +12,7 @@ import com.kwad.sdk.api.core.ComponentDestroyer;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class KsFragmentActivity extends FragmentActivity {
     public KsFragmentManager mFragmentManager;
 

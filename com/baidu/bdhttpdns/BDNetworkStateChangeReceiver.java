@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.yo;
+import com.baidu.tieba.zo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,8 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xo;
-import com.repackage.yo;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import java.net.SocketException;
@@ -91,12 +91,12 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
                         datagramSocket2 = datagramSocket;
                         if (datagramSocket2 != null) {
                         }
-                        yo.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
+                        zo.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
                         return null;
                     }
                     if (datagramSocket2 != null) {
                     }
-                    yo.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
+                    zo.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
                     return null;
                 }
                 if (datagramSocket != null) {
@@ -119,7 +119,7 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
                         e2.printStackTrace();
                     }
                 }
-                yo.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
+                zo.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
                 return null;
             }
             return invokeV.objValue;
@@ -176,7 +176,7 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
     private void processCacheOnNetworkChange(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, context) == null) {
-            yo.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.clearCache), Boolean.valueOf(this.httpDnsPrefetch));
+            zo.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.clearCache), Boolean.valueOf(this.httpDnsPrefetch));
             HttpDnsClient z = HttpDnsClient.z();
             z.x();
             BDHttpDns h = BDHttpDns.h(context);
@@ -189,7 +189,7 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
             if (!this.httpDnsPrefetch || b == null || b.isEmpty()) {
                 return;
             }
-            z.O(b, new xo(context));
+            z.O(b, new yo(context));
         }
     }
 
@@ -240,7 +240,7 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
             }
             try {
                 if (!this.beforeNetInfo.equals(str) && str != "") {
-                    yo.a("Current net type: %s.", str);
+                    zo.a("Current net type: %s.", str);
                     processCacheOnNetworkChange(context);
                 }
             } catch (RuntimeException e2) {

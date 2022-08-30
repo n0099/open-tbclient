@@ -12,6 +12,7 @@ import com.baidu.nps.pm.manager.NPSPackageManager;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.service.AbConfigService;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
+import com.baidu.tieba.r61;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
-import com.repackage.q61;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.HashMap;
@@ -189,7 +189,7 @@ public class MultiPluginHelper {
                     log("ARCH_TYPE_NEW newArchSubPluginNeedForceUpdate true");
                     return 3;
                 }
-                int c = q61.b().c("com.baidu.searchbox.livenps");
+                int c = r61.b().c("com.baidu.searchbox.livenps");
                 if (bundleByType != null && bundleByType.getVersionCode() < 508000000 && bundleByType.getVersionCode() >= c) {
                     log("installLivenps：" + bundleByType.getVersionCode());
                     log("installLivenps.livenpsHostMinVersion：" + c);

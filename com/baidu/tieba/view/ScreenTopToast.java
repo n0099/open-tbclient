@@ -18,14 +18,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
+import com.baidu.tieba.rv4;
+import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ov4;
-import com.repackage.rg;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ScreenTopToast extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class ScreenTopToast extends LinearLayout {
     public boolean h;
     public c i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public class ScreenTopToast extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +123,7 @@ public class ScreenTopToast extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         void a(ScreenTopToast screenTopToast);
     }
@@ -168,12 +168,12 @@ public class ScreenTopToast extends LinearLayout {
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
             }
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0772, this);
-            this.a = (ShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f091d71);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091d72);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091d70);
-            this.d = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091d6f);
-            this.d.setConfig(new ov4());
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0774, this);
+            this.a = (ShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f091d73);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091d74);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091d72);
+            this.d = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091d71);
+            this.d.setConfig(new rv4());
             f();
             h();
         }
@@ -209,7 +209,7 @@ public class ScreenTopToast extends LinearLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            rg.a().removeCallbacks(this.g);
+            sg.a().removeCallbacks(this.g);
             clearAnimation();
         }
     }
@@ -269,7 +269,7 @@ public class ScreenTopToast extends LinearLayout {
         viewGroup.addView(this, -1, -2);
         this.h = true;
         startAnimation(this.e);
-        rg.a().postDelayed(this.g, 5000L);
+        sg.a().postDelayed(this.g, 5000L);
     }
 
     @Override // android.view.View

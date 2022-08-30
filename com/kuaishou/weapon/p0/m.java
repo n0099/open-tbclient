@@ -31,7 +31,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String b = "gzip";
@@ -43,7 +43,7 @@ public class m {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

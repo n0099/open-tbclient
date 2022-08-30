@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GodHeadImageView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int i;
@@ -34,7 +34,7 @@ public class GodHeadImageView extends FrameLayout {
     public int g;
     public int h;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends HeadImageView {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

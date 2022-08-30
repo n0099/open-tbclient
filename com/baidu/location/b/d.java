@@ -11,6 +11,7 @@ import com.baidu.location.Jni;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -408,7 +409,7 @@ public class d {
                 if (!file.createNewFile()) {
                     return;
                 }
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, rw.c);
                 randomAccessFile.seek(2L);
                 randomAccessFile.writeInt(0);
                 randomAccessFile.seek(8L);
@@ -421,7 +422,7 @@ public class d {
                 randomAccessFile.writeBoolean(false);
                 randomAccessFile.close();
             }
-            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
+            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, rw.c);
             randomAccessFile2.seek(8L);
             byte[] bytes2 = (b("%d_%02d_%02d") + ":" + i).getBytes();
             randomAccessFile2.writeInt(bytes2.length);
@@ -553,7 +554,7 @@ public class d {
             try {
                 File file = new File(com.baidu.location.e.j.a + "/grtcf.dat");
                 if (file.exists()) {
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(file, rw.c);
                     randomAccessFile.seek(2L);
                     int readInt = randomAccessFile.readInt();
                     randomAccessFile.seek(8L);
@@ -667,7 +668,7 @@ public class d {
                     if (!file.createNewFile()) {
                         return;
                     }
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(file, rw.c);
                     randomAccessFile.seek(2L);
                     randomAccessFile.writeInt(0);
                     randomAccessFile.seek(8L);
@@ -680,7 +681,7 @@ public class d {
                     randomAccessFile.writeBoolean(false);
                     randomAccessFile.close();
                 }
-                RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
+                RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, rw.c);
                 randomAccessFile2.seek(2L);
                 int readInt = randomAccessFile2.readInt();
                 int i = 1;
@@ -725,7 +726,7 @@ public class d {
                     if (!file.exists()) {
                         file.createNewFile();
                     }
-                    randomAccessFile = new RandomAccessFile(file, "rw");
+                    randomAccessFile = new RandomAccessFile(file, rw.c);
                 } catch (Exception unused) {
                 }
                 try {

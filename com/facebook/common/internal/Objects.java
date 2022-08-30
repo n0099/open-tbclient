@@ -13,19 +13,19 @@ import java.util.Arrays;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nullable;
 @Nullsafe(Nullsafe.Mode.STRICT)
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class Objects {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.common.internal.Objects$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class ToStringHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public final class Objects {
         public ValueHolder holderTail;
         public boolean omitNullValues;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes7.dex */
         public static final class ValueHolder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

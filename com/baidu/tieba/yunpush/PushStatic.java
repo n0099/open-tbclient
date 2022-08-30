@@ -16,6 +16,10 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.switchs.YunPushOppoproxyEnableSwitch;
+import com.baidu.tieba.db;
+import com.baidu.tieba.p39;
+import com.baidu.tieba.pz4;
+import com.baidu.tieba.tu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,34 +27,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cb;
-import com.repackage.g39;
-import com.repackage.lz4;
-import com.repackage.ru4;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PushStatic {
     public static /* synthetic */ Interceptable $ic;
     public static CustomMessageListener a;
     public static CustomMessageListener b;
     public static CustomMessageListener c;
     public static CustomMessageListener d;
-    public static cb e;
+    public static db e;
     public static CustomMessageListener f;
     public static CustomMessageListener g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tieba.yunpush.PushStatic$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class RunnableC0269a implements Runnable {
+        /* loaded from: classes6.dex */
+        public class RunnableC0474a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0269a(a aVar) {
+            public RunnableC0474a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,12 +100,12 @@ public class PushStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy()) {
-                new Thread(new RunnableC0269a(this)).start();
+                new Thread(new RunnableC0474a(this)).start();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -141,7 +141,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -177,7 +177,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -216,8 +216,8 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class e extends cb {
+    /* loaded from: classes6.dex */
+    public static class e extends db {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -251,7 +251,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -286,7 +286,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class g extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -321,7 +321,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class h implements UploadDataListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -348,7 +348,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class i implements UploadDataListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -423,7 +423,7 @@ public class PushStatic {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65542, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled();
-            boolean l = TbadkCoreApplication.isLogin() ? lz4.d().l() : false;
+            boolean l = TbadkCoreApplication.isLogin() ? pz4.d().l() : false;
             if (areNotificationsEnabled && l) {
                 k(true);
             } else {
@@ -467,7 +467,7 @@ public class PushStatic {
             }
             PushManager.enableMeizuProxy(context, true, "111848", "39e9cd05b2294f848dd1c10993e76b59");
             PushManager.enableVivoProxy(context, true);
-            PushManager.startWork(context, 0, g39.a(context, Constants.API_KEY));
+            PushManager.startWork(context, 0, p39.a(context, Constants.API_KEY));
             e();
             NotificationHelper.createIMChannel4Oppo(context);
         }
@@ -476,7 +476,7 @@ public class PushStatic {
     public static void j(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
-            ru4 k = ru4.k();
+            tu4 k = tu4.k();
             if (k.h(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
                 PushManager.stopWork(context);
             }
@@ -504,7 +504,7 @@ public class PushStatic {
     public static void m() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65550, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && TbadkCoreApplication.isLogin()) {
-            boolean m = lz4.d().m();
+            boolean m = pz4.d().m();
             PushManager.uploadNotifyStatus(TbadkCoreApplication.getInst(), m ? 1 : 0, new i());
         }
     }

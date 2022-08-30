@@ -3,7 +3,7 @@ package com.qq.e.comm.pi;
 import android.app.Activity;
 import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
 import com.qq.e.comm.constants.LoadAdParams;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface RVADI extends LADI {
     String getAdNetWorkName();
 

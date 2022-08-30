@@ -18,33 +18,33 @@ import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.widget.KSFrameLayout;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a extends KSFrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public final b DG;
-    public final b.C0356b DH;
+    public final b.C0571b DH;
     public d DI;
-    public InterfaceC0355a DJ;
+    public InterfaceC0570a DJ;
     public final AdTemplate mAdTemplate;
     public Presenter mPresenter;
     public final AdBaseFrameLayout mRootContainer;
 
     /* renamed from: com.kwad.components.core.c.kwai.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0355a {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0570a {
         void mp();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(@Nullable b bVar, b.C0356b c0356b) {
-        super(c0356b.context);
+    public a(@Nullable b bVar, b.C0571b c0571b) {
+        super(c0571b.context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, c0356b};
+            Object[] objArr = {bVar, c0571b};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -56,10 +56,10 @@ public final class a extends KSFrameLayout {
             }
         }
         this.DG = bVar;
-        this.DH = c0356b;
-        this.mAdTemplate = c0356b.adTemplate;
-        FrameLayout.inflate(c0356b.context, R.layout.obfuscated_res_0x7f0d0412, this);
-        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911b6);
+        this.DH = c0571b;
+        this.mAdTemplate = c0571b.adTemplate;
+        FrameLayout.inflate(c0571b.context, R.layout.obfuscated_res_0x7f0d0413, this);
+        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911b8);
     }
 
     public static Presenter ap() {
@@ -125,17 +125,17 @@ public final class a extends KSFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            InterfaceC0355a interfaceC0355a = this.DJ;
-            if (interfaceC0355a != null) {
-                interfaceC0355a.mp();
+            InterfaceC0570a interfaceC0570a = this.DJ;
+            if (interfaceC0570a != null) {
+                interfaceC0570a.mp();
             }
         }
     }
 
-    public final void setChangeListener(InterfaceC0355a interfaceC0355a) {
+    public final void setChangeListener(InterfaceC0570a interfaceC0570a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0355a) == null) {
-            this.DJ = interfaceC0355a;
+        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0570a) == null) {
+            this.DJ = interfaceC0570a;
         }
     }
 }

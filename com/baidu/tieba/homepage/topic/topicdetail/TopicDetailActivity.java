@@ -19,21 +19,21 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.d37;
+import com.baidu.tieba.h37;
 import com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel;
 import com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.pn;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.xj4;
+import com.baidu.tieba.z8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.og;
-import com.repackage.oi;
-import com.repackage.on;
-import com.repackage.pi;
-import com.repackage.v27;
-import com.repackage.wj4;
-import com.repackage.z27;
-import com.repackage.z8;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -42,8 +42,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements v27 {
+/* loaded from: classes4.dex */
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements d37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicDetailModel a;
@@ -53,7 +53,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
     public long e;
     public boolean f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements BdUniDispatchSchemeController.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 if (StringUtils.isNull(str)) {
                     return;
                 }
-                this.a.e = og.g(str, -1L);
+                this.a.e = pg.g(str, -1L);
             }
         }
     }
@@ -116,7 +116,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             Map<String, String> paramPair = UrlManager.getParamPair(str);
             if (paramPair != null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-                wj4.b(statisticItem, paramPair);
+                xj4.b(statisticItem, paramPair);
                 statisticItem.param("obj_locate", paramPair.get("obj_locate"));
                 statisticItem.param("obj_type", 1);
                 statisticItem.param("tid", paramPair.get("tid"));
@@ -126,7 +126,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 statisticItem.param("obj_id", paramPair.get(TiebaStatic.Params.BDID));
                 statisticItem.param("obj_name", TbadkCoreApplication.getInst().getStartType());
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, 1);
-                if (!pi.isEmpty(paramPair.get("ext_log"))) {
+                if (!qi.isEmpty(paramPair.get("ext_log"))) {
                     try {
                         JSONObject jSONObject = new JSONObject(paramPair.get("ext_log"));
                         Iterator<String> keys = jSONObject.keys();
@@ -153,15 +153,15 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.repackage.v27
-    public void M0(int i, boolean z, List<on> list) {
+    @Override // com.baidu.tieba.d37
+    public void M0(int i, boolean z, List<pn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) {
             this.b.setNextData(i, z, list);
         }
     }
 
-    @Override // com.repackage.v27
+    @Override // com.baidu.tieba.d37
     public void a() {
         int i;
         String substring;
@@ -195,7 +195,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                         substring = decode.substring(i);
                     }
                     if (!StringUtils.isNull(substring)) {
-                        this.e = og.g(substring, -1L);
+                        this.e = pg.g(substring, -1L);
                     }
                 }
             } else {
@@ -203,7 +203,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             }
             if (this.e < 0) {
                 finish();
-            } else if (!oi.A()) {
+            } else if (!pi.A()) {
                 this.b.r();
                 this.b.B(true);
             } else {
@@ -241,7 +241,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.u95
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ba5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -315,14 +315,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.repackage.v27
-    public void t(int i, z27 z27Var) {
+    @Override // com.baidu.tieba.d37
+    public void t(int i, h37 h37Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048588, this, i, z27Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048588, this, i, h37Var) == null) {
             this.b.r();
-            if (i == 0 && z27Var != null && !ListUtils.isEmpty(z27Var.f)) {
+            if (i == 0 && h37Var != null && !ListUtils.isEmpty(h37Var.f)) {
                 this.b.s();
-                this.b.setData(z27Var);
+                this.b.setData(h37Var);
                 return;
             }
             this.b.B(true);

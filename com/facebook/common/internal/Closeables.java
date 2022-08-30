@@ -17,7 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
 @Nullsafe(Nullsafe.Mode.STRICT)
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class Closeables {
     public static /* synthetic */ Interceptable $ic;
     @VisibleForTesting

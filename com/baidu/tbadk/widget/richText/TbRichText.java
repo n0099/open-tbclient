@@ -12,15 +12,15 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.f75;
+import com.baidu.tieba.mi5;
 import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tieba.vi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fi5;
-import com.repackage.oi5;
-import com.repackage.z65;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -111,9 +111,9 @@ public class TbRichText extends OrmObject {
     public final void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e7a);
-            this.f = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f157a);
-            this.g = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f153a);
+            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e7d);
+            this.f = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f157d);
+            this.g = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f153d);
         }
     }
 
@@ -137,7 +137,7 @@ public class TbRichText extends OrmObject {
         TbRichTextData tbRichTextData;
         CharSequence charSequence;
         TbRichTextCommInfo F;
-        Pair<CharSequence, oi5> p;
+        Pair<CharSequence, vi5> p;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), str, postData, threadData, Integer.valueOf(i)}) == null) || this.b == null) {
             return;
@@ -243,23 +243,23 @@ public class TbRichText extends OrmObject {
                         if (type == 18 || type == 2 || type == 39 || type == 1282) {
                             tbRichTextData.U(true);
                         }
-                        if (type == 35 && TiePlusHelper.i(next.T()) && (p = fi5.p(type, threadData, next.U())) != null) {
+                        if (type == 35 && TiePlusHelper.i(next.T()) && (p = mi5.p(type, threadData, next.U())) != null) {
                             charSequence = p.first;
-                            oi5 oi5Var = p.second;
-                            oi5Var.a(postData);
-                            oi5Var.b(i);
+                            vi5 vi5Var = p.second;
+                            vi5Var.a(postData);
+                            vi5Var.b(i);
                             tbRichTextData.U(true);
-                            tbRichTextData.z(oi5Var);
+                            tbRichTextData.z(vi5Var);
                         } else {
                             charSequence = null;
                         }
                         if (charSequence == null && type == 18 && (F = next.F()) != null) {
                             PbContent C = F.C();
                             if (threadData != null && C != null) {
-                                z65 f = z65.f(threadData, C);
+                                f75 f = f75.f(threadData, C);
                                 f.c(postData);
                                 f.b(HotTopicStat.Locate.VIDEO_MIDDLE_COMMENT);
-                                charSequence = fi5.o(f);
+                                charSequence = mi5.o(f);
                             }
                         }
                         if (charSequence == null && tbRichTextData != null) {

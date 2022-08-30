@@ -6,21 +6,21 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
+import com.baidu.tieba.b05;
+import com.baidu.tieba.bn5;
+import com.baidu.tieba.d05;
+import com.baidu.tieba.d9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
-import com.repackage.tm5;
-import com.repackage.wz4;
-import com.repackage.yz4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tm5 a;
+    public bn5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
@@ -40,18 +40,18 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        this.a = tm5.d();
+        this.a = bn5.d();
     }
 
     public int A(String str) {
         InterceptResult invokeL;
-        List<wz4> c;
+        List<b05> c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (yz4.a(str) && (c = this.a.c()) != null) {
-                for (wz4 wz4Var : c) {
-                    if (str.equals(wz4Var.a())) {
-                        return c.indexOf(wz4Var);
+            if (d05.a(str) && (c = this.a.c()) != null) {
+                for (b05 b05Var : c) {
+                    if (str.equals(b05Var.a())) {
+                        return c.indexOf(b05Var);
                     }
                 }
                 return -1;
@@ -68,7 +68,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public List<wz4> C() {
+    public List<b05> C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.c() : (List) invokeV.objValue;
@@ -88,21 +88,21 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void F(tm5.a aVar) {
+    public void F(bn5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             this.a.f(aVar);
         }
     }
 
-    public void G(List<wz4> list) {
+    public void G(List<b05> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.a.g(list);
         }
     }
 
-    public void H(tm5.a aVar) {
+    public void H(bn5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.a.h(aVar);
@@ -129,10 +129,10 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         return invokeV.booleanValue;
     }
 
-    public void z(wz4 wz4Var) {
+    public void z(b05 b05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, wz4Var) == null) {
-            this.a.a(wz4Var);
+        if (interceptable == null || interceptable.invokeL(1048586, this, b05Var) == null) {
+            this.a.a(b05Var);
         }
     }
 }

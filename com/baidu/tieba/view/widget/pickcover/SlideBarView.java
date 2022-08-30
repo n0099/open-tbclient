@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SlideBarView extends View implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,13 +46,13 @@ public class SlideBarView extends View implements View.OnTouchListener {
     public Matrix r;
     public boolean s;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public final class b extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +102,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         void a(float f);
 
@@ -127,7 +127,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.a = R.drawable.obfuscated_res_0x7f080f82;
+        this.a = R.drawable.obfuscated_res_0x7f080f83;
         this.e = 12.0f;
         this.m = new Rect();
         this.n = new RectF();
@@ -406,7 +406,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.a = R.drawable.obfuscated_res_0x7f080f82;
+        this.a = R.drawable.obfuscated_res_0x7f080f83;
         this.e = 12.0f;
         this.m = new Rect();
         this.n = new RectF();
@@ -433,7 +433,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.a = R.drawable.obfuscated_res_0x7f080f82;
+        this.a = R.drawable.obfuscated_res_0x7f080f83;
         this.e = 12.0f;
         this.m = new Rect();
         this.n = new RectF();

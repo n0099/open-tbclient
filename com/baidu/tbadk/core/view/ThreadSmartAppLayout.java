@@ -14,18 +14,18 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ho4;
+import com.baidu.tieba.ix;
+import com.baidu.tieba.po5;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fo4;
-import com.repackage.ho5;
-import com.repackage.hx;
-import com.repackage.pi;
 import tbclient.SmartApp;
 /* loaded from: classes3.dex */
-public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, hx<fo4> {
+public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, ix<ho4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
@@ -71,26 +71,26 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.hx
+    @Override // com.baidu.tieba.ix
     /* renamed from: c */
-    public void a(fo4 fo4Var) {
+    public void a(ho4 ho4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fo4Var) == null) {
-            if (fo4Var != null && fo4Var.getThreadData() != null && fo4Var.getThreadData().getSmartApp() != null) {
-                SmartApp smartApp = fo4Var.getThreadData().getSmartApp();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ho4Var) == null) {
+            if (ho4Var != null && ho4Var.getThreadData() != null && ho4Var.getThreadData().getSmartApp() != null) {
+                SmartApp smartApp = ho4Var.getThreadData().getSmartApp();
                 this.d = smartApp;
-                if (!pi.isEmpty(smartApp.avatar)) {
+                if (!qi.isEmpty(smartApp.avatar)) {
                     this.a.L(this.d.avatar, 10, false, false);
                 }
-                if (!pi.isEmpty(this.d.name)) {
-                    this.b.setText(this.d.name + " " + getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11a9));
+                if (!qi.isEmpty(this.d.name)) {
+                    this.b.setText(this.d.name + " " + getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11ac));
                 } else {
-                    this.b.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0908));
+                    this.b.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f090b));
                 }
-                if (!pi.isEmpty(this.d._abstract)) {
+                if (!qi.isEmpty(this.d._abstract)) {
                     this.c.setText(this.d._abstract);
                 } else {
-                    this.c.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11a8));
+                    this.c.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11ab));
                 }
                 setVisibility(0);
                 return;
@@ -115,8 +115,8 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
         if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || (smartApp = this.d) == null) {
             return;
         }
-        if (!ho5.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
-            if (pi.isEmpty(this.d.h5_url)) {
+        if (!po5.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
+            if (qi.isEmpty(this.d.h5_url)) {
                 return;
             }
             UrlManager.getInstance().dealOneLink(b(getContext()), new String[]{this.d.h5_url});
@@ -174,13 +174,13 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d086c, (ViewGroup) this, true);
-        HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f09100f);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d086e, (ViewGroup) this, true);
+        HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f091011);
         this.a = headImageView;
         headImageView.setIsRound(true);
         this.a.setPlaceHolder(1);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b0);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923af);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b9);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b8);
         setOnClickListener(this);
         d();
     }

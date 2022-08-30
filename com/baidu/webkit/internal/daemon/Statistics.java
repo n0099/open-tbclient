@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class Statistics implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static boolean mIsInited;

@@ -2,22 +2,22 @@ package com.baidu.tieba.write.model;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.f09;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wz8;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR = -1;
     public static final int SUCCESS = 0;
     public transient /* synthetic */ FieldHolder $fh;
-    public wz8 addLinkResponseData;
+    public f09 addLinkResponseData;
     public String errmsg;
     public int errno;
 
@@ -48,7 +48,7 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
         if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.addLinkResponseData = new wz8();
+        this.addLinkResponseData = new f09();
         int optInt = jSONObject.optInt("errno", -1);
         this.errno = optInt;
         this.addLinkResponseData.a = optInt == 0;
@@ -85,10 +85,10 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public wz8 getAddLinkResponseData() {
+    public f09 getAddLinkResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.addLinkResponseData : (wz8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.addLinkResponseData : (f09) invokeV.objValue;
     }
 
     public String getErrmsg() {

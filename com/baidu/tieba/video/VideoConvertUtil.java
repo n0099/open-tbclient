@@ -9,6 +9,8 @@ import android.os.RemoteException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.video.convert.IVideoConvertListener;
 import com.baidu.tieba.video.convert.IVideoConvertService;
+import com.baidu.tieba.ys8;
+import com.baidu.tieba.zs8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,10 +18,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ps8;
-import com.repackage.qs8;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoConvertUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class VideoConvertUtil {
     public String d;
     public File e;
     public File f;
-    public qs8 g;
+    public zs8 g;
     public IntenalConvertListener h;
     public int i;
     public boolean j;
@@ -37,7 +37,7 @@ public class VideoConvertUtil {
     public int l;
     public ServiceConnection m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class IntenalConvertListener extends IVideoConvertListener.Stub {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class VideoConvertUtil {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,7 +172,7 @@ public class VideoConvertUtil {
                 return;
             }
         }
-        String str = ps8.f;
+        String str = ys8.f;
     }
 
     public VideoConvertUtil(Context context) {
@@ -262,12 +262,12 @@ public class VideoConvertUtil {
                 e.printStackTrace();
                 i = -1;
             }
-            qs8 qs8Var = this.g;
-            if (qs8Var != null) {
+            zs8 zs8Var = this.g;
+            if (zs8Var != null) {
                 if (i == 0) {
-                    qs8Var.b();
+                    zs8Var.b();
                 } else {
-                    qs8Var.a(i);
+                    zs8Var.a(i);
                 }
             }
         }
@@ -290,10 +290,10 @@ public class VideoConvertUtil {
         return invokeV.booleanValue;
     }
 
-    public void o(qs8 qs8Var) {
+    public void o(zs8 zs8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qs8Var) == null) {
-            this.g = qs8Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, zs8Var) == null) {
+            this.g = zs8Var;
         }
     }
 }

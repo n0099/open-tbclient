@@ -25,7 +25,7 @@ import java.security.MessageDigest;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class BitmapPreFillRunner implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BACKOFF_RATIO = 4;
@@ -46,7 +46,7 @@ public final class BitmapPreFillRunner implements Runnable {
     public final PreFillQueue toPrefill;
 
     @VisibleForTesting
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Clock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +72,7 @@ public final class BitmapPreFillRunner implements Runnable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class UniqueKey implements Key {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

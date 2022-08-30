@@ -37,7 +37,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 @TargetApi(16)
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class MediaCodecRenderer extends BaseRenderer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte[] ADAPTATION_WORKAROUND_BUFFER;
@@ -994,7 +994,7 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class DecoderInitializationException extends Exception {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CUSTOM_ERROR_CODE_BASE = -50000;

@@ -1,21 +1,17 @@
 package com.baidu.searchbox.task.sync.privacy;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.common.config.AppIdentityManager;
-import com.baidu.searchbox.cloudcontrol.CloudControlManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.switchs.LaunchUpApplicationSwitch;
+import com.baidu.tieba.fh0;
+import com.baidu.tieba.k20;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eh0;
-import com.repackage.j20;
-import com.repackage.jc1;
-import com.repackage.z49;
 /* loaded from: classes2.dex */
 public class InitSDKWithPrivacyTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -39,7 +35,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             if (TbadkCoreApplication.getInst().isMainProcess(true) || TbadkCoreApplication.getInst().isRemoteProcess()) {
-                eh0.c();
+                fh0.c();
             }
         }
     }
@@ -47,18 +43,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
     private void initAxeSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            j20.a.c(TbadkCoreApplication.getInst()).b().t();
-        }
-    }
-
-    private void initUBC() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            AppIdentityManager.getInstance().setAppName("tieba");
-            if (jc1.g()) {
-                z49.a();
-                CloudControlManager.getInstance().requestCloudControl("0");
-            }
+            k20.a.c(TbadkCoreApplication.getInst()).b().t();
         }
     }
 

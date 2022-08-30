@@ -1,5 +1,5 @@
 package com.baidu.tieba.plugin.night;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface INightPlugin {
     String getNightPluginPackageName();
 }

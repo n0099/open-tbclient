@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ms4;
-import com.repackage.rg;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TitleTipView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class TitleTipView extends RelativeLayout {
     public View.OnClickListener g;
     public Runnable h;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class TitleTipView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,19 +125,19 @@ public class TitleTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setVisibility(8);
-            rg.a().removeCallbacks(this.h);
+            sg.a().removeCallbacks(this.h);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0877, this);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09219f);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ecb);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ebc);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b2);
-            this.f = findViewById(R.id.obfuscated_res_0x7f092357);
+            View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0879, this);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0921a2);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ecc);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ebd);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923bb);
+            this.f = findViewById(R.id.obfuscated_res_0x7f092360);
             this.e.setText(R.string.obfuscated_res_0x7f0f00d3);
             this.d.setOnClickListener(this.g);
             c(TbadkCoreApplication.getInst().getSkinType());
@@ -148,16 +148,16 @@ public class TitleTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             if (this.a != i) {
-                ms4 d = ms4.d(this.b);
+                os4 d = os4.d(this.b);
                 d.n(R.string.J_X05);
                 d.l(R.dimen.L_X01);
                 d.k(R.color.CAM_X0602);
                 d.f(R.color.CAM_X0206);
-                ms4.d(this.f).f(R.color.CAM_X0203);
-                ms4.d(this.e).v(R.color.CAM_X0107);
-                this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080941, SkinManager.getColor(R.color.CAM_X0107), null));
+                os4.d(this.f).f(R.color.CAM_X0203);
+                os4.d(this.e).v(R.color.CAM_X0107);
+                this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080942, SkinManager.getColor(R.color.CAM_X0107), null));
                 if (this.c != null) {
-                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080f56, SkinManager.getColor(R.color.CAM_X0302), null));
+                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080f57, SkinManager.getColor(R.color.CAM_X0302), null));
                 }
             }
             this.a = i;

@@ -4,25 +4,28 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.feedpage.interfaces.ILiveFeedPageView;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaTabFeedActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
+import com.baidu.tieba.m90;
+import com.baidu.tieba.ss5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ks5;
-import com.repackage.l90;
 /* loaded from: classes3.dex */
 public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
     public ILiveFeedPageView b;
+    public String c;
 
     public AlaLiveTabFeedActivity() {
         Interceptable interceptable = $ic;
@@ -34,8 +37,10 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = "index";
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -57,16 +62,19 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d00f9);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c22);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091624);
+            setContentView(R.layout.obfuscated_res_0x7f0d00fa);
+            if (getIntent() != null && !StringUtils.isNull(getIntent().getStringExtra(AlaTabFeedActivityConfig.KEY_PAGE_SOURCE))) {
+                this.c = getIntent().getStringExtra(AlaTabFeedActivityConfig.KEY_PAGE_SOURCE);
+            }
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c24);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091626);
             this.a = navigationBar;
             navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0224));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            ks5.a().c(TbadkCoreApplication.getInst());
-            l90 l90Var = new l90();
-            this.b = l90Var;
-            View onCreateView = l90Var.onCreateView(this, null, LiveFeedPageSdk.HOST_LIVE_TAB, "index", null, null, false);
+            ss5.a().c(TbadkCoreApplication.getInst());
+            m90 m90Var = new m90();
+            this.b = m90Var;
+            View onCreateView = m90Var.onCreateView(this, null, LiveFeedPageSdk.HOST_LIVE_TAB, this.c, null, null, false);
             if (onCreateView.getParent() instanceof ViewGroup) {
                 ((ViewGroup) onCreateView.getParent()).removeView(onCreateView);
             }

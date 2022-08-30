@@ -12,11 +12,11 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class n extends b<a> {
     public String VH;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class a implements com.kwad.sdk.core.b {
         @NonNull
         public Map<Integer, String> VI = new HashMap();

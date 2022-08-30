@@ -3,20 +3,20 @@ package com.baidu.tieba.themeCenter.card.detail;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.kq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bq8;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetCard.GetCardResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bq8 cardData;
+    public kq8 cardData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonalCardDetailSocketReponse() {
@@ -61,10 +61,10 @@ public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
             if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
                 personalCardDetailRequest = (PersonalCardDetailRequest) getOrginalMessage().getExtra();
             }
-            bq8 bq8Var = new bq8();
-            this.cardData = bq8Var;
+            kq8 kq8Var = new kq8();
+            this.cardData = kq8Var;
             if (personalCardDetailRequest != null) {
-                bq8Var.m(personalCardDetailRequest.getCardId());
+                kq8Var.m(personalCardDetailRequest.getCardId());
             }
             this.cardData.v(getCardResIdl.data.title);
             this.cardData.p(getCardResIdl.data.description);
@@ -81,9 +81,9 @@ public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public bq8 getCardData() {
+    public kq8 getCardData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cardData : (bq8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cardData : (kq8) invokeV.objValue;
     }
 }

@@ -3,23 +3,23 @@ package com.baidu.tieba.homepage.hotTopic.tab.net;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cy6;
+import com.baidu.tieba.kx6;
+import com.baidu.tieba.pn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cx6;
-import com.repackage.on;
-import com.repackage.ux6;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
-/* loaded from: classes3.dex */
-public class HotTopicTabSocketResponse extends SocketResponsedMessage implements ux6 {
+/* loaded from: classes4.dex */
+public class HotTopicTabSocketResponse extends SocketResponsedMessage implements cy6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotThreadListResIdl mData;
-    public List<on> mHotTopicDataList;
+    public List<pn> mHotTopicDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicTabSocketResponse() {
@@ -53,7 +53,7 @@ public class HotTopicTabSocketResponse extends SocketResponsedMessage implements
             setError(hotThreadListResIdl.error.errorno.intValue());
             setErrorString(hotThreadListResIdl.error.usermsg);
             if (getError() == 0 && hotThreadListResIdl.data != null) {
-                this.mHotTopicDataList = cx6.c(hotThreadListResIdl);
+                this.mHotTopicDataList = kx6.c(hotThreadListResIdl);
                 return hotThreadListResIdl;
             }
             return hotThreadListResIdl;
@@ -61,14 +61,14 @@ public class HotTopicTabSocketResponse extends SocketResponsedMessage implements
         return invokeIL.objValue;
     }
 
-    @Override // com.repackage.ux6
-    public List<on> getDataList() {
+    @Override // com.baidu.tieba.cy6
+    public List<pn> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHotTopicDataList : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.ux6
+    @Override // com.baidu.tieba.cy6
     public HotThreadListResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

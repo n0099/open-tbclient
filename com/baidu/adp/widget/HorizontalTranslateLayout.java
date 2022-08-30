@@ -16,6 +16,7 @@ import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,7 +26,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.repackage.co;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -349,7 +349,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.h.p();
                     return;
                 }
-                this.h.d = (int) (co.a(f2, f, false) + this.d);
+                this.h.d = (int) (Cdo.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.o.sendEmptyMessageAtTime(-100, this.f);
             }
@@ -372,7 +372,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.h.p();
                     return;
                 }
-                this.h.d = (int) (co.a(f2, f, false) + this.d);
+                this.h.d = (int) (Cdo.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.o.sendEmptyMessageAtTime(-104, this.f);
             }
@@ -394,7 +394,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.h.p();
                     return;
                 }
-                this.h.d = (int) (co.a(f2, f, false) + this.d);
+                this.h.d = (int) (Cdo.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.o.sendEmptyMessageAtTime(-101, this.f);
             }
@@ -417,7 +417,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.h.p();
                     return;
                 }
-                this.h.d = (int) (co.a(f2, f, false) + this.d);
+                this.h.d = (int) (Cdo.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.o.sendEmptyMessageAtTime(-105, this.f);
             }

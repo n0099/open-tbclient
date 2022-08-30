@@ -17,6 +17,7 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.qi;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,7 +26,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -464,10 +464,10 @@ public class ShareItem {
                     if (threadData.getAuthor() != null && !TextUtils.isEmpty(threadData.getAuthor().getName_show())) {
                         forwardInfo.transmitThreadAuthorNameShow = threadData.getAuthor().getName_show();
                     }
-                    if (i == 1 && postData != null && pi.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.s() != null) {
+                    if (i == 1 && postData != null && qi.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.s() != null) {
                         forwardInfo.transmitThreadAuthorNameShow = postData.s().getName_show();
                     }
-                    if (i == 2 && pi.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
+                    if (i == 2 && qi.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
                         forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
                     }
                 } else {

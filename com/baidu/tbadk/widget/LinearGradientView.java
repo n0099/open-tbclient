@@ -13,12 +13,12 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.jf7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bf7;
 import java.util.ArrayList;
 import tbclient.ThemeElement;
 /* loaded from: classes3.dex */
@@ -152,12 +152,12 @@ public class LinearGradientView extends View {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = bf7.b("#2BB8FF");
-            this.c = bf7.b("#2BB8FF");
-            this.d = bf7.b("#249BD6");
-            this.e = bf7.b("#246CD6");
-            this.f = bf7.b("#249BD6");
-            this.g = bf7.b("#246CD6");
+            this.b = jf7.b("#2BB8FF");
+            this.c = jf7.b("#2BB8FF");
+            this.d = jf7.b("#249BD6");
+            this.e = jf7.b("#246CD6");
+            this.f = jf7.b("#249BD6");
+            this.g = jf7.b("#246CD6");
             this.h = c();
         }
     }
@@ -272,15 +272,15 @@ public class LinearGradientView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, str2, str3, str4, str5, str6}) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
-                if (this.b == bf7.b(str) && this.c == bf7.b(str2) && this.d == bf7.b(str3) && this.e == bf7.b(str4) && this.f == bf7.b(str5) && this.g == bf7.b(str6)) {
+                if (this.b == jf7.b(str) && this.c == jf7.b(str2) && this.d == jf7.b(str3) && this.e == jf7.b(str4) && this.f == jf7.b(str5) && this.g == jf7.b(str6)) {
                     return;
                 }
-                this.b = bf7.b(str);
-                this.c = bf7.b(str2);
-                this.d = bf7.b(str3);
-                this.e = bf7.b(str4);
-                this.f = bf7.b(str5);
-                this.g = bf7.b(str6);
+                this.b = jf7.b(str);
+                this.c = jf7.b(str2);
+                this.d = jf7.b(str3);
+                this.e = jf7.b(str4);
+                this.f = jf7.b(str5);
+                this.g = jf7.b(str6);
                 this.h = c();
                 invalidate();
                 return;
@@ -325,26 +325,26 @@ public class LinearGradientView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048588, this, themeElement, themeElement2, themeElement3) == null) {
             if (themeElement == null) {
-                b = bf7.b("#2BB8FF");
-                b2 = bf7.b("#2BB8FF");
+                b = jf7.b("#2BB8FF");
+                b2 = jf7.b("#2BB8FF");
             } else {
-                b = bf7.b(themeElement.common_color);
-                b2 = bf7.b(themeElement.common_color);
+                b = jf7.b(themeElement.common_color);
+                b2 = jf7.b(themeElement.common_color);
             }
             if (themeElement2 == null) {
-                i = bf7.b("#249BD6");
-                b3 = bf7.b("#246CD6");
+                i = jf7.b("#249BD6");
+                b3 = jf7.b("#246CD6");
             } else {
-                int b5 = bf7.b(themeElement2.common_color);
-                b3 = bf7.b(themeElement2.common_color);
+                int b5 = jf7.b(themeElement2.common_color);
+                b3 = jf7.b(themeElement2.common_color);
                 i = b5;
             }
             if (themeElement3 == null) {
-                i2 = bf7.b("#249BD6");
-                b4 = bf7.b("#246CD6");
+                i2 = jf7.b("#249BD6");
+                b4 = jf7.b("#246CD6");
             } else {
-                int b6 = bf7.b(themeElement3.common_color);
-                b4 = bf7.b(themeElement3.common_color);
+                int b6 = jf7.b(themeElement3.common_color);
+                b4 = jf7.b(themeElement3.common_color);
                 i2 = b6;
             }
             this.b = b;

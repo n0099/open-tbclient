@@ -21,7 +21,7 @@ import org.json.JSONObject;
 import tbclient.AddThread.AddThreadResIdl;
 import tbclient.AddThread.DataRes;
 import tbclient.ToastConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AddThreadHttpResponse extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

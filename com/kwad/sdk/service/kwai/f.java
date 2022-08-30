@@ -2,7 +2,7 @@ package com.kwad.sdk.service.kwai;
 
 import android.content.Context;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface f {
     boolean ae(String str);
 

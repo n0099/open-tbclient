@@ -5,6 +5,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.ab7;
+import com.baidu.tieba.db;
 import com.baidu.tieba.im.data.AddGroupInfoData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryItemRemoveMessage;
@@ -13,6 +15,7 @@ import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseAddGroupMessage;
 import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
 import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
+import com.baidu.tieba.z87;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,16 +23,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cb;
-import com.repackage.r87;
-import com.repackage.sa7;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static class a extends cb {
+    /* loaded from: classes4.dex */
+    public static class a extends db {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -67,8 +67,8 @@ public class Static {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static class b extends cb {
+    /* loaded from: classes4.dex */
+    public static class b extends db {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -101,21 +101,21 @@ public class Static {
                 RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                 imMessageCenterPojo.setGroup_name(requestAddGroupMessage.getName());
-                imMessageCenterPojo.setCustomGroupType(r87.a(requestAddGroupMessage.getGroupType()));
+                imMessageCenterPojo.setCustomGroupType(z87.a(requestAddGroupMessage.getGroupType()));
                 AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
                 if (addGroupInfo == null) {
                     return;
                 }
                 imMessageCenterPojo.setGroup_head(addGroupInfo.getPortrait());
                 imMessageCenterPojo.setGid(String.valueOf(addGroupInfo.getGroupId()));
-                imMessageCenterPojo.setPulled_msgId(sa7.a(1L));
+                imMessageCenterPojo.setPulled_msgId(ab7.a(1L));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016016, imMessageCenterPojo));
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static class c extends cb {
+    /* loaded from: classes4.dex */
+    public static class c extends db {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

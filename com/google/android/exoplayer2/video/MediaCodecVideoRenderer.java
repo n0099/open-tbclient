@@ -47,7 +47,7 @@ import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoRendererEventListener;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CROP_BOTTOM = "crop-bottom";
@@ -95,13 +95,13 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     public OnFrameRenderedListenerV23 tunnelingOnFrameRenderedListener;
 
     /* renamed from: com.google.android.exoplayer2.video.MediaCodecVideoRenderer$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class CodecMaxValues {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +131,7 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     }
 
     @TargetApi(23)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public final class OnFrameRenderedListenerV23 implements MediaCodec.OnFrameRenderedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

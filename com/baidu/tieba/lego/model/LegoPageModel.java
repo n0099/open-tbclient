@@ -11,27 +11,27 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.ag7;
+import com.baidu.tieba.bb;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.rk8;
+import com.baidu.tieba.ve;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab;
-import com.repackage.d9;
-import com.repackage.jk8;
-import com.repackage.sf7;
-import com.repackage.tr4;
-import com.repackage.ue;
 import tbclient.Lego.DataRes;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LegoPageModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ab a;
+    public bb a;
     public b b;
 
-    /* loaded from: classes3.dex */
-    public class a extends ab {
+    /* loaded from: classes4.dex */
+    public class a extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoPageModel a;
@@ -60,7 +60,7 @@ public class LegoPageModel extends BdBaseModel {
 
         /* JADX WARN: Removed duplicated region for block: B:25:0x0060  */
         /* JADX WARN: Removed duplicated region for block: B:26:0x0073  */
-        @Override // com.repackage.ab
+        @Override // com.baidu.tieba.bb
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -101,8 +101,8 @@ public class LegoPageModel extends BdBaseModel {
                         this.a.b.a(j, str, dataRes, z);
                     } else {
                         if (z && dataRes != null) {
-                            tr4.f();
-                            ue<byte[]> d = tr4.d("tb.lego_update");
+                            vr4.f();
+                            ve<byte[]> d = vr4.d("tb.lego_update");
                             StringBuilder sb = new StringBuilder();
                             sb.append(j);
                             sb.append("_");
@@ -124,7 +124,7 @@ public class LegoPageModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(long j, String str, DataRes dataRes, boolean z);
 
@@ -170,7 +170,7 @@ public class LegoPageModel extends BdBaseModel {
             legoPageRequest.setLastRank(str2);
             legoPageRequest.setTagCode(j);
             legoPageRequest.setPageType(i);
-            sf7 a2 = sf7.a(j, str);
+            ag7 a2 = ag7.a(j, str);
             if (a2 != null) {
                 legoPageRequest.setRn(a2.d);
                 legoPageRequest.setParams(a2.e);
@@ -211,7 +211,7 @@ public class LegoPageModel extends BdBaseModel {
     public final void registerHttpTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, jk8.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, rk8.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(LegoHttpResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

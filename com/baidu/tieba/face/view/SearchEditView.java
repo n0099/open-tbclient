@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SearchEditView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class SearchEditView extends RelativeLayout {
     public LinearLayout d;
     public d e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class SearchEditView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements TextView.OnEditorActionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,7 +130,7 @@ public class SearchEditView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -163,7 +163,7 @@ public class SearchEditView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         void X(String str);
 
@@ -194,11 +194,11 @@ public class SearchEditView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d025d, (ViewGroup) this, true);
-            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f09086b);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09100b);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fe1);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090fe2);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d025e, (ViewGroup) this, true);
+            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f09086c);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09100d);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fe3);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090fe4);
             SkinManager.setImageResource(this.b, R.drawable.icon_emotion_search);
             SkinManager.setImageResource(this.c, R.drawable.del_search_btn);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);

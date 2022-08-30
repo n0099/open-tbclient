@@ -44,7 +44,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class MatroskaExtractor implements Extractor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLOCK_STATE_DATA = 2;
@@ -242,11 +242,11 @@ public final class MatroskaExtractor implements Extractor {
     public final ParsableByteArray vorbisNumPageSamples;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public @interface Flags {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public final class InnerEbmlReaderOutput implements EbmlReaderOutput {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -333,7 +333,7 @@ public final class MatroskaExtractor implements Extractor {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class Track {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DEFAULT_MAX_CLL = 1000;

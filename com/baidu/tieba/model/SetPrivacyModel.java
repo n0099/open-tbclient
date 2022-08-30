@@ -8,6 +8,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
+import com.baidu.tieba.d9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,8 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class SetPrivacyModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId UNIQUE_ID_SET_PRIVACY_TASK;
@@ -28,14 +28,14 @@ public class SetPrivacyModel extends BdBaseModel {
     public NetWork d;
     public a e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void onError(String str);
 
         void onSuccess();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class b extends BdAsyncTask<CardPersonDynamicThreadData, Integer, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

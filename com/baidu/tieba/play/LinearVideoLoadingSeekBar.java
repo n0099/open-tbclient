@@ -13,13 +13,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.nj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fj8;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LinearVideoLoadingSeekBar extends SeekBar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
     public final int d;
     public Handler e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +102,7 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
             if (i >= width) {
                 this.a = 0;
             }
-            paint.setColor(fj8.a(this.d, width == 0 ? 1.0f : Math.max(255 - ((this.a * 255) / width), 30) / 255.0f));
+            paint.setColor(nj8.a(this.d, width == 0 ? 1.0f : Math.max(255 - ((this.a * 255) / width), 30) / 255.0f));
             paint.setStrokeWidth(this.b);
             float f = width / 2.0f;
             int i2 = this.a;

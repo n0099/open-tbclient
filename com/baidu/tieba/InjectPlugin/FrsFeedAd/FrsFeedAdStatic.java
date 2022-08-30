@@ -6,6 +6,17 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.dc8;
+import com.baidu.tieba.ik5;
+import com.baidu.tieba.jk5;
+import com.baidu.tieba.kk5;
+import com.baidu.tieba.nk5;
+import com.baidu.tieba.ok5;
+import com.baidu.tieba.pk5;
+import com.baidu.tieba.pn;
+import com.baidu.tieba.qk5;
+import com.baidu.tieba.rk5;
+import com.baidu.tieba.wk5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,17 +24,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ak5;
-import com.repackage.bk5;
-import com.repackage.ck5;
-import com.repackage.fk5;
-import com.repackage.gk5;
-import com.repackage.hk5;
-import com.repackage.ik5;
-import com.repackage.jk5;
-import com.repackage.ok5;
-import com.repackage.on;
-import com.repackage.vb8;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -57,47 +57,47 @@ public class FrsFeedAdStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            ok5 ok5Var;
-            gk5 c;
+            wk5 wk5Var;
+            ok5 c;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ok5) && (c = (ok5Var = (ok5) customResponsedMessage.getData()).c()) != null && (c instanceof vb8)) {
-                vb8 vb8Var = (vb8) c;
-                fk5 Q0 = c.Q0(1);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof wk5) && (c = (wk5Var = (wk5) customResponsedMessage.getData()).c()) != null && (c instanceof dc8)) {
+                dc8 dc8Var = (dc8) c;
+                nk5 Q0 = c.Q0(1);
                 if (Q0 == null) {
-                    ik5 a = jk5.b().a(1);
+                    qk5 a = rk5.b().a(1);
                     if (a == null) {
                         return;
                     }
                     Q0 = a.a();
                     c.p0(1, Q0);
-                    Q0.f(new hk5(vb8Var), ok5Var.i());
+                    Q0.f(new pk5(dc8Var), wk5Var.i());
                 }
-                if (Q0 instanceof ck5) {
-                    ck5 ck5Var = (ck5) Q0;
-                    if (ok5Var.a() == 1) {
-                        List list = (List) ok5Var.f();
-                        ak5.b(ck5Var.d());
-                        for (BdUniqueId bdUniqueId : ak5.c()) {
-                            FrsFeedAdAdapter frsFeedAdAdapter = new FrsFeedAdAdapter(vb8Var, bdUniqueId);
-                            frsFeedAdAdapter.setPageContext(vb8Var.o());
+                if (Q0 instanceof kk5) {
+                    kk5 kk5Var = (kk5) Q0;
+                    if (wk5Var.a() == 1) {
+                        List list = (List) wk5Var.f();
+                        ik5.b(kk5Var.d());
+                        for (BdUniqueId bdUniqueId : ik5.c()) {
+                            FrsFeedAdAdapter frsFeedAdAdapter = new FrsFeedAdAdapter(dc8Var, bdUniqueId);
+                            frsFeedAdAdapter.setPageContext(dc8Var.o());
                             list.add(frsFeedAdAdapter);
                         }
-                    } else if (ok5Var.a() == 2) {
-                        ck5Var.k(ok5Var.d());
-                    } else if (ok5Var.a() == 3) {
-                        List<on> o = ok5Var.o();
-                        List<bk5> d = FrsFeedAdStatic.d(o);
-                        if (ok5Var.q()) {
-                            ck5Var.o(d, FrsFeedAdStatic.d(ok5Var.l()), ok5Var.p(), ok5Var.e());
+                    } else if (wk5Var.a() == 2) {
+                        kk5Var.k(wk5Var.d());
+                    } else if (wk5Var.a() == 3) {
+                        List<pn> o = wk5Var.o();
+                        List<jk5> d = FrsFeedAdStatic.d(o);
+                        if (wk5Var.q()) {
+                            kk5Var.o(d, FrsFeedAdStatic.d(wk5Var.l()), wk5Var.p(), wk5Var.e());
                         } else {
-                            ck5Var.i(d, ok5Var.e());
+                            kk5Var.i(d, wk5Var.e());
                         }
                         o.clear();
                         o.addAll(FrsFeedAdStatic.c(d));
-                    } else if (ok5Var.a() == 4) {
-                        ck5Var.a(ok5Var.n());
-                    } else if (ok5Var.a() == 5) {
-                        ck5Var.e(FrsFeedAdStatic.d(ok5Var.o()), ok5Var.h(), ok5Var.g(), ok5Var.m(), ok5Var.j(), ok5Var.r(), ok5Var.k());
+                    } else if (wk5Var.a() == 4) {
+                        kk5Var.a(wk5Var.n());
+                    } else if (wk5Var.a() == 5) {
+                        kk5Var.e(FrsFeedAdStatic.d(wk5Var.o()), wk5Var.h(), wk5Var.g(), wk5Var.m(), wk5Var.j(), wk5Var.r(), wk5Var.k());
                     }
                 }
             }
@@ -134,7 +134,7 @@ public class FrsFeedAdStatic {
         }
     }
 
-    public static List<on> c(List<bk5> list) {
+    public static List<pn> c(List<jk5> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
@@ -142,14 +142,14 @@ public class FrsFeedAdStatic {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (bk5 bk5Var : list) {
-                if (bk5Var.c() == 3) {
-                    ak5 ak5Var = new ak5();
-                    ak5Var.h(bk5Var.a());
-                    ak5Var.j(bk5Var.b());
-                    arrayList.add(ak5Var);
-                } else if (bk5Var.a() instanceof on) {
-                    arrayList.add((on) bk5Var.a());
+            for (jk5 jk5Var : list) {
+                if (jk5Var.c() == 3) {
+                    ik5 ik5Var = new ik5();
+                    ik5Var.h(jk5Var.a());
+                    ik5Var.j(jk5Var.b());
+                    arrayList.add(ik5Var);
+                } else if (jk5Var.a() instanceof pn) {
+                    arrayList.add((pn) jk5Var.a());
                 }
             }
             return arrayList;
@@ -157,33 +157,33 @@ public class FrsFeedAdStatic {
         return (List) invokeL.objValue;
     }
 
-    public static List<bk5> d(List<on> list) {
+    public static List<jk5> d(List<pn> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (on onVar : list) {
-                bk5 bk5Var = new bk5();
-                if (onVar instanceof ThreadData) {
-                    ThreadData threadData = (ThreadData) onVar;
+            for (pn pnVar : list) {
+                jk5 jk5Var = new jk5();
+                if (pnVar instanceof ThreadData) {
+                    ThreadData threadData = (ThreadData) pnVar;
                     if (threadData.getIs_top() == 1) {
-                        bk5Var.f(1);
+                        jk5Var.f(1);
                     } else if (threadData.getIs_top() == 0) {
-                        bk5Var.f(2);
+                        jk5Var.f(2);
                     } else {
-                        bk5Var.f(4);
+                        jk5Var.f(4);
                     }
-                    bk5Var.d(onVar);
-                } else if (onVar instanceof ak5) {
-                    bk5Var.f(3);
-                    ak5 ak5Var = (ak5) onVar;
-                    bk5Var.e(ak5Var.f());
-                    bk5Var.d(ak5Var.a());
+                    jk5Var.d(pnVar);
+                } else if (pnVar instanceof ik5) {
+                    jk5Var.f(3);
+                    ik5 ik5Var = (ik5) pnVar;
+                    jk5Var.e(ik5Var.f());
+                    jk5Var.d(ik5Var.a());
                 } else {
-                    bk5Var.f(4);
-                    bk5Var.d(onVar);
+                    jk5Var.f(4);
+                    jk5Var.d(pnVar);
                 }
-                arrayList.add(bk5Var);
+                arrayList.add(jk5Var);
             }
             return arrayList;
         }

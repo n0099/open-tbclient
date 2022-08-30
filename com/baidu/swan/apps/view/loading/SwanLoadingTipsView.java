@@ -11,12 +11,12 @@ import android.widget.TextView;
 import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ue3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.te3;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
@@ -69,7 +69,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                te3.b0(this.a.e, 2000L);
+                ue3.b0(this.a.e, 2000L);
             }
         }
 
@@ -210,7 +210,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
             this.a = null;
             Runnable runnable = this.e;
             if (runnable != null) {
-                te3.d0(runnable);
+                ue3.d0(runnable);
             }
             ObjectAnimator objectAnimator = this.c;
             if (objectAnimator != null) {
@@ -240,7 +240,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            View.inflate(context, R.layout.obfuscated_res_0x7f0d00ab, this);
+            View.inflate(context, R.layout.obfuscated_res_0x7f0d00ac, this);
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090195);
         }
     }

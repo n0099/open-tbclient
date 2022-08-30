@@ -16,13 +16,13 @@ import com.google.android.exoplayer2.util.Util;
 import java.io.EOFException;
 import java.io.IOException;
 import java.util.NavigableSet;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class CacheUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_SIZE_BYTES = 131072;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class CachingCounters {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

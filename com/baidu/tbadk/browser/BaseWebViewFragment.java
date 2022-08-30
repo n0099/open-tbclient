@@ -62,7 +62,7 @@ public class BaseWebViewFragment extends BaseFragment {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, str4)) == null) {
             ShareItem shareItem = new ShareItem();
             if (StringUtils.isNull(this.c, true)) {
-                shareItem.u = getResources().getString(R.string.obfuscated_res_0x7f0f1135);
+                shareItem.u = getResources().getString(R.string.obfuscated_res_0x7f0f1138);
             } else {
                 shareItem.u = this.c;
             }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class UninitializedMessageException extends RuntimeException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7466929953374883507L;

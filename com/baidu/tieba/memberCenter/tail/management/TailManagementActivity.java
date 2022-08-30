@@ -5,25 +5,25 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
+import com.baidu.tieba.im7;
+import com.baidu.tieba.lm7;
+import com.baidu.tieba.mm7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.am7;
-import com.repackage.dm7;
-import com.repackage.em7;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class TailManagementActivity extends BaseActivity<TailManagementActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public am7 a;
-    public dm7 b;
-    public em7 c;
-    public am7.f d;
+    public im7 a;
+    public lm7 b;
+    public mm7 c;
+    public im7.f d;
     public View.OnClickListener e;
 
-    /* loaded from: classes3.dex */
-    public class a implements am7.f {
+    /* loaded from: classes5.dex */
+    public class a implements im7.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailManagementActivity a;
@@ -46,7 +46,7 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
             this.a = tailManagementActivity;
         }
 
-        @Override // com.repackage.am7.f
+        @Override // com.baidu.tieba.im7.f
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -61,7 +61,7 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,12 +134,12 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d083f);
-            this.b = new dm7(getPageContext());
-            this.a = new am7(getPageContext(), this.b, this.d);
-            em7 em7Var = new em7(this, this.e);
-            this.c = em7Var;
-            em7Var.d(this.a);
+            setContentView(R.layout.obfuscated_res_0x7f0d0841);
+            this.b = new lm7(getPageContext());
+            this.a = new im7(getPageContext(), this.b, this.d);
+            mm7 mm7Var = new mm7(this, this.e);
+            this.c = mm7Var;
+            mm7Var.d(this.a);
             this.c.e(false, this.b.h().size() == 0);
             if (this.b.i(getIntent().getSerializableExtra("list"))) {
                 this.a.j();

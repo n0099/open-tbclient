@@ -9,7 +9,7 @@ import android.os.Message;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import java.io.Closeable;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class bd {
     public static final Handler apf = new Handler(Looper.getMainLooper());
     public static long gO = 400;

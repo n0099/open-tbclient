@@ -4,28 +4,28 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ve;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.tr4;
-import com.repackage.ue;
 import com.squareup.wire.Wire;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import protobuf.QueryHistoryMsg.MsgInfo;
 import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseHistoryMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<a> msg;
     public int msgCount;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                     if (msgInfo != null) {
                         Date date = new Date();
                         date.setTime(msgInfo.sendTime.longValue() * 1000);
-                        pi.getDateStringMouth(date);
+                        qi.getDateStringMouth(date);
                         msgInfo.type.intValue();
                         String str = msgInfo.content;
                         msgInfo.id.intValue();
@@ -91,8 +91,8 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                 }
             }
             if (!this.msg.isEmpty()) {
-                tr4.f();
-                ue<byte[]> d = tr4.d("tb.im_official_history");
+                vr4.f();
+                ve<byte[]> d = vr4.d("tb.im_official_history");
                 RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
                 if (requestHistoryMessage != null && requestHistoryMessage.getRequestId() == 0) {
                     d.g(TbadkCoreApplication.getCurrentAccount() + "@" + String.valueOf(requestHistoryMessage.getFid()), bArr);

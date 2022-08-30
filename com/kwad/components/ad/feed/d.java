@@ -24,7 +24,7 @@ import com.kwad.sdk.api.model.AdExposureFailedReason;
 import com.kwad.sdk.core.report.u;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class d extends AbstractKsFeedAd implements com.kwad.components.core.internal.api.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
     public AdTemplate mAdTemplate;
     public int mWidth;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void aZ();
     }
@@ -142,7 +142,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
         if (!(interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, bVar, z) == null) || bVar == null) {
             return;
         }
-        bVar.setInnerAdInteractionListener(new b.InterfaceC0378b(this, z, bVar) { // from class: com.kwad.components.ad.feed.d.2
+        bVar.setInnerAdInteractionListener(new b.InterfaceC0593b(this, z, bVar) { // from class: com.kwad.components.ad.feed.d.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d cP;
@@ -169,7 +169,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
                 this.cR = bVar;
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0378b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0593b
             public final void onAdClicked() {
                 Interceptable interceptable2 = $ic;
                 if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.cP.cJ == null) {
@@ -178,7 +178,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
                 this.cP.cJ.onAdClicked();
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0378b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0593b
             public final void onAdShow() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -199,7 +199,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0378b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0593b
             public final void onDislikeClicked() {
                 Interceptable interceptable2 = $ic;
                 if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.cP.cJ == null) {
@@ -215,7 +215,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0378b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0593b
             public final void onDownloadTipsDialogDismiss() {
                 Interceptable interceptable2 = $ic;
                 if (!(interceptable2 == null || interceptable2.invokeV(1048579, this) == null) || this.cP.cJ == null) {
@@ -227,7 +227,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0378b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0593b
             public final void onDownloadTipsDialogShow() {
                 Interceptable interceptable2 = $ic;
                 if (!(interceptable2 == null || interceptable2.invokeV(1048580, this) == null) || this.cP.cJ == null) {

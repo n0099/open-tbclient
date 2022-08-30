@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DecoderInputBuffer extends Buffer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_REPLACEMENT_MODE_DIRECT = 2;
@@ -23,7 +23,7 @@ public class DecoderInputBuffer extends Buffer {
     public long timeUs;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public @interface BufferReplacementMode {
     }
 

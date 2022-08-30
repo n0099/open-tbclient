@@ -3,11 +3,11 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.net.Uri;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.pg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.og;
 /* loaded from: classes3.dex */
 public class PersonPostActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -59,7 +59,7 @@ public class PersonPostActivityConfig extends IntentConfig {
         }
         if (uri != null) {
             getIntent().putExtra("key_uid", uri.getQueryParameter("user_id"));
-            getIntent().putExtra("key_sex", og.e(uri.getQueryParameter("sex"), 0));
+            getIntent().putExtra("key_sex", pg.e(uri.getQueryParameter("sex"), 0));
             getIntent().putExtra(KEY_PORTRAIT_URL, uri.getQueryParameter("portrait"));
         }
     }

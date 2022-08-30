@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.hl9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,9 +24,8 @@ import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.fun.module.ks.x;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.api.KsNativeAd;
-import com.repackage.yk9;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class KSNativeAdVideoAppDownloadView extends x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -133,7 +133,7 @@ public class KSNativeAdVideoAppDownloadView extends x {
             }
             this.g.setText(ksNativeAd.getAppName());
             this.h.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new yk9(ksNativeAd.getActionDescription(), this.h));
+            ksNativeAd.setDownloadListener(new hl9(ksNativeAd.getActionDescription(), this.h));
         }
     }
 

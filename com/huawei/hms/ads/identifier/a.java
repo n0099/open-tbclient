@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadPoolExecutor a;

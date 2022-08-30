@@ -17,17 +17,17 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.qi;
 import com.baidu.tieba.view.ImageOverlayView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.HotUserRankEntry;
 import tbclient.ShortUserInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HotRankEntryView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class HotRankEntryView extends RelativeLayout {
     public ImageView e;
     public boolean f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,17 +97,17 @@ public class HotRankEntryView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0399, (ViewGroup) this, true);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909ba);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d039a, (ViewGroup) this, true);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909bb);
             int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds62);
             int dimensionPixelOffset2 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds1);
             int dimensionPixelOffset3 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds20);
-            ImageOverlayView imageOverlayView = (ImageOverlayView) findViewById(R.id.obfuscated_res_0x7f090e82);
+            ImageOverlayView imageOverlayView = (ImageOverlayView) findViewById(R.id.obfuscated_res_0x7f090e83);
             this.c = imageOverlayView;
             imageOverlayView.a(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, R.color.CAM_X0618, dimensionPixelOffset3);
             this.c.setStrokeStyle(1);
             this.c.setLoadImageType(12);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09090a);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09090b);
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902b2);
             setOnClickListener(new a(this, context));
             b(TbadkCoreApplication.getInst().getSkinType());
@@ -121,7 +121,7 @@ public class HotRankEntryView extends RelativeLayout {
         }
         this.a = i;
         SkinManager.setBackgroundResource(this, this.f ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
-        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.b, R.drawable.obfuscated_res_0x7f0810ef, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.b, R.drawable.obfuscated_res_0x7f0810f0, SvgManager.SvgResourceStateType.NORMAL);
         this.c.d();
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
         WebPManager.setPureDrawable(this.e, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
@@ -141,7 +141,7 @@ public class HotRankEntryView extends RelativeLayout {
         }
         this.c.setData(arrayList);
         this.f = z;
-        this.d.setText(!pi.isEmpty(hotUserRankEntry.module_name) ? hotUserRankEntry.module_name : getResources().getString(R.string.obfuscated_res_0x7f0f086f));
+        this.d.setText(!qi.isEmpty(hotUserRankEntry.module_name) ? hotUserRankEntry.module_name : getResources().getString(R.string.obfuscated_res_0x7f0f0872));
         SkinManager.setBackgroundResource(this, z ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
     }
 

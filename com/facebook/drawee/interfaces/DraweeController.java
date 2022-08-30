@@ -5,7 +5,7 @@ import android.view.MotionEvent;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface DraweeController {
     Animatable getAnimatable();
 

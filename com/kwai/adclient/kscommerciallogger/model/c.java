@@ -13,7 +13,7 @@ import com.kwad.components.offline.api.core.api.ILoggerReporter;
 import com.qq.e.comm.constants.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public final class c {
     public final SubBusinessType subBiz;
     public final String tag;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

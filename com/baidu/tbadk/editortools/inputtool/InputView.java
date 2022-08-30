@@ -18,21 +18,21 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
+import com.baidu.tieba.jy4;
+import com.baidu.tieba.la6;
+import com.baidu.tieba.ma6;
+import com.baidu.tieba.n25;
+import com.baidu.tieba.sz8;
+import com.baidu.tieba.z25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.da6;
-import com.repackage.ea6;
-import com.repackage.gy4;
-import com.repackage.h25;
-import com.repackage.jz8;
-import com.repackage.t25;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 /* loaded from: classes3.dex */
-public class InputView extends EditText implements t25 {
+public class InputView extends EditText implements z25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorTools a;
@@ -73,7 +73,7 @@ public class InputView extends EditText implements t25 {
                 return;
             }
             InputView inputView = this.a;
-            inputView.J(new h25(4, -1, inputView.getText().toString()));
+            inputView.J(new n25(4, -1, inputView.getText().toString()));
         }
 
         @Override // android.text.TextWatcher
@@ -128,8 +128,8 @@ public class InputView extends EditText implements t25 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
-                    this.a.J(new h25(5, -1, null));
-                    this.a.J(new h25(64, -1, null));
+                    this.a.J(new n25(5, -1, null));
+                    this.a.J(new n25(64, -1, null));
                     this.a.requestFocus();
                 }
                 return false;
@@ -139,7 +139,7 @@ public class InputView extends EditText implements t25 {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements ea6.h {
+    public class c implements ma6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InputView a;
@@ -162,14 +162,14 @@ public class InputView extends EditText implements t25 {
             this.a = inputView;
         }
 
-        @Override // com.repackage.ea6.h
+        @Override // com.baidu.tieba.ma6.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
                 this.a.setText(spannableStringBuilder);
                 InputView inputView = this.a;
                 inputView.setSelection(inputView.getText().length());
-                this.a.J(new h25(5, -1, null));
+                this.a.J(new n25(5, -1, null));
                 this.a.requestFocus();
             }
         }
@@ -201,9 +201,9 @@ public class InputView extends EditText implements t25 {
         setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.tbds104));
         setMaxLines(5);
         if (z) {
-            setHint(context.getString(R.string.obfuscated_res_0x7f0f08bc));
+            setHint(context.getString(R.string.obfuscated_res_0x7f0f08bf));
         }
-        jz8.l(this, R.drawable.obfuscated_res_0x7f0804ae);
+        sz8.l(this, R.drawable.obfuscated_res_0x7f0804ae);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.M_W_X006);
         int dimensionPixelSize2 = context.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
         setPadding(dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2);
@@ -212,18 +212,18 @@ public class InputView extends EditText implements t25 {
         setOnTouchListener(new b(this));
     }
 
-    @Override // com.repackage.i25
-    public void A(h25 h25Var) {
+    @Override // com.baidu.tieba.o25
+    public void A(n25 n25Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, h25Var) == null) || h25Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, n25Var) == null) || n25Var == null) {
             return;
         }
-        int i = h25Var.a;
+        int i = n25Var.a;
         if (i == 3) {
             if (getSelectionStart() > 0) {
                 String substring = getText().toString().substring(0, getSelectionStart());
-                Matcher matcher = da6.b.matcher(substring);
+                Matcher matcher = la6.b.matcher(substring);
                 if (matcher.find()) {
                     getText().delete(getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getSelectionStart());
                 } else {
@@ -231,44 +231,44 @@ public class InputView extends EditText implements t25 {
                 }
             }
         } else if (i == 6) {
-            Object obj2 = h25Var.c;
+            Object obj2 = n25Var.c;
             if (obj2 == null) {
                 setText((CharSequence) null);
             } else if (obj2 instanceof String) {
                 if (TextUtils.isEmpty((String) obj2)) {
                     setText((CharSequence) null);
                 } else {
-                    ea6.f(getContext(), (String) h25Var.c, new c(this));
+                    ma6.f(getContext(), (String) n25Var.c, new c(this));
                 }
             }
         } else if (i == 9) {
-            if (((Boolean) h25Var.c).booleanValue()) {
+            if (((Boolean) n25Var.c).booleanValue()) {
                 setText((CharSequence) null);
             }
         } else if (i == 17) {
-            Object obj3 = h25Var.c;
+            Object obj3 = n25Var.c;
             if (obj3 == null || !(obj3 instanceof ArrayList)) {
                 return;
             }
             e((ArrayList) obj3);
         } else if (i == 24) {
-            g(h25Var);
-        } else if (i == 44 && (obj = h25Var.c) != null && (obj instanceof String)) {
+            g(n25Var);
+        } else if (i == 44 && (obj = n25Var.c) != null && (obj instanceof String)) {
             f((String) obj);
         }
     }
 
-    @Override // com.repackage.t25
-    public void J(h25 h25Var) {
+    @Override // com.baidu.tieba.z25
+    public void J(n25 n25Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h25Var) == null) || (editorTools = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n25Var) == null) || (editorTools = this.a) == null) {
             return;
         }
-        editorTools.A(h25Var);
+        editorTools.A(n25Var);
     }
 
-    @Override // com.repackage.t25
+    @Override // com.baidu.tieba.z25
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -299,42 +299,42 @@ public class InputView extends EditText implements t25 {
         getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
     }
 
-    public final void g(h25 h25Var) {
+    public final void g(n25 n25Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, h25Var) == null) || h25Var == null || (obj = h25Var.c) == null || !(obj instanceof gy4)) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, n25Var) == null) || n25Var == null || (obj = n25Var.c) == null || !(obj instanceof jy4)) {
             return;
         }
-        gy4 gy4Var = (gy4) obj;
-        if (gy4Var.getType() == EmotionGroupType.NET_SUG) {
-            i(gy4Var);
+        jy4 jy4Var = (jy4) obj;
+        if (jy4Var.getType() == EmotionGroupType.NET_SUG) {
+            i(jy4Var);
         } else {
-            h(gy4Var);
+            h(jy4Var);
         }
     }
 
-    @Override // com.repackage.t25
+    @Override // com.baidu.tieba.z25
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public final void h(gy4 gy4Var) {
+    public final void h(jy4 jy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, gy4Var) == null) {
-            if (!this.c || gy4Var.getType() == EmotionGroupType.LOCAL) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, jy4Var) == null) {
+            if (!this.c || jy4Var.getType() == EmotionGroupType.LOCAL) {
                 String obj = getText().toString();
-                if (this.d && da6.a(obj) >= 10 && getContext() != null) {
-                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1433);
+                if (this.d && la6.a(obj) >= 10 && getContext() != null) {
+                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1436);
                 } else {
-                    ea6.b(getContext(), gy4Var, this);
+                    ma6.b(getContext(), jy4Var, this);
                 }
             }
         }
     }
 
-    @Override // com.repackage.t25
+    @Override // com.baidu.tieba.z25
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -342,41 +342,41 @@ public class InputView extends EditText implements t25 {
         }
     }
 
-    public final void i(gy4 gy4Var) {
+    public final void i(jy4 jy4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, gy4Var) == null) || gy4Var == null || TextUtils.isEmpty(gy4Var.d()) || TextUtils.isEmpty(gy4Var.g())) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, jy4Var) == null) || jy4Var == null || TextUtils.isEmpty(jy4Var.d()) || TextUtils.isEmpty(jy4Var.g())) {
             return;
         }
         String obj = getText().toString();
-        if (this.d && da6.a(obj) >= 10 && getContext() != null) {
-            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1433);
+        if (this.d && la6.a(obj) >= 10 && getContext() != null) {
+            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1436);
         } else {
-            ea6.c(getContext(), gy4Var, this);
+            ma6.c(getContext(), jy4Var, this);
         }
     }
 
-    @Override // com.repackage.t25
+    @Override // com.baidu.tieba.z25
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
         }
     }
 
-    @Override // com.repackage.t25
+    @Override // com.baidu.tieba.z25
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             SkinManager.setViewTextColor(this, R.color.CAM_X0105, 2, i);
             if (i == 0) {
-                jz8.l(this, R.drawable.obfuscated_res_0x7f0804ae);
+                sz8.l(this, R.drawable.obfuscated_res_0x7f0804ae);
             } else {
-                jz8.l(this, R.drawable.obfuscated_res_0x7f0804af);
+                sz8.l(this, R.drawable.obfuscated_res_0x7f0804af);
             }
             setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
         }
     }
 
-    @Override // com.repackage.t25
+    @Override // com.baidu.tieba.z25
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, editorTools) == null) {
@@ -398,7 +398,7 @@ public class InputView extends EditText implements t25 {
         }
     }
 
-    @Override // com.repackage.t25
+    @Override // com.baidu.tieba.z25
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {

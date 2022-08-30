@@ -10,45 +10,45 @@ import androidx.annotation.NonNull;
 import com.kwad.components.offline.api.core.video.mdoel.PlayVideoInfo;
 import java.io.FileDescriptor;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IMediaPlayer {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OnBufferingUpdateListener {
         void onBufferingUpdate(IMediaPlayer iMediaPlayer, int i);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OnCompletionListener {
         void onCompletion(IMediaPlayer iMediaPlayer);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OnErrorListener {
         boolean onError(IMediaPlayer iMediaPlayer, int i, int i2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OnInfoListener {
         boolean onInfo(IMediaPlayer iMediaPlayer, int i, int i2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OnPreparedListener {
         void onPrepared(IMediaPlayer iMediaPlayer);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OnSeekCompleteListener {
         void onSeekComplete(IMediaPlayer iMediaPlayer);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OnTimedTextListener {
         void onTimedText(IMediaPlayer iMediaPlayer, TimedText timedText);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OnVideoSizeChangedListener {
         void onVideoSizeChanged(IMediaPlayer iMediaPlayer, int i, int i2);
     }

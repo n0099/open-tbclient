@@ -6,7 +6,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class au {
     public static String TAG = "plugin.signature";
 

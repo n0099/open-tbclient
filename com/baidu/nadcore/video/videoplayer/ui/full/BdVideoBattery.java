@@ -8,6 +8,8 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.x11;
+import com.baidu.tieba.xw0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,8 +17,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w11;
-import com.repackage.ww0;
 /* loaded from: classes2.dex */
 public class BdVideoBattery extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -42,10 +42,10 @@ public class BdVideoBattery extends View {
                 return;
             }
         }
-        d = w11.d(2.0f);
-        e = w11.d(2.0f);
-        f = w11.d(2.0f);
-        g = w11.d(4.0f);
+        d = x11.d(2.0f);
+        e = x11.d(2.0f);
+        f = x11.d(2.0f);
+        g = x11.d(4.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -90,7 +90,7 @@ public class BdVideoBattery extends View {
             if (bitmap != null) {
                 canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
             }
-            float f2 = (float) (ww0.a / 100.0d);
+            float f2 = (float) (xw0.a / 100.0d);
             float f3 = f2 >= 0.0f ? f2 > 100.0f ? 100.0f : f2 : 0.0f;
             int i = measuredWidth - g;
             int i2 = f;

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.logging.Logger;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class UnknownDescriptor extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public static Logger log;

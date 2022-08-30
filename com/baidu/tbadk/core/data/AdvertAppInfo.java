@@ -9,8 +9,18 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
 import com.baidu.tbadk.switchs.AppLegoSwitch;
+import com.baidu.tieba.hc8;
+import com.baidu.tieba.hg0;
+import com.baidu.tieba.if7;
+import com.baidu.tieba.jo4;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tieba.mo4;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.rc8;
+import com.baidu.tieba.tn4;
+import com.baidu.tieba.vp4;
+import com.baidu.tieba.we7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,23 +28,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.af7;
-import com.repackage.gg0;
-import com.repackage.ho4;
-import com.repackage.jc8;
-import com.repackage.ko4;
-import com.repackage.oe7;
-import com.repackage.og;
-import com.repackage.rn4;
-import com.repackage.tp4;
-import com.repackage.zb8;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes3.dex */
-public class AdvertAppInfo extends ThreadData implements tp4, jc8 {
+public class AdvertAppInfo extends ThreadData implements vp4, rc8 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId A;
     public static final BdUniqueId B;
@@ -59,7 +59,7 @@ public class AdvertAppInfo extends ThreadData implements tp4, jc8 {
     public String f;
     public String g;
     public ILegoAdvert h;
-    public ko4 i;
+    public mo4 i;
     public String j;
     public int k;
     public String l;
@@ -68,7 +68,7 @@ public class AdvertAppInfo extends ThreadData implements tp4, jc8 {
     public String o;
     public String p;
     public String q;
-    public gg0 r;
+    public hg0 r;
     public int s;
     public String t;
     public int u;
@@ -81,7 +81,7 @@ public class AdvertAppInfo extends ThreadData implements tp4, jc8 {
 
         AdvertAppInfo getAdvertAppInfo();
 
-        ho4 getAppInfoModel();
+        jo4 getAppInfoModel();
 
         @NonNull
         String getDownloadId();
@@ -92,7 +92,7 @@ public class AdvertAppInfo extends ThreadData implements tp4, jc8 {
 
         int getGoodsStyle();
 
-        @Override // com.baidu.tieba.lego.card.model.ICardInfo, com.repackage.on
+        @Override // com.baidu.tieba.lego.card.model.ICardInfo, com.baidu.tieba.pn
         /* synthetic */ BdUniqueId getType();
 
         boolean isNoPicAd();
@@ -168,7 +168,7 @@ public class AdvertAppInfo extends ThreadData implements tp4, jc8 {
         return (AdvertAppInfo) invokeL.objValue;
     }
 
-    @Override // com.repackage.jc8
+    @Override // com.baidu.tieba.rc8
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -176,7 +176,7 @@ public class AdvertAppInfo extends ThreadData implements tp4, jc8 {
         }
     }
 
-    @Override // com.repackage.jc8
+    @Override // com.baidu.tieba.rc8
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -189,7 +189,7 @@ public class AdvertAppInfo extends ThreadData implements tp4, jc8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.tp4
+    @Override // com.baidu.tieba.vp4
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -214,7 +214,7 @@ public class AdvertAppInfo extends ThreadData implements tp4, jc8 {
         if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
             try {
                 jSONObject.putOpt("card_type", Integer.valueOf(this.b));
-                ICardInfo j = oe7.j(jSONObject);
+                ICardInfo j = we7.j(jSONObject);
                 if (j instanceof ILegoAdvert) {
                     ILegoAdvert iLegoAdvert = (ILegoAdvert) j;
                     this.h = iLegoAdvert;
@@ -238,7 +238,7 @@ public class AdvertAppInfo extends ThreadData implements tp4, jc8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? h() ? this.h.getDownloadId() : "" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
+    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         ILegoAdvert iLegoAdvert;
@@ -246,7 +246,7 @@ public class AdvertAppInfo extends ThreadData implements tp4, jc8 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             int i = this.c;
             if (i != 1001 && i != -1001) {
-                if (!rn4.c().g() && (iLegoAdvert = this.h) != null && iLegoAdvert.isNoPicAd()) {
+                if (!tn4.c().g() && (iLegoAdvert = this.h) != null && iLegoAdvert.isNoPicAd()) {
                     return w;
                 }
                 ILegoAdvert iLegoAdvert2 = this.h;
@@ -300,7 +300,7 @@ public class AdvertAppInfo extends ThreadData implements tp4, jc8 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.tp4
+    @Override // com.baidu.tieba.vp4
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -340,10 +340,10 @@ public class AdvertAppInfo extends ThreadData implements tp4, jc8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             if (!ThreadData.isRecAppLoaded.get()) {
-                zb8.n();
+                hc8.n();
                 return 31;
             } else if (!v.get()) {
-                zb8.n();
+                hc8.n();
                 return 31;
             } else if (TextUtils.equals("PB_BANNER", this.j) || TextUtils.equals("PIC_PAGE_BANNER", this.j) || !TextUtils.isEmpty(this.f)) {
                 if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 0) {
@@ -371,8 +371,8 @@ public class AdvertAppInfo extends ThreadData implements tp4, jc8 {
                 if (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.a.trim())) {
                     return 24;
                 }
-                if (this.h.getAppInfoModel() == null || ho4.c(this.h.getAppInfoModel())) {
-                    if (rn4.c().g() || this.h.isNoPicAd()) {
+                if (this.h.getAppInfoModel() == null || jo4.c(this.h.getAppInfoModel())) {
+                    if (tn4.c().g() || this.h.isNoPicAd()) {
                         int i3 = this.m;
                         if (i3 == 3 || i3 == 1) {
                             if (this.m == 3) {
@@ -403,7 +403,7 @@ public class AdvertAppInfo extends ThreadData implements tp4, jc8 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.tp4
+    @Override // com.baidu.tieba.vp4
     public AdvertAppInfo p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -426,7 +426,7 @@ public class AdvertAppInfo extends ThreadData implements tp4, jc8 {
 
     public void s(App app) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, app) == null) || app == null || SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) != 1 || af7.e(app.goods_info)) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, app) == null) || app == null || SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) != 1 || if7.e(app.goods_info)) {
             return;
         }
         for (GoodsInfo goodsInfo : app.goods_info) {
@@ -444,7 +444,7 @@ public class AdvertAppInfo extends ThreadData implements tp4, jc8 {
         }
     }
 
-    @Override // com.repackage.tp4
+    @Override // com.baidu.tieba.vp4
     public void setPosition(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
@@ -467,7 +467,7 @@ public class AdvertAppInfo extends ThreadData implements tp4, jc8 {
                 this.l = optJSONObject.optString("user_name");
                 String optString = optJSONObject.optString("pos", "");
                 this.f = optString;
-                this.position = og.e(optString.trim(), -1);
+                this.position = pg.e(optString.trim(), -1);
                 optJSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
                 this.q = optJSONObject.optString("cmd_scheme");
                 optJSONObject.optString("play_cmd_scheme");

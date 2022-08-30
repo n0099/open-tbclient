@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ImageFormatChecker {
     public static /* synthetic */ Interceptable $ic;
     public static ImageFormatChecker sInstance;

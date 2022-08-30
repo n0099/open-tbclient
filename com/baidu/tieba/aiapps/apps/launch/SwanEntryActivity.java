@@ -9,14 +9,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic;
+import com.baidu.tieba.cn3;
+import com.baidu.tieba.qo5;
+import com.baidu.tieba.y8;
+import com.baidu.tieba.zd3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bn3;
-import com.repackage.io5;
-import com.repackage.y8;
-import com.repackage.yd3;
 /* loaded from: classes3.dex */
 public class SwanEntryActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
@@ -89,8 +89,8 @@ public class SwanEntryActivity extends Activity {
             SwanAppAbTestStatic.a = uri;
             return;
         }
-        io5.a();
-        bn3.a(uri);
+        qo5.a();
+        cn3.a(uri);
     }
 
     @Override // android.app.Activity
@@ -99,7 +99,7 @@ public class SwanEntryActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             y8.b(this);
             super.onCreate(bundle);
-            if (yd3.a(this)) {
+            if (zd3.a(this)) {
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }

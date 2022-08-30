@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.producers;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface ThreadHandoffProducerQueue {
     void addToQueueOrExecute(Runnable runnable);
 

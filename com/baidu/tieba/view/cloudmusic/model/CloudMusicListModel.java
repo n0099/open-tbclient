@@ -12,24 +12,24 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.d9;
 import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.tieba.zx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
-import com.repackage.qx8;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CloudMusicListModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qx8<CloudMusicData.MusicTagList> a;
+    public zx8<CloudMusicData.MusicTagList> a;
     public int b;
     public final HttpMessageListener c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class VideoCloudMusicListResponseMessage extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class CloudMusicListModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,9 +140,9 @@ public class CloudMusicListModel extends BdBaseModel {
         return i;
     }
 
-    public void B(int i, qx8<CloudMusicData.MusicTagList> qx8Var) {
+    public void B(int i, zx8<CloudMusicData.MusicTagList> zx8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, qx8Var) == null) || qx8Var == null || i < 0) {
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, zx8Var) == null) || zx8Var == null || i < 0) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST);
@@ -152,7 +152,7 @@ public class CloudMusicListModel extends BdBaseModel {
         httpMessage.addParam("rn", 10);
         httpMessage.addParam(TiebaStatic.Params.TAG_ID, i);
         sendMessage(httpMessage);
-        this.a = qx8Var;
+        this.a = zx8Var;
     }
 
     public final void C() {

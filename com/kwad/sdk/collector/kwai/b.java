@@ -7,7 +7,7 @@ import com.kwad.sdk.core.network.d;
 import java.util.Collection;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b extends d {
     public b(Collection<e> collection) {
         putBody("collectData", a(collection));

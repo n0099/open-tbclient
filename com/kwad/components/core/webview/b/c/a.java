@@ -13,15 +13,15 @@ import com.kwad.components.core.webview.b.d.b;
 import com.kwad.sdk.utils.bd;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Set<b> mw;
 
     /* renamed from: com.kwad.components.core.webview.b.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0368a {
+    /* loaded from: classes7.dex */
+    public static class C0583a {
         public static /* synthetic */ Interceptable $ic;
         public static final a Os;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public final class a {
     public static a pR() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? C0368a.Os : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? C0583a.Os : (a) invokeV.objValue;
     }
 
     public final void a(b bVar) {

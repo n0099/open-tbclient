@@ -5,6 +5,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
+import com.baidu.tieba.fc9;
+import com.baidu.tieba.le0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,12 +21,10 @@ import com.baidu.ugc.editvideo.record.processor.glrender.MultiMediaPreGlRenderer
 import com.baidu.ugc.editvideo.record.renderer.IMediaRenderer;
 import com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource;
 import com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener;
-import com.repackage.ke0;
-import com.repackage.wb9;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDrawUpdateTextureListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
     public GLViewPortLocation mGLViewPortLocation;
     public MultiMediaPreGlRenderer mInnerRenderer;
     public List<IMediaRenderer> mMediaRenderers;
-    public ke0 mVlogEdit;
+    public le0 mVlogEdit;
 
     public MultiMediaOutputSurface(IMultiMediaDataSource iMultiMediaDataSource) {
         Interceptable interceptable = $ic;
@@ -82,10 +82,10 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public ke0 getVlogCore() {
+    public le0 getVlogCore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mVlogEdit : (ke0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mVlogEdit : (le0) invokeV.objValue;
     }
 
     @Override // com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface
@@ -116,9 +116,9 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
     public void onDrawFrame(int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            ke0 ke0Var = this.mVlogEdit;
-            if (ke0Var != null) {
-                ke0Var.g(i, j);
+            le0 le0Var = this.mVlogEdit;
+            if (le0Var != null) {
+                le0Var.g(i, j);
                 this.mVlogEdit.b(this.mVideoWidth, this.mVideoHeight);
             }
             List<IEffectProcessor> list = this.mEffectProcessors;
@@ -218,7 +218,7 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
                 }
                 i2 = i4;
             }
-            if (this.mVlogEdit == null || wb9.e(this.mMediaRenderers)) {
+            if (this.mVlogEdit == null || fc9.e(this.mMediaRenderers)) {
                 this.mFullScreen2D.drawFrame(i, fArr);
                 return;
             }
@@ -243,11 +243,11 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public void setVlogCore(ke0 ke0Var) {
+    public void setVlogCore(le0 le0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, ke0Var) == null) {
-            this.mVlogEdit = ke0Var;
-            this.mInnerRenderer.setCompat(ke0Var != null);
+        if (interceptable == null || interceptable.invokeL(1048591, this, le0Var) == null) {
+            this.mVlogEdit = le0Var;
+            this.mInnerRenderer.setCompat(le0Var != null);
         }
     }
 

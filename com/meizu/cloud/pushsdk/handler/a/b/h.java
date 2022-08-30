@@ -6,7 +6,7 @@ import com.meizu.cloud.pushinternal.DebugLogger;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class h implements Parcelable {
     public static final Parcelable.Creator<h> CREATOR = new Parcelable.Creator<h>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.h.1
         /* JADX DEBUG: Method merged with bridge method */

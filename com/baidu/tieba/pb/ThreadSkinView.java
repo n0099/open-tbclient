@@ -12,21 +12,21 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ol8;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gl8;
-import com.repackage.og;
-import com.repackage.qi;
 import tbclient.SkinInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class ThreadSkinView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext v0;
     public SkinInfo w0;
-    public gl8.b x0;
+    public ol8.b x0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThreadSkinView(Context context) {
@@ -56,7 +56,7 @@ public class ThreadSkinView extends TbImageView {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (skinInfo = this.w0) == null || StringUtils.isNull(skinInfo.url)) {
             return;
         }
-        gl8.b bVar = this.x0;
+        ol8.b bVar = this.x0;
         if (bVar != null) {
             bVar.delete("action_type");
             this.x0.d("action_type", "CLICK");
@@ -65,7 +65,7 @@ public class ThreadSkinView extends TbImageView {
         UrlManager.getInstance().dealOneLink(this.v0, new String[]{this.w0.url});
     }
 
-    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, gl8.b bVar) {
+    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, ol8.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, skinInfo, bVar) == null) {
             if (tbPageContext != null && skinInfo != null && !StringUtils.isNull(skinInfo.skin)) {
@@ -80,14 +80,14 @@ public class ThreadSkinView extends TbImageView {
                     this.x0.e();
                 }
                 this.w0 = skinInfo;
-                int k = qi.k(tbPageContext.getPageActivity());
+                int k = ri.k(tbPageContext.getPageActivity());
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 layoutParams.width = k;
                 if (!StringUtils.isNull(skinInfo.skin_size)) {
                     String[] split = skinInfo.skin_size.split(",");
                     if (split.length > 1) {
-                        int e = og.e(split[0].trim(), -1);
-                        int e2 = og.e(split[1].trim(), -1);
+                        int e = pg.e(split[0].trim(), -1);
+                        int e2 = pg.e(split[1].trim(), -1);
                         if (e > 0 && e2 > 0) {
                             layoutParams.height = (int) (layoutParams.width * (e2 / e));
                         } else {

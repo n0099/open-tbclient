@@ -15,14 +15,14 @@ import com.kwad.sdk.utils.g;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.components.core.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class C0357a {
+    /* loaded from: classes7.dex */
+    public static final class C0572a {
         public static /* synthetic */ Interceptable $ic;
         public static final a Ez;
         public transient /* synthetic */ FieldHolder $fh;
@@ -168,7 +168,7 @@ public final class a {
     public static a ng() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? C0357a.Ez : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? C0572a.Ez : (a) invokeV.objValue;
     }
 
     public final void init(Context context) {

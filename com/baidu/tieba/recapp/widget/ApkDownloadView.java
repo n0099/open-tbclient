@@ -15,20 +15,20 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
+import com.baidu.tieba.be8;
+import com.baidu.tieba.pi0;
+import com.baidu.tieba.sm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.km5;
-import com.repackage.oi0;
-import com.repackage.td8;
-/* loaded from: classes4.dex */
-public class ApkDownloadView extends FrameLayout implements km5 {
+/* loaded from: classes5.dex */
+public class ApkDownloadView extends FrameLayout implements sm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public td8 a;
-    public km5.a b;
+    public be8 a;
+    public sm5.a b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ApkDownloadView(Context context, AttributeSet attributeSet, int i) {
@@ -49,16 +49,16 @@ public class ApkDownloadView extends FrameLayout implements km5 {
                 return;
             }
         }
-        getResources().getString(R.string.obfuscated_res_0x7f0f0901);
+        getResources().getString(R.string.obfuscated_res_0x7f0f0904);
         d(context);
     }
 
-    @Override // com.repackage.km5
+    @Override // com.baidu.tieba.sm5
     public boolean a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            km5.a aVar = this.b;
+            sm5.a aVar = this.b;
             if (aVar != null) {
                 return aVar.a(view2);
             }
@@ -67,7 +67,7 @@ public class ApkDownloadView extends FrameLayout implements km5 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.hj0
+    @Override // com.baidu.tieba.ij0
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
@@ -84,7 +84,7 @@ public class ApkDownloadView extends FrameLayout implements km5 {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.a = (td8) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0119, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f090993);
+            this.a = (be8) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d011a, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f090994);
             e(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -109,7 +109,7 @@ public class ApkDownloadView extends FrameLayout implements km5 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.hj0
+    @Override // com.baidu.tieba.ij0
     @NonNull
     public View getRealView() {
         InterceptResult invokeV;
@@ -137,9 +137,9 @@ public class ApkDownloadView extends FrameLayout implements km5 {
     public void setBackgroundSkin(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            td8 td8Var = this.a;
-            if (td8Var instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) td8Var).setBackgroundSkin(i);
+            be8 be8Var = this.a;
+            if (be8Var instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) be8Var).setBackgroundSkin(i);
             }
         }
     }
@@ -147,23 +147,23 @@ public class ApkDownloadView extends FrameLayout implements km5 {
     public void setForegroundSkin(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            td8 td8Var = this.a;
-            if (td8Var instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) td8Var).setForeground(i);
+            be8 be8Var = this.a;
+            if (be8Var instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) be8Var).setForeground(i);
             }
         }
     }
 
     public void setInitText(String str) {
-        td8 td8Var;
+        be8 be8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || TextUtils.isEmpty(str) || (td8Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || TextUtils.isEmpty(str) || (be8Var = this.a) == null) {
             return;
         }
-        td8Var.setInitText(str);
+        be8Var.setInitText(str);
     }
 
-    public void setOnClickInterceptListener(km5.a aVar) {
+    public void setOnClickInterceptListener(sm5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
             this.b = aVar;
@@ -171,20 +171,20 @@ public class ApkDownloadView extends FrameLayout implements km5 {
     }
 
     public void setRatio(int i) {
-        td8 td8Var;
+        be8 be8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i) == null) || (td8Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048590, this, i) == null) || (be8Var = this.a) == null) {
             return;
         }
-        td8Var.setRatio(i);
+        be8Var.setRatio(i);
     }
 
     public void setStrokeWidth(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            td8 td8Var = this.a;
-            if (td8Var instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) td8Var).setStrokeWidth(i);
+            be8 be8Var = this.a;
+            if (be8Var instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) be8Var).setStrokeWidth(i);
             }
         }
     }
@@ -199,9 +199,9 @@ public class ApkDownloadView extends FrameLayout implements km5 {
     public void setTextColorInitSkin(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            td8 td8Var = this.a;
-            if (td8Var instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) td8Var).setTextColorInitSkin(i);
+            be8 be8Var = this.a;
+            if (be8Var instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) be8Var).setTextColorInitSkin(i);
             }
         }
     }
@@ -209,9 +209,9 @@ public class ApkDownloadView extends FrameLayout implements km5 {
     public void setTextColorSkin(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            td8 td8Var = this.a;
-            if (td8Var instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) td8Var).setTextColorSkin(i);
+            be8 be8Var = this.a;
+            if (be8Var instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) be8Var).setTextColorSkin(i);
             }
         }
     }
@@ -230,11 +230,11 @@ public class ApkDownloadView extends FrameLayout implements km5 {
         }
     }
 
-    @Override // com.repackage.hj0
-    public void update(String str, @NonNull oi0 oi0Var) {
+    @Override // com.baidu.tieba.ij0
+    public void update(String str, @NonNull pi0 pi0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, str, oi0Var) == null) {
-            this.a.setButtonText(str, (int) Math.max(oi0Var.i * 100.0f, oi0Var.j * 100.0f));
+        if (interceptable == null || interceptable.invokeLL(1048597, this, str, pi0Var) == null) {
+            this.a.setButtonText(str, (int) Math.max(pi0Var.i * 100.0f, pi0Var.j * 100.0f));
         }
     }
 
@@ -257,7 +257,7 @@ public class ApkDownloadView extends FrameLayout implements km5 {
                 return;
             }
         }
-        getResources().getString(R.string.obfuscated_res_0x7f0f0901);
+        getResources().getString(R.string.obfuscated_res_0x7f0f0904);
         d(context);
     }
 
@@ -279,7 +279,7 @@ public class ApkDownloadView extends FrameLayout implements km5 {
                 return;
             }
         }
-        getResources().getString(R.string.obfuscated_res_0x7f0f0901);
+        getResources().getString(R.string.obfuscated_res_0x7f0f0904);
         d(context);
     }
 }

@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BasicContainer implements Container, Iterator<Box> {
     public static /* synthetic */ Interceptable $ic;
     public static final Box EOF;

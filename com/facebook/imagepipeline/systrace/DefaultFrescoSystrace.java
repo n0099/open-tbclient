@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class DefaultArgsBuilder implements FrescoSystrace.ArgsBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

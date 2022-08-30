@@ -26,7 +26,7 @@ import com.kwad.components.ad.splashscreen.local.SplashSkipViewModel;
 import com.kwad.components.ad.splashscreen.widget.SkipView;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.widget.KSFrameLayout;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CircleSkipView extends KSFrameLayout implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -179,7 +179,7 @@ public class CircleSkipView extends KSFrameLayout implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             TextView textView = new TextView(context);
-            textView.setText(context.getString(R.string.obfuscated_res_0x7f0f09c1));
+            textView.setText(context.getString(R.string.obfuscated_res_0x7f0f09c4));
             textView.setTextColor(-1);
             textView.setTextSize(12.0f);
             return textView;

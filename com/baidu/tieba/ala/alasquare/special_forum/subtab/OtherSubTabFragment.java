@@ -33,19 +33,19 @@ import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.special_forum.data.SpecialLiveTabInfo;
 import com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListModel;
+import com.baidu.tieba.dv4;
+import com.baidu.tieba.eu5;
+import com.baidu.tieba.ev4;
+import com.baidu.tieba.ht5;
+import com.baidu.tieba.lu5;
+import com.baidu.tieba.n65;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.av4;
-import com.repackage.bv4;
-import com.repackage.du5;
-import com.repackage.h65;
-import com.repackage.oi;
-import com.repackage.qi;
-import com.repackage.wt5;
-import com.repackage.zs5;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
@@ -54,9 +54,9 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
     public View d;
     public BdTypeListView e;
     public PbListView f;
-    public bv4 g;
-    public h65 h;
-    public zs5 i;
+    public ev4 g;
+    public n65 h;
+    public ht5 i;
     public AlaNewSquareSubListModel j;
     public boolean k;
     public boolean l;
@@ -67,10 +67,10 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
     public String q;
     public AlaNewSquareSubListModel.b r;
     public BdListView.p s;
-    public final av4.g t;
+    public final dv4.g t;
 
     /* loaded from: classes3.dex */
-    public class a implements du5 {
+    public class a implements lu5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ OtherSubTabFragment a;
@@ -93,7 +93,7 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
             this.a = otherSubTabFragment;
         }
 
-        @Override // com.repackage.du5
+        @Override // com.baidu.tieba.lu5
         public void a(int i, String str, ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, threadData) == null) {
@@ -125,10 +125,10 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
             }
         }
 
-        @Override // com.repackage.du5
-        public void b(wt5 wt5Var) {
+        @Override // com.baidu.tieba.lu5
+        public void b(eu5 eu5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wt5Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eu5Var) == null) {
             }
         }
     }
@@ -220,7 +220,7 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!qi.D()) {
+                if (!ri.D()) {
                     this.a.L1();
                 } else if (this.a.k) {
                     this.a.j.S();
@@ -230,7 +230,7 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements av4.g {
+    public class d implements dv4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ OtherSubTabFragment a;
@@ -253,11 +253,11 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
             this.a = otherSubTabFragment;
         }
 
-        @Override // com.repackage.av4.g
+        @Override // com.baidu.tieba.dv4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (oi.z()) {
+                if (pi.z()) {
                     this.a.j.T();
                 } else {
                     this.a.R1(false);
@@ -311,20 +311,20 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.e.setNextPage(this.f);
-            this.f.t(qi.f(getContext(), R.dimen.tbds182));
+            this.f.t(ri.f(getContext(), R.dimen.tbds182));
             this.f.l(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
     }
 
     public final void M1() {
         BdTypeListView bdTypeListView;
-        h65 h65Var;
+        n65 n65Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bdTypeListView = this.e) == null || (h65Var = this.h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bdTypeListView = this.e) == null || (n65Var = this.h) == null) {
             return;
         }
         this.l = false;
-        bdTypeListView.removeHeaderView(h65Var.b());
+        bdTypeListView.removeHeaderView(n65Var.b());
     }
 
     public final void N1(TbPageContext<?> tbPageContext, ThreadData threadData, String str) {
@@ -390,7 +390,7 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.e.setNextPage(this.f);
-            this.f.t(qi.f(getContext(), R.dimen.tbds182));
+            this.f.t(ri.f(getContext(), R.dimen.tbds182));
             this.f.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.f.Q();
         }
@@ -400,14 +400,14 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (this.h == null) {
-                h65 h65Var = new h65(getPageContext().getContext(), getNetRefreshListener());
-                this.h = h65Var;
-                h65Var.n(null);
+                n65 n65Var = new n65(getPageContext().getContext(), getNetRefreshListener());
+                this.h = n65Var;
+                n65Var.n(null);
                 this.h.g(null);
                 this.h.p();
                 this.h.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }
-            this.h.m(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f11d8));
+            this.h.m(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f11db));
             this.h.onChangeSkinType();
             if (this.l) {
                 return;
@@ -421,9 +421,9 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.e.setNextPage(this.f);
-            this.f.t(qi.f(getContext(), R.dimen.tbds182));
+            this.f.t(ri.f(getContext(), R.dimen.tbds182));
             this.f.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.f.C(getResources().getString(R.string.obfuscated_res_0x7f0f0a16));
+            this.f.C(getResources().getString(R.string.obfuscated_res_0x7f0f0a19));
             this.f.f();
         }
     }
@@ -433,9 +433,9 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             super.onChangeSkinType(i);
-            bv4 bv4Var = this.g;
-            if (bv4Var != null) {
-                bv4Var.H(i);
+            ev4 ev4Var = this.g;
+            if (ev4Var != null) {
+                ev4Var.H(i);
             }
             PbListView pbListView = this.f;
             if (pbListView != null) {
@@ -479,9 +479,9 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
             this.j.setLabelName(this.o);
             this.j.V(false);
             if (this.i == null) {
-                zs5 zs5Var = new zs5(getPageContext());
-                this.i = zs5Var;
-                zs5Var.v(1);
+                ht5 ht5Var = new ht5(getPageContext());
+                this.i = ht5Var;
+                ht5Var.v(1);
                 this.i.w(new a(this));
             }
         }
@@ -493,20 +493,20 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, layoutInflater, viewGroup, bundle)) == null) {
             if (this.d == null) {
-                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d07bf, viewGroup, false);
+                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d07c1, viewGroup, false);
                 this.d = inflate;
                 BdTypeListView bdTypeListView = (BdTypeListView) inflate.findViewById(R.id.obfuscated_res_0x7f0906dc);
                 this.e = bdTypeListView;
                 bdTypeListView.setOnSrollToBottomListener(this.s);
-                bv4 bv4Var = new bv4(getPageContext());
-                this.g = bv4Var;
-                bv4Var.f(this.t);
+                ev4 ev4Var = new ev4(getPageContext());
+                this.g = ev4Var;
+                ev4Var.f(this.t);
                 this.e.setPullRefresh(this.g);
                 PbListView pbListView = new PbListView(getContext());
                 this.f = pbListView;
                 pbListView.a();
                 this.f.p(R.color.CAM_X0201);
-                this.f.t(qi.f(getContext(), R.dimen.tbds182));
+                this.f.t(ri.f(getContext(), R.dimen.tbds182));
                 this.f.x();
                 this.f.G(R.dimen.tbfontsize33);
                 this.f.E(SkinManager.getColor(R.color.CAM_X0107));

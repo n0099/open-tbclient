@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tieba.rw;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 import java.io.File;
@@ -27,7 +28,7 @@ import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FileProvider extends ContentProvider {
     public static final String ATTR_NAME = "name";
     public static final String ATTR_PATH = "path";
@@ -46,7 +47,7 @@ public class FileProvider extends ContentProvider {
 
     @KsAdSdkDynamicApi
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface PathStrategy {
         @KsAdSdkDynamicApi
         @Keep
@@ -57,7 +58,7 @@ public class FileProvider extends ContentProvider {
         Uri getUriForFile(File file);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class SimplePathStrategy implements PathStrategy {
         public final String mAuthority;
         public final HashMap<String, File> mRoots = new HashMap<>();
@@ -186,7 +187,7 @@ public class FileProvider extends ContentProvider {
         if ("wa".equals(str)) {
             return 704643072;
         }
-        if ("rw".equals(str)) {
+        if (rw.c.equals(str)) {
             return 939524096;
         }
         if ("rwt".equals(str)) {

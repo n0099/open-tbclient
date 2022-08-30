@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.bm;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -235,7 +236,7 @@ public class CooperService implements ICooperService {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) {
             try {
-                return ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+                return ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
             } catch (Exception unused) {
                 return "";
             }
@@ -264,7 +265,7 @@ public class CooperService implements ICooperService {
             } else {
                 Pattern compile = Pattern.compile("\\s*|\t|\r|\n");
                 try {
-                    String deviceId = telephonyManager.getDeviceId();
+                    String deviceId = ApiReplaceUtil.getDeviceId(telephonyManager);
                     if (deviceId != null) {
                         s = compile.matcher(deviceId).replaceAll("");
                     }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.core.video.g;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a extends Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

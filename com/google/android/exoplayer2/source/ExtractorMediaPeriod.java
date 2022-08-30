@@ -35,7 +35,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.io.EOFException;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput, Loader.Callback<ExtractingLoadable>, Loader.ReleaseCallback, SampleQueue.UpstreamFormatChangedListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_LAST_SAMPLE_DURATION_US = 10000;
@@ -77,7 +77,7 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
     public TrackGroupArray tracks;
     public final Uri uri;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public final class ExtractingLoadable implements Loader.Loadable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -194,7 +194,7 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class ExtractorHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -273,12 +273,12 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface Listener {
         void onSourceInfoRefreshed(long j, boolean z);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public final class SampleStreamImpl implements SampleStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,5 +1,5 @@
 package com.kwad.components.ad.reward.i;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface c {
     boolean isCompleted();
 

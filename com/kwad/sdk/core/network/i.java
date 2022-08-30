@@ -2,12 +2,12 @@ package com.kwad.sdk.core.network;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class i {
     public static volatile i Yo;
     public List<a> Yn = new CopyOnWriteArrayList();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(g gVar, int i);
     }

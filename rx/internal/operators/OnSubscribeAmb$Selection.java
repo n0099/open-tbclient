@@ -1,19 +1,19 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.xv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ov9;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class OnSubscribeAmb$Selection<T> extends AtomicReference<ov9<T>> {
+public final class OnSubscribeAmb$Selection<T> extends AtomicReference<xv9<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Collection<ov9<T>> ambSubscribers;
+    public final Collection<xv9<T>> ambSubscribers;
 
     public OnSubscribeAmb$Selection() {
         Interceptable interceptable = $ic;
@@ -32,20 +32,20 @@ public final class OnSubscribeAmb$Selection<T> extends AtomicReference<ov9<T>> {
     }
 
     public void unsubscribeLosers() {
-        ov9<T> ov9Var;
+        xv9<T> xv9Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ov9Var = get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (xv9Var = get()) == null) {
             return;
         }
-        unsubscribeOthers(ov9Var);
+        unsubscribeOthers(xv9Var);
     }
 
-    public void unsubscribeOthers(ov9<T> ov9Var) {
+    public void unsubscribeOthers(xv9<T> xv9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ov9Var) == null) {
-            for (ov9<T> ov9Var2 : this.ambSubscribers) {
-                if (ov9Var2 != ov9Var) {
-                    ov9Var2.unsubscribe();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xv9Var) == null) {
+            for (xv9<T> xv9Var2 : this.ambSubscribers) {
+                if (xv9Var2 != xv9Var) {
+                    xv9Var2.unsubscribe();
                 }
             }
             this.ambSubscribers.clear();

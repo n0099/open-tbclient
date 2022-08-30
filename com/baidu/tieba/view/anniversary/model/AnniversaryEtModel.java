@@ -6,27 +6,27 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.bb;
+import com.baidu.tieba.cx8;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.fx8;
+import com.baidu.tieba.gx8;
+import com.baidu.tieba.rk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab;
-import com.repackage.d9;
-import com.repackage.jk8;
-import com.repackage.tw8;
-import com.repackage.ww8;
-import com.repackage.xw8;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AnniversaryEtModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tw8 a;
-    public xw8 b;
-    public final ab c;
+    public cx8 a;
+    public gx8 b;
+    public final bb c;
 
-    /* loaded from: classes4.dex */
-    public class a extends ab {
+    /* loaded from: classes6.dex */
+    public class a extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AnniversaryEtModel a;
@@ -53,7 +53,7 @@ public class AnniversaryEtModel extends BdBaseModel {
             this.a = anniversaryEtModel;
         }
 
-        @Override // com.repackage.ab
+        @Override // com.baidu.tieba.bb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || this.a.a == null || this.a.b == null) {
@@ -63,14 +63,14 @@ public class AnniversaryEtModel extends BdBaseModel {
                 this.a.a.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                 return;
             }
-            ww8 ww8Var = null;
+            fx8 fx8Var = null;
             if (responsedMessage instanceof AnniversaryEtSocketResMessage) {
-                ww8Var = ((AnniversaryEtSocketResMessage) responsedMessage).getResultData();
+                fx8Var = ((AnniversaryEtSocketResMessage) responsedMessage).getResultData();
             } else if (responsedMessage instanceof AnniversaryEtHttpResMessage) {
-                ww8Var = ((AnniversaryEtHttpResMessage) responsedMessage).getResultData();
+                fx8Var = ((AnniversaryEtHttpResMessage) responsedMessage).getResultData();
             }
-            if (ww8Var != null) {
-                this.a.a.J0(ww8Var);
+            if (fx8Var != null) {
+                this.a.a.J0(fx8Var);
             } else {
                 this.a.a.onError(-1, "请求失败，请稍后重试");
             }
@@ -78,13 +78,13 @@ public class AnniversaryEtModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AnniversaryEtModel(@NonNull TbPageContext tbPageContext, tw8 tw8Var) {
+    public AnniversaryEtModel(@NonNull TbPageContext tbPageContext, cx8 cx8Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, tw8Var};
+            Object[] objArr = {tbPageContext, cx8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -96,8 +96,8 @@ public class AnniversaryEtModel extends BdBaseModel {
             }
         }
         this.c = new a(this, CmdConfigHttp.CMD_HTTP_ET_VIDEO, 309725);
-        this.a = tw8Var;
-        this.b = new xw8(tbPageContext, tw8Var);
+        this.a = cx8Var;
+        this.b = new gx8(tbPageContext, cx8Var);
         init();
     }
 
@@ -111,22 +111,22 @@ public class AnniversaryEtModel extends BdBaseModel {
         }
     }
 
-    public void C(ww8 ww8Var) {
-        xw8 xw8Var;
+    public void C(fx8 fx8Var) {
+        gx8 gx8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ww8Var) == null) || (xw8Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fx8Var) == null) || (gx8Var = this.b) == null) {
             return;
         }
-        xw8Var.m(ww8Var);
+        gx8Var.m(fx8Var);
     }
 
     public void cancel() {
-        xw8 xw8Var;
+        gx8 gx8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (xw8Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gx8Var = this.b) == null) {
             return;
         }
-        xw8Var.i();
+        gx8Var.i();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -142,8 +142,8 @@ public class AnniversaryEtModel extends BdBaseModel {
     public final void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            jk8.h(309725, AnniversaryEtSocketResMessage.class, false, false);
-            jk8.c(309725, CmdConfigHttp.CMD_HTTP_ET_VIDEO, "c/f/video/videoTemplate", AnniversaryEtHttpResMessage.class, true, true, true, false);
+            rk8.h(309725, AnniversaryEtSocketResMessage.class, false, false);
+            rk8.c(309725, CmdConfigHttp.CMD_HTTP_ET_VIDEO, "c/f/video/videoTemplate", AnniversaryEtHttpResMessage.class, true, true, true, false);
             registerListener(this.c);
         }
     }

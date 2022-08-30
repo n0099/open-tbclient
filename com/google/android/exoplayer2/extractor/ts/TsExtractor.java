@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class TsExtractor implements Extractor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long AC3_FORMAT_IDENTIFIER;
@@ -77,11 +77,11 @@ public final class TsExtractor implements Extractor {
     public final SparseArray<TsPayloadReader> tsPayloadReaders;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public @interface Mode {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class PatReader implements SectionPayloadReader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -139,7 +139,7 @@ public final class TsExtractor implements Extractor {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class PmtReader implements SectionPayloadReader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TS_PMT_DESC_AC3 = 106;

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.re3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qe3;
 /* loaded from: classes3.dex */
 public class LocationItemDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
@@ -38,7 +38,7 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        c = qe3.g(15.0f);
+        c = re3.g(15.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -114,7 +114,7 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
             }
         }
         this.b = true;
-        this.a = new ColorDrawable(context.getResources().getColor(R.color.obfuscated_res_0x7f0603d0));
+        this.a = new ColorDrawable(context.getResources().getColor(R.color.obfuscated_res_0x7f0603d3));
         this.b = z;
     }
 }

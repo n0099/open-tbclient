@@ -3,12 +3,12 @@ package com.baidu.tieba.ala.livecard.models;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.pn;
+import com.baidu.tieba.vg6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ng6;
-import com.repackage.on;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -19,9 +19,9 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     public int alaLiveCount;
     public int errCode;
     public String errMsg;
-    public ArrayList<on> mAltList;
-    public ArrayList<on> mThreadList;
-    public ng6 pageInfo;
+    public ArrayList<pn> mAltList;
+    public ArrayList<pn> mThreadList;
+    public vg6 pageInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsPageAlaTabResponseMessage(int i) {
@@ -56,9 +56,9 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
             this.errMsg = jSONObject.optString("errmsg");
             this.alaLiveCount = jSONObject.optInt("ala_live_count");
             JSONObject optJSONObject = jSONObject.optJSONObject("page");
-            ng6 ng6Var = new ng6();
-            this.pageInfo = ng6Var;
-            ng6Var.g = optJSONObject.optInt("has_more") == 1;
+            vg6 vg6Var = new vg6();
+            this.pageInfo = vg6Var;
+            vg6Var.g = optJSONObject.optInt("has_more") == 1;
             this.pageInfo.c = optJSONObject.optInt("pn");
             if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
                 FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();

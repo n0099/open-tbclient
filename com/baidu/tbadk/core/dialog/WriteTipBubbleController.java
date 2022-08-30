@@ -6,6 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.w16;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,14 +15,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o16;
-import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class WriteTipBubbleController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public o16 b;
+    public w16 b;
     public b c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -150,23 +150,23 @@ public class WriteTipBubbleController {
     }
 
     public void c() {
-        o16 o16Var;
+        w16 w16Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (o16Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (w16Var = this.b) == null) {
             return;
         }
-        o16Var.N();
+        w16Var.N();
     }
 
     public void d(@NonNull View view2, @NonNull String str, @NonNull String str2, @NonNull ANCHOR_VIEW_FROM anchor_view_from) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str, str2, anchor_view_from) == null) || this.a == null || view2 == null || pi.isEmpty(str) || pi.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str, str2, anchor_view_from) == null) || this.a == null || view2 == null || qi.isEmpty(str) || qi.isEmpty(str2)) {
             return;
         }
         if (this.b == null) {
-            o16 o16Var = new o16(this.a, view2);
-            this.b = o16Var;
-            o16Var.q0(R.drawable.pic_post_findlink);
+            w16 w16Var = new w16(this.a, view2);
+            this.b = w16Var;
+            w16Var.q0(R.drawable.pic_post_findlink);
             this.b.a0(2);
             this.b.W(true);
             this.b.p0(19);

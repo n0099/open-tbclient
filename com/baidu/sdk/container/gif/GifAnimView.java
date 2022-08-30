@@ -12,6 +12,11 @@ import android.os.SystemClock;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.td1;
+import com.baidu.tieba.ud1;
+import com.baidu.tieba.vd1;
+import com.baidu.tieba.wd1;
+import com.baidu.tieba.xd1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,17 +24,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sd1;
-import com.repackage.td1;
-import com.repackage.ud1;
-import com.repackage.vd1;
-import com.repackage.wd1;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
-public class GifAnimView extends View implements sd1 {
+public class GifAnimView extends View implements td1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public td1 a;
+    public ud1 a;
     public Bitmap b;
     public boolean c;
     public boolean d;
@@ -38,8 +38,8 @@ public class GifAnimView extends View implements sd1 {
     public c g;
     public GifImageType h;
     public boolean i;
-    public wd1 j;
-    public vd1 k;
+    public xd1 j;
+    public wd1 k;
     public int l;
     @SuppressLint({"HandlerLeak"})
     public Handler m;
@@ -213,7 +213,7 @@ public class GifAnimView extends View implements sd1 {
             }
             while (this.a.c) {
                 if (!this.a.d) {
-                    ud1 i = this.a.a.i();
+                    vd1 i = this.a.a.i();
                     this.a.b = i.a;
                     long j = i.b;
                     if (this.a.m == null) {
@@ -266,18 +266,18 @@ public class GifAnimView extends View implements sd1 {
     private void setGifDecoderImage(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, bArr) == null) {
-            td1 td1Var = this.a;
-            if (td1Var != null) {
-                td1Var.c();
+            ud1 ud1Var = this.a;
+            if (ud1Var != null) {
+                ud1Var.c();
                 this.a = null;
             }
-            td1 td1Var2 = new td1(bArr, this);
-            this.a = td1Var2;
-            td1Var2.start();
+            ud1 ud1Var2 = new ud1(bArr, this);
+            this.a = ud1Var2;
+            ud1Var2.start();
         }
     }
 
-    @Override // com.repackage.sd1
+    @Override // com.baidu.tieba.td1
     public void a(boolean z, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && z && this.a != null) {
@@ -343,9 +343,9 @@ public class GifAnimView extends View implements sd1 {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.d = true;
             this.c = false;
-            td1 td1Var = this.a;
-            if (td1Var != null) {
-                td1Var.c();
+            ud1 ud1Var = this.a;
+            if (ud1Var != null) {
+                ud1Var.c();
                 this.a = null;
             }
             if (this.j != null) {
@@ -369,12 +369,12 @@ public class GifAnimView extends View implements sd1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
-            td1 td1Var = this.a;
-            if (td1Var == null) {
+            ud1 ud1Var = this.a;
+            if (ud1Var == null) {
                 return;
             }
             if (this.b == null) {
-                this.b = td1Var.g();
+                this.b = ud1Var.g();
             }
             if (this.b == null) {
                 return;
@@ -390,11 +390,11 @@ public class GifAnimView extends View implements sd1 {
                 canvas.drawBitmap(this.b, (Rect) null, this.f, paint);
             }
             canvas.restoreToCount(saveCount);
-            wd1 wd1Var = this.j;
-            if (wd1Var == null || !this.i) {
+            xd1 xd1Var = this.j;
+            if (xd1Var == null || !this.i) {
                 return;
             }
-            wd1Var.a();
+            xd1Var.a();
             this.i = false;
         }
     }
@@ -408,13 +408,13 @@ public class GifAnimView extends View implements sd1 {
             int paddingRight = getPaddingRight();
             int paddingTop = getPaddingTop();
             int paddingBottom = getPaddingBottom();
-            td1 td1Var = this.a;
+            ud1 ud1Var = this.a;
             int i4 = 1;
-            if (td1Var == null) {
+            if (ud1Var == null) {
                 i3 = 1;
             } else {
-                i4 = td1Var.c;
-                i3 = td1Var.d;
+                i4 = ud1Var.c;
+                i3 = ud1Var.d;
             }
             setMeasuredDimension(View.resolveSize(Math.max(i4 + paddingLeft + paddingRight, getSuggestedMinimumWidth()), i), View.resolveSize(Math.max(i3 + paddingTop + paddingBottom, getSuggestedMinimumHeight()), i2));
         }
@@ -482,25 +482,25 @@ public class GifAnimView extends View implements sd1 {
     private void setGifDecoderImage(InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, inputStream) == null) {
-            td1 td1Var = this.a;
-            if (td1Var != null) {
-                td1Var.c();
+            ud1 ud1Var = this.a;
+            if (ud1Var != null) {
+                ud1Var.c();
                 this.a = null;
             }
-            td1 td1Var2 = new td1(inputStream, this);
-            this.a = td1Var2;
-            td1Var2.start();
+            ud1 ud1Var2 = new ud1(inputStream, this);
+            this.a = ud1Var2;
+            ud1Var2.start();
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GifAnimView(Context context, vd1 vd1Var) {
+    public GifAnimView(Context context, wd1 wd1Var) {
         this(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, vd1Var};
+            Object[] objArr = {context, wd1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -511,6 +511,6 @@ public class GifAnimView extends View implements sd1 {
                 return;
             }
         }
-        this.k = vd1Var;
+        this.k = wd1Var;
     }
 }

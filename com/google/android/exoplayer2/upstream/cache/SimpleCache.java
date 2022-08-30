@@ -20,7 +20,7 @@ import java.util.Iterator;
 import java.util.NavigableSet;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class SimpleCache implements Cache {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SimpleCache";

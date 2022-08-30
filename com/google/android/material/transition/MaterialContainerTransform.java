@@ -53,7 +53,7 @@ import com.google.android.material.shape.Shapeable;
 import com.google.android.material.transition.TransitionUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class MaterialContainerTransform extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProgressThresholdsGroup DEFAULT_ENTER_THRESHOLDS;
@@ -117,17 +117,17 @@ public final class MaterialContainerTransform extends Transition {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public @interface FadeMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public @interface FitMode {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class ProgressThresholds {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -170,7 +170,7 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class ProgressThresholdsGroup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -207,11 +207,11 @@ public final class MaterialContainerTransform extends Transition {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public @interface TransitionDirection {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class TransitionDrawable extends Drawable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COMPAT_SHADOW_COLOR = -7829368;
@@ -703,9 +703,9 @@ public final class MaterialContainerTransform extends Transition {
                 transitionValues.f1028view = TransitionUtils.findDescendantOrAncestorById(transitionValues.f1028view, i);
             } else if (view2 != null) {
                 transitionValues.f1028view = view2;
-            } else if (transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f09156e) instanceof View) {
-                transitionValues.f1028view.setTag(R.id.obfuscated_res_0x7f09156e, null);
-                transitionValues.f1028view = (View) transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f09156e);
+            } else if (transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f091570) instanceof View) {
+                transitionValues.f1028view.setTag(R.id.obfuscated_res_0x7f091570, null);
+                transitionValues.f1028view = (View) transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f091570);
             }
             View view3 = transitionValues.f1028view;
             if (!ViewCompat.isLaidOut(view3) && view3.getWidth() == 0 && view3.getHeight() == 0) {
@@ -730,8 +730,8 @@ public final class MaterialContainerTransform extends Transition {
             if (shapeAppearanceModel != null) {
                 return shapeAppearanceModel;
             }
-            if (view2.getTag(R.id.obfuscated_res_0x7f09156e) instanceof ShapeAppearanceModel) {
-                return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f09156e);
+            if (view2.getTag(R.id.obfuscated_res_0x7f091570) instanceof ShapeAppearanceModel) {
+                return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f091570);
             }
             Context context = view2.getContext();
             int transitionShapeAppearanceResId = getTransitionShapeAppearanceResId(context);

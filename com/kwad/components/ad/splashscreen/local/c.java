@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONObject;
 @KsJson
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class c extends com.kwad.sdk.core.response.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public static SimpleDateFormat em;

@@ -3,23 +3,23 @@ package com.baidu.tieba.homepage.lowFlows.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.pn;
+import com.baidu.tieba.ty6;
+import com.baidu.tieba.yy6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ly6;
-import com.repackage.on;
-import com.repackage.qy6;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
-/* loaded from: classes3.dex */
-public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implements ly6 {
+/* loaded from: classes4.dex */
+public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implements ty6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<on> mMoreTreasureTroveDataList;
+    public List<pn> mMoreTreasureTroveDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MoreTreasureTroveScoketResMsg() {
@@ -55,15 +55,15 @@ public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implem
                     setError(error.errorno.intValue());
                     setErrorString(moreTreasureTroveResIdl.error.usermsg);
                 }
-                this.mMoreTreasureTroveDataList = qy6.b(moreTreasureTroveResIdl);
+                this.mMoreTreasureTroveDataList = yy6.b(moreTreasureTroveResIdl);
             }
             return moreTreasureTroveResIdl;
         }
         return invokeIL.objValue;
     }
 
-    @Override // com.repackage.ly6
-    public List<on> getDataList() {
+    @Override // com.baidu.tieba.ty6
+    public List<pn> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMoreTreasureTroveDataList : (List) invokeV.objValue;

@@ -21,15 +21,15 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 import com.baidu.tieba.faceshop.emotioncenter.model.EmotionChangeModel;
+import com.baidu.tieba.ub6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mb6;
 import java.util.List;
-/* loaded from: classes3.dex */
-public class EmotionCenterChangeView extends LinearLayout implements View.OnClickListener, mb6 {
+/* loaded from: classes4.dex */
+public class EmotionCenterChangeView extends LinearLayout implements View.OnClickListener, ub6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -83,7 +83,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         return (Animation) invokeV.objValue;
     }
 
-    @Override // com.repackage.mb6
+    @Override // com.baidu.tieba.ub6
     public void H0(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, emotionCenterData) == null) {
@@ -95,7 +95,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         }
     }
 
-    @Override // com.repackage.mb6
+    @Override // com.baidu.tieba.ub6
     public void T0(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emotionCenterData) == null) {
@@ -116,7 +116,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setOrientation(1);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0249, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d024a, this);
             this.b = new EmotionHorizontalView(this.a);
             this.c = new EmotionHorizontalView(this.a);
             this.d = new EmotionHorizontalView(this.a);
@@ -129,16 +129,16 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
             this.b.setVisibility(8);
             this.c.setVisibility(8);
             this.d.setVisibility(8);
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090880);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090881);
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0905da);
             this.g = relativeLayout;
             relativeLayout.setVisibility(8);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090881);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090882);
             this.e = imageView;
             imageView.setOnClickListener(this);
             this.h = findViewById(R.id.obfuscated_res_0x7f09059f);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0908c0);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090890);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0908c1);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090891);
             this.j = textView;
             textView.setOnClickListener(this);
             this.k = new EmotionChangeModel(this.a);
@@ -237,7 +237,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         }
     }
 
-    @Override // com.repackage.mb6
+    @Override // com.baidu.tieba.ub6
     public void w0(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, emotionCenterData) == null) {

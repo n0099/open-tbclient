@@ -6,11 +6,11 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.si;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ri;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
@@ -48,7 +48,7 @@ public class EmotionUtil {
                 }
             } finally {
                 try {
-                    ri.a(cursor);
+                    si.a(cursor);
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                     statisticItem.param("obj_param1", i);
@@ -56,7 +56,7 @@ public class EmotionUtil {
                 } catch (Throwable th) {
                 }
             }
-            ri.a(cursor);
+            si.a(cursor);
             StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
             statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
             statisticItem2.param("obj_param1", i);

@@ -5,6 +5,8 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.x94;
+import com.baidu.tieba.y94;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,8 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w94;
-import com.repackage.x94;
 /* loaded from: classes3.dex */
 public class PMSAppInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -166,28 +166,28 @@ public class PMSAppInfo implements Parcelable {
         }
     }
 
-    public void copyMainPkgInfo(w94 w94Var) {
+    public void copyMainPkgInfo(x94 x94Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, w94Var) == null) || w94Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, x94Var) == null) || x94Var == null) {
             return;
         }
-        this.appId = w94Var.g;
-        this.versionCode = w94Var.i;
-        this.versionName = w94Var.j;
-        this.type = w94Var.o;
-        this.pkgSize = w94Var.k;
-    }
-
-    public void copySubPkgInfo(x94 x94Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, x94Var) == null) || x94Var == null) {
-            return;
-        }
-        this.appId = x94Var.o;
+        this.appId = x94Var.g;
         this.versionCode = x94Var.i;
         this.versionName = x94Var.j;
-        this.type = x94Var.q;
+        this.type = x94Var.o;
         this.pkgSize = x94Var.k;
+    }
+
+    public void copySubPkgInfo(y94 y94Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, y94Var) == null) || y94Var == null) {
+            return;
+        }
+        this.appId = y94Var.o;
+        this.versionCode = y94Var.i;
+        this.versionName = y94Var.j;
+        this.type = y94Var.q;
+        this.pkgSize = y94Var.k;
     }
 
     public void countLaunch(long j) {

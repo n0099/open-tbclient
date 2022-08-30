@@ -11,7 +11,7 @@ import com.kwad.sdk.utils.j;
 import com.kwad.sdk.utils.w;
 import org.json.JSONArray;
 @KsJson
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b extends com.kwad.sdk.core.response.kwai.a {
     public String Ig;
     public String LM;

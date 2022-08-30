@@ -2,6 +2,7 @@ package com.qq.e.comm.managers.plugin;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +26,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class PM {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<Class<?>, String> p;
@@ -46,7 +47,7 @@ public class PM {
     public final f n;
     public f o;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class a implements Callable<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +91,7 @@ public class PM {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class b implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +116,7 @@ public class PM {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class c extends HashMap<Class<?>, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -199,7 +200,7 @@ public class PM {
                         StringUtil.writeTo("lock", b2);
                     }
                     if (b2.exists()) {
-                        RandomAccessFile randomAccessFile = new RandomAccessFile(b2, "rw");
+                        RandomAccessFile randomAccessFile = new RandomAccessFile(b2, rw.c);
                         pm.g = randomAccessFile;
                         FileLock tryLock = randomAccessFile.getChannel().tryLock();
                         pm.h = tryLock;

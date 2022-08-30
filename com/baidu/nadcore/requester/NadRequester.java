@@ -3,6 +3,8 @@ package com.baidu.nadcore.requester;
 import androidx.annotation.NonNull;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tieba.eh0;
+import com.baidu.tieba.wx0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dh0;
-import com.repackage.vx0;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class NadRequester {
     public static /* synthetic */ Interceptable $ic;
-    public static final vx0 a;
+    public static final wx0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -101,7 +101,7 @@ public class NadRequester {
     }
 
     /* loaded from: classes2.dex */
-    public static class a implements vx0 {
+    public static class a implements wx0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -119,7 +119,7 @@ public class NadRequester {
             }
         }
 
-        @Override // com.repackage.vx0
+        @Override // com.baidu.tieba.wx0
         public void a(@NonNull RequestParameters requestParameters, @NonNull b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, requestParameters, bVar) == null) {
@@ -147,17 +147,17 @@ public class NadRequester {
                 return;
             }
         }
-        vx0 vx0Var = (vx0) ServiceManager.getService(vx0.a);
-        if (vx0Var == null) {
-            vx0Var = new a();
+        wx0 wx0Var = (wx0) ServiceManager.getService(wx0.a);
+        if (wx0Var == null) {
+            wx0Var = new a();
         }
-        a = vx0Var;
+        a = wx0Var;
     }
 
     public static void a(@NonNull RequestParameters requestParameters, @NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, requestParameters, bVar) == null) {
-            if (dh0.a().y()) {
+            if (eh0.a().y()) {
                 a.a(requestParameters, bVar);
             } else {
                 bVar.a(new Error("Blocked by client"));

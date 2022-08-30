@@ -7,7 +7,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.be5;
 import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.ho4;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.pn;
+import com.baidu.tieba.vn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,10 +20,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ms4;
-import com.repackage.on;
-import com.repackage.ud5;
-import com.repackage.un;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -89,67 +90,67 @@ public final class CardLinkageManager {
         }
     }
 
+    public void cancelHighLight(vn vnVar, BaseCardInfo baseCardInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vnVar, baseCardInfo) == null) && baseCardInfo.isHighLight()) {
+            if (baseCardInfo instanceof ho4) {
+                ((ho4) baseCardInfo).getThreadData().cancelHighLight();
+            }
+            if (vnVar == null || vnVar.getListAdapter() == null) {
+                return;
+            }
+            vnVar.getListAdapter().notifyDataSetChanged();
+        }
+    }
+
     public void deleteThreadIds() {
         List<Long> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (list = this.mThreadIdList) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (list = this.mThreadIdList) == null) {
             return;
         }
         list.clear();
     }
 
-    public void pressLinkage(un unVar, int i, boolean z) {
+    public void pressLinkage(vn vnVar, int i, boolean z) {
         View findViewByPosition;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{unVar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && (unVar instanceof BdTypeRecyclerView)) {
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) unVar;
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{vnVar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && (vnVar instanceof BdTypeRecyclerView)) {
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) vnVar;
             int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
             int lastVisiblePosition = bdTypeRecyclerView.getLastVisiblePosition();
             RecyclerView.LayoutManager layoutManager = bdTypeRecyclerView.getLayoutManager();
             if (layoutManager == null) {
                 return;
             }
-            List<on> data = bdTypeRecyclerView.getData();
+            List<pn> data = bdTypeRecyclerView.getData();
             Object item = ListUtils.getItem(data, i);
             if (item instanceof BaseCardInfo) {
                 BaseCardInfo baseCardInfo = (BaseCardInfo) item;
                 int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
-                for (int i2 = firstVisiblePosition > headerViewsCount ? firstVisiblePosition - headerViewsCount : headerViewsCount; i2 <= lastVisiblePosition; i2++) {
-                    Object item2 = ListUtils.getItem(data, i2 - headerViewsCount);
+                int i2 = baseCardInfo.isHighLight() ? z ? R.color.CAM_X0337 : R.color.CAM_X0313 : z ? R.color.CAM_X0206 : R.color.CAM_X0205;
+                for (int i3 = firstVisiblePosition > headerViewsCount ? firstVisiblePosition - headerViewsCount : headerViewsCount; i3 <= lastVisiblePosition; i3++) {
+                    Object item2 = ListUtils.getItem(data, i3 - headerViewsCount);
                     if (item2 instanceof BaseCardInfo) {
                         BaseCardInfo baseCardInfo2 = (BaseCardInfo) item2;
-                        if (baseCardInfo.position == baseCardInfo2.position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null) {
-                            boolean isSupportFull = baseCardInfo2.isSupportFull();
-                            int i3 = R.color.CAM_X0206;
-                            if (isSupportFull) {
-                                ms4 d = ms4.d(findViewByPosition);
+                        if (baseCardInfo.position == baseCardInfo2.position && (findViewByPosition = layoutManager.findViewByPosition(i3)) != null) {
+                            if (baseCardInfo2.isSupportFull()) {
+                                os4 d = os4.d(findViewByPosition);
                                 d.m(0);
                                 d.n(R.string.J_X06);
-                                if (!z) {
-                                    i3 = R.color.CAM_X0205;
-                                }
-                                d.f(i3);
+                                d.f(i2);
                             } else if (baseCardInfo2.isSupportTop()) {
-                                ms4 d2 = ms4.d(findViewByPosition);
+                                os4 d2 = os4.d(findViewByPosition);
                                 d2.m(1);
                                 d2.n(R.string.J_X06);
-                                if (!z) {
-                                    i3 = R.color.CAM_X0205;
-                                }
-                                d2.f(i3);
+                                d2.f(i2);
                             } else if (baseCardInfo2.isSupportBottom()) {
-                                ms4 d3 = ms4.d(findViewByPosition);
+                                os4 d3 = os4.d(findViewByPosition);
                                 d3.m(2);
                                 d3.n(R.string.J_X06);
-                                if (!z) {
-                                    i3 = R.color.CAM_X0205;
-                                }
-                                d3.f(i3);
+                                d3.f(i2);
                             } else if (baseCardInfo2.isSupportContent() || baseCardInfo2.isSupportExtend()) {
-                                if (!z) {
-                                    i3 = R.color.CAM_X0205;
-                                }
-                                SkinManager.setBackgroundColor(findViewByPosition, i3);
+                                SkinManager.setBackgroundColor(findViewByPosition, i2);
                             }
                         }
                     }
@@ -162,7 +163,7 @@ public final class CardLinkageManager {
         View findViewByPosition;
         View findViewByPosition2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{bdTypeRecyclerView, Integer.valueOf(i), Float.valueOf(f)}) == null) || bdTypeRecyclerView == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{bdTypeRecyclerView, Integer.valueOf(i), Float.valueOf(f)}) == null) || bdTypeRecyclerView == null) {
             return;
         }
         int lastVisiblePosition = bdTypeRecyclerView.getLastVisiblePosition();
@@ -171,15 +172,15 @@ public final class CardLinkageManager {
             return;
         }
         int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
-        List<on> data = bdTypeRecyclerView.getData();
+        List<pn> data = bdTypeRecyclerView.getData();
         Object item = ListUtils.getItem(data, i - headerViewsCount);
         if (item instanceof BaseCardInfo) {
             BaseCardInfo baseCardInfo = (BaseCardInfo) item;
             for (int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition(); firstVisiblePosition <= lastVisiblePosition; firstVisiblePosition++) {
                 Object item2 = ListUtils.getItem(data, firstVisiblePosition - headerViewsCount);
-                if (!ud5.p(item2)) {
+                if (!be5.p(item2)) {
                     if (!(item2 instanceof BaseCardInfo)) {
-                        if ((item2 instanceof on) && (findViewByPosition2 = layoutManager.findViewByPosition(firstVisiblePosition)) != null) {
+                        if ((item2 instanceof pn) && (findViewByPosition2 = layoutManager.findViewByPosition(firstVisiblePosition)) != null) {
                             findViewByPosition2.setTranslationY(f);
                         }
                     } else if (baseCardInfo.position == ((BaseCardInfo) item2).position && (findViewByPosition = layoutManager.findViewByPosition(firstVisiblePosition)) != null) {

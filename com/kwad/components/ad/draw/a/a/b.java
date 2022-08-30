@@ -15,14 +15,14 @@ import com.kwad.sdk.api.KsDrawAd;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b extends com.kwad.components.ad.draw.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public DrawCardApp bC;
     public DrawCardH5 bD;
     public ViewGroup bh;
-    public a.InterfaceC0305a bz;
+    public a.InterfaceC0520a bz;
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;
 
@@ -39,7 +39,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
                 return;
             }
         }
-        this.bz = new a.InterfaceC0305a(this) { // from class: com.kwad.components.ad.draw.a.a.b.1
+        this.bz = new a.InterfaceC0520a(this) { // from class: com.kwad.components.ad.draw.a.a.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b bE;
@@ -62,7 +62,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
                 this.bE = this;
             }
 
-            @Override // com.kwad.components.ad.draw.a.a.a.InterfaceC0305a
+            @Override // com.kwad.components.ad.draw.a.a.a.InterfaceC0520a
             public final void ax() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -211,9 +211,9 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091036);
-            this.bC = (DrawCardApp) findViewById(R.id.obfuscated_res_0x7f091055);
-            this.bD = (DrawCardH5) findViewById(R.id.obfuscated_res_0x7f09105e);
+            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091038);
+            this.bC = (DrawCardApp) findViewById(R.id.obfuscated_res_0x7f091057);
+            this.bD = (DrawCardH5) findViewById(R.id.obfuscated_res_0x7f091060);
         }
     }
 
@@ -224,7 +224,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
             super.onUnbind();
             this.bC.release();
             this.bD.release();
-            this.aK.ba.a((a.InterfaceC0305a) null);
+            this.aK.ba.a((a.InterfaceC0520a) null);
         }
     }
 }

@@ -5,7 +5,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @Keep
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public @interface AdExposureFailureCode {
     public static final int BID_FAILED = 2;
     public static final int CACHE_INVALID = 3;

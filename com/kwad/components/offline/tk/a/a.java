@@ -30,7 +30,7 @@ import com.kwai.sodler.lib.ext.b;
 import com.kwai.sodler.lib.i;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static Boolean QA;
@@ -170,7 +170,7 @@ public final class a {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0417b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0632b, com.kwai.sodler.lib.ext.b
             public void a(c cVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(65537, this, cVar) == null) {
@@ -187,7 +187,7 @@ public final class a {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0417b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0632b, com.kwai.sodler.lib.ext.b
             /* renamed from: b */
             public void c(c cVar) {
                 Interceptable interceptable2 = $ic;
@@ -200,7 +200,7 @@ public final class a {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0417b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0632b, com.kwai.sodler.lib.ext.b
             /* renamed from: c */
             public void b(c cVar) {
                 String str9;
@@ -230,12 +230,12 @@ public final class a {
                 }
             }
 
-            @Override // com.kwai.sodler.lib.ext.b.C0417b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0632b, com.kwai.sodler.lib.ext.b
             public final /* synthetic */ void a(f fVar, com.kwai.sodler.lib.a.a aVar) {
                 qB();
             }
 
-            @Override // com.kwai.sodler.lib.ext.b.C0417b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0632b, com.kwai.sodler.lib.ext.b
             public final /* bridge */ /* synthetic */ void a(f fVar, PluginError pluginError) {
                 a(pluginError);
             }

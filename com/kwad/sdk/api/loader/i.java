@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class i {
     public static void a(Closeable closeable) {
         if (closeable != null) {

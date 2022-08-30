@@ -1,7 +1,7 @@
 package com.fun.ad.sdk.internal.api.flavor;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface CachingAware {
     boolean isCachingAware();
 

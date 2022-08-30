@@ -10,11 +10,11 @@ import com.kwad.sdk.core.network.m;
 import com.kwad.sdk.core.network.n;
 import com.kwad.sdk.core.webview.a.b;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static final Handler mHandler = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         @MainThread
         void a(@NonNull WebCardGetDataResponse webCardGetDataResponse);

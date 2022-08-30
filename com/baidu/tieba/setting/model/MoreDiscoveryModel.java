@@ -12,29 +12,29 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bb;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.i55;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileRequestMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.pl8;
 import com.baidu.tieba.setting.more.MoreActivity;
 import com.baidu.tieba.setting.person.PersonPostListData;
+import com.baidu.tieba.ve;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab;
-import com.repackage.c55;
-import com.repackage.d9;
-import com.repackage.hl8;
-import com.repackage.og;
-import com.repackage.tr4;
-import com.repackage.ue;
 import com.squareup.wire.Wire;
 import tbclient.Anti;
 import tbclient.Profile.DataRes;
 import tbclient.Profile.NicknameInfo;
 import tbclient.Profile.ProfileResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GET_DATA_FROM_DB = 2;
@@ -44,12 +44,12 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public NicknameInfo b;
     public final Context c;
     public Handler d;
-    public hl8 e;
+    public pl8 e;
     public boolean f;
-    public ab g;
+    public bb g;
 
-    /* loaded from: classes4.dex */
-    public class a extends ab {
+    /* loaded from: classes5.dex */
+    public class a extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MoreDiscoveryModel a;
@@ -76,7 +76,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             this.a = moreDiscoveryModel;
         }
 
-        @Override // com.repackage.ab
+        @Override // com.baidu.tieba.bb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
@@ -105,13 +105,13 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements ue.a<byte[]> {
+    /* loaded from: classes5.dex */
+    public class b implements ve.a<byte[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MoreDiscoveryModel a;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -165,7 +165,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ue.a
+        @Override // com.baidu.tieba.ve.a
         /* renamed from: b */
         public void a(String str, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -211,18 +211,18 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.a = null;
         this.c = moreActivity.getPageContext().getContext();
         this.d = new Handler(Looper.getMainLooper());
-        this.e = new hl8("profileStat");
+        this.e = new pl8("profileStat");
         registerListener(this.g);
     }
 
-    public final ue<byte[]> E() {
+    public final ve<byte[]> E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            tr4.f();
-            return tr4.e("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+            vr4.f();
+            return vr4.e("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         }
-        return (ue) invokeV.objValue;
+        return (ve) invokeV.objValue;
     }
 
     public void F(boolean z, boolean z2) {
@@ -254,7 +254,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.f = true;
         ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
         if (TbadkCoreApplication.getCurrentAccount() != null) {
-            profileRequestMessage.set_uid(Long.valueOf(og.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
+            profileRequestMessage.set_uid(Long.valueOf(pg.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
         }
         if (z) {
             H();
@@ -303,7 +303,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
                 if (user != null) {
                     setUser(user);
                 }
-                c55.d().i(getUser());
+                i55.d().i(getUser());
                 this.mLoadDataMode = 1;
                 this.mLoadDataCallBack.c(Boolean.TRUE);
                 return;
@@ -311,7 +311,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             if (z3) {
                 setErrorString(str);
             } else {
-                setErrorString(this.c.getString(R.string.obfuscated_res_0x7f0f0c3d));
+                setErrorString(this.c.getString(R.string.obfuscated_res_0x7f0f0c40));
             }
             this.mLoadDataMode = 1;
             this.mLoadDataCallBack.c(Boolean.FALSE);
@@ -371,9 +371,9 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public final void P() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.e == null) {
-            hl8 hl8Var = new hl8("profileStat");
-            this.e = hl8Var;
-            hl8Var.f();
+            pl8 pl8Var = new pl8("profileStat");
+            this.e = pl8Var;
+            pl8Var.f();
         }
     }
 

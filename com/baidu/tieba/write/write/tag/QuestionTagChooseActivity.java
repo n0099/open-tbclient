@@ -6,20 +6,20 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
+import com.baidu.tieba.ob5;
+import com.baidu.tieba.y19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hb5;
-import com.repackage.p19;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class QuestionTagChooseActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p19 k;
+    public y19 k;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public hb5 E0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public ob5 E0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
@@ -77,11 +77,11 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
                 if (stringExtra == null) {
                     stringExtra = "";
                 }
-                this.k = new p19(linearLayout, navigationBar, this, stringExtra);
+                this.k = new y19(linearLayout, navigationBar, this, stringExtra);
             }
             return this.k;
         }
-        return (hb5) invokeLL.objValue;
+        return (ob5) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -103,9 +103,9 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            p19 p19Var = this.k;
-            if (p19Var != null) {
-                p19Var.onDestroy();
+            y19 y19Var = this.k;
+            if (y19Var != null) {
+                y19Var.onDestroy();
             }
         }
     }

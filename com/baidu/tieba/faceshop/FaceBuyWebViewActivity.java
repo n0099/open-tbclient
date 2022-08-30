@@ -23,6 +23,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.un4;
+import com.baidu.tieba.wr4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,13 +34,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.qi;
-import com.repackage.sn4;
-import com.repackage.ur4;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity> implements BaseWebView.d, BaseWebView.f, BaseWebView.e {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern j;
@@ -47,11 +47,11 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
     public String d;
     public String e;
     public int f;
-    public ur4 g;
+    public wr4 g;
     public final Handler h;
     public final Runnable i;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,8 +120,8 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class c implements ur4.e {
+    /* loaded from: classes4.dex */
+    public class c implements wr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceBuyWebViewActivity a;
@@ -144,18 +144,18 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
             this.a = faceBuyWebViewActivity;
         }
 
-        @Override // com.repackage.ur4.e
-        public void onClick(ur4 ur4Var) {
+        @Override // com.baidu.tieba.wr4.e
+        public void onClick(wr4 wr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ur4Var) == null) {
-                ur4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
+                wr4Var.dismiss();
                 this.a.closeActivity();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class d implements ur4.e {
+    /* loaded from: classes4.dex */
+    public class d implements wr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceBuyWebViewActivity a;
@@ -178,11 +178,11 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
             this.a = faceBuyWebViewActivity;
         }
 
-        @Override // com.repackage.ur4.e
-        public void onClick(ur4 ur4Var) {
+        @Override // com.baidu.tieba.wr4.e
+        public void onClick(wr4 wr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ur4Var) == null) {
-                ur4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
+                wr4Var.dismiss();
             }
         }
     }
@@ -250,10 +250,10 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
     public final void E1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d027b);
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f092258)).getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + qi.f(getActivity(), R.dimen.obfuscated_res_0x7f070282);
-            this.a = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f0925f0);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255c);
+            setContentView(R.layout.obfuscated_res_0x7f0d027c);
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f092261)).getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + ri.f(getActivity(), R.dimen.obfuscated_res_0x7f070282);
+            this.a = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f0925fa);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092566);
             this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
             this.b.setTitleText("");
@@ -268,13 +268,13 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.g == null) {
-                ur4 ur4Var = new ur4(getPageContext().getPageActivity());
-                this.g = ur4Var;
-                ur4Var.setTitle(R.string.obfuscated_res_0x7f0f08f1);
+                wr4 wr4Var = new wr4(getPageContext().getPageActivity());
+                this.g = wr4Var;
+                wr4Var.setTitle(R.string.obfuscated_res_0x7f0f08f4);
                 this.g.setCancelable(false);
-                this.g.setMessageId(R.string.obfuscated_res_0x7f0f0f77);
-                this.g.setPositiveButton(R.string.obfuscated_res_0x7f0f0265, new c(this));
-                this.g.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new d(this));
+                this.g.setMessageId(R.string.obfuscated_res_0x7f0f0f7a);
+                this.g.setPositiveButton(R.string.obfuscated_res_0x7f0f0266, new c(this));
+                this.g.setNegativeButton(R.string.obfuscated_res_0x7f0f0371, new d(this));
                 this.g.create(getPageContext());
             }
             this.g.show();
@@ -285,7 +285,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
-                sn4.b().c(TbadkCoreApplication.getCurrentBduss());
+                un4.b().c(TbadkCoreApplication.getCurrentBduss());
                 CookieSyncManager.createInstance(getPageContext().getContext());
                 CookieManager.getInstance().setAcceptCookie(true);
                 CookieSyncManager.getInstance().sync();
@@ -386,7 +386,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, webView, str)) == null) {
-            if (str != null && !pi.isEmpty(str) && !pi.isEmpty(this.d)) {
+            if (str != null && !qi.isEmpty(str) && !qi.isEmpty(this.d)) {
                 String lowerCase = str.toLowerCase();
                 if (lowerCase.contains(this.d.toLowerCase())) {
                     Matcher matcher = j.matcher(str);

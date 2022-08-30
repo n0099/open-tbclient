@@ -8,12 +8,12 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.tieba.r61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q61;
 import com.tencent.open.SocialOperation;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
@@ -515,7 +515,7 @@ public class BundleInfo implements IBundleInfo {
     public String getGroupName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? q61.b().f(this.packageName) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? r61.b().f(this.packageName) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo

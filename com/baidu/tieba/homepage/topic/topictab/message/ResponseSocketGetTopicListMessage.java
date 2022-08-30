@@ -6,25 +6,25 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
+import com.baidu.tieba.pn;
+import com.baidu.tieba.w37;
+import com.baidu.tieba.y37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o37;
-import com.repackage.on;
-import com.repackage.q37;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewTopicList.DataRes;
 import tbclient.NewTopicList.NewTopicList;
 import tbclient.NewTopicList.NewTopicListResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<on> mTopicDataList;
+    public List<pn> mTopicDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketGetTopicListMessage() {
@@ -62,26 +62,26 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
                 int i2 = 1;
                 for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
                     if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
-                        o37 o37Var = new o37();
-                        o37Var.R = i2;
-                        o37Var.O(newTopicList);
-                        this.mTopicDataList.add(o37Var);
-                        q37 q37Var = new q37();
-                        q37Var.a = R.dimen.tbds1;
-                        q37Var.b = R.color.CAM_X0203;
-                        this.mTopicDataList.add(q37Var);
+                        w37 w37Var = new w37();
+                        w37Var.R = i2;
+                        w37Var.O(newTopicList);
+                        this.mTopicDataList.add(w37Var);
+                        y37 y37Var = new y37();
+                        y37Var.a = R.dimen.tbds1;
+                        y37Var.b = R.color.CAM_X0203;
+                        this.mTopicDataList.add(y37Var);
                         i2++;
                     }
                 }
-                List<on> list = this.mTopicDataList;
-                ((q37) ListUtils.getItem(list, list.size() - 1)).a = 0;
+                List<pn> list = this.mTopicDataList;
+                ((y37) ListUtils.getItem(list, list.size() - 1)).a = 0;
             }
             return newTopicListResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public List<on> getTopicDataList() {
+    public List<pn> getTopicDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTopicDataList : (List) invokeV.objValue;

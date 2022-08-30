@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tieba.frs.FrsTabInfoData;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPostEditActivityConfig> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -48,7 +48,7 @@ public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPost
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i2);
         if (antiData != null && antiData.getIfpost() == 0 && !StringUtils.isNull(antiData.getForbid_info())) {
-            qi.N(context, antiData.getForbid_info());
+            ri.N(context, antiData.getForbid_info());
             return;
         }
         getIntent().putExtra("type", i);

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.DecodeFormat;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class HardwareConfigState {
     public static /* synthetic */ Interceptable $ic = null;
     public static final File FD_SIZE_LIST;

@@ -3,14 +3,14 @@ package com.baidu.sso.h;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.tieba.bf1;
+import com.baidu.tieba.lg1;
+import com.baidu.tieba.mf1;
+import com.baidu.tieba.yf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.af1;
-import com.repackage.kg1;
-import com.repackage.lf1;
-import com.repackage.xf1;
 /* loaded from: classes2.dex */
 public class h extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
@@ -48,12 +48,12 @@ public class h extends BroadcastReceiver {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     if ("sso_action_t_m".equals(this.a)) {
-                        kg1.l(this.b);
-                    } else if ("android.net.conn.CONNECTIVITY_CHANGE".equals(this.a) && kg1.j(this.b) != 0 && af1.a(this.b).d()) {
-                        lf1.j().g(this.b.getApplicationContext(), false);
+                        lg1.l(this.b);
+                    } else if ("android.net.conn.CONNECTIVITY_CHANGE".equals(this.a) && lg1.j(this.b) != 0 && bf1.a(this.b).d()) {
+                        mf1.j().g(this.b.getApplicationContext(), false);
                     }
                 } catch (Throwable th) {
-                    kg1.d(th);
+                    lg1.d(th);
                 }
             }
         }
@@ -79,6 +79,6 @@ public class h extends BroadcastReceiver {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null) {
             return;
         }
-        xf1.a().post(new a(this, intent.getAction(), context));
+        yf1.a().post(new a(this, intent.getAction(), context));
     }
 }

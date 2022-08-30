@@ -6,8 +6,17 @@ import android.os.Looper;
 import android.os.Message;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.a46;
 import com.baidu.tieba.danmu.data.ItemState;
 import com.baidu.tieba.danmu.data.state.DrawState;
+import com.baidu.tieba.j26;
+import com.baidu.tieba.l26;
+import com.baidu.tieba.l46;
+import com.baidu.tieba.m26;
+import com.baidu.tieba.n26;
+import com.baidu.tieba.p26;
+import com.baidu.tieba.p46;
+import com.baidu.tieba.x46;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,15 +24,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b26;
-import com.repackage.d26;
-import com.repackage.d46;
-import com.repackage.e26;
-import com.repackage.f26;
-import com.repackage.h26;
-import com.repackage.h46;
-import com.repackage.p46;
-import com.repackage.s36;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -38,13 +38,13 @@ public final class CacheManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Handler a;
-    public final d46 b;
+    public final l46 b;
     public boolean c;
     public final Lazy d;
     public final Lazy e;
     public boolean f;
-    public final Map<Long, p46> g;
-    public final f26 h;
+    public final Map<Long, x46> g;
+    public final n26 h;
     public boolean i;
 
     /* loaded from: classes3.dex */
@@ -99,23 +99,23 @@ public final class CacheManager {
                             if (bVar == null) {
                                 return;
                             }
-                            b26 a = bVar.a();
-                            h26 c = bVar.c();
+                            j26 a = bVar.a();
+                            p26 c = bVar.c();
                             if (this.a.f) {
                                 BdLog.d("DanmakuEngine [CacheManager] cancel cache.");
                                 this.a.f = false;
                                 return;
                             }
-                            s36.b("CacheManager_checkMeasure");
+                            a46.b("CacheManager_checkMeasure");
                             DrawState f = c.f();
                             if (!f.r(a.p())) {
-                                p46 a2 = this.a.b.a(c, bVar.b(), a);
+                                x46 a2 = this.a.b.a(c, bVar.b(), a);
                                 f.I(a2.b());
                                 f.x(a2.a());
                                 f.z(a.p());
                                 c.o(ItemState.Measured);
                             }
-                            s36.a();
+                            a46.a();
                             return;
                         case 1:
                             Object obj2 = msg.obj;
@@ -123,18 +123,18 @@ public final class CacheManager {
                             if (bVar2 == null) {
                                 return;
                             }
-                            s36.b("CacheManager_buildCache");
-                            b26 a3 = bVar2.a();
-                            h26 c2 = bVar2.c();
+                            a46.b("CacheManager_buildCache");
+                            j26 a3 = bVar2.a();
+                            p26 c2 = bVar2.c();
                             DrawState f2 = c2.f();
-                            s36.b("CacheManager_checkCache");
-                            if (f2.c().g() == null || Intrinsics.areEqual(f2.c(), d26.f.a()) || a(f2)) {
-                                if (!Intrinsics.areEqual(f2.c(), d26.f.a()) && f2.c().g() != null) {
+                            a46.b("CacheManager_checkCache");
+                            if (f2.c().g() == null || Intrinsics.areEqual(f2.c(), l26.f.a()) || a(f2)) {
+                                if (!Intrinsics.areEqual(f2.c(), l26.f.a()) && f2.c().g() != null) {
                                     f2.c().d();
                                 }
-                                d26 a4 = this.a.j().a((int) f2.q(), (int) f2.d());
+                                l26 a4 = this.a.j().a((int) f2.q(), (int) f2.d());
                                 if (a4 == null) {
-                                    a4 = new d26();
+                                    a4 = new l26();
                                     a4.b((int) f2.q(), (int) f2.d(), bVar2.b().a(), true, (r12 & 16) != 0 ? 32 : 0);
                                 }
                                 f2.w(a4);
@@ -142,12 +142,12 @@ public final class CacheManager {
                                 f2.c().m();
                                 f2.c().o(this.a);
                             }
-                            s36.a();
-                            s36.b("CacheManager_drawCache");
-                            e26 g = f2.c().g();
+                            a46.a();
+                            a46.b("CacheManager_drawCache");
+                            m26 g = f2.c().g();
                             if (g == null) {
                                 this.a.j().c(f2.c());
-                                f2.w(d26.f.a());
+                                f2.w(l26.f.a());
                                 c2.o(ItemState.Error);
                                 return;
                             }
@@ -163,8 +163,8 @@ public final class CacheManager {
                                 }
                                 Unit unit = Unit.INSTANCE;
                             }
-                            s36.a();
-                            s36.a();
+                            a46.a();
+                            a46.a();
                             return;
                         case 2:
                             removeCallbacksAndMessages(null);
@@ -180,19 +180,19 @@ public final class CacheManager {
                             return;
                         case 4:
                             Object obj3 = msg.obj;
-                            d26 d26Var = obj3 instanceof d26 ? (d26) obj3 : null;
-                            if (d26Var == null) {
+                            l26 l26Var = obj3 instanceof l26 ? (l26) obj3 : null;
+                            if (l26Var == null) {
                                 return;
                             }
-                            d26Var.e();
+                            l26Var.e();
                             return;
                         case 5:
                             Object obj4 = msg.obj;
-                            d26 d26Var2 = obj4 instanceof d26 ? (d26) obj4 : null;
-                            if (d26Var2 == null || this.a.j().c(d26Var2)) {
+                            l26 l26Var2 = obj4 instanceof l26 ? (l26) obj4 : null;
+                            if (l26Var2 == null || this.a.j().c(l26Var2)) {
                                 return;
                             }
-                            d26Var2.e();
+                            l26Var2.e();
                             return;
                         default:
                             return;
@@ -209,11 +209,11 @@ public final class CacheManager {
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final h26 a;
-        public final h46 b;
-        public final b26 c;
+        public final p26 a;
+        public final p46 b;
+        public final j26 c;
 
-        public b(h26 item, h46 displayer, b26 config) {
+        public b(p26 item, p46 displayer, j26 config) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -236,22 +236,22 @@ public final class CacheManager {
             this.c = config;
         }
 
-        public final b26 a() {
+        public final j26 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (b26) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (j26) invokeV.objValue;
         }
 
-        public final h46 b() {
+        public final p46 b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (h46) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (p46) invokeV.objValue;
         }
 
-        public final h26 c() {
+        public final p26 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (h26) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (p26) invokeV.objValue;
         }
     }
 
@@ -270,7 +270,7 @@ public final class CacheManager {
         }
     }
 
-    public CacheManager(Handler callbackHandler, d46 renderer) {
+    public CacheManager(Handler callbackHandler, l46 renderer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -292,7 +292,7 @@ public final class CacheManager {
         this.d = LazyKt__LazyJVMKt.lazy(new CacheManager$cacheThread$2(this));
         this.e = LazyKt__LazyJVMKt.lazy(new CacheManager$cacheHandler$2(this));
         this.g = Collections.synchronizedMap(new LinkedHashMap());
-        this.h = new f26(b26.x.b());
+        this.h = new n26(j26.x.b());
     }
 
     public final a i() {
@@ -301,10 +301,10 @@ public final class CacheManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (a) this.e.getValue() : (a) invokeV.objValue;
     }
 
-    public final f26 j() {
+    public final n26 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : (f26) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : (n26) invokeV.objValue;
     }
 
     public final HandlerThread k() {
@@ -313,18 +313,18 @@ public final class CacheManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (HandlerThread) this.d.getValue() : (HandlerThread) invokeV.objValue;
     }
 
-    public final void l(d26 cache) {
+    public final void l(l26 cache) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cache) == null) {
             Intrinsics.checkNotNullParameter(cache, "cache");
-            if (Intrinsics.areEqual(cache, d26.f.a())) {
+            if (Intrinsics.areEqual(cache, l26.f.a())) {
                 return;
             }
             i().obtainMessage(5, cache).sendToTarget();
         }
     }
 
-    public final void m(h26 item, h46 displayer, b26 config) {
+    public final void m(p26 item, p46 displayer, j26 config) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, item, displayer, config) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
@@ -342,7 +342,7 @@ public final class CacheManager {
         }
     }
 
-    public final void o(h26 item, h46 displayer, b26 config) {
+    public final void o(p26 item, p46 displayer, j26 config) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, item, displayer, config) == null) {
             Intrinsics.checkNotNullParameter(item, "item");

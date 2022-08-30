@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class RepeatModeUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REPEAT_TOGGLE_MODE_ALL = 2;
@@ -16,7 +16,7 @@ public final class RepeatModeUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public @interface RepeatToggleModes {
     }
 

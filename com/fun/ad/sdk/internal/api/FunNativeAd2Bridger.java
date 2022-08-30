@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.CustomInflater;
 import com.fun.ad.sdk.ExpressInflater;
 import com.fun.ad.sdk.FunAdInteractionListener;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class FunNativeAd2Bridger<A, B extends View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

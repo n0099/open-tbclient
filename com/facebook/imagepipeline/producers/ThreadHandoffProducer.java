@@ -10,7 +10,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.imagepipeline.instrumentation.FrescoInstrumenter;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ThreadHandoffProducer<T> implements Producer<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "BackgroundThreadHandoffProducer";

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class as {
     public static boolean An() {
         try {

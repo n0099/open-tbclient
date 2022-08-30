@@ -8,22 +8,22 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.vz7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nz7;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean l;
     public boolean m;
-    public nz7 n;
+    public vz7 n;
     public TbPageContext<MsglistActivity<?>> o;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgrightView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,9 +80,9 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            nz7 nz7Var = new nz7(this.mContext);
-            this.n = nz7Var;
-            nz7Var.b(this.o.getUniqueId());
+            vz7 vz7Var = new vz7(this.mContext);
+            this.n = vz7Var;
+            vz7Var.b(this.o.getUniqueId());
         }
     }
 
@@ -96,7 +96,7 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bn
+    @Override // com.baidu.tieba.cn
     /* renamed from: G */
     public MsgCommonItemAdapter.MsgViewHolder<MsgrightView> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -123,7 +123,7 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.repackage.bn
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.cn
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         v(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;

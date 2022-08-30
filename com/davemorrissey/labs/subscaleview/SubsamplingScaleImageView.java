@@ -47,7 +47,7 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SubsamplingScaleImageView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EASE_IN_OUT_QUAD = 2;
@@ -138,7 +138,7 @@ public class SubsamplingScaleImageView extends View {
     public PointF vTranslateStart;
     public boolean zoomEnabled;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class BitmapLoadTask extends BdAsyncTask<Void, Void, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -223,7 +223,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class DefaultOnImageEventListener implements OnImageEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -278,7 +278,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface OnImageEventListener {
         void onImageLoadError(Exception exc);
 
@@ -291,7 +291,7 @@ public class SubsamplingScaleImageView extends View {
         void onTileLoadError(Exception exc);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Tile {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -322,7 +322,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class TileLoadTask extends BdAsyncTask<Void, Void, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -413,7 +413,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class TilesInitTask extends BdAsyncTask<Void, Void, int[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2433,7 +2433,7 @@ public class SubsamplingScaleImageView extends View {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048636, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? viewToSourceCoord(f, f2, new PointF()) : (PointF) invokeCommon.objValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class ScaleAndTranslate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2571,7 +2571,7 @@ public class SubsamplingScaleImageView extends View {
         return (PointF) invokeCommon.objValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Anim {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2611,7 +2611,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public final class AnimationBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

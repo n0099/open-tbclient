@@ -34,7 +34,7 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMMON_EXIF_THUMBNAIL_MAX_DIMENSION = 512;
@@ -47,7 +47,7 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImag
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
     @DoNotOptimize
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class Api24Utils {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

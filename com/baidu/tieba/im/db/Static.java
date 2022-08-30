@@ -3,6 +3,10 @@ package com.baidu.tieba.im.db;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.jf5;
+import com.baidu.tieba.nf5;
+import com.baidu.tieba.qe5;
+import com.baidu.tieba.z77;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,28 +14,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cf5;
-import com.repackage.gf5;
-import com.repackage.je5;
-import com.repackage.r77;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tieba.im.db.Static$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0220a extends cf5<Void> {
+        /* loaded from: classes4.dex */
+        public class C0287a extends jf5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
 
-            public C0220a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public C0287a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,14 +50,14 @@ public class Static {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.cf5
+            @Override // com.baidu.tieba.jf5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     if (this.a.getData() instanceof String) {
-                        r77.a((String) this.a.getData());
+                        z77.a((String) this.a.getData());
                         return null;
                     }
                     return null;
@@ -66,8 +66,8 @@ public class Static {
             }
         }
 
-        /* loaded from: classes3.dex */
-        public class b implements je5<Void> {
+        /* loaded from: classes4.dex */
+        public class b implements qe5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -88,7 +88,7 @@ public class Static {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.je5
+            @Override // com.baidu.tieba.qe5
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public class Static {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2008015 || customResponsedMessage.getData() == null) {
                 return;
             }
-            gf5.c(new C0220a(this, customResponsedMessage), new b(this));
+            nf5.c(new C0287a(this, customResponsedMessage), new b(this));
         }
     }
 

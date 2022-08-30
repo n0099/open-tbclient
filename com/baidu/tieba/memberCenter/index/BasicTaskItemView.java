@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class BasicTaskItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,17 +52,17 @@ public class BasicTaskItemView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03dd, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03de, this);
             this.b = inflate;
-            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f09144d);
-            this.c = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092079);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923dc);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923d4);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923db);
+            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f09144f);
+            this.c = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09207b);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923e5);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923dd);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923e4);
             this.f = textView;
             textView.setOnClickListener(this.i);
             this.h.setOnClickListener(this.i);
-            this.g = this.b.findViewById(R.id.obfuscated_res_0x7f0907f6);
+            this.g = this.b.findViewById(R.id.obfuscated_res_0x7f0907f7);
         }
     }
 

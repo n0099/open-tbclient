@@ -17,14 +17,14 @@ import com.kwad.sdk.core.report.u;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.components.core.c.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0354a {
+    /* loaded from: classes7.dex */
+    public static class C0569a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean DS;
@@ -45,7 +45,7 @@ public final class a {
         public final Context context;
         public int gH;
 
-        public C0354a(Context context) {
+        public C0569a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,154 +64,154 @@ public final class a {
             this.context = context;
         }
 
-        public final C0354a L(AdTemplate adTemplate) {
+        public final C0569a L(AdTemplate adTemplate) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, adTemplate)) == null) {
                 this.adTemplate = adTemplate;
                 return this;
             }
-            return (C0354a) invokeL.objValue;
+            return (C0569a) invokeL.objValue;
         }
 
-        public final C0354a a(b bVar) {
+        public final C0569a a(b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
                 this.DU = bVar;
                 return this;
             }
-            return (C0354a) invokeL.objValue;
+            return (C0569a) invokeL.objValue;
         }
 
-        public final C0354a a(u.b bVar) {
+        public final C0569a a(u.b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
                 this.Ea = bVar;
                 return this;
             }
-            return (C0354a) invokeL.objValue;
+            return (C0569a) invokeL.objValue;
         }
 
-        public final C0354a ae(int i) {
+        public final C0569a ae(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
                 this.gH = i;
                 return this;
             }
-            return (C0354a) invokeI.objValue;
+            return (C0569a) invokeI.objValue;
         }
 
-        public final C0354a af(int i) {
+        public final C0569a af(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
                 this.Ee = i;
                 return this;
             }
-            return (C0354a) invokeI.objValue;
+            return (C0569a) invokeI.objValue;
         }
 
-        public final C0354a ag(int i) {
+        public final C0569a ag(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
                 this.Ef = i;
                 return this;
             }
-            return (C0354a) invokeI.objValue;
+            return (C0569a) invokeI.objValue;
         }
 
-        public final C0354a aj(boolean z) {
+        public final C0569a aj(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
                 this.DW = z;
                 return this;
             }
-            return (C0354a) invokeZ.objValue;
+            return (C0569a) invokeZ.objValue;
         }
 
-        public final C0354a ak(boolean z) {
+        public final C0569a ak(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
                 this.DY = z;
                 return this;
             }
-            return (C0354a) invokeZ.objValue;
+            return (C0569a) invokeZ.objValue;
         }
 
-        public final C0354a al(boolean z) {
+        public final C0569a al(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
                 this.DZ = z;
                 return this;
             }
-            return (C0354a) invokeZ.objValue;
+            return (C0569a) invokeZ.objValue;
         }
 
-        public final C0354a am(boolean z) {
+        public final C0569a am(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
                 this.Ec = z;
                 return this;
             }
-            return (C0354a) invokeZ.objValue;
+            return (C0569a) invokeZ.objValue;
         }
 
-        public final C0354a an(boolean z) {
+        public final C0569a an(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
                 this.DT = z;
                 return this;
             }
-            return (C0354a) invokeZ.objValue;
+            return (C0569a) invokeZ.objValue;
         }
 
-        public final C0354a ao(boolean z) {
+        public final C0569a ao(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
                 this.DS = z;
                 return this;
             }
-            return (C0354a) invokeZ.objValue;
+            return (C0569a) invokeZ.objValue;
         }
 
-        public final C0354a ap(boolean z) {
+        public final C0569a ap(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
                 this.Ed = z;
                 return this;
             }
-            return (C0354a) invokeZ.objValue;
+            return (C0569a) invokeZ.objValue;
         }
 
-        public final C0354a b(c cVar) {
+        public final C0569a b(c cVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, cVar)) == null) {
                 this.DV = cVar;
                 return this;
             }
-            return (C0354a) invokeL.objValue;
+            return (C0569a) invokeL.objValue;
         }
 
-        public final C0354a c(JSONObject jSONObject) {
+        public final C0569a c(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, jSONObject)) == null) {
                 this.Eb = jSONObject;
                 return this;
             }
-            return (C0354a) invokeL.objValue;
+            return (C0569a) invokeL.objValue;
         }
 
         public final int cC() {
@@ -250,14 +250,14 @@ public final class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.context : (Context) invokeV.objValue;
         }
 
-        public final C0354a l(long j) {
+        public final C0569a l(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048597, this, j)) == null) {
                 this.DX = j;
                 return this;
             }
-            return (C0354a) invokeJ.objValue;
+            return (C0569a) invokeJ.objValue;
         }
 
         public final boolean mA() {
@@ -327,7 +327,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void onAdClicked();
     }
@@ -339,7 +339,7 @@ public final class a {
             adTemplate.converted = true;
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
             com.kwad.sdk.components.c.f(com.kwad.components.kwai.kwai.a.class);
-            if (d.a(new C0354a(context).L(adTemplate), 1) == 1) {
+            if (d.a(new C0569a(context).L(adTemplate), 1) == 1) {
                 bVar.onAdClicked();
                 return 0;
             } else if (!com.kwad.sdk.core.response.a.a.am(bQ)) {
@@ -351,7 +351,7 @@ public final class a {
                 }
                 return 0;
             } else if (cVar != null) {
-                int m = cVar.m(new C0354a(context).aj(z).L(adTemplate).ak(z2).am(false));
+                int m = cVar.m(new C0569a(context).aj(z).L(adTemplate).ak(z2).am(false));
                 int i = bQ.status;
                 if (i != 2 && i != 3) {
                     bVar.onAdClicked();
@@ -364,56 +364,56 @@ public final class a {
         return invokeCommon.intValue;
     }
 
-    public static int a(C0354a c0354a) {
+    public static int a(C0569a c0569a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, c0354a)) == null) {
-            c0354a.getAdTemplate().converted = true;
-            if (c0354a.mD()) {
-                a(c0354a.getContext(), c0354a.getAdTemplate(), c0354a.mw(), c0354a.getApkDownloadHelper(), c0354a.DW, c0354a.mz());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, c0569a)) == null) {
+            c0569a.getAdTemplate().converted = true;
+            if (c0569a.mD()) {
+                a(c0569a.getContext(), c0569a.getAdTemplate(), c0569a.mw(), c0569a.getApkDownloadHelper(), c0569a.DW, c0569a.mz());
                 return 0;
-            } else if (b(c0354a)) {
+            } else if (b(c0569a)) {
                 return 0;
             } else {
-                AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(c0354a.getAdTemplate());
+                AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(c0569a.getAdTemplate());
                 com.kwad.sdk.components.c.f(com.kwad.components.kwai.kwai.a.class);
-                if (d.a(c0354a, 1) == 1) {
+                if (d.a(c0569a, 1) == 1) {
                     if (com.kwad.sdk.core.response.a.a.bK(bQ)) {
-                        com.kwad.sdk.core.report.a.o(c0354a.getAdTemplate(), (int) Math.ceil(((float) c0354a.my()) / 1000.0f));
+                        com.kwad.sdk.core.report.a.o(c0569a.getAdTemplate(), (int) Math.ceil(((float) c0569a.my()) / 1000.0f));
                     }
-                    e(c0354a);
+                    e(c0569a);
                     return 0;
-                } else if (e.d(c0354a.getContext(), c0354a.getAdTemplate())) {
-                    e(c0354a);
+                } else if (e.d(c0569a.getContext(), c0569a.getAdTemplate())) {
+                    e(c0569a);
                     return 0;
-                } else if (c0354a.mC() && (!com.kwad.sdk.core.response.a.a.am(bQ) || i(c0354a))) {
-                    e(c0354a);
-                    h(c0354a);
+                } else if (c0569a.mC() && (!com.kwad.sdk.core.response.a.a.am(bQ) || i(c0569a))) {
+                    e(c0569a);
+                    h(c0569a);
                     return 0;
                 } else if (!com.kwad.sdk.core.response.a.a.am(bQ)) {
-                    if (c0354a.getAdTemplate().isWebViewDownload) {
-                        return g(c0354a);
+                    if (c0569a.getAdTemplate().isWebViewDownload) {
+                        return g(c0569a);
                     }
-                    boolean e = com.kwad.sdk.utils.d.e(c0354a.getContext(), com.kwad.sdk.core.response.a.a.bO(bQ), com.kwad.sdk.core.response.a.a.ag(bQ));
-                    e(c0354a);
+                    boolean e = com.kwad.sdk.utils.d.e(c0569a.getContext(), com.kwad.sdk.core.response.a.a.bO(bQ), com.kwad.sdk.core.response.a.a.ag(bQ));
+                    e(c0569a);
                     if (e) {
-                        com.kwad.sdk.core.report.a.m(c0354a.getAdTemplate(), 0);
+                        com.kwad.sdk.core.report.a.m(c0569a.getAdTemplate(), 0);
                         return 0;
                     }
-                    AdWebViewActivityProxy.launch(c0354a.getContext(), c0354a.getAdTemplate());
+                    AdWebViewActivityProxy.launch(c0569a.getContext(), c0569a.getAdTemplate());
                     return 0;
                 } else {
                     if (com.kwad.sdk.core.response.a.a.am(bQ)) {
-                        if (c0354a.mG() == 2 || c0354a.mG() == 1) {
-                            c0354a.am(false);
-                            e(c0354a);
+                        if (c0569a.mG() == 2 || c0569a.mG() == 1) {
+                            c0569a.am(false);
+                            e(c0569a);
                         } else {
-                            e(c0354a);
-                            if (!c(c0354a)) {
-                                c0354a.am(true);
+                            e(c0569a);
+                            if (!c(c0569a)) {
+                                c0569a.am(true);
                             }
                         }
-                        return g(c0354a);
+                        return g(c0569a);
                     }
                     return 0;
                 }
@@ -422,34 +422,34 @@ public final class a {
         return invokeL.intValue;
     }
 
-    public static boolean b(C0354a c0354a) {
+    public static boolean b(C0569a c0569a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c0354a)) == null) ? com.kwad.sdk.core.response.a.a.am(com.kwad.sdk.core.response.a.d.bQ(c0354a.getAdTemplate())) ? !c0354a.mE() && c.s(c0354a) == 3 : d(c0354a) == 1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c0569a)) == null) ? com.kwad.sdk.core.response.a.a.am(com.kwad.sdk.core.response.a.d.bQ(c0569a.getAdTemplate())) ? !c0569a.mE() && c.s(c0569a) == 3 : d(c0569a) == 1 : invokeL.booleanValue;
     }
 
-    public static boolean c(C0354a c0354a) {
+    public static boolean c(C0569a c0569a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, c0354a)) == null) {
-            AdTemplate adTemplate = c0354a.getAdTemplate();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, c0569a)) == null) {
+            AdTemplate adTemplate = c0569a.getAdTemplate();
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
-            if (!c0354a.mC() || !com.kwad.sdk.core.response.a.a.c(bQ, com.kwad.sdk.core.config.d.lG()) || TextUtils.isEmpty(com.kwad.sdk.core.response.a.a.ar(bQ)) || AdWebViewVideoActivityProxy.showingAdWebViewVideoActivity || c0354a.getApkDownloadHelper().mO()) {
+            if (!c0569a.mC() || !com.kwad.sdk.core.response.a.a.c(bQ, com.kwad.sdk.core.config.d.lG()) || TextUtils.isEmpty(com.kwad.sdk.core.response.a.a.ar(bQ)) || AdWebViewVideoActivityProxy.showingAdWebViewVideoActivity || c0569a.getApkDownloadHelper().mO()) {
                 return false;
             }
-            AdWebViewVideoActivityProxy.launch(c0354a.getContext(), adTemplate);
+            AdWebViewVideoActivityProxy.launch(c0569a.getContext(), adTemplate);
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static int d(C0354a c0354a) {
+    public static int d(C0569a c0569a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, c0354a)) == null) {
-            AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(c0354a.getAdTemplate());
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, c0569a)) == null) {
+            AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(c0569a.getAdTemplate());
             if (bQ.unDownloadConf.unDownloadRegionConf != null) {
-                int cC = c0354a.cC();
+                int cC = c0569a.cC();
                 return cC != 2 ? cC != 3 ? bQ.unDownloadConf.unDownloadRegionConf.actionBarType : bQ.unDownloadConf.unDownloadRegionConf.materialJumpType : bQ.unDownloadConf.unDownloadRegionConf.describeBarType;
             }
             return 0;
@@ -457,46 +457,46 @@ public final class a {
         return invokeL.intValue;
     }
 
-    public static void e(C0354a c0354a) {
+    public static void e(C0569a c0569a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, c0354a) == null) {
-            f(c0354a);
-            if (c0354a.mw() != null) {
-                c0354a.mw().onAdClicked();
+        if (interceptable == null || interceptable.invokeL(65541, null, c0569a) == null) {
+            f(c0569a);
+            if (c0569a.mw() != null) {
+                c0569a.mw().onAdClicked();
             }
         }
     }
 
-    public static void f(C0354a c0354a) {
+    public static void f(C0569a c0569a) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, c0354a) == null) && c0354a.mA()) {
-            com.kwad.sdk.core.report.a.a(c0354a.adTemplate, c0354a.Ea, c0354a.gP());
+        if ((interceptable == null || interceptable.invokeL(65542, null, c0569a) == null) && c0569a.mA()) {
+            com.kwad.sdk.core.report.a.a(c0569a.adTemplate, c0569a.Ea, c0569a.gP());
         }
     }
 
-    public static int g(C0354a c0354a) {
+    public static int g(C0569a c0569a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, c0354a)) == null) {
-            c apkDownloadHelper = c0354a.getApkDownloadHelper();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, c0569a)) == null) {
+            c apkDownloadHelper = c0569a.getApkDownloadHelper();
             if (apkDownloadHelper == null) {
-                apkDownloadHelper = new c(c0354a.adTemplate);
-                c0354a.b(apkDownloadHelper);
+                apkDownloadHelper = new c(c0569a.adTemplate);
+                c0569a.b(apkDownloadHelper);
             }
-            return apkDownloadHelper.m(c0354a);
+            return apkDownloadHelper.m(c0569a);
         }
         return invokeL.intValue;
     }
 
-    public static void h(C0354a c0354a) {
+    public static void h(C0569a c0569a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, c0354a) == null) {
-            AdTemplate adTemplate = c0354a.getAdTemplate();
-            Context context = c0354a.getContext();
+        if (interceptable == null || interceptable.invokeL(65544, null, c0569a) == null) {
+            AdTemplate adTemplate = c0569a.getAdTemplate();
+            Context context = c0569a.getContext();
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
             if (com.kwad.sdk.utils.d.e(context, com.kwad.sdk.core.response.a.a.bO(bQ), com.kwad.sdk.core.response.a.a.ag(bQ))) {
                 com.kwad.sdk.core.report.a.m(adTemplate, 0);
-            } else if (i(c0354a)) {
+            } else if (i(c0569a)) {
                 AdWebViewActivityProxy.launch(context, adTemplate, 4);
             } else if (!com.kwad.sdk.core.response.a.a.c(bQ, com.kwad.sdk.core.config.d.lG()) || adTemplate.mAdWebVideoPageShowing) {
                 AdWebViewActivityProxy.launch(context, adTemplate, 0);
@@ -506,11 +506,11 @@ public final class a {
         }
     }
 
-    public static boolean i(C0354a c0354a) {
+    public static boolean i(C0569a c0569a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, c0354a)) == null) {
-            AdTemplate adTemplate = c0354a.getAdTemplate();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, c0569a)) == null) {
+            AdTemplate adTemplate = c0569a.getAdTemplate();
             return com.kwad.sdk.core.response.a.b.bg(adTemplate) && !adTemplate.interactLandingPageShowing;
         }
         return invokeL.booleanValue;

@@ -6,21 +6,21 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tieba.jf5;
+import com.baidu.tieba.nf5;
+import com.baidu.tieba.qe5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cf5;
-import com.repackage.gf5;
-import com.repackage.je5;
 /* loaded from: classes3.dex */
 public class PersonalChatUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a extends cf5<Boolean> {
+    public static class a extends jf5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -45,7 +45,7 @@ public class PersonalChatUtil {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.repackage.cf5
+        @Override // com.baidu.tieba.jf5
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class PersonalChatUtil {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements je5<Boolean> {
+    public static class b implements qe5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -92,7 +92,7 @@ public class PersonalChatUtil {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.je5
+        @Override // com.baidu.tieba.qe5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -119,7 +119,7 @@ public class PersonalChatUtil {
     public static void a(Context context, long j, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, Long.valueOf(j), str, str2, str3}) == null) {
-            gf5.b(new a(j), new b(context, j, str, str2, str3));
+            nf5.b(new a(j), new b(context, j, str, str2, str3));
         }
     }
 

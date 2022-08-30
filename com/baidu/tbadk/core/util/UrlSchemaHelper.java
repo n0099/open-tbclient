@@ -53,6 +53,7 @@ public class UrlSchemaHelper {
     public static final String OPEN_PERSON_INFO = "open_personalCenter=1";
     public static final String PAY_MEMBER_PAGE = "/paywithnative";
     public static final String PAY_TBEAN_PAGE = "/buyTBeans";
+    public static final String PB_URL = "http[s]?://tieba.baidu.com/p/([\\d]+)";
     public static final String REAL_NAME_AUTH_URL = "https://wappass.baidu.com/passport/realnamewidget?tpl=tieba&adapter=3&nomenu=1";
     public static final String REDIRECT_JUMP_KEY = "jump_webview_type=2";
     public static final String SCHEMA_AGREE_ME = "com.baidu.tieba://unidispatch/agreemepage";

@@ -17,27 +17,27 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.an;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.uj4;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kg;
-import com.repackage.qi;
-import com.repackage.tj4;
-import com.repackage.zm;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class NewUserRedPackageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RoundRelativeLayout a;
     public NewUserRedPackageData b;
-    public tj4 c;
+    public uj4 c;
     public ImageView d;
     public ImageView e;
     public View.OnClickListener f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,17 +104,17 @@ public class NewUserRedPackageActivity extends BaseActivity {
     }
 
     public final void C1() {
-        zm zmVar;
+        an anVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || getIntent() == null) {
             return;
         }
         NewUserRedPackageData newUserRedPackageData = (NewUserRedPackageData) getIntent().getSerializableExtra(NewUserRedPackageActivityConfig.KEY_DATA);
         this.b = newUserRedPackageData;
-        if (newUserRedPackageData == null || (zmVar = (zm) kg.h().n(this.b.topPicUrl, 10, new Object[0])) == null) {
+        if (newUserRedPackageData == null || (anVar = (an) lg.h().n(this.b.topPicUrl, 10, new Object[0])) == null) {
             return;
         }
-        this.d.setImageBitmap(zmVar.p());
+        this.d.setImageBitmap(anVar.p());
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -162,17 +162,17 @@ public class NewUserRedPackageActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0044);
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c3b);
+            setContentView(R.layout.obfuscated_res_0x7f0d0045);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c3d);
             this.a = roundRelativeLayout;
-            roundRelativeLayout.setAllCornerRound(qi.f(this, R.dimen.tbds31));
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eb1);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eb4);
+            roundRelativeLayout.setAllCornerRound(ri.f(this, R.dimen.tbds31));
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eb2);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eb5);
             this.d.setOnClickListener(this.f);
             this.e.setOnClickListener(this.f);
             C1();
             TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 1));
-            this.c = new tj4();
+            this.c = new uj4();
         }
     }
 }

@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk.core.webview.a.kwai.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static long qY = 2000;
@@ -305,7 +305,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
                         }
                     }
                     if (adTemplate != null) {
-                        AdWebViewActivityProxy.launch(this.rc.getContext(), new AdWebViewActivityProxy.a.C0361a().ao(bVar.title).ap(bVar.url).N(adTemplate).nx());
+                        AdWebViewActivityProxy.launch(this.rc.getContext(), new AdWebViewActivityProxy.a.C0576a().ao(bVar.title).ap(bVar.url).N(adTemplate).nx());
                     }
                 }
             }));
@@ -530,7 +530,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onCreate();
-            KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f0911a0);
+            KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f0911a2);
             this.qX = ksRefluxView;
             this.bF = ksRefluxView.getWebView();
             this.qX.setViewListener(this);

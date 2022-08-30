@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.r39;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,10 +13,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.AccessedByNative;
-import com.repackage.i39;
 import java.io.IOException;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class Linker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public abstract class Linker {
 
     public static native long nativeGetRandomBaseLoadAddress();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class LibInfo implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<LibInfo> CREATOR;
@@ -67,7 +67,7 @@ public abstract class Linker {
         @AccessedByNative
         public long mRelroStart;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public static class a implements Parcelable.Creator<LibInfo> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -185,7 +185,7 @@ public abstract class Linker {
                 fromFd.writeToParcel(parcel, 0);
                 fromFd.close();
             } catch (IOException e) {
-                i39.c("LibraryLoader", "Can't write LibInfo file descriptor to parcel", e);
+                r39.c("LibraryLoader", "Can't write LibInfo file descriptor to parcel", e);
             }
         }
 

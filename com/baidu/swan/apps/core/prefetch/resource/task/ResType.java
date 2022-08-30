@@ -3,6 +3,7 @@ package com.baidu.swan.apps.core.prefetch.resource.task;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.kh1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import com.repackage.jh1;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes2.dex */
 public final class ResType {
@@ -86,7 +86,7 @@ public final class ResType {
                 }
                 i++;
             }
-            if (jh1.a) {
+            if (kh1.a) {
                 Log.d("ResType", "res type - " + resType.name());
             }
             return resType;

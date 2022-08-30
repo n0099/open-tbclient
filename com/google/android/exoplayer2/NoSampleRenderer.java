@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.source.SampleStream;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.MediaClock;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class NoSampleRenderer implements Renderer, RendererCapabilities {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

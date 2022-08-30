@@ -13,7 +13,7 @@ import com.kwad.components.core.webview.b.kwai.i;
 import com.kwad.components.core.webview.b.kwai.j;
 import com.kwad.sdk.components.h;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class a extends Presenter implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

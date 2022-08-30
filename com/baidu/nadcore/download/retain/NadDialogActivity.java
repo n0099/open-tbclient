@@ -13,14 +13,14 @@ import com.baidu.nadcore.appframework.BaseActivity;
 import com.baidu.nadcore.connect.NetWorkUtils;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
+import com.baidu.tieba.eh0;
+import com.baidu.tieba.iy0;
+import com.baidu.tieba.oi0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dh0;
-import com.repackage.hy0;
-import com.repackage.ni0;
 /* loaded from: classes2.dex */
 public abstract class NadDialogActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -147,8 +147,8 @@ public abstract class NadDialogActivity extends BaseActivity {
 
     public final void D1(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, str4) == null) && NetWorkUtils.b(dh0.b())) {
-            hy0.b(new ClogBuilder().z(str2).v(str).j(str3).p(str4));
+        if ((interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, str4) == null) && NetWorkUtils.b(eh0.b())) {
+            iy0.b(new ClogBuilder().z(str2).v(str).j(str3).p(str4));
         }
     }
 
@@ -157,7 +157,7 @@ public abstract class NadDialogActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.P0(bundle);
-            setContentView(ni0.a().a());
+            setContentView(oi0.a().a());
             Intent intent = getIntent();
             this.B = intent;
             if (intent != null) {
@@ -187,15 +187,15 @@ public abstract class NadDialogActivity extends BaseActivity {
     public final void w1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f092369);
-            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f092388);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f092372);
+            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f092391);
             this.w = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900a2);
-            this.x = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913d1);
-            this.y = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913d0);
+            this.x = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913d3);
+            this.y = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913d2);
             LayoutInflater.from(this).inflate(v1(), (ViewGroup) this.x, true);
-            this.w.setBackground(dh0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d9b));
-            this.w.setDividerDrawable(dh0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d9d));
-            this.y.setDividerDrawable(dh0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d9e));
+            this.w.setBackground(eh0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d9c));
+            this.w.setDividerDrawable(eh0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d9e));
+            this.y.setDividerDrawable(eh0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d9f));
             if (A1()) {
                 this.u.setText(C1());
                 this.u.setOnClickListener(new a(this));

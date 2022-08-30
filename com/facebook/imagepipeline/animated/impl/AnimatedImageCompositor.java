@@ -18,7 +18,7 @@ import com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableFrameInfo;
 import com.facebook.imagepipeline.animated.base.AnimatedImageResult;
 import com.facebook.imagepipeline.transformation.BitmapTransformation;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AnimatedImageCompositor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class AnimatedImageCompositor {
     public final Paint mTransparentFillPaint;
 
     /* renamed from: com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult;
         public static /* synthetic */ Interceptable $ic;
@@ -67,7 +67,7 @@ public class AnimatedImageCompositor {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface Callback {
         CloseableReference<Bitmap> getCachedBitmap(int i);
 
@@ -75,7 +75,7 @@ public class AnimatedImageCompositor {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class FrameNeededResult {
         public static final /* synthetic */ FrameNeededResult[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

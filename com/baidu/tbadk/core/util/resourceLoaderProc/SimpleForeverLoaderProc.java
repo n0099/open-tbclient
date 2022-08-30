@@ -5,18 +5,18 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tieba.ac;
+import com.baidu.tieba.an;
+import com.baidu.tieba.ig;
+import com.baidu.tieba.jg;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hg;
-import com.repackage.ig;
-import com.repackage.oi;
-import com.repackage.qi;
-import com.repackage.vb;
-import com.repackage.zb;
-import com.repackage.zm;
 /* loaded from: classes3.dex */
 public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
     public static /* synthetic */ Interceptable $ic;
@@ -56,14 +56,14 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
     public int getSuggestHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? qi.i(TbadkCoreApplication.getInst().getApp()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ri.i(TbadkCoreApplication.getInst().getApp()) : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
     public int getSuggestWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? qi.k(TbadkCoreApplication.getInst().getApp()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ri.k(TbadkCoreApplication.getInst().getApp()) : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
@@ -80,31 +80,31 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
             return;
         }
         boolean booleanValue = ((Boolean) objArr[2]).booleanValue();
-        zb zbVar = new zb("images", TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE);
-        zbVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-        zbVar.setSubFolder(true);
-        zbVar.setData(bArr);
-        zbVar.setSdCard(false);
-        zbVar.setGif(booleanValue);
-        vb.f().a(zbVar);
-        ig igVar = (ig) objArr[3];
-        if (igVar != null) {
+        ac acVar = new ac("images", TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE);
+        acVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+        acVar.setSubFolder(true);
+        acVar.setData(bArr);
+        acVar.setSdCard(false);
+        acVar.setGif(booleanValue);
+        wb.f().a(acVar);
+        jg jgVar = (jg) objArr[3];
+        if (jgVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
-            diskCancelWorker.setOperate(zbVar);
-            igVar.a = diskCancelWorker;
+            diskCancelWorker.setOperate(acVar);
+            jgVar.a = diskCancelWorker;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.lg
-    public zm getFromLocal(String str, String str2, int i, int i2, ig igVar, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.mg
+    public an getFromLocal(String str, String str2, int i, int i2, jg jgVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), igVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), jgVar, objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             byte[] bArr = new byte[0];
-            zb createDiskPicOperate = createDiskPicOperate(TbMd5.getNameMd5FromUrl(str2));
+            ac createDiskPicOperate = createDiskPicOperate(TbMd5.getNameMd5FromUrl(str2));
             if (createDiskPicOperate == null) {
                 return null;
             }
@@ -113,26 +113,26 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
             createDiskPicOperate.setIsFormatData(false);
             createDiskPicOperate.setLock(bArr);
             createDiskPicOperate.setSdCard(false);
-            if (igVar != null) {
+            if (jgVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(createDiskPicOperate);
-                igVar.a = diskCancelWorker;
+                jgVar.a = diskCancelWorker;
             }
-            if (!vb.f().a(createDiskPicOperate)) {
-                hg.f(false, 0L);
+            if (!wb.f().a(createDiskPicOperate)) {
+                ig.f(false, 0L);
                 return null;
             }
-            int i3 = oi.H() ? 300 : 2000;
+            int i3 = pi.H() ? 300 : 2000;
             synchronized (bArr) {
                 try {
                     bArr.wait(i3);
                 } catch (InterruptedException unused) {
                 }
             }
-            zm createImageFromDiskPicOperate = createDiskPicOperate.isSuccess() ? createImageFromDiskPicOperate(createDiskPicOperate, str2, i, i2) : null;
-            hg.f(createImageFromDiskPicOperate != null, System.currentTimeMillis() - currentTimeMillis);
+            an createImageFromDiskPicOperate = createDiskPicOperate.isSuccess() ? createImageFromDiskPicOperate(createDiskPicOperate, str2, i, i2) : null;
+            ig.f(createImageFromDiskPicOperate != null, System.currentTimeMillis() - currentTimeMillis);
             return createImageFromDiskPicOperate;
         }
-        return (zm) invokeCommon.objValue;
+        return (an) invokeCommon.objValue;
     }
 }

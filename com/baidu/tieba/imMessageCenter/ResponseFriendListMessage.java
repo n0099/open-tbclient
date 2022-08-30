@@ -6,20 +6,20 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.b05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wz4;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<wz4> friendList;
+    public LinkedList<b05> friendList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseFriendListMessage(int i) {
@@ -57,12 +57,12 @@ public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
                         MetaData metaData = new MetaData();
                         metaData.parserJson(optJSONArray.getJSONObject(i2));
                         if (!TextUtils.isEmpty(metaData.getName_show())) {
-                            wz4 wz4Var = new wz4();
-                            wz4Var.n(metaData.getUserName());
-                            wz4Var.o(metaData.getName_show());
-                            wz4Var.p(metaData.getPortrait());
-                            wz4Var.m(metaData.getUserIdLong());
-                            this.friendList.add(wz4Var);
+                            b05 b05Var = new b05();
+                            b05Var.n(metaData.getUserName());
+                            b05Var.o(metaData.getName_show());
+                            b05Var.p(metaData.getPortrait());
+                            b05Var.m(metaData.getUserIdLong());
+                            this.friendList.add(b05Var);
                         }
                     }
                 }
@@ -72,7 +72,7 @@ public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public LinkedList<wz4> getFriendList() {
+    public LinkedList<b05> getFriendList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.friendList : (LinkedList) invokeV.objValue;

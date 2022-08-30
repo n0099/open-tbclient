@@ -7,28 +7,28 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.bb;
+import com.baidu.tieba.d9;
 import com.baidu.tieba.model.message.AddPollPostHttpResponseMessage;
 import com.baidu.tieba.model.message.AddPollPostRequestNetMessage;
 import com.baidu.tieba.model.message.AddPollPostSocketResponseMessage;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.rk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab;
-import com.repackage.d9;
-import com.repackage.jk8;
-import com.repackage.og;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class AddPollPostModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public long b;
-    public ab c;
+    public bb c;
 
-    /* loaded from: classes3.dex */
-    public class a extends ab {
+    /* loaded from: classes5.dex */
+    public class a extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AddPollPostModel a;
@@ -55,7 +55,7 @@ public class AddPollPostModel extends BdBaseModel {
             this.a = addPollPostModel;
         }
 
-        @Override // com.repackage.ab
+        @Override // com.baidu.tieba.bb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String str;
             Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public class AddPollPostModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(int i, String str);
     }
@@ -116,7 +116,7 @@ public class AddPollPostModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
             AddPollPostRequestNetMessage addPollPostRequestNetMessage = new AddPollPostRequestNetMessage();
-            addPollPostRequestNetMessage.setThreadId(og.g(str, 0L));
+            addPollPostRequestNetMessage.setThreadId(pg.g(str, 0L));
             addPollPostRequestNetMessage.setOptions(str2);
             addPollPostRequestNetMessage.setForumId(j);
             sendMessage(addPollPostRequestNetMessage);
@@ -126,8 +126,8 @@ public class AddPollPostModel extends BdBaseModel {
     public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            jk8.h(309006, AddPollPostSocketResponseMessage.class, false, false);
-            jk8.c(309006, CmdConfigHttp.CMD_ADD_POLL_POST, TbConfig.VOTE_ADD, AddPollPostHttpResponseMessage.class, false, false, false, false);
+            rk8.h(309006, AddPollPostSocketResponseMessage.class, false, false);
+            rk8.c(309006, CmdConfigHttp.CMD_ADD_POLL_POST, TbConfig.VOTE_ADD, AddPollPostHttpResponseMessage.class, false, false, false, false);
         }
     }
 

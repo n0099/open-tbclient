@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.mediacodec.MediaCodecUtil;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class Sniffer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] COMPATIBLE_BRANDS;

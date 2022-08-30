@@ -3,21 +3,21 @@ package com.baidu.tieba.newinterest.model.msg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.zq7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rq7;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class GetInterestClassListResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<rq7> interestSelectionInfoList;
+    public List<zq7> interestSelectionInfoList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetInterestClassListResponseMessage(int i) {
@@ -51,18 +51,18 @@ public class GetInterestClassListResponseMessage extends JsonHttpResponsedMessag
                 return;
             }
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                rq7 rq7Var = new rq7();
-                rq7Var.i(jSONArray.getJSONObject(i2).optInt("class_id"));
-                rq7Var.g(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
-                rq7Var.k(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
-                rq7Var.f(jSONArray.getJSONObject(i2).optString("class_icon"));
-                rq7Var.h(jSONArray.getJSONObject(i2).optString("class_pic"));
-                this.interestSelectionInfoList.add(rq7Var);
+                zq7 zq7Var = new zq7();
+                zq7Var.i(jSONArray.getJSONObject(i2).optInt("class_id"));
+                zq7Var.g(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
+                zq7Var.k(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
+                zq7Var.f(jSONArray.getJSONObject(i2).optString("class_icon"));
+                zq7Var.h(jSONArray.getJSONObject(i2).optString("class_pic"));
+                this.interestSelectionInfoList.add(zq7Var);
             }
         }
     }
 
-    public List<rq7> getInterestSelectionInfoList() {
+    public List<zq7> getInterestSelectionInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.interestSelectionInfoList : (List) invokeV.objValue;

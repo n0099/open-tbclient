@@ -9,15 +9,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.jz5;
+import com.baidu.tieba.ot5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bz5;
-import com.repackage.gt5;
 /* loaded from: classes3.dex */
-public class ConcernTabRecommendTitleView extends bz5<gt5> {
+public class ConcernTabRecommendTitleView extends jz5<ot5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder i;
@@ -49,8 +49,8 @@ public class ConcernTabRecommendTitleView extends bz5<gt5> {
                 }
             }
             this.a = view2;
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ba);
-            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f0907e3);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921c3);
+            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f0907e4);
         }
     }
 
@@ -77,14 +77,14 @@ public class ConcernTabRecommendTitleView extends bz5<gt5> {
         j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.repackage.bz5
+    @Override // com.baidu.tieba.jz5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07bb : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07bd : invokeV.intValue;
     }
 
-    @Override // com.repackage.bz5
+    @Override // com.baidu.tieba.jz5
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -100,15 +100,15 @@ public class ConcernTabRecommendTitleView extends bz5<gt5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bz5
+    @Override // com.baidu.tieba.jz5
     /* renamed from: r */
-    public void i(gt5 gt5Var) {
+    public void i(ot5 ot5Var) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, gt5Var) == null) || (viewHolder = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, ot5Var) == null) || (viewHolder = this.i) == null) {
             return;
         }
-        if (gt5Var.a) {
+        if (ot5Var.a) {
             viewHolder.c.setVisibility(0);
         } else {
             viewHolder.c.setVisibility(8);

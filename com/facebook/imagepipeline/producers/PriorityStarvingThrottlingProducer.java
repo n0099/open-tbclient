@@ -13,7 +13,7 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.concurrent.Executor;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PriorityStarvingThrottlingProducer<T> implements Producer<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "PriorityStarvingThrottlingProducer";
@@ -27,13 +27,13 @@ public class PriorityStarvingThrottlingProducer<T> implements Producer<T> {
     public final Queue<Item<T>> mPendingRequests;
 
     /* renamed from: com.facebook.imagepipeline.producers.PriorityStarvingThrottlingProducer$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Item<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,7 @@ public class PriorityStarvingThrottlingProducer<T> implements Producer<T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class PriorityComparator<T> implements Comparator<Item<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class PriorityStarvingThrottlingProducer<T> implements Producer<T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class ThrottlerConsumer extends DelegatingConsumer<T, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

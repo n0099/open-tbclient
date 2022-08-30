@@ -3,12 +3,12 @@ package com.baidu.tieba.forumMember.member;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.jk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bk8;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -18,7 +18,7 @@ import tbclient.GetMemberInfo.ManagerApplyInfo;
 import tbclient.GetMemberInfo.MemberGodInfo;
 import tbclient.MemberGroupInfo;
 import tbclient.PriManagerApplyInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
     public MemberGodInfo mMemberGodInfo;
     public List<MemberGroupInfo> mMemberGroupInfoList;
     public PriManagerApplyInfo mPrivateMgrApplyInfo;
-    public bk8 mUserInfo;
+    public jk8 mUserInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumMemberReadCacheResponseMessage() {
@@ -63,9 +63,9 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
                 }
                 if (getError() == 0 && (dataRes = getMemberInfoResIdl.data) != null) {
                     if (dataRes.forum_member_info != null) {
-                        bk8 bk8Var = new bk8();
-                        this.mUserInfo = bk8Var;
-                        bk8Var.x(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
+                        jk8 jk8Var = new jk8();
+                        this.mUserInfo = jk8Var;
+                        jk8Var.x(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                         this.mUserInfo.t(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                         this.mUserInfo.w(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
                         this.mUserInfo.y(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
@@ -107,10 +107,10 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mPrivateMgrApplyInfo : (PriManagerApplyInfo) invokeV.objValue;
     }
 
-    public bk8 getUserInfo() {
+    public jk8 getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mUserInfo : (bk8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mUserInfo : (jk8) invokeV.objValue;
     }
 
     public boolean isBawuShow() {

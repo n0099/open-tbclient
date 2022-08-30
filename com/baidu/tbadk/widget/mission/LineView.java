@@ -11,11 +11,11 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class LineView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -52,8 +52,8 @@ public class LineView extends View {
             paint.setAntiAlias(true);
             this.a.setColor(SkinManager.getColor(R.color.CAM_X0203));
             this.a.setStyle(Paint.Style.STROKE);
-            this.a.setStrokeWidth(qi.f(getContext(), R.dimen.tbds2));
-            this.a.setPathEffect(new DashPathEffect(new float[]{qi.f(getContext(), R.dimen.tbds8), qi.f(getContext(), R.dimen.tbds8)}, 0.0f));
+            this.a.setStrokeWidth(ri.f(getContext(), R.dimen.tbds2));
+            this.a.setPathEffect(new DashPathEffect(new float[]{ri.f(getContext(), R.dimen.tbds8), ri.f(getContext(), R.dimen.tbds8)}, 0.0f));
             this.b = new Path();
         }
     }

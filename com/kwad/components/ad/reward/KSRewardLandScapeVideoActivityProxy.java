@@ -11,7 +11,7 @@ import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
 import com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity;
 @KsAdSdkDynamicImpl(KSRewardLandScapeVideoActivity.class)
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class KSRewardLandScapeVideoActivityProxy extends KSRewardVideoActivityProxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

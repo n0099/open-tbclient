@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.AbstractContainerBox;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class MovieExtendsBox extends AbstractContainerBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "mvex";

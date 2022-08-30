@@ -23,18 +23,18 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.zp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-import com.repackage.rp7;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes3.dex */
-public class PickFaceTabActivity extends BaseFragmentActivity implements rp7 {
+/* loaded from: classes5.dex */
+public class PickFaceTabActivity extends BaseFragmentActivity implements zp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -49,7 +49,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements rp7 {
     public Activity j;
     public ViewPager.OnPageChangeListener k;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +110,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements rp7 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class b implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -216,12 +216,12 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements rp7 {
                     O0();
                 }
             }
-            K0(this.f, 1, this.j.getText(R.string.obfuscated_res_0x7f0f05ef).toString());
-            K0(this.h, 3, this.j.getText(R.string.obfuscated_res_0x7f0f05eb).toString());
-            K0(this.g, 2, this.j.getText(R.string.obfuscated_res_0x7f0f0b4f).toString());
+            K0(this.f, 1, this.j.getText(R.string.obfuscated_res_0x7f0f05f0).toString());
+            K0(this.h, 3, this.j.getText(R.string.obfuscated_res_0x7f0f05ec).toString());
+            K0(this.g, 2, this.j.getText(R.string.obfuscated_res_0x7f0f0b52).toString());
             this.e.n(1);
             this.e.setCurrentTab(0);
-            this.e.getFragmentTabWidget().getLayoutParams().height = qi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070236);
+            this.e.getFragmentTabWidget().getLayoutParams().height = ri.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070236);
             this.e.getFragmentTabWidget().setBackgroundColor(getResources().getColor(R.color.cp_bg_line_d_alpha90));
         }
     }
@@ -229,12 +229,12 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements rp7 {
     public final void M0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091287);
-            this.b = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091624);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091289);
+            this.b = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091626);
             this.c = new FaceGroupMakeTitleBar(getPageContext().getPageActivity());
-            this.c.setLayoutParams(new RelativeLayout.LayoutParams(qi.k(getPageContext().getPageActivity()), -1));
+            this.c.setLayoutParams(new RelativeLayout.LayoutParams(ri.k(getPageContext().getPageActivity()), -1));
             this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.c, (View.OnClickListener) null);
-            this.d = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f09255e);
+            this.d = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f092568);
             this.c.setRightListener(new a(this));
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
             N0(0);
@@ -248,12 +248,12 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements rp7 {
             return;
         }
         if (i == 0) {
-            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f05f3).toString());
+            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f05f4).toString());
         } else if (i == 1) {
             this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f0250).toString());
         } else if (i != 2) {
         } else {
-            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f0b4f).toString());
+            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f0b52).toString());
         }
     }
 
@@ -270,7 +270,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements rp7 {
         }
     }
 
-    @Override // com.repackage.rp7
+    @Override // com.baidu.tieba.zp7
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -282,7 +282,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements rp7 {
         }
     }
 
-    @Override // com.repackage.rp7
+    @Override // com.baidu.tieba.zp7
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -312,8 +312,8 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements rp7 {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             this.j = getPageContext().getPageActivity();
-            setContentView(R.layout.obfuscated_res_0x7f0d071c);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091fc1);
+            setContentView(R.layout.obfuscated_res_0x7f0d071e);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091fc3);
             this.e = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.e.setOnPageChangeListener(this.k);
@@ -324,7 +324,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements rp7 {
         }
     }
 
-    @Override // com.repackage.rp7
+    @Override // com.baidu.tieba.zp7
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {

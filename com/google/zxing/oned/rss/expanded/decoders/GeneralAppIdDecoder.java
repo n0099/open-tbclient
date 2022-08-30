@@ -17,7 +17,7 @@ import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 import kotlin.text.Typography;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class GeneralAppIdDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

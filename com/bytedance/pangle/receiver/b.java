@@ -19,13 +19,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static final c a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,13 +114,13 @@ public final class b {
     }
 
     /* renamed from: com.bytedance.pangle.receiver.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C0283b extends e {
+    /* loaded from: classes7.dex */
+    public static class C0498b extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0283b() {
+        public C0498b() {
             super((byte) 0);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -147,17 +147,17 @@ public final class b {
             return invokeL.booleanValue;
         }
 
-        public /* synthetic */ C0283b(byte b) {
+        public /* synthetic */ C0498b(byte b) {
             this();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface c {
         boolean a(Context context);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class d extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -200,7 +200,7 @@ public final class b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class e extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -270,7 +270,7 @@ public final class b {
         } else if (i < 28) {
             a = new e((byte) 0);
         } else {
-            a = new C0283b((byte) 0);
+            a = new C0498b((byte) 0);
         }
     }
 

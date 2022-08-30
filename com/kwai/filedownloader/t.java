@@ -2,7 +2,7 @@ package com.kwai.filedownloader;
 
 import com.kwai.filedownloader.a;
 import com.kwai.filedownloader.message.MessageSnapshot;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface t {
     boolean CL();
 
@@ -14,7 +14,7 @@ public interface t {
 
     void CP();
 
-    void b(a.InterfaceC0405a interfaceC0405a, a.c cVar);
+    void b(a.InterfaceC0620a interfaceC0620a, a.c cVar);
 
     void f(MessageSnapshot messageSnapshot);
 

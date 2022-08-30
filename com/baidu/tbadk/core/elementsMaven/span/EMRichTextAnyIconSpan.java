@@ -14,6 +14,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.qs4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +22,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.os4;
 /* loaded from: classes3.dex */
 public class EMRichTextAnyIconSpan extends ReplacementSpan {
     public static /* synthetic */ Interceptable $ic;
@@ -188,8 +188,8 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
             float f2 = f + this.e;
             float f3 = this.g;
             Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-            if (os4.b(charSequence)) {
-                os4.a(fontMetricsInt, (int) paint.getTextSize());
+            if (qs4.b(charSequence)) {
+                qs4.a(fontMetricsInt, (int) paint.getTextSize());
                 dimenPixelSize = f3 - UtilHelper.getDimenPixelSize(R.dimen.tbds2);
             } else {
                 dimenPixelSize = f3 + UtilHelper.getDimenPixelSize(R.dimen.tbds3) + this.h;

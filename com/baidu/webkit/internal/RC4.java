@@ -14,7 +14,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RC4 implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOGTAG = "RC4";
@@ -25,7 +25,7 @@ public class RC4 implements INoProGuard {
     public int x;
     public int y;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a extends GZIPOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

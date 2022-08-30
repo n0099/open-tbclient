@@ -2,6 +2,7 @@ package com.baidu.searchbox.aperf.param;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
+import com.baidu.tieba.eg8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wf8;
 @Autowired
 /* loaded from: classes2.dex */
 public class AperfOverlayRuntime {
@@ -78,6 +78,6 @@ public class AperfOverlayRuntime {
     public static IAperfOverlayContext getAperfOverlayContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? wf8.a() : (IAperfOverlayContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? eg8.a() : (IAperfOverlayContext) invokeV.objValue;
     }
 }

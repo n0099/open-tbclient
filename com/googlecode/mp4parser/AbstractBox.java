@@ -22,7 +22,7 @@ import com.googlecode.mp4parser.util.Path;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractBox implements Box {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;

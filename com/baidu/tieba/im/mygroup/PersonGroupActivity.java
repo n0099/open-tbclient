@@ -38,11 +38,20 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.db;
+import com.baidu.tieba.g55;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
 import com.baidu.tieba.im.util.MessageUtils;
 import com.baidu.tieba.im.widget.Game2GroupShareDialogView;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.t87;
+import com.baidu.tieba.wr4;
+import com.baidu.tieba.zn4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,18 +59,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a55;
-import com.repackage.cb;
-import com.repackage.l87;
-import com.repackage.og;
-import com.repackage.oi;
-import com.repackage.pi;
-import com.repackage.qi;
-import com.repackage.ur4;
-import com.repackage.xn4;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PersonGroupActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] s;
@@ -88,8 +88,8 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
     public PersonGroupModel q;
     public List<GroupInfoData> r;
 
-    /* loaded from: classes3.dex */
-    public class a implements ur4.e {
+    /* loaded from: classes4.dex */
+    public class a implements wr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -118,26 +118,26 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
             this.c = game2GroupShareDialogView;
         }
 
-        @Override // com.repackage.ur4.e
-        public void onClick(ur4 ur4Var) {
+        @Override // com.baidu.tieba.wr4.e
+        public void onClick(wr4 wr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ur4Var) == null) {
-                long t = l87.o().t(String.valueOf(this.a), 1);
+            if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
+                long t = t87.o().t(String.valueOf(this.a), 1);
                 MessageUtils.createGroupChatMessage(t, 9, this.b.toChatMessageContent(), this.a);
                 MessageUtils.createGroupChatMessage(t + 1, 1, this.c.getLeaveMsg(), this.a);
-                ur4Var.dismiss();
+                wr4Var.dismiss();
                 this.d.setResult(-1);
-                if (!oi.z()) {
+                if (!pi.z()) {
                     PersonGroupActivity personGroupActivity = this.d;
-                    personGroupActivity.showToast(personGroupActivity.getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0c76));
+                    personGroupActivity.showToast(personGroupActivity.getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0c79));
                 }
                 this.d.finish();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b implements ur4.e {
+    /* loaded from: classes4.dex */
+    public class b implements wr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Game2GroupShareDialogView a;
@@ -162,17 +162,17 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
             this.a = game2GroupShareDialogView;
         }
 
-        @Override // com.repackage.ur4.e
-        public void onClick(ur4 ur4Var) {
+        @Override // com.baidu.tieba.wr4.e
+        public void onClick(wr4 wr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ur4Var) == null) {
-                ur4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
+                wr4Var.dismiss();
                 ((InputMethodManager) this.b.getSystemService("input_method")).hideSoftInputFromWindow(this.a.getWindowToken(), 2);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -206,24 +206,24 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage.isSuccess()) {
                     if (httpResponsedMessage.getError() == 0) {
-                        xn4.c(3, PersonGroupActivity.v[this.a.c]);
+                        zn4.c(3, PersonGroupActivity.v[this.a.c]);
                         SkinManager.setNavbarIconSrc(this.a.j, PersonGroupActivity.t[this.a.c], PersonGroupActivity.s[this.a.c]);
                         PersonGroupActivity personGroupActivity = this.a;
-                        personGroupActivity.showToastWithIcon(personGroupActivity.getPageContext().getContext().getString(PersonGroupActivity.u[this.a.c]), R.drawable.obfuscated_res_0x7f080aac);
-                        this.a.j.setContentDescription(this.a.getPageContext().getString(PersonGroupActivity.u[xn4.a(3) % 3]));
+                        personGroupActivity.showToastWithIcon(personGroupActivity.getPageContext().getContext().getString(PersonGroupActivity.u[this.a.c]), R.drawable.obfuscated_res_0x7f080aad);
+                        this.a.j.setContentDescription(this.a.getPageContext().getString(PersonGroupActivity.u[zn4.a(3) % 3]));
                         return;
                     }
-                    this.a.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3d) : httpResponsedMessage.getErrorString());
+                    this.a.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c40) : httpResponsedMessage.getErrorString());
                     return;
                 }
                 PersonGroupActivity personGroupActivity2 = this.a;
-                personGroupActivity2.showToast(personGroupActivity2.getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0c3d));
+                personGroupActivity2.showToast(personGroupActivity2.getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0c40));
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class d extends cb {
+    /* loaded from: classes4.dex */
+    public class d extends db {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonGroupActivity a;
@@ -263,7 +263,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
                     throw th;
                 }
                 if (responseUserPermissionMessage.getError() > 0) {
-                    this.a.showToast(StringUtils.isNull(responseUserPermissionMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3d) : responseUserPermissionMessage.getErrorString());
+                    this.a.showToast(StringUtils.isNull(responseUserPermissionMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c40) : responseUserPermissionMessage.getErrorString());
                     this.a.hideProgressBar();
                     return;
                 }
@@ -280,7 +280,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -313,7 +313,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -346,7 +346,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class g implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -374,7 +374,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.c = xn4.a(3) % 3;
+                this.a.c = zn4.a(3) % 3;
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
                 httpMessage.addParam("opt", "group");
                 httpMessage.addParam("val", String.valueOf(this.a.c + 1));
@@ -397,8 +397,8 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
             }
         }
         s = new int[]{R.drawable.icon_pop_key_all_bg, R.drawable.icon_pop_key_f_bg, R.drawable.icon_pop_key_d_bg};
-        t = new int[]{R.drawable.obfuscated_res_0x7f0808e2, R.drawable.obfuscated_res_0x7f0808e6, R.drawable.obfuscated_res_0x7f0808e4};
-        u = new int[]{R.string.obfuscated_res_0x7f0f08ed, R.string.obfuscated_res_0x7f0f08ee, R.string.obfuscated_res_0x7f0f08ef};
+        t = new int[]{R.drawable.obfuscated_res_0x7f0808e3, R.drawable.obfuscated_res_0x7f0808e7, R.drawable.obfuscated_res_0x7f0808e5};
+        u = new int[]{R.string.obfuscated_res_0x7f0f08f0, R.string.obfuscated_res_0x7f0f08f1, R.string.obfuscated_res_0x7f0f08f2};
         v = new int[]{1, 2, 3};
     }
 
@@ -465,18 +465,18 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
     public final void U0(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091906);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091908);
             this.h = navigationBar;
-            navigationBar.setCenterTextTitle(String.format(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0e47), this.e));
+            navigationBar.setCenterTextTitle(String.format(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0e4a), this.e));
             this.h.showBottomLine();
             View view2 = (View) this.h.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).getParent();
             this.i = view2;
             view2.setOnClickListener(new e(this));
             if (this.n == 1) {
-                this.h.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f080b));
-                LinearLayout linearLayout = (LinearLayout) this.h.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0901, (View.OnClickListener) null);
+                this.h.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f080c));
+                LinearLayout linearLayout = (LinearLayout) this.h.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0903, (View.OnClickListener) null);
                 this.k = linearLayout;
-                this.l = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090cde);
+                this.l = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090cdf);
                 if (TbadkCoreApplication.getInst().getIntentClass(CreateGroupStepActivityConfig.class) == null) {
                     this.k.setVisibility(4);
                 } else {
@@ -484,19 +484,19 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
                 }
                 this.k.setOnClickListener(new f(this));
             } else if (this.g && this.m != 23003) {
-                ImageView imageView = (ImageView) this.h.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0904, (View.OnClickListener) null);
+                ImageView imageView = (ImageView) this.h.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0906, (View.OnClickListener) null);
                 this.j = imageView;
-                SkinManager.setNavbarIconSrc(imageView, t[xn4.a(3) - 1], s[xn4.a(3) - 1]);
-                this.c = xn4.a(3) % 3;
+                SkinManager.setNavbarIconSrc(imageView, t[zn4.a(3) - 1], s[zn4.a(3) - 1]);
+                this.c = zn4.a(3) % 3;
                 this.j.setContentDescription(getPageContext().getString(u[this.c]));
                 this.j.setOnClickListener(new g(this));
             }
             this.b = new int[]{0, 1};
             this.p = new PersonGroupAdapter(this, this.g);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091907);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091909);
             this.o = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
-            this.o.setTabWidgetViewHeight(qi.f(getApplicationContext(), R.dimen.obfuscated_res_0x7f070275));
+            this.o.setTabWidgetViewHeight(ri.f(getApplicationContext(), R.dimen.obfuscated_res_0x7f070275));
             this.o.setTabWidgetBackgroundColor(getResources().getColor(R.color.common_color_10002));
             this.o.setOnPageChangeListener(this);
             this.o.u();
@@ -538,7 +538,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
                 return false;
             }
             if (2 == this.n) {
-                c1(a55.d().e(), groupInfoData.getGroupId(), groupInfoData.getName());
+                c1(g55.d().e(), groupInfoData.getGroupId(), groupInfoData.getName());
                 return true;
             }
             Intent intent = new Intent();
@@ -576,14 +576,14 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
     public final void c1(ShareFromGameCenterMsgData shareFromGameCenterMsgData, long j, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{shareFromGameCenterMsgData, Long.valueOf(j), str}) == null) {
-            ur4 ur4Var = new ur4(getPageContext().getPageActivity());
-            ur4Var.setContentViewSize(1);
+            wr4 wr4Var = new wr4(getPageContext().getPageActivity());
+            wr4Var.setContentViewSize(1);
             Game2GroupShareDialogView game2GroupShareDialogView = new Game2GroupShareDialogView(getPageContext().getContext());
             game2GroupShareDialogView.setData(shareFromGameCenterMsgData);
-            ur4Var.setContentView(game2GroupShareDialogView);
-            ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1126, new a(this, j, shareFromGameCenterMsgData, game2GroupShareDialogView));
-            ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new b(this, game2GroupShareDialogView));
-            ur4Var.create(getPageContext()).show();
+            wr4Var.setContentView(game2GroupShareDialogView);
+            wr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1129, new a(this, j, shareFromGameCenterMsgData, game2GroupShareDialogView));
+            wr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0371, new b(this, game2GroupShareDialogView));
+            wr4Var.create(getPageContext()).show();
         }
     }
 
@@ -594,15 +594,15 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
         FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.o.j(0).b;
         if (i <= 0) {
-            fragmentTabIndicator.setText(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0e4b));
+            fragmentTabIndicator.setText(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0e4e));
         } else {
-            fragmentTabIndicator.setText(String.format(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0e4c), Integer.valueOf(i)));
+            fragmentTabIndicator.setText(String.format(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0e4f), Integer.valueOf(i)));
         }
         FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.o.j(1).b;
         if (i2 <= 0) {
-            fragmentTabIndicator2.setText(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f041b));
+            fragmentTabIndicator2.setText(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f041c));
         } else {
-            fragmentTabIndicator2.setText(String.format(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0e48), Integer.valueOf(i2)));
+            fragmentTabIndicator2.setText(String.format(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0e4b), Integer.valueOf(i2)));
         }
     }
 
@@ -615,13 +615,13 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         Fragment item = this.p.getItem(0);
         int b2 = this.p.b(0);
         if (item != null) {
-            N0(item, b2, getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0e4b));
+            N0(item, b2, getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0e4e));
         }
         if (c2 == 2) {
             Fragment item2 = this.p.getItem(1);
             int b3 = this.p.b(1);
             if (item2 != null) {
-                N0(item2, b3, getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f041b));
+                N0(item2, b3, getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f041c));
             }
         }
         this.o.m();
@@ -632,7 +632,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             this.h.onChangeSkinType(getPageContext(), i);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f0809f9, R.color.CAM_X0105, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f0809fa, R.color.CAM_X0105, null);
             this.o.s(i);
             SkinManager.setBackgroundResource(this.o, R.color.common_color_10173);
             if (this.p != null) {
@@ -652,7 +652,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0048);
+            setContentView(R.layout.obfuscated_res_0x7f0d0049);
             if (bundle != null) {
                 this.d = bundle.getString("key_uid");
                 this.f = bundle.getInt("key_sex", 0);
@@ -674,27 +674,27 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
             }
             this.d = str;
             if (TextUtils.equals(str, TbadkCoreApplication.getCurrentAccount())) {
-                this.e = getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0aaa);
+                this.e = getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0aad);
                 this.g = true;
             } else {
                 this.g = false;
                 int i = this.f;
                 if (i == 1) {
-                    this.e = getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f083d);
+                    this.e = getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f083e);
                 } else if (i != 2) {
-                    this.e = getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f1344);
+                    this.e = getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f1347);
                 } else {
-                    this.e = getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f1172);
+                    this.e = getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f1175);
                 }
             }
             if (this.q == null) {
                 if (!this.g) {
-                    this.q = new PersonGroupModel(this, og.g(this.d, 0L));
+                    this.q = new PersonGroupModel(this, pg.g(this.d, 0L));
                 } else {
                     this.q = new PersonGroupModel(this);
                 }
             }
-            if (pi.isEmpty(this.d)) {
+            if (qi.isEmpty(this.d)) {
                 finish();
             } else {
                 U0(bundle);

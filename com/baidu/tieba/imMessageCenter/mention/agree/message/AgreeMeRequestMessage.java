@@ -4,17 +4,17 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tieba.af5;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.tn4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-import com.repackage.rn4;
-import com.repackage.te5;
 import tbclient.AgreeMe.AgreeMeReqIdl;
 import tbclient.AgreeMe.DataReq;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AgreeMeRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,13 +47,13 @@ public class AgreeMeRequestMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.id = Long.valueOf(this.id);
-                builder.q_type = Integer.valueOf(rn4.c().e());
+                builder.q_type = Integer.valueOf(tn4.c().e());
                 builder.rn = 20;
                 builder.scr_dip = Integer.valueOf((int) TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-                builder.scr_h = Integer.valueOf(qi.i(TbadkCoreApplication.getInst().getApp()));
-                builder.scr_w = Integer.valueOf(qi.k(TbadkCoreApplication.getInst().getApp()));
+                builder.scr_h = Integer.valueOf(ri.i(TbadkCoreApplication.getInst().getApp()));
+                builder.scr_w = Integer.valueOf(ri.k(TbadkCoreApplication.getInst().getApp()));
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    te5.a(builder, true);
+                    af5.a(builder, true);
                 }
                 AgreeMeReqIdl.Builder builder2 = new AgreeMeReqIdl.Builder();
                 builder2.data = builder.build(false);

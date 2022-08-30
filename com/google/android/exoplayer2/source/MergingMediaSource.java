@@ -15,7 +15,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class MergingMediaSource implements MediaSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PERIOD_COUNT_UNSET = -1;
@@ -29,7 +29,7 @@ public final class MergingMediaSource implements MediaSource {
     public Timeline primaryTimeline;
     public final Timeline.Window window;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class IllegalMergeException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int REASON_PERIOD_COUNT_MISMATCH = 1;
@@ -38,7 +38,7 @@ public final class MergingMediaSource implements MediaSource {
         public final int reason;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes4.dex */
+        /* loaded from: classes7.dex */
         public @interface Reason {
         }
 

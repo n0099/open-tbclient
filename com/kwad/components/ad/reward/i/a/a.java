@@ -16,21 +16,21 @@ import com.kwad.sdk.utils.r;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a extends com.kwad.components.ad.reward.i.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c uc;
-    public C0330a ud;
+    public C0545a ud;
     public final b ue;
 
     /* renamed from: com.kwad.components.ad.reward.i.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0330a extends com.kwad.components.ad.reward.i.b {
+    /* loaded from: classes7.dex */
+    public static class C0545a extends com.kwad.components.ad.reward.i.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0330a() {
+        public C0545a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +47,7 @@ public final class a extends com.kwad.components.ad.reward.i.a {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class b extends com.kwad.components.ad.reward.i.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public final class a extends com.kwad.components.ad.reward.i.a {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class c extends com.kwad.components.ad.reward.i.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +114,7 @@ public final class a extends com.kwad.components.ad.reward.i.a {
             }
         }
         this.uc = new c();
-        this.ud = new C0330a();
+        this.ud = new C0545a();
         this.ue = new b(com.kwad.components.ad.reward.kwai.b.fX());
     }
 

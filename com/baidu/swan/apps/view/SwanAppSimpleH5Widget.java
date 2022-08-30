@@ -5,12 +5,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.BdSailorWebChromeClient;
 import com.baidu.browser.sailor.BdSailorWebView;
 import com.baidu.swan.apps.core.slave.SwanAppWebViewWidget;
+import com.baidu.tieba.o22;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n22;
 /* loaded from: classes3.dex */
 public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
     public static /* synthetic */ Interceptable $ic;
@@ -161,14 +161,14 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.zz1
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.a02
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            n22 n22Var = this.U;
-            if (n22Var != null) {
-                n22Var.goBack();
+            o22 o22Var = this.U;
+            if (o22Var != null) {
+                o22Var.goBack();
             }
             return super.n();
         }

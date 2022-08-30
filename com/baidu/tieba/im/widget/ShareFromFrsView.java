@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ShareFromFrsView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class ShareFromFrsView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return pi.cutString(str, 8) + this.g.getString(R.string.obfuscated_res_0x7f0f065a);
+            return qi.cutString(str, 8) + this.g.getString(R.string.obfuscated_res_0x7f0f065b);
         }
         return (String) invokeL.objValue;
     }
@@ -64,13 +64,13 @@ public class ShareFromFrsView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07a2, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ba8);
-            this.b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090b49);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090b96);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090bb2);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b97);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090bb3);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07a4, this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ba9);
+            this.b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090b4a);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090b97);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090bb3);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b98);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090bb4);
         }
     }
 

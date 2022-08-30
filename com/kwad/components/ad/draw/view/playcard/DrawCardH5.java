@@ -23,7 +23,7 @@ import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.j;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     public Context mContext;
     public int mHeight;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void aC();
 
@@ -113,11 +113,11 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
             this.mContext = context;
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0416, this);
-            this.cp = (ImageView) findViewById(R.id.obfuscated_res_0x7f09105d);
-            this.cq = (TextView) findViewById(R.id.obfuscated_res_0x7f091053);
-            this.cr = (TextView) findViewById(R.id.obfuscated_res_0x7f09105f);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091088);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0417, this);
+            this.cp = (ImageView) findViewById(R.id.obfuscated_res_0x7f09105f);
+            this.cq = (TextView) findViewById(R.id.obfuscated_res_0x7f091055);
+            this.cr = (TextView) findViewById(R.id.obfuscated_res_0x7f091061);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09108a);
         }
     }
 
@@ -179,7 +179,7 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             if (view2 != this.cp) {
-                com.kwad.components.core.c.a.a.a(new a.C0354a(getContext()).L(this.mAdTemplate).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardH5.1
+                com.kwad.components.core.c.a.a.a(new a.C0569a(getContext()).L(this.mAdTemplate).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardH5.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ DrawCardH5 cs;

@@ -6,7 +6,7 @@ import com.kwad.sdk.core.e.b;
 import com.kwad.sdk.crash.offline.monitor.mem.message.OfflineMemExceptionMessage;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class AnrExceptionMessage extends ExceptionMessage {
     public static final long serialVersionUID = 2116476830162477947L;
     public String mReason = "";

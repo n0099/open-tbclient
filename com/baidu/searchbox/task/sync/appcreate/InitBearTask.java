@@ -8,14 +8,14 @@ import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.be5;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.zs6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-import com.repackage.rs6;
-import com.repackage.ud5;
 /* loaded from: classes2.dex */
 public class InitBearTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -63,11 +63,11 @@ public class InitBearTask extends LaunchTask {
     public void initBearSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy()) {
-            boolean q = ud5.q();
+            boolean q = be5.q();
             SpeedStatsManager.getInstance().setIsNeedBear(q);
-            SpeedStatsManager.getInstance().setIsNeedPlg(ud5.w());
+            SpeedStatsManager.getInstance().setIsNeedPlg(be5.w());
             if (q) {
-                rs6.m().u(new rs6.l(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
+                zs6.m().u(new zs6.l(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ InitBearTask this$0;
@@ -90,11 +90,11 @@ public class InitBearTask extends LaunchTask {
                         this.this$0 = this;
                     }
 
-                    @Override // com.repackage.rs6.l
+                    @Override // com.baidu.tieba.zs6.l
                     public void initComplete() {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-                            if (qi.C()) {
+                            if (ri.C()) {
                                 Thread thread = new Thread(new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;

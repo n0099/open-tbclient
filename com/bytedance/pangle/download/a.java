@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static volatile a a;
@@ -22,17 +22,17 @@ public final class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.bytedance.pangle.download.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static final class EnumC0280a {
+    /* loaded from: classes7.dex */
+    public static final class EnumC0495a {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC0280a a;
-        public static final EnumC0280a b;
-        public static final EnumC0280a c;
-        public static final EnumC0280a d;
-        public static final EnumC0280a e;
-        public static final EnumC0280a f;
-        public static final EnumC0280a g;
-        public static final /* synthetic */ EnumC0280a[] i;
+        public static final EnumC0495a a;
+        public static final EnumC0495a b;
+        public static final EnumC0495a c;
+        public static final EnumC0495a d;
+        public static final EnumC0495a e;
+        public static final EnumC0495a f;
+        public static final EnumC0495a g;
+        public static final /* synthetic */ EnumC0495a[] i;
         public transient /* synthetic */ FieldHolder $fh;
         public final int h;
 
@@ -49,18 +49,18 @@ public final class a {
                     return;
                 }
             }
-            a = new EnumC0280a(RomUtils.UNKNOWN, 0, -1);
-            b = new EnumC0280a(HlsPlaylistParser.METHOD_NONE, 1, 0);
-            c = new EnumC0280a("MOBILE", 2, 1);
-            d = new EnumC0280a("MOBILE_2G", 3, 2);
-            e = new EnumC0280a("MOBILE_3G", 4, 3);
-            f = new EnumC0280a("WIFI", 5, 4);
-            EnumC0280a enumC0280a = new EnumC0280a("MOBILE_4G", 6, 5);
-            g = enumC0280a;
-            i = new EnumC0280a[]{a, b, c, d, e, f, enumC0280a};
+            a = new EnumC0495a(RomUtils.UNKNOWN, 0, -1);
+            b = new EnumC0495a(HlsPlaylistParser.METHOD_NONE, 1, 0);
+            c = new EnumC0495a("MOBILE", 2, 1);
+            d = new EnumC0495a("MOBILE_2G", 3, 2);
+            e = new EnumC0495a("MOBILE_3G", 4, 3);
+            f = new EnumC0495a("WIFI", 5, 4);
+            EnumC0495a enumC0495a = new EnumC0495a("MOBILE_4G", 6, 5);
+            g = enumC0495a;
+            i = new EnumC0495a[]{a, b, c, d, e, f, enumC0495a};
         }
 
-        public EnumC0280a(String str, int i2, int i3) {
+        public EnumC0495a(String str, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,16 +81,16 @@ public final class a {
             this.h = i3;
         }
 
-        public static EnumC0280a valueOf(String str) {
+        public static EnumC0495a valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0280a) Enum.valueOf(EnumC0280a.class, str) : (EnumC0280a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0495a) Enum.valueOf(EnumC0495a.class, str) : (EnumC0495a) invokeL.objValue;
         }
 
-        public static EnumC0280a[] values() {
+        public static EnumC0495a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0280a[]) i.clone() : (EnumC0280a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0495a[]) i.clone() : (EnumC0495a[]) invokeV.objValue;
         }
     }
 
@@ -110,7 +110,7 @@ public final class a {
     }
 
     @SuppressLint({"MissingPermission"})
-    public static EnumC0280a a(Context context) {
+    public static EnumC0495a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -119,7 +119,7 @@ public final class a {
                 if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                     int type = activeNetworkInfo.getType();
                     if (1 == type) {
-                        return EnumC0280a.f;
+                        return EnumC0495a.f;
                     }
                     if (type == 0) {
                         switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -132,23 +132,23 @@ public final class a {
                             case 12:
                             case 14:
                             case 15:
-                                return EnumC0280a.e;
+                                return EnumC0495a.e;
                             case 4:
                             case 7:
                             case 11:
                             default:
-                                return EnumC0280a.c;
+                                return EnumC0495a.c;
                             case 13:
-                                return EnumC0280a.g;
+                                return EnumC0495a.g;
                         }
                     }
-                    return EnumC0280a.c;
+                    return EnumC0495a.c;
                 }
-                return EnumC0280a.b;
+                return EnumC0495a.b;
             } catch (Throwable unused) {
-                return EnumC0280a.c;
+                return EnumC0495a.c;
             }
         }
-        return (EnumC0280a) invokeL.objValue;
+        return (EnumC0495a) invokeL.objValue;
     }
 }

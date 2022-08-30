@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.core.page.widget.TextProgressBar;
 import com.kwad.sdk.b.kwai.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DrawDownloadProgressBar extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -92,9 +92,9 @@ public class DrawDownloadProgressBar extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
             this.mContext = context;
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0417, this);
-            this.bZ = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091082);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091083);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0418, this);
+            this.bZ = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091084);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091085);
             this.ca = findViewById;
             findViewById.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.draw.view.DrawDownloadProgressBar.1
                 public static /* synthetic */ Interceptable $ic;

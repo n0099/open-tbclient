@@ -7,13 +7,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tieba.a65;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.u55;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -255,7 +255,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
 
     public void parseJson(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || pi.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || qi.isEmpty(str)) {
             return;
         }
         try {
@@ -393,7 +393,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         while (descendingIterator.hasNext()) {
             ImageFileInfo next = descendingIterator.next();
             if (next != null && !next.isHasAddPostQualityAction()) {
-                next.addPersistAction(u55.g(TbImageHelper.getInstance().getPostImageSize(), TbImageHelper.getInstance().getPostImageHeightLimit()));
+                next.addPersistAction(a65.g(TbImageHelper.getInstance().getPostImageSize(), TbImageHelper.getInstance().getPostImageHeightLimit()));
                 next.setHasAddPostQualityAction(true);
             }
         }

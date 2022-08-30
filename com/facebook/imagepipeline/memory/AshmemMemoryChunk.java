@@ -17,7 +17,7 @@ import java.io.Closeable;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 @TargetApi(27)
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AshmemMemoryChunk implements MemoryChunk, Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AshmemMemoryChunk";

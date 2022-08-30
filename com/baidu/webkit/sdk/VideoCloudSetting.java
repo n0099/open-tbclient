@@ -18,7 +18,7 @@ import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoCloudSetting {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_ERROR_LOG_CLOSE_ALL = "close_all";
@@ -54,7 +54,7 @@ public class VideoCloudSetting {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class MatchedType {
         public static final /* synthetic */ MatchedType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -117,7 +117,7 @@ public class VideoCloudSetting {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class VideoCloudSettingItem {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -283,7 +283,7 @@ public class VideoCloudSetting {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class VideoSettings {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

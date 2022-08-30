@@ -14,7 +14,7 @@ import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class EncodedProbeProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "EncodedProbeProducer";
@@ -26,7 +26,7 @@ public class EncodedProbeProducer implements Producer<EncodedImage> {
     public final Producer<EncodedImage> mInputProducer;
     public final BufferedDiskCache mSmallImageBufferedDiskCache;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class ProbeConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

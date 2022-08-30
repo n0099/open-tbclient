@@ -18,16 +18,16 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.cq7;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-import com.repackage.up7;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
     public NavigationBar c;
     public View d;
     public TextView e;
-    public up7 f;
+    public cq7 f;
     public List<BazhuInfoData.BaInfo> g;
     public View h;
     public View i;
@@ -44,7 +44,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
     public View.OnClickListener k;
     public AdapterView.OnItemClickListener l;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class b implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) this.a.g.get(i);
-                CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f0922cf);
+                CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f0922d8);
                 if (checkBox.isChecked()) {
                     return;
                 }
@@ -167,7 +167,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
     public final void F1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.setText(R.string.obfuscated_res_0x7f0f10f6);
+            this.a.setText(R.string.obfuscated_res_0x7f0f10f9);
         }
     }
 
@@ -193,25 +193,25 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0794);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091c31);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255c);
+            setContentView(R.layout.obfuscated_res_0x7f0d0796);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091c33);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092566);
             this.c = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.d = addSystemImageButton;
             if (addSystemImageButton.getLayoutParams() instanceof LinearLayout.LayoutParams) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.d.getLayoutParams();
-                layoutParams.leftMargin = qi.f(getActivity(), R.dimen.obfuscated_res_0x7f070230);
+                layoutParams.leftMargin = ri.f(getActivity(), R.dimen.obfuscated_res_0x7f070230);
                 this.d.setLayoutParams(layoutParams);
             }
-            this.e = this.c.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f055b));
+            this.e = this.c.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f055c));
             this.d.setOnClickListener(this.k);
-            this.i = findViewById(R.id.obfuscated_res_0x7f092549);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0922d0);
+            this.i = findViewById(R.id.obfuscated_res_0x7f092553);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0922d9);
             this.a = textView;
             textView.setOnClickListener(this.k);
-            this.j = findViewById(R.id.obfuscated_res_0x7f091262);
-            this.b = (BdListView) findViewById(R.id.obfuscated_res_0x7f0922d4);
+            this.j = findViewById(R.id.obfuscated_res_0x7f091264);
+            this.b = (BdListView) findViewById(R.id.obfuscated_res_0x7f0922dd);
             if (getIntent() != null) {
                 ArrayList parcelableArrayListExtra = getIntent().getParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST");
                 if (ListUtils.getCount(parcelableArrayListExtra) > 0) {
@@ -219,9 +219,9 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
                 }
             }
             this.b.setOnItemClickListener(this.l);
-            up7 up7Var = new up7(getActivity());
-            this.f = up7Var;
-            this.b.setAdapter((ListAdapter) up7Var);
+            cq7 cq7Var = new cq7(getActivity());
+            this.f = cq7Var;
+            this.b.setAdapter((ListAdapter) cq7Var);
             this.f.b(this.g);
             F1();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());

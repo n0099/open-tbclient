@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.producers.NetworkFetcher;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ImagePipelineConfigProxy {
     public static /* synthetic */ Interceptable $ic;
     public static ImagePipelineConfig imagePipelineConfig;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface ImagePipelineConfig {
         NetworkFetcher getNetworkFetcher();
     }

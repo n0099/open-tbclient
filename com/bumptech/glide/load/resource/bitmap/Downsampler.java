@@ -40,7 +40,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Queue;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class Downsampler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Option<Boolean> ALLOW_HARDWARE_CONFIG;
@@ -63,7 +63,7 @@ public final class Downsampler {
     public final HardwareConfigState hardwareConfigState;
     public final List<ImageHeaderParser> parsers;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface DecodeCallbacks {
         void onDecodeComplete(BitmapPool bitmapPool, Bitmap bitmap) throws IOException;
 

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
 @DoNotOptimize
 @TargetApi(18)
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class Api18TraceUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SECTION_NAME_LENGTH = 127;

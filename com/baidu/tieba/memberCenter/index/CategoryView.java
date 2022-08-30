@@ -11,14 +11,14 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
+import com.baidu.tieba.i9;
 import com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic;
+import com.baidu.tieba.vk7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h9;
-import com.repackage.nk7;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class CategoryView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,10 +27,10 @@ public class CategoryView extends LinearLayout {
     public TextView c;
     public TextView d;
     public ImageView e;
-    public nk7 f;
+    public vk7 f;
     public View.OnClickListener g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class CategoryView extends LinearLayout {
             } else if (a == 3) {
                 TiebaStatic.log("c10449");
             }
-            MemberCenterStatic.a((TbPageContext) h9.a(this.a.a), new String[]{this.a.f.c()});
+            MemberCenterStatic.a((TbPageContext) i9.a(this.a.a), new String[]{this.a.f.c()});
         }
     }
 
@@ -98,11 +98,11 @@ public class CategoryView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03ce, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03cf, this);
             this.b = inflate;
             this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090630);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ee9);
-            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ee7);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091eeb);
+            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ee9);
             this.b.setOnClickListener(this.g);
             this.e.setOnClickListener(this.g);
         }

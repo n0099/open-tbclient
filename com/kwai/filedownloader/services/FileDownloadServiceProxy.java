@@ -20,7 +20,7 @@ import java.lang.ref.WeakReference;
 @KsAdSdkDynamicImpl(FileDownloadService.class)
 @Keep
 @SuppressLint({"Registered"})
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FileDownloadServiceProxy extends com.kwad.sdk.g.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "filedownloader";
@@ -30,7 +30,7 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.g.a {
 
     @KsAdSdkDynamicImpl(FileDownloadService.SeparateProcessService.class)
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class SeparateProcessServiceProxy extends FileDownloadServiceProxy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.g.a {
 
     @KsAdSdkDynamicImpl(FileDownloadService.SharedMainProcessService.class)
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class SharedMainProcessServiceProxy extends FileDownloadServiceProxy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

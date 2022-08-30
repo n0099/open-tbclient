@@ -15,7 +15,7 @@ import com.kwad.components.core.video.g;
 import com.kwad.sdk.api.KsVideoPlayConfig;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class d extends com.kwad.components.ad.reward.presenter.a implements View.OnClickListener, com.kwad.components.core.webview.b.d.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -216,8 +216,8 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.eE = (ImageView) findViewById(R.id.obfuscated_res_0x7f09120f);
-            this.si = (ImageView) findViewById(R.id.obfuscated_res_0x7f091149);
+            this.eE = (ImageView) findViewById(R.id.obfuscated_res_0x7f091211);
+            this.si = (ImageView) findViewById(R.id.obfuscated_res_0x7f09114b);
         }
     }
 

@@ -19,7 +19,7 @@ import java.util.zip.GZIPOutputStream;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static final String a = "b";
     public static final Object b = new Object();

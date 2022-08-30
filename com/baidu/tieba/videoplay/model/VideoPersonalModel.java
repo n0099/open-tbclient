@@ -7,6 +7,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.b75;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.i75;
+import com.baidu.tieba.j75;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,14 +18,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c75;
-import com.repackage.d75;
-import com.repackage.d9;
-import com.repackage.v65;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoPersonalModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public class VideoPersonalModel extends BdBaseModel {
     @Nullable
     public b b;
     @NonNull
-    public c75 c;
+    public i75 c;
     @NonNull
-    public d75 d;
+    public j75 d;
     @Nullable
     public UserItemData e;
     @NonNull
@@ -40,8 +40,8 @@ public class VideoPersonalModel extends BdBaseModel {
     public int g;
     public boolean h;
 
-    /* loaded from: classes4.dex */
-    public class a implements d75.a {
+    /* loaded from: classes6.dex */
+    public class a implements j75.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoRecommentPlayActivityConfig.PersonalPageParams a;
@@ -66,7 +66,7 @@ public class VideoPersonalModel extends BdBaseModel {
             this.a = personalPageParams;
         }
 
-        @Override // com.repackage.d75.a
+        @Override // com.baidu.tieba.j75.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -74,7 +74,7 @@ public class VideoPersonalModel extends BdBaseModel {
             }
         }
 
-        @Override // com.repackage.d75.a
+        @Override // com.baidu.tieba.j75.a
         public void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map) == null) || this.b.b == null || list.isEmpty()) {
@@ -97,7 +97,7 @@ public class VideoPersonalModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(@NonNull List<VideoItemData> list);
     }
@@ -120,11 +120,11 @@ public class VideoPersonalModel extends BdBaseModel {
                 return;
             }
         }
-        this.c = (c75) v65.c(c75.b);
+        this.c = (i75) b75.c(i75.b);
         this.f = new ArrayList();
         this.h = false;
         this.a = personalPageParams;
-        d75 a2 = this.c.a(tbPageContext);
+        j75 a2 = this.c.a(tbPageContext);
         this.d = a2;
         a2.a(new a(this, personalPageParams));
     }

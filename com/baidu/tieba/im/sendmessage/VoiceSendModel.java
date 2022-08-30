@@ -4,28 +4,28 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.d9;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.n97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
-import com.repackage.f97;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VoiceSendModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
     public b b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public ChatMessage b;
-        public f97 c;
+        public n97 c;
         public final /* synthetic */ VoiceSendModel d;
 
         public a(VoiceSendModel voiceSendModel, String str, ChatMessage chatMessage) {
@@ -46,7 +46,7 @@ public class VoiceSendModel extends BdBaseModel {
             this.d = voiceSendModel;
             this.a = str;
             this.b = chatMessage;
-            this.c = new f97();
+            this.c = new n97();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,7 +78,7 @@ public class VoiceSendModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(String str, ChatMessage chatMessage);
     }

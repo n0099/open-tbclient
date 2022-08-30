@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static String b = "request_finish";
@@ -25,7 +25,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
     public final List<com.bytedance.pangle.b.a> a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic = null;
         public static int a = 11000;

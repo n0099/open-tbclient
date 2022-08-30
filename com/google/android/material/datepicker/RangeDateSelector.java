@@ -34,7 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<RangeDateSelector> CREATOR;
@@ -203,7 +203,7 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
     public int getDefaultTitleResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.string.obfuscated_res_0x7f0f0b16 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.string.obfuscated_res_0x7f0f0b19 : invokeV.intValue;
     }
 
     @Override // com.google.android.material.datepicker.DateSelector
@@ -250,18 +250,18 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
             Resources resources = context.getResources();
             if (this.selectedStartItem == null && this.selectedEndItem == null) {
-                return resources.getString(R.string.obfuscated_res_0x7f0f0b17);
+                return resources.getString(R.string.obfuscated_res_0x7f0f0b1a);
             }
             Long l = this.selectedEndItem;
             if (l == null) {
-                return resources.getString(R.string.obfuscated_res_0x7f0f0b14, DateStrings.getDateString(this.selectedStartItem.longValue()));
+                return resources.getString(R.string.obfuscated_res_0x7f0f0b17, DateStrings.getDateString(this.selectedStartItem.longValue()));
             }
             Long l2 = this.selectedStartItem;
             if (l2 == null) {
-                return resources.getString(R.string.obfuscated_res_0x7f0f0b13, DateStrings.getDateString(l.longValue()));
+                return resources.getString(R.string.obfuscated_res_0x7f0f0b16, DateStrings.getDateString(l.longValue()));
             }
             Pair<String, String> dateRangeString = DateStrings.getDateRangeString(l2, l);
-            return resources.getString(R.string.obfuscated_res_0x7f0f0b15, dateRangeString.first, dateRangeString.second);
+            return resources.getString(R.string.obfuscated_res_0x7f0f0b18, dateRangeString.first, dateRangeString.second);
         }
         return (String) invokeL.objValue;
     }
@@ -282,16 +282,16 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048585, this, layoutInflater, viewGroup, bundle, calendarConstraints, onSelectionChangedListener)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d05ab, viewGroup, false);
-            TextInputLayout textInputLayout = (TextInputLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091576);
-            TextInputLayout textInputLayout2 = (TextInputLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091575);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d05ad, viewGroup, false);
+            TextInputLayout textInputLayout = (TextInputLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091578);
+            TextInputLayout textInputLayout2 = (TextInputLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091577);
             EditText editText = textInputLayout.getEditText();
             EditText editText2 = textInputLayout2.getEditText();
             if (ManufacturerUtils.isDateInputKeyboardMissingSeparatorCharacters()) {
                 editText.setInputType(17);
                 editText2.setInputType(17);
             }
-            this.invalidRangeStartError = inflate.getResources().getString(R.string.obfuscated_res_0x7f0f0b10);
+            this.invalidRangeStartError = inflate.getResources().getString(R.string.obfuscated_res_0x7f0f0b13);
             SimpleDateFormat textInputFormat = UtcDates.getTextInputFormat();
             Long l = this.selectedStartItem;
             if (l != null) {

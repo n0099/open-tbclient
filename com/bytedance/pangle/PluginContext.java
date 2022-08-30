@@ -23,7 +23,7 @@ import com.bytedance.pangle.transform.ZeusTransformUtils;
 import com.bytedance.pangle.util.FieldUtils;
 import com.bytedance.pangle.wrapper.PluginApplicationWrapper;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PluginContext extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

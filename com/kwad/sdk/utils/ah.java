@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ah {
     @RequiresApi(api = 26)
     public static boolean cD(Context context) {

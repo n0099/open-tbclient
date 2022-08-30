@@ -13,7 +13,7 @@ import com.google.zxing.common.DecoderResult;
 import com.google.zxing.common.reedsolomon.GenericGF;
 import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class Decoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

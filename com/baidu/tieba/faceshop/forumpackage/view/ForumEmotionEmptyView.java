@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ForumEmotionEmptyView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,12 +53,12 @@ public class ForumEmotionEmptyView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02a8, this);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a42);
-            this.e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090a43);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090a3e);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a47);
-            NoDataView b = NoDataViewFactory.b(this.a.getPageActivity(), this.c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, 0), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0955), null, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02a9, this);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a43);
+            this.e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090a44);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090a3f);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a48);
+            NoDataView b = NoDataViewFactory.b(this.a.getPageActivity(), this.c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, 0), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0958), null, true);
             this.b = b;
             b.setVisibility(0);
         }

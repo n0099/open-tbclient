@@ -1,0 +1,13 @@
+package com.baidu.tieba;
+/* loaded from: classes3.dex */
+public interface cx8 {
+    void J0(fx8 fx8Var);
+
+    void O0(String str, String str2, String str3, String str4);
+
+    void c(int i);
+
+    void onError(int i, String str);
+
+    void onFinish();
+}

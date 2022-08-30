@@ -11,13 +11,13 @@ import com.baidu.live.business.model.data.LiveHostInfo;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.feed.search.view.LiveBaseLottieView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bb0;
+import com.baidu.tieba.n80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.repackage.ab0;
-import com.repackage.m80;
 /* loaded from: classes2.dex */
 public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -48,14 +48,14 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
             }
         }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092394);
-        this.c = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f091433);
-        this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090fd9);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092370);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09234a);
-        this.e.setTextColor(ab0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
-        this.f.setTextColor(ab0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
-        if (!"night".equals(ab0.f().q()) && !"dark".equals(ab0.f().q())) {
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09239d);
+        this.c = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f091435);
+        this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090fdb);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092379);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092353);
+        this.e.setTextColor(bb0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
+        this.f.setTextColor(bb0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
+        if (!"night".equals(bb0.f().q()) && !"dark".equals(bb0.f().q())) {
             this.c.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/common/live_feed_page_shinning.json");
         } else {
             this.c.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/common/live_feed_page_shinning_night.json");
@@ -73,13 +73,13 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
             textView.setText(String.valueOf(liveRoomEntity.rank));
             int i = liveRoomEntity.rank;
             if (i == 1) {
-                this.b.setTextColor("night".equals(ab0.f().q()) ? -8447719 : -52429);
+                this.b.setTextColor("night".equals(bb0.f().q()) ? -8447719 : -52429);
             } else if (i == 2) {
-                this.b.setTextColor("night".equals(ab0.f().q()) ? -8375552 : -39424);
+                this.b.setTextColor("night".equals(bb0.f().q()) ? -8375552 : -39424);
             } else if (i != 3) {
-                this.b.setTextColor(ab0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
+                this.b.setTextColor(bb0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
             } else {
-                this.b.setTextColor("night".equals(ab0.f().q()) ? -8760559 : -349938);
+                this.b.setTextColor("night".equals(bb0.f().q()) ? -8760559 : -349938);
             }
         }
         if (this.c != null) {
@@ -114,7 +114,7 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
         }
         TextView textView3 = this.f;
         if (textView3 != null) {
-            textView3.setText(m80.a(textView3.getContext(), liveRoomEntity.audienceCount));
+            textView3.setText(n80.a(textView3.getContext(), liveRoomEntity.audienceCount));
         }
     }
 

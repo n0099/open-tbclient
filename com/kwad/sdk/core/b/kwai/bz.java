@@ -4,7 +4,7 @@ import com.kwad.sdk.core.response.model.AdStyleInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class bz implements com.kwad.sdk.core.d<AdStyleInfo.ExtraDisplayInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(AdStyleInfo.ExtraDisplayInfo extraDisplayInfo, JSONObject jSONObject) {

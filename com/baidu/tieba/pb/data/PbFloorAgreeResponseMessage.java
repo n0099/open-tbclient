@@ -3,15 +3,15 @@ package com.baidu.tieba.pb.data;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.ms7;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.es7;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +57,7 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
                 this.mScore = optJSONObject2.optInt("score");
                 this.isFirstAgree = optJSONObject2.optInt("is_first_agree") == 1;
             }
-            this.mActDialogData = es7.a(optJSONObject);
+            this.mActDialogData = ms7.a(optJSONObject);
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("contri_info");
             ContriInfo contriInfo = new ContriInfo();
             this.mContriInfo = contriInfo;

@@ -15,7 +15,7 @@ import com.kwad.components.core.widget.KsLogoView;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class h extends a implements com.kwad.components.ad.reward.presenter.platdetail.actionbar.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -139,7 +139,7 @@ public final class h extends a implements com.kwad.components.ad.reward.presente
                 if (this.pK == null) {
                     this.pK = new com.kwad.components.ad.reward.k.g(this.nM);
                 }
-                this.pK.e((AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911b6));
+                this.pK.e((AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911b8));
                 this.pK.b(u.D(adTemplate));
             }
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
@@ -160,7 +160,7 @@ public final class h extends a implements com.kwad.components.ad.reward.presente
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091033);
+            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091035);
         }
     }
 

@@ -5,19 +5,19 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.game.ad.downloader.exception.DownloadException;
+import com.baidu.tieba.cp3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bp3;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class DownloadInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long mCreateAt;
-    public transient bp3 mDownloadListener;
+    public transient cp3 mDownloadListener;
     public DownloadException mException;
     public String mId;
     public String mPackageName;
@@ -158,10 +158,10 @@ public class DownloadInfo implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCreateAt : invokeV.longValue;
     }
 
-    public bp3 getDownloadListener() {
+    public cp3 getDownloadListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDownloadListener : (bp3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDownloadListener : (cp3) invokeV.objValue;
     }
 
     public DownloadException getException() {
@@ -231,10 +231,10 @@ public class DownloadInfo implements Serializable {
         }
     }
 
-    public void setDownloadListener(bp3 bp3Var) {
+    public void setDownloadListener(cp3 cp3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, bp3Var) == null) {
-            this.mDownloadListener = bp3Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, cp3Var) == null) {
+            this.mDownloadListener = cp3Var;
         }
     }
 

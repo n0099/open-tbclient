@@ -12,7 +12,7 @@ import com.bumptech.glide.disklrucache.StrictLineReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ConvertUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] CHUNK_SEPARATOR;

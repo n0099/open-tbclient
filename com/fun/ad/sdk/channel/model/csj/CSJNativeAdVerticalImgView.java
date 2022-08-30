@@ -15,7 +15,7 @@ import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import com.fun.module.csj.g0;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class CSJNativeAdVerticalImgView extends g0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

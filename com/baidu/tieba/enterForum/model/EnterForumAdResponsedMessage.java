@@ -3,18 +3,18 @@ package com.baidu.tieba.enterForum.model;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.y66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q66;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class EnterForumAdResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q66 adData;
+    public y66 adData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EnterForumAdResponsedMessage() {
@@ -39,9 +39,9 @@ public class EnterForumAdResponsedMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
-            q66 q66Var = new q66();
-            this.adData = q66Var;
-            q66Var.b(jSONObject);
+            y66 y66Var = new y66();
+            this.adData = y66Var;
+            y66Var.b(jSONObject);
             if (this.adData.a()) {
                 return;
             }
@@ -49,9 +49,9 @@ public class EnterForumAdResponsedMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public q66 getAdData() {
+    public y66 getAdData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.adData : (q66) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.adData : (y66) invokeV.objValue;
     }
 }

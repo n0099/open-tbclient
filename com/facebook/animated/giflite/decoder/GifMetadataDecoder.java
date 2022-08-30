@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GifMetadataDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CONTROL_INDEX_DELAY = 1;

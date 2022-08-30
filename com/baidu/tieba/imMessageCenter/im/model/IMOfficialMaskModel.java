@@ -9,36 +9,36 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
+import com.baidu.tieba.db;
+import com.baidu.tieba.ec9;
 import com.baidu.tieba.im.message.SettingChangeMessage;
+import com.baidu.tieba.t97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cb;
-import com.repackage.l97;
-import com.repackage.vb9;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class IMOfficialMaskModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SWITCH_IM_OFFICAL = 6;
     public transient /* synthetic */ FieldHolder $fh;
-    public cb a;
+    public db a;
 
-    /* loaded from: classes3.dex */
-    public class a extends cb {
+    /* loaded from: classes4.dex */
+    public class a extends db {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tieba.imMessageCenter.im.model.IMOfficialMaskModel$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0224a extends BdAsyncTask<Void, Void, Void> {
+        /* loaded from: classes4.dex */
+        public class C0291a extends BdAsyncTask<Void, Void, Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ RequestUpdateMaskInfoMessage b;
 
-            public C0224a(a aVar, String str, RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage) {
+            public C0291a(a aVar, String str, RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,9 +67,9 @@ public class IMOfficialMaskModel extends BdBaseModel {
                         return null;
                     }
                     if (this.b.isMuteNotifications()) {
-                        l97.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), false);
+                        t97.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), false);
                     } else {
-                        l97.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), true);
+                        t97.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), true);
                     }
                     return null;
                 }
@@ -105,7 +105,7 @@ public class IMOfficialMaskModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage)) {
                 ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage;
                 if ((responseUpdateMaskInfoMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage) && (requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) responseUpdateMaskInfoMessage.getOrginalMessage()) != null && requestUpdateMaskInfoMessage.getMaskType() == 6) {
-                    new C0224a(this, requestUpdateMaskInfoMessage.getList(), requestUpdateMaskInfoMessage).execute(new Void[0]);
+                    new C0291a(this, requestUpdateMaskInfoMessage.getList(), requestUpdateMaskInfoMessage).execute(new Void[0]);
                     MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(2));
                 }
             }
@@ -158,7 +158,7 @@ public class IMOfficialMaskModel extends BdBaseModel {
             requestUpdateMaskInfoMessage.setMute(true);
             requestUpdateMaskInfoMessage.setMuteNotifications(z);
             requestUpdateMaskInfoMessage.setMaskType(6);
-            requestUpdateMaskInfoMessage.setG_id(vb9.c(str, 0L));
+            requestUpdateMaskInfoMessage.setG_id(ec9.c(str, 0L));
             requestUpdateMaskInfoMessage.setList(str);
             MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
         }

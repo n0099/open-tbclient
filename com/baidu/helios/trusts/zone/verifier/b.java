@@ -4,14 +4,14 @@ import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.b40;
+import com.baidu.tieba.v40;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.titan.sdk.verifier.ApkSignatureSchemeV2Verifier;
-import com.repackage.a40;
-import com.repackage.u40;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileDescriptor;
@@ -535,9 +535,9 @@ public class b {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, byteBuffer, j)) == null) {
-            long j2 = u40.j(byteBuffer);
+            long j2 = v40.j(byteBuffer);
             if (j2 < j) {
-                if (u40.k(byteBuffer) + j2 == j) {
+                if (v40.k(byteBuffer) + j2 == j) {
                     return j2;
                 }
                 throw new f("ZIP Central Directory is not immediately followed by End of Central Directory");
@@ -590,7 +590,7 @@ public class b {
             Pair<ByteBuffer, Long> q = q(randomAccessFile);
             ByteBuffer byteBuffer = (ByteBuffer) q.first;
             long longValue = ((Long) q.second).longValue();
-            if (u40.g(randomAccessFile, longValue)) {
+            if (v40.g(randomAccessFile, longValue)) {
                 throw new f("ZIP64 APK not supported");
             }
             long c2 = c(byteBuffer, longValue);
@@ -723,7 +723,7 @@ public class b {
             }
             ByteBuffer duplicate = byteBuffer.duplicate();
             duplicate.order(ByteOrder.LITTLE_ENDIAN);
-            u40.f(duplicate, j);
+            v40.f(duplicate, j);
             C0100b c0100b3 = new C0100b(duplicate);
             int size = map.size();
             int[] iArr = new int[size];
@@ -1013,7 +1013,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, randomAccessFile)) == null) {
-            Pair<ByteBuffer, Long> b = u40.b(randomAccessFile);
+            Pair<ByteBuffer, Long> b = v40.b(randomAccessFile);
             if (b != null) {
                 return b;
             }
@@ -1061,7 +1061,7 @@ public class b {
             try {
                 return v(randomAccessFile);
             } finally {
-                a40.c(randomAccessFile);
+                b40.c(randomAccessFile);
             }
         }
         return (X509Certificate[][]) invokeL.objValue;

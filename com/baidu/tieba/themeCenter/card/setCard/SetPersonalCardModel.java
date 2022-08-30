@@ -8,15 +8,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.bb;
+import com.baidu.tieba.mq8;
+import com.baidu.tieba.rk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab;
-import com.repackage.dq8;
-import com.repackage.jk8;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_DELETE_USE = 2;
@@ -27,10 +27,10 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
     public boolean c;
     public boolean d;
     public b e;
-    public ab f;
+    public bb f;
 
-    /* loaded from: classes4.dex */
-    public class a extends ab {
+    /* loaded from: classes6.dex */
+    public class a extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SetPersonalCardModel a;
@@ -57,7 +57,7 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
             this.a = setPersonalCardModel;
         }
 
-        @Override // com.repackage.ab
+        @Override // com.baidu.tieba.bb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
@@ -82,9 +82,9 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
                         this.a.setType(setPersonalCardSocketResponse.getType());
                     }
                     if (this.a.e != null) {
-                        int i = dq8.b;
-                        if (responsedMessage.getError() == dq8.c) {
-                            i = dq8.a;
+                        int i = mq8.b;
+                        if (responsedMessage.getError() == mq8.c) {
+                            i = mq8.a;
                         }
                         this.a.e.a(this.a.c, this.a.a, this.a.b, responsedMessage.getErrorString(), i);
                     }
@@ -93,7 +93,7 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(boolean z, long j, int i, String str, int i2);
     }
@@ -114,8 +114,8 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
         this.c = false;
         this.d = false;
         this.f = new a(this, CmdConfigHttp.CMD_SET_PERSONAL_CARD, 309345);
-        jk8.h(309345, SetPersonalCardSocketResponse.class, false, false);
-        jk8.c(309345, CmdConfigHttp.CMD_SET_PERSONAL_CARD, TbConfig.SET_PERSONAL_CARD, SetPersonalCardHttpResponse.class, false, false, false, false);
+        rk8.h(309345, SetPersonalCardSocketResponse.class, false, false);
+        rk8.c(309345, CmdConfigHttp.CMD_SET_PERSONAL_CARD, TbConfig.SET_PERSONAL_CARD, SetPersonalCardHttpResponse.class, false, false, false, false);
         registerListener(this.f);
     }
 

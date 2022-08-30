@@ -55,7 +55,7 @@ import java.util.Set;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PipelineDraweeController extends AbstractDraweeController<CloseableReference<CloseableImage>, ImageInfo> {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;

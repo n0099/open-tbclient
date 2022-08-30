@@ -16,17 +16,17 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ba5;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.vw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.qi;
-import com.repackage.sw4;
-import com.repackage.u95;
 import java.util.List;
-/* loaded from: classes4.dex */
-public class BlueLikeButton extends TextView implements sw4 {
+/* loaded from: classes5.dex */
+public class BlueLikeButton extends TextView implements vw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -54,14 +54,14 @@ public class BlueLikeButton extends TextView implements sw4 {
         this.b = false;
     }
 
-    @Override // com.repackage.sw4
+    @Override // com.baidu.tieba.vw4
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.b) {
             return;
         }
         TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "4"));
-        if (!pi.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+        if (!qi.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
             StatisticItem statisticItem = new StatisticItem("c12507");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             statisticItem.param("obj_locate", 2);
@@ -72,17 +72,17 @@ public class BlueLikeButton extends TextView implements sw4 {
             return;
         }
         Context context = getContext();
-        if ((context instanceof Activity) && (context instanceof u95)) {
+        if ((context instanceof Activity) && (context instanceof ba5)) {
             String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
-            List<String> currentPageSourceKeyList = ((u95) context).getCurrentPageSourceKeyList();
-            if (currentPageSourceKeyList == null || !StringHelper.equals((String) ListUtils.getItem(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") || pi.isEmpty(stringExtra)) {
+            List<String> currentPageSourceKeyList = ((ba5) context).getCurrentPageSourceKeyList();
+            if (currentPageSourceKeyList == null || !StringHelper.equals((String) ListUtils.getItem(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") || qi.isEmpty(stringExtra)) {
                 return;
             }
             TiebaStatic.log(new StatisticItem("c12613").param("obj_type", 1).param("tid", stringExtra));
         }
     }
 
-    @Override // com.repackage.sw4
+    @Override // com.baidu.tieba.vw4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -90,7 +90,7 @@ public class BlueLikeButton extends TextView implements sw4 {
         }
     }
 
-    @Override // com.repackage.sw4
+    @Override // com.baidu.tieba.vw4
     public void c(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -98,14 +98,14 @@ public class BlueLikeButton extends TextView implements sw4 {
         }
     }
 
-    @Override // com.repackage.sw4
+    @Override // com.baidu.tieba.vw4
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.sw4
+    @Override // com.baidu.tieba.vw4
     public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -119,22 +119,22 @@ public class BlueLikeButton extends TextView implements sw4 {
             this.a = z;
             if (z) {
                 if (this.b) {
-                    setText(R.string.obfuscated_res_0x7f0f0645);
-                    TBSelector.makeDrawableSelector().setShape(0).setType(1).radius(qi.f(getContext(), R.dimen.tbds42)).defaultColor(R.color.CAM_X0204).into(this);
+                    setText(R.string.obfuscated_res_0x7f0f0646);
+                    TBSelector.makeDrawableSelector().setShape(0).setType(1).radius(ri.f(getContext(), R.dimen.tbds42)).defaultColor(R.color.CAM_X0204).into(this);
                     SkinManager.setViewTextColor(this, R.color.CAM_X0105, 1);
                     return;
                 }
-                setText(R.string.obfuscated_res_0x7f0f0645);
+                setText(R.string.obfuscated_res_0x7f0f0646);
                 setBackgroundDrawable(SkinManager.getDrawable(R.drawable.selector_like_button_gray_bg));
                 setPadding(0, 0, 0, 0);
                 setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0110, 1);
             } else if (this.b) {
-                setText(R.string.obfuscated_res_0x7f0f02ab);
-                TBSelector.selectorBackgroundDrawable(DrawableSelector.make().setShape(0).setType(1).radius(qi.f(getContext(), R.dimen.tbds42)).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0303, R.color.CAM_X0302).build(), DrawableSelector.make().setShape(0).setType(1).radius(qi.f(getContext(), R.dimen.tbds42)).gradientLinear(DrawableSelector.TL_BR, R.color.cp_link_tip_b_alpha50, R.color.cp_link_tip_a_alpha50).build()).into(this);
+                setText(R.string.obfuscated_res_0x7f0f02ac);
+                TBSelector.selectorBackgroundDrawable(DrawableSelector.make().setShape(0).setType(1).radius(ri.f(getContext(), R.dimen.tbds42)).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0303, R.color.CAM_X0302).build(), DrawableSelector.make().setShape(0).setType(1).radius(ri.f(getContext(), R.dimen.tbds42)).gradientLinear(DrawableSelector.TL_BR, R.color.cp_link_tip_b_alpha50, R.color.cp_link_tip_a_alpha50).build()).into(this);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0101, 1);
             } else {
-                setText(R.string.obfuscated_res_0x7f0f02ab);
+                setText(R.string.obfuscated_res_0x7f0f02ac);
                 setBackgroundDrawable(SkinManager.getDrawable(R.drawable.selector_like_button_bg));
                 setPadding(getResources().getDimensionPixelSize(R.dimen.tbds20), 0, 0, 0);
                 setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.icon_add_follow_white), (Drawable) null, (Drawable) null, (Drawable) null);

@@ -21,13 +21,13 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.bd;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.components.ad.feed.e$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class AnonymousClass1 extends com.kwad.components.core.k.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -220,7 +220,7 @@ public final class e {
             boolean a = m.oF().a(ksScene, "loadConfigFeedAd");
             ksScene.setAdStyle(1);
             KsAdLoadManager.ab();
-            KsAdLoadManager.a(new a.C0359a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new AnonymousClass1(feedAdListener, ksScene, z)).oo());
+            KsAdLoadManager.a(new a.C0574a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new AnonymousClass1(feedAdListener, ksScene, z)).oo());
         }
     }
 }

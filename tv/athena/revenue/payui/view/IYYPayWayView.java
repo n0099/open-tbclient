@@ -1,5 +1,9 @@
 package tv.athena.revenue.payui.view;
 
+import com.baidu.tieba.f2a;
+import com.baidu.tieba.g3a;
+import com.baidu.tieba.i2a;
+import com.baidu.tieba.w3a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,17 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n3a;
-import com.repackage.w1a;
-import com.repackage.x2a;
-import com.repackage.z1a;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import java.util.List;
 import java.util.Map;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayFlowType;
 /* loaded from: classes9.dex */
-public interface IYYPayWayView extends x2a, n3a {
+public interface IYYPayWayView extends g3a, w3a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
@@ -81,7 +81,7 @@ public interface IYYPayWayView extends x2a, n3a {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void a(z1a z1aVar, w1a w1aVar, AppCustomExpand appCustomExpand);
+        void a(i2a i2aVar, f2a f2aVar, AppCustomExpand appCustomExpand);
 
         void onRefreshViewFail(int i, String str);
 
@@ -94,7 +94,7 @@ public interface IYYPayWayView extends x2a, n3a {
         public transient /* synthetic */ FieldHolder $fh;
         public List<PayWayInfo> a;
         public String b;
-        public w1a c;
+        public f2a c;
         public AppCustomExpand d;
         public Map<String, String> e;
         public boolean f;

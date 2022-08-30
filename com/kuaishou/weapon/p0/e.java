@@ -12,7 +12,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int a = 2048;

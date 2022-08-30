@@ -8,6 +8,7 @@ import android.net.NetworkInfo;
 import android.os.IBinder;
 import android.telephony.TelephonyManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.dumper.CrashCallback;
 import com.baidu.webkit.sdk.dumper.ZeusLogUploader;
 import com.baidu.webkit.sdk.dumper.ZwDebug;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class DumperService extends Service implements ZeusLogUploader.OnFinishedListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALLBACK = "CRASH_CALLBACK";
@@ -150,7 +151,7 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
             }
             ZwDebug.init(this);
             try {
-                this.mCrashImei = ((TelephonyManager) getSystemService("phone")).getDeviceId();
+                this.mCrashImei = ApiReplaceUtil.getDeviceId((TelephonyManager) getSystemService("phone"));
             } catch (Exception e) {
                 e.printStackTrace();
             }

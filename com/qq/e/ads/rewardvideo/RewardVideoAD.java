@@ -23,7 +23,7 @@ import com.qq.e.comm.util.VideoAdValidity;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class RewardVideoAD extends LiteAbstractAD<RVADI> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REWARD_TYPE_PAGE = 1;
@@ -37,7 +37,7 @@ public class RewardVideoAD extends LiteAbstractAD<RVADI> {
     public ServerSideVerificationOptions l;
     public boolean m;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class ADListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int EVENT_TYPE_ON_AD_CLICK = 6;
@@ -54,7 +54,7 @@ public class RewardVideoAD extends LiteAbstractAD<RVADI> {
         public RewardVideoADListener adListener;
         public WeakReference<RewardVideoAD> b;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         public interface CacheCallback {
             void onCached();
 

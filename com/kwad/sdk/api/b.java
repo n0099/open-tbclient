@@ -3,7 +3,7 @@ package com.kwad.sdk.api;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import com.kwad.sdk.api.loader.Loader;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b {
     @Nullable
     public static <T> T a(String str, Object... objArr) {

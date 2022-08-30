@@ -16,16 +16,16 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.p08;
+import com.baidu.tieba.ri;
 import com.baidu.tieba.view.RoundRelativeLayout;
+import com.baidu.tieba.w16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h08;
-import com.repackage.ms4;
-import com.repackage.o16;
-import com.repackage.qi;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PbFirstFloorQuestionThreadView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,9 +36,9 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
     public TbPageContext e;
     public boolean f;
     public boolean g;
-    public o16 h;
+    public w16 h;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,15 +68,15 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.h != null && this.a.h.O()) {
                     this.a.h.N();
-                    h08.p("c14884");
+                    p08.p("c14884");
                 }
-                h08.p("c14885");
+                p08.p("c14885");
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921724));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +110,7 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -186,11 +186,11 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06a6, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091aee);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091aeb);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091aef);
-            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091af0);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06a8, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091af0);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091aed);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091af1);
+            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091af2);
             h();
         }
     }
@@ -200,8 +200,8 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
-            ms4.d(this.c).v(R.color.CAM_X0302);
-            this.d.setAllCornerRound(qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+            os4.d(this.c).v(R.color.CAM_X0302);
+            this.d.setAllCornerRound(ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
             SkinManager.setBackgroundColorWithAlpha(this.d, R.color.CAM_X0304, 0.08f, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -209,9 +209,9 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            o16 o16Var = new o16(this.e, this.c);
-            this.h = o16Var;
-            o16Var.q0(R.drawable.obfuscated_res_0x7f080645);
+            w16 w16Var = new w16(this.e, this.c);
+            this.h = w16Var;
+            w16Var.q0(R.drawable.obfuscated_res_0x7f080646);
             this.h.c0(true);
             this.h.r0(true);
             this.h.Q(2);
@@ -225,10 +225,10 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
             this.h.v0(-UtilHelper.getDimenPixelSize(R.dimen.M_H_X001));
             this.h.g0(100);
             this.h.S(3000);
-            String string = getContext().getString(R.string.obfuscated_res_0x7f0f0dbf);
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f0dc2);
             this.h.R(new b(this));
             this.h.w0(string);
-            h08.p("c14883");
+            p08.p("c14883");
         }
     }
 
@@ -244,16 +244,16 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
                 } else {
                     this.a.setVisibility(0);
                     TextView textView = this.a;
-                    textView.setText(j + getContext().getString(R.string.obfuscated_res_0x7f0f0dc0));
+                    textView.setText(j + getContext().getString(R.string.obfuscated_res_0x7f0f0dc3));
                 }
                 if (reply_num <= 0) {
-                    this.b.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0dbd));
-                    this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0dbe));
+                    this.b.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0dc0));
+                    this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0dc1));
                     this.f = true;
                 } else {
                     TextView textView2 = this.b;
-                    textView2.setText(reply_num + getContext().getString(R.string.obfuscated_res_0x7f0f0dbc));
-                    this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0dbc));
+                    textView2.setText(reply_num + getContext().getString(R.string.obfuscated_res_0x7f0f0dbf));
+                    this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0dbf));
                 }
                 this.c.setOnClickListener(new a(this));
                 if (z) {

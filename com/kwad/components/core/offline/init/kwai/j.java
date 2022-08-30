@@ -10,7 +10,7 @@ import com.kwad.components.offline.api.core.api.IZipper;
 import com.kwad.sdk.utils.bk;
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class j implements IZipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cz2;
+import com.baidu.tieba.dz2;
+import com.baidu.tieba.kh1;
+import com.baidu.tieba.ty2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,16 +18,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bz2;
-import com.repackage.cz2;
-import com.repackage.jh1;
-import com.repackage.sy2;
 /* loaded from: classes2.dex */
-public class SPSwitchPanelLinearLayout extends LinearLayout implements bz2, cz2 {
+public class SPSwitchPanelLinearLayout extends LinearLayout implements cz2, dz2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public sy2 a;
+    public ty2 a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements bz2, cz2 
                 return;
             }
         }
-        b = jh1.a;
+        b = kh1.a;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -65,11 +65,11 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements bz2, cz2 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = new sy2(this);
+            this.a = new ty2(this);
         }
     }
 
-    @Override // com.repackage.bz2
+    @Override // com.baidu.tieba.cz2
     public void handleHide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -77,7 +77,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements bz2, cz2 
         }
     }
 
-    @Override // com.repackage.bz2
+    @Override // com.baidu.tieba.cz2
     public void handleShow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -100,7 +100,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements bz2, cz2 
         }
     }
 
-    @Override // com.repackage.cz2
+    @Override // com.baidu.tieba.dz2
     public void onSoftInputShowing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
@@ -108,7 +108,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements bz2, cz2 
         }
     }
 
-    @Override // com.repackage.cz2
+    @Override // com.baidu.tieba.dz2
     public void refreshHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {

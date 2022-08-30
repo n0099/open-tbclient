@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.download;
 
 import com.kwad.sdk.service.ServiceProvider;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static final boolean DEBUG = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).isDebugLogEnable();
 

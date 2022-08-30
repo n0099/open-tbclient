@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PidLoaderSession<A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,12 +25,12 @@ public class PidLoaderSession<A> {
     public final AdDestroyListener<A> g;
     public final Map<A, SidSessionMeta> h;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface AdDestroyListener<A> {
         void onDestroy(A a);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface ISelect<A> {
         boolean selected(A a);
     }

@@ -19,7 +19,7 @@ import com.google.android.exoplayer2.extractor.SeekMap;
 import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.MimeTypes;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class WavExtractor implements Extractor, SeekMap {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ExtractorsFactory FACTORY;

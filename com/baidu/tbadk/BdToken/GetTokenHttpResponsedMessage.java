@@ -3,12 +3,12 @@ package com.baidu.tbadk.BdToken;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.bk4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ak4;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetToken.GetTokenResIdl;
@@ -16,7 +16,7 @@ import tbclient.GetToken.GetTokenResIdl;
 public class GetTokenHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ak4 mData;
+    public bk4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetTokenHttpResponsedMessage() {
@@ -36,10 +36,10 @@ public class GetTokenHttpResponsedMessage extends HttpResponsedMessage {
         }
     }
 
-    public ak4 getData() {
+    public bk4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (ak4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (bk4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,9 +56,9 @@ public class GetTokenHttpResponsedMessage extends HttpResponsedMessage {
             setErrorString(getTokenResIdl.error.usermsg);
         }
         if (getTokenResIdl.data != null) {
-            ak4 ak4Var = new ak4();
-            this.mData = ak4Var;
-            ak4Var.d(getTokenResIdl.data);
+            bk4 bk4Var = new bk4();
+            this.mData = bk4Var;
+            bk4Var.d(getTokenResIdl.data);
         }
     }
 }

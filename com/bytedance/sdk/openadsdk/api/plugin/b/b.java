@@ -5,7 +5,7 @@ import androidx.annotation.Keep;
 import com.bytedance.JProtect;
 import java.security.SecureRandom;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static String a() {
         String a = a(16);

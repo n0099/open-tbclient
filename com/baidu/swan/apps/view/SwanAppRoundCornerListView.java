@@ -12,6 +12,8 @@ import android.util.AttributeSet;
 import android.widget.ListView;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.kh1;
+import com.baidu.tieba.re3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,8 +21,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jh1;
-import com.repackage.qe3;
 /* loaded from: classes3.dex */
 public class SwanAppRoundCornerListView extends ListView {
     public static /* synthetic */ Interceptable $ic;
@@ -46,8 +46,8 @@ public class SwanAppRoundCornerListView extends ListView {
                 return;
             }
         }
-        f = jh1.a;
-        g = qe3.h(11.0f);
+        f = kh1.a;
+        g = re3.h(11.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

@@ -33,21 +33,21 @@ import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.aa5;
+import com.baidu.tieba.mt7;
+import com.baidu.tieba.no4;
+import com.baidu.tieba.oz7;
+import com.baidu.tieba.qi;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tieba.u75;
+import com.baidu.tieba.v95;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.et7;
-import com.repackage.gz7;
-import com.repackage.lo4;
-import com.repackage.o75;
-import com.repackage.o95;
-import com.repackage.pi;
-import com.repackage.rk8;
-import com.repackage.t95;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.AnimatorListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,15 +57,15 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
     public d d;
     public d e;
     public d f;
-    public et7 g;
+    public mt7 g;
     public AgreeData h;
-    public rk8 i;
-    public lo4 j;
+    public zk8 i;
+    public no4 j;
     public CustomMessageListener k;
     public CustomMessageListener l;
     public View.OnClickListener m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,8 +96,8 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof rk8)) {
-                AgreeData agreeData = ((rk8) customResponsedMessage.getData()).b;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof zk8)) {
+                AgreeData agreeData = ((zk8) customResponsedMessage.getData()).b;
                 if (this.a.h == null || agreeData == null || this.a.i == null || this.a.h.isInPost || this.a.i.a == this.a.i.a) {
                     return;
                 }
@@ -119,7 +119,7 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,10 +150,10 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof rk8)) {
-                rk8 rk8Var = (rk8) customResponsedMessage.getData();
-                AgreeData agreeData = rk8Var.b;
-                if (this.a.h == null || TextUtils.isEmpty(this.a.h.postId) || agreeData == null || TextUtils.isEmpty(agreeData.postId) || !this.a.h.postId.equals(agreeData.postId) || this.a.h.isInThread || this.a.i.a == rk8Var.a) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof zk8)) {
+                zk8 zk8Var = (zk8) customResponsedMessage.getData();
+                AgreeData agreeData = zk8Var.b;
+                if (this.a.h == null || TextUtils.isEmpty(this.a.h.postId) || agreeData == null || TextUtils.isEmpty(agreeData.postId) || !this.a.h.postId.equals(agreeData.postId) || this.a.h.isInThread || this.a.i.a == zk8Var.a) {
                     return;
                 }
                 this.a.o(agreeData);
@@ -161,7 +161,7 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -194,7 +194,7 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -218,11 +218,11 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                     return;
                 }
             }
-            View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d0862, null);
+            View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d0864, null);
             this.a = inflate;
-            this.b = inflate.findViewById(R.id.obfuscated_res_0x7f090f75);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090fbf);
-            this.d = (TBLottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090f92);
+            this.b = inflate.findViewById(R.id.obfuscated_res_0x7f090f76);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090fc0);
+            this.d = (TBLottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090f93);
         }
 
         public void c(Animator.AnimatorListener animatorListener) {
@@ -333,7 +333,7 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
             AgreeEvent agreeEvent = new AgreeEvent();
             agreeEvent.agreeData = agreeData;
             agreeEvent.agreeExtra = str;
-            o75.i(agreeEvent);
+            u75.i(agreeEvent);
         }
     }
 
@@ -379,9 +379,9 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
             return;
         }
         int i2 = 0;
-        et7 et7Var = this.g;
+        mt7 mt7Var = this.g;
         String str6 = null;
-        if (et7Var == null || et7Var.O() == null) {
+        if (mt7Var == null || mt7Var.O() == null) {
             str = null;
             str2 = null;
             str3 = null;
@@ -400,7 +400,7 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                 i = O.isBJHVideoDynamicThreadType() ? 5 : 1;
             }
             String nid = O.getNid();
-            if (O.getBaijiahaoData() != null && !pi.isEmpty(O.getBaijiahaoData().oriUgcVid)) {
+            if (O.getBaijiahaoData() != null && !qi.isEmpty(O.getBaijiahaoData().oriUgcVid)) {
                 str6 = O.getBaijiahaoData().oriUgcVid;
             }
             int recomCardType = O.getRecomCardType();
@@ -420,7 +420,7 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
             if (i3 == 2) {
                 StatisticItem param = new StatisticItem("c13271").param("obj_type", this.j.g).param("obj_locate", this.j.h).param("obj_id", this.j.i).param("obj_name", i).param("nid", str6).param("card_type", i2).param("recom_source", str3).param("ab_tag", str4).param("weight", str9).param(TiebaStatic.Params.RECOM_EXTRA, str8).param(TiebaStatic.Params.OBJ_PARAM6, str7);
                 if (getTbPageContext() != null) {
-                    t95.e(getTbPageContext().getPageActivity(), param);
+                    aa5.e(getTbPageContext().getPageActivity(), param);
                 }
                 TiebaStatic.log(param);
                 return;
@@ -429,9 +429,9 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         }
         StatisticItem param2 = new StatisticItem("c12003").param("obj_locate", this.j.b).param("obj_param1", this.j.c).param("obj_source", this.j.d).param("obj_id", this.j.e).param("obj_name", i).param("nid", str6).param("card_type", i2).param("recom_source", str3).param("ab_tag", str4).param("weight", str9).param(TiebaStatic.Params.RECOM_EXTRA, str8).param(TiebaStatic.Params.OBJ_PARAM6, str7);
         if (getTbPageContext() != null) {
-            t95.e(getTbPageContext().getPageActivity(), param2);
+            aa5.e(getTbPageContext().getPageActivity(), param2);
         }
-        o95 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(this);
+        v95 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(this);
         if (findPageExtraByView != null) {
             param2.param(TiebaStatic.Params.OBJ_CUR_PAGE, findPageExtraByView.a());
         }
@@ -451,8 +451,8 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
             this.f = f(dimenPixelSize);
             this.e.j(ImageView.ScaleType.FIT_XY);
             this.f.j(ImageView.ScaleType.FIT_XY);
-            this.e.k(R.string.obfuscated_res_0x7f0f116d);
-            this.f.k(R.string.obfuscated_res_0x7f0f1171);
+            this.e.k(R.string.obfuscated_res_0x7f0f1170);
+            this.f.k(R.string.obfuscated_res_0x7f0f1174);
             this.c.j(ImageView.ScaleType.CENTER_INSIDE);
             this.c.c(this);
             this.d.j(ImageView.ScaleType.CENTER_INSIDE);
@@ -481,31 +481,31 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
     }
 
     public final void k(View view2) {
-        et7 et7Var;
+        mt7 mt7Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, view2) == null) && this.h != null && ViewHelper.checkUpIsLogin(getContext())) {
             if (view2 != this.c.e() && view2 != this.d.e()) {
                 if (view2 == this.e.e()) {
-                    et7 et7Var2 = this.g;
-                    if (et7Var2 != null) {
-                        gz7.n(this.b, et7Var2.O(), 3);
+                    mt7 mt7Var2 = this.g;
+                    if (mt7Var2 != null) {
+                        oz7.n(this.b, mt7Var2.O(), 3);
                         return;
                     }
                     return;
-                } else if (view2 != this.f.e() || (et7Var = this.g) == null) {
+                } else if (view2 != this.f.e() || (mt7Var = this.g) == null) {
                     return;
                 } else {
-                    gz7.n(this.b, et7Var.O(), 2);
+                    oz7.n(this.b, mt7Var.O(), 2);
                     return;
                 }
             }
             int i = 0;
             if (view2 == this.c.e()) {
                 this.c.h();
-                lo4 lo4Var = this.j;
-                if (lo4Var != null) {
-                    lo4Var.a = 1;
-                    lo4Var.b = 4;
+                no4 no4Var = this.j;
+                if (no4Var != null) {
+                    no4Var.a = 1;
+                    no4Var.b = 4;
                 }
                 AgreeData agreeData = this.h;
                 if (agreeData.hasAgree) {
@@ -515,9 +515,9 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                         agreeData.diffAgreeNum--;
                         agreeData.agreeNum--;
                         m();
-                        lo4 lo4Var2 = this.j;
-                        if (lo4Var2 != null) {
-                            lo4Var2.e = 1;
+                        no4 no4Var2 = this.j;
+                        if (no4Var2 != null) {
+                            no4Var2.e = 1;
                         }
                         i = 1;
                     } else {
@@ -527,9 +527,9 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                         agreeData.agreeNum++;
                         agreeData.disAgreeNum--;
                         n(true);
-                        lo4 lo4Var3 = this.j;
-                        if (lo4Var3 != null) {
-                            lo4Var3.e = 0;
+                        no4 no4Var3 = this.j;
+                        if (no4Var3 != null) {
+                            no4Var3.e = 0;
                         }
                     }
                 } else {
@@ -542,10 +542,10 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                 l(i);
             } else if (view2 == this.d.e()) {
                 this.d.h();
-                lo4 lo4Var4 = this.j;
-                if (lo4Var4 != null) {
-                    lo4Var4.a = 2;
-                    lo4Var4.b = 4;
+                no4 no4Var4 = this.j;
+                if (no4Var4 != null) {
+                    no4Var4.a = 2;
+                    no4Var4.b = 4;
                 }
                 AgreeData agreeData2 = this.h;
                 if (agreeData2.hasAgree) {
@@ -555,9 +555,9 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                         agreeData2.diffAgreeNum++;
                         agreeData2.disAgreeNum--;
                         m();
-                        lo4 lo4Var5 = this.j;
-                        if (lo4Var5 != null) {
-                            lo4Var5.i = 0;
+                        no4 no4Var5 = this.j;
+                        if (no4Var5 != null) {
+                            no4Var5.i = 0;
                         }
                         i = 1;
                     } else {
@@ -567,9 +567,9 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                         agreeData2.agreeNum--;
                         agreeData2.disAgreeNum++;
                         n(false);
-                        lo4 lo4Var6 = this.j;
-                        if (lo4Var6 != null) {
-                            lo4Var6.i = 1;
+                        no4 no4Var6 = this.j;
+                        if (no4Var6 != null) {
+                            no4Var6.i = 1;
                         }
                     }
                 } else {
@@ -578,19 +578,19 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
                     agreeData2.diffAgreeNum--;
                     agreeData2.disAgreeNum++;
                     n(false);
-                    lo4 lo4Var7 = this.j;
-                    if (lo4Var7 != null) {
-                        lo4Var7.i = 1;
+                    no4 no4Var7 = this.j;
+                    if (no4Var7 != null) {
+                        no4Var7.i = 1;
                     }
                 }
                 l(i);
             }
-            rk8 rk8Var = this.i;
+            zk8 zk8Var = this.i;
             AgreeData agreeData3 = this.h;
-            rk8Var.b = agreeData3;
+            zk8Var.b = agreeData3;
             if (agreeData3.isInThread) {
-                et7 et7Var3 = this.g;
-                if (et7Var3 != null && et7Var3.O() != null && this.g.O().getBaijiahaoData() != null) {
+                mt7 mt7Var3 = this.g;
+                if (mt7Var3 != null && mt7Var3.O() != null && this.g.O().getBaijiahaoData() != null) {
                     this.h.nid = this.g.O().getBaijiahaoData().oriUgcNid;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, this.i));
@@ -620,15 +620,15 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         httpMessage.addParam("obj_type", this.h.objType);
         httpMessage.addParam("agree_type", this.h.agreeType);
         httpMessage.addParam("forum_id", this.h.forumId);
-        o95 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(this);
+        v95 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(this);
         if (findPageExtraByView != null) {
             httpMessage.addParam("obj_source", findPageExtraByView.a());
         }
         if (!TextUtils.isEmpty(this.h.postId)) {
             httpMessage.addParam("post_id", this.h.postId);
         }
-        et7 et7Var = this.g;
-        if (et7Var != null && et7Var.O() != null && this.g.O().getBaijiahaoData() != null) {
+        mt7 mt7Var = this.g;
+        if (mt7Var != null && mt7Var.O() != null && this.g.O().getBaijiahaoData() != null) {
             BaijiahaoData baijiahaoData = this.g.O().getBaijiahaoData();
             httpMessage.addParam("ori_ugc_tid", baijiahaoData.oriUgcTid);
             httpMessage.addParam("ori_ugc_nid", baijiahaoData.oriUgcNid);
@@ -686,8 +686,8 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
             e.setAlpha(1.0f);
             e2.setAlpha(1.0f);
         }
-        et7 et7Var = this.g;
-        if (et7Var == null || et7Var.O() == null) {
+        mt7 mt7Var = this.g;
+        if (mt7Var == null || mt7Var.O() == null) {
             return;
         }
         setVisibility(this.g.O().isUgcThreadType() ? 8 : 0);
@@ -796,25 +796,25 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         }
     }
 
-    public void setData(et7 et7Var, AgreeData agreeData) {
+    public void setData(mt7 mt7Var, AgreeData agreeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, et7Var, agreeData) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048594, this, mt7Var, agreeData) == null) {
             if (agreeData == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.g = et7Var;
+            this.g = mt7Var;
             this.h = agreeData;
             agreeData.isInThread = true;
             m();
         }
     }
 
-    public void setStatisticData(lo4 lo4Var) {
+    public void setStatisticData(no4 no4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, lo4Var) == null) {
-            this.j = lo4Var;
+        if (interceptable == null || interceptable.invokeL(1048595, this, no4Var) == null) {
+            this.j = no4Var;
         }
     }
 
@@ -843,12 +843,12 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
         setOrientation(0);
         setGravity(17);
         this.b = context;
-        rk8 rk8Var = new rk8();
-        this.i = rk8Var;
-        rk8Var.a = getPageId();
+        zk8 zk8Var = new zk8();
+        this.i = zk8Var;
+        zk8Var.a = getPageId();
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds43);
         setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
         i();
-        this.j = new lo4();
+        this.j = new no4();
     }
 }

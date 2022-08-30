@@ -33,6 +33,7 @@ public class MainTabActivityConfig extends IntentConfig {
     public static boolean PERSON_TAB_AVAIBLE = true;
     public static final String PUSH_DES_PAGE = "des_page";
     public static final String PUSH_FOLLOW_UP_ACTION = "follow_up_action";
+    public static final String PUSH_TID = "push_tid";
     public static final String TARGET_SCHEME = "target_scheme";
     public static final String TARGET_SCHEME_BAK = "target_scheme_bak";
     public static final String VIDEOTHREAD_ON_SQUARE_ID = "videothread_on_square_id";
@@ -176,9 +177,16 @@ public class MainTabActivityConfig extends IntentConfig {
         getIntent().putExtra(PUSH_FOLLOW_UP_ACTION, i);
     }
 
+    public void setPushTid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            getIntent().putExtra(PUSH_TID, str);
+        }
+    }
+
     public void setSubTab(int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048586, this, i, str) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048587, this, i, str) == null) || getIntent() == null) {
             return;
         }
         if (str == null) {
@@ -190,7 +198,7 @@ public class MainTabActivityConfig extends IntentConfig {
 
     public void setSubTabName(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra("sub_tab_name", str);
@@ -198,7 +206,7 @@ public class MainTabActivityConfig extends IntentConfig {
 
     public void setTargetScheme(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             getIntent().putExtra("target_scheme", str);
         }
     }

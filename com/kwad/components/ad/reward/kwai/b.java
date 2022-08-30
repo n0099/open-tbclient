@@ -8,7 +8,7 @@ import com.kwad.sdk.core.config.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.SdkConfigData;
 import com.kwad.sdk.core.response.model.TemplateConfig;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

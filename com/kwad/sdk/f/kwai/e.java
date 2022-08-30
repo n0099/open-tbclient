@@ -7,7 +7,7 @@ import com.kwad.sdk.utils.r;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class e extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
     public int sensorType = -1;
     public List<Float> amD = new ArrayList();

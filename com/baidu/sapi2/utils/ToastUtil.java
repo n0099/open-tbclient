@@ -73,12 +73,12 @@ public class ToastUtil implements NoProguard {
             LayoutInflater from = LayoutInflater.from(context);
             SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
             if (confignation != null && (confignation.isDarkMode || confignation.isNightMode)) {
-                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04da, (ViewGroup) null);
-            } else {
                 inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04dc, (ViewGroup) null);
+            } else {
+                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04de, (ViewGroup) null);
             }
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d3b);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d3c);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d3d);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d3e);
             if (-1 == i) {
                 imageView.setVisibility(8);
             } else {

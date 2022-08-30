@@ -8,11 +8,11 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.q01;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p01;
 /* loaded from: classes2.dex */
 public class CenterTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
@@ -50,7 +50,7 @@ public class CenterTextView extends TextView {
             textPaint.setTextSize(getTextSize());
             this.b.setFakeBoldText(this.c);
             this.b.setColor(getCurrentTextColor());
-            this.a = new StaticLayout(getText(), this.b, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, p01.c.a(getContext(), 6.0f), false);
+            this.a = new StaticLayout(getText(), this.b, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, q01.c.a(getContext(), 6.0f), false);
         }
     }
 

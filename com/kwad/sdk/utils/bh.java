@@ -7,7 +7,7 @@ import android.webkit.ValueCallback;
 import android.webkit.WebView;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class bh {
     public static void a(final WebView webView, final String str, ValueCallback<String> valueCallback) {
         if (Build.VERSION.SDK_INT >= 19) {

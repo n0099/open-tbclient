@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.offline.api.core.IOfflineHostApi;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class OfflineHostProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,13 +18,13 @@ public class OfflineHostProvider {
     public IOfflineHostApi mOfflineHostApi;
 
     /* renamed from: com.kwad.components.offline.api.OfflineHostProvider$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final OfflineHostProvider sInstance;

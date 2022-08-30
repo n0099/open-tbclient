@@ -5,6 +5,9 @@ import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tieba.fa3;
+import com.baidu.tieba.hk2;
+import com.baidu.tieba.kh1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,9 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ea3;
-import com.repackage.gk2;
-import com.repackage.jh1;
 @Keep
 /* loaded from: classes2.dex */
 public class SwanJSVersionUpdateEvent {
@@ -38,7 +38,7 @@ public class SwanJSVersionUpdateEvent {
                 return;
             }
         }
-        DEBUG = jh1.a;
+        DEBUG = kh1.a;
     }
 
     public SwanJSVersionUpdateEvent() {
@@ -54,7 +54,7 @@ public class SwanJSVersionUpdateEvent {
                 return;
             }
         }
-        SwanCoreVersion g = ea3.g(0);
+        SwanCoreVersion g = fa3.g(0);
         if (g != null) {
             this.mVersionCode = g.swanCoreVersionCode;
             this.mVersionName = g.swanCoreVersionName;
@@ -71,7 +71,7 @@ public class SwanJSVersionUpdateEvent {
             if (swanJSVersionUpdateEvent.mVersionName == null) {
                 return;
             }
-            gk2.N().a(swanJSVersionUpdateEvent);
+            hk2.N().a(swanJSVersionUpdateEvent);
             if (DEBUG) {
                 Log.d(TAG, "send SwanJSVersionUpdateEvent, downVersion:" + j + ", getVersion:" + swanJSVersionUpdateEvent.getVersionName() + "(" + swanJSVersionUpdateEvent.getVersionCode() + SmallTailInfo.EMOTION_SUFFIX);
             }

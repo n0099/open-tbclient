@@ -4,17 +4,17 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tieba.af5;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.tn4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-import com.repackage.rn4;
-import com.repackage.te5;
 import tbclient.ActivityPage.ActivityPageReqIdl;
 import tbclient.ActivityPage.DataReq;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TabFeedListRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOAD_RN = 20;
@@ -55,12 +55,12 @@ public class TabFeedListRequestMessage extends NetMessage {
                 builder.activity_name = this.tabCode;
                 builder.pn = Integer.valueOf(this.pn);
                 builder.rn = 20;
-                builder.scr_h = Integer.valueOf(qi.i(TbadkCoreApplication.getInst()));
-                builder.scr_w = Integer.valueOf(qi.k(TbadkCoreApplication.getInst()));
-                builder.scr_dip = Integer.valueOf((int) qi.h(TbadkCoreApplication.getInst()));
-                builder.q_type = Integer.valueOf(rn4.c().e());
+                builder.scr_h = Integer.valueOf(ri.i(TbadkCoreApplication.getInst()));
+                builder.scr_w = Integer.valueOf(ri.k(TbadkCoreApplication.getInst()));
+                builder.scr_dip = Integer.valueOf((int) ri.h(TbadkCoreApplication.getInst()));
+                builder.q_type = Integer.valueOf(tn4.c().e());
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    te5.a(builder, true);
+                    af5.a(builder, true);
                 }
                 ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
                 builder2.data = builder.build(false);

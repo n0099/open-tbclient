@@ -50,89 +50,89 @@ import com.baidu.tbadk.switchs.PbLoadingViewOptimizeSwitch;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a18;
+import com.baidu.tieba.al5;
+import com.baidu.tieba.az7;
+import com.baidu.tieba.df5;
+import com.baidu.tieba.df6;
+import com.baidu.tieba.ea5;
+import com.baidu.tieba.es8;
+import com.baidu.tieba.ft6;
 import com.baidu.tieba.funAd.http.FunAdRecordHttpMessage;
+import com.baidu.tieba.gt6;
+import com.baidu.tieba.ig0;
+import com.baidu.tieba.jg0;
+import com.baidu.tieba.ju4;
+import com.baidu.tieba.jx7;
+import com.baidu.tieba.ku4;
+import com.baidu.tieba.le8;
+import com.baidu.tieba.mt7;
+import com.baidu.tieba.nx7;
 import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 import com.baidu.tieba.pb.videopb.VideoPbFragment;
 import com.baidu.tieba.pb.videopb.VideoPbViewModel;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.q05;
+import com.baidu.tieba.q45;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.u75;
+import com.baidu.tieba.vv7;
+import com.baidu.tieba.yy7;
+import com.baidu.tieba.z8;
+import com.baidu.tieba.zs6;
+import com.baidu.tieba.zu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bx7;
-import com.repackage.de8;
-import com.repackage.et7;
-import com.repackage.fx7;
-import com.repackage.hg0;
-import com.repackage.hu4;
-import com.repackage.ig0;
-import com.repackage.iu4;
-import com.repackage.k05;
-import com.repackage.k45;
-import com.repackage.nv7;
-import com.repackage.o75;
-import com.repackage.og;
-import com.repackage.pi;
-import com.repackage.qi;
-import com.repackage.qy7;
-import com.repackage.rg;
-import com.repackage.rs6;
-import com.repackage.ru7;
-import com.repackage.s08;
-import com.repackage.sk5;
-import com.repackage.sy7;
-import com.repackage.ve6;
-import com.repackage.vr8;
-import com.repackage.we5;
-import com.repackage.x95;
-import com.repackage.xs6;
-import com.repackage.ys6;
-import com.repackage.z8;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
-public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<PbActivity>, VoiceManager.j, hu4, hg0 {
+/* loaded from: classes5.dex */
+public abstract class AbsPbActivity extends BaseFragmentActivity implements zu7<PbActivity>, VoiceManager.j, ju4, ig0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PbModel a;
     public VideoPbViewModel b;
     public Fragment c;
-    public final qy7 d;
-    public final sy7 e;
+    public final yy7 d;
+    public final az7 e;
     public View f;
     public boolean g;
     public VoiceManager h;
     public boolean i;
     public boolean j;
-    public nv7 k;
-    public fx7 l;
-    public sk5 m;
-    public vr8 n;
+    public vv7 k;
+    public nx7 l;
+    public al5 m;
+    public es8 n;
     @Nullable
     public TiePlusEventController o;
     public boolean p;
-    public rs6.h q;
-    public final ig0 r;
+    public zs6.h q;
+    public final jg0 r;
     public long s;
     public PbModel.h t;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a implements PbModel.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsPbActivity a;
 
         /* renamed from: com.baidu.tieba.pb.pb.main.AbsPbActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class RunnableC0247a implements Runnable {
+        /* loaded from: classes5.dex */
+        public class RunnableC0360a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ a b;
 
-            public RunnableC0247a(a aVar, String str) {
+            public RunnableC0360a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -196,34 +196,34 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), responsedMessage, Boolean.valueOf(z2), Long.valueOf(j)}) == null) {
                 Fragment U0 = this.a.U0();
-                if (U0 instanceof s08) {
-                    s08 s08Var = (s08) U0;
-                    if (s08Var.C0() != null) {
-                        s08Var.C0().a(i, z, responsedMessage, z2, j);
+                if (U0 instanceof a18) {
+                    a18 a18Var = (a18) U0;
+                    if (a18Var.C0() != null) {
+                        a18Var.C0().a(i, z, responsedMessage, z2, j);
                     }
                 }
             }
         }
 
         @Override // com.baidu.tieba.pb.pb.main.PbModel.h
-        public void b(et7 et7Var) {
+        public void b(mt7 mt7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, et7Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mt7Var) == null) {
                 Fragment U0 = this.a.U0();
-                if (U0 instanceof s08) {
-                    s08 s08Var = (s08) U0;
-                    if (s08Var.C0() != null) {
-                        s08Var.C0().b(et7Var);
+                if (U0 instanceof a18) {
+                    a18 a18Var = (a18) U0;
+                    if (a18Var.C0() != null) {
+                        a18Var.C0().b(mt7Var);
                     }
                 }
             }
         }
 
         @Override // com.baidu.tieba.pb.pb.main.PbModel.h
-        public void c(boolean z, int i, int i2, int i3, et7 et7Var, String str, int i4) {
+        public void c(boolean z, int i, int i2, int i3, mt7 mt7Var, String str, int i4) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), et7Var, str, Integer.valueOf(i4)}) == null) {
-                this.a.n1(et7Var);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), mt7Var, str, Integer.valueOf(i4)}) == null) {
+                this.a.n1(mt7Var);
                 this.a.b.y(this.a.a.I1());
                 this.a.b.v(false);
                 if (!PbLoadingViewOptimizeSwitch.isSwitchOn()) {
@@ -231,49 +231,49 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
                     absPbActivity.hideLoadingView(absPbActivity.f);
                 }
                 if (z) {
-                    if (et7Var != null) {
+                    if (mt7Var != null) {
                         AbsPbActivity absPbActivity2 = this.a;
                         absPbActivity2.hideNetRefreshView(absPbActivity2.f);
                     }
                 } else if (!this.a.g && !this.a.a.F2()) {
                     AbsPbActivity absPbActivity3 = this.a;
-                    absPbActivity3.showNetRefreshView(absPbActivity3.f, this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c3c, str, Integer.valueOf(i)), null, null, true, this.a.getNetRefreshListener());
+                    absPbActivity3.showNetRefreshView(absPbActivity3.f, this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c3f, str, Integer.valueOf(i)), null, null, true, this.a.getNetRefreshListener());
                     AbsPbActivity absPbActivity4 = this.a;
-                    absPbActivity4.setNetRefreshViewEmotionMarginTop(qi.f(absPbActivity4.getActivity(), R.dimen.obfuscated_res_0x7f0702aa));
+                    absPbActivity4.setNetRefreshViewEmotionMarginTop(ri.f(absPbActivity4.getActivity(), R.dimen.obfuscated_res_0x7f0702aa));
                 }
                 Fragment U0 = this.a.U0();
                 if (U0 == null) {
                     if (z) {
-                        this.a.b.s(et7Var, 3);
+                        this.a.b.s(mt7Var, 3);
                         PbModel pbModel = this.a.a;
                         if (pbModel != null) {
                             pbModel.cancelLoadData();
-                            this.a.a.P3(et7Var);
+                            this.a.a.P3(mt7Var);
                         }
                         AbsPbActivity absPbActivity5 = this.a;
                         if (absPbActivity5.c == null) {
-                            absPbActivity5.T0(et7Var);
+                            absPbActivity5.T0(mt7Var);
                         }
                     } else if (PbLoadingViewOptimizeSwitch.isSwitchOn()) {
                         AbsPbActivity absPbActivity6 = this.a;
                         absPbActivity6.hideLoadingView(absPbActivity6.f);
                     }
-                } else if (U0 instanceof s08) {
-                    s08 s08Var = (s08) U0;
-                    if (s08Var.C0() != null) {
-                        s08Var.C0().c(z, i, i2, i3, et7Var, str, i4);
+                } else if (U0 instanceof a18) {
+                    a18 a18Var = (a18) U0;
+                    if (a18Var.C0() != null) {
+                        a18Var.C0().c(z, i, i2, i3, mt7Var, str, i4);
                     }
                 }
                 String stringExtra = this.a.getIntent().getStringExtra("key_open_editor_tips");
                 if (TextUtils.isEmpty(stringExtra) || this.a.p) {
                     return;
                 }
-                rg.a().postDelayed(new RunnableC0247a(this, stringExtra), 100L);
+                sg.a().postDelayed(new RunnableC0360a(this, stringExtra), 100L);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -306,7 +306,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getOrginalMessage().getTag() == this.a.getUniqueId()) {
                 PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = (PbPageReadLocalResponseMessage) customResponsedMessage;
-                et7 pbData = pbPageReadLocalResponseMessage.getPbData();
+                mt7 pbData = pbPageReadLocalResponseMessage.getPbData();
                 if (pbData == null) {
                     this.a.g = false;
                     return;
@@ -331,20 +331,20 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class c implements WriteTipBubbleController.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View a;
-        public final /* synthetic */ k45 b;
+        public final /* synthetic */ q45 b;
         public final /* synthetic */ AbsPbActivity c;
 
-        public c(AbsPbActivity absPbActivity, View view2, k45 k45Var) {
+        public c(AbsPbActivity absPbActivity, View view2, q45 q45Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {absPbActivity, view2, k45Var};
+                Object[] objArr = {absPbActivity, view2, q45Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -356,7 +356,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
             }
             this.c = absPbActivity;
             this.a = view2;
-            this.b = k45Var;
+            this.b = q45Var;
         }
 
         @Override // com.baidu.tbadk.core.dialog.WriteTipBubbleController.b
@@ -375,8 +375,8 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class d implements rs6.h {
+    /* loaded from: classes5.dex */
+    public class d implements zs6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsPbActivity a;
@@ -399,7 +399,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
             this.a = absPbActivity;
         }
 
-        @Override // com.repackage.rs6.h
+        @Override // com.baidu.tieba.zs6.h
         public void a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
@@ -415,7 +415,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
             }
         }
 
-        @Override // com.repackage.rs6.h
+        @Override // com.baidu.tieba.zs6.h
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -425,7 +425,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -476,15 +476,15 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
                 return;
             }
         }
-        this.d = new qy7(this);
-        this.e = new sy7(getPageContext());
+        this.d = new yy7(this);
+        this.e = new az7(getPageContext());
         this.i = false;
         this.j = false;
-        this.r = new ig0();
+        this.r = new jg0();
         this.t = new a(this);
     }
 
-    @Override // com.repackage.hu4
+    @Override // com.baidu.tieba.ju4
     public String C0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -498,7 +498,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.ru7
+    @Override // com.baidu.tieba.zu7
     public boolean E(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -509,12 +509,12 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.hg0
+    @Override // com.baidu.tieba.ig0
     @NonNull
-    public ig0 P() {
+    public jg0 P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.r : (ig0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.r : (jg0) invokeV.objValue;
     }
 
     public Fragment S0(String str) {
@@ -529,7 +529,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
         return (Fragment) invokeL.objValue;
     }
 
-    @Override // com.repackage.ru7
+    @Override // com.baidu.tieba.zu7
     public int T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -543,10 +543,10 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
         return invokeV.intValue;
     }
 
-    public final void T0(et7 et7Var) {
+    public final void T0(mt7 mt7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, et7Var) == null) {
-            String Z0 = Z0(et7Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, mt7Var) == null) {
+            String Z0 = Z0(mt7Var);
             FragmentManager supportFragmentManager = getSupportFragmentManager();
             if (supportFragmentManager.findFragmentByTag(Z0) == null) {
                 this.c = S0(Z0);
@@ -576,7 +576,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.s : invokeV.longValue;
     }
 
-    @Override // com.repackage.hu4
+    @Override // com.baidu.tieba.ju4
     public String X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -590,7 +590,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.ru7
+    @Override // com.baidu.tieba.zu7
     public String X0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -604,10 +604,10 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
         return (String) invokeV.objValue;
     }
 
-    public final String Z0(et7 et7Var) {
+    public final String Z0(mt7 mt7Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, et7Var)) == null) ? (et7Var == null || !et7Var.u0()) ? "pb_fragment_tag" : "video_pb_fragment_tag" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, mt7Var)) == null) ? (mt7Var == null || !mt7Var.u0()) ? "pb_fragment_tag" : "video_pb_fragment_tag" : (String) invokeL.objValue;
     }
 
     public abstract int a1();
@@ -625,7 +625,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            we5.b(this.o);
+            df5.b(this.o);
             return this.o;
         }
         return (TiePlusEventController) invokeV.objValue;
@@ -679,20 +679,20 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
-        fx7 fx7Var;
+        nx7 nx7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            if (!TbSingleton.getInstance().isNeedShowInterestGuide() && (fx7Var = this.l) != null) {
-                fx7Var.a(this.a);
+            if (!TbSingleton.getInstance().isNeedShowInterestGuide() && (nx7Var = this.l) != null) {
+                nx7Var.a(this.a);
             }
             Fragment U0 = U0();
-            if (U0 instanceof s08) {
-                ((s08) U0).finish();
+            if (U0 instanceof a18) {
+                ((a18) U0).finish();
             } else {
                 super.finish();
             }
-            nv7 nv7Var = this.k;
-            if (nv7Var == null || nv7Var.b(this.a)) {
+            vv7 vv7Var = this.k;
+            if (vv7Var == null || vv7Var.b(this.a)) {
                 return;
             }
             if (this.i || this.j) {
@@ -705,7 +705,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.u95
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ba5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -730,11 +730,11 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public x95 getPageStayDurationItem() {
+    public ea5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            x95 pageStayDurationItem = super.getPageStayDurationItem();
+            ea5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 PbModel pbModel = this.a;
                 if (pbModel != null) {
@@ -749,13 +749,13 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
                             pageStayDurationItem.t = "3";
                         }
                     }
-                    pageStayDurationItem.C(og.g(this.a.m2(), 0L));
+                    pageStayDurationItem.C(pg.g(this.a.m2(), 0L));
                     if (this.a.S1() != null && this.a.S1().O() != null) {
                         pageStayDurationItem.u(this.a.S1().O().getNid());
                         pageStayDurationItem.B(this.a.S1().O().getThreadType());
                     }
                 }
-                if (!pi.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+                if (!qi.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                     pageStayDurationItem.z(TbadkCoreApplication.getInst().getTaskId());
                 }
                 if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
@@ -781,7 +781,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
             }
             return pageStayDurationItem;
         }
-        return (x95) invokeV.objValue;
+        return (ea5) invokeV.objValue;
     }
 
     public View getRootView() {
@@ -794,13 +794,13 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, bundle) == null) {
             this.b.a(this.a);
-            bx7.b().p(this.a.e1(), this.a.B1());
+            jx7.b().p(this.a.e1(), this.a.B1());
             registerListener(new b(this, 2004003));
             if (!this.a.X2()) {
                 this.a.T2();
             }
             if (this.a.F2()) {
-                et7 c1 = this.a.c1(ve6.a());
+                mt7 c1 = this.a.c1(df6.a());
                 if (c1 != null) {
                     if (this.a.S1() != null) {
                         this.a.S1().N0(c1.O());
@@ -823,7 +823,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
                 showLoadingView(findViewById(R.id.obfuscated_res_0x7f0906bd), true);
                 this.b.v(true);
             }
-            if (qi.D() && !TbadkCoreApplication.getInst().syncHasFinish) {
+            if (ri.D() && !TbadkCoreApplication.getInst().syncHasFinish) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
             }
             l1();
@@ -854,10 +854,10 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
         }
     }
 
-    public final void k1(View view2, k45 k45Var, String str) {
+    public final void k1(View view2, q45 q45Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048605, this, view2, k45Var, str) == null) {
-            new WriteTipBubbleController(getPageContext(), new c(this, view2, k45Var)).d(view2, getString(R.string.obfuscated_res_0x7f0f0cf1), str, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_PB_REPLY);
+        if (interceptable == null || interceptable.invokeLLL(1048605, this, view2, q45Var, str) == null) {
+            new WriteTipBubbleController(getPageContext(), new c(this, view2, q45Var)).d(view2, getString(R.string.obfuscated_res_0x7f0f0cf4), str, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_PB_REPLY);
         }
     }
 
@@ -874,21 +874,21 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
             }
             FunAdRecordHttpMessage.uploadRequestRecord("a005", null, this.a.S1().Q(), this.a.S1().m(), null);
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("tid", this.a.S1().Q()).param("fid", this.a.S1().m()).param("obj_type", "a005").param("obj_param1", "1"));
-            String d2 = xs6.e().d("pb_banner");
-            rs6 m = rs6.m();
+            String d2 = ft6.e().d("pb_banner");
+            zs6 m = zs6.m();
             if (f == null) {
                 f = this;
             }
-            m.x(f, d2, this.q, rs6.b("pb", UbsABTestHelper.isPbPageBannerFunAdSdkTest() ? "1" : "0"));
+            m.x(f, d2, this.q, zs6.b("pb", UbsABTestHelper.isPbPageBannerFunAdSdkTest() ? "1" : "0"));
         }
     }
 
     public final void m1() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && !ys6.f() && UbsABTestHelper.isPbCommentFunAdABTest()) {
-            rs6 m = rs6.m();
-            String f = rs6.f();
-            rs6.g b2 = rs6.b("pb", UbsABTestHelper.isPbPageBannerFunAdSdkTest() ? "1" : "0");
+        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && !gt6.f() && UbsABTestHelper.isPbCommentFunAdABTest()) {
+            zs6 m = zs6.m();
+            String f = zs6.f();
+            zs6.g b2 = zs6.b("pb", UbsABTestHelper.isPbPageBannerFunAdSdkTest() ? "1" : "0");
             PbModel pbModel = this.a;
             String Q = (pbModel == null || pbModel.S1() == null) ? "" : this.a.S1().Q();
             PbModel pbModel2 = this.a;
@@ -896,13 +896,13 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
         }
     }
 
-    public final void n1(et7 et7Var) {
+    public final void n1(mt7 mt7Var) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048608, this, et7Var) == null) || et7Var == null || et7Var.l() == null || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048608, this, mt7Var) == null) || mt7Var == null || mt7Var.l() == null || (intent = getIntent()) == null) {
             return;
         }
-        de8.d().g((Uri) intent.getParcelableExtra(IntentConfig.KEY_URI), et7Var.l().getId());
+        le8.d().g((Uri) intent.getParcelableExtra(IntentConfig.KEY_URI), mt7Var.l().getId());
     }
 
     public void o1(String str) {
@@ -910,7 +910,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
         if (!(interceptable == null || interceptable.invokeL(1048609, this, str) == null) || str == null || this.n == null) {
             return;
         }
-        this.n.n(og.g(str, 0L));
+        this.n.n(pg.g(str, 0L));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -978,10 +978,10 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
             VoiceManager voiceManager = new VoiceManager();
             this.h = voiceManager;
             voiceManager.onCreate(getPageContext());
-            this.k = new nv7(getPageContext());
-            this.l = new fx7(getPageContext());
-            this.m = new sk5(getPageContext(), "client_pb_live");
-            this.n = new vr8(getPageContext(), getUniqueId());
+            this.k = new vv7(getPageContext());
+            this.l = new nx7(getPageContext());
+            this.m = new al5(getPageContext(), "client_pb_live");
+            this.n = new es8(getPageContext(), getUniqueId());
             if (this.o == null) {
                 if (getIntent() == null || ((intExtra = getIntent().getIntExtra(PbCommentFloatActivityConfig.KEY_FROM_VIDEO_PAGE_TYPE, 0)) != 1 && intExtra != 2 && intExtra != 3 && intExtra != 4 && intExtra != 5)) {
                     z = false;
@@ -994,9 +994,9 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
             }
             getLifecycle().addObserver(this.o);
             if (this.a != null) {
-                iu4.d(this.a.m2() + "_onCreate_" + System.currentTimeMillis());
+                ku4.d(this.a.m2() + "_onCreate_" + System.currentTimeMillis());
             }
-            k05.b(false);
+            q05.b(false);
         }
     }
 
@@ -1009,16 +1009,16 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
             if (voiceManager != null) {
                 voiceManager.onDestory(getPageContext());
             }
-            sk5 sk5Var = this.m;
-            if (sk5Var != null) {
-                sk5Var.h();
+            al5 al5Var = this.m;
+            if (al5Var != null) {
+                al5Var.h();
             }
-            vr8 vr8Var = this.n;
-            if (vr8Var != null) {
-                vr8Var.l();
+            es8 es8Var = this.n;
+            if (es8Var != null) {
+                es8Var.l();
             }
             TbPageExtraHelper.setPrePageKey(getCurrentPageKey());
-            o75.i(new PrePageKeyEvent(getCurrentPageKey()));
+            u75.i(new PrePageKeyEvent(getCurrentPageKey()));
             if (this.q != null) {
                 this.q = null;
             }
@@ -1115,7 +1115,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
         if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
             super.onResume();
             if (this.a != null) {
-                bx7.b().p(this.a.e1(), this.a.B1());
+                jx7.b().p(this.a.e1(), this.a.B1());
             }
             VoiceManager voiceManager = this.h;
             if (voiceManager != null) {
@@ -1236,7 +1236,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
         return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.h : (VoiceManager) invokeV.objValue;
     }
 
-    @Override // com.repackage.ru7
+    @Override // com.baidu.tieba.zu7
     public boolean u0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1250,10 +1250,10 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ru7<
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.ru7
-    public qy7 z0() {
+    @Override // com.baidu.tieba.zu7
+    public yy7 z0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.d : (qy7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.d : (yy7) invokeV.objValue;
     }
 }

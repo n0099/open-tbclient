@@ -15,7 +15,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.io.EOFException;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class DefaultExtractorInput implements ExtractorInput {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PEEK_MAX_FREE_SPACE = 524288;

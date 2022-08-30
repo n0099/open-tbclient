@@ -48,6 +48,7 @@ import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
+import com.baidu.tieba.ye1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,7 +57,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-import com.repackage.xe1;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -1055,7 +1055,7 @@ public final class SapiAccountManager implements ISAccountManager {
             return;
         }
         sapiConfiguration2.setAgreeDangerousProtocol(z);
-        xe1.d().i(sapiConfiguration2.context, sapiConfiguration2.isAgreeDangerousProtocol());
+        ye1.d().i(sapiConfiguration2.context, sapiConfiguration2.isAgreeDangerousProtocol());
         sapiConfiguration2.clientIp = SapiUtils.getLocalIpAddress();
         if (sapiConfiguration2.supportFaceLogin) {
             new PassBiometricCall().setFaceModuleAgreeDangerousProtocol(z);

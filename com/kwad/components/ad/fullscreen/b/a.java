@@ -10,7 +10,7 @@ import com.kwad.components.ad.reward.d.i;
 import com.kwad.components.core.video.g;
 import com.kwad.components.core.video.h;
 import com.kwad.components.core.webview.b.a.n;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a extends com.kwad.components.ad.reward.presenter.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -15,7 +15,7 @@ import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.googlecode.mp4parser.authoring.tracks.MP3TrackImpl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class MpegAudioHeader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BITRATE_V1_L1;

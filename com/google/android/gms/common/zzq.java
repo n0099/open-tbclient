@@ -3,6 +3,9 @@ package com.google.android.gms.common;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ln9;
+import com.baidu.tieba.lo9;
+import com.baidu.tieba.mo9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,11 +14,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
-import com.repackage.cn9;
-import com.repackage.co9;
-import com.repackage.do9;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class zzq extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<zzq> CREATOR;
@@ -38,7 +38,7 @@ public final class zzq extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new do9();
+        CREATOR = new mo9();
     }
 
     public zzq(boolean z, String str, int i) {
@@ -58,18 +58,18 @@ public final class zzq extends AbstractSafeParcelable {
         }
         this.zza = z;
         this.zzb = str;
-        this.zzc = co9.a(i) - 1;
+        this.zzc = lo9.a(i) - 1;
     }
 
     @Override // android.os.Parcelable
     public final void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
-            int a = cn9.a(parcel);
-            cn9.c(parcel, 1, this.zza);
-            cn9.k(parcel, 2, this.zzb, false);
-            cn9.g(parcel, 3, this.zzc);
-            cn9.b(parcel, a);
+            int a = ln9.a(parcel);
+            ln9.c(parcel, 1, this.zza);
+            ln9.k(parcel, 2, this.zzb, false);
+            ln9.g(parcel, 3, this.zzc);
+            ln9.b(parcel, a);
         }
     }
 
@@ -89,6 +89,6 @@ public final class zzq extends AbstractSafeParcelable {
     public final int zzc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? co9.a(this.zzc) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? lo9.a(this.zzc) : invokeV.intValue;
     }
 }

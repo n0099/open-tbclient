@@ -32,28 +32,28 @@ import com.baidu.poly.widget.hostmarket.HostMarketView;
 import com.baidu.poly.widget.toast.ToastLoadingView;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tieba.R;
+import com.baidu.tieba.aa1;
+import com.baidu.tieba.fa1;
+import com.baidu.tieba.h81;
+import com.baidu.tieba.i81;
+import com.baidu.tieba.i91;
+import com.baidu.tieba.ia1;
+import com.baidu.tieba.ja1;
+import com.baidu.tieba.ka1;
+import com.baidu.tieba.m91;
+import com.baidu.tieba.n91;
+import com.baidu.tieba.o91;
+import com.baidu.tieba.q81;
+import com.baidu.tieba.r91;
+import com.baidu.tieba.ta1;
+import com.baidu.tieba.x91;
+import com.baidu.tieba.xa1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.CollapsingTextHelper;
-import com.repackage.ea1;
-import com.repackage.g81;
-import com.repackage.h81;
-import com.repackage.h91;
-import com.repackage.ha1;
-import com.repackage.ia1;
-import com.repackage.ja1;
-import com.repackage.l91;
-import com.repackage.m91;
-import com.repackage.n91;
-import com.repackage.p81;
-import com.repackage.q91;
-import com.repackage.sa1;
-import com.repackage.w91;
-import com.repackage.wa1;
-import com.repackage.z91;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -78,11 +78,11 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
     public ToastLoadingView I;
     public Long J;
     public Long K;
-    public ha1 L;
+    public ia1 L;
     public IChannelAuth M;
     public PopupWindow N;
     public String O;
-    public sa1 P;
+    public ta1 P;
     public boolean Q;
     public boolean R;
     public Runnable S;
@@ -100,7 +100,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
     public ViewGroup e;
     public Bundle f;
     public ProgressButton g;
-    public g81.c h;
+    public h81.c h;
     public View i;
     public View j;
     public DigitalBankPayView k;
@@ -153,9 +153,9 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
         }
 
         @Override // com.baidu.poly.widget.coupon.CouponListView.h
-        public void c(sa1.a aVar, ia1 ia1Var) {
+        public void c(ta1.a aVar, ja1 ja1Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, ia1Var) == null) || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, ja1Var) == null) || aVar == null) {
                 return;
             }
             ArrayList arrayList = new ArrayList();
@@ -163,11 +163,11 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
             if (this.a.n != null && this.a.n.getIsSelected() == 1) {
                 arrayList.add(this.a.n.getHostMarketingDetail());
             }
-            this.a.L(arrayList, ia1Var);
+            this.a.L(arrayList, ja1Var);
         }
 
         @Override // com.baidu.poly.widget.coupon.CouponListView.h
-        public void d(boolean z, sa1.a aVar) {
+        public void d(boolean z, ta1.a aVar) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, aVar) == null) || this.a.G == null) {
                 return;
@@ -185,18 +185,18 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
     }
 
     /* loaded from: classes2.dex */
-    public class b implements ia1 {
+    public class b implements ja1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ia1 a;
+        public final /* synthetic */ ja1 a;
         public final /* synthetic */ ChannelListView b;
 
-        public b(ChannelListView channelListView, ia1 ia1Var) {
+        public b(ChannelListView channelListView, ja1 ja1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {channelListView, ia1Var};
+                Object[] objArr = {channelListView, ja1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -207,11 +207,11 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                 }
             }
             this.b = channelListView;
-            this.a = ia1Var;
+            this.a = ja1Var;
         }
 
-        @Override // com.repackage.ia1
-        public void a(ia1.a aVar) {
+        @Override // com.baidu.tieba.ja1
+        public void a(ja1.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 if (aVar.a == 0) {
@@ -228,7 +228,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
     }
 
     /* loaded from: classes2.dex */
-    public class c extends h81<JSONObject> {
+    public class c extends i81<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChannelListView a;
@@ -251,28 +251,28 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
             this.a = channelListView;
         }
 
-        @Override // com.repackage.h81
+        @Override // com.baidu.tieba.i81
         public void b(Throwable th, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) && this.a.o == null) {
                 this.a.n0(str);
                 ChannelListView channelListView = this.a;
-                channelListView.Z(3, this.a.getContext().getString(R.string.obfuscated_res_0x7f0f07af) + str, "0");
+                channelListView.Z(3, this.a.getContext().getString(R.string.obfuscated_res_0x7f0f07b0) + str, "0");
                 this.a.Q();
-                n91 n91Var = new n91("1");
-                n91Var.b(new SdkException("gatewaylist error --> " + str, th).getStackMessage());
-                q91.e(n91Var);
+                o91 o91Var = new o91("1");
+                o91Var.b(new SdkException("gatewaylist error --> " + str, th).getStackMessage());
+                r91.e(o91Var);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.h81
+        @Override // com.baidu.tieba.i81
         /* renamed from: d */
         public void c(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-                z91.g("requestChannelList onSuccess result=" + jSONObject.toString());
-                m91.a("1.04", System.currentTimeMillis());
+                aa1.g("requestChannelList onSuccess result=" + jSONObject.toString());
+                n91.a("1.04", System.currentTimeMillis());
                 Long valueOf = Long.valueOf(jSONObject.optLong("payMoney"));
                 this.a.c0 = jSONObject.optString("isFoldChannel");
                 String optString = jSONObject.optString("showTotalAmount", "1");
@@ -290,17 +290,17 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                     }
                     this.a.o = payChannelEntityArr;
                     JSONArray optJSONArray2 = jSONObject.optJSONArray("coupons");
-                    this.a.P = new sa1(optJSONArray2);
+                    this.a.P = new ta1(optJSONArray2);
                     this.a.D.update(this.a.P);
                     if (this.a.G != null) {
                         this.a.G.update(this.a.P.b);
                     }
-                    z91.g("渲染coupon结束");
+                    aa1.g("渲染coupon结束");
                     JSONArray optJSONArray3 = jSONObject.optJSONArray("marketChannels");
                     if (optJSONArray3 != null && optJSONArray3.length() > 0) {
                         this.a.n = new PayChannelEntity(optJSONArray3.optJSONObject(0));
                     }
-                    z91.g("渲染hostMark结束");
+                    aa1.g("渲染hostMark结束");
                     JSONObject optJSONObject = jSONObject.optJSONObject("guideInfo");
                     if (optJSONObject != null) {
                         this.a.w.setVisibility(0);
@@ -310,19 +310,19 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                         this.a.x.setVisibility(8);
                         this.a.w.setVisibility(8);
                     }
-                    m91.h("7");
+                    n91.h("7");
                     if (this.a.o.length != 1 || this.a.D.getVisibility() != 8 || this.a.n != null || this.a.o[0] == null) {
                         this.a.f0();
                         this.a.V();
-                        z91.g("渲染宿主营销结束");
+                        aa1.g("渲染宿主营销结束");
                         ChannelListView channelListView = this.a;
                         PayChannelEntity[] payChannelEntityArr2 = channelListView.o;
                         channelListView.U(payChannelEntityArr2);
                         channelListView.o = payChannelEntityArr2;
                         this.a.h0();
-                        z91.g("渲染支付渠道结束");
+                        aa1.g("渲染支付渠道结束");
                         this.a.d.a();
-                        z91.g("隐藏loading状态");
+                        aa1.g("隐藏loading状态");
                         this.a.g0();
                         this.a.U = true;
                         this.a.s0();
@@ -335,12 +335,12 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                     tipView.d(loadingIcon, "即将进入" + this.a.o[0].getDisplayName() + CollapsingTextHelper.ELLIPSIS_NORMAL);
                     ChannelListView channelListView2 = this.a;
                     channelListView2.N(channelListView2.o[0]);
-                    z91.g("单渠道支付");
+                    aa1.g("单渠道支付");
                     return;
                 }
-                m91.b("7", null, null);
+                n91.b("7", null, null);
                 b(new ServerDataException("channelList is null"), "request channelList payChannels is null");
-                z91.g("requestChannelList channelList is null");
+                aa1.g("requestChannelList channelList is null");
             }
         }
     }
@@ -451,9 +451,9 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
         }
 
         @Override // com.baidu.poly.widget.hostmarket.HostMarketView.c
-        public void a(boolean z, PayChannelEntity payChannelEntity, ia1 ia1Var) {
+        public void a(boolean z, PayChannelEntity payChannelEntity, ja1 ja1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), payChannelEntity, ia1Var}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), payChannelEntity, ja1Var}) == null) {
                 this.a.c.a(true);
                 ChannelListView channelListView = this.a;
                 channelListView.postDelayed(channelListView.S, 500L);
@@ -467,12 +467,12 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                 if (this.a.D.getSelectedItem() != null) {
                     arrayList.add(this.a.D.getSelectedItem().i);
                 }
-                this.a.L(arrayList, ia1Var);
+                this.a.L(arrayList, ja1Var);
             }
         }
 
         @Override // com.baidu.poly.widget.hostmarket.HostMarketView.c
-        public void b(ia1.a aVar) {
+        public void b(ja1.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
                 this.a.c.a(false);
@@ -648,9 +648,9 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, channelItemView) == null) {
                 if ("BAIDU-ALIPAY-WISE-HUABEI-INSTALLMENT".equals(this.a.getPayChannel())) {
-                    l91.b = "1";
+                    m91.b = "1";
                 }
-                l91.a++;
+                m91.a++;
                 PayChannelEntity[] payChannelEntityArr = this.b.o;
                 int length = payChannelEntityArr.length;
                 for (int i = 0; i < length; i++) {
@@ -744,25 +744,25 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
         X();
     }
 
-    public final void L(List<String> list, ia1 ia1Var) {
+    public final void L(List<String> list, ja1 ja1Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, list, ia1Var) == null) || ia1Var == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, list, ja1Var) == null) || ja1Var == null) {
             return;
         }
         String string = this.f.getString("bduss");
         String string2 = this.f.getString("appKey");
-        ja1.b(string, string2, this.K + "", list, new b(this, ia1Var));
+        ka1.b(string, string2, this.K + "", list, new b(this, ja1Var));
     }
 
-    public void M(ea1 ea1Var) {
+    public void M(fa1 fa1Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ea1Var) == null) || ea1Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fa1Var) == null) || fa1Var == null) {
             return;
         }
-        m91.f(System.currentTimeMillis());
-        ha1 ha1Var = this.L;
-        if (ha1Var != null) {
-            ha1Var.m(ea1Var.a, ea1Var.b, ea1Var.c, this, this.c0);
+        n91.f(System.currentTimeMillis());
+        ia1 ia1Var = this.L;
+        if (ia1Var != null) {
+            ia1Var.m(fa1Var.a, fa1Var.b, fa1Var.c, this, this.c0);
         }
     }
 
@@ -771,7 +771,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, payChannelEntity) == null) || payChannelEntity == null) {
             return;
         }
-        m91.f(System.currentTimeMillis());
+        n91.f(System.currentTimeMillis());
         JSONArray jSONArray = new JSONArray();
         try {
             if (this.n != null && this.n.getIsSelected() == 1 && !TextUtils.isEmpty(this.n.getHostMarketingDetail())) {
@@ -820,7 +820,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
             intent.putExtra("key_app_key", str2);
             intent.putExtra("key_pay_channel", payChannel);
             intent.putExtra("key_auth_channel", this.M);
-            intent.putExtra("key_invoker_task_id", h91.a().b());
+            intent.putExtra("key_invoker_task_id", i91.a().b());
             PolyActivity.g.startActivity(intent);
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -833,14 +833,14 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
             PopupWindow popupWindow = this.N;
             boolean z = ((popupWindow != null && popupWindow.r()) || this.r || this.q) ? false : true;
             if ((!TextUtils.isEmpty(this.O) && (TextUtils.equals(this.O, "BAIDU-ALIPAY-WISE") || TextUtils.equals(this.O, "BAIDU-ALIPAY-WISE-HUABEI-PAY"))) || this.R) {
-                z91.g("ChannelListView->confirmViewClose() ali pay channel");
+                aa1.g("ChannelListView->confirmViewClose() ali pay channel");
                 z &= this.Q;
             }
-            z91.g("ChannelListView->confirmViewClose() canFinishActivity = " + z);
+            aa1.g("ChannelListView->confirmViewClose() canFinishActivity = " + z);
             if (!z || this.t == null) {
                 return;
             }
-            z91.g("ChannelListView->confirmViewClose() finish activity");
+            aa1.g("ChannelListView->confirmViewClose() finish activity");
             this.t.onClose();
             this.t = null;
         }
@@ -866,12 +866,12 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
     public void S(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-            z91.g("ChannelListView->errorEnd()");
+            aa1.g("ChannelListView->errorEnd()");
             W();
             if (!TextUtils.isEmpty(str2)) {
                 n0(str2);
             } else {
-                n0(getResources().getString(R.string.obfuscated_res_0x7f0f0ec9));
+                n0(getResources().getString(R.string.obfuscated_res_0x7f0f0ecc));
             }
             Z(3, str, "0");
             setIsPreparePaying(false);
@@ -921,7 +921,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
     public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            wa1.b(this.I);
+            xa1.b(this.I);
             this.I = null;
         }
     }
@@ -931,37 +931,37 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             this.u = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01012a);
             this.v = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01012c);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08c4, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08c6, this);
             this.a = findViewById(R.id.obfuscated_res_0x7f09037f);
             this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0905ea);
-            this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f0919f0);
-            this.E = findViewById(R.id.obfuscated_res_0x7f091783);
+            this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f0919f2);
+            this.E = findViewById(R.id.obfuscated_res_0x7f091785);
             this.F = findViewById(R.id.obfuscated_res_0x7f0905e1);
-            this.d = (TipView) findViewById(R.id.obfuscated_res_0x7f0921b6);
+            this.d = (TipView) findViewById(R.id.obfuscated_res_0x7f0921bf);
             this.e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0905e2);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091784);
-            DigitalBankPayView digitalBankPayView = (DigitalBankPayView) findViewById(R.id.obfuscated_res_0x7f0919d3);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091786);
+            DigitalBankPayView digitalBankPayView = (DigitalBankPayView) findViewById(R.id.obfuscated_res_0x7f0919d5);
             this.k = digitalBankPayView;
             digitalBankPayView.setOptionListener(this);
-            this.l = (DigitalWalletVerifyView) findViewById(R.id.obfuscated_res_0x7f0919d4);
-            this.g = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f091781);
+            this.l = (DigitalWalletVerifyView) findViewById(R.id.obfuscated_res_0x7f0919d6);
+            this.g = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f091783);
             View findViewById = findViewById(R.id.obfuscated_res_0x7f09064d);
             this.i = findViewById;
             findViewById.setOnClickListener(this);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0919d1);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0919d3);
             this.j = findViewById2;
             findViewById2.setOnClickListener(this);
             this.g.setOnClickListener(this);
-            this.w = (DuVipGuideView) findViewById(R.id.obfuscated_res_0x7f092582);
-            this.x = findViewById(R.id.obfuscated_res_0x7f09254a);
-            this.y = (HostMarketView) findViewById(R.id.obfuscated_res_0x7f090dab);
+            this.w = (DuVipGuideView) findViewById(R.id.obfuscated_res_0x7f09258c);
+            this.x = findViewById(R.id.obfuscated_res_0x7f092554);
+            this.y = (HostMarketView) findViewById(R.id.obfuscated_res_0x7f090dac);
             CouponEntranceView couponEntranceView = (CouponEntranceView) findViewById(R.id.obfuscated_res_0x7f0906f4);
             this.D = couponEntranceView;
             couponEntranceView.setOnClickListener(this);
-            this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f09151e);
-            this.A = (TextView) findViewById(R.id.obfuscated_res_0x7f090749);
-            this.B = findViewById(R.id.obfuscated_res_0x7f09256b);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f092373);
+            this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f091520);
+            this.A = (TextView) findViewById(R.id.obfuscated_res_0x7f09074a);
+            this.B = findViewById(R.id.obfuscated_res_0x7f092575);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f09237c);
             this.C = findViewById3;
             findViewById3.setOnClickListener(this);
         }
@@ -997,7 +997,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                 return true;
             } else {
                 if (this.q) {
-                    Z(2, w91.a(2, null, "key_back_cancel"), "0");
+                    Z(2, x91.a(2, null, "key_back_cancel"), "0");
                     Q();
                     return true;
                 }
@@ -1010,16 +1010,16 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
     public void Z(int i2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048590, this, i2, str, str2) == null) {
-            z91.g("ChannelListView->onResult() statusCode = " + i2 + " result = " + str);
+            aa1.g("ChannelListView->onResult() statusCode = " + i2 + " result = " + str);
             this.Q = true;
-            g81.c cVar = this.h;
+            h81.c cVar = this.h;
             if (cVar != null) {
                 cVar.a(i2, str);
                 this.h = null;
             }
-            q91.j(i2, str, str2);
+            r91.j(i2, str, str2);
             if (((PolyActivity) getContext()).isFinishing()) {
-                q91.f();
+                r91.f();
             }
             P();
         }
@@ -1028,16 +1028,16 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
     @Override // com.baidu.poly.widget.digitalbank.DigitalBankPayView.b
     public void a(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048591, this, i2) == null) && R.id.obfuscated_res_0x7f0919d2 == i2) {
+        if ((interceptable == null || interceptable.invokeI(1048591, this, i2) == null) && R.id.obfuscated_res_0x7f0919d4 == i2) {
             N(this.k.getSelectedChildrenEntity());
         }
     }
 
     public final void a0() {
-        sa1 sa1Var;
-        List<sa1.a> list;
+        ta1 ta1Var;
+        List<ta1.a> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (sa1Var = this.P) == null || (list = sa1Var.b) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (ta1Var = this.P) == null || (list = ta1Var.b) == null || list.size() <= 0) {
             return;
         }
         CouponListView couponListView = new CouponListView(getContext());
@@ -1051,7 +1051,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
     public void b0(int i2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048593, this, i2, str, str2) == null) {
-            z91.g("ChannelListView->payEnd()");
+            aa1.g("ChannelListView->payEnd()");
             Z(i2, str, str2);
             setIsPreparePaying(false);
         }
@@ -1158,10 +1158,10 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
         return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.p : (PayChannelEntity) invokeV.objValue;
     }
 
-    public ha1 getWalletList() {
+    public ia1 getWalletList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.L : (ha1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.L : (ia1) invokeV.objValue;
     }
 
     public final void h0() {
@@ -1184,9 +1184,9 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                                 jSONObject.put("hbit", "1");
                             } catch (JSONException unused) {
                             }
-                            n91 n91Var = new n91("9");
-                            n91Var.c(jSONObject);
-                            q91.e(n91Var);
+                            o91 o91Var = new o91("9");
+                            o91Var.c(jSONObject);
+                            r91.e(o91Var);
                         }
                         this.e.addView(channelItemView);
                     }
@@ -1198,9 +1198,9 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
     public final void i0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            z91.g("requestChannelList start");
-            m91.a("1.01", System.currentTimeMillis());
-            p81.j().e(this.f, new c(this));
+            aa1.g("requestChannelList start");
+            n91.a("1.01", System.currentTimeMillis());
+            q81.j().e(this.f, new c(this));
         }
     }
 
@@ -1216,7 +1216,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                         this.K = Long.valueOf(Long.parseLong(string));
                     }
                 } catch (Exception unused) {
-                    z91.g("totalAmount is not long");
+                    aa1.g("totalAmount is not long");
                 }
             }
             this.f = bundle;
@@ -1241,7 +1241,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                 this.q = true;
                 if (getContext() instanceof Activity) {
                     this.d.c("收银台加载中...");
-                    z91.g("ChannelListView->attach()");
+                    aa1.g("ChannelListView->attach()");
                     m0();
                 } else {
                     throw new IllegalStateException("can not attach to context " + getContext());
@@ -1270,18 +1270,18 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f0ec9);
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f0ecc);
             }
             if (this.N == null) {
-                View inflate = View.inflate(this.e.getContext(), R.layout.obfuscated_res_0x7f0d020a, null);
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919ef)).setText(EventAlias.PayEventAlias.PAY_FAIL);
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919ee)).setText(str.trim());
+                View inflate = View.inflate(this.e.getContext(), R.layout.obfuscated_res_0x7f0d020b, null);
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919f1)).setText(EventAlias.PayEventAlias.PAY_FAIL);
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919f0)).setText(str.trim());
                 PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
                 this.N = popupWindow;
                 popupWindow.w(false);
                 this.N.B(false);
                 this.N.v(new ColorDrawable(0));
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919e9)).setOnClickListener(new i(this));
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919eb)).setOnClickListener(new i(this));
                 this.N.A(new j(this));
             }
             PolyActivity polyActivity = (PolyActivity) getContext();
@@ -1297,7 +1297,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            this.I = wa1.c(this.c, layoutParams, "加载中", -1L);
+            this.I = xa1.c(this.c, layoutParams, "加载中", -1L);
         }
     }
 
@@ -1313,16 +1313,16 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                     jSONObject.put("default", this.V);
                     jSONObject.put("selected", this.W);
                     this.W = "";
-                    jSONObject.put("selects", l91.a);
-                    l91.a = 0;
-                    jSONObject.put("hbit", l91.b);
-                    l91.b = "0";
+                    jSONObject.put("selects", m91.a);
+                    m91.a = 0;
+                    jSONObject.put("hbit", m91.b);
+                    m91.b = "0";
                 } catch (JSONException unused) {
                 }
-                n91 n91Var = new n91("6");
-                n91Var.c(jSONObject);
-                q91.e(n91Var);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091781) {
+                o91 o91Var = new o91("6");
+                o91Var.c(jSONObject);
+                r91.e(o91Var);
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091783) {
                 if (this.s == 0) {
                     return;
                 }
@@ -1367,10 +1367,10 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                 }
             } else if (view2.getId() == R.id.obfuscated_res_0x7f0906f4) {
                 a0();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092373) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09237c) {
                 this.b0 = true;
                 h0();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0919d1) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0919d3) {
                 this.k.a();
                 this.m.setText("支付");
                 this.j.setVisibility(8);
@@ -1395,10 +1395,10 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
             if (this.L != null) {
                 this.r = true;
                 this.Q = false;
-                m91.f(System.currentTimeMillis());
+                n91.f(System.currentTimeMillis());
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 17;
-                this.I = wa1.c(this, layoutParams, getResources().getString(R.string.obfuscated_res_0x7f0f0eca), -1L);
+                this.I = xa1.c(this, layoutParams, getResources().getString(R.string.obfuscated_res_0x7f0f0ecd), -1L);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(DI.PAY_CHANNEL, str);
@@ -1418,22 +1418,22 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                 jSONObject.put("default", this.V);
                 jSONObject.put("selected", this.W);
                 this.W = "";
-                jSONObject.put("selects", l91.a);
-                l91.a = 0;
-                jSONObject.put("hbit", l91.b);
-                l91.b = "0";
+                jSONObject.put("selects", m91.a);
+                m91.a = 0;
+                jSONObject.put("hbit", m91.b);
+                m91.b = "0";
             } catch (JSONException unused) {
             }
-            n91 n91Var = new n91("5");
-            n91Var.c(jSONObject);
-            q91.e(n91Var);
+            o91 o91Var = new o91("5");
+            o91Var.c(jSONObject);
+            r91.e(o91Var);
         }
     }
 
     public final void s0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048614, this) == null) && this.T && this.U) {
-            m91.e();
+            n91.e();
         }
     }
 
@@ -1460,17 +1460,17 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
         }
     }
 
-    public void setResultListener(g81.c cVar) {
+    public void setResultListener(h81.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, cVar) == null) {
             this.h = cVar;
         }
     }
 
-    public void setWalletList(ha1 ha1Var) {
+    public void setWalletList(ia1 ia1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, ha1Var) == null) {
-            this.L = ha1Var;
+        if (interceptable == null || interceptable.invokeL(1048619, this, ia1Var) == null) {
+            this.L = ia1Var;
         }
     }
 

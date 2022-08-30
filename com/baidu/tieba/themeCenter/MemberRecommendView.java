@@ -18,14 +18,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.i9;
+import com.baidu.tieba.pr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gr8;
-import com.repackage.h9;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MemberRecommendView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,10 +34,10 @@ public class MemberRecommendView extends FrameLayout {
     public TbImageView c;
     public TextView d;
     public TextView e;
-    public gr8 f;
+    public pr8 f;
     public int g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class MemberRecommendView extends FrameLayout {
                         str = "";
                         break;
                 }
-                if (this.a.f == null || (tbPageContext = (TbPageContext) h9.a(this.a.a)) == null) {
+                if (this.a.f == null || (tbPageContext = (TbPageContext) i9.a(this.a.a)) == null) {
                     return;
                 }
                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i);
@@ -156,13 +156,13 @@ public class MemberRecommendView extends FrameLayout {
         }
     }
 
-    public void e(gr8 gr8Var) {
+    public void e(pr8 pr8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gr8Var) == null) || gr8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pr8Var) == null) || pr8Var == null) {
             return;
         }
-        this.f = gr8Var;
-        this.c.K(gr8Var.b(), 10, false);
+        this.f = pr8Var;
+        this.c.K(pr8Var.b(), 10, false);
         this.d.setText(this.f.c());
         if (StringUtils.isNull(this.f.a())) {
             this.e.setVisibility(8);
@@ -175,15 +175,15 @@ public class MemberRecommendView extends FrameLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0562, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0564, this);
             this.b = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092585);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09258f);
             this.c = tbImageView;
             tbImageView.setDefaultResource(R.drawable.icon_vip_orange);
-            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081210);
+            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081211);
             this.c.setAutoChangeStyle(true);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921ec);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091014);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921f5);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091016);
             this.e = textView;
             textView.setOnClickListener(new a(this));
         }

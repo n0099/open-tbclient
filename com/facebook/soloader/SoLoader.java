@@ -39,7 +39,7 @@ import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.NotThreadSafe;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SoLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -81,7 +81,7 @@ public class SoLoader {
 
     @DoNotOptimize
     @TargetApi(14)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Api14Utils {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +119,7 @@ public class SoLoader {
     }
 
     @NotThreadSafe
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class TestOnlyUtils {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,7 +171,7 @@ public class SoLoader {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class WrongAbiError extends UnsatisfiedLinkError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

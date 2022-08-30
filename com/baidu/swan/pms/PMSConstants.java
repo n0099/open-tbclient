@@ -1,5 +1,6 @@
 package com.baidu.swan.pms;
 
+import com.baidu.tieba.h84;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g84;
 /* loaded from: classes3.dex */
 public class PMSConstants {
     public static /* synthetic */ Interceptable $ic;
@@ -217,9 +217,9 @@ public class PMSConstants {
         }
     }
 
-    public static boolean a(g84 g84Var) {
+    public static boolean a(h84 h84Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, g84Var)) == null) ? g84Var != null && g84Var.x() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, h84Var)) == null) ? h84Var != null && h84Var.x() : invokeL.booleanValue;
     }
 }

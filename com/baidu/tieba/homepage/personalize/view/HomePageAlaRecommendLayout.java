@@ -17,17 +17,17 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b16;
 import com.baidu.tieba.homepage.personalize.adapter.AlaRecommendListAdapter;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-import com.repackage.t06;
 import java.util.List;
 import tbclient.AlaLiveInfo;
 import tbclient.AlaUserInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HomePageAlaRecommendLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
     public String f;
     public CustomMessageListener g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +110,7 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d038d, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d038e, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             this.c = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090225);
@@ -120,10 +120,10 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
             this.c.setClipChildren(false);
             this.c.setLayoutManager(new LinearLayoutManager(this.a, 0, false));
             this.c.setItemAnimator(new DefaultItemAnimator());
-            int f = qi.f(this.a, R.dimen.M_W_X006);
-            this.c.addItemDecoration(new CommonSpaceItemDecoration(f, qi.f(this.a, R.dimen.M_W_X004), f));
+            int f = ri.f(this.a, R.dimen.M_W_X006);
+            this.c.addItemDecoration(new CommonSpaceItemDecoration(f, ri.f(this.a, R.dimen.M_W_X004), f));
             BdRecyclerView bdRecyclerView = this.c;
-            bdRecyclerView.setPadding(bdRecyclerView.getPaddingLeft(), qi.f(this.c.getContext(), R.dimen.tbds25), this.c.getPaddingRight(), qi.f(this.c.getContext(), R.dimen.M_H_X005));
+            bdRecyclerView.setPadding(bdRecyclerView.getPaddingLeft(), ri.f(this.c.getContext(), R.dimen.tbds25), this.c.getPaddingRight(), ri.f(this.c.getContext(), R.dimen.M_H_X005));
         }
     }
 
@@ -166,12 +166,12 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
         }
     }
 
-    public void setData(t06 t06Var) {
+    public void setData(b16 b16Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, t06Var) == null) {
-            if (t06Var != null && !ListUtils.isEmpty(t06Var.c())) {
-                this.e = t06Var.c();
-                this.f = t06Var.f();
+        if (interceptable == null || interceptable.invokeL(1048581, this, b16Var) == null) {
+            if (b16Var != null && !ListUtils.isEmpty(b16Var.c())) {
+                this.e = b16Var.c();
+                this.f = b16Var.f();
                 setVisibility(0);
                 d();
                 return;

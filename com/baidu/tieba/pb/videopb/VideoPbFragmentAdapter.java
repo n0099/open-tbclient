@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,10 +47,10 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
         }
         this.a.clear();
         if (absVideoPbFragment.A4()) {
-            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0df6));
-            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0dfe));
+            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0df9));
+            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e01));
         } else {
-            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0dfe));
+            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e01));
         }
         if (this.b == null) {
             this.b = new ArrayList<>();

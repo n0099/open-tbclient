@@ -15,30 +15,30 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.ft8;
+import com.baidu.tieba.lu8;
+import com.baidu.tieba.mu8;
+import com.baidu.tieba.pi;
 import com.baidu.tieba.video.editvideo.data.MusicData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cu8;
-import com.repackage.d9;
-import com.repackage.du8;
-import com.repackage.oi;
-import com.repackage.ws8;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SelectMusicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ws8 a;
+    public ft8 a;
     public TbPageContext b;
     public final HttpMessageListener c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class VideoSugMusicResponseMessage extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,8 +92,8 @@ public class SelectMusicModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class a extends BdAsyncTask<Void, Integer, du8> {
+    /* loaded from: classes6.dex */
+    public class a extends BdAsyncTask<Void, Integer, mu8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -127,27 +127,27 @@ public class SelectMusicModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public du8 doInBackground(Void... voidArr) {
+        public mu8 doInBackground(Void... voidArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 if (TextUtils.isEmpty(this.a) && !this.b) {
-                    return cu8.e().g(this.c, this.d);
+                    return lu8.e().g(this.c, this.d);
                 }
-                return cu8.e().h(this.c, this.a, this.d, this.b);
+                return lu8.e().h(this.c, this.a, this.d, this.b);
             }
-            return (du8) invokeL.objValue;
+            return (mu8) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(du8 du8Var) {
+        public void onPostExecute(mu8 mu8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, du8Var) == null) {
-                super.onPostExecute(du8Var);
-                if (du8Var == null || du8Var.a != 0) {
-                    this.e.a.q1(null, du8Var.a, du8Var.b);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mu8Var) == null) {
+                super.onPostExecute(mu8Var);
+                if (mu8Var == null || mu8Var.a != 0) {
+                    this.e.a.q1(null, mu8Var.a, mu8Var.b);
                 } else {
                     this.e.a.q1(this.d, -4399, "");
                 }
@@ -155,7 +155,7 @@ public class SelectMusicModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -197,13 +197,13 @@ public class SelectMusicModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectMusicModel(TbPageContext tbPageContext, ws8 ws8Var) {
+    public SelectMusicModel(TbPageContext tbPageContext, ft8 ft8Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ws8Var};
+            Object[] objArr = {tbPageContext, ft8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -216,7 +216,7 @@ public class SelectMusicModel extends BdBaseModel {
         }
         this.c = new b(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
         this.b = tbPageContext;
-        this.a = ws8Var;
+        this.a = ft8Var;
         B();
         this.c.setTag(getUniqueId());
         this.c.setSelfListener(true);
@@ -226,8 +226,8 @@ public class SelectMusicModel extends BdBaseModel {
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!oi.z()) {
-                this.b.showToast(R.string.obfuscated_res_0x7f0f0c75);
+            if (!pi.z()) {
+                this.b.showToast(R.string.obfuscated_res_0x7f0f0c78);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC));
             }

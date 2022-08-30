@@ -83,7 +83,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 @ViewPager.DecorView
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class TabLayout extends HorizontalScrollView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIMATION_DURATION = 300;
@@ -166,7 +166,7 @@ public class TabLayout extends HorizontalScrollView {
     @Nullable
     public ViewPager viewPager;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class AdapterChangeListener implements ViewPager.OnAdapterChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -211,7 +211,7 @@ public class TabLayout extends HorizontalScrollView {
     }
 
     @Deprecated
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface BaseOnTabSelectedListener<T extends Tab> {
         void onTabReselected(T t);
 
@@ -220,21 +220,21 @@ public class TabLayout extends HorizontalScrollView {
         void onTabUnselected(T t);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public @interface LabelVisibility {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public @interface Mode {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OnTabSelectedListener extends BaseOnTabSelectedListener<Tab> {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class PagerAdapterObserver extends DataSetObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -275,7 +275,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class SlidingTabIndicator extends LinearLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -688,17 +688,17 @@ public class TabLayout extends HorizontalScrollView {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public @interface TabGravity {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public @interface TabIndicatorGravity {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class TabLayoutOnPageChangeListener implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -765,7 +765,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public final class TabView extends LinearLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -978,7 +978,7 @@ public class TabLayout extends HorizontalScrollView {
                 } else {
                     frameLayout = this;
                 }
-                ImageView imageView = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0213, (ViewGroup) frameLayout, false);
+                ImageView imageView = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0214, (ViewGroup) frameLayout, false);
                 this.iconView = imageView;
                 frameLayout.addView(imageView, 0);
             }
@@ -996,7 +996,7 @@ public class TabLayout extends HorizontalScrollView {
                 } else {
                     frameLayout = this;
                 }
-                TextView textView = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0214, (ViewGroup) frameLayout, false);
+                TextView textView = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0215, (ViewGroup) frameLayout, false);
                 this.textView = textView;
                 frameLayout.addView(textView);
             }
@@ -1403,7 +1403,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class ViewPagerOnTabSelectedListener implements OnTabSelectedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2416,7 +2416,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Tab {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int INVALID_POSITION = -1;

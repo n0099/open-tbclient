@@ -32,7 +32,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(11)
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class DefaultDecoder implements PlatformDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DECODE_BUFFER_SIZE = 16384;

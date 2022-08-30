@@ -10,33 +10,33 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bb;
+import com.baidu.tieba.d9;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileRequestMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab;
-import com.repackage.d9;
-import com.repackage.og;
-import com.repackage.oi;
 import tbclient.AlaUserInfo;
 import tbclient.BirthdayInfo;
 import tbclient.BusinessAccountInfo;
 import tbclient.Profile.NicknameInfo;
 import tbclient.User;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonChangeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PersonChangeData a;
     public b b;
-    public ab c;
+    public bb c;
 
-    /* loaded from: classes4.dex */
-    public class a extends ab {
+    /* loaded from: classes5.dex */
+    public class a extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonChangeModel a;
@@ -63,7 +63,7 @@ public class PersonChangeModel extends BdBaseModel {
             this.a = personChangeModel;
         }
 
-        @Override // com.repackage.ab
+        @Override // com.baidu.tieba.bb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
@@ -92,7 +92,7 @@ public class PersonChangeModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(String str);
 
@@ -214,14 +214,14 @@ public class PersonChangeModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!oi.A()) {
-                this.b.a(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c3d));
+            if (!pi.A()) {
+                this.b.a(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c40));
                 return false;
             } else if (TbadkCoreApplication.getCurrentAccount() == null) {
                 return false;
             } else {
                 ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
-                profileRequestMessage.set_uid(Long.valueOf(og.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
+                profileRequestMessage.set_uid(Long.valueOf(pg.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
                 profileRequestMessage.set_pn(1);
                 profileRequestMessage.set_rn(1);
                 profileRequestMessage.set_has_plist(1);

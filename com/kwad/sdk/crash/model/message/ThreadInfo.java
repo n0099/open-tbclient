@@ -5,7 +5,7 @@ import com.kwad.sdk.core.b;
 import com.kwad.sdk.utils.r;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ThreadInfo implements b, Serializable {
     public static final long serialVersionUID = -1743841938230203418L;
     public int mIndex;

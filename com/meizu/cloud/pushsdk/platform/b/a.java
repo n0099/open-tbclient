@@ -7,7 +7,7 @@ import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class a extends c {
     public int[] a;
     public int b;

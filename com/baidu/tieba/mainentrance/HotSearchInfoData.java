@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.HotForum.HotSearch;
 import tbclient.HotForum.SearchValue;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class HotSearchInfoData extends OrmObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DIRECT_SEARCH_TYPE = 2;

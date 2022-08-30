@@ -9,6 +9,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
+import com.baidu.tieba.y06;
+import com.baidu.tieba.z06;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,8 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q06;
-import com.repackage.r06;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -122,17 +122,17 @@ public class RecommendTopicData {
             return invokeV.intValue;
         }
 
-        public q06 getConvertedCardData() {
+        public y06 getConvertedCardData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                q06 q06Var = new q06();
-                q06Var.c = this.tag;
-                q06Var.a = this.topicId;
-                q06Var.b = this.topicName;
-                return q06Var;
+                y06 y06Var = new y06();
+                y06Var.c = this.tag;
+                y06Var.a = this.topicId;
+                y06Var.b = this.topicName;
+                return y06Var;
             }
-            return (q06) invokeV.objValue;
+            return (y06) invokeV.objValue;
         }
 
         public long getDiscussNum() {
@@ -260,13 +260,13 @@ public class RecommendTopicData {
         this.b = new ArrayList();
     }
 
-    public r06 a() {
+    public z06 a() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            r06 r06Var = new r06();
-            r06Var.c = b();
+            z06 z06Var = new z06();
+            z06Var.c = b();
             if (this.b != null) {
                 arrayList = new ArrayList();
                 for (RecommendTopicListData recommendTopicListData : this.b) {
@@ -277,10 +277,10 @@ public class RecommendTopicData {
             } else {
                 arrayList = null;
             }
-            r06Var.d = arrayList;
-            return r06Var;
+            z06Var.d = arrayList;
+            return z06Var;
         }
-        return (r06) invokeV.objValue;
+        return (z06) invokeV.objValue;
     }
 
     public String b() {
@@ -288,7 +288,7 @@ public class RecommendTopicData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (StringUtils.isNull(this.a)) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0876);
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0879);
             }
             return this.a;
         }

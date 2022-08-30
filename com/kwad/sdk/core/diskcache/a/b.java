@@ -3,14 +3,14 @@ package com.kwad.sdk.core.diskcache.a;
 import android.content.Context;
 import com.kwad.sdk.utils.am;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public Context WF;
     public File Wa;
     public int We;
     public long maxSize;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public Context WF;
         public File Wa;

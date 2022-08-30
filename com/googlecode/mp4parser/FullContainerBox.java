@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.logging.Logger;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class FullContainerBox extends AbstractContainerBox implements FullBox {
     public static /* synthetic */ Interceptable $ic;
     public static Logger LOG;

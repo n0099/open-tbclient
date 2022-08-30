@@ -35,11 +35,39 @@ import com.baidu.tbadk.data.LevePopData;
 import com.baidu.tbadk.data.UserGrowthTaskListData;
 import com.baidu.tbadk.switchs.PbPreloadSwitch;
 import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.by4;
+import com.baidu.tieba.bz4;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
+import com.baidu.tieba.ez4;
 import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
+import com.baidu.tieba.fz4;
+import com.baidu.tieba.h98;
+import com.baidu.tieba.hb8;
+import com.baidu.tieba.hz4;
+import com.baidu.tieba.i15;
+import com.baidu.tieba.l15;
+import com.baidu.tieba.ly4;
+import com.baidu.tieba.m15;
+import com.baidu.tieba.my4;
+import com.baidu.tieba.nq4;
+import com.baidu.tieba.o15;
+import com.baidu.tieba.q39;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.qy4;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.sx4;
 import com.baidu.tieba.tbadkCore.util.MercatorModel;
+import com.baidu.tieba.tu4;
+import com.baidu.tieba.tx4;
+import com.baidu.tieba.ux4;
+import com.baidu.tieba.uz4;
 import com.baidu.tieba.wallet.YYLiveConfig;
+import com.baidu.tieba.wy4;
+import com.baidu.tieba.yy4;
+import com.baidu.tieba.yz4;
+import com.baidu.tieba.zl4;
+import com.baidu.tieba.zy4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,34 +75,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bz4;
-import com.repackage.c15;
-import com.repackage.cz4;
-import com.repackage.ez4;
-import com.repackage.f15;
-import com.repackage.g15;
-import com.repackage.h39;
-import com.repackage.i15;
-import com.repackage.iy4;
-import com.repackage.jy4;
-import com.repackage.lq4;
-import com.repackage.ny4;
-import com.repackage.pi;
-import com.repackage.px4;
-import com.repackage.qx4;
-import com.repackage.qz4;
-import com.repackage.rg;
-import com.repackage.ru4;
-import com.repackage.rx4;
-import com.repackage.ty4;
-import com.repackage.tz4;
-import com.repackage.vy4;
-import com.repackage.wy4;
-import com.repackage.yl4;
-import com.repackage.yx4;
-import com.repackage.yy4;
-import com.repackage.z88;
-import com.repackage.za8;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -95,6 +95,7 @@ public final class TbSingleton {
     public static final int PB_SUB_COMMENT_NUMBER = 4;
     public static final String TEMP_STRING_KEY_INTEREST_FORUM = "interest_forum";
     public static final int VIDEO_TAB_PB_SUB_COMMENT_NUMBER = 2;
+    public static boolean isExceptInsertAdDiaShow = false;
     public static int loginFrom = -1;
     public static TbSingleton mInstance;
     public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +103,7 @@ public final class TbSingleton {
     public PkgNameAndNodeInfoData acceleratorData;
     public long acceleratorItemId;
     public long activeTimeStamp;
-    public px4 adFloatViewData;
+    public sx4 adFloatViewData;
     public long appFirstInstallTime;
     public long appLastUpdateTime;
     public String baiduIdForAnti;
@@ -118,7 +119,7 @@ public final class TbSingleton {
     public boolean hasPerformInterestPanelShow;
     public boolean hasPerformedFirstLoginTest;
     public boolean hasShowPermDlg;
-    public jy4 homepageInterestConfigData;
+    public my4 homepageInterestConfigData;
     public IconPopData iconPopData;
     public String invokeSource;
     public boolean isAddBanner;
@@ -126,7 +127,6 @@ public final class TbSingleton {
     public boolean isBusinessAccount;
     public boolean isCanShowHotSplash;
     public boolean isDanmuSwitchOpen;
-    public boolean isExceptInsertAdDiaShow;
     public boolean isInFrs;
     public boolean isItemTabVisible;
     public boolean isMercatorRequestFromHomePageTabFeedFragment;
@@ -145,18 +145,18 @@ public final class TbSingleton {
     public HashMap<Long, String> liveForumMap;
     public final HashMap<String, String> mAcceleratorMap;
     public String mActivityId;
-    public rx4 mAdVertiSementConfigData;
+    public ux4 mAdVertiSementConfigData;
     public int mAnimFpsSyncThreshold;
     public String mBannerText;
     public final String mBaseActivity;
     public final String mBaseFragmentActivity;
-    public yx4 mBearSidConfigData;
+    public by4 mBearSidConfigData;
     public String mCallFansTid;
     public boolean mCanCallFans;
     public boolean mCanWebViewActivityShowProgress;
-    public qz4 mChannelConfigModel;
+    public uz4 mChannelConfigModel;
     public boolean mClipboardDelayTime;
-    public HashMap<String, c15> mColourHeaderConfigs;
+    public HashMap<String, i15> mColourHeaderConfigs;
     public int mCpuFlopsDur;
     public int mCpuThreshold;
     public boolean mEnableBenchmark;
@@ -167,9 +167,9 @@ public final class TbSingleton {
     public boolean mFrsRootViewLoadingShow;
     public boolean mHasAgreeToPlay;
     public final BroadcastReceiver mHeadSetStateReceiver;
-    public iy4 mHomeInsertAdData;
-    public f15 mHomeOperateData;
-    public List<g15> mHomePageLuckyConfigs;
+    public ly4 mHomeInsertAdData;
+    public l15 mHomeOperateData;
+    public List<m15> mHomePageLuckyConfigs;
     public int mHomePageStyleAbTest;
     public List<String> mHostWhiteList;
     public String mHotSearch;
@@ -191,20 +191,20 @@ public final class TbSingleton {
     public boolean mIsVisitPreviewServer;
     public String mLFUser;
     public String mLFUserTaskId;
-    public i15 mLiveActivityGuide;
+    public o15 mLiveActivityGuide;
     public MercatorModel.MercatorData mMercatorData;
     public String mMissionEntranceIcon;
     public String mMissionEntranceObjSource;
     public String mMissionEntranceUrl;
     public NewGodData mNewGodData;
     public NewUserRedPackageData mNewUserRedPackageData;
-    public lq4 mPbToHomeUpdateData;
-    public z88 mPcdnConfigData;
+    public nq4 mPbToHomeUpdateData;
+    public h98 mPcdnConfigData;
     public String mProfileGameCenterKey;
     public String mPubEnvValue;
     public String mSampleId;
-    public vy4 mShakeData;
-    public wy4 mSharePanelConfData;
+    public yy4 mShakeData;
+    public zy4 mSharePanelConfData;
     public String mSharePanelText;
     public boolean mShowCallFans;
     public boolean mShowHomeFloatRefreshButton;
@@ -215,36 +215,37 @@ public final class TbSingleton {
     public boolean mTipsAutoPlayInVideoChannel;
     public boolean mTipsAutoPlayInVideoMiddle;
     public JSONArray mUbsABTestJsonArray;
-    public za8 mUploadAndClearModule;
+    public hb8 mUploadAndClearModule;
     public Bitmap mVideoCurrentFrame;
-    public LinkedList<yl4> mVideoWatchTimeRecord;
+    public LinkedList<zl4> mVideoWatchTimeRecord;
     public String mWalletSignLink;
-    public ez4 mWlConfigData;
+    public hz4 mWlConfigData;
     public YYLiveConfig mYYLiveConfig;
-    public h39 mYYLiveTabConfig;
+    public q39 mYYLiveTabConfig;
     public boolean needRefreshForumSquare;
     public boolean personalizedRecSwitchChanged;
     public long pushDialogLoopTime;
     public long pushDialogShowTime;
-    public ty4 pushStrategyConfig;
+    public wy4 pushStrategyConfig;
+    public String pushTid;
     public Bundle reloginVideoMiddleBundle;
     public String schemaForStartOtherAppAfterSwanApp;
     public boolean shouldShowHomeLocalCompleteInfoCard;
     public boolean shouldShowLocalChannelPostAnim;
     public boolean showStampMissionDialog;
     public boolean showedInterestGuide;
-    public tz4 syncModel;
+    public yz4 syncModel;
     public HashMap<String, String> tempStrings;
     public boolean triggerInterestPanelYDaysConfig;
-    public yy4 upgradePopWindowConfig;
+    public bz4 upgradePopWindowConfig;
     public UserGrowthTaskListData userGrowthTaskListData;
     public RedIcon videoChannelAttentionRedIcon;
     public RedIcon videoChannelRecommendRedIcon;
-    public bz4 videoEventsConfig;
+    public ez4 videoEventsConfig;
     public int videoRedIconInterval;
     public String videoTestType;
     @Nullable
-    public cz4 voiceRoomConfig;
+    public fz4 voiceRoomConfig;
     public int worksAddTopicMaxNum;
     public String yyCloudSwitch;
 
@@ -339,7 +340,6 @@ public final class TbSingleton {
         this.acceleratorItemId = -1L;
         this.acceleratorData = null;
         this.mHomeInsertAdData = null;
-        this.isExceptInsertAdDiaShow = false;
         this.showStampMissionDialog = false;
         this.isCanShowHotSplash = false;
         this.triggerInterestPanelYDaysConfig = false;
@@ -389,24 +389,24 @@ public final class TbSingleton {
             }
         };
         this.personalizedRecSwitchChanged = false;
-        setIsOpenTrack(ru4.k().h("key_is_open_track", false));
-        setProfileGameCenterKey(ru4.k().q("profile_swan_app_key", ""));
-        setHomePageStyleAbTest(ru4.k().l("index_activity_abtest_switch_json", 0));
-        setMissionEntranceIcon(ru4.k().q("index_activity_abtest_icon_url", ""));
-        setMissionEntranceUrl(ru4.k().q("index_activity_abtest_url", ""));
-        setMissionEntranceObjSource(ru4.k().q("index_activity_abtest_obj_source", ""));
-        setAuditPackageSwitch(ru4.k().h("audit_package_switch", false));
-        setBaiduidCookieSwitch(ru4.k().h("key_baidu_id_cookie_switch", false));
-        setUbsSampleId(ru4.k().q("key_ubs_sample_id", ""));
-        setShowShoubaiDynamicGuide(ru4.k().l("key_is_show_shoubai_dynamic_guide", 0) == 1);
-        this.mShowHomeFloatRefreshButton = ru4.k().l("key_home_refresh_button_test", 0) == 1;
-        setClipboardDelayTime(ru4.k().h("KEY_ANDROID_PASTE_BOARD_DELAY_TIME", false));
-        setDanmuSwitchOpen(ru4.k().h("key_video_danmu_switch", true));
+        setIsOpenTrack(tu4.k().h("key_is_open_track", false));
+        setProfileGameCenterKey(tu4.k().q("profile_swan_app_key", ""));
+        setHomePageStyleAbTest(tu4.k().l("index_activity_abtest_switch_json", 0));
+        setMissionEntranceIcon(tu4.k().q("index_activity_abtest_icon_url", ""));
+        setMissionEntranceUrl(tu4.k().q("index_activity_abtest_url", ""));
+        setMissionEntranceObjSource(tu4.k().q("index_activity_abtest_obj_source", ""));
+        setAuditPackageSwitch(tu4.k().h("audit_package_switch", false));
+        setBaiduidCookieSwitch(tu4.k().h("key_baidu_id_cookie_switch", false));
+        setUbsSampleId(tu4.k().q("key_ubs_sample_id", ""));
+        setShowShoubaiDynamicGuide(tu4.k().l("key_is_show_shoubai_dynamic_guide", 0) == 1);
+        this.mShowHomeFloatRefreshButton = tu4.k().l("key_home_refresh_button_test", 0) == 1;
+        setClipboardDelayTime(tu4.k().h("KEY_ANDROID_PASTE_BOARD_DELAY_TIME", false));
+        setDanmuSwitchOpen(tu4.k().h("key_video_danmu_switch", true));
         initBenchmarkData();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.HEADSET_PLUG");
         TbadkCoreApplication.getInst().registerReceiver(this.mHeadSetStateReceiver, intentFilter);
-        rg.a().post(new Runnable(this) { // from class: com.baidu.tbadk.TbSingleton.1
+        sg.a().post(new Runnable(this) { // from class: com.baidu.tbadk.TbSingleton.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ TbSingleton this$0;
@@ -437,20 +437,20 @@ public final class TbSingleton {
                 }
             }
         });
-        this.mShowVivoBadge = ru4.k().h("key_show_vivo_badge", false);
-        this.mChannelConfigModel = new qz4();
+        this.mShowVivoBadge = tu4.k().h("key_show_vivo_badge", false);
+        this.mChannelConfigModel = new uz4();
         this.calendar = Calendar.getInstance();
-        this.isNewUserRedPackageShowed = ru4.k().h("key_task_system_new_user_popup_show_number", false);
-        this.hasPerformedFirstLoginTest = ru4.k().h("has_performed_first_login_test", false);
-        this.yyCloudSwitch = ru4.k().q("key_yy_cloud_switch", null);
-        this.isStartStatUploadImmediately = ru4.k().l("key_switch_immediately_upload", 0) == 1;
+        this.isNewUserRedPackageShowed = tu4.k().h("key_task_system_new_user_popup_show_number", false);
+        this.hasPerformedFirstLoginTest = tu4.k().h("has_performed_first_login_test", false);
+        this.yyCloudSwitch = tu4.k().q("key_yy_cloud_switch", null);
+        this.isStartStatUploadImmediately = tu4.k().l("key_switch_immediately_upload", 0) == 1;
     }
 
     private String getAdStrWithLimit() {
         InterceptResult invokeV;
-        rx4 rx4Var;
+        ux4 ux4Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? (StringHelper.isTaday(ru4.k().m("key_pb_falling_ad_feedback_click_time", 0L)) || (rx4Var = this.mAdVertiSementConfigData) == null) ? "" : rx4Var.c() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? (StringHelper.isTaday(tu4.k().m("key_pb_falling_ad_feedback_click_time", 0L)) || (ux4Var = this.mAdVertiSementConfigData) == null) ? "" : ux4Var.c() : (String) invokeV.objValue;
     }
 
     private void getAppInstallUpdateTime() {
@@ -466,10 +466,16 @@ public final class TbSingleton {
         }
     }
 
+    public static boolean getExceptInsertAdDiaShow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? isExceptInsertAdDiaShow : invokeV.booleanValue;
+    }
+
     public static TbSingleton getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             if (mInstance == null) {
                 synchronized (TbSingleton.class) {
                     if (mInstance == null) {
@@ -485,7 +491,7 @@ public final class TbSingleton {
     private UserGrowthTaskListData.UserGrowthTaskData getUserGrowthTaskData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
             if (getUserGrowthTaskListData() == null) {
                 return null;
             }
@@ -517,7 +523,7 @@ public final class TbSingleton {
 
     private void getYYSwitchStatus() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && this.yyCloudSwitch == null) {
+        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && this.yyCloudSwitch == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921545, null));
             this.yyCloudSwitch = "";
         }
@@ -525,7 +531,7 @@ public final class TbSingleton {
 
     private void initBenchmarkData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             if (TbadkCoreApplication.getInst().getIsFirstUse()) {
                 setCpuThreshold(Integer.MAX_VALUE);
                 setAnimAverageFpsThreshold(0);
@@ -541,15 +547,22 @@ public final class TbSingleton {
                 setAnimAvgFpsCount("anim_switch_slide", 0);
                 return;
             }
-            this.mEnableBenchmark = ru4.k().h("enable_benchmark", true);
-            this.mCpuThreshold = ru4.k().l("cpu_flops_dura_threshold", Integer.MAX_VALUE);
-            this.mAnimFpsSyncThreshold = ru4.k().l("anim_avg_fps_threshold", 0);
+            this.mEnableBenchmark = tu4.k().h("enable_benchmark", true);
+            this.mCpuThreshold = tu4.k().l("cpu_flops_dura_threshold", Integer.MAX_VALUE);
+            this.mAnimFpsSyncThreshold = tu4.k().l("anim_avg_fps_threshold", 0);
+        }
+    }
+
+    public static void setExceptInsertAdDiaShow(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
+            isExceptInsertAdDiaShow = z;
         }
     }
 
     private void setUbsSampleId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65546, this, str) == null) {
             this.mSampleId = str;
         }
     }
@@ -558,7 +571,7 @@ public final class TbSingleton {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.canShowPermDlg && !this.hasShowPermDlg && System.currentTimeMillis() - ru4.k().m("key_first_enter_app_timestamp", 0L) > ImagesInvalidService.FILE_VALID_TIME;
+            return this.canShowPermDlg && !this.hasShowPermDlg && System.currentTimeMillis() - tu4.k().m("key_first_enter_app_timestamp", 0L) > ImagesInvalidService.FILE_VALID_TIME;
         }
         return invokeV.booleanValue;
     }
@@ -570,7 +583,7 @@ public final class TbSingleton {
     }
 
     public void clearVideoRecord() {
-        LinkedList<yl4> linkedList;
+        LinkedList<zl4> linkedList;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (linkedList = this.mVideoWatchTimeRecord) == null) {
             return;
@@ -589,7 +602,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.activeTimeStamp == 0) {
-                this.activeTimeStamp = ru4.k().m("key_active_timestamp", 0L);
+                this.activeTimeStamp = tu4.k().m("key_active_timestamp", 0L);
             }
             return this.activeTimeStamp;
         }
@@ -608,20 +621,20 @@ public final class TbSingleton {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getAdStrWithLimit() : (String) invokeV.objValue;
     }
 
-    public rx4 getAdVertiSementData() {
+    public ux4 getAdVertiSementData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mAdVertiSementConfigData : (rx4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mAdVertiSementConfigData : (ux4) invokeV.objValue;
     }
 
     public Integer getAnimAvgFps(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (pi.isEmpty(str)) {
+            if (qi.isEmpty(str)) {
                 return 0;
             }
-            ru4 k = ru4.k();
+            tu4 k = tu4.k();
             return Integer.valueOf(k.l(str + "_anim_benchmark_avg_suffix", 0));
         }
         return (Integer) invokeL.objValue;
@@ -631,10 +644,10 @@ public final class TbSingleton {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (pi.isEmpty(str)) {
+            if (qi.isEmpty(str)) {
                 return 0;
             }
-            ru4 k = ru4.k();
+            tu4 k = tu4.k();
             return Integer.valueOf(k.l(str + "_anim_benchmark_times_suffix", 0));
         }
         return (Integer) invokeL.objValue;
@@ -644,10 +657,10 @@ public final class TbSingleton {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            if (pi.isEmpty(str)) {
+            if (qi.isEmpty(str)) {
                 return -1;
             }
-            return ru4.k().l(str, -1);
+            return tu4.k().l(str, -1);
         }
         return invokeL.intValue;
     }
@@ -687,7 +700,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             if (this.baiduIdForAnti == null) {
-                this.baiduIdForAnti = ru4.k().q("key_baiduid_for_anti", null);
+                this.baiduIdForAnti = tu4.k().q("key_baiduid_for_anti", null);
             }
             return this.baiduIdForAnti;
         }
@@ -706,10 +719,10 @@ public final class TbSingleton {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mBannerText : (String) invokeV.objValue;
     }
 
-    public qz4 getChannelConfigModel() {
+    public uz4 getChannelConfigModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mChannelConfigModel : (qz4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mChannelConfigModel : (uz4) invokeV.objValue;
     }
 
     public boolean getClipboardDelayTime() {
@@ -718,7 +731,7 @@ public final class TbSingleton {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mClipboardDelayTime : invokeV.booleanValue;
     }
 
-    public HashMap<String, c15> getColourHeaderConfig() {
+    public HashMap<String, i15> getColourHeaderConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mColourHeaderConfigs : (HashMap) invokeV.objValue;
@@ -729,7 +742,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             if (this.mCpuFlopsDur < 0) {
-                this.mCpuFlopsDur = ru4.k().l("cpu_flops_dura", 0);
+                this.mCpuFlopsDur = tu4.k().l("cpu_flops_dura", 0);
             }
             return this.mCpuFlopsDur;
         }
@@ -768,103 +781,97 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             if (this.duXiaoManActivityTimestamp == 0) {
-                this.duXiaoManActivityTimestamp = ru4.k().m("key_doxiaoman_activity_timestamp", 0L);
+                this.duXiaoManActivityTimestamp = tu4.k().m("key_doxiaoman_activity_timestamp", 0L);
             }
             return this.duXiaoManActivityTimestamp;
         }
         return invokeV.longValue;
     }
 
-    public boolean getExceptInsertAdDiaShow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.isExceptInsertAdDiaShow : invokeV.booleanValue;
-    }
-
     public Uri getFirstOpenScheme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.firstOpenScheme : (Uri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.firstOpenScheme : (Uri) invokeV.objValue;
     }
 
     public boolean getForceRefreshHomeRecommend() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.mForceRefreshHomeRecommend : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mForceRefreshHomeRecommend : invokeV.booleanValue;
     }
 
     public String getFromWhichSearchSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.fromWhichSearchSource : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.fromWhichSearchSource : (String) invokeV.objValue;
     }
 
     public int getFrsCurTabType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.mFrsCurTabType : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.mFrsCurTabType : invokeV.intValue;
     }
 
-    public qx4 getHomeAdFloatViewItemData() {
+    public tx4 getHomeAdFloatViewItemData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            px4 px4Var = this.adFloatViewData;
-            if (px4Var != null) {
-                return px4Var.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            sx4 sx4Var = this.adFloatViewData;
+            if (sx4Var != null) {
+                return sx4Var.a();
             }
             return null;
         }
-        return (qx4) invokeV.objValue;
+        return (tx4) invokeV.objValue;
     }
 
-    public iy4 getHomeInsertAdData() {
+    public ly4 getHomeInsertAdData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.mHomeInsertAdData : (iy4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.mHomeInsertAdData : (ly4) invokeV.objValue;
     }
 
-    public f15 getHomeOperateData() {
+    public l15 getHomeOperateData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.mHomeOperateData : (f15) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.mHomeOperateData : (l15) invokeV.objValue;
     }
 
-    public List<g15> getHomePageLuckyConfig() {
+    public List<m15> getHomePageLuckyConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.mHomePageLuckyConfigs : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.mHomePageLuckyConfigs : (List) invokeV.objValue;
     }
 
     public int getHomePageStyleAbTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.mHomePageStyleAbTest : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.mHomePageStyleAbTest : invokeV.intValue;
     }
 
-    public jy4 getHomepageInterestConfig() {
+    public my4 getHomepageInterestConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.homepageInterestConfigData : (jy4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.homepageInterestConfigData : (my4) invokeV.objValue;
     }
 
     public List<String> getHostWhiteList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.mHostWhiteList : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.mHostWhiteList : (List) invokeV.objValue;
     }
 
     public String getHotSearch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.mHotSearch : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.mHotSearch : (String) invokeV.objValue;
     }
 
     public IconPopData getIconPopData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
-            ru4 k = ru4.k();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            tu4 k = tu4.k();
             String q = k.q("key_polling_icon_change" + TbadkCoreApplication.getCurrentAccountId(), "");
             if (!StringUtils.isNull(q)) {
                 this.iconPopData = (IconPopData) DataExt.toEntity(q, IconPopData.class);
@@ -880,57 +887,57 @@ public final class TbSingleton {
     public String getInvokeSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.invokeSource : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.invokeSource : (String) invokeV.objValue;
     }
 
     public Boolean getIsJumpFromVideoMiddleView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? Boolean.valueOf(this.mIsJumpFromVideoMiddleView) : (Boolean) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? Boolean.valueOf(this.mIsJumpFromVideoMiddleView) : (Boolean) invokeV.objValue;
     }
 
     public boolean getIsNeedRemindLiveRoom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.mIsNeedRemindLiveRoom : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.mIsNeedRemindLiveRoom : invokeV.booleanValue;
     }
 
     public boolean getIsNeedReuseVideoPlayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.mIsInNeedReuseVideoPlayer : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.mIsInNeedReuseVideoPlayer : invokeV.booleanValue;
     }
 
     public boolean getIsNeedShowPbCommentFloat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.mIsNeedShowCommentFloat : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.mIsNeedShowCommentFloat : invokeV.booleanValue;
     }
 
     public boolean getIsOutNeedReuseVideoPlayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.mIsOutNeedReuseVideoPlayer : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.mIsOutNeedReuseVideoPlayer : invokeV.booleanValue;
     }
 
     public String getLFUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.mLFUser : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.mLFUser : (String) invokeV.objValue;
     }
 
     public String getLFUserTaskId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.mLFUserTaskId : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.mLFUserTaskId : (String) invokeV.objValue;
     }
 
     public long getLastResumeTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
             if (this.lastResumeTime == 0) {
-                this.lastResumeTime = ru4.k().m("last_resume_time", 0L);
+                this.lastResumeTime = tu4.k().m("last_resume_time", 0L);
             }
             return this.lastResumeTime;
         }
@@ -940,8 +947,8 @@ public final class TbSingleton {
     public LevePopData getLevePopData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
-            ru4 k = ru4.k();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+            tu4 k = tu4.k();
             String q = k.q("key_polling_level_change" + TbadkCoreApplication.getCurrentAccountId(), "");
             if (!StringUtils.isNull(q)) {
                 this.levePopData = (LevePopData) DataExt.toEntity(q, LevePopData.class);
@@ -957,36 +964,36 @@ public final class TbSingleton {
     public MercatorModel.MercatorData getMercatorData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.mMercatorData : (MercatorModel.MercatorData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.mMercatorData : (MercatorModel.MercatorData) invokeV.objValue;
     }
 
     public String getMissionEntranceIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? this.mMissionEntranceIcon : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.mMissionEntranceIcon : (String) invokeV.objValue;
     }
 
     public String getMissionEntranceObjSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.mMissionEntranceObjSource : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? this.mMissionEntranceObjSource : (String) invokeV.objValue;
     }
 
     public String getMissionEntranceUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.mMissionEntranceUrl : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.mMissionEntranceUrl : (String) invokeV.objValue;
     }
 
     public String getModName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
-            za8 za8Var = this.mUploadAndClearModule;
-            if (za8Var == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
+            hb8 hb8Var = this.mUploadAndClearModule;
+            if (hb8Var == null) {
                 return null;
             }
-            return za8Var.a();
+            return hb8Var.a();
         }
         return (String) invokeV.objValue;
     }
@@ -994,79 +1001,85 @@ public final class TbSingleton {
     public NewGodData getNewGodData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.mNewGodData : (NewGodData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.mNewGodData : (NewGodData) invokeV.objValue;
     }
 
     public NewUserRedPackageData getNewUserRedPackageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.mNewUserRedPackageData : (NewUserRedPackageData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.mNewUserRedPackageData : (NewUserRedPackageData) invokeV.objValue;
     }
 
-    public qx4 getPbAdFloatViewItemData() {
+    public tx4 getPbAdFloatViewItemData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
-            px4 px4Var = this.adFloatViewData;
-            if (px4Var != null) {
-                return px4Var.b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
+            sx4 sx4Var = this.adFloatViewData;
+            if (sx4Var != null) {
+                return sx4Var.b();
             }
             return null;
         }
-        return (qx4) invokeV.objValue;
+        return (tx4) invokeV.objValue;
     }
 
-    public lq4 getPbToHomeUpdateData() {
+    public nq4 getPbToHomeUpdateData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? this.mPbToHomeUpdateData : (lq4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.mPbToHomeUpdateData : (nq4) invokeV.objValue;
     }
 
-    public z88 getPcdnConfigData() {
+    public h98 getPcdnConfigData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? this.mPcdnConfigData : (z88) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? this.mPcdnConfigData : (h98) invokeV.objValue;
     }
 
     public int getPersonalizedRecSwitch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? ru4.k().l("key_personalized_rec_switch", 1) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? tu4.k().l("key_personalized_rec_switch", 1) : invokeV.intValue;
     }
 
     public String getProfileGameCenterKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? this.mProfileGameCenterKey : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? this.mProfileGameCenterKey : (String) invokeV.objValue;
     }
 
     @Modify(description = "配置预览机pub_env参数，1强制访问线上沙盒环境，2强制访问小流量环境", type = 1)
     public String getPubEnvValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? this.mPubEnvValue : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? this.mPubEnvValue : (String) invokeV.objValue;
     }
 
     public long getPushDialogLoopTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) ? this.pushDialogLoopTime : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? this.pushDialogLoopTime : invokeV.longValue;
     }
 
     public long getPushDialogShowTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? this.pushDialogShowTime : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) ? this.pushDialogShowTime : invokeV.longValue;
     }
 
-    public ty4 getPushStrategyConfig() {
+    public wy4 getPushStrategyConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
-            ty4 ty4Var = this.pushStrategyConfig;
-            return ty4Var != null ? ty4Var : ty4.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
+            wy4 wy4Var = this.pushStrategyConfig;
+            return wy4Var != null ? wy4Var : wy4.d;
         }
-        return (ty4) invokeV.objValue;
+        return (wy4) invokeV.objValue;
+    }
+
+    public String getPushTid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? this.pushTid : (String) invokeV.objValue;
     }
 
     public Bundle getReloginVideoMiddleBundle() {
@@ -1087,16 +1100,16 @@ public final class TbSingleton {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) ? this.schemaForStartOtherAppAfterSwanApp : (String) invokeV.objValue;
     }
 
-    public vy4 getShakeData() {
+    public yy4 getShakeData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) ? this.mShakeData : (vy4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) ? this.mShakeData : (yy4) invokeV.objValue;
     }
 
-    public wy4 getSharePanelConfData() {
+    public zy4 getSharePanelConfData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) ? this.mSharePanelConfData : (wy4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) ? this.mSharePanelConfData : (zy4) invokeV.objValue;
     }
 
     public String getSharePanelText() {
@@ -1111,10 +1124,10 @@ public final class TbSingleton {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) ? this.showedInterestGuide : invokeV.booleanValue;
     }
 
-    public tz4 getSyncModel() {
+    public yz4 getSyncModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048649, this)) == null) ? this.syncModel : (tz4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048649, this)) == null) ? this.syncModel : (yz4) invokeV.objValue;
     }
 
     public boolean getSyncYYSwitch() {
@@ -1122,7 +1135,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048650, this)) == null) {
             if (this.isYYLive == null) {
-                ru4 k = ru4.k();
+                tu4 k = tu4.k();
                 this.isYYLive = Boolean.valueOf(k.h("key_is_yy_live" + TbadkCoreApplication.getCurrentAccount(), true));
             }
             return this.isYYLive.booleanValue();
@@ -1148,14 +1161,14 @@ public final class TbSingleton {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) ? this.mUbsABTestJsonArray : (JSONArray) invokeV.objValue;
     }
 
-    public yy4 getUpgradePopWindowConfig() {
+    public bz4 getUpgradePopWindowConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) {
-            yy4 yy4Var = this.upgradePopWindowConfig;
-            return yy4Var != null ? yy4Var : yy4.i;
+            bz4 bz4Var = this.upgradePopWindowConfig;
+            return bz4Var != null ? bz4Var : bz4.i;
         }
-        return (yy4) invokeV.objValue;
+        return (bz4) invokeV.objValue;
     }
 
     public UserGrowthTaskListData getUserGrowthTaskListData() {
@@ -1163,7 +1176,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048655, this)) == null) {
             if (this.userGrowthTaskListData == null) {
-                int l = ru4.k().l("key_person_growth_switch", 0);
+                int l = tu4.k().l("key_person_growth_switch", 0);
                 UserGrowthTaskListData userGrowthTaskListData = new UserGrowthTaskListData();
                 this.userGrowthTaskListData = userGrowthTaskListData;
                 userGrowthTaskListData.setGrowthSwitch(l);
@@ -1204,13 +1217,13 @@ public final class TbSingleton {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048659, this)) == null) ? this.mVideoCurrentFrame : (Bitmap) invokeV.objValue;
     }
 
-    public bz4 getVideoEventsConfig() {
+    public ez4 getVideoEventsConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) ? this.videoEventsConfig : (bz4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) ? this.videoEventsConfig : (ez4) invokeV.objValue;
     }
 
-    public LinkedList<yl4> getVideoRecordList() {
+    public LinkedList<zl4> getVideoRecordList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048661, this)) == null) ? this.mVideoWatchTimeRecord : (LinkedList) invokeV.objValue;
@@ -1229,14 +1242,14 @@ public final class TbSingleton {
     }
 
     @NonNull
-    public cz4 getVoiceRoomConfig() {
+    public fz4 getVoiceRoomConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) {
-            cz4 cz4Var = this.voiceRoomConfig;
-            return cz4Var != null ? cz4Var : cz4.b;
+            fz4 fz4Var = this.voiceRoomConfig;
+            return fz4Var != null ? fz4Var : fz4.b;
         }
-        return (cz4) invokeV.objValue;
+        return (fz4) invokeV.objValue;
     }
 
     public String getWalletSignLink() {
@@ -1245,10 +1258,10 @@ public final class TbSingleton {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048665, this)) == null) ? this.mWalletSignLink : (String) invokeV.objValue;
     }
 
-    public ez4 getWlConfigData() {
+    public hz4 getWlConfigData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048666, this)) == null) ? this.mWlConfigData : (ez4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048666, this)) == null) ? this.mWlConfigData : (hz4) invokeV.objValue;
     }
 
     public int getWorksAddTopicMaxNum() {
@@ -1263,10 +1276,10 @@ public final class TbSingleton {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) ? this.mYYLiveConfig : (YYLiveConfig) invokeV.objValue;
     }
 
-    public h39 getYYLiveTabConfig() {
+    public q39 getYYLiveTabConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048669, this)) == null) ? this.mYYLiveTabConfig : (h39) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048669, this)) == null) ? this.mYYLiveTabConfig : (q39) invokeV.objValue;
     }
 
     public boolean hasAgreeToPlay() {
@@ -1287,11 +1300,11 @@ public final class TbSingleton {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048672, this)) == null) ? this.hasPerformedFirstLoginTest : invokeV.booleanValue;
     }
 
-    public boolean interestGuideShowCountInLimit(String str, ny4 ny4Var) {
+    public boolean interestGuideShowCountInLimit(String str, qy4 qy4Var) {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048673, this, str, ny4Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048673, this, str, qy4Var)) == null) {
             if (StringUtils.isNull(str)) {
                 return true;
             }
@@ -1305,9 +1318,9 @@ public final class TbSingleton {
                     e.printStackTrace();
                     i = 0;
                 }
-                if (i > ny4Var.c) {
-                    return i2 < ny4Var.d;
-                } else if (i2 >= ny4Var.d - 1) {
+                if (i > qy4Var.c) {
+                    return i2 < qy4Var.d;
+                } else if (i2 >= qy4Var.d - 1) {
                     return false;
                 } else {
                     i2++;
@@ -1336,7 +1349,7 @@ public final class TbSingleton {
     public boolean isAnimFpsComputed(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048675, this, str)) == null) ? !pi.isEmpty(str) && getAnimComputedFps(str) >= 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048675, this, str)) == null) ? !qi.isEmpty(str) && getAnimComputedFps(str) >= 0 : invokeL.booleanValue;
     }
 
     public boolean isAuditPackageSwitchOn() {
@@ -1367,11 +1380,11 @@ public final class TbSingleton {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048680, this)) == null) {
-            za8 za8Var = this.mUploadAndClearModule;
-            if (za8Var == null) {
+            hb8 hb8Var = this.mUploadAndClearModule;
+            if (hb8Var == null) {
                 return false;
             }
-            return za8Var.b();
+            return hb8Var.b();
         }
         return invokeV.booleanValue;
     }
@@ -1460,16 +1473,16 @@ public final class TbSingleton {
         if (interceptable != null && (invokeV = interceptable.invokeV(1048692, this)) != null) {
             return invokeV.booleanValue;
         }
-        ny4 interestBoardConfigData = TbadkCoreApplication.getInst().getInterestBoardConfigData();
+        qy4 interestBoardConfigData = TbadkCoreApplication.getInst().getInterestBoardConfigData();
         if (interestBoardConfigData == null) {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        long m = ru4.k().m("key_new_user_logon_time", 0L);
-        long m2 = ru4.k().m("key_home_recommend_item_click_time", 0L);
-        long m3 = ru4.k().m("key_select_interest_flag", 0L);
-        long m4 = ru4.k().m("key_app_launch_time", 0L);
-        String q = ru4.k().q("key_interest_guide_show", "");
+        long m = tu4.k().m("key_new_user_logon_time", 0L);
+        long m2 = tu4.k().m("key_home_recommend_item_click_time", 0L);
+        long m3 = tu4.k().m("key_select_interest_flag", 0L);
+        long m4 = tu4.k().m("key_app_launch_time", 0L);
+        String q = tu4.k().q("key_interest_guide_show", "");
         boolean isSameDay = TimeHelper.isSameDay(System.currentTimeMillis() - (interestBoardConfigData.a * 86400000), m);
         boolean isTargetTimeInTimeBlock = TimeHelper.isTargetTimeInTimeBlock(m2, m, System.currentTimeMillis());
         int i = (int) (((((currentTimeMillis - m4) / 1000) / 60) / 60) / 24);
@@ -1576,14 +1589,14 @@ public final class TbSingleton {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048704, this)) == null) {
-            boolean z = ru4.k().l("slide_local_switch_is_clicked", 0) == 1;
-            boolean z2 = ru4.k().l("sync_slide_animation__switch", 0) == 1;
+            boolean z = tu4.k().l("slide_local_switch_is_clicked", 0) == 1;
+            boolean z2 = tu4.k().l("sync_slide_animation__switch", 0) == 1;
             boolean isSlideAnimLocalSwitchOn = isSlideAnimLocalSwitchOn();
             if (z) {
                 return isSlideAnimLocalSwitchOn;
             }
             if (z2 != isSlideAnimLocalSwitchOn) {
-                ru4.k().u("local_slide_animation__switch", z2);
+                tu4.k().u("local_slide_animation__switch", z2);
             }
             return z2;
         }
@@ -1593,7 +1606,7 @@ public final class TbSingleton {
     public boolean isSlideAnimLocalSwitchOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048705, this)) == null) ? ru4.k().h("local_slide_animation__switch", false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048705, this)) == null) ? tu4.k().h("local_slide_animation__switch", false) : invokeV.booleanValue;
     }
 
     public boolean isTipsAutoPlayInVideoChannel() {
@@ -1612,11 +1625,11 @@ public final class TbSingleton {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048708, this)) == null) {
-            za8 za8Var = this.mUploadAndClearModule;
-            if (za8Var == null) {
+            hb8 hb8Var = this.mUploadAndClearModule;
+            if (hb8Var == null) {
                 return false;
             }
-            return za8Var.c();
+            return hb8Var.c();
         }
         return invokeV.booleanValue;
     }
@@ -1678,53 +1691,53 @@ public final class TbSingleton {
     public void onAccountChange() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048717, this) == null) {
-            ru4 k = ru4.k();
+            tu4 k = tu4.k();
             this.isYYLive = Boolean.valueOf(k.h("key_is_yy_live" + TbadkCoreApplication.getCurrentAccount(), true));
         }
     }
 
     public void putVideoRecord(String str, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048718, this, str, i) == null) || pi.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLI(1048718, this, str, i) == null) || qi.isEmpty(str)) {
             return;
         }
         if (this.mVideoWatchTimeRecord == null) {
             this.mVideoWatchTimeRecord = new LinkedList<>();
         }
         int size = this.mVideoWatchTimeRecord.size();
-        yl4 yl4Var = null;
+        zl4 zl4Var = null;
         int i2 = size - 1;
         int i3 = i2;
         while (true) {
             if (i3 < 0) {
                 break;
             }
-            yl4 yl4Var2 = this.mVideoWatchTimeRecord.get(i3);
-            if (!str.equals(yl4Var2.a())) {
+            zl4 zl4Var2 = this.mVideoWatchTimeRecord.get(i3);
+            if (!str.equals(zl4Var2.a())) {
                 i3--;
-            } else if (yl4Var2.b() == i) {
+            } else if (zl4Var2.b() == i) {
                 return;
             } else {
                 r1 = i3 == i2;
-                yl4Var = yl4Var2;
+                zl4Var = zl4Var2;
             }
         }
-        if (yl4Var != null) {
-            yl4Var.c(i);
+        if (zl4Var != null) {
+            zl4Var.c(i);
             if (r1) {
                 return;
             }
-            this.mVideoWatchTimeRecord.remove(yl4Var);
-            this.mVideoWatchTimeRecord.addLast(yl4Var);
+            this.mVideoWatchTimeRecord.remove(zl4Var);
+            this.mVideoWatchTimeRecord.addLast(zl4Var);
             return;
         }
-        yl4 yl4Var3 = new yl4(str, i);
+        zl4 zl4Var3 = new zl4(str, i);
         if (size >= 10) {
             this.mVideoWatchTimeRecord.pollFirst();
-            this.mVideoWatchTimeRecord.addLast(yl4Var3);
+            this.mVideoWatchTimeRecord.addLast(zl4Var3);
             return;
         }
-        this.mVideoWatchTimeRecord.addLast(yl4Var3);
+        this.mVideoWatchTimeRecord.addLast(zl4Var3);
     }
 
     public void recordAcceleratorServer(String str, String str2) {
@@ -1737,7 +1750,7 @@ public final class TbSingleton {
     public void registerScreenSizeChangeTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048720, this) == null) {
-            rg.a().post(new Runnable(this) { // from class: com.baidu.tbadk.TbSingleton.3
+            sg.a().post(new Runnable(this) { // from class: com.baidu.tbadk.TbSingleton.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ TbSingleton this$0;
@@ -1819,14 +1832,14 @@ public final class TbSingleton {
     public void saveHomeRecommendItemClickTime() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048723, this) == null) {
-            ru4.k().x("key_home_recommend_item_click_time", System.currentTimeMillis());
+            tu4.k().x("key_home_recommend_item_click_time", System.currentTimeMillis());
         }
     }
 
     public void setActiveTimeStamp() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048724, this) == null) && getActiveTimeStamp() == 0) {
-            ru4.k().x("key_active_timestamp", System.currentTimeMillis());
+            tu4.k().x("key_active_timestamp", System.currentTimeMillis());
         }
     }
 
@@ -1837,17 +1850,17 @@ public final class TbSingleton {
         }
     }
 
-    public void setAdFloatViewData(px4 px4Var) {
+    public void setAdFloatViewData(sx4 sx4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048726, this, px4Var) == null) {
-            this.adFloatViewData = px4Var;
+        if (interceptable == null || interceptable.invokeL(1048726, this, sx4Var) == null) {
+            this.adFloatViewData = sx4Var;
         }
     }
 
-    public void setAdVertiSementData(rx4 rx4Var) {
+    public void setAdVertiSementData(ux4 ux4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048727, this, rx4Var) == null) {
-            this.mAdVertiSementConfigData = rx4Var;
+        if (interceptable == null || interceptable.invokeL(1048727, this, ux4Var) == null) {
+            this.mAdVertiSementConfigData = ux4Var;
         }
     }
 
@@ -1855,34 +1868,34 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048728, this, i) == null) {
             this.mAnimFpsSyncThreshold = i;
-            ru4.k().w("anim_avg_fps_threshold", i);
+            tu4.k().w("anim_avg_fps_threshold", i);
         }
     }
 
     public void setAnimAvgFps(String str, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048729, this, str, i) == null) || pi.isEmpty(str) || i < 0) {
+        if (!(interceptable == null || interceptable.invokeLI(1048729, this, str, i) == null) || qi.isEmpty(str) || i < 0) {
             return;
         }
-        ru4 k = ru4.k();
+        tu4 k = tu4.k();
         k.w(str + "_anim_benchmark_avg_suffix", i);
     }
 
     public void setAnimAvgFpsCount(String str, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048730, this, str, i) == null) || pi.isEmpty(str) || i < 0) {
+        if (!(interceptable == null || interceptable.invokeLI(1048730, this, str, i) == null) || qi.isEmpty(str) || i < 0) {
             return;
         }
-        ru4 k = ru4.k();
+        tu4 k = tu4.k();
         k.w(str + "_anim_benchmark_times_suffix", i);
     }
 
     public void setAnimComputedFps(String str, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048731, this, str, i) == null) || pi.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLI(1048731, this, str, i) == null) || qi.isEmpty(str)) {
             return;
         }
-        ru4.k().w(str, i);
+        tu4.k().w(str, i);
         if (!"anim_switch_slide".equals(str) || isAnimEnable(str)) {
             return;
         }
@@ -1898,8 +1911,8 @@ public final class TbSingleton {
 
     public void setBaiduIdForAnti(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048733, this, str) == null) && ru4.k().q("key_baiduid_for_anti", null) == null) {
-            ru4.k().y("key_baiduid_for_anti", str);
+        if ((interceptable == null || interceptable.invokeL(1048733, this, str) == null) && tu4.k().q("key_baiduid_for_anti", null) == null) {
+            tu4.k().y("key_baiduid_for_anti", str);
             this.baiduIdForAnti = str;
         }
     }
@@ -1946,10 +1959,10 @@ public final class TbSingleton {
         }
     }
 
-    public void setChannelConfigModel(qz4 qz4Var) {
+    public void setChannelConfigModel(uz4 uz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048741, this, qz4Var) == null) {
-            this.mChannelConfigModel = qz4Var;
+        if (interceptable == null || interceptable.invokeL(1048741, this, uz4Var) == null) {
+            this.mChannelConfigModel = uz4Var;
         }
     }
 
@@ -1960,7 +1973,7 @@ public final class TbSingleton {
         }
     }
 
-    public void setColourHeaderConfig(HashMap<String, c15> hashMap) {
+    public void setColourHeaderConfig(HashMap<String, i15> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048743, this, hashMap) == null) {
             this.mColourHeaderConfigs = hashMap;
@@ -1973,14 +1986,14 @@ public final class TbSingleton {
             return;
         }
         this.mCpuFlopsDur = i;
-        ru4.k().w("cpu_flops_dura", i);
+        tu4.k().w("cpu_flops_dura", i);
     }
 
     public void setCpuThreshold(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048745, this, i) == null) {
             this.mCpuThreshold = i;
-            ru4.k().w("cpu_flops_dura_threshold", i);
+            tu4.k().w("cpu_flops_dura_threshold", i);
         }
     }
 
@@ -1995,7 +2008,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048747, this, z) == null) {
             this.isDanmuSwitchOpen = z;
-            ru4.k().u("key_video_danmu_switch", z);
+            tu4.k().u("key_video_danmu_switch", z);
         }
     }
 
@@ -2005,14 +2018,14 @@ public final class TbSingleton {
             return;
         }
         this.duXiaoManActivityTimestamp = j;
-        ru4.k().x("key_doxiaoman_activity_timestamp", j);
+        tu4.k().x("key_doxiaoman_activity_timestamp", j);
     }
 
     public void setEnableBenchmark(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048749, this, z) == null) {
             this.mEnableBenchmark = z;
-            ru4.k().u("enable_benchmark", z);
+            tu4.k().u("enable_benchmark", z);
         }
     }
 
@@ -2023,328 +2036,321 @@ public final class TbSingleton {
         }
     }
 
-    public void setExceptInsertAdDiaShow(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048751, this, z) == null) {
-            this.isExceptInsertAdDiaShow = z;
-        }
-    }
-
     public void setFirstOpenScheme(Uri uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048752, this, uri) == null) {
+        if (interceptable == null || interceptable.invokeL(1048751, this, uri) == null) {
             this.firstOpenScheme = uri;
         }
     }
 
     public void setFlutterPluginLoadSuccess(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048753, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048752, this, z) == null) {
             this.mIsFlutterPluginLoadSuccess = z;
         }
     }
 
     public void setForceRefreshHomeRecommend(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048754, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048753, this, z) == null) {
             this.mForceRefreshHomeRecommend = z;
         }
     }
 
     public void setFromFeedVideoClick(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048755, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048754, this, z) == null) {
             this.mIsFromFeedVideoClick = z;
         }
     }
 
     public void setFromWhichSearchSource(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048756, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048755, this, str) == null) {
             this.fromWhichSearchSource = str;
         }
     }
 
     public void setFrsContentViewLoadingShow(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048757, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048756, this, z) == null) {
             this.mFrsContentViewLoadingShow = z;
         }
     }
 
     public void setFrsCurTabType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048758, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048757, this, i) == null) {
             this.mFrsCurTabType = i;
         }
     }
 
     public void setFrsRootViewLoadingShow(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048759, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048758, this, z) == null) {
             this.mFrsRootViewLoadingShow = z;
         }
     }
 
     public void setHasAgreeToPlay(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048760, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048759, this, z) == null) {
             this.mHasAgreeToPlay = z;
         }
     }
 
     public void setHasDownloadEmotion(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048761, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048760, this, z) == null) {
             this.hasDownloadEmotion = z;
         }
     }
 
     public void setHasPerformedFirstLoginTest(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048762, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048761, this, z) == null) {
             this.hasPerformedFirstLoginTest = z;
-            ru4.k().u("has_performed_first_login_test", z);
+            tu4.k().u("has_performed_first_login_test", z);
         }
     }
 
     public void setHasShowPermDlg(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048763, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048762, this, z) == null) {
             this.hasShowPermDlg = z;
         }
     }
 
-    public void setHomeInsertAdData(iy4 iy4Var) {
+    public void setHomeInsertAdData(ly4 ly4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048764, this, iy4Var) == null) {
-            this.mHomeInsertAdData = iy4Var;
+        if (interceptable == null || interceptable.invokeL(1048763, this, ly4Var) == null) {
+            this.mHomeInsertAdData = ly4Var;
         }
     }
 
-    public void setHomeOperateData(f15 f15Var) {
+    public void setHomeOperateData(l15 l15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048765, this, f15Var) == null) {
-            this.mHomeOperateData = f15Var;
+        if (interceptable == null || interceptable.invokeL(1048764, this, l15Var) == null) {
+            this.mHomeOperateData = l15Var;
         }
     }
 
-    public void setHomePageLuckyConfig(List<g15> list) {
+    public void setHomePageLuckyConfig(List<m15> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048766, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048765, this, list) == null) {
             this.mHomePageLuckyConfigs = list;
         }
     }
 
     public void setHomePageStyleAbTest(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048767, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048766, this, i) == null) {
             this.mHomePageStyleAbTest = i;
         }
     }
 
-    public void setHomepageInterestConfig(jy4 jy4Var) {
+    public void setHomepageInterestConfig(my4 my4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048768, this, jy4Var) == null) {
-            this.homepageInterestConfigData = jy4Var;
+        if (interceptable == null || interceptable.invokeL(1048767, this, my4Var) == null) {
+            this.homepageInterestConfigData = my4Var;
         }
     }
 
     public void setHostWhiteList(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048769, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048768, this, list) == null) {
             this.mHostWhiteList = list;
         }
     }
 
     public void setHotSearch(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048770, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048769, this, str) == null) {
             this.mHotSearch = str;
         }
     }
 
     public void setIconPopData(IconPopData iconPopData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048771, this, iconPopData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048770, this, iconPopData) == null) {
             this.iconPopData = iconPopData;
         }
     }
 
     public void setInvokeSource(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048772, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048771, this, str) == null) {
             this.invokeSource = str;
         }
     }
 
     public void setIsJumpFromVideoMiddleView(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048773, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048772, this, z) == null) {
             this.mIsJumpFromVideoMiddleView = z;
         }
     }
 
     public void setIsNeedRemindLiveRoom(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048774, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048773, this, z) == null) {
             this.mIsNeedRemindLiveRoom = z;
         }
     }
 
     public void setIsNeedReuseVideoPlayer(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048775, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048774, this, z) == null) {
             this.mIsInNeedReuseVideoPlayer = z;
         }
     }
 
     public void setIsNeedShowPbCommentFloat(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048776, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048775, this, z) == null) {
             this.mIsNeedShowCommentFloat = z;
         }
     }
 
     public void setIsOpenTrack(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048777, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048776, this, z) == null) {
             this.mIsOpenTrack = z;
         }
     }
 
     public void setIsOutNeedReuseVideoPlayer(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048778, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048777, this, z) == null) {
             this.mIsOutNeedReuseVideoPlayer = z;
         }
     }
 
     public void setIsRecommendPage(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048779, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048778, this, z) == null) {
             this.isRecommendPage = z;
         }
     }
 
     public void setLFUser(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048780, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048779, this, str) == null) {
             this.mLFUser = str;
         }
     }
 
     public void setLFUserTaskId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048781, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048780, this, str) == null) {
             this.mLFUserTaskId = str;
         }
     }
 
     public void setLastResumeTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048782, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048781, this, j) == null) {
             this.lastResumeTime = j;
         }
     }
 
     public void setLevePopData(LevePopData levePopData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048783, this, levePopData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048782, this, levePopData) == null) {
             this.levePopData = levePopData;
         }
     }
 
     public void setLiveForumMap(HashMap<Long, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048784, this, hashMap) == null) {
+        if (interceptable == null || interceptable.invokeL(1048783, this, hashMap) == null) {
             this.liveForumMap = hashMap;
         }
     }
 
     public void setMercatorData(MercatorModel.MercatorData mercatorData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048785, this, mercatorData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048784, this, mercatorData) == null) {
             this.mMercatorData = mercatorData;
         }
     }
 
     public void setMercatorRequestFromHomePageTabFeedFragment(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048786, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048785, this, z) == null) {
             this.isMercatorRequestFromHomePageTabFeedFragment = z;
         }
     }
 
     public void setMissionEntranceIcon(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048787, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048786, this, str) == null) {
             this.mMissionEntranceIcon = str;
         }
     }
 
     public void setMissionEntranceObjSource(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048788, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048787, this, str) == null) {
             this.mMissionEntranceObjSource = str;
         }
     }
 
     public void setMissionEntranceUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048789, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048788, this, str) == null) {
             this.mMissionEntranceUrl = str;
         }
     }
 
     public void setMyTabClicked(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048790, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048789, this, z) == null) {
             this.isMyTabClicked = z;
         }
     }
 
     public void setNewGodData(NewGodData newGodData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048791, this, newGodData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048790, this, newGodData) == null) {
             this.mNewGodData = newGodData;
         }
     }
 
     public void setNewUser(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048792, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048791, this, z) == null) {
             this.isNewUser = z;
         }
     }
 
     public void setNewUserRedPackageData(NewUserRedPackageData newUserRedPackageData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048793, this, newUserRedPackageData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048792, this, newUserRedPackageData) == null) {
             this.mNewUserRedPackageData = newUserRedPackageData;
         }
     }
 
     public void setNewUserRedPackageShowed(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048794, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048793, this, z) == null) {
             this.isNewUserRedPackageShowed = z;
-            ru4.k().u("key_task_system_new_user_popup_show_number", z);
+            tu4.k().u("key_task_system_new_user_popup_show_number", z);
         }
     }
 
-    public void setPbToHomeUpdateData(lq4 lq4Var) {
+    public void setPbToHomeUpdateData(nq4 nq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048795, this, lq4Var) == null) {
-            this.mPbToHomeUpdateData = lq4Var;
+        if (interceptable == null || interceptable.invokeL(1048794, this, nq4Var) == null) {
+            this.mPbToHomeUpdateData = nq4Var;
         }
     }
 
     public void setPcdnConfigData(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048796, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(1048795, this, jSONObject) == null) {
             if (this.mPcdnConfigData == null) {
-                this.mPcdnConfigData = new z88();
+                this.mPcdnConfigData = new h98();
             }
             this.mPcdnConfigData.d(jSONObject);
         }
@@ -2352,36 +2358,43 @@ public final class TbSingleton {
 
     public void setProfileGameCenterKey(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048797, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048796, this, str) == null) {
             this.mProfileGameCenterKey = str;
         }
     }
 
     public void setPubEnvValue(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048798, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048797, this, str) == null) {
             this.mPubEnvValue = str;
         }
     }
 
     public void setPushDialogLoopTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048799, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048798, this, j) == null) {
             this.pushDialogLoopTime = j;
         }
     }
 
     public void setPushDialogShowTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048800, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048799, this, j) == null) {
             this.pushDialogShowTime = j;
         }
     }
 
-    public void setPushStrategyConfig(ty4 ty4Var) {
+    public void setPushStrategyConfig(wy4 wy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048801, this, ty4Var) == null) {
-            this.pushStrategyConfig = ty4Var;
+        if (interceptable == null || interceptable.invokeL(1048800, this, wy4Var) == null) {
+            this.pushStrategyConfig = wy4Var;
+        }
+    }
+
+    public void setPushTid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048801, this, str) == null) {
+            this.pushTid = str;
         }
     }
 
@@ -2406,17 +2419,17 @@ public final class TbSingleton {
         }
     }
 
-    public void setShakeData(vy4 vy4Var) {
+    public void setShakeData(yy4 yy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048805, this, vy4Var) == null) {
-            this.mShakeData = vy4Var;
+        if (interceptable == null || interceptable.invokeL(1048805, this, yy4Var) == null) {
+            this.mShakeData = yy4Var;
         }
     }
 
-    public void setSharePanelConfData(wy4 wy4Var) {
+    public void setSharePanelConfData(zy4 zy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048806, this, wy4Var) == null) {
-            this.mSharePanelConfData = wy4Var;
+        if (interceptable == null || interceptable.invokeL(1048806, this, zy4Var) == null) {
+            this.mSharePanelConfData = zy4Var;
         }
     }
 
@@ -2458,15 +2471,15 @@ public final class TbSingleton {
     public void setSlideAnimLocalSwitch(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048812, this, z) == null) {
-            ru4.k().u("local_slide_animation__switch", z);
+            tu4.k().u("local_slide_animation__switch", z);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156674, Boolean.valueOf(z)));
         }
     }
 
-    public void setSyncModel(tz4 tz4Var) {
+    public void setSyncModel(yz4 yz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048813, this, tz4Var) == null) {
-            this.syncModel = tz4Var;
+        if (interceptable == null || interceptable.invokeL(1048813, this, yz4Var) == null) {
+            this.syncModel = yz4Var;
         }
     }
 
@@ -2474,7 +2487,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048814, this, z) == null) {
             this.isYYLive = Boolean.valueOf(z);
-            ru4 k = ru4.k();
+            tu4 k = tu4.k();
             k.u("key_is_yy_live" + TbadkCoreApplication.getCurrentAccount(), z);
         }
     }
@@ -2514,17 +2527,17 @@ public final class TbSingleton {
         }
     }
 
-    public void setUpgradePopWindowConfig(yy4 yy4Var) {
+    public void setUpgradePopWindowConfig(bz4 bz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048820, this, yy4Var) == null) {
-            this.upgradePopWindowConfig = yy4Var;
+        if (interceptable == null || interceptable.invokeL(1048820, this, bz4Var) == null) {
+            this.upgradePopWindowConfig = bz4Var;
         }
     }
 
-    public void setUploadAndClearModule(za8 za8Var) {
+    public void setUploadAndClearModule(hb8 hb8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048821, this, za8Var) == null) {
-            this.mUploadAndClearModule = za8Var;
+        if (interceptable == null || interceptable.invokeL(1048821, this, hb8Var) == null) {
+            this.mUploadAndClearModule = hb8Var;
         }
     }
 
@@ -2540,11 +2553,11 @@ public final class TbSingleton {
         if (interceptable == null || interceptable.invokeL(1048823, this, userGrowthTaskListData) == null) {
             this.userGrowthTaskListData = userGrowthTaskListData;
             if (userGrowthTaskListData != null) {
-                ru4.k().w("key_person_growth_switch", userGrowthTaskListData.getGrowthSwitch());
+                tu4.k().w("key_person_growth_switch", userGrowthTaskListData.getGrowthSwitch());
             } else {
-                ru4.k().D("key_person_growth_switch");
+                tu4.k().D("key_person_growth_switch");
             }
-            ru4.k().u("key_person_growth_share_switch", false);
+            tu4.k().u("key_person_growth_share_switch", false);
         }
     }
 
@@ -2600,15 +2613,15 @@ public final class TbSingleton {
         }
     }
 
-    public void setVideoEventsConfig(bz4 bz4Var) {
+    public void setVideoEventsConfig(ez4 ez4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048829, this, bz4Var) == null) {
-            bz4 bz4Var2 = this.videoEventsConfig;
-            if (bz4Var2 == null) {
-                this.videoEventsConfig = bz4Var;
-            } else if (bz4Var2.a(bz4Var)) {
+        if (interceptable == null || interceptable.invokeL(1048829, this, ez4Var) == null) {
+            ez4 ez4Var2 = this.videoEventsConfig;
+            if (ez4Var2 == null) {
+                this.videoEventsConfig = ez4Var;
+            } else if (ez4Var2.a(ez4Var)) {
             } else {
-                this.videoEventsConfig = bz4Var;
+                this.videoEventsConfig = ez4Var;
             }
         }
     }
@@ -2634,10 +2647,10 @@ public final class TbSingleton {
         }
     }
 
-    public void setVoiceRoomConfig(@Nullable cz4 cz4Var) {
+    public void setVoiceRoomConfig(@Nullable fz4 fz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048833, this, cz4Var) == null) {
-            this.voiceRoomConfig = cz4Var;
+        if (interceptable == null || interceptable.invokeL(1048833, this, fz4Var) == null) {
+            this.voiceRoomConfig = fz4Var;
         }
     }
 
@@ -2648,10 +2661,10 @@ public final class TbSingleton {
         }
     }
 
-    public void setWlConfigData(ez4 ez4Var) {
+    public void setWlConfigData(hz4 hz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048835, this, ez4Var) == null) {
-            this.mWlConfigData = ez4Var;
+        if (interceptable == null || interceptable.invokeL(1048835, this, hz4Var) == null) {
+            this.mWlConfigData = hz4Var;
         }
     }
 
@@ -2669,10 +2682,10 @@ public final class TbSingleton {
         }
     }
 
-    public void setYYLiveTabConfig(h39 h39Var) {
+    public void setYYLiveTabConfig(q39 q39Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048838, this, h39Var) == null) {
-            this.mYYLiveTabConfig = h39Var;
+        if (interceptable == null || interceptable.invokeL(1048838, this, q39Var) == null) {
+            this.mYYLiveTabConfig = q39Var;
         }
     }
 
@@ -2680,7 +2693,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048839, this, str) == null) {
             this.yyCloudSwitch = str;
-            ru4.k().y("key_yy_cloud_switch", str);
+            tu4.k().y("key_yy_cloud_switch", str);
         }
     }
 

@@ -1,6 +1,7 @@
 package rx.internal.operators;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.bv9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.su9;
 import java.io.Serializable;
 /* loaded from: classes8.dex */
 public final class NotificationLite {
@@ -117,22 +117,22 @@ public final class NotificationLite {
         };
     }
 
-    public static <T> boolean a(su9<? super T> su9Var, Object obj) {
+    public static <T> boolean a(bv9<? super T> bv9Var, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, su9Var, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bv9Var, obj)) == null) {
             if (obj == a) {
-                su9Var.onCompleted();
+                bv9Var.onCompleted();
                 return true;
             } else if (obj == b) {
-                su9Var.onNext(null);
+                bv9Var.onNext(null);
                 return false;
             } else if (obj != null) {
                 if (obj.getClass() == OnErrorSentinel.class) {
-                    su9Var.onError(((OnErrorSentinel) obj).e);
+                    bv9Var.onError(((OnErrorSentinel) obj).e);
                     return true;
                 }
-                su9Var.onNext(obj);
+                bv9Var.onNext(obj);
                 return false;
             } else {
                 throw new IllegalArgumentException("The lite notification can not be null");

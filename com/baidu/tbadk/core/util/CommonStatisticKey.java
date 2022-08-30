@@ -108,6 +108,8 @@ public class CommonStatisticKey {
     public static final String KEY_HOME_PAGE_MESSGAE_TAB_SHOW = "c14611";
     public static final String KEY_HOME_PAGE_YY_LIVE_AVATER_CLICK = "c14281";
     public static final String KEY_HOME_PAGE_YY_LIVE_AVATER_SHOW = "c14282";
+    public static final String KEY_HOT_EVENT_CLICK = "c14963";
+    public static final String KEY_HOT_EVENT_SHOW = "c14962";
     public static final String KEY_HOT_TOPIC_BANNER_CLICK = "c14902";
     public static final String KEY_HOT_TOPIC_NEXT_ONE = "c14903";
     public static final String KEY_IMMERSION_VIDEO_SHARE_DIALOG_MUSK_CLiCK = "c14339";

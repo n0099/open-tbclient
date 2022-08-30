@@ -7,12 +7,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.emotioncenter.CommonEmotionCenterFragment;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class CommonEmotionManagerActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,10 +47,10 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d01e3);
+            setContentView(R.layout.obfuscated_res_0x7f0d01e4);
             this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906bd);
             if (isUseStyleImmersiveSticky()) {
-                ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = qi.s(getPageContext().getPageActivity());
+                ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = ri.s(getPageContext().getPageActivity());
             }
             String stringExtra = getIntent().getStringExtra("url");
             this.c = stringExtra;

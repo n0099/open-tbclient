@@ -3,6 +3,16 @@ package com.baidu.swan.pms.node;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.jc4;
+import com.baidu.tieba.kc4;
+import com.baidu.tieba.od4;
+import com.baidu.tieba.pc4;
+import com.baidu.tieba.pd4;
+import com.baidu.tieba.qc4;
+import com.baidu.tieba.tc4;
+import com.baidu.tieba.td4;
+import com.baidu.tieba.uc4;
+import com.baidu.tieba.ud4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,16 +20,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ic4;
-import com.repackage.jc4;
-import com.repackage.nd4;
-import com.repackage.oc4;
-import com.repackage.od4;
-import com.repackage.pc4;
-import com.repackage.sc4;
-import com.repackage.sd4;
-import com.repackage.tc4;
-import com.repackage.td4;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes3.dex */
 public final class Node {
@@ -33,8 +33,8 @@ public final class Node {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mIsDataArray;
     public String mName;
-    public Class<? extends jc4> mParamsProvider;
-    public Class<? extends ic4> mProcessor;
+    public Class<? extends kc4> mParamsProvider;
+    public Class<? extends jc4> mProcessor;
 
     static {
         InterceptResult invokeClinit;
@@ -49,10 +49,10 @@ public final class Node {
                 return;
             }
         }
-        HOST = new Node("HOST", 0, "host", nd4.class, od4.class);
-        PACKAGE = new Node("PACKAGE", 1, "package", sd4.class, td4.class, true);
-        CERES = new Node("CERES", 2, "ceres", oc4.class, pc4.class);
-        Node node = new Node("COMMON", 3, "common", sc4.class, tc4.class);
+        HOST = new Node("HOST", 0, "host", od4.class, pd4.class);
+        PACKAGE = new Node("PACKAGE", 1, "package", td4.class, ud4.class, true);
+        CERES = new Node("CERES", 2, "ceres", pc4.class, qc4.class);
+        Node node = new Node("COMMON", 3, "common", tc4.class, uc4.class);
         COMMON = node;
         $VALUES = new Node[]{HOST, PACKAGE, CERES, node};
     }
@@ -96,9 +96,9 @@ public final class Node {
         return (Node) invokeL.objValue;
     }
 
-    public static jc4 getProvider(Node node) {
+    public static kc4 getProvider(Node node) {
         InterceptResult invokeL;
-        Class<? extends jc4> paramsProvider;
+        Class<? extends kc4> paramsProvider;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, node)) == null) {
             if (node == null || (paramsProvider = node.getParamsProvider()) == null) {
@@ -110,7 +110,7 @@ public final class Node {
                 return null;
             }
         }
-        return (jc4) invokeL.objValue;
+        return (kc4) invokeL.objValue;
     }
 
     public static Node valueOf(String str) {
@@ -131,13 +131,13 @@ public final class Node {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mName : (String) invokeV.objValue;
     }
 
-    public Class<? extends jc4> getParamsProvider() {
+    public Class<? extends kc4> getParamsProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mParamsProvider : (Class) invokeV.objValue;
     }
 
-    public Class<? extends ic4> getProcessor() {
+    public Class<? extends jc4> getProcessor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mProcessor : (Class) invokeV.objValue;

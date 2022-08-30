@@ -9,6 +9,7 @@ import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +42,7 @@ import java.text.DateFormat;
 import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long APPROXIMATE_START_TIME;
@@ -61,7 +62,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     public final Thread.UncaughtExceptionHandler mPreviousHandler;
 
     /* renamed from: com.baidu.webkit.sdk.dumper.ZeusCrashHandler$5  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass5 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo;
         public static /* synthetic */ Interceptable $ic;
@@ -133,13 +134,13 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface CrashFilter {
         boolean filt(Thread thread, Throwable th);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class ExtraInfo {
         public static final /* synthetic */ ExtraInfo[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -230,7 +231,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class ZeusCrashHandlerClient {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "CrashHandlerClientImpl";
@@ -377,7 +378,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
             if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
                 try {
                     String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("enableIMEI");
-                    return (GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase(Locale.getDefault()).equals("true") || (deviceId = ((TelephonyManager) WebViewFactory.getContext().getSystemService("phone")).getDeviceId()) == null) ? "0" : deviceId.length() > 0 ? deviceId : "0";
+                    return (GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase(Locale.getDefault()).equals("true") || (deviceId = ApiReplaceUtil.getDeviceId((TelephonyManager) WebViewFactory.getContext().getSystemService("phone"))) == null) ? "0" : deviceId.length() > 0 ? deviceId : "0";
                 } catch (Throwable th) {
                     th.printStackTrace();
                     return "0";

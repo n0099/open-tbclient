@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class OfflineMemExceptionMessage extends ExceptionMessage {
     public static final String MSG_QUEUE_DETAIL = "mMessageQueueDetail";
     public static final String REASON = "mReason";

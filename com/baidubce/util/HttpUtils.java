@@ -20,7 +20,7 @@ import java.util.Map;
 import okhttp3.Headers;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class HttpUtils {
     public static /* synthetic */ Interceptable $ic;
     public static boolean HTTP_VERBOSE;

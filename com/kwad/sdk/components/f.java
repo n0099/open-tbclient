@@ -1,5 +1,5 @@
 package com.kwad.sdk.components;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface f extends a {
     void an(String str);
 

@@ -18,13 +18,13 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.tu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ru4;
 import java.util.Calendar;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BigdayActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public class BigdayActivity extends BaseActivity {
                 calendar.set(12, 59);
                 calendar.set(13, 59);
                 calendar.set(14, 0);
-                ru4.k().x("key_bigday_next_showtime_home", calendar.getTimeInMillis());
+                tu4.k().x("key_bigday_next_showtime_home", calendar.getTimeInMillis());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, null));
                 finish();
             }
@@ -94,7 +94,7 @@ public class BigdayActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0156);
+            setContentView(R.layout.obfuscated_res_0x7f0d0157);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090387);
             this.a = tbImageView;
             tbImageView.setAutoChangeStyle(false);

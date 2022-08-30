@@ -4,13 +4,13 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.nq8;
+import com.baidu.tieba.pr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eq8;
-import com.repackage.gr8;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,12 +18,12 @@ import tbclient.Error;
 import tbclient.GetPendantByCategory.DataRes;
 import tbclient.GetPendantByCategory.GetPendantByCategoryResIdl;
 import tbclient.GetPendantByCategory.ThemePendantInMain;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AvatarPendantListSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<eq8> mAvatarPendantList;
-    public gr8 mRecommand;
+    public List<nq8> mAvatarPendantList;
+    public pr8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AvatarPendantListSocketResponseMessage() {
@@ -63,17 +63,17 @@ public class AvatarPendantListSocketResponseMessage extends SocketResponsedMessa
                 return getPendantByCategoryResIdl;
             }
             if (dataRes.recommend != null) {
-                gr8 gr8Var = new gr8();
-                this.mRecommand = gr8Var;
-                gr8Var.d(getPendantByCategoryResIdl.data.recommend);
+                pr8 pr8Var = new pr8();
+                this.mRecommand = pr8Var;
+                pr8Var.d(getPendantByCategoryResIdl.data.recommend);
             }
             if (getPendantByCategoryResIdl.data.pendant != null) {
                 this.mAvatarPendantList = new ArrayList();
                 for (ThemePendantInMain themePendantInMain : getPendantByCategoryResIdl.data.pendant) {
                     if (themePendantInMain != null && !StringUtils.isNull(themePendantInMain.pendant_category)) {
-                        eq8 eq8Var = new eq8();
-                        eq8Var.c(themePendantInMain);
-                        this.mAvatarPendantList.add(eq8Var);
+                        nq8 nq8Var = new nq8();
+                        nq8Var.c(themePendantInMain);
+                        this.mAvatarPendantList.add(nq8Var);
                     }
                 }
             }
@@ -82,15 +82,15 @@ public class AvatarPendantListSocketResponseMessage extends SocketResponsedMessa
         return invokeIL.objValue;
     }
 
-    public List<eq8> getAvatarPendantListList() {
+    public List<nq8> getAvatarPendantListList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAvatarPendantList : (List) invokeV.objValue;
     }
 
-    public gr8 getRecommand() {
+    public pr8 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRecommand : (gr8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRecommand : (pr8) invokeV.objValue;
     }
 }

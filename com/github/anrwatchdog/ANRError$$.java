@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.github.anrwatchdog.ANRError;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ANRError$$ implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,7 +17,7 @@ public class ANRError$$ implements Serializable {
     public final LinkedHashMap<Long, StackTraceElement[]> _stackMap;
     public final StackTraceElement[] _stackTrace;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class _Thread extends Throwable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

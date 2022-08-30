@@ -19,6 +19,7 @@ import com.baidu.rtc.player.BRTCPlayerImpl;
 import com.baidu.rtc.player.BRTCPlayerParameters;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.live.interfaces.player.BuildParams;
+import com.baidu.tieba.m16;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,12 +27,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e16;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class TbBRTCPlayerView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean o;
@@ -52,22 +52,22 @@ public class TbBRTCPlayerView extends FrameLayout {
     public long m;
     public BRTCPlayerEvents n;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a implements BRTCPlayerEvents {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbBRTCPlayerView a;
 
         /* renamed from: com.baidu.tieba.medialive.player.bdrtc.TbBRTCPlayerView$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class RunnableC0229a implements Runnable {
+        /* loaded from: classes5.dex */
+        public class RunnableC0322a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ String b;
             public final /* synthetic */ a c;
 
-            public RunnableC0229a(a aVar, int i, String str) {
+            public RunnableC0322a(a aVar, int i, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -126,7 +126,7 @@ public class TbBRTCPlayerView extends FrameLayout {
                 }
                 if (this.a.i != null) {
                     if (TbBRTCPlayerView.o) {
-                        e16.b(new RunnableC0229a(this, i, str));
+                        m16.b(new RunnableC0322a(this, i, str));
                     }
                     this.a.i.onError(i, str);
                 }

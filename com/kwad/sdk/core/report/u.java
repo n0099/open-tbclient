@@ -15,7 +15,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class u extends com.kwad.sdk.core.network.b {
     @Nullable
     public final b KS;
@@ -25,7 +25,7 @@ public final class u extends com.kwad.sdk.core.network.b {
     public final AdTemplate mAdTemplate;
 
     @KsJson
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public int abA;
         public int aby = -1;
@@ -43,7 +43,7 @@ public final class u extends com.kwad.sdk.core.network.b {
     }
 
     @KsJson
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class b extends com.kwad.sdk.core.response.kwai.a {
         public long Es;
         public int FH;

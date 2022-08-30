@@ -5,12 +5,12 @@ import android.media.MediaCodecList;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.vu9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mu9;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.annotation.Nullable;
@@ -125,7 +125,7 @@ public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
     @Nullable
     @Deprecated
     public /* synthetic */ VideoDecoder createDecoder(String str) {
-        return mu9.$default$createDecoder(this, str);
+        return vu9.$default$createDecoder(this, str);
     }
 
     @Override // org.webrtc.VideoDecoderFactory

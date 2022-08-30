@@ -5,27 +5,27 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.bb;
+import com.baidu.tieba.bu6;
+import com.baidu.tieba.d9;
 import com.baidu.tieba.gift.giftTab.GiftTabActivity;
+import com.baidu.tieba.rk8;
+import com.baidu.tieba.rp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab;
-import com.repackage.d9;
-import com.repackage.jk8;
-import com.repackage.pp4;
-import com.repackage.tt6;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
-    public ab b;
-    public ab c;
+    public bb b;
+    public bb c;
 
-    /* loaded from: classes3.dex */
-    public class a extends ab {
+    /* loaded from: classes4.dex */
+    public class a extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SendGiftModel a;
@@ -52,7 +52,7 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
             this.a = sendGiftModel;
         }
 
-        @Override // com.repackage.ab
+        @Override // com.baidu.tieba.bb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -73,8 +73,8 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b extends ab {
+    /* loaded from: classes4.dex */
+    public class b extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SendGiftModel a;
@@ -101,7 +101,7 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
             this.a = sendGiftModel;
         }
 
-        @Override // com.repackage.ab
+        @Override // com.baidu.tieba.bb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -109,22 +109,22 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
             }
             boolean z = responsedMessage instanceof PlaceOrderHttpResponse;
             if (z || (responsedMessage instanceof PlaceOrderSocketResponse)) {
-                tt6 tt6Var = null;
+                bu6 bu6Var = null;
                 if (z) {
-                    tt6Var = ((PlaceOrderHttpResponse) responsedMessage).getOrderInfo();
+                    bu6Var = ((PlaceOrderHttpResponse) responsedMessage).getOrderInfo();
                 } else if (responsedMessage instanceof PlaceOrderSocketResponse) {
-                    tt6Var = ((PlaceOrderSocketResponse) responsedMessage).getOrderInfo();
+                    bu6Var = ((PlaceOrderSocketResponse) responsedMessage).getOrderInfo();
                 }
                 if (this.a.a != null) {
-                    this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), tt6Var);
+                    this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), bu6Var);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
-        void a(int i, String str, tt6 tt6Var);
+        void a(int i, String str, bu6 bu6Var);
 
         void b();
 
@@ -151,21 +151,21 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
         }
         this.b = new a(this, CmdConfigHttp.CMD_SEND_FREE_GIFT, 309050);
         this.c = new b(this, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, 309051);
-        jk8.h(309050, SendFreeGiftSocketResponse.class, false, false);
-        jk8.c(309050, CmdConfigHttp.CMD_SEND_FREE_GIFT, TbConfig.SEND_FREE_GIFT, SendFreeGiftHttpResponse.class, false, false, false, false);
-        jk8.h(309051, PlaceOrderSocketResponse.class, false, false);
-        jk8.c(309051, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, TbConfig.GIFT_PLACE_ORDER, PlaceOrderHttpResponse.class, false, false, false, false);
+        rk8.h(309050, SendFreeGiftSocketResponse.class, false, false);
+        rk8.c(309050, CmdConfigHttp.CMD_SEND_FREE_GIFT, TbConfig.SEND_FREE_GIFT, SendFreeGiftHttpResponse.class, false, false, false, false);
+        rk8.h(309051, PlaceOrderSocketResponse.class, false, false);
+        rk8.c(309051, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, TbConfig.GIFT_PLACE_ORDER, PlaceOrderHttpResponse.class, false, false, false, false);
         registerListener(this.b);
         registerListener(this.c);
     }
 
-    public void A(pp4 pp4Var, int i, String str, long j, String str2, long j2, long j3) {
+    public void A(rp4 rp4Var, int i, String str, long j, String str2, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{pp4Var, Integer.valueOf(i), str, Long.valueOf(j), str2, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            if (i > 0 && pp4Var != null && j > 0) {
-                if (pp4Var.f == 5) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{rp4Var, Integer.valueOf(i), str, Long.valueOf(j), str2, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if (i > 0 && rp4Var != null && j > 0) {
+                if (rp4Var.f == 5) {
                     SendFreeGiftRequest sendFreeGiftRequest = new SendFreeGiftRequest();
-                    sendFreeGiftRequest.setGiftId(pp4Var.a);
+                    sendFreeGiftRequest.setGiftId(rp4Var.a);
                     sendFreeGiftRequest.setToUserId(j);
                     sendFreeGiftRequest.setToUserName(str2);
                     sendFreeGiftRequest.setSceneFrom(str);
@@ -176,7 +176,7 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
                     return;
                 }
                 PlaceOrderRequest placeOrderRequest = new PlaceOrderRequest();
-                placeOrderRequest.setGiftId(pp4Var.a);
+                placeOrderRequest.setGiftId(rp4Var.a);
                 placeOrderRequest.setToUserId(j);
                 placeOrderRequest.setToUserName(str2);
                 placeOrderRequest.setSceneFrom(str);
@@ -184,8 +184,8 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
                 placeOrderRequest.setThreadId(j2);
                 placeOrderRequest.setPostId(j3);
                 placeOrderRequest.accountId = j;
-                placeOrderRequest.accountType = pp4Var.r;
-                placeOrderRequest.currency = pp4Var.s;
+                placeOrderRequest.accountType = rp4Var.r;
+                placeOrderRequest.currency = rp4Var.s;
                 sendMessage(placeOrderRequest);
                 return;
             }

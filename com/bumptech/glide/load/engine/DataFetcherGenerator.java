@@ -4,10 +4,10 @@ import androidx.annotation.Nullable;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.data.DataFetcher;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface DataFetcherGenerator {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface FetcherReadyCallback {
         void onDataFetcherFailed(Key key, Exception exc, DataFetcher<?> dataFetcher, DataSource dataSource);
 

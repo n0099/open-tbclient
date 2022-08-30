@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static String A = "wb";
     public static String B = "lt";

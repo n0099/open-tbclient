@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTAdSdk;
 import com.bytedance.sdk.openadsdk.TTCustomController;
 import com.fun.ad.sdk.ModuleAdConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ModuleConfigCsj extends ModuleAdConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TITLE_BAR_THEME_DARK = 1;
@@ -22,13 +22,13 @@ public class ModuleConfigCsj extends ModuleAdConfig {
     public final boolean ttSupportMultiProcess;
 
     /* renamed from: com.fun.ad.sdk.channel.ModuleConfigCsj$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

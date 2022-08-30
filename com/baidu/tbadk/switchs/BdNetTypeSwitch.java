@@ -1,14 +1,14 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bf;
 /* loaded from: classes3.dex */
-public class BdNetTypeSwitch extends bf {
+public class BdNetTypeSwitch extends cf {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY = "tieba_net_type_for_bd";
     public static final int TYPE_OKHTTP = 2;
@@ -48,14 +48,14 @@ public class BdNetTypeSwitch extends bf {
         return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == 1 : invokeI.booleanValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class BdNetTypeSwitch extends bf {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class BdNetTypeSwitch extends bf {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -85,14 +85,14 @@ public class BdNetTypeSwitch extends bf {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? KEY : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

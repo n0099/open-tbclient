@@ -2,18 +2,18 @@ package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.hc7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zb7;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MsgReminderHttpRespMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zb7 msgData;
+    public hc7 msgData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgReminderHttpRespMessage(int i) {
@@ -45,17 +45,17 @@ public class MsgReminderHttpRespMessage extends JsonHttpResponsedMessage {
             if (statusCode == 200 && error == 0 && jSONObject != null) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("message");
                 if (jSONObject != null) {
-                    zb7 zb7Var = new zb7();
-                    zb7Var.f(optJSONObject);
-                    this.msgData = zb7Var;
+                    hc7 hc7Var = new hc7();
+                    hc7Var.f(optJSONObject);
+                    this.msgData = hc7Var;
                 }
             }
         }
     }
 
-    public zb7 getMsgData() {
+    public hc7 getMsgData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.msgData : (zb7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.msgData : (hc7) invokeV.objValue;
     }
 }

@@ -10,11 +10,11 @@ import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.my2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ly2;
 /* loaded from: classes2.dex */
 public class CircleIndicator extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -61,7 +61,7 @@ public class CircleIndicator extends View {
         public void onPageScrollStateChanged(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                ly2.g(this.a.getContext().getApplicationContext()).k();
+                my2.g(this.a.getContext().getApplicationContext()).k();
             }
         }
 
@@ -146,8 +146,8 @@ public class CircleIndicator extends View {
             Paint paint = new Paint();
             this.h = paint;
             paint.setAntiAlias(true);
-            this.k = getResources().getColor(R.color.obfuscated_res_0x7f060a8a);
-            this.l = getResources().getColor(R.color.obfuscated_res_0x7f060a8b);
+            this.k = getResources().getColor(R.color.obfuscated_res_0x7f060a8d);
+            this.l = getResources().getColor(R.color.obfuscated_res_0x7f060a8e);
             this.c = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070106);
         }
     }

@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.tieba.kh1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jh1;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class NetworkBroadcastReceiver extends BroadcastReceiver {
@@ -37,7 +37,7 @@ public class NetworkBroadcastReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        DEBUG = jh1.a;
+        DEBUG = kh1.a;
     }
 
     public NetworkBroadcastReceiver(CallbackHandler callbackHandler, String str) {

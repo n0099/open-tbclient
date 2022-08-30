@@ -10,6 +10,7 @@ import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
 import com.baidu.searchbox.logsystem.util.Utility;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
+import com.baidu.tieba.kc1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jc1;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -135,7 +135,7 @@ public class LokiTrackUISaver {
                 file.mkdirs();
             }
             if (mTempTraceFile == null) {
-                mTempTraceFile = new File(file, jc1.b() + ".tmp");
+                mTempTraceFile = new File(file, kc1.b() + ".tmp");
             }
             return mTempTraceFile;
         }

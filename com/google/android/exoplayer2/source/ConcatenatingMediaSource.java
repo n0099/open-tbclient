@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class ConcatenatingMediaSource implements MediaSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public final class ConcatenatingMediaSource implements MediaSource {
     public ConcatenatedTimeline timeline;
     public final Timeline[] timelines;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class ConcatenatedTimeline extends AbstractConcatenatedTimeline {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -9,13 +9,13 @@ import android.widget.FrameLayout;
 import android.widget.OverScroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.hn1;
+import com.baidu.tieba.re3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gn1;
-import com.repackage.qe3;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 /* loaded from: classes2.dex */
 public class WebViewContainer extends FrameLayout {
@@ -39,7 +39,7 @@ public class WebViewContainer extends FrameLayout {
     public float p;
     public int q;
     public int r;
-    public gn1 s;
+    public hn1 s;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -329,17 +329,17 @@ public class WebViewContainer extends FrameLayout {
         }
     }
 
-    public void setInternalWebView(gn1 gn1Var) {
+    public void setInternalWebView(hn1 hn1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, gn1Var) == null) {
-            this.s = gn1Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, hn1Var) == null) {
+            this.s = hn1Var;
         }
     }
 
     public void setMinFlingVelocity(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.m = qe3.g(i);
+            this.m = re3.g(i);
         }
     }
 

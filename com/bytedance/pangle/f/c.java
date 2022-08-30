@@ -35,18 +35,18 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 @RequiresApi(api = 21)
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,15 +74,15 @@ public final class c {
     }
 
     /* renamed from: com.bytedance.pangle.f.c$c  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C0282c {
+    /* loaded from: classes7.dex */
+    public static class C0497c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final X509Certificate[] a;
         public final b b;
         public byte[] c;
 
-        public C0282c(X509Certificate[] x509CertificateArr, b bVar) {
+        public C0497c(X509Certificate[] x509CertificateArr, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,7 +102,7 @@ public final class c {
         }
     }
 
-    public static C0282c a(RandomAccessFile randomAccessFile, m mVar) {
+    public static C0497c a(RandomAccessFile randomAccessFile, m mVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, randomAccessFile, mVar)) == null) {
@@ -112,10 +112,10 @@ public final class c {
                 try {
                     ByteBuffer a2 = f.a(mVar.a);
                     int i = 0;
-                    C0282c c0282c = null;
+                    C0497c c0497c = null;
                     while (a2.hasRemaining()) {
                         try {
-                            c0282c = a(f.a(a2), arrayMap, certificateFactory);
+                            c0497c = a(f.a(a2), arrayMap, certificateFactory);
                             i++;
                         } catch (a unused) {
                         } catch (IOException e) {
@@ -129,16 +129,16 @@ public final class c {
                             throw new SecurityException("Failed to parse/verify signer #" + i + " block", e);
                         }
                     }
-                    if (i <= 0 || c0282c == null) {
+                    if (i <= 0 || c0497c == null) {
                         throw new SecurityException("No signers found");
                     }
                     if (i == 1) {
                         if (!arrayMap.isEmpty()) {
                             f.a(arrayMap, randomAccessFile, mVar);
                             if (arrayMap.containsKey(3)) {
-                                c0282c.c = f.a((byte[]) arrayMap.get(3), randomAccessFile.length(), mVar);
+                                c0497c.c = f.a((byte[]) arrayMap.get(3), randomAccessFile.length(), mVar);
                             }
-                            return c0282c;
+                            return c0497c;
                         }
                         throw new SecurityException("No content digests found");
                     }
@@ -150,14 +150,14 @@ public final class c {
                 throw new RuntimeException("Failed to obtain X.509 CertificateFactory", e5);
             }
         }
-        return (C0282c) invokeLL.objValue;
+        return (C0497c) invokeLL.objValue;
     }
 
-    public static C0282c a(ByteBuffer byteBuffer, Map<Integer, byte[]> map, CertificateFactory certificateFactory) {
+    public static C0497c a(ByteBuffer byteBuffer, Map<Integer, byte[]> map, CertificateFactory certificateFactory) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65539, null, byteBuffer, map, certificateFactory)) != null) {
-            return (C0282c) invokeLLL.objValue;
+            return (C0497c) invokeLLL.objValue;
         }
         ByteBuffer a2 = f.a(byteBuffer);
         int i = byteBuffer.getInt();
@@ -284,7 +284,7 @@ public final class c {
         }
     }
 
-    public static C0282c a(ByteBuffer byteBuffer, List<X509Certificate> list, CertificateFactory certificateFactory) {
+    public static C0497c a(ByteBuffer byteBuffer, List<X509Certificate> list, CertificateFactory certificateFactory) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, byteBuffer, list, certificateFactory)) == null) {
@@ -311,9 +311,9 @@ public final class c {
                     throw new IOException("Remaining buffer too short to contain additional attribute ID. Remaining: " + a2.remaining());
                 }
             }
-            return new C0282c(x509CertificateArr, bVar);
+            return new C0497c(x509CertificateArr, bVar);
         }
-        return (C0282c) invokeLLL.objValue;
+        return (C0497c) invokeLLL.objValue;
     }
 
     public static b a(ByteBuffer byteBuffer, CertificateFactory certificateFactory) {

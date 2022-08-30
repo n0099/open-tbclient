@@ -12,7 +12,9 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.qg;
 import com.baidu.tieba.service.SignAlertReceiver;
+import com.baidu.tieba.tu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,8 +23,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.NTLMEngineImpl;
-import com.repackage.pg;
-import com.repackage.ru4;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class TbadkApplication extends TbadkCoreApplication {
@@ -31,7 +31,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     public static TbadkApplication sApp;
     public transient /* synthetic */ FieldHolder $fh;
     public String[] mPatchWhiteList;
-    public pg resourcesWrapper;
+    public qg resourcesWrapper;
     public String tShopUrl;
 
     static {
@@ -112,7 +112,7 @@ public class TbadkApplication extends TbadkCoreApplication {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (BdBaseApplication.getInst() != null && !BdBaseApplication.getInst().getIsPluginResourcOpen()) {
                 if (this.resourcesWrapper == null && super.getResources() != null) {
-                    this.resourcesWrapper = new pg(super.getResources());
+                    this.resourcesWrapper = new qg(super.getResources());
                 }
                 return this.resourcesWrapper;
             }
@@ -198,7 +198,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     public void loginShareRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            ru4.k().D("account_share");
+            tu4.k().D("account_share");
         }
     }
 

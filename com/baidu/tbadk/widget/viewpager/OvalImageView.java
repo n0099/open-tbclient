@@ -17,6 +17,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.nj8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +25,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fj8;
 /* loaded from: classes3.dex */
 public class OvalImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
@@ -117,11 +117,11 @@ public class OvalImageView extends ImageView {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             this.o = skinType;
             if (skinType == 0) {
-                this.i = fj8.f("#2bb8ff");
-                this.j = fj8.f("#2b80ff");
+                this.i = nj8.f("#2bb8ff");
+                this.j = nj8.f("#2b80ff");
             } else if (skinType == 1 || skinType == 4) {
-                this.i = fj8.f("#249BD6");
-                this.j = fj8.f("#246CD6");
+                this.i = nj8.f("#249BD6");
+                this.j = nj8.f("#246CD6");
             }
         }
     }
@@ -202,7 +202,7 @@ public class OvalImageView extends ImageView {
                     float width3 = canvas.getWidth() * 0.054f;
                     double radians = Math.toRadians(getRotation() - 45.0f);
                     double width4 = canvas.getWidth() * 0.0226f;
-                    this.c.setShadowLayer(width3, (float) (Math.cos(radians) * width4), ((float) (width4 * Math.sin(radians))) * (-1.0f), fj8.a(this.h == null ? this.k : this.j, 0.83f));
+                    this.c.setShadowLayer(width3, (float) (Math.cos(radians) * width4), ((float) (width4 * Math.sin(radians))) * (-1.0f), nj8.a(this.h == null ? this.k : this.j, 0.83f));
                 }
                 LinearGradient linearGradient = this.h;
                 if (linearGradient != null) {
@@ -311,8 +311,8 @@ public class OvalImageView extends ImageView {
     public void setStartAndEndColor(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
-            this.i = fj8.f(str);
-            this.j = fj8.f(str2);
+            this.i = nj8.f(str);
+            this.j = nj8.f(str2);
             this.a = true;
             invalidate();
         }
@@ -321,7 +321,7 @@ public class OvalImageView extends ImageView {
     public void setStringColor(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.k = fj8.f(str);
+            this.k = nj8.f(str);
         }
     }
 

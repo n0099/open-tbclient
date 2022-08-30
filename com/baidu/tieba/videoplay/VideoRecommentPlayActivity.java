@@ -33,22 +33,22 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.util.OnActivityFinishListener;
 import com.baidu.tieba.R;
+import com.baidu.tieba.al5;
+import com.baidu.tieba.dj4;
+import com.baidu.tieba.ej4;
+import com.baidu.tieba.ri;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.danmu.DanmuProgressManager;
 import com.baidu.tieba.videoplay.fragment.VideoVerticalPageFragment;
+import com.baidu.tieba.z8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cj4;
-import com.repackage.dj4;
-import com.repackage.qi;
-import com.repackage.sk5;
-import com.repackage.z8;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoRecommentPlayActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,11 +58,11 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
     public List<VideoItemData> d;
     public VideoVerticalPageFragment e;
     public ImageView f;
-    public sk5 g;
+    public al5 g;
     public boolean h;
     public CustomMessageListener i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -265,7 +265,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 arrayList.addAll(VideoPlayActivityConfig.bigDataList);
             }
             if (ListUtils.isEmpty(this.d)) {
-                qi.M(this, R.string.obfuscated_res_0x7f0f0c3a);
+                ri.M(this, R.string.obfuscated_res_0x7f0f0c3d);
                 finish();
                 return;
             }
@@ -273,7 +273,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             this.e = videoVerticalPageFragment;
             videoVerticalPageFragment.setArguments(getIntent().getExtras());
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f09252b, this.e);
+            beginTransaction.add(R.id.obfuscated_res_0x7f092535, this.e);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
             ImageView imageView = new ImageView(getPageContext().getPageActivity());
@@ -412,7 +412,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a02, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a03, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             VideoVerticalPageFragment videoVerticalPageFragment = this.e;
             if (videoVerticalPageFragment != null) {
                 videoVerticalPageFragment.onChangeSkinType(i);
@@ -448,8 +448,8 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 setIsAddSwipeBackLayout(false);
             }
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d08be);
-            this.g = new sk5(getPageContext(), "client_videomiddle");
+            setContentView(R.layout.obfuscated_res_0x7f0d08c0);
+            this.g = new al5(getPageContext(), "client_videomiddle");
             K0();
             L0();
             addNoAdjustSoftInputHeightListener();
@@ -468,9 +468,9 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            sk5 sk5Var = this.g;
-            if (sk5Var != null) {
-                sk5Var.h();
+            al5 al5Var = this.g;
+            if (al5Var != null) {
+                al5Var.h();
             }
         }
     }
@@ -519,7 +519,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 videoVerticalPageFragment.setPrimary(false);
                 this.e.setUserVisibleHint(false);
             }
-            dj4.w().E();
+            ej4.w().E();
         }
     }
 
@@ -532,7 +532,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             if (videoVerticalPageFragment != null) {
                 videoVerticalPageFragment.setPrimary(true);
                 this.e.setUserVisibleHint(true);
-                dj4.w().P(cj4.c0, this.e.F0());
+                ej4.w().P(dj4.c0, this.e.F0());
             }
         }
     }

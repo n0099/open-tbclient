@@ -1,5 +1,5 @@
 package com.kwad.sdk.service.kwai;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface e {
     Class<?> getProxyRealClass(Class<?> cls);
 

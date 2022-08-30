@@ -8,12 +8,12 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tieba.y8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y8;
 /* loaded from: classes3.dex */
 public class DealIntentActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;

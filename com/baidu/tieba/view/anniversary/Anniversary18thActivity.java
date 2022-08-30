@@ -26,6 +26,13 @@ import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bx8;
+import com.baidu.tieba.cx8;
+import com.baidu.tieba.fx8;
+import com.baidu.tieba.ms4;
+import com.baidu.tieba.nj8;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.ri;
 import com.baidu.tieba.view.anniversary.model.AnniversaryEtModel;
 import com.baidu.tieba.view.anniversary.view.MaxureLayerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,15 +40,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fj8;
-import com.repackage.ks4;
-import com.repackage.ms4;
-import com.repackage.qi;
-import com.repackage.sw8;
-import com.repackage.tw8;
-import com.repackage.ww8;
-/* loaded from: classes4.dex */
-public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivity> implements tw8 {
+/* loaded from: classes6.dex */
+public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivity> implements cx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AnniversaryEtModel a;
@@ -59,11 +59,11 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
     public String m;
     public String n;
     public int o;
-    public ww8 p;
+    public fx8 p;
     public MaxureLayerView q;
     public PermissionJudgePolicy r;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +100,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,15 +129,15 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.o == 100 && !TextUtils.isEmpty(this.a.k)) {
-                    sw8.n(this.a.getPageContext(), this.a.k, this.a.l, this.a.n, this.a.m);
+                    bx8.n(this.a.getPageContext(), this.a.k, this.a.l, this.a.n, this.a.m);
                 } else {
-                    qi.N(TbadkCoreApplication.getInst(), this.a.getString(R.string.obfuscated_res_0x7f0f11fc));
+                    ri.N(TbadkCoreApplication.getInst(), this.a.getString(R.string.obfuscated_res_0x7f0f11ff));
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -173,7 +173,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class d implements PermissionJudgePolicy.PermissionDialogClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -213,7 +213,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class e implements PermissionJudgePolicy.OnPermissionsGrantedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -247,7 +247,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -286,7 +286,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class g implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -340,11 +340,11 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
     public final void H1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TBAlertConfig.a aVar = new TBAlertConfig.a(getString(R.string.obfuscated_res_0x7f0f0e82), TBAlertConfig.OperateBtnStyle.MAIN);
-            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0370, TBAlertConfig.OperateBtnStyle.SECONDARY);
+            TBAlertConfig.a aVar = new TBAlertConfig.a(getString(R.string.obfuscated_res_0x7f0f0e85), TBAlertConfig.OperateBtnStyle.MAIN);
+            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0371, TBAlertConfig.OperateBtnStyle.SECONDARY);
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
-            tBAlertBuilder.u(getString(R.string.obfuscated_res_0x7f0f11fb));
-            tBAlertBuilder.o(getString(R.string.obfuscated_res_0x7f0f11fa));
+            tBAlertBuilder.u(getString(R.string.obfuscated_res_0x7f0f11fe));
+            tBAlertBuilder.o(getString(R.string.obfuscated_res_0x7f0f11fd));
             tBAlertBuilder.m(true);
             tBAlertBuilder.r(aVar2, aVar);
             tBAlertBuilder.h(false);
@@ -354,14 +354,14 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    @Override // com.repackage.tw8
-    public void J0(ww8 ww8Var) {
+    @Override // com.baidu.tieba.cx8
+    public void J0(fx8 fx8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ww8Var) == null) {
-            this.p = ww8Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fx8Var) == null) {
+            this.p = fx8Var;
             TbImageView tbImageView = this.d;
             if (tbImageView != null) {
-                tbImageView.K(ww8Var.b(), 10, false);
+                tbImageView.K(fx8Var.b(), 10, false);
             }
             if (this.r == null) {
                 this.r = new PermissionJudgePolicy();
@@ -375,20 +375,20 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    @Override // com.repackage.tw8
+    @Override // com.baidu.tieba.cx8
     public void O0(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, str4) == null) {
-            this.k = sw8.m(getPageContext(), str);
+            this.k = bx8.m(getPageContext(), str);
             this.l = str2;
             this.n = str3;
             this.m = str4;
             this.q.setVisibility(8);
-            this.e.setText(getString(R.string.obfuscated_res_0x7f0f11fe));
+            this.e.setText(getString(R.string.obfuscated_res_0x7f0f1201));
         }
     }
 
-    @Override // com.repackage.tw8
+    @Override // com.baidu.tieba.cx8
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -400,24 +400,24 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
     public final void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091624);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091626);
             this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).setOnClickListener(new a(this));
-            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0914a3);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092082);
-            this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091597);
-            this.f = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091e5e);
-            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e5f);
-            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091596);
-            MaxureLayerView maxureLayerView = (MaxureLayerView) findViewById(R.id.obfuscated_res_0x7f0914ac);
+            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0914a5);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092085);
+            this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091599);
+            this.f = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091e60);
+            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e61);
+            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091598);
+            MaxureLayerView maxureLayerView = (MaxureLayerView) findViewById(R.id.obfuscated_res_0x7f0914ae);
             this.q = maxureLayerView;
             maxureLayerView.c(true);
-            this.q.d(fj8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.q.d(nj8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), SkinManager.RESOURCE_ALPHA_DISABLE));
             this.q.g(getResources().getColor(R.color.CAM_X0101));
-            this.q.f(fj8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), ks4.a(R.string.A_X05)));
-            this.q.e(fj8.a(SkinManager.getColor(0, (int) R.color.CAM_X0101), SkinManager.RESOURCE_ALPHA_PRESS));
+            this.q.f(nj8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), ms4.a(R.string.A_X05)));
+            this.q.e(nj8.a(SkinManager.getColor(0, (int) R.color.CAM_X0101), SkinManager.RESOURCE_ALPHA_PRESS));
             this.q.h(UtilHelper.getDimenPixelSize(R.dimen.T_X07));
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091be3);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091be5);
             this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090077);
             this.d.setAutoChangeStyle(false);
             this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -426,8 +426,8 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             this.d.setRadiusById(R.string.J_X06);
             this.d.setPlaceHolderAutoChangeSkinType(2);
             this.d.setDrawBorder(false);
-            ms4.d(this.f).A(R.string.F_X02);
-            this.j.setBackgroundDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080819, WebPManager.ResourceStateType.NORMAL));
+            os4.d(this.f).A(R.string.F_X02);
+            this.j.setBackgroundDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08081a, WebPManager.ResourceStateType.NORMAL));
             this.f.setOnClickListener(new b(this));
             this.i.setOnClickListener(new c(this));
             c(0);
@@ -442,7 +442,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             super.onChangeSkinType(i);
             this.b.onChangeSkinType(getPageContext(), 0);
             if (this.b.getBackImageView() != null) {
-                this.b.getBackImageView().setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080612, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS, false));
+                this.b.getBackImageView().setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080613, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS, false));
             }
             this.h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_list_arrow16_right, SkinManager.getColor(0, (int) R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
         }
@@ -472,15 +472,15 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    @Override // com.repackage.tw8
+    @Override // com.baidu.tieba.cx8
     public void onError(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) {
-            qi.N(TbadkCoreApplication.getInst(), str);
+            ri.N(TbadkCoreApplication.getInst(), str);
         }
     }
 
-    @Override // com.repackage.tw8
+    @Override // com.baidu.tieba.cx8
     public void onFinish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {

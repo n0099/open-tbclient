@@ -6,7 +6,7 @@ import androidx.annotation.WorkerThread;
 import com.kwad.sdk.core.network.g;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class a<R extends g> {
     public static final ExecutorService sExecutors = com.kwad.sdk.core.threads.b.vn();
     public Future<?> mTask;

@@ -2,6 +2,7 @@ package com.baidu.adp.lib.stats;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cf;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,9 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bf;
 /* loaded from: classes.dex */
-public class BdStatisticsSwitchStatic extends bf {
+public class BdStatisticsSwitchStatic extends cf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,14 +51,14 @@ public class BdStatisticsSwitchStatic extends bf {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? SwitchManager.getInstance().findType("newUrlForPerf") == 1 : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class BdStatisticsSwitchStatic extends bf {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class BdStatisticsSwitchStatic extends bf {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,14 +88,14 @@ public class BdStatisticsSwitchStatic extends bf {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "newUrlForPerf" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

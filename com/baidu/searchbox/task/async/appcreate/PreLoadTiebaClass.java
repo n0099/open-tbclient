@@ -6,14 +6,14 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
+import com.baidu.tieba.bf5;
+import com.baidu.tieba.ej4;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dj4;
-import com.repackage.qi;
-import com.repackage.ue5;
 /* loaded from: classes2.dex */
 public class PreLoadTiebaClass extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -43,10 +43,10 @@ public class PreLoadTiebaClass extends LaunchTask {
                 Class.forName("com.baidu.tieba.im.memorycache.ImMemoryCacheRegister");
             } catch (ClassNotFoundException unused) {
             }
-            dj4.w();
+            ej4.w();
             ItemCardHelper.i();
-            ue5.b();
-            qi.y(TbadkCoreApplication.getInst());
+            bf5.b();
+            ri.y(TbadkCoreApplication.getInst());
         }
     }
 

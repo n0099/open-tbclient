@@ -20,7 +20,7 @@ import com.facebook.common.internal.Supplier;
 import com.facebook.common.internal.Suppliers;
 import java.io.File;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DiskCacheConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class DiskCacheConfig {
     public final long mMinimumSizeLimit;
     public final int mVersion;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

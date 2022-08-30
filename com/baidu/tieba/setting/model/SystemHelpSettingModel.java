@@ -15,17 +15,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.StorageFile;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.ex4;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
+import com.baidu.tieba.ub;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bx4;
-import com.repackage.d9;
-import com.repackage.tb;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SystemHelpSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,13 +34,13 @@ public class SystemHelpSettingModel extends BdBaseModel {
     public Context c;
     public BaseActivity.LoadDataCallBack d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().b();
-                bx4.a();
+                ex4.a();
                 try {
                     FileHelper.clearCacheDir("image");
                     FileHelper.clearCacheDir("images");
@@ -104,7 +104,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c extends BdAsyncTask<String, String, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,10 +138,10 @@ public class SystemHelpSettingModel extends BdBaseModel {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                tb tbVar = new tb();
-                String a = tbVar.a("image", true, false, true);
+                ub ubVar = new ub();
+                String a = ubVar.a("image", true, false, true);
                 String cacheDir = FileHelper.getCacheDir();
-                String a2 = tbVar.a("images", true, false, true);
+                String a2 = ubVar.a("images", true, false, true);
                 String str = cacheDir + "voice";
                 long directorySize = FileHelper.getDirectorySize(a, false);
                 long directorySize2 = FileHelper.getDirectorySize(a2, false);
@@ -151,7 +151,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
                 long longValue = directorySize + directorySize3 + fileSize + directorySize2 + ((runTask == null || !(runTask.getData() instanceof Long)) ? 0L : ((Long) runTask.getData()).longValue());
                 float f = ((float) longValue) + 0.0f;
                 if (longValue >= 10485.76d) {
-                    return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + this.a.c.getString(R.string.obfuscated_res_0x7f0f0aab);
+                    return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + this.a.c.getString(R.string.obfuscated_res_0x7f0f0aae);
                 }
                 return "";
             }

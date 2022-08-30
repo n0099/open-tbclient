@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class StringU {
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +30,7 @@ public class StringU {
             }
         }
         try {
-            boolean h = mi.d().h("stringu", 2);
+            boolean h = ni.d().h("stringu", 2);
             a = h;
             if (h) {
                 a("stringu_so_load_success", null);

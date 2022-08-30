@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.kh1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jh1;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes2.dex */
 public class SelectorTextView extends TextView {
@@ -36,7 +36,7 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        b = jh1.a;
+        b = kh1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

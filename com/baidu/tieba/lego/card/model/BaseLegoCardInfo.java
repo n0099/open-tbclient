@@ -4,15 +4,15 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.zj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rj5;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseLegoCardInfo implements ICardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
     public final String statistics;
     public final String title;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ClientParams implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
             if (jSONObject == null) {
                 return;
             }
-            rj5.a().n(jSONObject);
+            zj5.a().n(jSONObject);
         }
     }
 
@@ -240,7 +240,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.statistics : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lego.card.model.ICardInfo, com.repackage.on
+    @Override // com.baidu.tieba.lego.card.model.ICardInfo, com.baidu.tieba.pn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

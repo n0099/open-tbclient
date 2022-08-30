@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.m99;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.reflect.TypeToken;
-import com.repackage.d99;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -139,7 +139,7 @@ public class MediaSegment implements Parcelable, Cloneable {
             }
             new ArrayList();
             try {
-                return (List) new d99().c(str, new b().getType());
+                return (List) new m99().c(str, new b().getType());
             } catch (Exception unused) {
                 return null;
             }

@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.meizu.cloud.pushsdk.c.a.c;
 import com.meizu.cloud.pushsdk.c.c.a;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class b extends com.meizu.cloud.pushsdk.c.c.a {
     public String d;
     public String e;
@@ -17,8 +17,8 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
     public String k;
     public int l;
 
-    /* loaded from: classes5.dex */
-    public static abstract class a<T extends a<T>> extends a.AbstractC0425a<T> {
+    /* loaded from: classes8.dex */
+    public static abstract class a<T extends a<T>> extends a.AbstractC0640a<T> {
         public String a;
         public String b;
         public String c;
@@ -80,15 +80,15 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
     }
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0426b extends a<C0426b> {
-        public C0426b() {
+    /* loaded from: classes8.dex */
+    public static class C0641b extends a<C0641b> {
+        public C0641b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC0425a
+        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC0640a
         /* renamed from: c */
-        public C0426b a() {
+        public C0641b a() {
             return this;
         }
     }
@@ -107,7 +107,7 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
     }
 
     public static a<?> d() {
-        return new C0426b();
+        return new C0641b();
     }
 
     public c e() {

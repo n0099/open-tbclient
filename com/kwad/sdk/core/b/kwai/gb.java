@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.components.core.webview.jshandler.WebCardVideoPositionHandler;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class gb implements com.kwad.sdk.core.d<WebCardVideoPositionHandler.VideoPosition> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(WebCardVideoPositionHandler.VideoPosition videoPosition, JSONObject jSONObject) {

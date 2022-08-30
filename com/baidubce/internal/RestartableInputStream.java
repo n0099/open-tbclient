@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class RestartableInputStream extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

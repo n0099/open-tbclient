@@ -19,7 +19,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<DrmInitData> CREATOR;
@@ -30,7 +30,7 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
     @Nullable
     public final String schemeType;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class SchemeData implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SchemeData> CREATOR;

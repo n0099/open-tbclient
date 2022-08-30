@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.message.d;
 import com.kwai.filedownloader.message.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class MessageSnapshot implements Parcelable, c {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<MessageSnapshot> CREATOR;
@@ -21,7 +21,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
     public boolean avS;
     public final int id;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class NoFieldException extends IllegalStateException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,12 +47,12 @@ public abstract class MessageSnapshot implements Parcelable, c {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         MessageSnapshot Ef();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class b extends MessageSnapshot {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -159,7 +159,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 } else if (readByte == -3) {
                     jVar = z ? new d.b(parcel) : new h.b(parcel);
                 } else if (readByte == -1) {
-                    jVar = z ? new d.C0413d(parcel) : new h.d(parcel);
+                    jVar = z ? new d.C0628d(parcel) : new h.d(parcel);
                 } else if (readByte == 1) {
                     jVar = z ? new d.f(parcel) : new h.f(parcel);
                 } else if (readByte == 2) {
@@ -167,7 +167,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 } else if (readByte == 3) {
                     jVar = z ? new d.g(parcel) : new h.g(parcel);
                 } else if (readByte == 5) {
-                    jVar = z ? new d.h(parcel) : new h.C0414h(parcel);
+                    jVar = z ? new d.h(parcel) : new h.C0629h(parcel);
                 } else if (readByte != 6) {
                     messageSnapshot = null;
                     if (messageSnapshot == null) {

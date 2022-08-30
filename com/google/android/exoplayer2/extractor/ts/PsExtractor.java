@@ -22,7 +22,7 @@ import com.google.android.exoplayer2.util.ParsableBitArray;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.TimestampAdjuster;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class PsExtractor implements Extractor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUDIO_STREAM = 192;
@@ -46,7 +46,7 @@ public final class PsExtractor implements Extractor {
     public final SparseArray<PesReader> psPayloadReaders;
     public final TimestampAdjuster timestampAdjuster;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class PesReader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int PES_SCRATCH_SIZE = 64;

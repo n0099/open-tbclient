@@ -20,7 +20,7 @@ import com.kwad.components.core.widget.KsConvertButton;
 import com.kwad.components.core.widget.KsLogoView;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class q extends p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public final class q extends p {
             }
         }
         this.we = i;
-        this.wc = R.layout.obfuscated_res_0x7f0d0451;
+        this.wc = R.layout.obfuscated_res_0x7f0d0452;
         this.wd = false;
     }
 
@@ -126,16 +126,16 @@ public final class q extends p {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, viewGroup) == null) || viewGroup == null) {
             return;
         }
-        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09110d);
-        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09110b);
-        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09110c);
-        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091114);
-        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09110a);
-        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f09110f);
-        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091106);
-        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f09110e);
-        this.wf = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091105);
-        this.wh = viewGroup.findViewById(R.id.obfuscated_res_0x7f091107);
+        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09110f);
+        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09110d);
+        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09110e);
+        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091116);
+        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09110c);
+        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091111);
+        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091108);
+        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f091110);
+        this.wf = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091107);
+        this.wh = viewGroup.findViewById(R.id.obfuscated_res_0x7f091109);
     }
 
     @Override // com.kwad.components.ad.reward.k.p
@@ -149,6 +149,6 @@ public final class q extends p {
     public final int jc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.id.obfuscated_res_0x7f091108 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.id.obfuscated_res_0x7f09110a : invokeV.intValue;
     }
 }

@@ -36,12 +36,12 @@ import com.baidu.tbadk.abtest.group.ThreadCardGroupUbsABTest;
 import com.baidu.tbadk.abtest.group.TiebaPlusCardModelABTest;
 import com.baidu.tbadk.abtest.group.VideoAdDrawUbsABTest;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.tu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ru4;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -81,7 +81,7 @@ public class UbsABTestDataManager {
     private void afterSyncResultAbtest() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            ru4.k().w("static_opt_open", UbsABTestHelper.isStaticOptTest() ? 1 : 0);
+            tu4.k().w("static_opt_open", UbsABTestHelper.isStaticOptTest() ? 1 : 0);
         }
     }
 
@@ -92,7 +92,7 @@ public class UbsABTestDataManager {
             HashMap<String, UsbAbTestSwitch> hashMap = new HashMap<>();
             try {
                 getSharedPrefKeyForUbsABTest();
-                JSONArray jSONArray = new JSONArray(ru4.k().q(getSharedPrefKeyForUbsABTest(), "[]"));
+                JSONArray jSONArray = new JSONArray(tu4.k().q(getSharedPrefKeyForUbsABTest(), "[]"));
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     if (jSONObject != null) {
@@ -277,7 +277,7 @@ public class UbsABTestDataManager {
                 String sharedPrefKeyForUbsABTest = getSharedPrefKeyForUbsABTest();
                 if (jSONArray == null) {
                     this.mSwitchs.clear();
-                    ru4.k().D(sharedPrefKeyForUbsABTest);
+                    tu4.k().D(sharedPrefKeyForUbsABTest);
                     return;
                 }
                 HashMap<String, UsbAbTestSwitch> hashMap = new HashMap<>();
@@ -289,7 +289,7 @@ public class UbsABTestDataManager {
                     }
                 }
                 putAllUsbAbTest(hashMap);
-                ru4.k().y(sharedPrefKeyForUbsABTest, jSONArray.toString());
+                tu4.k().y(sharedPrefKeyForUbsABTest, jSONArray.toString());
                 afterSyncResultAbtest();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -317,7 +317,7 @@ public class UbsABTestDataManager {
             synchronized (this.mSwitchs) {
                 if (TextUtils.isEmpty(str)) {
                     this.mSwitchs.clear();
-                    ru4.k().D(getSharedPrefKeyForUbsABTest());
+                    tu4.k().D(getSharedPrefKeyForUbsABTest());
                     return;
                 }
                 try {
@@ -326,7 +326,7 @@ public class UbsABTestDataManager {
                     jSONObject.put("sid", str);
                     jSONArray.put(jSONObject);
                     String jSONArray2 = jSONArray.toString();
-                    ru4.k().y(getSharedPrefKeyForUbsABTest(), jSONArray2);
+                    tu4.k().y(getSharedPrefKeyForUbsABTest(), jSONArray2);
                     HashMap<String, UsbAbTestSwitch> hashMap = new HashMap<>(1);
                     hashMap.put(str, new UsbAbTestSwitch(str));
                     putAllUsbAbTest(hashMap);

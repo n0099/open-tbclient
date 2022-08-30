@@ -1,5 +1,5 @@
 package com.facebook.common.internal;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface Fn<A, R> {
     R apply(A a);
 }

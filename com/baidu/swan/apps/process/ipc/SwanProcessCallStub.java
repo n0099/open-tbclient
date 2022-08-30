@@ -10,12 +10,12 @@ import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.IAsyncProcessCallback;
 import com.baidu.swan.apps.IProcessBridge;
+import com.baidu.tieba.nx2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mx2;
 /* loaded from: classes2.dex */
 public class SwanProcessCallStub extends IProcessBridge.Stub {
     public static /* synthetic */ Interceptable $ic;
@@ -56,7 +56,7 @@ public class SwanProcessCallStub extends IProcessBridge.Stub {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return mx2.e(str, bundle);
+            return nx2.e(str, bundle);
         }
         return (Bundle) invokeLL.objValue;
     }

@@ -84,7 +84,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                a(-204, getString(R.string.obfuscated_res_0x7f0f106e));
+                a(-204, getString(R.string.obfuscated_res_0x7f0f1071));
                 return;
             }
             SapiWebView sapiWebView = this.sapiWebView;
@@ -122,12 +122,12 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
                         b(authHuaweiId.getAuthorizationCode());
                         return;
                     }
-                    a(-202, getString(R.string.obfuscated_res_0x7f0f1063));
+                    a(-202, getString(R.string.obfuscated_res_0x7f0f1066));
                     String str2 = p;
                     Log.i(str2, "signIn get code failed: " + parseAuthResultFromIntent.getException().getStatusCode());
                     return;
                 }
-                a(-202, getString(R.string.obfuscated_res_0x7f0f106e));
+                a(-202, getString(R.string.obfuscated_res_0x7f0f1071));
                 return;
             }
             Task parseAuthResultFromIntent2 = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
@@ -140,7 +140,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
                 b(authHuaweiId2.getAccessToken());
                 return;
             }
-            a(-202, getString(R.string.obfuscated_res_0x7f0f1063));
+            a(-202, getString(R.string.obfuscated_res_0x7f0f1066));
             String str5 = p;
             Log.i(str5, "signIn failed: " + parseAuthResultFromIntent2.getException().getStatusCode());
         }
@@ -160,7 +160,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f1077);
+            setTitleText(R.string.obfuscated_res_0x7f0f107a);
             try {
                 d();
             } catch (Exception e) {

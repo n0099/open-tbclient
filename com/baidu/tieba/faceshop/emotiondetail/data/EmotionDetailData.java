@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EmotionDetailData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -14,7 +14,7 @@ public class EmotionDetailData extends OrmObject {
     public PckInfo pck_info;
     public PicInfo pic_info;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class PckInfo extends OrmObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class EmotionDetailData extends OrmObject {
         public String status;
         public String type;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class Owner extends OrmObject {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class EmotionDetailData extends OrmObject {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class PicInfo extends OrmObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

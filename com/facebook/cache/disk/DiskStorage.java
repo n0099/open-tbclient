@@ -12,10 +12,10 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface DiskStorage {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class DiskDumpInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public interface DiskStorage {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class DiskDumpInfoEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public interface DiskStorage {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface Entry {
         String getId();
 
@@ -84,7 +84,7 @@ public interface DiskStorage {
         long getTimestamp();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface Inserter {
         boolean cleanUp();
 

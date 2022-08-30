@@ -1,11 +1,11 @@
 package com.baidu.searchbox.retrieve.upload;
 
 import androidx.annotation.NonNull;
+import com.baidu.tieba.ae9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rd9;
 import java.io.File;
 /* loaded from: classes2.dex */
 public abstract class BaseFileUploader {
@@ -26,5 +26,5 @@ public abstract class BaseFileUploader {
         }
     }
 
-    public abstract rd9 uploadSync(@NonNull String str, @NonNull String str2, @NonNull File file);
+    public abstract ae9 uploadSync(@NonNull String str, @NonNull String str2, @NonNull File file);
 }

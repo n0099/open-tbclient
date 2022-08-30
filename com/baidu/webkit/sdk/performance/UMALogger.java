@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class UMALogger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UMALogger";

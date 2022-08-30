@@ -26,10 +26,16 @@ import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.a78;
+import com.baidu.tieba.b78;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.db;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageRequestMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
+import com.baidu.tieba.pn;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,12 +43,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cb;
-import com.repackage.d9;
-import com.repackage.on;
-import com.repackage.qi;
-import com.repackage.s68;
-import com.repackage.t68;
 import com.squareup.wire.Wire;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -56,7 +56,7 @@ import tbclient.User;
 import tbclient.UserPost.DataRes;
 import tbclient.UserPost.UserPostResIdl;
 import tbclient.Voice;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static int FROM_PERSON_POLYMERIC = 1;
@@ -70,7 +70,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public Map<String, Object> dataResMap;
     public int hide_post;
     public boolean isShowRecycleBinRedTip;
-    public s68 mCardNullPolymericData;
+    public a78 mCardNullPolymericData;
     public int mFrom;
     public boolean mIsHost;
     public boolean mIsReset;
@@ -78,12 +78,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public d mOnResult;
     public ResponsedMessage<?> mResponsedMessage;
     public HttpMessageListener pageHttpListener;
-    public cb pageSocketListener;
-    public final ArrayList<on> postList;
-    public final ArrayList<on> threadList;
+    public db pageSocketListener;
+    public final ArrayList<pn> postList;
+    public final ArrayList<pn> threadList;
     public int view_card_num;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Abs extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +126,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class AnchorInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -193,7 +193,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class LabelInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -230,7 +230,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class LbsInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -267,7 +267,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Media extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -307,7 +307,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class PostInfoContent extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -358,8 +358,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class PostInfoList extends OrmObject implements Serializable, PreLoadImageProvider, on {
+    /* loaded from: classes5.dex */
+    public static class PostInfoList extends OrmObject implements Serializable, PreLoadImageProvider, pn {
         public static /* synthetic */ Interceptable $ic;
         public static final BdUniqueId POST_INFO;
         public transient /* synthetic */ FieldHolder $fh;
@@ -467,7 +467,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             return (ArrayList) invokeV.objValue;
         }
 
-        @Override // com.repackage.on
+        @Override // com.baidu.tieba.pn
         public BdUniqueId getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -549,7 +549,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Quote extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -592,7 +592,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class UserInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -629,7 +629,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Zan extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -660,7 +660,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class ZhiBoInfoTW extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -749,8 +749,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class a extends cb {
+    /* loaded from: classes5.dex */
+    public class a extends db {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonPostModel a;
@@ -798,7 +798,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -847,12 +847,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface c {
         void j0(PersonPostModel personPostModel, boolean z);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface d {
         void r0(PersonPostModel personPostModel, boolean z);
     }
@@ -928,16 +928,16 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         return invokeII.intValue;
     }
 
-    public static ArrayList<on> mergeDynamicThreadByTime(ArrayList<on> arrayList) {
+    public static ArrayList<pn> mergeDynamicThreadByTime(ArrayList<pn> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, arrayList)) == null) {
             String yearBytime = StringHelper.getYearBytime(System.currentTimeMillis());
-            Iterator<on> it = arrayList.iterator();
+            Iterator<pn> it = arrayList.iterator();
             String str = "";
             String str2 = "";
             while (it.hasNext()) {
-                on next = it.next();
+                pn next = it.next();
                 if (next instanceof CardPersonDynamicThreadData) {
                     CardPersonDynamicThreadData cardPersonDynamicThreadData = (CardPersonDynamicThreadData) next;
                     cardPersonDynamicThreadData.D = true;
@@ -972,15 +972,15 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.dataResMap = DataExt.toMap(dataRes);
         this.hide_post = dataRes.hide_post.intValue();
         if (this.mIsHost && ((2 == dataRes.mask_type.intValue() || 3 == dataRes.mask_type.intValue() || 4 == dataRes.mask_type.intValue()) && i == 1)) {
-            this.postList.add(new t68());
+            this.postList.add(new b78());
             z = false;
         } else {
             z = true;
         }
         if (ListUtils.isEmpty(dataRes.post_list) && z) {
-            s68 s68Var = new s68();
-            this.mCardNullPolymericData = s68Var;
-            this.postList.add(s68Var);
+            a78 a78Var = new a78();
+            this.mCardNullPolymericData = a78Var;
+            this.postList.add(a78Var);
             return;
         }
         for (tbclient.PostInfoList postInfoList : dataRes.post_list) {
@@ -1065,8 +1065,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             userPostPageRequestMessage.setNeedContent(true);
             userPostPageRequestMessage.setReset(false);
             userPostPageRequestMessage.setFrom(this.mFrom);
-            int k = qi.k(TbadkCoreApplication.getInst().getApp());
-            int i = qi.i(TbadkCoreApplication.getInst().getApp());
+            int k = ri.k(TbadkCoreApplication.getInst().getApp());
+            int i = ri.i(TbadkCoreApplication.getInst().getApp());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i2 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
             userPostPageRequestMessage.set_scr_w(k);
@@ -1212,8 +1212,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             userPostPageRequestMessage.setNeedContent(true);
             userPostPageRequestMessage.setReset(z);
             userPostPageRequestMessage.setFrom(this.mFrom);
-            int k = qi.k(TbadkCoreApplication.getInst().getApp());
-            int i2 = qi.i(TbadkCoreApplication.getInst().getApp());
+            int k = ri.k(TbadkCoreApplication.getInst().getApp());
+            int i2 = ri.i(TbadkCoreApplication.getInst().getApp());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
             userPostPageRequestMessage.set_scr_w(k);

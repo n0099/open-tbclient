@@ -12,6 +12,7 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.an;
 /* loaded from: classes.dex */
 public class BdRoundedImageView extends AppCompatImageView {
     public static /* synthetic */ Interceptable $ic;
@@ -142,16 +142,16 @@ public class BdRoundedImageView extends AppCompatImageView {
             return;
         }
         int i2 = 0;
-        if (drawable instanceof an) {
-            an anVar = (an) drawable;
-            anVar.g(this.h);
-            anVar.e((this.d || !z) ? this.a : 0.0f);
+        if (drawable instanceof bn) {
+            bn bnVar = (bn) drawable;
+            bnVar.g(this.h);
+            bnVar.e((this.d || !z) ? this.a : 0.0f);
             if (this.d || !z) {
                 i2 = this.b;
             }
-            anVar.d(i2);
-            anVar.c(this.c);
-            anVar.f(this.e);
+            bnVar.d(i2);
+            bnVar.c(this.c);
+            bnVar.f(this.e);
         } else if (drawable instanceof LayerDrawable) {
             LayerDrawable layerDrawable = (LayerDrawable) drawable;
             int numberOfLayers = layerDrawable.getNumberOfLayers();
@@ -211,7 +211,7 @@ public class BdRoundedImageView extends AppCompatImageView {
     public void setBackgroundDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
-            this.g = an.b(drawable);
+            this.g = bn.b(drawable);
             g();
             super.setBackgroundDrawable(this.g);
         }
@@ -266,7 +266,7 @@ public class BdRoundedImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, bitmap) == null) {
             if (bitmap != null && !bitmap.isRecycled()) {
-                this.f = new an(bitmap);
+                this.f = new bn(bitmap);
                 k();
             } else {
                 this.f = null;
@@ -280,7 +280,7 @@ public class BdRoundedImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, drawable) == null) {
             if (drawable != null) {
-                this.f = an.b(drawable);
+                this.f = bn.b(drawable);
                 k();
             } else {
                 this.f = null;

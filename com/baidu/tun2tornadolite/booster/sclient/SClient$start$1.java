@@ -11,7 +11,7 @@ import kotlin.coroutines.jvm.internal.ContinuationImpl;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 @Metadata(k = 3, mv = {1, 5, 1}, xi = 48)
 @DebugMetadata(c = "com.baidu.tun2tornadolite.booster.sclient.SClient", f = "SClient.kt", i = {}, l = {110}, m = "start", n = {}, s = {})
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class SClient$start$1 extends ContinuationImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

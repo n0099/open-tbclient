@@ -13,16 +13,16 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ms4;
-import com.repackage.qi;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,25 +55,25 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view2;
-        BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a80);
+        BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a81);
         this.b = barImageView;
         barImageView.setShowOval(true);
         this.b.setShowOuterBorder(false);
         this.b.setShowInnerBorder(true);
-        this.b.setStrokeWith(qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+        this.b.setStrokeWith(ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
         this.b.setStrokeColorResId(R.color.CAM_X0401);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a81);
-        this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a84);
-        this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a83);
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a86);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a82);
+        this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a85);
+        this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a84);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a87);
         this.f = headImageView;
         headImageView.setBorderWidth(R.dimen.L_X01);
         this.f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         this.f.setRadius(R.dimen.tbds42);
         this.f.setConrers(15);
-        this.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a87);
-        this.h = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a92);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f090721);
+        this.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a88);
+        this.h = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a93);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f090722);
         b(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -81,8 +81,8 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (str != null && !str.isEmpty() && !str.equals(StringUtil.NULL_STRING)) {
-                this.h.setText(String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06b6), c(str)));
-                this.e.setText(String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06b6), c(str)));
+                this.h.setText(String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06b7), c(str)));
+                this.e.setText(String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06b7), c(str)));
                 return;
             }
             this.h.setVisibility(8);
@@ -94,19 +94,19 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0205);
-            ms4 d = ms4.d(this.d);
+            os4 d = os4.d(this.d);
             d.A(R.string.F_X01);
             d.v(R.color.CAM_X0105);
-            ms4 d2 = ms4.d(this.e);
+            os4 d2 = os4.d(this.e);
             d2.A(R.string.F_X01);
             d2.v(R.color.CAM_X0109);
-            ms4 d3 = ms4.d(this.g);
+            os4 d3 = os4.d(this.g);
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0105);
-            ms4 d4 = ms4.d(this.h);
+            os4 d4 = os4.d(this.h);
             d4.A(R.string.F_X01);
             d4.v(R.color.CAM_X0109);
-            this.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0807f5, WebPManager.ResourceStateType.NORMAL));
+            this.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0807f6, WebPManager.ResourceStateType.NORMAL));
             this.f.setSkinType(i);
             SkinManager.setBackgroundColor(this.i, R.color.CAM_X0111);
         }

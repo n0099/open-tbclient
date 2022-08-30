@@ -7,7 +7,7 @@ import com.kwad.components.offline.api.core.video.listener.ReleaseCallback;
 import com.kwad.components.offline.api.core.video.listener.VideoPlayStateListener;
 import com.kwad.components.offline.api.core.video.mdoel.KsPlayerLogParams;
 import com.kwad.components.offline.api.core.video.mdoel.PlayVideoInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IKsMediaPlayer {
     void addOnInfoListener(IMediaPlayer.OnInfoListener onInfoListener);
 

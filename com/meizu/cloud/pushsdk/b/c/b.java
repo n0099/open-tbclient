@@ -3,13 +3,13 @@ package com.meizu.cloud.pushsdk.b.c;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b extends j {
     public static final g a = g.a("application/x-www-form-urlencoded");
     public final List<String> b;
     public final List<String> c;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public final List<String> a = new ArrayList();
         public final List<String> b = new ArrayList();

@@ -48,7 +48,7 @@ import com.google.android.material.shape.ShapePath;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.BitSet;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable, Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SHADOW_COMPAT_MODE_ALWAYS = 2;
@@ -87,7 +87,7 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
     public final Region transparentRegion;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public @interface CompatibilityShadowMode {
     }
 
@@ -1354,7 +1354,7 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         };
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class MaterialShapeDrawableState extends Drawable.ConstantState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

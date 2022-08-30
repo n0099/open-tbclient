@@ -11,6 +11,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.d9;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.pb.pb.main.emotion.message.QueryMatchEmotionResponseMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,11 +21,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class QueryMatchEmotionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public static LinkedHashMap<String, List<EmotionImageData>> c;
@@ -32,7 +32,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
     public b a;
     public final HttpMessageListener b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(String str, List<EmotionImageData> list);
 

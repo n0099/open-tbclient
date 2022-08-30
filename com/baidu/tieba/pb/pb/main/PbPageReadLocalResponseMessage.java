@@ -2,20 +2,20 @@ package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.mt7;
 import com.baidu.tieba.pb.PbPageRequestMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.et7;
 import tbclient.PbPage.PbPageResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean markCache;
-    public et7 pbData;
+    public mt7 pbData;
     public String postId;
     public int updateType;
 
@@ -46,9 +46,9 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         setError(pbPageResIdl.error.errorno.intValue());
         setErrorString(pbPageResIdl.error.usermsg);
         if (getError() == 0 && pbPageResIdl.data != null) {
-            et7 et7Var = new et7();
-            this.pbData = et7Var;
-            et7Var.B0(1);
+            mt7 mt7Var = new mt7();
+            this.pbData = mt7Var;
+            mt7Var.B0(1);
             try {
                 this.pbData.A0(pbPageResIdl.data);
                 if (!this.pbData.t0()) {
@@ -62,10 +62,10 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public et7 getPbData() {
+    public mt7 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pbData : (et7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pbData : (mt7) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -87,10 +87,10 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public void setPbData(et7 et7Var) {
+    public void setPbData(mt7 mt7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, et7Var) == null) {
-            this.pbData = et7Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, mt7Var) == null) {
+            this.pbData = mt7Var;
         }
     }
 

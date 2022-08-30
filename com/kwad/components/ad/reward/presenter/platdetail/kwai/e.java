@@ -15,7 +15,7 @@ import com.kwad.components.ad.reward.d.j;
 import com.kwad.components.ad.reward.k;
 import com.kwad.components.core.playable.PlayableSource;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class e extends com.kwad.components.ad.reward.presenter.a implements f, com.kwad.components.core.webview.b.d.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -154,9 +154,9 @@ public final class e extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onCreate();
-            this.sl = findViewById(R.id.obfuscated_res_0x7f0910fe);
-            this.sm = findViewById(R.id.obfuscated_res_0x7f0910ff);
-            this.sn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091051);
+            this.sl = findViewById(R.id.obfuscated_res_0x7f091100);
+            this.sm = findViewById(R.id.obfuscated_res_0x7f091101);
+            this.sn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091053);
         }
     }
 

@@ -1,5 +1,5 @@
 package com.baidu.ugc.editvideo.editvideo.addfilter;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface OnGenFilterVideoListener {
     void onGenFilterVideoAbort();
 

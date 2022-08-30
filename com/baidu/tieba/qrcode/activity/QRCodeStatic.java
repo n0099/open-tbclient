@@ -14,6 +14,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bb8;
+import com.baidu.tieba.cb8;
+import com.baidu.tieba.kl8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,16 +24,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cl8;
-import com.repackage.ta8;
-import com.repackage.ua8;
 import java.net.URISyntaxException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class QRCodeStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,12 +53,12 @@ public class QRCodeStatic {
         public CustomResponsedMessage<Bitmap> run(CustomMessage<String> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921388, ua8.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247))) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921388, cb8.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247))) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<cl8> {
+    /* loaded from: classes5.dex */
+    public static class b implements CustomMessageTask.CustomRunnable<kl8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,20 +77,20 @@ public class QRCodeStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<cl8> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<kl8> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 String str = null;
-                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof cl8)) {
+                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof kl8)) {
                     return null;
                 }
-                cl8 data = customMessage.getData();
+                kl8 data = customMessage.getData();
                 int i = data.a;
                 if (i == 0) {
-                    str = ta8.b(data.c);
+                    str = bb8.b(data.c);
                 } else if (i == 1) {
-                    str = ta8.c(data.d);
+                    str = bb8.c(data.d);
                 }
                 if (TextUtils.isEmpty(str)) {
                     data.e = "qr_none";
@@ -103,7 +103,7 @@ public class QRCodeStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

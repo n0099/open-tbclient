@@ -1,7 +1,7 @@
 package com.facebook.soloader.nativeloader;
 
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface NativeLoaderDelegate {
     public static final int SKIP_MERGED_JNI_ONLOAD = 1;
 

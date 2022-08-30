@@ -14,7 +14,7 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ANRError extends Error {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -22,7 +22,7 @@ public class ANRError extends Error {
     public final long duration;
     public ANRError$$._Thread st;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Comparator<Thread> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

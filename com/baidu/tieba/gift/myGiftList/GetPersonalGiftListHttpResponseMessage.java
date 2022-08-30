@@ -2,20 +2,20 @@ package com.baidu.tieba.gift.myGiftList;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
+import com.baidu.tieba.yt6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qt6;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetMyGift.GetMyGiftResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetPersonalGiftListHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qt6 giftListData;
+    public yt6 giftListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetPersonalGiftListHttpResponseMessage(int i) {
@@ -37,16 +37,16 @@ public class GetPersonalGiftListHttpResponseMessage extends TbHttpResponsedMessa
         }
     }
 
-    public qt6 getGiftListData() {
+    public yt6 getGiftListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.giftListData : (qt6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.giftListData : (yt6) invokeV.objValue;
     }
 
-    public void setGiftListData(qt6 qt6Var) {
+    public void setGiftListData(yt6 yt6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, qt6Var) == null) {
-            this.giftListData = qt6Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, yt6Var) == null) {
+            this.giftListData = yt6Var;
         }
     }
 
@@ -63,8 +63,8 @@ public class GetPersonalGiftListHttpResponseMessage extends TbHttpResponsedMessa
             setError(error.errorno.intValue());
             setErrorString(getMyGiftResIdl.error.usermsg);
         }
-        qt6 qt6Var = new qt6();
-        this.giftListData = qt6Var;
-        qt6Var.f(getMyGiftResIdl.data);
+        yt6 yt6Var = new yt6();
+        this.giftListData = yt6Var;
+        yt6Var.f(getMyGiftResIdl.data);
     }
 }

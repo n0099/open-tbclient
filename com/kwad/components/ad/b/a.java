@@ -16,7 +16,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.videocache.b.a;
 import com.kwad.sdk.utils.o;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,10 +64,10 @@ public final class a {
                 r4 = ad != null ? ad.length() : 0L;
                 adTemplate.mDownloadType = 2;
             } else if (sc > 0) {
-                a.C0396a c0396a = new a.C0396a();
+                a.C0611a c0611a = new a.C0611a();
                 int i = sc * 1024;
-                boolean a2 = com.kwad.sdk.core.videocache.b.a.bC(KsAdSDKImpl.get().getContext()).a(A, i, c0396a);
-                str = c0396a.Qd;
+                boolean a2 = com.kwad.sdk.core.videocache.b.a.bC(KsAdSDKImpl.get().getContext()).a(A, i, c0611a);
+                str = c0611a.Qd;
                 adTemplate.mDownloadType = 3;
                 adTemplate.mDownloadSize = i;
                 z2 = a2;

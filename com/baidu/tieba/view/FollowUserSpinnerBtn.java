@@ -19,6 +19,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.vw4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,10 +28,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-import com.repackage.sw4;
-/* loaded from: classes4.dex */
-public class FollowUserSpinnerBtn extends LinearLayout implements sw4 {
+/* loaded from: classes6.dex */
+public class FollowUserSpinnerBtn extends LinearLayout implements vw4 {
     public static /* synthetic */ Interceptable $ic;
     public static final int p;
     public static final int q;
@@ -51,7 +51,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements sw4 {
     public boolean n;
     public b o;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements sw4 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(boolean z, boolean z2);
     }
@@ -106,9 +106,9 @@ public class FollowUserSpinnerBtn extends LinearLayout implements sw4 {
                 return;
             }
         }
-        p = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds224);
-        q = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds58);
-        r = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+        p = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds224);
+        q = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds58);
+        r = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -132,14 +132,14 @@ public class FollowUserSpinnerBtn extends LinearLayout implements sw4 {
         }
     }
 
-    @Override // com.repackage.sw4
+    @Override // com.baidu.tieba.vw4
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
         }
     }
 
-    @Override // com.repackage.sw4
+    @Override // com.baidu.tieba.vw4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -147,7 +147,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements sw4 {
         }
     }
 
-    @Override // com.repackage.sw4
+    @Override // com.baidu.tieba.vw4
     public void c(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -155,7 +155,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements sw4 {
         }
     }
 
-    @Override // com.repackage.sw4
+    @Override // com.baidu.tieba.vw4
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -179,7 +179,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements sw4 {
         }
     }
 
-    @Override // com.repackage.sw4
+    @Override // com.baidu.tieba.vw4
     public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -190,17 +190,17 @@ public class FollowUserSpinnerBtn extends LinearLayout implements sw4 {
     public final void g(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0296, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0297, this);
             setOrientation(0);
-            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0912a1);
-            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091bdb);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ba);
+            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0912a3);
+            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091bdd);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0921c3);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902b2);
             Paint paint = new Paint(1);
             this.e = paint;
             paint.setStyle(Paint.Style.STROKE);
             this.e.setStrokeCap(Paint.Cap.ROUND);
-            this.e.setStrokeWidth(qi.f(context, R.dimen.tbds3));
+            this.e.setStrokeWidth(ri.f(context, R.dimen.tbds3));
             this.h = new RectF();
             this.i = new Path();
             this.f = R.color.CAM_X0105;
@@ -233,11 +233,11 @@ public class FollowUserSpinnerBtn extends LinearLayout implements sw4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             if (z) {
-                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f0645);
+                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f0646);
                 this.f = R.color.CAM_X0101;
                 this.g = R.color.CAM_X0904;
             } else {
-                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f02ab);
+                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f02ac);
                 this.f = R.color.CAM_X0105;
                 this.g = R.color.CAM_X0901;
             }

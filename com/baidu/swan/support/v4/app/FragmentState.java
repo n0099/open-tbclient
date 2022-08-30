@@ -6,6 +6,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.te4;
+import com.baidu.tieba.ve4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,8 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.se4;
-import com.repackage.ue4;
 /* loaded from: classes3.dex */
 public final class FragmentState implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
@@ -122,15 +122,15 @@ public final class FragmentState implements Parcelable {
         return invokeV.intValue;
     }
 
-    public Fragment instantiate(se4 se4Var, Fragment fragment) {
+    public Fragment instantiate(te4 te4Var, Fragment fragment) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, se4Var, fragment)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, te4Var, fragment)) == null) {
             Fragment fragment2 = this.mInstance;
             if (fragment2 != null) {
                 return fragment2;
             }
-            Context context = se4Var.getContext();
+            Context context = te4Var.getContext();
             Bundle bundle = this.mArguments;
             if (bundle != null) {
                 bundle.setClassLoader(context.getClassLoader());
@@ -150,8 +150,8 @@ public final class FragmentState implements Parcelable {
             fragment3.y = this.mTag;
             fragment3.B = this.mRetainInstance;
             fragment3.A = this.mDetached;
-            fragment3.s = se4Var.e;
-            if (ue4.x) {
+            fragment3.s = te4Var.e;
+            if (ve4.x) {
                 Log.v("FragmentManager", "Instantiated fragment " + this.mInstance);
             }
             return this.mInstance;

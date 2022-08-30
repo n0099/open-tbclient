@@ -58,10 +58,10 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
             CriusBenchmarkAggregator criusBenchmarkAggregator2 = new CriusBenchmarkAggregator("Flatten Inflate");
             for (int i = 0; i < 500; i++) {
                 criusBenchmarkAggregator.startTrace();
-                from.inflate(R.layout.obfuscated_res_0x7f0d0154, (ViewGroup) null);
+                from.inflate(R.layout.obfuscated_res_0x7f0d0155, (ViewGroup) null);
                 criusBenchmarkAggregator.endTrace();
                 criusBenchmarkAggregator2.startTrace();
-                from.inflate(R.layout.obfuscated_res_0x7f0d0153, (ViewGroup) null);
+                from.inflate(R.layout.obfuscated_res_0x7f0d0154, (ViewGroup) null);
                 criusBenchmarkAggregator2.endTrace();
             }
             textView.setText(criusBenchmarkAggregator.toString() + "\n" + criusBenchmarkAggregator2.toString());
@@ -76,8 +76,8 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
             LayoutInflater from = LayoutInflater.from(this);
             CriusBenchmarkAggregator criusBenchmarkAggregator = new CriusBenchmarkAggregator("Benchmark Layout");
             CriusBenchmarkAggregator criusBenchmarkAggregator2 = new CriusBenchmarkAggregator("Flatten Layout");
-            View inflate = from.inflate(R.layout.obfuscated_res_0x7f0d0154, (ViewGroup) null);
-            View inflate2 = from.inflate(R.layout.obfuscated_res_0x7f0d0153, (ViewGroup) null);
+            View inflate = from.inflate(R.layout.obfuscated_res_0x7f0d0155, (ViewGroup) null);
+            View inflate2 = from.inflate(R.layout.obfuscated_res_0x7f0d0154, (ViewGroup) null);
             for (int i = 0; i < 500; i++) {
                 inflate.measure(View.MeasureSpec.makeMeasureSpec(1000, 1073741824), View.MeasureSpec.makeMeasureSpec(1000, 1073741824));
                 inflate2.measure(View.MeasureSpec.makeMeasureSpec(1000, 1073741824), View.MeasureSpec.makeMeasureSpec(1000, 1073741824));
@@ -100,8 +100,8 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
             LayoutInflater from = LayoutInflater.from(this);
             CriusBenchmarkAggregator criusBenchmarkAggregator = new CriusBenchmarkAggregator("Benchmark Measure");
             CriusBenchmarkAggregator criusBenchmarkAggregator2 = new CriusBenchmarkAggregator("Flatten Measure");
-            View inflate = from.inflate(R.layout.obfuscated_res_0x7f0d0154, (ViewGroup) null);
-            View inflate2 = from.inflate(R.layout.obfuscated_res_0x7f0d0153, (ViewGroup) null);
+            View inflate = from.inflate(R.layout.obfuscated_res_0x7f0d0155, (ViewGroup) null);
+            View inflate2 = from.inflate(R.layout.obfuscated_res_0x7f0d0154, (ViewGroup) null);
             for (int i = 0; i < 500; i++) {
                 criusBenchmarkAggregator.startTrace();
                 inflate.measure(View.MeasureSpec.makeMeasureSpec(1000, 1073741824), View.MeasureSpec.makeMeasureSpec(1000, 1073741824));
@@ -118,7 +118,7 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
     public void startBenchmark() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0920a9);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ac);
             int i = this.mBenchmarkWhich;
             if (i == 1) {
                 benchmarkInflate(textView);
@@ -135,8 +135,8 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
     private void updatePreview() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c1a);
-            View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0153, (ViewGroup) linearLayout, false);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c1c);
+            View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0154, (ViewGroup) linearLayout, false);
             inflate.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
             linearLayout.removeAllViews();
             linearLayout.addView(inflate);

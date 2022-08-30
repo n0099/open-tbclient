@@ -15,7 +15,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.TooltipCompatHandler;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DownloadProgressBar extends View {
     public Path ZA;
     public String aqA;

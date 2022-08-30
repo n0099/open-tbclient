@@ -4,7 +4,7 @@ import android.content.Context;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import com.kwad.sdk.api.loader.n;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class u {
     public static final AtomicBoolean SJ = new AtomicBoolean();
 

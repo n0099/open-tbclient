@@ -3,15 +3,15 @@ package com.baidu.tieba.setting.im.more;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tieba.af5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.te5;
 import tbclient.CloseAd.CloseAdReqIdl;
 import tbclient.CloseAd.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MemberCloseAdRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class MemberCloseAdRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.vip_close = Integer.valueOf(this.mVipClose);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                te5.a(builder, true);
+                af5.a(builder, true);
             }
             CloseAdReqIdl.Builder builder2 = new CloseAdReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -21,7 +21,13 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.h67;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.p87;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.vz7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,14 +35,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h87;
-import com.repackage.ms4;
-import com.repackage.nz7;
-import com.repackage.pi;
-import com.repackage.qi;
-import com.repackage.z57;
-/* loaded from: classes3.dex */
-public class MsgrightView extends z57 {
+/* loaded from: classes4.dex */
+public class MsgrightView extends h67 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String O = "com.baidu.tieba.im.chat.MsgrightView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,9 +49,9 @@ public class MsgrightView extends z57 {
     public TextView K;
     public CenterTextView L;
     public RelativeLayout M;
-    public nz7 N;
+    public vz7 N;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,8 +85,8 @@ public class MsgrightView extends z57 {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b implements h87.c {
+    /* loaded from: classes4.dex */
+    public class b implements p87.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatMessage a;
@@ -111,7 +111,7 @@ public class MsgrightView extends z57 {
             this.a = chatMessage;
         }
 
-        @Override // com.repackage.h87.c
+        @Override // com.baidu.tieba.p87.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -123,15 +123,15 @@ public class MsgrightView extends z57 {
                     }
                     return;
                 }
-                nz7 nz7Var = this.b.N;
-                if (nz7Var != null) {
-                    nz7Var.c(String.valueOf(this.a.getUserInfo().getUserId()));
+                vz7 vz7Var = this.b.N;
+                if (vz7Var != null) {
+                    vz7Var.c(String.valueOf(this.a.getUserInfo().getUserId()));
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -181,13 +181,13 @@ public class MsgrightView extends z57 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext, nz7 nz7Var) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0585);
+    public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext, vz7 vz7Var) {
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0587);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, nz7Var};
+            Object[] objArr = {tbPageContext, vz7Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -200,34 +200,34 @@ public class MsgrightView extends z57 {
             }
         }
         this.N = null;
-        this.N = nz7Var;
+        this.N = vz7Var;
         q();
-        this.G = (TextView) j(R.id.obfuscated_res_0x7f090ed8);
-        this.E = (ProgressBar) j(R.id.obfuscated_res_0x7f091a78);
+        this.G = (TextView) j(R.id.obfuscated_res_0x7f090ed9);
+        this.E = (ProgressBar) j(R.id.obfuscated_res_0x7f091a7a);
         this.F = (ImageView) j(R.id.obfuscated_res_0x7f09043b);
-        this.H = (HeadImageView) j(R.id.obfuscated_res_0x7f090ed7);
-        this.L = (CenterTextView) j(R.id.obfuscated_res_0x7f092365);
-        this.M = (RelativeLayout) j(R.id.obfuscated_res_0x7f091c0a);
-        this.I = (FrameLayout) j(R.id.obfuscated_res_0x7f091502);
-        ms4 d = ms4.d(this.M);
+        this.H = (HeadImageView) j(R.id.obfuscated_res_0x7f090ed8);
+        this.L = (CenterTextView) j(R.id.obfuscated_res_0x7f09236e);
+        this.M = (RelativeLayout) j(R.id.obfuscated_res_0x7f091c0c);
+        this.I = (FrameLayout) j(R.id.obfuscated_res_0x7f091504);
+        os4 d = os4.d(this.M);
         d.n(R.string.J_X05);
         d.f(R.color.CAM_X0603);
-        ms4 d2 = ms4.d(this.L);
+        os4 d2 = os4.d(this.L);
         d2.z(R.dimen.T_X09);
         d2.A(R.string.F_X01);
         d2.v(R.color.CAM_X0101);
         this.H.setAutoChangeStyle(false);
         this.H.setDrawerType(1);
-        this.H.setRadius(qi.d(this.mContext.getContext(), 4.0f));
+        this.H.setRadius(ri.d(this.mContext.getContext(), 4.0f));
         this.H.setPlaceHolder(1);
         this.H.setOnClickListener(new a(this));
-        this.J = (TextView) j(R.id.obfuscated_res_0x7f090d08);
-        this.K = (TextView) j(R.id.obfuscated_res_0x7f090d09);
+        this.J = (TextView) j(R.id.obfuscated_res_0x7f090d09);
+        this.K = (TextView) j(R.id.obfuscated_res_0x7f090d0a);
         this.n.setIsLeft(false);
         this.o.setIsLeft(false);
     }
 
-    @Override // com.repackage.z57
+    @Override // com.baidu.tieba.h67
     public void E(View view2, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view2, chatMessage) == null) {
@@ -248,7 +248,7 @@ public class MsgrightView extends z57 {
         }
     }
 
-    @Override // com.repackage.z57
+    @Override // com.baidu.tieba.h67
     public void s() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.D == TbadkCoreApplication.getInst().getSkinType()) {
@@ -264,7 +264,7 @@ public class MsgrightView extends z57 {
         this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0610));
     }
 
-    @Override // com.repackage.z57
+    @Override // com.baidu.tieba.h67
     public void u(View view2, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, chatMessage) == null) {
@@ -292,7 +292,7 @@ public class MsgrightView extends z57 {
             try {
                 M(chatMessage);
                 S(chatMessage);
-                this.H.setDefaultResource(R.drawable.obfuscated_res_0x7f080ee4);
+                this.H.setDefaultResource(R.drawable.obfuscated_res_0x7f080ee5);
                 if (chatMessage.getUserInfo() != null) {
                     this.H.setUserId(chatMessage.getUserInfo().getUserId());
                     String currentAvatar = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAvatar() : null;
@@ -308,7 +308,7 @@ public class MsgrightView extends z57 {
                     this.H.setVisibility(8);
                     RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
                     layoutParams2.addRule(11);
-                    layoutParams2.addRule(3, R.id.obfuscated_res_0x7f0914f7);
+                    layoutParams2.addRule(3, R.id.obfuscated_res_0x7f0914f9);
                     layoutParams2.rightMargin = SelectorHelper.getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X006);
                     layoutParams2.topMargin = SelectorHelper.getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X002);
                     layoutParams2.bottomMargin = SelectorHelper.getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X004);
@@ -328,7 +328,7 @@ public class MsgrightView extends z57 {
                         case 2:
                             this.F.setVisibility(0);
                             this.M.setVisibility(0);
-                            this.L.setText(R.string.obfuscated_res_0x7f0f0acf);
+                            this.L.setText(R.string.obfuscated_res_0x7f0f0ad2);
                             break;
                         case 3:
                             this.E.setVisibility(8);
@@ -347,36 +347,36 @@ public class MsgrightView extends z57 {
                         case 4:
                             this.F.setVisibility(0);
                             this.M.setVisibility(0);
-                            this.L.setText(R.string.obfuscated_res_0x7f0f0ad1);
+                            this.L.setText(R.string.obfuscated_res_0x7f0f0ad4);
                             break;
                         case 5:
                             this.F.setVisibility(0);
                             this.M.setVisibility(0);
-                            this.L.setText(R.string.obfuscated_res_0x7f0f0ad2);
+                            this.L.setText(R.string.obfuscated_res_0x7f0f0ad5);
                             break;
                         case 6:
                             this.F.setVisibility(0);
                             this.M.setVisibility(0);
-                            this.L.setText(R.string.obfuscated_res_0x7f0f0ad0);
+                            this.L.setText(R.string.obfuscated_res_0x7f0f0ad3);
                             break;
                         case 7:
                             this.F.setVisibility(0);
                             this.M.setVisibility(0);
-                            this.L.setText(R.string.obfuscated_res_0x7f0f0ace);
+                            this.L.setText(R.string.obfuscated_res_0x7f0f0ad1);
                             break;
                         case 8:
                             this.F.setVisibility(0);
                             this.M.setVisibility(0);
-                            this.L.setText(R.string.obfuscated_res_0x7f0f0acd);
+                            this.L.setText(R.string.obfuscated_res_0x7f0f0ad0);
                             break;
                         case 9:
                             this.F.setVisibility(0);
                             this.M.setVisibility(0);
-                            if (pi.isEmpty(chatMessage.getLocalData().getErrorString())) {
-                                this.L.setText(R.string.obfuscated_res_0x7f0f0acf);
+                            if (qi.isEmpty(chatMessage.getLocalData().getErrorString())) {
+                                this.L.setText(R.string.obfuscated_res_0x7f0f0ad2);
                                 break;
                             } else {
-                                h87 f = h87.f(this.L.getContext());
+                                p87 f = p87.f(this.L.getContext());
                                 if (f.i(chatMessage.getLocalData().getErrorString())) {
                                     f.g(chatMessage.getLocalData().getErrorString());
                                     f.h(this.L);

@@ -1,6 +1,7 @@
 package com.baidu.location.b;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -69,7 +70,7 @@ public class g {
             File file = c;
             if (file != null && file.exists()) {
                 try {
-                    randomAccessFile = new RandomAccessFile(c, "rw");
+                    randomAccessFile = new RandomAccessFile(c, rw.c);
                     randomAccessFile.seek(0L);
                     readInt = randomAccessFile.readInt();
                     readInt2 = randomAccessFile.readInt();
@@ -151,7 +152,7 @@ public class g {
             }
             try {
                 c.createNewFile();
-                RandomAccessFile randomAccessFile = new RandomAccessFile(c, "rw");
+                RandomAccessFile randomAccessFile = new RandomAccessFile(c, rw.c);
                 randomAccessFile.seek(0L);
                 randomAccessFile.writeInt(0);
                 randomAccessFile.writeInt(0);

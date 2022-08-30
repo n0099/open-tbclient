@@ -23,7 +23,14 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ho4;
+import com.baidu.tieba.ih5;
+import com.baidu.tieba.ix;
+import com.baidu.tieba.j06;
+import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
+import com.baidu.tieba.tn4;
+import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,17 +38,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b06;
-import com.repackage.bh5;
-import com.repackage.fo4;
-import com.repackage.hx;
-import com.repackage.qi;
-import com.repackage.rn4;
-import com.repackage.xm;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MutiImgDoubleLayout extends LinearLayout implements hx<fo4> {
+public class MutiImgDoubleLayout extends LinearLayout implements ix<ho4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,10 +53,10 @@ public class MutiImgDoubleLayout extends LinearLayout implements hx<fo4> {
     public TbImageView f;
     public String g;
     public boolean h;
-    public b06<fo4> i;
-    public fo4 j;
+    public j06<ho4> i;
+    public ho4 j;
     public int k;
-    public bh5 l;
+    public ih5 l;
     public LinkedList<MediaData> m;
 
     /* loaded from: classes.dex */
@@ -85,7 +85,7 @@ public class MutiImgDoubleLayout extends LinearLayout implements hx<fo4> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            b06<fo4> subClickListener;
+            j06<ho4> subClickListener;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (subClickListener = this.a.getSubClickListener()) == null) {
                 return;
@@ -96,7 +96,7 @@ public class MutiImgDoubleLayout extends LinearLayout implements hx<fo4> {
     }
 
     /* loaded from: classes.dex */
-    public class b implements bh5 {
+    public class b implements ih5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MutiImgDoubleLayout a;
@@ -119,11 +119,11 @@ public class MutiImgDoubleLayout extends LinearLayout implements hx<fo4> {
             this.a = mutiImgDoubleLayout;
         }
 
-        @Override // com.repackage.bh5
+        @Override // com.baidu.tieba.ih5
         public void a(View view2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                b06<fo4> subClickListener = this.a.getSubClickListener();
+                j06<ho4> subClickListener = this.a.getSubClickListener();
                 if (subClickListener != null) {
                     view2.setTag("1");
                     this.a.j.objType = 2;
@@ -195,10 +195,10 @@ public class MutiImgDoubleLayout extends LinearLayout implements hx<fo4> {
                 return;
             }
         }
-        qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds26);
-        qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds20);
-        qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds7);
-        n = qi.k(TbadkCoreApplication.getInst()) - ((qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds26);
+        ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds20);
+        ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds7);
+        n = ri.k(TbadkCoreApplication.getInst()) - ((ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -226,7 +226,7 @@ public class MutiImgDoubleLayout extends LinearLayout implements hx<fo4> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, threadData) == null) {
             ArrayList<MediaData> medias = threadData.getMedias();
-            if (rn4.c().g() && ListUtils.getCount(medias) != 0) {
+            if (tn4.c().g() && ListUtils.getCount(medias) != 0) {
                 LinkedList<MediaData> linkedList = new LinkedList<>();
                 for (int i = 0; i < medias.size(); i++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);
@@ -286,10 +286,10 @@ public class MutiImgDoubleLayout extends LinearLayout implements hx<fo4> {
         return invokeI.intValue;
     }
 
-    public b06<fo4> getSubClickListener() {
+    public j06<ho4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i : (b06) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i : (j06) invokeV.objValue;
     }
 
     public final String h(MediaData mediaData) {
@@ -314,34 +314,34 @@ public class MutiImgDoubleLayout extends LinearLayout implements hx<fo4> {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05af, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05b1, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09211d);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09212b);
-            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f09212c);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092120);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09212e);
+            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f09212f);
             this.c = playVoiceBntNew;
             playVoiceBntNew.setAfterClickListener(new a(this));
             HomeGroupUbsUIHelper.handleContentInterval(this.c, R.dimen.tbds28, R.dimen.tbds14);
             HomeGroupUbsUIHelper.handleTextLineSpacingExtra(this.a, R.dimen.tbds7, R.dimen.tbds10);
             HomeGroupUbsUIHelper.handleTextLineSpacingExtra(this.b, R.dimen.tbds7, R.dimen.tbds10);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09211e);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092121);
             this.d = relativeLayout;
             HomeGroupUbsUIHelper.handleContentInterval(relativeLayout, R.dimen.tbds20, R.dimen.tbds14);
-            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09211f);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092120);
+            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092122);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092123);
             this.l = new b(this);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.hx
+    @Override // com.baidu.tieba.ix
     /* renamed from: j */
-    public void a(fo4 fo4Var) {
+    public void a(ho4 ho4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, fo4Var) == null) {
-            this.j = fo4Var;
-            ThreadData threadData = fo4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(1048581, this, ho4Var) == null) {
+            this.j = ho4Var;
+            ThreadData threadData = ho4Var.getThreadData();
             ThreadCardUtils.setTitle(this.a, threadData);
             ThreadCardUtils.setAbstract(this.b, this.a, threadData, n);
             setImageData(threadData);
@@ -375,7 +375,7 @@ public class MutiImgDoubleLayout extends LinearLayout implements hx<fo4> {
                 tbImageView.F();
             }
             if (z) {
-                tbImageView.setRadius(qi.f(getContext(), R.dimen.tbds10));
+                tbImageView.setRadius(ri.f(getContext(), R.dimen.tbds10));
                 tbImageView.setDrawBorder(true);
                 tbImageView.setForegroundColor(0);
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
@@ -431,16 +431,16 @@ public class MutiImgDoubleLayout extends LinearLayout implements hx<fo4> {
         }
     }
 
-    public void setPreloadSizeReadyCallback(xm xmVar) {
+    public void setPreloadSizeReadyCallback(ym ymVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, xmVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, ymVar) == null) {
         }
     }
 
-    public void setSubClickListener(b06<fo4> b06Var) {
+    public void setSubClickListener(j06<ho4> j06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, b06Var) == null) {
-            this.i = b06Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, j06Var) == null) {
+            this.i = j06Var;
         }
     }
 

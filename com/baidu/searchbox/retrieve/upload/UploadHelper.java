@@ -13,6 +13,12 @@ import com.baidu.searchbox.retrieve.inter.IFetchTask;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.searchbox.retrieve.inter.statistics.IStatTask;
 import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
+import com.baidu.tieba.je9;
+import com.baidu.tieba.ke9;
+import com.baidu.tieba.me9;
+import com.baidu.tieba.ne9;
+import com.baidu.tieba.vd9;
+import com.baidu.tieba.wd9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,12 +27,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.yalog.LoggerManager;
-import com.repackage.ae9;
-import com.repackage.be9;
-import com.repackage.de9;
-import com.repackage.ee9;
-import com.repackage.md9;
-import com.repackage.nd9;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -56,7 +56,7 @@ public class UploadHelper {
     public static ExecutorService mExecutorService;
     public static volatile UploadHelper sSingleton;
     public transient /* synthetic */ FieldHolder $fh;
-    public be9 mVoyager;
+    public ke9 mVoyager;
 
     static {
         InterceptResult invokeClinit;
@@ -89,7 +89,7 @@ public class UploadHelper {
         }
         mExecutorService = Executors.newSingleThreadExecutor();
         if (this.mVoyager == null) {
-            this.mVoyager = (be9) ServiceManager.getService(be9.a);
+            this.mVoyager = (ke9) ServiceManager.getService(ke9.a);
         }
     }
 
@@ -172,8 +172,8 @@ public class UploadHelper {
             statActiveFileData(true, StatConstants.VALUE_TYPE_RECEIVE, str2, str);
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && list != null && list.size() != 0) {
                 statActiveFileData(true, StatConstants.VALUE_TYPE_CHECK_PARAM, str2, str);
-                be9 be9Var = (be9) ServiceManager.getService(be9.a);
-                if (be9Var == null) {
+                ke9 ke9Var = (ke9) ServiceManager.getService(ke9.a);
+                if (ke9Var == null) {
                     if (DEBUG) {
                         Log.d(TAG, "loss voyager impl component");
                         return;
@@ -182,7 +182,7 @@ public class UploadHelper {
                 }
                 ActiveUpObj activeUpObj = new ActiveUpObj(str, str2, list, null);
                 activeUpObj.setFileType("2");
-                be9Var.e(list, "acupload", j * 1024, new ae9(this, activeUpObj, iActiveUploadListener) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.10
+                ke9Var.e(list, "acupload", j * 1024, new je9(this, activeUpObj, iActiveUploadListener) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.10
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UploadHelper this$0;
@@ -209,7 +209,7 @@ public class UploadHelper {
                         this.val$activeUploadListener = iActiveUploadListener;
                     }
 
-                    @Override // com.repackage.ae9
+                    @Override // com.baidu.tieba.je9
                     public void onFailure(String str3, JSONObject jSONObject) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str3, jSONObject) == null) {
@@ -227,7 +227,7 @@ public class UploadHelper {
                         }
                     }
 
-                    @Override // com.repackage.ae9
+                    @Override // com.baidu.tieba.je9
                     public void onSuccess(String str3, JSONObject jSONObject) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str3, jSONObject) == null) {
@@ -323,14 +323,14 @@ public class UploadHelper {
                         if (checkValid(next, j2, j3)) {
                             j5 += file.length();
                             if (j5 > j4) {
-                                nd9.g().e(file.getAbsolutePath(), "3", file.getAbsolutePath() + "size exceed maxFileSize ", null, null, true, jSONObject);
+                                wd9.g().e(file.getAbsolutePath(), "3", file.getAbsolutePath() + "size exceed maxFileSize ", null, null, true, jSONObject);
                                 break;
                             }
                             String substring = file.getAbsolutePath().substring(str.length());
                             if (DEBUG) {
                                 Log.d(TAG, "new Path:" + substring);
                             }
-                            nd9.g().e(file.getAbsolutePath(), "0", " success", file, substring, true, jSONObject);
+                            wd9.g().e(file.getAbsolutePath(), "0", " success", file, substring, true, jSONObject);
                         } else {
                             continue;
                         }
@@ -347,7 +347,7 @@ public class UploadHelper {
                     Log.d(TAG, "zipPath: " + str7);
                 }
                 File file3 = new File(str7);
-                if (ee9.i(new ArrayList(hashSet), str7, str)) {
+                if (ne9.i(new ArrayList(hashSet), str7, str)) {
                     if (file3.length() > 0) {
                         if (DEBUG) {
                             Log.d(TAG, "zip directory is succeed, zip length is: " + file3.length());
@@ -600,8 +600,8 @@ public class UploadHelper {
         }
         ActiveUpObj activeUpObj = new ActiveUpObj(str, str2, list, str3);
         activeUpObj.setFileType("1");
-        be9 be9Var = this.mVoyager;
-        if (be9Var == null) {
+        ke9 ke9Var = this.mVoyager;
+        if (ke9Var == null) {
             if (DEBUG) {
                 Log.d(TAG, "voyager component fail");
             }
@@ -611,7 +611,7 @@ public class UploadHelper {
             }
             return;
         }
-        be9Var.a(file.getAbsolutePath(), "acupload", md9.l, new ae9(this, activeUpObj, iActiveUploadListener) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.9
+        ke9Var.a(file.getAbsolutePath(), "acupload", vd9.l, new je9(this, activeUpObj, iActiveUploadListener) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ UploadHelper this$0;
@@ -638,7 +638,7 @@ public class UploadHelper {
                 this.val$activeUploadListener = iActiveUploadListener;
             }
 
-            @Override // com.repackage.ae9
+            @Override // com.baidu.tieba.je9
             public void onFailure(String str4, JSONObject jSONObject) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str4, jSONObject) == null) {
@@ -656,7 +656,7 @@ public class UploadHelper {
                 }
             }
 
-            @Override // com.repackage.ae9
+            @Override // com.baidu.tieba.je9
             public void onSuccess(String str4, JSONObject jSONObject) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str4, jSONObject) == null) {
@@ -788,9 +788,9 @@ public class UploadHelper {
                                             return;
                                         }
                                         AnonymousClass1 anonymousClass19 = this.this$1;
-                                        anonymousClass19.this$0.reportTaskDone(anonymousClass19.val$type, anonymousClass19.val$jobId, anonymousClass19.val$version, "", "1", de9.c(anonymousClass19.val$spaces));
+                                        anonymousClass19.this$0.reportTaskDone(anonymousClass19.val$type, anonymousClass19.val$jobId, anonymousClass19.val$version, "", "1", me9.c(anonymousClass19.val$spaces));
                                         AnonymousClass1 anonymousClass110 = this.this$1;
-                                        anonymousClass110.this$0.statFetchData("query", false, anonymousClass110.val$jobId, anonymousClass110.val$type, anonymousClass110.val$version, StatConstants.ERR_MSG_QUERY_FAIL, "", de9.c(anonymousClass110.val$spaces));
+                                        anonymousClass110.this$0.statFetchData("query", false, anonymousClass110.val$jobId, anonymousClass110.val$type, anonymousClass110.val$version, StatConstants.ERR_MSG_QUERY_FAIL, "", me9.c(anonymousClass110.val$spaces));
                                         return;
                                     }
                                     AnonymousClass1 anonymousClass111 = this.this$1;
@@ -876,12 +876,12 @@ public class UploadHelper {
     }
 
     public void uploadFetchZipFile(String str, String str2, String str3, File file, JSONObject jSONObject) {
-        be9 be9Var;
+        ke9 ke9Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(1048587, this, str, str2, str3, file, jSONObject) == null) || file == null || file.length() == 0 || (be9Var = this.mVoyager) == null) {
+        if (!(interceptable == null || interceptable.invokeLLLLL(1048587, this, str, str2, str3, file, jSONObject) == null) || file == null || file.length() == 0 || (ke9Var = this.mVoyager) == null) {
             return;
         }
-        be9Var.d(file.getAbsolutePath(), "fetchlog", new ae9(this, str2, str, str3, jSONObject, file) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.8
+        ke9Var.d(file.getAbsolutePath(), "fetchlog", new je9(this, str2, str, str3, jSONObject, file) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ UploadHelper this$0;
@@ -914,7 +914,7 @@ public class UploadHelper {
                 this.val$zipFile = file;
             }
 
-            @Override // com.repackage.ae9
+            @Override // com.baidu.tieba.je9
             public void onFailure(String str4, JSONObject jSONObject2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str4, jSONObject2) == null) {
@@ -923,12 +923,12 @@ public class UploadHelper {
                     String str6 = this.val$jobId;
                     String str7 = this.val$version;
                     JSONObject jSONObject3 = this.val$metaJson;
-                    de9.a(jSONObject3, str4);
+                    me9.a(jSONObject3, str4);
                     uploadHelper.reportTaskDone(str5, str6, str7, "", "1", jSONObject3);
                 }
             }
 
-            @Override // com.repackage.ae9
+            @Override // com.baidu.tieba.je9
             public void onSuccess(String str4, JSONObject jSONObject2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str4, jSONObject2) == null) {
@@ -1213,8 +1213,8 @@ public class UploadHelper {
             statActiveFileData(true, StatConstants.VALUE_TYPE_RECEIVE, str2, str);
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && list != null && list.size() != 0) {
                 statActiveFileData(true, StatConstants.VALUE_TYPE_CHECK_PARAM, str2, str);
-                be9 be9Var = (be9) ServiceManager.getService(be9.a);
-                if (be9Var == null) {
+                ke9 ke9Var = (ke9) ServiceManager.getService(ke9.a);
+                if (ke9Var == null) {
                     if (DEBUG) {
                         Log.d(TAG, "loss voyager impl component");
                         return;
@@ -1234,7 +1234,7 @@ public class UploadHelper {
                         e.printStackTrace();
                     }
                 }
-                be9Var.b(list, "acupload", j2, jSONObject2);
+                ke9Var.b(list, "acupload", j2, jSONObject2);
                 return;
             }
             if (DEBUG) {

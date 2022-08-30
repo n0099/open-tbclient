@@ -8,15 +8,15 @@ import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class a {
     public final List<com.meizu.cloud.pushsdk.c.a.b> a;
     public final long b;
     public final String c;
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static abstract class AbstractC0425a<T extends AbstractC0425a<T>> {
+    /* loaded from: classes8.dex */
+    public static abstract class AbstractC0640a<T extends AbstractC0640a<T>> {
         public List<com.meizu.cloud.pushsdk.c.a.b> a = new LinkedList();
         public long b = System.currentTimeMillis();
         public String c = e.b();
@@ -29,13 +29,13 @@ public class a {
         }
     }
 
-    public a(AbstractC0425a<?> abstractC0425a) {
-        d.a(abstractC0425a.a);
-        d.a(abstractC0425a.c);
-        d.a(!abstractC0425a.c.isEmpty(), "eventId cannot be empty");
-        this.a = abstractC0425a.a;
-        this.b = abstractC0425a.b;
-        this.c = abstractC0425a.c;
+    public a(AbstractC0640a<?> abstractC0640a) {
+        d.a(abstractC0640a.a);
+        d.a(abstractC0640a.c);
+        d.a(!abstractC0640a.c.isEmpty(), "eventId cannot be empty");
+        this.a = abstractC0640a.a;
+        this.b = abstractC0640a.b;
+        this.c = abstractC0640a.c;
     }
 
     public c a(c cVar) {

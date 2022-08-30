@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.h264.Debug;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BitstreamWriter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

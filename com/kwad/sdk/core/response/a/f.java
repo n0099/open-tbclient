@@ -4,7 +4,7 @@ import android.graphics.Matrix;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.response.model.PhotoInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class f {
     public static String a(@NonNull PhotoInfo photoInfo) {
         return photoInfo.videoInfo.videoUrl;

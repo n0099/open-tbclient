@@ -3,17 +3,17 @@ package com.baidu.tieba.downloadmanager.net;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
+import com.baidu.tieba.s56;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k56;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ItemManage.ItemManageResIdl;
 /* loaded from: classes3.dex */
-public class DownloadManagerHttpResponseMessage extends MvcProtobufHttpResponsedMessage<k56, ItemManageResIdl> {
+public class DownloadManagerHttpResponseMessage extends MvcProtobufHttpResponsedMessage<s56, ItemManageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -48,9 +48,9 @@ public class DownloadManagerHttpResponseMessage extends MvcProtobufHttpResponsed
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            k56 k56Var = new k56();
+            s56 s56Var = new s56();
             ItemManageResIdl itemManageResIdl = (ItemManageResIdl) new Wire(new Class[0]).parseFrom(bArr, ItemManageResIdl.class);
-            k56Var.b(itemManageResIdl.data);
+            s56Var.b(itemManageResIdl.data);
             Error error = itemManageResIdl.error;
             if (error != null) {
                 Integer num = error.errorno;
@@ -59,7 +59,7 @@ public class DownloadManagerHttpResponseMessage extends MvcProtobufHttpResponsed
                 }
                 setErrorString(itemManageResIdl.error.usermsg);
             }
-            setData(k56Var);
+            setData(s56Var);
         }
     }
 }

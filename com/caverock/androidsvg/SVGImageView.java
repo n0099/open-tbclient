@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.hf9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,26 +22,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ye9;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SVGImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public static Method c;
     public transient /* synthetic */ FieldHolder $fh;
     public SVG a;
-    public ye9 b;
+    public hf9 b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b extends AsyncTask<Integer, Integer, SVG> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public class SVGImageView extends ImageView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class c extends AsyncTask<InputStream, Integer, SVG> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -210,7 +210,7 @@ public class SVGImageView extends ImageView {
             }
         }
         this.a = null;
-        this.b = new ye9();
+        this.b = new hf9();
     }
 
     private void setFromString(String str) {
@@ -372,7 +372,7 @@ public class SVGImageView extends ImageView {
             }
         }
         this.a = null;
-        this.b = new ye9();
+        this.b = new hf9();
         d(attributeSet, 0);
     }
 
@@ -409,7 +409,7 @@ public class SVGImageView extends ImageView {
             }
         }
         this.a = null;
-        this.b = new ye9();
+        this.b = new hf9();
         d(attributeSet, i);
     }
 }

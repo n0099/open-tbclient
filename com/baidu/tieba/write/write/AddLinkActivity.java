@@ -27,18 +27,18 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
 import com.baidu.tieba.R;
+import com.baidu.tieba.jf5;
+import com.baidu.tieba.nf5;
+import com.baidu.tieba.nj8;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.qe5;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cf5;
-import com.repackage.fj8;
-import com.repackage.gf5;
-import com.repackage.je5;
-import com.repackage.ms4;
-import com.repackage.pi;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AddLinkActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class AddLinkActivity extends BaseActivity {
     public WriteTipBubbleController.b n;
     public CustomMessageListener o;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements WriteTipBubbleController.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,14 +96,14 @@ public class AddLinkActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AddLinkActivity a;
 
-        /* loaded from: classes4.dex */
-        public class a extends cf5<String> {
+        /* loaded from: classes6.dex */
+        public class a extends jf5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -124,7 +124,7 @@ public class AddLinkActivity extends BaseActivity {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.cf5
+            @Override // com.baidu.tieba.jf5
             public String doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -133,13 +133,13 @@ public class AddLinkActivity extends BaseActivity {
         }
 
         /* renamed from: com.baidu.tieba.write.write.AddLinkActivity$b$b  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C0264b implements je5<String> {
+        /* loaded from: classes6.dex */
+        public class C0441b implements qe5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public C0264b(b bVar) {
+            public C0441b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -158,7 +158,7 @@ public class AddLinkActivity extends BaseActivity {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.je5
+            @Override // com.baidu.tieba.qe5
             /* renamed from: a */
             public void onReturnDataInUI(String str) {
                 Interceptable interceptable = $ic;
@@ -197,14 +197,14 @@ public class AddLinkActivity extends BaseActivity {
                 return;
             }
             if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-                gf5.b(new a(this), new C0264b(this));
+                nf5.b(new a(this), new C0441b(this));
                 return;
             }
             this.a.N1(UtilHelper.getClipBoardContent());
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -237,7 +237,7 @@ public class AddLinkActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -270,7 +270,7 @@ public class AddLinkActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -301,15 +301,15 @@ public class AddLinkActivity extends BaseActivity {
                 return;
             }
             String obj = this.a.g.getText().toString();
-            if (!pi.isEmpty(obj) && UrlManager.getInstance().isUrlValid(obj)) {
+            if (!qi.isEmpty(obj) && UrlManager.getInstance().isUrlValid(obj)) {
                 this.a.J1(obj);
             } else {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f09e7);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f09ea);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class f implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -368,7 +368,7 @@ public class AddLinkActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class g implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -402,14 +402,14 @@ public class AddLinkActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class h implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AddLinkActivity a;
 
-        /* loaded from: classes4.dex */
-        public class a extends cf5<String> {
+        /* loaded from: classes6.dex */
+        public class a extends jf5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -430,7 +430,7 @@ public class AddLinkActivity extends BaseActivity {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.cf5
+            @Override // com.baidu.tieba.jf5
             public String doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -438,8 +438,8 @@ public class AddLinkActivity extends BaseActivity {
             }
         }
 
-        /* loaded from: classes4.dex */
-        public class b implements je5<String> {
+        /* loaded from: classes6.dex */
+        public class b implements qe5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ h a;
@@ -463,7 +463,7 @@ public class AddLinkActivity extends BaseActivity {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.je5
+            @Override // com.baidu.tieba.qe5
             /* renamed from: a */
             public void onReturnDataInUI(String str) {
                 Interceptable interceptable = $ic;
@@ -495,9 +495,9 @@ public class AddLinkActivity extends BaseActivity {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (pi.isEmpty(this.a.l)) {
+                if (qi.isEmpty(this.a.l)) {
                     if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-                        gf5.b(new a(this), new b(this));
+                        nf5.b(new a(this), new b(this));
                         return;
                     }
                     this.a.N1(UtilHelper.getClipBoardContent());
@@ -509,7 +509,7 @@ public class AddLinkActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class i implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -545,7 +545,7 @@ public class AddLinkActivity extends BaseActivity {
                 }
                 WriteTipBubbleController writeTipBubbleController = this.b.m;
                 EditText editText = this.b.g;
-                writeTipBubbleController.d(editText, this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f062d) + "\n" + this.a, this.a, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDIT_TEXT);
+                writeTipBubbleController.d(editText, this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f062e) + "\n" + this.a, this.a, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDIT_TEXT);
             }
         }
     }
@@ -588,17 +588,17 @@ public class AddLinkActivity extends BaseActivity {
     public final void L1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0074);
+            setContentView(R.layout.obfuscated_res_0x7f0d0075);
             setActivityBgTransparent();
             setSwipeBackEnabled(false);
             this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090118);
             this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090119);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092315);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b5);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09231c);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09231e);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923be);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092325);
             this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09011a);
-            this.g = (EditText) findViewById(R.id.obfuscated_res_0x7f09091b);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fe3);
+            this.g = (EditText) findViewById(R.id.obfuscated_res_0x7f09091c);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fe5);
             this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09011b);
             this.a.setOnClickListener(new c(this));
             this.b.setClickable(true);
@@ -626,13 +626,13 @@ public class AddLinkActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             int color = SkinManager.getColor(R.color.CAM_X0302);
-            this.e.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{fj8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), fj8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+            this.e.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{nj8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), nj8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
         }
     }
 
     public final void N1(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.g == null || pi.isEmpty(str) || !UrlManager.getInstance().isUrlValid(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.g == null || qi.isEmpty(str) || !UrlManager.getInstance().isUrlValid(str)) {
             return;
         }
         this.g.post(new i(this, str));
@@ -675,10 +675,10 @@ public class AddLinkActivity extends BaseActivity {
             M1();
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
             this.g.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            ms4 d2 = ms4.d(this.f);
+            os4 d2 = os4.d(this.f);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0209);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f0809c1, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f0809c2, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0110);
         }
     }

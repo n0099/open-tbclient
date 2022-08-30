@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.network.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface b {
     b aB(int i);
 

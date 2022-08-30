@@ -26,7 +26,7 @@ import tbclient.AddPost.DataRes;
 import tbclient.Toast;
 import tbclient.ToastConfig;
 import tbclient.ToastContent;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AddPostHttpResponse extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

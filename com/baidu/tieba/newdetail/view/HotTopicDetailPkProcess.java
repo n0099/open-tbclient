@@ -16,6 +16,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,8 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class HotTopicDetailPkProcess extends View {
     public static /* synthetic */ Interceptable $ic;
     public static int k;
@@ -41,7 +41,7 @@ public class HotTopicDetailPkProcess extends View {
     public int i;
     public ValueAnimator j;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,8 +87,8 @@ public class HotTopicDetailPkProcess extends View {
                 return;
             }
         }
-        k = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds22);
-        l = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        k = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds22);
+        l = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

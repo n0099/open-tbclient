@@ -12,13 +12,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-import com.repackage.rg;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class RecordingAnimView extends View {
@@ -97,7 +97,7 @@ public class RecordingAnimView extends View {
         this.f = false;
         this.g = true;
         this.k = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.l = qi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070224);
+        this.l = ri.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070224);
         this.n = new a(this);
         d();
         b();
@@ -109,11 +109,11 @@ public class RecordingAnimView extends View {
             if (this.f) {
                 invalidate();
             }
-            rg.a().removeCallbacks(this.n);
+            sg.a().removeCallbacks(this.n);
             if (this.g) {
                 return;
             }
-            rg.a().postDelayed(this.n, 250L);
+            sg.a().postDelayed(this.n, 250L);
         }
     }
 
@@ -199,7 +199,7 @@ public class RecordingAnimView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDetachedFromWindow();
-            rg.a().removeCallbacks(this.n);
+            sg.a().removeCallbacks(this.n);
         }
     }
 
@@ -297,7 +297,7 @@ public class RecordingAnimView extends View {
         this.f = false;
         this.g = true;
         this.k = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.l = qi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070224);
+        this.l = ri.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070224);
         this.n = new a(this);
         d();
         b();

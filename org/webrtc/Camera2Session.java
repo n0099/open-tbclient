@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.util.Range;
 import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.qu9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +22,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
-import com.repackage.hu9;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -280,7 +280,7 @@ public class Camera2Session implements CameraSession {
                     this.this$0.firstFrameReported = true;
                     Camera2Session.camera2StartTimeMsHistogram.addSample((int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - this.this$0.constructionTimeNs));
                 }
-                VideoFrame videoFrame2 = new VideoFrame(hu9.a((TextureBufferImpl) videoFrame.getBuffer(), this.this$0.isCameraFrontFacing, -this.this$0.cameraOrientation), this.this$0.getFrameOrientation(), videoFrame.getTimestampNs());
+                VideoFrame videoFrame2 = new VideoFrame(qu9.a((TextureBufferImpl) videoFrame.getBuffer(), this.this$0.isCameraFrontFacing, -this.this$0.cameraOrientation), this.this$0.getFrameOrientation(), videoFrame.getTimestampNs());
                 this.this$0.events.onFrameCaptured(this.this$0, videoFrame2);
                 videoFrame2.release();
                 return;
@@ -314,7 +314,7 @@ public class Camera2Session implements CameraSession {
                     chooseFocusMode(createCaptureRequest);
                     createCaptureRequest.addTarget(this.this$0.surface);
                     cameraCaptureSession.setRepeatingRequest(createCaptureRequest.build(), new CameraCaptureCallback(null), this.this$0.cameraThreadHandler);
-                    this.this$0.surfaceTextureHelper.startListening(new VideoSink() { // from class: com.repackage.gt9
+                    this.this$0.surfaceTextureHelper.startListening(new VideoSink() { // from class: com.baidu.tieba.pt9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -492,7 +492,7 @@ public class Camera2Session implements CameraSession {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) {
-            int b = hu9.b(this.applicationContext);
+            int b = qu9.b(this.applicationContext);
             if (!this.isCameraFrontFacing) {
                 b = 360 - b;
             }

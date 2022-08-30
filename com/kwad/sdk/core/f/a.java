@@ -19,7 +19,7 @@ import com.kwad.sdk.service.kwai.f;
 import com.kwad.sdk.utils.aq;
 import com.kwad.sdk.utils.ay;
 import com.kwad.sdk.utils.g;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static String Zn = "";
     public static boolean Zo;

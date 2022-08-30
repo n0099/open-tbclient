@@ -16,14 +16,14 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
 import tbclient.BawuRoleInfoPub;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BawuMemberInfoView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class BawuMemberInfoView extends RelativeLayout {
     public TextView f;
     public BawuRoleInfoPub g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +117,7 @@ public class BawuMemberInfoView extends RelativeLayout {
             return;
         }
         ImageView imageView = this.e;
-        imageView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f049e) + bawuRoleInfoPub.user_level);
+        imageView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f049f) + bawuRoleInfoPub.user_level);
         SkinManager.setImageResource(this.e, smallGradeResourceIdNew);
         this.e.setVisibility(0);
     }
@@ -125,17 +125,17 @@ public class BawuMemberInfoView extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0144, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0145, this);
             this.b = inflate;
-            HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e99);
+            HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e9a);
             this.c = headImageView;
             headImageView.setIsRound(true);
             this.c.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.c.setBorderWidth(qi.f(this.a, R.dimen.obfuscated_res_0x7f070198));
+            this.c.setBorderWidth(ri.f(this.a, R.dimen.obfuscated_res_0x7f070198));
             this.b.setOnClickListener(new a(this));
-            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e9a);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092106);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092105);
+            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e9b);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092109);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092108);
         }
     }
 

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.source.MediaSource;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface ExoPlayer extends Player {
     @Deprecated
     public static final int REPEAT_MODE_ALL = 2;
@@ -25,16 +25,16 @@ public interface ExoPlayer extends Player {
     public static final int STATE_READY = 3;
 
     @Deprecated
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface EventListener extends Player.EventListener {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface ExoPlayerComponent {
         void handleMessage(int i, Object obj) throws ExoPlaybackException;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class ExoPlayerMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

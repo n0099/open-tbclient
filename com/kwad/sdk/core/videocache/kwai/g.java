@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.videocache.kwai;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class g extends e {
     public final long maxSize;
 

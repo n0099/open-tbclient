@@ -33,7 +33,7 @@ import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.utils.bd;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class f extends com.kwad.components.ad.reward.presenter.a implements View.OnClickListener, com.kwad.sdk.core.g.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -243,8 +243,8 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
                     }
                 }
             });
-            int color = resources.getColor(R.color.obfuscated_res_0x7f060772);
-            int color2 = resources.getColor(R.color.obfuscated_res_0x7f06076e);
+            int color = resources.getColor(R.color.obfuscated_res_0x7f060775);
+            int color2 = resources.getColor(R.color.obfuscated_res_0x7f060771);
             int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070367);
             ValueAnimator ofArgb = com.kwad.sdk.widget.a.ofArgb(color, color2);
             ofArgb.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, color2, dimensionPixelSize) { // from class: com.kwad.components.ad.fullscreen.b.kwai.f.10
@@ -556,8 +556,8 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
     private void bW() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911b6);
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0463, (ViewGroup) adBaseFrameLayout, false);
+            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911b8);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0464, (ViewGroup) adBaseFrameLayout, false);
             this.eP = viewGroup;
             viewGroup.setVisibility(0);
             Resources resources = this.eP.getResources();
@@ -565,9 +565,9 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
             int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070363);
             int dimensionPixelSize3 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070368);
             int dimensionPixelSize4 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070362);
-            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0464, (ViewGroup) adBaseFrameLayout, false);
+            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0465, (ViewGroup) adBaseFrameLayout, false);
             this.eV = frameLayout;
-            this.eW = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0911c6);
+            this.eW = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0911c8);
             this.eV.setVisibility(4);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, dimensionPixelSize4);
             layoutParams.leftMargin = dimensionPixelSize;
@@ -626,11 +626,11 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            this.eQ = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f0911c3);
-            this.eR = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f0911c2);
-            this.eS = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f0911c0);
-            this.eT = (FrameLayout) this.eP.findViewById(R.id.obfuscated_res_0x7f0911be);
-            this.eU = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f0911bf);
+            this.eQ = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f0911c5);
+            this.eR = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f0911c4);
+            this.eS = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f0911c2);
+            this.eT = (FrameLayout) this.eP.findViewById(R.id.obfuscated_res_0x7f0911c0);
+            this.eU = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f0911c1);
             this.eQ.setOnClickListener(this);
             this.eR.setOnClickListener(this);
             this.eT.setOnClickListener(this);

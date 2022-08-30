@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class an implements com.kwad.sdk.core.d<PhotoInfo.BaseInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(PhotoInfo.BaseInfo baseInfo, JSONObject jSONObject) {

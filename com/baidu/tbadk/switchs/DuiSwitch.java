@@ -50,14 +50,14 @@ public class DuiSwitch extends BaseNormalSwitch {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? mInstance.isOn() : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.repackage.bf
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.cf
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? super.getDefaultType() : invokeV.intValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.repackage.bf
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.cf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

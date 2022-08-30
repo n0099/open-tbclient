@@ -7,16 +7,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
+import com.baidu.tieba.ts6;
+import com.baidu.tieba.us6;
+import com.baidu.tieba.z85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ls6;
-import com.repackage.ms6;
-import com.repackage.s85;
-/* loaded from: classes3.dex */
-public class VoiceRoomListNetModel extends NetAutoModel<ls6, ms6, BaseFragment> {
+/* loaded from: classes4.dex */
+public class VoiceRoomListNetModel extends NetAutoModel<ts6, us6, BaseFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,7 +31,7 @@ public class VoiceRoomListNetModel extends NetAutoModel<ls6, ms6, BaseFragment> 
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                super((TbPageContext) objArr[0], (s85) objArr[1]);
+                super((TbPageContext) objArr[0], (z85) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -77,17 +77,17 @@ public class VoiceRoomListNetModel extends NetAutoModel<ls6, ms6, BaseFragment> 
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? VoiceRoomListSocketResponseMessage.class : (Class) invokeV.objValue;
     }
 
-    public void c0(ls6 ls6Var) {
+    public void c0(ts6 ts6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ls6Var) == null) {
-            this.c = ls6Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ts6Var) == null) {
+            this.c = ts6Var;
         }
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<ms6> getResponseDataClass() {
+    public Class<us6> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ms6.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? us6.class : (Class) invokeV.objValue;
     }
 }

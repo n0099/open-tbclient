@@ -1,5 +1,8 @@
 package com.badlogic.gdx.graphics.g3d.model.data;
 
+import com.baidu.tieba.a7;
+import com.baidu.tieba.c5;
+import com.baidu.tieba.k3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,9 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a7;
-import com.repackage.c5;
-import com.repackage.k3;
 /* loaded from: classes.dex */
 public class ModelMaterial {
     public static /* synthetic */ Interceptable $ic;

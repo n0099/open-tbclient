@@ -13,15 +13,15 @@ import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.upstream.Allocator;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface MediaSource {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface Listener {
         void onSourceInfoRefreshed(MediaSource mediaSource, Timeline timeline, @Nullable Object obj);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class MediaPeriodId {
         public static /* synthetic */ Interceptable $ic;
         public static final MediaPeriodId UNSET;

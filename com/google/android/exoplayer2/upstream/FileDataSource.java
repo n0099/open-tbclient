@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FileDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public final class FileDataSource implements DataSource {
     public boolean opened;
     public Uri uri;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class FileDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

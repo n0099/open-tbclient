@@ -22,7 +22,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class RoundedDrawable extends Drawable implements Rounded, TransformAwareDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

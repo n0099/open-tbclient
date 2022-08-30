@@ -19,11 +19,11 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
+import com.baidu.tieba.rr7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jr7;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
@@ -31,7 +31,7 @@ import com.tencent.mm.opensdk.modelmsg.ShowMessageFromWX;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -80,11 +80,11 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             MessageManager.getInstance().runTask(2921332, (Class) null);
-            setContentView(R.layout.obfuscated_res_0x7f0d04f6);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091c79);
+            setContentView(R.layout.obfuscated_res_0x7f0d04f8);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091c7b);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a5c));
+            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a5f));
             try {
                 this.a = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
             } catch (Exception e) {
@@ -157,10 +157,10 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             }
             return;
         }
-        jr7 jr7Var = new jr7();
-        jr7Var.a = this;
-        jr7Var.b = baseResp;
-        MessageManager.getInstance().runTask(2921351, null, jr7Var);
+        rr7 rr7Var = new rr7();
+        rr7Var.a = this;
+        rr7Var.b = baseResp;
+        MessageManager.getInstance().runTask(2921351, null, rr7Var);
         closeActivity();
     }
 

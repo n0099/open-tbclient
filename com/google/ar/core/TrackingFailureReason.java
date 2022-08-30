@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.google.ar.core.exceptions.FatalException;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class TrackingFailureReason {
     public static final /* synthetic */ TrackingFailureReason[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

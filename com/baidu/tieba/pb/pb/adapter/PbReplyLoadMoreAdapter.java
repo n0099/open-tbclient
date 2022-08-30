@@ -10,21 +10,21 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a18;
+import com.baidu.tieba.iw7;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aw7;
-import com.repackage.s08;
-/* loaded from: classes3.dex */
-public class PbReplyLoadMoreAdapter extends aw7<PostData, ReplyLoadMoreViewHolder> {
+/* loaded from: classes5.dex */
+public class PbReplyLoadMoreAdapter extends iw7<PostData, ReplyLoadMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class ReplyLoadMoreViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class PbReplyLoadMoreAdapter extends aw7<PostData, ReplyLoadMoreViewHolde
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092379);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092382);
         }
 
         public void a() {
@@ -76,19 +76,19 @@ public class PbReplyLoadMoreAdapter extends aw7<PostData, ReplyLoadMoreViewHolde
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbReplyLoadMoreAdapter(s08 s08Var, BdUniqueId bdUniqueId) {
-        super(s08Var, bdUniqueId);
+    public PbReplyLoadMoreAdapter(a18 a18Var, BdUniqueId bdUniqueId) {
+        super(a18Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s08Var, bdUniqueId};
+            Object[] objArr = {a18Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((s08) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((a18) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -97,14 +97,14 @@ public class PbReplyLoadMoreAdapter extends aw7<PostData, ReplyLoadMoreViewHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bn
+    @Override // com.baidu.tieba.cn
     /* renamed from: u */
     public ReplyLoadMoreViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06cd, viewGroup, false);
-            inflate.findViewById(R.id.obfuscated_res_0x7f092379).setOnClickListener(this.g);
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06cf, viewGroup, false);
+            inflate.findViewById(R.id.obfuscated_res_0x7f092382).setOnClickListener(this.g);
             ReplyLoadMoreViewHolder replyLoadMoreViewHolder = new ReplyLoadMoreViewHolder(inflate);
             replyLoadMoreViewHolder.a();
             return replyLoadMoreViewHolder;
@@ -113,7 +113,7 @@ public class PbReplyLoadMoreAdapter extends aw7<PostData, ReplyLoadMoreViewHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.aw7, com.repackage.bn
+    @Override // com.baidu.tieba.iw7, com.baidu.tieba.cn
     /* renamed from: v */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, PostData postData, ReplyLoadMoreViewHolder replyLoadMoreViewHolder) {
         InterceptResult invokeCommon;

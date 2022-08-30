@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.pe9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,25 +12,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ge9;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LoggerManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_SPACE = "default";
     public static final b a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class b extends Logger {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public class LoggerManager {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -167,7 +167,7 @@ public class LoggerManager {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), str3})) == null) {
-            c a2 = ge9.a();
+            c a2 = pe9.a();
             if (a2 != null) {
                 return a2.a(j, j2, str, str2, z, z2, str3);
             }
@@ -180,7 +180,7 @@ public class LoggerManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            c a2 = ge9.a();
+            c a2 = pe9.a();
             if (a2 != null) {
                 String b2 = a2.b();
                 return !TextUtils.isEmpty(b2) ? b2 : "";
@@ -200,7 +200,7 @@ public class LoggerManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            c a2 = ge9.a();
+            c a2 = pe9.a();
             Logger c2 = a2 != null ? a2.c(str) : null;
             return c2 != null ? c2 : a;
         }
@@ -211,7 +211,7 @@ public class LoggerManager {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2})) == null) {
-            c a2 = ge9.a();
+            c a2 = pe9.a();
             if (a2 != null) {
                 return a2.e(j, j2, str, str2);
             }
@@ -223,7 +223,7 @@ public class LoggerManager {
     public static void requestCleanOverQuotaLog() {
         c a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, null) == null) || (a2 = ge9.a()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65543, null) == null) || (a2 = pe9.a()) == null) {
             return;
         }
         a2.f();

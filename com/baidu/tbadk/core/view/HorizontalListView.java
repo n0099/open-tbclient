@@ -17,12 +17,12 @@ import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewConfigurationCompat;
 import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
 import java.util.LinkedList;
 import java.util.Queue;
 /* loaded from: classes3.dex */
@@ -450,7 +450,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 this.g = Integer.MAX_VALUE;
                 this.i = new Scroller(getContext());
                 this.j = new GestureDetector(getContext(), this.z);
-                this.q = qi.k(getContext()) / 2;
+                this.q = ri.k(getContext()) / 2;
                 this.a = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
             }
         }

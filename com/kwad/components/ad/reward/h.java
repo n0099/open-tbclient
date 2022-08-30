@@ -19,7 +19,7 @@ import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class h extends com.kwad.components.ad.i.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

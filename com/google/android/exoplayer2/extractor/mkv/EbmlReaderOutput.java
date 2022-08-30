@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.extractor.mkv;
 import com.google.android.exoplayer2.ParserException;
 import com.google.android.exoplayer2.extractor.ExtractorInput;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface EbmlReaderOutput {
     void binaryElement(int i, int i2, ExtractorInput extractorInput) throws IOException, InterruptedException;
 

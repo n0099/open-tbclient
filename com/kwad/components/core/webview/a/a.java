@@ -20,7 +20,7 @@ import com.kwad.sdk.utils.bd;
 import com.kwad.sdk.utils.bh;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,14 +35,14 @@ public final class a {
 
     @KsJson
     /* renamed from: com.kwad.components.core.webview.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class C0366a extends com.kwad.sdk.core.response.kwai.a {
+    /* loaded from: classes7.dex */
+    public static final class C0581a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String packageName;
         public String url;
 
-        public C0366a() {
+        public C0581a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +58,7 @@ public final class a {
     }
 
     @KsJson
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class b extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,19 +107,19 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
             try {
-                C0366a c0366a = new C0366a();
-                c0366a.parseJson(new JSONObject(str));
-                if (k(c0366a.url, c0366a.packageName)) {
+                C0581a c0581a = new C0581a();
+                c0581a.parseJson(new JSONObject(str));
+                if (k(c0581a.url, c0581a.packageName)) {
                     return;
                 }
                 if (this.DV == null) {
-                    j(c0366a.url, c0366a.packageName);
+                    j(c0581a.url, c0581a.packageName);
                 }
                 if (this.DV.mR()) {
                     return;
                 }
                 this.DV.d(this.KW);
-                this.DV.m(new a.C0354a(this.mJsBridgeContext.Fv.getContext()).aj(true).ak(false).L(this.mAdTemplate).am(false));
+                this.DV.m(new a.C0569a(this.mJsBridgeContext.Fv.getContext()).aj(true).ak(false).L(this.mAdTemplate).am(false));
             } catch (JSONException e) {
                 com.kwad.sdk.core.e.b.printStackTrace(e);
             }

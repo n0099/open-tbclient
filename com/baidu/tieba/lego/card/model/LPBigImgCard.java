@@ -5,19 +5,19 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
+import com.baidu.tieba.ef7;
+import com.baidu.tieba.jf7;
+import com.baidu.tieba.lf7;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bf7;
-import com.repackage.df7;
-import com.repackage.kg;
-import com.repackage.qi;
-import com.repackage.we7;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class LPBigImgCard extends BaseCardInfo implements we7<LPBigImgCard> {
+/* loaded from: classes4.dex */
+public class LPBigImgCard extends BaseCardInfo implements ef7<LPBigImgCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bgColor;
@@ -53,16 +53,16 @@ public class LPBigImgCard extends BaseCardInfo implements we7<LPBigImgCard> {
             }
         }
         this.picUrl = jSONObject.optString("pic_url");
-        this.picWidth = df7.a(jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH));
-        this.picHeight = df7.a(jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
-        this.bgColor = bf7.b(jSONObject.optString("bg_color"));
-        this.bgColorNight = bf7.b(jSONObject.optString("bg_color_n"));
+        this.picWidth = lf7.a(jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH));
+        this.picHeight = lf7.a(jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+        this.bgColor = jf7.b(jSONObject.optString("bg_color"));
+        this.bgColorNight = jf7.b(jSONObject.optString("bg_color_n"));
         this.btnText = jSONObject.optString("btn_text");
-        this.btnColor = bf7.b(jSONObject.optString("btn_color"));
-        this.btnColorNight = bf7.b(jSONObject.optString("btn_color_n"));
+        this.btnColor = jf7.b(jSONObject.optString("btn_color"));
+        this.btnColorNight = jf7.b(jSONObject.optString("btn_color_n"));
         this.btnImgUrl = jSONObject.optString("btn_img");
-        this.btnWidth = df7.a(jSONObject.optInt("btn_width"));
-        this.btnHeight = df7.a(jSONObject.optInt("btn_height"));
+        this.btnWidth = lf7.a(jSONObject.optInt("btn_width"));
+        this.btnHeight = lf7.a(jSONObject.optInt("btn_height"));
         this.btnPosRatio = jSONObject.optDouble("btn_pos", 0.5d);
         this.btnLink = jSONObject.optString("link");
     }
@@ -160,13 +160,13 @@ public class LPBigImgCard extends BaseCardInfo implements we7<LPBigImgCard> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.we7
+    @Override // com.baidu.tieba.ef7
     public void doLoad(LPBigImgCard lPBigImgCard, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lPBigImgCard, tbPageContext) == null) || lPBigImgCard == null || tbPageContext == null) {
             return;
         }
-        int k = qi.k(TbadkCoreApplication.getInst());
-        kg.h().k(lPBigImgCard.getPicUrl(), 17, null, k, (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * k), tbPageContext.getUniqueId(), new Object[0]);
+        int k = ri.k(TbadkCoreApplication.getInst());
+        lg.h().k(lPBigImgCard.getPicUrl(), 17, null, k, (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * k), tbPageContext.getUniqueId(), new Object[0]);
     }
 }

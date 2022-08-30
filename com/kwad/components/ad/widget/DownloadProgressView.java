@@ -23,7 +23,7 @@ import com.kwad.sdk.api.KsAppDownloadListener;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DownloadProgressView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -197,19 +197,19 @@ public class DownloadProgressView extends FrameLayout {
     private void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0414, this);
-            TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09111d);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0415, this);
+            TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09111f);
             this.bZ = textProgressBar;
             textProgressBar.setTextDimen(this.Cp);
             this.bZ.setTextColor(this.Cn, this.Co);
             this.bZ.setProgressDrawable(this.Cq);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ed);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ef);
             this.Cl = textView;
             textView.setTextColor(this.Cm);
             this.Cl.setTextSize(0, this.Cp);
             this.Cl.setVisibility(0);
             this.Cl.setBackground(this.Cr);
-            findViewById(R.id.obfuscated_res_0x7f091096).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.widget.DownloadProgressView.1
+            findViewById(R.id.obfuscated_res_0x7f091098).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.widget.DownloadProgressView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DownloadProgressView Ct;
@@ -255,12 +255,12 @@ public class DownloadProgressView extends FrameLayout {
             Drawable drawable = obtainStyledAttributes.getDrawable(6);
             this.Cq = drawable;
             if (drawable == null) {
-                this.Cq = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bf2);
+                this.Cq = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bf3);
             }
             Drawable drawable2 = obtainStyledAttributes.getDrawable(0);
             this.Cr = drawable2;
             if (drawable2 == null) {
-                this.Cr = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bf1);
+                this.Cr = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bf2);
             }
             String string = obtainStyledAttributes.getString(5);
             this.Cs = string;

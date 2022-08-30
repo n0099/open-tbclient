@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class e {
     public BufferedWriter d;
     public String a = "EncryptionWriter";
@@ -19,7 +19,7 @@ public class e {
     public String f = ".log.txt";
     public d c = new d("lo");
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class a implements Comparator<File> {
         public a() {
         }

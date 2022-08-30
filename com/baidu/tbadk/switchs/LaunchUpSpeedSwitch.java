@@ -1,6 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tieba.tu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ru4;
 /* loaded from: classes3.dex */
 public class LaunchUpSpeedSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
@@ -58,7 +58,7 @@ public class LaunchUpSpeedSwitch extends BaseNormalSwitch {
                 if (UbsABTestHelper.isLaunchUpA()) {
                     type = 0;
                 } else {
-                    type = ru4.k().l("key_launch_up_speed", 1);
+                    type = tu4.k().l("key_launch_up_speed", 1);
                 }
             }
             return type == 1;
@@ -66,7 +66,7 @@ public class LaunchUpSpeedSwitch extends BaseNormalSwitch {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.repackage.bf
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.cf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

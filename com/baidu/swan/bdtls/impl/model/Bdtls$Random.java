@@ -2,6 +2,7 @@ package com.baidu.swan.bdtls.impl.model;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.dk3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,6 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
-import com.repackage.ck3;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
@@ -147,7 +147,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bdtls$Random bdtls$Random = new Bdtls$Random(this, (ck3) null);
+                Bdtls$Random bdtls$Random = new Bdtls$Random(this, (dk3) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 bdtls$Random.gMTUnixTime_ = this.b;
@@ -333,7 +333,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         bdtls$Random.initFields();
     }
 
-    public /* synthetic */ Bdtls$Random(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, ck3 ck3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$Random(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, dk3 dk3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -462,7 +462,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         }
     }
 
-    public /* synthetic */ Bdtls$Random(GeneratedMessageLite.Builder builder, ck3 ck3Var) {
+    public /* synthetic */ Bdtls$Random(GeneratedMessageLite.Builder builder, dk3 dk3Var) {
         this(builder);
     }
 

@@ -15,7 +15,7 @@ import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class RawResourceDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String RAW_RESOURCE_SCHEME = "rawresource";
@@ -28,7 +28,7 @@ public final class RawResourceDataSource implements DataSource {
     public final Resources resources;
     public Uri uri;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class RawResourceDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

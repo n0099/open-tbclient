@@ -83,7 +83,7 @@ public class WDownLoadService extends Service {
                 if (Build.VERSION.SDK_INT >= 26) {
                     notificationManager.createNotificationChannel(new NotificationChannel("win_download_id", "win_download", 2));
                     NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "win_download_id");
-                    builder.setChannelId("win_download_id").setContentTitle(str).setSmallIcon(R.drawable.obfuscated_res_0x7f08126a).setTicker(str).setContentText(str2).build();
+                    builder.setChannelId("win_download_id").setContentTitle(str).setSmallIcon(R.drawable.obfuscated_res_0x7f08126b).setTicker(str).setContentText(str2).build();
                     if (i <= 0 || i > 100) {
                         builder.setProgress(0, 0, false);
                         builder.setContentText(str2);
@@ -97,8 +97,8 @@ public class WDownLoadService extends Service {
                 return;
             }
             NotificationCompat.Builder builder2 = new NotificationCompat.Builder(this);
-            builder2.setSmallIcon(R.drawable.obfuscated_res_0x7f08126a);
-            builder2.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f08126a));
+            builder2.setSmallIcon(R.drawable.obfuscated_res_0x7f08126b);
+            builder2.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f08126b));
             builder2.setContentTitle(str);
             if (i <= 0 || i >= 100) {
                 builder2.setProgress(0, 0, false);
@@ -238,7 +238,7 @@ public class WDownLoadService extends Service {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                a(info, info != null ? info.getDl_name() : getString(R.string.obfuscated_res_0x7f0f15b2), getString(R.string.obfuscated_res_0x7f0f15b2), 0);
+                a(info, info != null ? info.getDl_name() : getString(R.string.obfuscated_res_0x7f0f15b5), getString(R.string.obfuscated_res_0x7f0f15b5), 0);
                 c(info);
             } catch (Exception e2) {
                 e2.printStackTrace();

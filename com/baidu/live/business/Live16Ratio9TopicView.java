@@ -26,14 +26,14 @@ import com.baidu.live.business.view.LiveStatusAnimView;
 import com.baidu.live.business.view.banner.BannerEntity;
 import com.baidu.live.business.view.banner.BannerView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bb0;
+import com.baidu.tieba.ma0;
+import com.baidu.tieba.n80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab0;
-import com.repackage.la0;
-import com.repackage.m80;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -228,7 +228,7 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
                 textView.setLineSpacing(3.0f, 1.0f);
                 textView.setMaxLines(2);
                 textView.setTextSize(1, 14.0f);
-                textView.setTextColor(ab0.f().a(this.a.getContext(), this.a.c, "color_white4"));
+                textView.setTextColor(bb0.f().a(this.a.getContext(), this.a.c, "color_white4"));
                 textView.setEllipsize(TextUtils.TruncateAt.END);
                 return textView;
             }
@@ -268,7 +268,7 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
                 TextView textView = new TextView(this.a.getContext());
                 textView.setMaxLines(1);
                 textView.setTextSize(1, 10.0f);
-                textView.setTextColor(ab0.f().a(this.a.getContext(), this.a.c, "color_858585"));
+                textView.setTextColor(bb0.f().a(this.a.getContext(), this.a.c, "color_858585"));
                 textView.setEllipsize(TextUtils.TruncateAt.END);
                 return textView;
             }
@@ -308,7 +308,7 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
                 TextView textView = new TextView(this.a.getContext());
                 textView.setMaxLines(1);
                 textView.setTextSize(1, 10.0f);
-                textView.setTextColor(ab0.f().a(this.a.getContext(), this.a.c, "color_858585"));
+                textView.setTextColor(bb0.f().a(this.a.getContext(), this.a.c, "color_858585"));
                 textView.setEllipsize(TextUtils.TruncateAt.END);
                 return textView;
             }
@@ -342,7 +342,7 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, this, list) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!la0.c(list)) {
+            if (!ma0.c(list)) {
                 for (LiveRoomEntity liveRoomEntity : list) {
                     LiveBannerEntity liveBannerEntity = new LiveBannerEntity();
                     liveBannerEntity.pic = liveRoomEntity.cover;
@@ -459,21 +459,21 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             this.s = context;
             setNeedRatio(false);
-            int e2 = (int) (((m80.e(context) - (m80.b(context, 12.0f) * 2)) - m80.b(context, 7.0f)) / 2.0d);
-            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0519, this);
-            this.h = (BannerView) inflate.findViewById(R.id.obfuscated_res_0x7f091338);
-            this.o = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f091354);
-            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091339);
+            int e2 = (int) (((n80.e(context) - (n80.b(context, 12.0f) * 2)) - n80.b(context, 7.0f)) / 2.0d);
+            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d051b, this);
+            this.h = (BannerView) inflate.findViewById(R.id.obfuscated_res_0x7f09133a);
+            this.o = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f091356);
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09133b);
             this.m = frameLayout;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) frameLayout.getLayoutParams();
             layoutParams.width = e2;
             layoutParams.height = (int) ((e2 * 9) / 16.0d);
             this.m.setLayoutParams(layoutParams);
-            this.i = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f09133a);
-            this.k = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091340);
-            this.j = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f09133c);
-            this.l = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091336);
-            float b2 = m80.b(getContext(), 10.0f);
+            this.i = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f09133c);
+            this.k = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091342);
+            this.j = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f09133e);
+            this.l = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091338);
+            float b2 = n80.b(getContext(), 10.0f);
             this.r = new float[]{b2, b2, b2, b2, b2, b2, b2, b2};
             q();
             p();
@@ -486,7 +486,7 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(ab0.f().a(getContext(), this.c, "color_white2"));
+            gradientDrawable.setColor(bb0.f().a(getContext(), this.c, "color_white2"));
             gradientDrawable.setCornerRadii(this.r);
             setBackgroundDrawable(gradientDrawable);
             BannerView bannerView = this.h;
@@ -495,17 +495,17 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
             }
             TextSwitcher textSwitcher = this.k;
             if (textSwitcher != null && textSwitcher.getCurrentView() != null) {
-                ((TextView) this.k.getCurrentView()).setTextColor(ab0.f().a(getContext(), this.c, "color_white4"));
+                ((TextView) this.k.getCurrentView()).setTextColor(bb0.f().a(getContext(), this.c, "color_white4"));
             }
             TextSwitcher textSwitcher2 = this.j;
             if (textSwitcher2 != null && textSwitcher2.getCurrentView() != null) {
-                ((TextView) this.j.getCurrentView()).setTextColor(ab0.f().a(getContext(), this.c, "color_858585"));
+                ((TextView) this.j.getCurrentView()).setTextColor(bb0.f().a(getContext(), this.c, "color_858585"));
             }
             TextSwitcher textSwitcher3 = this.l;
             if (textSwitcher3 == null || textSwitcher3.getCurrentView() == null) {
                 return;
             }
-            ((TextView) this.l.getCurrentView()).setTextColor(ab0.f().a(getContext(), this.c, "color_858585"));
+            ((TextView) this.l.getCurrentView()).setTextColor(bb0.f().a(getContext(), this.c, "color_858585"));
         }
     }
 
@@ -552,7 +552,7 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
                 if (view2 == null) {
                     View inflate = this.o.inflate();
                     this.p = inflate;
-                    LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f091353);
+                    LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f091355);
                     this.q = liveBaseLottieView;
                     liveBaseLottieView.setRepeatCount(-1);
                     this.q.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/android/liveshow_room_viewing.json");
@@ -589,9 +589,9 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
             }
             this.l.setVisibility(0);
             if (z) {
-                this.l.setText(m80.a(this.s, liveRoomEntity.audienceCount));
+                this.l.setText(n80.a(this.s, liveRoomEntity.audienceCount));
             } else {
-                this.l.setCurrentText(m80.a(this.s, liveRoomEntity.audienceCount));
+                this.l.setCurrentText(n80.a(this.s, liveRoomEntity.audienceCount));
             }
         }
     }

@@ -15,7 +15,7 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -3,24 +3,24 @@ package com.google.ar.core;
 import android.os.Bundle;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.up9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.ArCoreApk;
-import com.repackage.lp9;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class u extends com.google.a.b.a.a.a.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ lp9 a;
+    public final /* synthetic */ up9 a;
 
-    public u(lp9 lp9Var) {
+    public u(up9 up9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {lp9Var};
+            Object[] objArr = {up9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,7 +30,7 @@ public final class u extends com.google.a.b.a.a.a.e {
                 return;
             }
         }
-        this.a = lp9Var;
+        this.a = up9Var;
     }
 
     @Override // com.google.a.b.a.a.a.d

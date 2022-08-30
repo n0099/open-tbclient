@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -151,7 +152,7 @@ public class dj implements LoggerInterface {
             if (!file2.exists() || file2.isDirectory()) {
                 file2.createNewFile();
             }
-            randomAccessFile = new RandomAccessFile(file2, "rw");
+            randomAccessFile = new RandomAccessFile(file2, rw.c);
             try {
                 fileLock = randomAccessFile.getChannel().lock();
                 try {

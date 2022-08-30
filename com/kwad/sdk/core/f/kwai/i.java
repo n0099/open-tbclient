@@ -2,7 +2,7 @@ package com.kwad.sdk.core.f.kwai;
 
 import android.content.Context;
 import com.kwad.sdk.utils.q;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class i {
     public Context mContext;
 

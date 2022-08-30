@@ -5,12 +5,12 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
+import com.baidu.tieba.wp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.up4;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -52,7 +52,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public String title;
     public int unReadCount;
     public int unReadCountExtra;
-    public up4 userExtraData;
+    public wp4 userExtraData;
     public int userType;
 
     public ImMessageCenterShowItemData() {
@@ -261,10 +261,10 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.unReadCountExtra : invokeV.intValue;
     }
 
-    public up4 getUserExtraData() {
+    public wp4 getUserExtraData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.userExtraData : (up4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.userExtraData : (wp4) invokeV.objValue;
     }
 
     public int getUserType() {
@@ -488,10 +488,10 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         }
     }
 
-    public void setUserExtraData(up4 up4Var) {
+    public void setUserExtraData(wp4 wp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048640, this, up4Var) == null) {
-            this.userExtraData = up4Var;
+        if (interceptable == null || interceptable.invokeL(1048640, this, wp4Var) == null) {
+            this.userExtraData = wp4Var;
         }
     }
 

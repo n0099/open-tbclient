@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import java.lang.Thread;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class d implements Thread.UncaughtExceptionHandler {
     public static d Sh;
     @Nullable

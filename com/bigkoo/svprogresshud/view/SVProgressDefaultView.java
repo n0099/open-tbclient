@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SVProgressDefaultView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,10 +48,10 @@ public class SVProgressDefaultView extends LinearLayout {
                 return;
             }
         }
-        this.resBigLoading = R.drawable.obfuscated_res_0x7f08064e;
-        this.resInfo = R.drawable.obfuscated_res_0x7f08064d;
-        this.resSuccess = R.drawable.obfuscated_res_0x7f08064f;
-        this.resError = R.drawable.obfuscated_res_0x7f08064c;
+        this.resBigLoading = R.drawable.obfuscated_res_0x7f08064f;
+        this.resInfo = R.drawable.obfuscated_res_0x7f08064e;
+        this.resSuccess = R.drawable.obfuscated_res_0x7f080650;
+        this.resError = R.drawable.obfuscated_res_0x7f08064d;
         initViews();
         init();
     }
@@ -79,11 +79,11 @@ public class SVProgressDefaultView extends LinearLayout {
     private void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08d5, (ViewGroup) this, true);
-            this.ivBigLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd2);
-            this.ivSmallLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd3);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08d7, (ViewGroup) this, true);
+            this.ivBigLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd3);
+            this.ivSmallLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd5);
             this.circleProgressBar = (SVCircleProgressBar) findViewById(R.id.obfuscated_res_0x7f09062c);
-            this.tvMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f0922f5);
+            this.tvMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f0922fe);
         }
     }
 

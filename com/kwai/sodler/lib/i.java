@@ -20,7 +20,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class i extends j {
     public static /* synthetic */ Interceptable $ic;
     public static volatile i axl;
@@ -30,7 +30,7 @@ public final class i extends j {
     public Map<String, a> axo;
     public volatile boolean mHasInit;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

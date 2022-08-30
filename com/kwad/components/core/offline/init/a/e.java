@@ -12,7 +12,7 @@ import com.kwad.components.offline.api.core.video.BaseKsMediaPlayerView;
 import com.kwad.components.offline.api.core.video.IKsMediaPlayer;
 import com.kwad.components.offline.api.core.video.IKsMediaPlayerView;
 import com.kwad.components.offline.api.core.video.IVideo;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class e implements IVideo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

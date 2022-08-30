@@ -13,23 +13,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.dv4;
+import com.baidu.tieba.gg6;
 import com.baidu.tieba.homepage.topic.topictab.model.TopicModel;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicListView;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.pn;
+import com.baidu.tieba.t37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.av4;
-import com.repackage.l37;
-import com.repackage.oi;
-import com.repackage.on;
-import com.repackage.yf6;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ValidFragment"})
-/* loaded from: classes3.dex */
-public class TopicFragment extends BaseFragment implements yf6, av4.g, l37 {
+/* loaded from: classes4.dex */
+public class TopicFragment extends BaseFragment implements gg6, dv4.g, t37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicModel a;
@@ -52,24 +52,24 @@ public class TopicFragment extends BaseFragment implements yf6, av4.g, l37 {
         this.c = false;
     }
 
-    @Override // com.repackage.yf6
+    @Override // com.baidu.tieba.gg6
     public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.repackage.l37
+    @Override // com.baidu.tieba.t37
     public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && oi.z()) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && pi.z()) {
             this.b.e();
             this.b.l(false);
             this.a.z();
         }
     }
 
-    @Override // com.repackage.yf6
+    @Override // com.baidu.tieba.gg6
     public void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -77,7 +77,7 @@ public class TopicFragment extends BaseFragment implements yf6, av4.g, l37 {
         }
     }
 
-    @Override // com.repackage.av4.g
+    @Override // com.baidu.tieba.dv4.g
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
@@ -85,14 +85,14 @@ public class TopicFragment extends BaseFragment implements yf6, av4.g, l37 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.u95
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ba5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "a021" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.u95
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ba5
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -111,8 +111,8 @@ public class TopicFragment extends BaseFragment implements yf6, av4.g, l37 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.l37
-    public void j(int i, List<on> list) {
+    @Override // com.baidu.tieba.t37
+    public void j(int i, List<pn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i, list) == null) {
             this.b.d();
@@ -199,7 +199,7 @@ public class TopicFragment extends BaseFragment implements yf6, av4.g, l37 {
         }
     }
 
-    @Override // com.repackage.yf6
+    @Override // com.baidu.tieba.gg6
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
@@ -207,7 +207,7 @@ public class TopicFragment extends BaseFragment implements yf6, av4.g, l37 {
         }
     }
 
-    @Override // com.repackage.yf6
+    @Override // com.baidu.tieba.gg6
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {

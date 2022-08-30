@@ -1,6 +1,7 @@
 package com.xiaomi.push;
 
 import android.content.Context;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -82,7 +83,7 @@ public final class x {
                 x xVar = new x(context);
                 xVar.f1017a = str;
                 try {
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(file2, "rw");
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(file2, rw.c);
                     xVar.f1016a = randomAccessFile;
                     xVar.f1018a = randomAccessFile.getChannel().lock();
                     com.xiaomi.channel.commonutils.logger.b.c("Locked: " + str + " :" + xVar.f1018a);

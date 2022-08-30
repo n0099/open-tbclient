@@ -267,7 +267,7 @@ public class VideoPlayer {
     /* JADX WARN: Removed duplicated region for block: B:83:0x014f  */
     /* JADX WARN: Removed duplicated region for block: B:85:0x0154  */
     /* JADX WARN: Type inference failed for: r10v0 */
-    /* JADX WARN: Type inference failed for: r10v1, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r10v1, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r10v2 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

@@ -8,12 +8,12 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.kv2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jv2;
 /* loaded from: classes2.dex */
 public class FooterLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -47,8 +47,8 @@ public class FooterLoadingLayout extends LoadingLayout {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) {
-            View b = jv2.a().b(R.layout.obfuscated_res_0x7f0d00c1, viewGroup, false);
-            b.setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0603e4));
+            View b = kv2.a().b(R.layout.obfuscated_res_0x7f0d00c2, viewGroup, false);
+            b.setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0603e7));
             return b;
         }
         return (View) invokeLLL.objValue;
@@ -77,7 +77,7 @@ public class FooterLoadingLayout extends LoadingLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091ab6);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091ab8);
             if (findViewById != null) {
                 return findViewById.getHeight();
             }
@@ -128,10 +128,10 @@ public class FooterLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            this.e = (LoadingAnimView) findViewById(R.id.obfuscated_res_0x7f091ab8);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091ab7);
+            this.e = (LoadingAnimView) findViewById(R.id.obfuscated_res_0x7f091aba);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091ab9);
             this.f = textView;
-            textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603dc));
+            textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603df));
             setState(ILoadingLayout$State.RESET);
         }
     }

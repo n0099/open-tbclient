@@ -2,6 +2,7 @@ package com.baidu.swan.facade.requred.openstat.imupload.log.model;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.sn3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,6 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
-import com.repackage.rn3;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
@@ -170,7 +170,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                    AuthInfo authInfo = new AuthInfo(this, (rn3) null);
+                    AuthInfo authInfo = new AuthInfo(this, (sn3) null);
                     int i = (this.a & 1) != 1 ? 0 : 1;
                     authInfo.token_ = this.b;
                     authInfo.bitField0_ = i;
@@ -320,7 +320,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             authInfo.initFields();
         }
 
-        public /* synthetic */ AuthInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, rn3 rn3Var) throws InvalidProtocolBufferException {
+        public /* synthetic */ AuthInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, sn3 sn3Var) throws InvalidProtocolBufferException {
             this(codedInputStream, extensionRegistryLite);
         }
 
@@ -450,7 +450,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             }
         }
 
-        public /* synthetic */ AuthInfo(GeneratedMessageLite.Builder builder, rn3 rn3Var) {
+        public /* synthetic */ AuthInfo(GeneratedMessageLite.Builder builder, sn3 sn3Var) {
             this(builder);
         }
 
@@ -754,7 +754,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-                Bimlog$LogRequest bimlog$LogRequest = new Bimlog$LogRequest(this, (rn3) null);
+                Bimlog$LogRequest bimlog$LogRequest = new Bimlog$LogRequest(this, (sn3) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 bimlog$LogRequest.version_ = this.b;
@@ -1028,7 +1028,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
         bimlog$LogRequest.initFields();
     }
 
-    public /* synthetic */ Bimlog$LogRequest(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, rn3 rn3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bimlog$LogRequest(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, sn3 sn3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -1280,7 +1280,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
         }
     }
 
-    public /* synthetic */ Bimlog$LogRequest(GeneratedMessageLite.Builder builder, rn3 rn3Var) {
+    public /* synthetic */ Bimlog$LogRequest(GeneratedMessageLite.Builder builder, sn3 sn3Var) {
         this(builder);
     }
 

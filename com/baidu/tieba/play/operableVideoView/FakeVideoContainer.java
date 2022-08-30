@@ -14,12 +14,12 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.os4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ms4;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FakeVideoContainer extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,13 +52,13 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0285, this);
-            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092520);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0286, this);
+            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09252a);
             this.b = findViewById(R.id.obfuscated_res_0x7f090398);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924ef);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09097a);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924f9);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09097b);
             this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
-            ms4 d = ms4.d(this.d);
+            os4 d = os4.d(this.d);
             d.v(R.color.CAM_X0101);
             d.A(R.string.F_X01);
             this.a.s();
@@ -72,7 +72,7 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            BdToast b = BdToast.b(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f1514));
+            BdToast b = BdToast.b(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f1517));
             b.f(BdToast.ToastIcon.FAILURE);
             b.i();
         }

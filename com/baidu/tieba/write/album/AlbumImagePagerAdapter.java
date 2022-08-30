@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AlbumImagePagerAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -94,14 +94,14 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
-            View inflate = this.b.inflate(R.layout.obfuscated_res_0x7f0d0111, (ViewGroup) null);
+            View inflate = this.b.inflate(R.layout.obfuscated_res_0x7f0d0112, (ViewGroup) null);
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090384);
             tbImageView.setTag(null);
             tbImageView.setDefaultBgResource(0);
             tbImageView.setDefaultResource(0);
             tbImageView.setGifIconSupport(false);
             tbImageView.setLongIconSupport(false);
-            TbImageView tbImageView2 = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09217a);
+            TbImageView tbImageView2 = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09217d);
             tbImageView2.setTag(null);
             tbImageView2.setDefaultBgResource(0);
             tbImageView2.setDefaultResource(0);

@@ -12,12 +12,12 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.MainTabFragmentIdleSwitch;
 import com.baidu.tieba.R;
+import com.baidu.tieba.sb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rb;
 /* loaded from: classes3.dex */
 public abstract class LazyBaseFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -98,7 +98,7 @@ public abstract class LazyBaseFragment extends BaseFragment {
                 LazyBaseFragment lazyBaseFragment = this.a;
                 if (lazyBaseFragment.d == null) {
                     lazyBaseFragment.c = true;
-                } else if (!rb.b().c()) {
+                } else if (!sb.b().c()) {
                     this.a.a.post(new RunnableC0188a(this));
                 } else {
                     this.a.t1();
@@ -144,8 +144,8 @@ public abstract class LazyBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater, viewGroup, bundle)) == null) {
             if (MainTabFragmentIdleSwitch.isOn()) {
-                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0557, viewGroup, false);
-                ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f09146e);
+                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0559, viewGroup, false);
+                ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f091470);
                 this.d = viewStub;
                 viewStub.setLayoutResource(s1());
                 if (this.c) {

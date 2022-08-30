@@ -3,11 +3,11 @@ package com.baidu.tieba.ala.alasquare.special_forum.message;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.lt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dt5;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -16,10 +16,10 @@ import org.json.JSONObject;
 public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<dt5> followList;
+    public List<lt5> followList;
     public boolean hasMore;
     public int pn;
-    public List<dt5> recommendList;
+    public List<lt5> recommendList;
     public int totalFollowCount;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,9 +59,9 @@ public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
                         JSONObject optJSONObject = jSONObject2.optJSONObject("user");
                         JSONObject optJSONObject2 = jSONObject2.optJSONObject("ala_live_info");
                         if (optJSONObject != null && optJSONObject2 != null) {
-                            dt5 dt5Var = new dt5();
-                            dt5Var.a(optJSONObject, optJSONObject2);
-                            this.followList.add(dt5Var);
+                            lt5 lt5Var = new lt5();
+                            lt5Var.a(optJSONObject, optJSONObject2);
+                            this.followList.add(lt5Var);
                         }
                     }
                 }
@@ -72,9 +72,9 @@ public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
                         JSONObject optJSONObject3 = jSONObject3.optJSONObject("user");
                         JSONObject optJSONObject4 = jSONObject3.optJSONObject("ala_live_info");
                         if (optJSONObject3 != null && optJSONObject4 != null) {
-                            dt5 dt5Var2 = new dt5();
-                            dt5Var2.a(optJSONObject3, optJSONObject4);
-                            this.recommendList.add(dt5Var2);
+                            lt5 lt5Var2 = new lt5();
+                            lt5Var2.a(optJSONObject3, optJSONObject4);
+                            this.recommendList.add(lt5Var2);
                         }
                     }
                 }

@@ -19,16 +19,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RangeSlider extends BaseSlider<RangeSlider, OnChangeListener, OnSliderTouchListener> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OnChangeListener extends BaseOnChangeListener<RangeSlider> {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface OnSliderTouchListener extends BaseOnSliderTouchListener<RangeSlider> {
     }
 

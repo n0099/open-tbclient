@@ -14,7 +14,7 @@ import com.bumptech.glide.util.ByteBufferUtil;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ByteBufferEncoder implements Encoder<ByteBuffer> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ByteBufferEncoder";

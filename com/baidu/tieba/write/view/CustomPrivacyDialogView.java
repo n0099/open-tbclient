@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
+import com.baidu.tieba.tv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qv4;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CustomPrivacyDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,18 +56,18 @@ public class CustomPrivacyDialogView extends LinearLayout {
             gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0211));
             setBackgroundDrawable(gradientDrawable);
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0205, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091a3d);
-            this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09073f);
-            this.c = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090740);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0206, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091a3f);
+            this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090740);
+            this.c = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090741);
             this.b.setTextSize(R.dimen.tbds34);
-            qv4 qv4Var = new qv4();
-            qv4Var.r(R.color.CAM_X0105);
-            this.b.setConfig(qv4Var);
+            tv4 tv4Var = new tv4();
+            tv4Var.r(R.color.CAM_X0105);
+            this.b.setConfig(tv4Var);
             this.c.setTextSize(R.dimen.tbds34);
-            qv4 qv4Var2 = new qv4();
-            qv4Var2.p(R.color.CAM_X0302);
-            this.c.setConfig(qv4Var2);
+            tv4 tv4Var2 = new tv4();
+            tv4Var2.p(R.color.CAM_X0302);
+            this.c.setConfig(tv4Var2);
         }
     }
 

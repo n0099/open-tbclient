@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.TabPic;
 import tbclient.TabPicDesc;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FrsTabItemCustomeView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

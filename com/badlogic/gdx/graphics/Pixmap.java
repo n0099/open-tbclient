@@ -4,6 +4,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.graphics.g2d.Gdx2DPixmap;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.h7;
+import com.baidu.tieba.j3;
+import com.baidu.tieba.k3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,9 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h7;
-import com.repackage.j3;
-import com.repackage.k3;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class Pixmap implements h7 {
@@ -309,7 +309,7 @@ public class Pixmap implements h7 {
         }
     }
 
-    @Override // com.repackage.h7
+    @Override // com.baidu.tieba.h7
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

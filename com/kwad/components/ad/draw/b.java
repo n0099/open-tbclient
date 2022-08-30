@@ -23,7 +23,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.widget.KSFrameLayout;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b extends KSFrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public final class b extends KSFrameLayout {
             public final void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                    com.kwad.components.core.c.a.a.a(new a.C0354a(this.aR.aK.mRootContainer.getContext()).L(this.aR.aK.mAdTemplate).b(this.aR.aK.mApkDownloadHelper).aj(false).ae(3).a(new a.b(this) { // from class: com.kwad.components.ad.draw.b.1.1
+                    com.kwad.components.core.c.a.a.a(new a.C0569a(this.aR.aK.mRootContainer.getContext()).L(this.aR.aK.mAdTemplate).b(this.aR.aK.mApkDownloadHelper).aj(false).ae(3).a(new a.b(this) { // from class: com.kwad.components.ad.draw.b.1.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass1 aS;
@@ -242,11 +242,11 @@ public final class b extends KSFrameLayout {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0418, this);
-            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911b6);
+            View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0419, this);
+            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911b8);
             this.mRootContainer = adBaseFrameLayout;
-            this.aO = (ImageView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f0911f6);
-            DetailVideoView detailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09120c);
+            this.aO = (ImageView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f0911f8);
+            DetailVideoView detailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09120e);
             this.mDetailVideoView = detailVideoView;
             detailVideoView.setAd(true);
             this.mDetailVideoView.setOnClickListener(this.aP);

@@ -23,7 +23,7 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.bd;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public final class c {
     public m<com.kwad.components.core.k.a, AdResultData> fr;
 
     /* renamed from: com.kwad.components.ad.interstitial.c$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class AnonymousClass1 extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -189,7 +189,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static c fA;
@@ -212,7 +212,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void onInterstitialAdLoad(@Nullable List<AdTemplate> list);
     }

@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-import com.repackage.rg;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -118,9 +118,9 @@ public class BdToastHelper {
         } else if (bdToastData.getIconType() == 2) {
             bdToast.f(BdToast.ToastIcon.FAILURE);
         } else if (bdToastData.getIconType() == 3) {
-            bdToast.e(R.drawable.obfuscated_res_0x7f0807d0);
+            bdToast.e(R.drawable.obfuscated_res_0x7f0807d1);
         } else if (bdToastData.getIconType() == 4) {
-            bdToast.g(R.drawable.obfuscated_res_0x7f080820, UtilHelper.getDimenPixelSize(R.dimen.tbds286), UtilHelper.getDimenPixelSize(R.dimen.tbds203));
+            bdToast.g(R.drawable.obfuscated_res_0x7f080821, UtilHelper.getDimenPixelSize(R.dimen.tbds286), UtilHelper.getDimenPixelSize(R.dimen.tbds203));
         }
     }
 
@@ -134,10 +134,10 @@ public class BdToastHelper {
             }
             BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), toastSpannableString);
             setToastIcon(b, bdToastData);
-            if (qi.C()) {
+            if (ri.C()) {
                 b.i();
             } else {
-                rg.a().post(new Runnable(b) { // from class: com.baidu.tbadk.core.util.BdToastHelper.1
+                sg.a().post(new Runnable(b) { // from class: com.baidu.tbadk.core.util.BdToastHelper.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ BdToast val$bdToast;

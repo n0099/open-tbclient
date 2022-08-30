@@ -20,7 +20,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
 @Descriptor(tags = {4})
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DecoderConfigDescriptor extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public static Logger log;

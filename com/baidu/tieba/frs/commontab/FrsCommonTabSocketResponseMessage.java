@@ -3,17 +3,17 @@ package com.baidu.tieba.frs.commontab;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tieba.ri6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ji6;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GeneralTabList.GeneralTabListResIdl;
-/* loaded from: classes3.dex */
-public class FrsCommonTabSocketResponseMessage extends MvcSocketResponsedMessage<ji6, GeneralTabListResIdl> {
+/* loaded from: classes4.dex */
+public class FrsCommonTabSocketResponseMessage extends MvcSocketResponsedMessage<ri6, GeneralTabListResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,9 +42,9 @@ public class FrsCommonTabSocketResponseMessage extends MvcSocketResponsedMessage
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
-            ji6 ji6Var = new ji6();
+            ri6 ri6Var = new ri6();
             GeneralTabListResIdl generalTabListResIdl = (GeneralTabListResIdl) new Wire(new Class[0]).parseFrom(bArr, GeneralTabListResIdl.class);
-            ji6Var.a(generalTabListResIdl.data);
+            ri6Var.a(generalTabListResIdl.data);
             if (generalTabListResIdl != null && (error = generalTabListResIdl.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -52,7 +52,7 @@ public class FrsCommonTabSocketResponseMessage extends MvcSocketResponsedMessage
                 }
                 setErrorString(generalTabListResIdl.error.usermsg);
             }
-            setData(ji6Var);
+            setData(ri6Var);
             return generalTabListResIdl;
         }
         return invokeIL.objValue;

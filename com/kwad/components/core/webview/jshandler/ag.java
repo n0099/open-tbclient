@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ksad.json.annotation.KsJson;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ag implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public static Handler MX;
@@ -23,7 +23,7 @@ public final class ag implements com.kwad.sdk.core.webview.kwai.a {
     public b MY;
 
     @KsJson
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public final class ag implements com.kwad.sdk.core.webview.kwai.a {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         @MainThread
         void al(int i);

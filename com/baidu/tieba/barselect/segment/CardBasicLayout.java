@@ -4,23 +4,23 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
+import com.baidu.tieba.my5;
+import com.baidu.tieba.ny5;
+import com.baidu.tieba.oy5;
+import com.baidu.tieba.vy5;
+import com.baidu.tieba.xy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ey5;
-import com.repackage.fy5;
-import com.repackage.gy5;
-import com.repackage.ny5;
-import com.repackage.py5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class CardBasicLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public gy5 b;
-    public ey5 c;
+    public oy5 b;
+    public my5 c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CardBasicLayout(Context context) {
@@ -43,51 +43,51 @@ public class CardBasicLayout extends LinearLayout {
         }
     }
 
-    public void setData(int i, gy5 gy5Var) {
-        fy5 a;
+    public void setData(int i, oy5 oy5Var) {
+        ny5 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, gy5Var) == null) {
-            this.b = gy5Var;
-            if (gy5Var == null || gy5Var.a() == null || (a = this.b.a()) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, oy5Var) == null) {
+            this.b = oy5Var;
+            if (oy5Var == null || oy5Var.a() == null || (a = this.b.a()) == null) {
                 return;
             }
             int h = a.h();
-            if (h == py5.b) {
+            if (h == xy5.b) {
                 if (i == VoteCandidateCard.A) {
-                    this.a = ny5.d;
+                    this.a = vy5.d;
                     this.c = this.b.f();
                     return;
                 }
-                this.a = ny5.a;
-                List<ey5> b = this.b.b();
+                this.a = vy5.a;
+                List<my5> b = this.b.b();
                 if (b == null || b.size() <= i) {
                     return;
                 }
                 this.c = b.get(i);
-            } else if (h == py5.c) {
+            } else if (h == xy5.c) {
                 if (i == VoteCandidateCard.A) {
-                    this.a = ny5.c;
-                    List<ey5> b2 = this.b.b();
+                    this.a = vy5.c;
+                    List<my5> b2 = this.b.b();
                     if (b2 == null || b2.size() <= 0) {
                         return;
                     }
-                    for (ey5 ey5Var : b2) {
-                        if (ey5Var.i() == 1) {
-                            this.c = ey5Var;
+                    for (my5 my5Var : b2) {
+                        if (my5Var.i() == 1) {
+                            this.c = my5Var;
                             return;
                         }
                     }
                     return;
                 }
-                this.a = ny5.b;
-                List<ey5> b3 = this.b.b();
+                this.a = vy5.b;
+                List<my5> b3 = this.b.b();
                 if (b3 == null || b3.size() <= i) {
                     return;
                 }
-                ey5 ey5Var2 = b3.get(i);
-                this.c = ey5Var2;
-                if (ey5Var2.i() == 1 && i == 0) {
-                    this.a = ny5.c;
+                my5 my5Var2 = b3.get(i);
+                this.c = my5Var2;
+                if (my5Var2.i() == 1 && i == 0) {
+                    this.a = vy5.c;
                 }
             }
         }

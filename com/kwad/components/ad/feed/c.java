@@ -12,13 +12,13 @@ import com.kwad.components.ad.feed.a.i;
 import com.kwad.components.ad.feed.a.j;
 import com.kwad.components.ad.feed.a.k;
 import com.kwad.components.model.FeedType;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.components.ad.feed.c$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] cI;

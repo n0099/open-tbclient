@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.lib.MsaIdInterface;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class z {
     public static /* synthetic */ Interceptable $ic = null;
     public static String d = "MsaClient";
@@ -26,7 +26,7 @@ public class z {
     public Context b;
     public MsaIdInterface c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

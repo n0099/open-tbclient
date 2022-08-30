@@ -15,7 +15,7 @@ import com.bun.miitmdid.core.InfoCode;
 import com.bun.miitmdid.interfaces.IIdProvider;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
 import com.bun.miitmdid.interfaces.IdSupplier;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public static boolean b;
@@ -23,7 +23,7 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
     public IIdentifierListener a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;

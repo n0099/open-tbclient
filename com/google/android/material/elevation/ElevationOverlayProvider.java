@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.resources.MaterialAttributes;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ElevationOverlayProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float FORMULA_MULTIPLIER = 4.5f;

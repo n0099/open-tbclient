@@ -5,15 +5,15 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tieba.af5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.te5;
 import tbclient.CheckPost.CheckPostReqIdl;
 import tbclient.CheckPost.ReqData;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CheckPostRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class CheckPostRequestMessage extends NetMessage {
             builder.ori_ugc_nid = this.ori_ugc_nid;
             builder.ori_ugc_vid = this.ori_ugc_vid;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                te5.a(builder, true);
+                af5.a(builder, true);
             }
             CheckPostReqIdl.Builder builder2 = new CheckPostReqIdl.Builder();
             builder2.data = builder.build(false);

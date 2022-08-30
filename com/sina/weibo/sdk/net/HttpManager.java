@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -154,7 +155,7 @@ public class HttpManager {
                             throw new WeiboHttpException(readConnectResponse(createConnect, true), responseCode);
                         }
                         InputStream inputStream = createConnect.getInputStream();
-                        RandomAccessFile randomAccessFile = new RandomAccessFile(file3, "rw");
+                        RandomAccessFile randomAccessFile = new RandomAccessFile(file3, rw.c);
                         randomAccessFile.seek(0L);
                         byte[] bArr = new byte[1024];
                         while (true) {

@@ -49,11 +49,11 @@ public class TitleBarView extends RelativeLayout {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04bd, (ViewGroup) this, true);
-            this.leftBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d38);
-            this.leftImageBtn = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d37);
-            this.titleTv = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d3a);
-            this.rightBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d39);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04bf, (ViewGroup) this, true);
+            this.leftBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d3a);
+            this.leftImageBtn = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d39);
+            this.titleTv = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d3c);
+            this.rightBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d3b);
         }
     }
 
@@ -61,10 +61,10 @@ public class TitleBarView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.isDarkMode = true;
-            setBackgroundResource(R.drawable.obfuscated_res_0x7f081073);
-            this.leftBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060981));
-            this.titleTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060987));
-            this.rightBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060984));
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f081074);
+            this.leftBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060984));
+            this.titleTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06098a));
+            this.rightBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060987));
         }
     }
 
@@ -107,9 +107,9 @@ public class TitleBarView extends RelativeLayout {
             if (this.isDarkMode) {
                 TextView textView = this.rightBtn;
                 if (z) {
-                    color = getResources().getColor(R.color.obfuscated_res_0x7f060985);
+                    color = getResources().getColor(R.color.obfuscated_res_0x7f060988);
                 } else {
-                    color = getResources().getColor(R.color.obfuscated_res_0x7f060984);
+                    color = getResources().getColor(R.color.obfuscated_res_0x7f060987);
                 }
                 textView.setTextColor(color);
             }

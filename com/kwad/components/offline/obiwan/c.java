@@ -13,7 +13,7 @@ import com.kwad.components.offline.api.obiwan.IObiwanOfflineCompoInitConfig;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.config.d;
 import com.kwad.sdk.utils.as;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class c implements IObiwanOfflineCompoInitConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

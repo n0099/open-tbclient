@@ -1,12 +1,12 @@
 package com.baidu.bdtask;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.nq;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mq;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
@@ -17,20 +17,20 @@ import org.json.JSONObject;
 public final class BDPTask$INSTANCE$taskCompletedRequest$2 extends Lambda implements Function0<Unit> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ int $behavior;
-    public final /* synthetic */ mq $callback;
+    public final /* synthetic */ nq $callback;
     public final /* synthetic */ JSONObject $external;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String $taskId;
     public final /* synthetic */ String $token;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$taskCompletedRequest$2(String str, String str2, int i, JSONObject jSONObject, mq mqVar) {
+    public BDPTask$INSTANCE$taskCompletedRequest$2(String str, String str2, int i, JSONObject jSONObject, nq nqVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Integer.valueOf(i), jSONObject, mqVar};
+            Object[] objArr = {str, str2, Integer.valueOf(i), jSONObject, nqVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -45,7 +45,7 @@ public final class BDPTask$INSTANCE$taskCompletedRequest$2 extends Lambda implem
         this.$taskId = str2;
         this.$behavior = i;
         this.$external = jSONObject;
-        this.$callback = mqVar;
+        this.$callback = nqVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

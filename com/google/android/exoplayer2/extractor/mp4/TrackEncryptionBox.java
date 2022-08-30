@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class TrackEncryptionBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TrackEncryptionBox";

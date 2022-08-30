@@ -11,7 +11,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.a.b.b;
 import com.meizu.cloud.pushsdk.util.d;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class NotificationService extends IntentService {
     public Object a;
 

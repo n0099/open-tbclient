@@ -14,7 +14,7 @@ import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapResource;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class GifFrameResourceDecoder implements ResourceDecoder<GifDecoder, Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

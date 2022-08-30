@@ -7,20 +7,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
+import com.baidu.tieba.d9;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
+import com.baidu.tieba.t97;
+import com.baidu.tieba.v67;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
-import com.repackage.l97;
-import com.repackage.n67;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class OfficialBarTipModel extends ImBaseMessageCenterModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MASK_TYPE = 12;
@@ -62,10 +62,10 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
         return invokeV.booleanValue;
     }
 
-    public void deleteSelectedDatas(n67 n67Var) {
+    public void deleteSelectedDatas(v67 v67Var) {
         LinkedList<ImMessageCenterShowItemData> linkedList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n67Var) == null) || (linkedList = this.mList) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v67Var) == null) || (linkedList = this.mList) == null) {
             return;
         }
         ListIterator<ImMessageCenterShowItemData> listIterator = linkedList.listIterator();
@@ -76,7 +76,7 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
                 arrayList.add(next);
             }
         }
-        asyncDeleteMsgList(arrayList, 4, n67Var);
+        asyncDeleteMsgList(arrayList, 4, v67Var);
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
@@ -121,7 +121,7 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
             return;
         }
         buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
-        OfficialSettingItemData a = l97.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+        OfficialSettingItemData a = t97.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
         if (a != null) {
             buildNormalItem.setGroupSetting(a);
         }

@@ -13,19 +13,19 @@ import com.kwad.components.offline.api.OfflineHostProvider;
 import com.kwad.sdk.utils.r;
 import com.kwai.adclient.kscommerciallogger.model.BusinessType;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class TkLoggerReporter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.components.offline.api.tk.TkLoggerReporter$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final TkLoggerReporter sInstance;

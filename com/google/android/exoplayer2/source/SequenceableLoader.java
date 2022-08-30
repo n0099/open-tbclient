@@ -1,8 +1,8 @@
 package com.google.android.exoplayer2.source;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface SequenceableLoader {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface Callback<T extends SequenceableLoader> {
         void onContinueLoadingRequested(T t);
     }

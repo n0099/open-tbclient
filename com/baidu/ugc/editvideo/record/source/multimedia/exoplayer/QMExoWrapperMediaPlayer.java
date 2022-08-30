@@ -6,6 +6,8 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.d89;
+import com.baidu.tieba.e89;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,13 +19,11 @@ import com.baidu.ugc.editvideo.player.VideoPlayData;
 import com.baidu.ugc.editvideo.record.source.DefaultAMediaPlayer;
 import com.baidu.ugc.editvideo.record.source.MediaInfo;
 import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
-import com.repackage.u79;
-import com.repackage.v79;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSeekCompleteListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
                 return;
             }
         }
-        v79 d = u79.c().d();
+        e89 d = d89.c().d();
         if (d != null) {
             this.mInnerMediaPlayer = d.a();
         }

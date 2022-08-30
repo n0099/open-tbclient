@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
+import com.baidu.tieba.tu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ru4;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GroupChatView extends CommonGroupMsglistView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,15 +51,15 @@ public class GroupChatView extends CommonGroupMsglistView {
         if (interceptable == null || interceptable.invokeLZ(1048576, this, talkableActivity, z) == null) {
             super.initHeader(talkableActivity, z);
             this.c = (GroupChatActivity) talkableActivity;
-            String string = talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0af7);
+            String string = talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0afa);
             if (string != null) {
                 String stringExtra = talkableActivity.getIntent().getStringExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID);
-                View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d037e, talkableActivity);
+                View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d037f, talkableActivity);
                 this.mBtnGroupInfo = addCustomView;
-                TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090ce3);
+                TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090ce4);
                 this.a = textView;
                 textView.setText(string);
-                ImageView imageView = (ImageView) this.mBtnGroupInfo.findViewById(R.id.obfuscated_res_0x7f091b76);
+                ImageView imageView = (ImageView) this.mBtnGroupInfo.findViewById(R.id.obfuscated_res_0x7f091b78);
                 this.b = imageView;
                 imageView.setVisibility(8);
                 if (!StringUtils.isNull(stringExtra) && stringExtra.equals(TbadkCoreApplication.getCurrentAccount())) {
@@ -78,13 +78,13 @@ public class GroupChatView extends CommonGroupMsglistView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.b.setVisibility(8);
-            ru4.k().u("has_shown_group_btn_dot", true);
+            tu4.k().u("has_shown_group_btn_dot", true);
         }
     }
 
     public void k() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || ru4.k().h("has_shown_group_btn_dot", false)) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || tu4.k().h("has_shown_group_btn_dot", false)) {
             return;
         }
         this.b.setVisibility(0);

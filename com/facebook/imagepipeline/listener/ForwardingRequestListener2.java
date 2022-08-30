@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ForwardingRequestListener2 implements RequestListener2 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ForwardingRequestListener2";

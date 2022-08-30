@@ -14,14 +14,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.nu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu7;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TextSizeSeekBar extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -127,7 +127,7 @@ public class TextSizeSeekBar extends View {
             this.d = dimensionPixelSize;
             this.e = dimensionPixelSize;
             this.h = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.T_X09);
-            this.k = new String[]{context.getString(R.string.obfuscated_res_0x7f0f064a), context.getString(R.string.obfuscated_res_0x7f0f0649), context.getString(R.string.obfuscated_res_0x7f0f0648), context.getString(R.string.obfuscated_res_0x7f0f064b)};
+            this.k = new String[]{context.getString(R.string.obfuscated_res_0x7f0f064b), context.getString(R.string.obfuscated_res_0x7f0f064a), context.getString(R.string.obfuscated_res_0x7f0f0649), context.getString(R.string.obfuscated_res_0x7f0f064c)};
             this.l = SkinManager.getColor(R.color.CAM_X0105);
             this.m = SkinManager.getColor(R.color.CAM_X0109);
             this.n = SkinManager.getColor(R.color.CAM_X0111);
@@ -220,7 +220,7 @@ public class TextSizeSeekBar extends View {
                         break;
                     } else if (this.p.get(i).contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
                         this.j = i;
-                        fu7.a(Math.abs(i - 3));
+                        nu7.a(Math.abs(i - 3));
                         invalidate();
                         break;
                     } else {

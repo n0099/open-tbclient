@@ -5,6 +5,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tn9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,9 +14,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.annotation.KeepName;
-import com.repackage.kn9;
 @KeepName
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class BinderWrapper implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     @NonNull
@@ -36,7 +36,7 @@ public final class BinderWrapper implements Parcelable {
                 return;
             }
         }
-        CREATOR = new kn9();
+        CREATOR = new tn9();
     }
 
     public BinderWrapper(@NonNull IBinder iBinder) {

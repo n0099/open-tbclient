@@ -45,6 +45,6 @@ public final class BdVideoFullGradientMask$linearGradient$2 extends Lambda imple
     public final LinearGradient invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LinearGradient(0.0f, 0.0f, this.this$0.getMeasuredWidth(), 0.0f, new int[]{this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f060805), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f060800), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f060802), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f060803), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f060804)}, new float[]{0.0f, 0.17f, 0.34f, 0.5f, 1.0f}, Shader.TileMode.CLAMP) : (LinearGradient) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LinearGradient(0.0f, 0.0f, this.this$0.getMeasuredWidth(), 0.0f, new int[]{this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f060808), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f060803), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f060805), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f060806), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f060807)}, new float[]{0.0f, 0.17f, 0.34f, 0.5f, 1.0f}, Shader.TileMode.CLAMP) : (LinearGradient) invokeV.objValue;
     }
 }

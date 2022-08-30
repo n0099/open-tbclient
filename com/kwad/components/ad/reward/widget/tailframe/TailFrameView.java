@@ -21,21 +21,21 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.KSFrameLayout;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class TailFrameView extends KSFrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public k nM;
     public com.kwad.components.ad.reward.widget.tailframe.a xe;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a extends com.kwad.components.ad.reward.widget.tailframe.a implements com.kwad.sdk.widget.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a() {
-            super(R.layout.obfuscated_res_0x7f0d047d);
+            super(R.layout.obfuscated_res_0x7f0d047e);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,7 +61,7 @@ public class TailFrameView extends KSFrameLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class b extends com.kwad.components.ad.reward.widget.tailframe.a implements com.kwad.sdk.widget.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public class TailFrameView extends KSFrameLayout {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b() {
-            super(R.layout.obfuscated_res_0x7f0d047e);
+            super(R.layout.obfuscated_res_0x7f0d047f);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,9 +101,9 @@ public class TailFrameView extends KSFrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
                 super.E(context);
-                this.xf = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f091217);
-                this.xg = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f091218);
-                this.xh = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f091219);
+                this.xf = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f091219);
+                this.xg = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f09121a);
+                this.xh = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f09121b);
             }
         }
 
@@ -117,7 +117,7 @@ public class TailFrameView extends KSFrameLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class c extends com.kwad.components.ad.reward.widget.tailframe.a implements com.kwad.sdk.widget.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +125,7 @@ public class TailFrameView extends KSFrameLayout {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c() {
-            super(R.layout.obfuscated_res_0x7f0d047f);
+            super(R.layout.obfuscated_res_0x7f0d0480);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -160,7 +160,7 @@ public class TailFrameView extends KSFrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
                 super.E(context);
-                this.xi = this.wU.findViewById(R.id.obfuscated_res_0x7f0924b1);
+                this.xi = this.wU.findViewById(R.id.obfuscated_res_0x7f0924bb);
             }
         }
 
@@ -173,21 +173,21 @@ public class TailFrameView extends KSFrameLayout {
                     this.xi.setVisibility(8);
                     this.bq.setVisibility(8);
                     View view2 = this.wU;
-                    view2.setBackgroundColor(ContextCompat.getColor(view2.getContext(), R.color.obfuscated_res_0x7f060774));
+                    view2.setBackgroundColor(ContextCompat.getColor(view2.getContext(), R.color.obfuscated_res_0x7f060777));
                 }
                 jm();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class d extends com.kwad.components.ad.reward.widget.tailframe.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d() {
-            super(R.layout.obfuscated_res_0x7f0d0480);
+            super(R.layout.obfuscated_res_0x7f0d0481);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -210,7 +210,7 @@ public class TailFrameView extends KSFrameLayout {
                 super.a(adTemplate, jSONObject, bVar);
                 if (com.kwad.sdk.core.response.a.d.p(this.mAdTemplate)) {
                     View view2 = this.wU;
-                    view2.setBackgroundColor(ContextCompat.getColor(view2.getContext(), R.color.obfuscated_res_0x7f060774));
+                    view2.setBackgroundColor(ContextCompat.getColor(view2.getContext(), R.color.obfuscated_res_0x7f060777));
                     this.wV.setVisibility(8);
                     this.bq.setVisibility(8);
                 }

@@ -5,6 +5,10 @@ import android.graphics.Canvas;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ni;
+import com.baidu.tieba.oi;
+import com.baidu.tieba.pb;
+import com.baidu.tieba.vg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
-import com.repackage.ni;
-import com.repackage.ob;
-import com.repackage.ug;
 /* loaded from: classes.dex */
-public class NSGif implements ob {
+public class NSGif implements pb {
     public static /* synthetic */ Interceptable $ic;
     public static final String e;
     public static boolean f;
@@ -63,7 +63,7 @@ public class NSGif implements ob {
     }
 
     /* loaded from: classes.dex */
-    public static class b extends ni {
+    public static class b extends oi {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -81,7 +81,7 @@ public class NSGif implements ob {
             }
         }
 
-        @Override // com.repackage.ni
+        @Override // com.baidu.tieba.oi
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -104,7 +104,7 @@ public class NSGif implements ob {
             }
         }
         e = BdBaseApplication.getInst().getCacheDir().getAbsolutePath();
-        f = mi.d().i("nsgif_jni", 2, new b());
+        f = ni.d().i("nsgif_jni", 2, new b());
     }
 
     public NSGif(long j) {
@@ -174,7 +174,7 @@ public class NSGif implements ob {
 
     public static native boolean nativeWriteTo(long j, Bitmap bitmap);
 
-    @Override // com.repackage.ob
+    @Override // com.baidu.tieba.pb
     public boolean a(Bitmap bitmap, Canvas canvas) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -187,7 +187,7 @@ public class NSGif implements ob {
         return invokeLL.booleanValue;
     }
 
-    @Override // com.repackage.ob
+    @Override // com.baidu.tieba.pb
     public int b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -201,14 +201,14 @@ public class NSGif implements ob {
         return invokeI.intValue;
     }
 
-    @Override // com.repackage.ob
+    @Override // com.baidu.tieba.pb
     public boolean c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? nativeDecodeFrame(this.a, i) : invokeI.booleanValue;
     }
 
-    @Override // com.repackage.ob
+    @Override // com.baidu.tieba.pb
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -217,7 +217,7 @@ public class NSGif implements ob {
                 return;
             }
             this.a = 0L;
-            ug.a().c(new a(this, j));
+            vg.a().c(new a(this, j));
         }
     }
 
@@ -232,21 +232,21 @@ public class NSGif implements ob {
         }
     }
 
-    @Override // com.repackage.ob
+    @Override // com.baidu.tieba.pb
     public int getFrameCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : invokeV.intValue;
     }
 
-    @Override // com.repackage.ob
+    @Override // com.baidu.tieba.pb
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : invokeV.intValue;
     }
 
-    @Override // com.repackage.ob
+    @Override // com.baidu.tieba.pb
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class dv implements com.kwad.sdk.core.d<com.kwad.sdk.e.kwai.b> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(com.kwad.sdk.e.kwai.b bVar, JSONObject jSONObject) {

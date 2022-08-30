@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.b.g;
 import java.io.Closeable;
 import java.io.Flushable;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface l extends Closeable, Flushable {
     void a(b bVar, long j) throws IOException;
 

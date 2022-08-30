@@ -6,7 +6,7 @@ import com.kwad.sdk.core.report.m;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.ak;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class e {
     public static boolean JD = false;
     public static AtomicBoolean adS = null;

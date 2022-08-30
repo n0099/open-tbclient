@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.res.Resources;
 import com.kwad.sdk.api.core.ResContext;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class q extends ContextWrapper implements ResContext {
     public Resources.Theme SF;
     public final Context a;

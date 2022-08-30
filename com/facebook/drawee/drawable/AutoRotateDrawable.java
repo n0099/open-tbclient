@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AutoRotateDrawable extends ForwardingDrawable implements Runnable, CloneableDrawable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEGREES_IN_FULL_ROTATION = 360;

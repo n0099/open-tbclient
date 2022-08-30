@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimmable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
     public final ValueDescriptor<V> mValueDescriptor;
 
     @VisibleForTesting
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Entry<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +92,7 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface EntryStateObserver<K> {
         void onExclusivityChanged(K k, boolean z);
     }

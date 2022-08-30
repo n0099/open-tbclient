@@ -8,13 +8,13 @@ import android.graphics.Rect;
 import android.graphics.drawable.NinePatchDrawable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ac9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.Div;
-import com.repackage.rb9;
 import java.io.Externalizable;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,7 +26,7 @@ import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class NinePatchChunk implements Externalizable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_DENSITY = 160;
@@ -301,7 +301,7 @@ public class NinePatchChunk implements Externalizable {
                 }
                 return true;
             } catch (Exception e) {
-                rb9.g(e);
+                ac9.g(e);
                 return true;
             }
         }
@@ -505,7 +505,7 @@ public class NinePatchChunk implements Externalizable {
                 this.padding = parse.padding;
                 this.colors = parse.colors;
             } catch (ChunkNotSerializedException | DivLengthException e) {
-                rb9.g(e);
+                ac9.g(e);
             }
         }
     }

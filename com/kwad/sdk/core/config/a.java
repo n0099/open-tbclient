@@ -2,7 +2,7 @@ package com.kwad.sdk.core.config;
 
 import android.text.TextUtils;
 import java.net.URI;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static final String[] Tn = {"gifshow.com", "kuaishou.com", "static.yximgs.com"};
 

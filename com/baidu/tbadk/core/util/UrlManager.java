@@ -16,6 +16,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
+import com.baidu.tieba.mn4;
+import com.baidu.tieba.ni5;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,10 +28,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gi5;
-import com.repackage.ln4;
-import com.repackage.qi;
-import com.repackage.rg;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -132,7 +132,7 @@ public class UrlManager {
                     group2 = group2 + " ";
                 }
                 int length = group2.length();
-                spannableString.setSpan(new gi5(2, group), matcher.start(), (length + start) - 1, 33);
+                spannableString.setSpan(new ni5(2, group), matcher.start(), (length + start) - 1, 33);
             }
             return spannableString;
         }
@@ -266,10 +266,10 @@ public class UrlManager {
     public void addListener(UrlDealListener urlDealListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlDealListener) == null) {
-            if (qi.C()) {
+            if (ri.C()) {
                 addListenerInner(urlDealListener);
             } else {
-                rg.a().post(new Runnable(this, urlDealListener) { // from class: com.baidu.tbadk.core.util.UrlManager.2
+                sg.a().post(new Runnable(this, urlDealListener) { // from class: com.baidu.tbadk.core.util.UrlManager.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UrlManager this$0;
@@ -475,7 +475,7 @@ public class UrlManager {
                         hashMap.put(str3, parse.getQueryParameter(str3));
                     }
                     FlutterOpenData flutterOpenData = new FlutterOpenData(tbPageContext.getPageActivity(), host, hashMap);
-                    if (ln4.c().contains("-Flutter") && findTask == null) {
+                    if (mn4.c().contains("-Flutter") && findTask == null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, flutterOpenData));
                         return false;
                     }

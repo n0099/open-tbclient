@@ -2,7 +2,7 @@ package com.kwad.sdk.pngencrypt.chunk;
 
 import com.kwad.sdk.pngencrypt.PngjException;
 import java.io.ByteArrayInputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class i extends p {
     public int aku;
     public int akv;

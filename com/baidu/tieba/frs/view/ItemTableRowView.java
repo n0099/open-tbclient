@@ -13,6 +13,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,8 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ItemTableRowView extends View {
     public static /* synthetic */ Interceptable $ic;
     public static final int t;
@@ -65,13 +65,13 @@ public class ItemTableRowView extends View {
                 return;
             }
         }
-        t = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds16);
-        u = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
-        v = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds644);
-        w = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-        x = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
-        y = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X003);
-        z = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds6);
+        t = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds16);
+        u = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
+        v = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds644);
+        w = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        x = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
+        y = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X003);
+        z = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds6);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

@@ -13,12 +13,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -78,11 +78,11 @@ public class MultiLineEllipsizeTextView extends EMTextView {
             super.onMeasure(i, i2);
             CharSequence text = getText();
             Rect rect = new Rect();
-            if (pi.isEmpty(text.toString())) {
+            if (qi.isEmpty(text.toString())) {
                 return;
             }
             TextPaint paint = getPaint();
-            if (!pi.isEmpty(this.b)) {
+            if (!qi.isEmpty(this.b)) {
                 String str = this.b;
                 paint.getTextBounds(str, 0, str.length() - 1, rect);
             }

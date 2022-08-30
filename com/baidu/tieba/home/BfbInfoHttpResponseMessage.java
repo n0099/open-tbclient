@@ -13,7 +13,7 @@ import tbclient.Error;
 import tbclient.GetUserBfbInfo.DataRes;
 import tbclient.GetUserBfbInfo.GetUserBfbInfoResIdl;
 import tbclient.UserBfbInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BfbInfoHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

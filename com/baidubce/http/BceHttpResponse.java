@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import okhttp3.Response;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BceHttpResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

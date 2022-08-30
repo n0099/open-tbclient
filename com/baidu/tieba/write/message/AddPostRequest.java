@@ -6,17 +6,17 @@ import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tieba.af5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
-import com.repackage.te5;
 import java.util.Map;
 import tbclient.AddPost.AddPostReqIdl;
 import tbclient.AddPost.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AddPostRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class AddPostRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            te5.c(builder, true, true, true);
+            af5.c(builder, true, true, true);
             builder.authsid = this.requestData.get("authsid");
             builder.sig = this.requestData.get(FunAdSdk.PLATFORM_SIG);
             builder.tbs = this.requestData.get(HttpRequest.TBS);

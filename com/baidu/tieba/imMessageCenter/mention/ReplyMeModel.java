@@ -9,6 +9,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bb;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.rk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,20 +20,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab;
-import com.repackage.d9;
-import com.repackage.jk8;
-import com.repackage.og;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ReplyMeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
     public b b;
-    public ab c;
+    public bb c;
 
-    /* loaded from: classes3.dex */
-    public class a extends ab {
+    /* loaded from: classes4.dex */
+    public class a extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ReplyMeModel a;
@@ -58,7 +58,7 @@ public class ReplyMeModel extends BdBaseModel {
 
         /* JADX WARN: Removed duplicated region for block: B:37:0x00cf  */
         /* JADX WARN: Removed duplicated region for block: B:40:0x00e1  */
-        @Override // com.repackage.ab
+        @Override // com.baidu.tieba.bb
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -76,12 +76,12 @@ public class ReplyMeModel extends BdBaseModel {
             }
             boolean z = responsedMessage instanceof CheckPostResponseMessage;
             if (!z && !(responsedMessage instanceof CheckPostHttpResponseMessage)) {
-                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
+                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c40);
             } else if (responsedMessage.hasError()) {
                 if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
                     this.a.a.showToast(responsedMessage.getErrorString());
                 } else {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c3d);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c40);
                 }
             } else {
                 if (z) {
@@ -112,10 +112,10 @@ public class ReplyMeModel extends BdBaseModel {
                             }
                             return;
                         } else if (postState == 0) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f13c6);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f13c9);
                             return;
                         } else if (postState == -1) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f13d1);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f13d4);
                             return;
                         } else {
                             return;
@@ -134,7 +134,7 @@ public class ReplyMeModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(long j, long j2, long j3, String str, long j4);
     }
@@ -152,8 +152,8 @@ public class ReplyMeModel extends BdBaseModel {
                 return;
             }
         }
-        jk8.f(303010, CheckPostResponseMessage.class, false);
-        jk8.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
+        rk8.f(303010, CheckPostResponseMessage.class, false);
+        rk8.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -197,7 +197,7 @@ public class ReplyMeModel extends BdBaseModel {
             checkPostRequestMessage.setPid(j);
             checkPostRequestMessage.setPostType(i);
             checkPostRequestMessage.setForumName(str);
-            checkPostRequestMessage.setTid(og.g(str2, 0L));
+            checkPostRequestMessage.setTid(pg.g(str2, 0L));
             checkPostRequestMessage.setTag(this.a.getUniqueId());
             if (baijiahaoData != null) {
                 checkPostRequestMessage.ori_ugc_type = baijiahaoData.oriUgcType;

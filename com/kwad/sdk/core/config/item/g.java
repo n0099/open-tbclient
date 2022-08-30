@@ -5,11 +5,11 @@ import android.text.TextUtils;
 import com.ksad.json.annotation.KsJson;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class g extends b<a> {
 
     @KsJson
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public String VB = "";
         public String VC = "";

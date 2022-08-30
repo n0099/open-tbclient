@@ -5,13 +5,13 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
+import com.baidu.tieba.h55;
+import com.baidu.tieba.i55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b55;
-import com.repackage.c55;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetUserInfo.GetUserInfoResIdl;
@@ -19,7 +19,7 @@ import tbclient.GetUserInfo.GetUserInfoResIdl;
 public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b55 mData;
+    public h55 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetUserInfoSocketResponseMessage() {
@@ -58,18 +58,18 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
             if (getError() != 0) {
                 return getUserInfoResIdl;
             }
-            b55 b55Var = new b55();
-            this.mData = b55Var;
-            b55Var.b(getUserInfoResIdl.data);
+            h55 h55Var = new h55();
+            this.mData = h55Var;
+            h55Var.b(getUserInfoResIdl.data);
             return getUserInfoResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public b55 getData() {
+    public h55 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mData : (b55) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mData : (h55) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -78,9 +78,9 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
-            b55 b55Var = this.mData;
-            if (b55Var != null && b55Var.a() != null) {
-                c55.d().i(this.mData.a());
+            h55 h55Var = this.mData;
+            if (h55Var != null && h55Var.a() != null) {
+                i55.d().i(this.mData.a());
             } else {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247));
             }

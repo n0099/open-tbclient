@@ -21,13 +21,13 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.CommitVoteReqMsg;
 import com.baidu.tieba.R;
+import com.baidu.tieba.jy5;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.by5;
-import com.repackage.og;
-import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -38,7 +38,7 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
     public TextView d;
     public TextView e;
     public int f;
-    public by5 g;
+    public jy5 g;
     public BdUniqueId h;
     public View i;
     public View.OnClickListener j;
@@ -76,7 +76,7 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
             if (view2.getId() != this.a.i.getId() && view2.getId() != this.a.a.getId()) {
                 if (view2.getId() == this.a.e.getId() && (this.a.itemView.getContext() instanceof Activity) && ViewHelper.checkUpIsLogin(this.a.itemView.getContext())) {
                     if (this.a.g.k) {
-                        qi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f082d);
+                        ri.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f082e);
                         return;
                     }
                     CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(this.a.g.b, this.a.g.a, this.a.g.l, 3);
@@ -95,7 +95,7 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
                 }
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.itemView.getContext()).createNormalConfig(this.a.g.b, this.a.g.b == og.g(TbadkCoreApplication.getCurrentAccount(), 0L), false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.itemView.getContext()).createNormalConfig(this.a.g.b, this.a.g.b == pg.g(TbadkCoreApplication.getCurrentAccount(), 0L), false)));
         }
     }
 
@@ -120,12 +120,12 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
         this.f = 3;
         this.h = null;
         this.j = new a(this);
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eca);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ecb);
         this.a = headImageView;
         headImageView.setIsRound(true);
         this.a.setOnClickListener(this.j);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915f5);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916e3);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915f7);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916e5);
         this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09015f);
         this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090453);
         this.itemView.setOnClickListener(this.j);
@@ -135,21 +135,21 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
         findViewById.setOnClickListener(this.j);
     }
 
-    public void g(by5 by5Var) {
+    public void g(jy5 jy5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, by5Var) == null) {
-            this.g = by5Var;
-            if (by5Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, jy5Var) == null) {
+            this.g = jy5Var;
+            if (jy5Var == null) {
                 return;
             }
-            this.a.K(by5Var.c, 12, false);
-            this.b.setText(by5Var.d);
-            String valueOf = String.valueOf(by5Var.e);
+            this.a.K(jy5Var.c, 12, false);
+            this.b.setText(jy5Var.d);
+            String valueOf = String.valueOf(jy5Var.e);
             if (valueOf != null && valueOf.length() < 4) {
-                valueOf = String.format("%04d", Long.valueOf(by5Var.e));
+                valueOf = String.format("%04d", Long.valueOf(jy5Var.e));
             }
-            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0cc6), valueOf, Integer.valueOf(by5Var.f)), by5Var.j);
-            this.d.setText(String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f00e8), StringHelper.numFormatOverWanWithNegative(by5Var.g), StringHelper.numFormatOverWanWithNegative(by5Var.h), StringHelper.numFormatOverWanWithNegative(by5Var.i)));
+            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0cc9), valueOf, Integer.valueOf(jy5Var.f)), jy5Var.j);
+            this.d.setText(String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f00e8), StringHelper.numFormatOverWanWithNegative(jy5Var.g), StringHelper.numFormatOverWanWithNegative(jy5Var.h), StringHelper.numFormatOverWanWithNegative(jy5Var.i)));
             i();
         }
     }

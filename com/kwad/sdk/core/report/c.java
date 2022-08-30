@@ -2,7 +2,7 @@ package com.kwad.sdk.core.report;
 
 import androidx.annotation.Nullable;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class c extends com.kwad.sdk.core.response.kwai.a {
     public String ZR;
     public JSONObject ZS;

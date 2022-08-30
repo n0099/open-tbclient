@@ -17,13 +17,13 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.dy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ux8;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RangeSlider extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,15 +54,15 @@ public class RangeSlider extends ViewGroup {
     public b v;
     public ValueAnimator w;
     public int x;
-    public ux8 y;
+    public dy8 y;
     public Paint z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(RangeSlider rangeSlider, int i, float f, float f2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(float f);
 
@@ -95,20 +95,20 @@ public class RangeSlider extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65539, this, f) == null) {
             if (this.A == 1) {
-                ux8 ux8Var = this.y;
-                if (ux8Var != null) {
-                    ux8Var.setX(f);
+                dy8 dy8Var = this.y;
+                if (dy8Var != null) {
+                    dy8Var.setX(f);
                     return;
                 }
                 return;
             }
-            ux8 ux8Var2 = this.y;
-            if (ux8Var2 == null || (thumbView = this.f) == null) {
+            dy8 dy8Var2 = this.y;
+            if (dy8Var2 == null || (thumbView = this.f) == null) {
                 return;
             }
             float f2 = this.g;
             if (f <= f2) {
-                ux8Var2.setX(f2);
+                dy8Var2.setX(f2);
             } else if (f >= thumbView.getX()) {
                 this.y.setX(this.f.getX() - UtilHelper.getDimenPixelSize(R.dimen.tbds4));
             } else {
@@ -304,7 +304,7 @@ public class RangeSlider extends ViewGroup {
     }
 
     public void n(float f, float f2) {
-        ux8 ux8Var;
+        dy8 dy8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
             ThumbView thumbView = this.e;
@@ -315,8 +315,8 @@ public class RangeSlider extends ViewGroup {
             if (thumbView2 != null) {
                 thumbView2.setX(f2);
             }
-            if (this.A == 1 && (ux8Var = this.y) != null) {
-                ux8Var.setX(f + this.p);
+            if (this.A == 1 && (dy8Var = this.y) != null) {
+                dy8Var.setX(f + this.p);
             }
             invalidate();
         }
@@ -480,8 +480,8 @@ public class RangeSlider extends ViewGroup {
             float f2 = this.n;
             this.j = (int) (f2 + (f * (this.o - f2)));
             invalidate();
-            ux8 ux8Var = this.y;
-            if (ux8Var == null || ux8Var.isPressed()) {
+            dy8 dy8Var = this.y;
+            if (dy8Var == null || dy8Var.isPressed()) {
                 return;
             }
             setVideoPointerViewPosition(this.j);
@@ -623,7 +623,7 @@ public class RangeSlider extends ViewGroup {
         Drawable drawable2 = obtainStyledAttributes.getDrawable(6);
         this.e = new ThumbView(context, this.p, this.q, drawable == null ? new ColorDrawable(-65456) : drawable);
         this.f = new ThumbView(context, this.p, this.q, drawable2 == null ? new ColorDrawable(-65456) : drawable2);
-        this.y = new ux8(context);
+        this.y = new dy8(context);
         this.y.setLayoutParams(new FrameLayout.LayoutParams(200, 200));
         obtainStyledAttributes.recycle();
         this.j = this.g;

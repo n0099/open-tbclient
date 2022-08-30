@@ -10,6 +10,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.widget.BdPlayerProgressView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.x11;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w11;
 /* loaded from: classes2.dex */
 public class BdTextProgressView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -45,9 +45,9 @@ public class BdTextProgressView extends View {
                 return;
             }
         }
-        h = w11.a(120.0f);
-        i = w11.a(15.0f);
-        w11.a(2.0f);
+        h = x11.a(120.0f);
+        i = x11.a(15.0f);
+        x11.a(2.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

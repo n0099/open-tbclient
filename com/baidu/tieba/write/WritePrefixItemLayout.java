@@ -12,13 +12,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ms4;
-import com.repackage.qi;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class WritePrefixItemLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,16 +52,16 @@ public class WritePrefixItemLayout extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0733, this);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0735, this);
             setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             setOrientation(1);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a2b);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091a2a);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a24);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091a28);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a2d);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091a2c);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a26);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091a2a);
             this.b.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-            ms4.d(this.c).v(R.color.CAM_X0109);
-            this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809c4, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+            os4.d(this.c).v(R.color.CAM_X0109);
+            this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809c5, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
             SkinManager.setBackgroundResource(this, R.drawable.addresslist_item_bg);
         }
@@ -90,7 +90,7 @@ public class WritePrefixItemLayout extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || z) {
             return;
         }
-        ((LinearLayout.LayoutParams) this.e.getLayoutParams()).setMargins(qi.f(this.a, R.dimen.obfuscated_res_0x7f070201), 0, qi.f(this.a, R.dimen.obfuscated_res_0x7f070201), 0);
+        ((LinearLayout.LayoutParams) this.e.getLayoutParams()).setMargins(ri.f(this.a, R.dimen.obfuscated_res_0x7f070201), 0, ri.f(this.a, R.dimen.obfuscated_res_0x7f070201), 0);
     }
 
     public void setPrefixText(String str) {

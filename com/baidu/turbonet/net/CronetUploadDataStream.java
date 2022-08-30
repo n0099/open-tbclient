@@ -18,7 +18,7 @@ import java.nio.ByteBuffer;
 import java.util.concurrent.Executor;
 import javax.annotation.concurrent.GuardedBy;
 @JNINamespace
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class CronetUploadDataStream implements UploadDataSink {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
     public Runnable l;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class UserCallback {
         public static final /* synthetic */ UserCallback[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -102,7 +102,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,7 +151,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -195,7 +195,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

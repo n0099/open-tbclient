@@ -1,15 +1,15 @@
 package tv.athena.revenue.payui.model;
 
 import androidx.annotation.Keep;
+import com.baidu.tieba.c2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.t1a;
 @Keep
 /* loaded from: classes9.dex */
-public class PayFinishInfo extends t1a {
+public class PayFinishInfo extends c2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int code;

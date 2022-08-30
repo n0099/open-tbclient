@@ -3,6 +3,8 @@ package com.google.ar.core;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.hp9;
+import com.baidu.tieba.mp9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,20 +33,18 @@ import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
 import com.google.ar.core.exceptions.UnavailableSdkTooOldException;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 import com.google.ar.core.exceptions.UnsupportedConfigurationException;
-import com.repackage.dp9;
-import com.repackage.yo9;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class Session {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public final Object b;
-    public final dp9 c;
+    public final mp9 c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class Feature {
         public static final /* synthetic */ Feature[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -107,7 +107,7 @@ public class Session {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
@@ -162,7 +162,7 @@ public class Session {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final b A;
@@ -305,7 +305,7 @@ public class Session {
             }
         }
         this.b = new Object();
-        this.c = new dp9();
+        this.c = new mp9();
         this.a = 0L;
     }
 
@@ -390,7 +390,7 @@ public class Session {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static abstract class c {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
@@ -417,7 +417,7 @@ public class Session {
                     return;
                 }
             }
-            c = new ad("BASE_TRACKABLE", 0, 1095893248, yo9.class);
+            c = new ad("BASE_TRACKABLE", 0, 1095893248, hp9.class);
             a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
             d = new af("PLANE", 2, 1095893249, Plane.class);
             e = new ag("POINT", 3, 1095893250, Point.class);
@@ -449,7 +449,7 @@ public class Session {
             this.h = cls;
         }
 
-        public static c a(Class<? extends yo9> cls) {
+        public static c a(Class<? extends hp9> cls) {
             InterceptResult invokeL;
             c[] values;
             Interceptable interceptable = $ic;
@@ -471,7 +471,7 @@ public class Session {
             return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (c[]) i.clone() : (c[]) invokeV.objValue;
         }
 
-        public abstract yo9 a(long j, Session session);
+        public abstract hp9 a(long j, Session session);
 
         public /* synthetic */ c(String str, int i2, int i3, Class cls, byte b) {
             this(str, i2, i3, cls);

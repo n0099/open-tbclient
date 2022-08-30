@@ -1,5 +1,5 @@
 package com.kwad.sdk.crash.model;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public String aht;
     public String ahu;

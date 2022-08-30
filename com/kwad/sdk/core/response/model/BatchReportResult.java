@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BatchReportResult extends BaseResultData implements com.kwad.sdk.core.b {
     public long interval;
 

@@ -1,5 +1,5 @@
 package com.kwad.components.ad.reward.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface d {
     void a(b bVar);
 }

@@ -15,7 +15,7 @@ import com.google.android.exoplayer2.source.chunk.MediaChunk;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AdaptiveTrackSelection extends BaseTrackSelection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_BANDWIDTH_FRACTION = 0.75f;
@@ -35,7 +35,7 @@ public class AdaptiveTrackSelection extends BaseTrackSelection {
     public int reason;
     public int selectedIndex;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class Factory implements TrackSelection.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -21,26 +21,26 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.gk5;
+import com.baidu.tieba.ol5;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gl5;
-import com.repackage.qi;
-import com.repackage.yj5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yj5 a;
+    public gk5 a;
     public int b;
     public List<SelectForumData> c;
     public View.OnClickListener d;
     public View.OnClickListener e;
     @Nullable
-    public gl5.e f;
+    public ol5.e f;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -155,12 +155,12 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         }
     }
 
-    public SelectForumItemAdapter(yj5 yj5Var) {
+    public SelectForumItemAdapter(gk5 gk5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yj5Var};
+            Object[] objArr = {gk5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -172,7 +172,7 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         }
         this.d = new a(this);
         this.e = new b(this);
-        this.a = yj5Var;
+        this.a = gk5Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -189,7 +189,7 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         cVar.a.setShowOuterBorder(true);
         cVar.a.setShowInnerBorder(false);
         cVar.a.setStrokeColorResId(R.color.CAM_X0401);
-        cVar.a.setStrokeWith(qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+        cVar.a.setStrokeWith(ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
         cVar.a.K(selectForumData.avatarUrl, 10, false);
         cVar.b.setText(selectForumData.forumName);
         SkinManager.setViewTextColor(cVar.b, (int) R.color.CAM_X0105);
@@ -203,9 +203,9 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
             cVar.d.setVisibility(8);
             cVar.e.setVisibility(0);
             if (selectForumData.isInterestForumSelected) {
-                WebPManager.setPureDrawable(cVar.e, R.drawable.obfuscated_res_0x7f0809da, R.color.CAM_X0302, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(cVar.e, R.drawable.obfuscated_res_0x7f0809db, R.color.CAM_X0302, WebPManager.ResourceStateType.NORMAL);
             } else {
-                WebPManager.setPureDrawable(cVar.e, R.drawable.obfuscated_res_0x7f0809d9, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(cVar.e, R.drawable.obfuscated_res_0x7f0809da, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
             }
         } else {
             cVar.d.setVisibility(selectForumData.isLately ? 0 : 8);
@@ -236,7 +236,7 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
     public c onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new c(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01cb, viewGroup, false)) : (c) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new c(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01cc, viewGroup, false)) : (c) invokeLI.objValue;
     }
 
     public void i(List<SelectForumData> list) {
@@ -246,7 +246,7 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         }
     }
 
-    public void j(gl5.e eVar) {
+    public void j(ol5.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
             this.f = eVar;

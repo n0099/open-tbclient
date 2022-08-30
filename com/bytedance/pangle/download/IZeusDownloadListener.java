@@ -2,7 +2,7 @@ package com.bytedance.pangle.download;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface IZeusDownloadListener {
     void onFailed(Throwable th, int i, String str);
 

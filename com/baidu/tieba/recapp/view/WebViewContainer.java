@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class WebViewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,12 +29,12 @@ public class WebViewContainer extends FrameLayout {
     public int h;
     public int i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface OnScrollChangedCallback {
         void onScroll(int i, int i2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class YScrollDetector extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

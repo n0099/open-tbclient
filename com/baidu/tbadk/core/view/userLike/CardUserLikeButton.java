@@ -7,11 +7,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class CardUserLikeButton extends EntelechyUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +37,7 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.repackage.sw4
+    @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tieba.vw4
     public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -61,7 +61,7 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.f();
-            setTextSize(0, qi.f(getContext(), R.dimen.obfuscated_res_0x7f07032d));
+            setTextSize(0, ri.f(getContext(), R.dimen.obfuscated_res_0x7f07032d));
         }
     }
 

@@ -11,17 +11,17 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.ve;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
-import com.repackage.pi;
-import com.repackage.qi;
-import com.repackage.tr4;
-import com.repackage.ue;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
     public float k;
     public BaseActivity.LoadDataCallBack l;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,8 +68,8 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         this.l = null;
         this.h = null;
         TbadkApplication inst = TbadkApplication.getInst();
-        this.i = qi.k(inst);
-        this.j = qi.i(inst);
+        this.i = ri.k(inst);
+        this.j = ri.i(inst);
         this.k = inst.getResources().getDisplayMetrics().density;
     }
 
@@ -216,7 +216,7 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends BdAsyncTask<Object, String, FacePackageDetailData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -246,8 +246,8 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         public final void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                tr4.f();
-                ue<String> g = tr4.g("tb_face_package");
+                vr4.f();
+                ve<String> g = vr4.g("tb_face_package");
                 if (g != null) {
                     g.e(TbadkCoreApplication.getCurrentAccount() + this.c.d, str, 604800000L);
                 }
@@ -268,11 +268,11 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
                 if (this.c.d == null || this.c.d.length() <= 0 || this.b) {
                     return null;
                 }
-                tr4.f();
-                ue<String> g = tr4.g("tb_face_package");
+                vr4.f();
+                ve<String> g = vr4.g("tb_face_package");
                 if (g != null) {
                     String str = g.get(TbadkCoreApplication.getCurrentAccount() + this.c.d);
-                    if (!pi.isEmpty(str)) {
+                    if (!qi.isEmpty(str)) {
                         publishProgress(str);
                     }
                 }

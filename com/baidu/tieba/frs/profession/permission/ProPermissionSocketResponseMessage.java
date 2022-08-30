@@ -3,17 +3,17 @@ package com.baidu.tieba.frs.profession.permission;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tieba.xo6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.po6;
 import com.squareup.wire.Wire;
 import java.io.IOException;
 import tbclient.ZoneRight.ZoneRightResIdl;
-/* loaded from: classes3.dex */
-public class ProPermissionSocketResponseMessage extends MvcSocketResponsedMessage<po6, ZoneRightResIdl> {
+/* loaded from: classes4.dex */
+public class ProPermissionSocketResponseMessage extends MvcSocketResponsedMessage<xo6, ZoneRightResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,9 +45,9 @@ public class ProPermissionSocketResponseMessage extends MvcSocketResponsedMessag
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             try {
                 ZoneRightResIdl zoneRightResIdl = (ZoneRightResIdl) new Wire(new Class[0]).parseFrom(bArr, ZoneRightResIdl.class);
-                po6 po6Var = new po6();
-                po6Var.initByProtobuf(zoneRightResIdl);
-                setData(po6Var);
+                xo6 xo6Var = new xo6();
+                xo6Var.initByProtobuf(zoneRightResIdl);
+                setData(xo6Var);
                 return zoneRightResIdl;
             } catch (IOException e) {
                 e.printStackTrace();

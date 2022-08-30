@@ -1,13 +1,13 @@
 package com.google.ar.core;
 
+import com.baidu.tieba.hp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.Session;
-import com.repackage.yo9;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public enum af extends Session.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +34,9 @@ public enum af extends Session.c {
     }
 
     @Override // com.google.ar.core.Session.c
-    public final yo9 a(long j, Session session) {
+    public final hp9 a(long j, Session session) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) ? new Plane(j, session) : (yo9) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) ? new Plane(j, session) : (hp9) invokeJL.objValue;
     }
 }

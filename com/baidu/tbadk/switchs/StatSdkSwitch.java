@@ -2,14 +2,14 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bf;
 /* loaded from: classes3.dex */
-public class StatSdkSwitch extends bf {
+public class StatSdkSwitch extends cf {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int OFF_TYPE = 0;
     public static final int ON_TYPE = 1;
@@ -36,14 +36,14 @@ public class StatSdkSwitch extends bf {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? SwitchManager.getInstance().findType(STAT_SDK_KEY) == 1 : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class StatSdkSwitch extends bf {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class StatSdkSwitch extends bf {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -73,14 +73,14 @@ public class StatSdkSwitch extends bf {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? STAT_SDK_KEY : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.bf
+    @Override // com.baidu.tieba.cf
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -11,27 +11,27 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
+import com.baidu.tieba.hr7;
 import com.baidu.tieba.newinterest.model.msg.GetInterestClassListResponseMessage;
+import com.baidu.tieba.qq7;
+import com.baidu.tieba.zq7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.iq7;
-import com.repackage.rq7;
-import com.repackage.zq7;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class InterestSelectionStyleAModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public iq7 a;
-    public List<rq7> b;
-    public zq7 c;
+    public qq7 a;
+    public List<zq7> b;
+    public hr7 c;
     public HttpMessageListener d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
                 if (httpResponsedMessage.getError() == 0) {
                     if (this.a.b == null || this.a.b.size() <= 0) {
                         if (this.a.c != null) {
-                            this.a.c.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c3d));
+                            this.a.c.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c40));
                             return;
                         }
                         return;
@@ -86,12 +86,12 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
         }
     }
 
-    public InterestSelectionStyleAModel(iq7 iq7Var, zq7 zq7Var) {
+    public InterestSelectionStyleAModel(qq7 qq7Var, hr7 hr7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iq7Var, zq7Var};
+            Object[] objArr = {qq7Var, hr7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -103,8 +103,8 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
         }
         this.b = new ArrayList();
         this.d = new a(this, CmdConfigHttp.CMD_INTERESTED_GET_CLASS_LIST, true);
-        this.c = zq7Var;
-        this.a = iq7Var;
+        this.c = hr7Var;
+        this.a = qq7Var;
         D();
         registerListener();
         E();

@@ -5,25 +5,26 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.util.AdExtParam;
+import com.baidu.tieba.af5;
+import com.baidu.tieba.be5;
+import com.baidu.tieba.ee5;
+import com.baidu.tieba.ft6;
+import com.baidu.tieba.pd8;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.sd8;
+import com.baidu.tieba.w85;
+import com.baidu.tieba.z85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hd8;
-import com.repackage.kd8;
-import com.repackage.p85;
-import com.repackage.s85;
-import com.repackage.te5;
-import com.repackage.ud5;
-import com.repackage.xd5;
-import com.repackage.xs6;
 import java.util.HashMap;
 import tbclient.FrsPage.AdParam;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
-/* loaded from: classes4.dex */
-public class FrsRequestData extends OrmObject implements s85, p85 {
+/* loaded from: classes5.dex */
+public class FrsRequestData extends OrmObject implements z85, w85 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CATEGORY_ID_KEY = "categoryid";
     public static final int FRS_SMARTLOAD_TYPE_BY_REFRESH = 1;
@@ -50,6 +51,7 @@ public class FrsRequestData extends OrmObject implements s85, p85 {
     public String I;
     public int J;
     public String K;
+    public long L;
     public int a;
     public boolean b;
     public String c;
@@ -323,7 +325,7 @@ public class FrsRequestData extends OrmObject implements s85, p85 {
         }
     }
 
-    @Override // com.repackage.u85
+    @Override // com.baidu.tieba.b95
     public Object g(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -351,32 +353,33 @@ public class FrsRequestData extends OrmObject implements s85, p85 {
             builder.yuelaou_locate = this.r;
             builder.sort_type = Integer.valueOf(this.x);
             builder.last_click_tid = Long.valueOf(this.w);
-            builder.app_pos = hd8.e().a();
+            builder.app_pos = pd8.e().a();
             builder.load_type = Integer.valueOf(this.y);
             builder.obj_locate = this.B;
             builder.obj_source = this.C;
             builder.is_selection = Integer.valueOf(this.D);
             builder.call_from = Integer.valueOf(this.E);
             builder.hot_thread_id = Long.valueOf(this.G);
-            String d = xs6.e().d("frs_feed");
+            String d = ft6.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = ud5.g(d, ud5.f());
-            builder.ad_bear_sid_price = Double.valueOf(ud5.i());
-            builder.has_ad_bear = Integer.valueOf(ud5.n(builder.ad_bear_sid) ? 1 : 0);
+            builder.ad_bear_context = be5.g(d, be5.f());
+            builder.ad_bear_sid_price = Double.valueOf(be5.i());
+            builder.has_ad_bear = Integer.valueOf(be5.n(builder.ad_bear_sid) ? 1 : 0);
             AdParam.Builder builder2 = new AdParam.Builder();
             builder2.refresh_count = Integer.valueOf(this.A);
             builder2.load_count = Integer.valueOf(this.z);
             builder2.yoga_lib_version = "";
             builder.ad_param = builder2.build(false);
             builder.is_default_navtab = Integer.valueOf(this.H);
-            builder.ad_context_list = this.y != 1 ? kd8.f().d("FRS") : "";
+            builder.ad_context_list = this.y != 1 ? sd8.f().d("FRS") : "";
             builder.up_schema = this.I;
             builder.default_sort_type = Integer.valueOf(this.J);
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.K);
             builder.ad_ext_params = b.a();
-            builder.app_transmit_data = xd5.b();
-            te5.c(builder, true, false, true);
+            builder.app_transmit_data = ee5.b();
+            builder.push_tid = Long.valueOf(this.L);
+            af5.c(builder, true, false, true);
             FrsPageReqIdl.Builder builder3 = new FrsPageReqIdl.Builder();
             builder3.data = builder.build(false);
             return builder3.build(false);
@@ -391,7 +394,7 @@ public class FrsRequestData extends OrmObject implements s85, p85 {
         }
     }
 
-    @Override // com.repackage.o85
+    @Override // com.baidu.tieba.v85
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -419,7 +422,7 @@ public class FrsRequestData extends OrmObject implements s85, p85 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.b : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.p85
+    @Override // com.baidu.tieba.w85
     public boolean isNeedUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -429,7 +432,7 @@ public class FrsRequestData extends OrmObject implements s85, p85 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.p85
+    @Override // com.baidu.tieba.w85
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -460,49 +463,56 @@ public class FrsRequestData extends OrmObject implements s85, p85 {
         }
     }
 
+    public void setPushTid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
+            this.L = pg.g(str, 0L);
+        }
+    }
+
     public void setSortType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
             this.x = i;
         }
     }
 
     public void setStType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
             this.n = str;
         }
     }
 
     public void setUpdateType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
             this.a = i;
         }
     }
 
-    @Override // com.repackage.r85
+    @Override // com.baidu.tieba.y85
     public HashMap<String, Object> v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
             return null;
         }
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.r85
+    @Override // com.baidu.tieba.y85
     public HashMap<String, String> x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.F : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.F : (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.p85
+    @Override // com.baidu.tieba.w85
     public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
             return null;
         }
         return (String) invokeV.objValue;
@@ -510,7 +520,7 @@ public class FrsRequestData extends OrmObject implements s85, p85 {
 
     public void z(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048625, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048626, this, str, str2) == null) {
             if (this.F == null) {
                 this.F = new HashMap<>();
             }

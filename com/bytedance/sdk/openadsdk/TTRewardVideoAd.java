@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface TTRewardVideoAd extends TTClientBidding {
     public static final String REWARD_EXTRA_KEY_ERROR_CODE = "reward_extra_key_error_code";
     public static final String REWARD_EXTRA_KEY_ERROR_MSG = "reward_extra_key_error_msg";
@@ -16,7 +16,7 @@ public interface TTRewardVideoAd extends TTClientBidding {
     public static final int REWARD_TYPE_INTERACT = 1;
     public static final int REWARD_TYPE_VIDEO_COMPLETE = 2;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface RewardAdInteractionListener {
         void onAdClose();
 

@@ -1,7 +1,0 @@
-package com.repackage;
-
-import android.view.View;
-/* loaded from: classes6.dex */
-public interface d65 {
-    void a(View view2, View view3, boolean z);
-}

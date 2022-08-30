@@ -5,13 +5,13 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.appframework.BaseActivity;
+import com.baidu.tieba.k11;
+import com.baidu.tieba.n11;
+import com.baidu.tieba.o11;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j11;
-import com.repackage.m11;
-import com.repackage.n11;
 /* loaded from: classes2.dex */
 public class NadPermissionActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -41,12 +41,12 @@ public class NadPermissionActivity extends BaseActivity {
         }
         boolean z = false;
         for (String str : strArr) {
-            z = z || j11.a(this, str);
+            z = z || k11.a(this, str);
         }
         if (z) {
-            j11.requestPermissions(this, this.v, this.u);
-        } else if (n11.a(this, this.u)) {
-            j11.requestPermissions(this, this.v, this.u);
+            k11.requestPermissions(this, this.v, this.u);
+        } else if (o11.a(this, this.u)) {
+            k11.requestPermissions(this, this.v, this.u);
         } else {
             onRequestPermissionsResult(this.u, this.v, new int[0]);
         }
@@ -74,7 +74,7 @@ public class NadPermissionActivity extends BaseActivity {
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, strArr, iArr) == null) {
-            j11.b c = m11.b().c(this.u);
+            k11.b c = n11.b().c(this.u);
             if (c != null) {
                 c.onRequestPermissionsResult(i, strArr, iArr);
             }

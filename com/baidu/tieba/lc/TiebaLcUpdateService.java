@@ -7,18 +7,18 @@ import com.baidu.adp.base.BdBaseService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
+import com.baidu.tieba.be7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.td7;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TiebaLcUpdateService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public td7 mLcUpdateAsyncTask;
+    public be7 mLcUpdateAsyncTask;
 
     public TiebaLcUpdateService() {
         Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public class TiebaLcUpdateService extends BdBaseService {
         if (!(interceptable == null || interceptable.invokeL(65537, this, clientUpdateInfo) == null) || clientUpdateInfo == null) {
             return;
         }
-        td7 td7Var = this.mLcUpdateAsyncTask;
-        if (td7Var != null) {
-            td7Var.cancel();
+        be7 be7Var = this.mLcUpdateAsyncTask;
+        if (be7Var != null) {
+            be7Var.cancel();
             this.mLcUpdateAsyncTask = null;
         }
-        td7 td7Var2 = new td7(clientUpdateInfo);
-        this.mLcUpdateAsyncTask = td7Var2;
-        td7Var2.execute(new String[0]);
+        be7 be7Var2 = new be7(clientUpdateInfo);
+        this.mLcUpdateAsyncTask = be7Var2;
+        be7Var2.execute(new String[0]);
     }
 
     @Override // android.app.Service
@@ -72,9 +72,9 @@ public class TiebaLcUpdateService extends BdBaseService {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            td7 td7Var = this.mLcUpdateAsyncTask;
-            if (td7Var != null) {
-                td7Var.cancel();
+            be7 be7Var = this.mLcUpdateAsyncTask;
+            if (be7Var != null) {
+                be7Var.cancel();
                 this.mLcUpdateAsyncTask = null;
             }
             super.onDestroy();

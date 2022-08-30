@@ -6,18 +6,18 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tieba.af5;
+import com.baidu.tieba.n28;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.tn4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f28;
-import com.repackage.qi;
-import com.repackage.rn4;
-import com.repackage.te5;
 import tbclient.Profile.DataReq;
 import tbclient.Profile.ProfileReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ProfileRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class ProfileRequestMessage extends NetMessage {
     public boolean isSelf;
     public Integer is_from_usercenter;
     public Integer is_guest;
-    public f28 mPersonCenterData;
+    public n28 mPersonCenterData;
     public Integer need_post_count;
     public Integer page;
     public Integer pn;
@@ -74,15 +74,15 @@ public class ProfileRequestMessage extends NetMessage {
                 builder.has_plist = get_has_plist();
                 builder.is_from_usercenter = is_from_usercenter();
                 builder.page = getPage();
-                int k = qi.k(TbadkCoreApplication.getInst().getApp());
-                int i = qi.i(TbadkCoreApplication.getInst().getApp());
-                int e = rn4.c().e();
+                int k = ri.k(TbadkCoreApplication.getInst().getApp());
+                int i = ri.i(TbadkCoreApplication.getInst().getApp());
+                int e = tn4.c().e();
                 builder.scr_w = Integer.valueOf(k);
                 builder.scr_h = Integer.valueOf(i);
-                builder.scr_dip = Double.valueOf(qi.h(TbadkCoreApplication.getInst().getApp()));
+                builder.scr_dip = Double.valueOf(ri.h(TbadkCoreApplication.getInst().getApp()));
                 builder.q_type = Integer.valueOf(e);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    te5.a(builder, true);
+                    af5.a(builder, true);
                 }
                 ProfileReqIdl.Builder builder2 = new ProfileReqIdl.Builder();
                 builder2.data = builder.build(false);
@@ -100,10 +100,10 @@ public class ProfileRequestMessage extends NetMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.page : (Integer) invokeV.objValue;
     }
 
-    public f28 getPersonCenterData() {
+    public n28 getPersonCenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPersonCenterData : (f28) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPersonCenterData : (n28) invokeV.objValue;
     }
 
     public Long get_friend_uid() {
@@ -198,10 +198,10 @@ public class ProfileRequestMessage extends NetMessage {
         }
     }
 
-    public void setPersonCenterData(f28 f28Var) {
+    public void setPersonCenterData(n28 n28Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, f28Var) == null) {
-            this.mPersonCenterData = f28Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, n28Var) == null) {
+            this.mPersonCenterData = n28Var;
         }
     }
 

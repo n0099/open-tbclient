@@ -22,20 +22,20 @@ import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ob5;
 import com.baidu.tieba.view.BdTopToast;
+import com.baidu.tieba.zz8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hb5;
-import com.repackage.qz8;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AlbumFloatActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qz8 k;
+    public zz8 k;
     public ViewGroup l;
 
     public AlbumFloatActivity() {
@@ -53,18 +53,18 @@ public class AlbumFloatActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public hb5 E0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public ob5 E0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
             if (this.k == null) {
-                qz8 qz8Var = new qz8(this, null, linearLayout.getId(), R.id.obfuscated_res_0x7f091c30);
-                this.k = qz8Var;
-                qz8Var.Q(navigationBar);
+                zz8 zz8Var = new zz8(this, null, linearLayout.getId(), R.id.obfuscated_res_0x7f091c32);
+                this.k = zz8Var;
+                zz8Var.S(navigationBar);
             }
             return this.k;
         }
-        return (hb5) invokeLL.objValue;
+        return (ob5) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -135,19 +135,19 @@ public class AlbumFloatActivity extends SuspendedActivity {
         if (interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i2 == -1) {
-                this.k.K(intent);
+                this.k.M(intent);
             }
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        qz8 qz8Var;
+        zz8 zz8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || (qz8Var = this.k) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || (zz8Var = this.k) == null) {
             return;
         }
-        qz8Var.onClick(view2);
+        zz8Var.onClick(view2);
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -156,7 +156,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             U0();
             super.onCreate(bundle);
-            this.l = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091f64);
+            this.l = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091f66);
         }
     }
 
@@ -165,9 +165,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            qz8 qz8Var = this.k;
-            if (qz8Var != null) {
-                qz8Var.onDestroy();
+            zz8 zz8Var = this.k;
+            if (zz8Var != null) {
+                zz8Var.onDestroy();
             }
         }
     }
@@ -178,7 +178,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, keyEvent)) == null) {
             if (i == 4) {
-                this.k.B();
+                this.k.D();
                 return true;
             }
             return super.onKeyDown(i, keyEvent);
@@ -190,9 +190,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            qz8 qz8Var = this.k;
-            if (qz8Var != null) {
-                qz8Var.C();
+            zz8 zz8Var = this.k;
+            if (zz8Var != null) {
+                zz8Var.E();
             }
             super.onPause();
         }
@@ -203,9 +203,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048586, this, i, strArr, iArr) == null) {
             super.onRequestPermissionsResult(i, strArr, iArr);
-            qz8 qz8Var = this.k;
-            if (qz8Var != null) {
-                qz8Var.D(i, strArr, iArr);
+            zz8 zz8Var = this.k;
+            if (zz8Var != null) {
+                zz8Var.F(i, strArr, iArr);
             }
         }
     }
@@ -215,9 +215,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onResume();
-            qz8 qz8Var = this.k;
-            if (qz8Var != null) {
-                qz8Var.onResume();
+            zz8 zz8Var = this.k;
+            if (zz8Var != null) {
+                zz8Var.onResume();
             }
         }
     }
@@ -227,9 +227,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onStart();
-            qz8 qz8Var = this.k;
-            if (qz8Var != null) {
-                qz8Var.F();
+            zz8 zz8Var = this.k;
+            if (zz8Var != null) {
+                zz8Var.H();
             }
         }
     }
@@ -239,9 +239,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onStop();
-            qz8 qz8Var = this.k;
-            if (qz8Var != null) {
-                qz8Var.G();
+            zz8 zz8Var = this.k;
+            if (zz8Var != null) {
+                zz8Var.K();
             }
         }
     }

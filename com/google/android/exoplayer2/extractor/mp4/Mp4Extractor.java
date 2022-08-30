@@ -31,7 +31,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.Stack;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class Mp4Extractor implements Extractor, SeekMap {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BRAND_QUICKTIME;
@@ -60,11 +60,11 @@ public final class Mp4Extractor implements Extractor, SeekMap {
     public Mp4Track[] tracks;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public @interface Flags {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class Mp4Track {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

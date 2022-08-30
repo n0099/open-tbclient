@@ -12,6 +12,8 @@ import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
 import com.baidu.tbadk.core.util.DeviceInfoUtil;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.df5;
+import com.baidu.tieba.ni5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,8 +22,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import com.repackage.gi5;
-import com.repackage.we5;
 /* loaded from: classes3.dex */
 public abstract class RichTextMaker<T> {
     public static /* synthetic */ Interceptable $ic;
@@ -99,8 +99,8 @@ public abstract class RichTextMaker<T> {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                we5.a(i >= 0);
-                we5.c(this == START_OFFSET);
+                df5.a(i >= 0);
+                df5.c(this == START_OFFSET);
                 this.offset = i;
                 return this;
             }
@@ -109,7 +109,7 @@ public abstract class RichTextMaker<T> {
     }
 
     /* loaded from: classes3.dex */
-    public class a extends gi5 {
+    public class a extends ni5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int h;
@@ -142,12 +142,12 @@ public abstract class RichTextMaker<T> {
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.baidu.tbadk.widget.richText.RichTextMaker */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.repackage.gi5, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.ni5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.j.c(view2, this.h, this.i);
-                view2.setTag(R.id.obfuscated_res_0x7f091ff2, Boolean.TRUE);
+                view2.setTag(R.id.obfuscated_res_0x7f091ff4, Boolean.TRUE);
             }
         }
     }

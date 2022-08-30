@@ -5,17 +5,17 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tieba.af5;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-import com.repackage.te5;
 import java.util.List;
 import tbclient.GetPostList.DataReq;
 import tbclient.GetPostList.GetPostListReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class LookMoreReqMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,8 +53,8 @@ public class LookMoreReqMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
-                int k = qi.k(TbadkCoreApplication.getInst());
-                int i = qi.i(TbadkCoreApplication.getInst());
+                int k = ri.k(TbadkCoreApplication.getInst());
+                int i = ri.i(TbadkCoreApplication.getInst());
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.kz = this.kz;
                 builder.with_floor = Integer.valueOf(this.with_floor);
@@ -64,7 +64,7 @@ public class LookMoreReqMessage extends NetMessage {
                 builder.st_type = Integer.valueOf(this.st_type);
                 builder.is_comm_reverse = Integer.valueOf(this.is_comm_reverse);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    te5.a(builder, true);
+                    af5.a(builder, true);
                 }
                 GetPostListReqIdl.Builder builder2 = new GetPostListReqIdl.Builder();
                 builder2.data = builder.build(false);

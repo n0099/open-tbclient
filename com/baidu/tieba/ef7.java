@@ -1,0 +1,8 @@
+package com.baidu.tieba;
+
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+/* loaded from: classes3.dex */
+public interface ef7<T extends ICardInfo> {
+    void doLoad(T t, TbPageContext tbPageContext);
+}

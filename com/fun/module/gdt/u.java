@@ -17,7 +17,7 @@ import com.qq.e.ads.nativ.NativeUnifiedADData;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class u extends NativeAdContainer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -120,27 +120,27 @@ public abstract class u extends NativeAdContainer {
                 int appStatus = nativeUnifiedADData.getAppStatus();
                 if (appStatus == 0) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f0778;
+                    i = R.string.obfuscated_res_0x7f0f0779;
                 } else if (appStatus == 1) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f077f;
+                    i = R.string.obfuscated_res_0x7f0f0780;
                 } else if (appStatus == 2) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f0783;
+                    i = R.string.obfuscated_res_0x7f0f0784;
                 } else if (appStatus == 4) {
                     this.c.setText(String.format("%s/100", Integer.valueOf(nativeUnifiedADData.getProgress())));
                     return;
                 } else if (appStatus == 8) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f077b;
+                    i = R.string.obfuscated_res_0x7f0f077c;
                 } else if (appStatus == 16) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f077d;
+                    i = R.string.obfuscated_res_0x7f0f077e;
                 }
                 button.setText(i);
             }
             button = this.c;
-            i = R.string.obfuscated_res_0x7f0f0784;
+            i = R.string.obfuscated_res_0x7f0f0785;
             button.setText(i);
         }
     }

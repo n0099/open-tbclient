@@ -3,20 +3,20 @@ package com.baidu.tieba.square.message;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
+import com.baidu.tieba.di8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vh8;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetForumSquare.GetForumSquareResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ForumSquareSocketResponsedMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vh8 mForumSquareRespData;
+    public di8 mForumSquareRespData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumSquareSocketResponsedMessage() {
@@ -54,9 +54,9 @@ public class ForumSquareSocketResponsedMessage extends TbSocketReponsedMessage {
                 setErrorString(getForumSquareResIdl.error.usermsg);
             }
             if (getError() == 0 && getForumSquareResIdl.data != null) {
-                vh8 vh8Var = new vh8();
-                this.mForumSquareRespData = vh8Var;
-                vh8Var.a(getForumSquareResIdl.data);
+                di8 di8Var = new di8();
+                this.mForumSquareRespData = di8Var;
+                di8Var.a(getForumSquareResIdl.data);
                 return getForumSquareResIdl;
             }
             return getForumSquareResIdl;
@@ -64,9 +64,9 @@ public class ForumSquareSocketResponsedMessage extends TbSocketReponsedMessage {
         return invokeIL.objValue;
     }
 
-    public vh8 getData() {
+    public di8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mForumSquareRespData : (vh8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mForumSquareRespData : (di8) invokeV.objValue;
     }
 }

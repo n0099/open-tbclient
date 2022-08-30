@@ -23,13 +23,13 @@ import com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout;
 import com.baidu.tbadk.coreExtra.view.UrlDragImageView;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.t05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n05;
-import com.repackage.qi;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes3.dex */
@@ -57,7 +57,7 @@ public class MultiImageView extends RelativeLayout {
     public Map<String, ImageUrlData> s;
     public boolean t;
     public boolean u;
-    public n05 v;
+    public t05 v;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -368,19 +368,19 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void A(boolean z) {
-        n05 n05Var;
+        t05 t05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (n05Var = this.v) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (t05Var = this.v) == null) {
             return;
         }
-        n05Var.o(z ? 0 : 8);
+        t05Var.o(z ? 0 : 8);
     }
 
     public void B(boolean z, int i) {
-        n05 n05Var;
+        t05 t05Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && this.u && (n05Var = this.v) != null) {
-            n05Var.p(z ? 0 : 8, i);
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && this.u && (t05Var = this.v) != null) {
+            t05Var.p(z ? 0 : 8, i);
         }
     }
 
@@ -394,13 +394,13 @@ public class MultiImageView extends RelativeLayout {
 
     public int getBottomHeight() {
         InterceptResult invokeV;
-        n05 n05Var;
+        t05 t05Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!this.u || (n05Var = this.v) == null) {
+            if (!this.u || (t05Var = this.v) == null) {
                 return 0;
             }
-            return n05Var.c();
+            return t05Var.c();
         }
         return invokeV.intValue;
     }
@@ -676,7 +676,7 @@ public class MultiImageView extends RelativeLayout {
             addView(this.e);
             this.d = new LinearLayout(getContext());
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.bottomMargin = qi.d(getContext(), 10.0f);
+            layoutParams.bottomMargin = ri.d(getContext(), 10.0f);
             layoutParams.addRule(12);
             layoutParams.addRule(14);
             this.d.setOrientation(0);
@@ -685,14 +685,14 @@ public class MultiImageView extends RelativeLayout {
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
             Button button = new Button(getContext());
             this.c = button;
-            SkinManager.setBackgroundResource(button, R.drawable.obfuscated_res_0x7f080bbe, 0);
+            SkinManager.setBackgroundResource(button, R.drawable.obfuscated_res_0x7f080bbf, 0);
             this.c.setLayoutParams(layoutParams2);
             this.c.setOnClickListener(this.g);
             this.c.setEnabled(false);
             this.d.addView(this.c);
             Button button2 = new Button(getContext());
             this.b = button2;
-            SkinManager.setBackgroundResource(button2, R.drawable.obfuscated_res_0x7f080bba, 0);
+            SkinManager.setBackgroundResource(button2, R.drawable.obfuscated_res_0x7f080bbb, 0);
             this.b.setLayoutParams(layoutParams2);
             this.b.setOnClickListener(this.g);
             this.b.setEnabled(false);
@@ -704,7 +704,7 @@ public class MultiImageView extends RelativeLayout {
             this.f = imagePagerAdapter;
             imagePagerAdapter.u(this.l);
             setAdapter(this.f);
-            this.v = new n05(getContext(), this);
+            this.v = new t05(getContext(), this);
         }
     }
 
@@ -858,12 +858,12 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setOnDownloadImageListener(ImageViewerBottomLayout.b bVar) {
-        n05 n05Var;
+        t05 t05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048616, this, bVar) == null) || (n05Var = this.v) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048616, this, bVar) == null) || (t05Var = this.v) == null) {
             return;
         }
-        n05Var.k(bVar);
+        t05Var.k(bVar);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
@@ -874,12 +874,12 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setOnReplyClickListener(View.OnClickListener onClickListener) {
-        n05 n05Var;
+        t05 t05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048618, this, onClickListener) == null) || (n05Var = this.v) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048618, this, onClickListener) == null) || (t05Var = this.v) == null) {
             return;
         }
-        n05Var.l(onClickListener);
+        t05Var.l(onClickListener);
     }
 
     public void setOnScrollOutListener(BaseViewPager.a aVar) {
@@ -892,12 +892,12 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setOnShareImageListener(ImageViewerBottomLayout.c cVar) {
-        n05 n05Var;
+        t05 t05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048620, this, cVar) == null) || (n05Var = this.v) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048620, this, cVar) == null) || (t05Var = this.v) == null) {
             return;
         }
-        n05Var.m(cVar);
+        t05Var.m(cVar);
     }
 
     public void setOriImgSelectedCallback(UrlDragImageView.p pVar) {
@@ -968,9 +968,9 @@ public class MultiImageView extends RelativeLayout {
                 ((UrlDragImageView) childAt).setUserId(str);
             }
         }
-        n05 n05Var = this.v;
-        if (n05Var != null) {
-            n05Var.n(str);
+        t05 t05Var = this.v;
+        if (t05Var != null) {
+            t05Var.n(str);
         }
     }
 
@@ -984,12 +984,12 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setYoungterCoverSomeView(boolean z) {
-        n05 n05Var;
+        t05 t05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048629, this, z) == null) || (n05Var = this.v) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048629, this, z) == null) || (t05Var = this.v) == null) {
             return;
         }
-        n05Var.q(z);
+        t05Var.q(z);
     }
 
     public void setZoomButton(DragImageView dragImageView) {
@@ -1113,12 +1113,12 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void z(ImageUrlData imageUrlData) {
-        n05 n05Var;
+        t05 t05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048637, this, imageUrlData) == null) || (n05Var = this.v) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048637, this, imageUrlData) == null) || (t05Var = this.v) == null) {
             return;
         }
-        n05Var.j(imageUrlData);
+        t05Var.j(imageUrlData);
         if (!this.t && imageUrlData != null) {
             if (!this.v.g()) {
                 this.v.r(false);

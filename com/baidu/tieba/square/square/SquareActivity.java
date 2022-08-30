@@ -16,6 +16,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.dv4;
+import com.baidu.tieba.oi8;
+import com.baidu.tieba.ou4;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.qi8;
 import com.baidu.tieba.square.square.SquareModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,17 +29,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.av4;
-import com.repackage.gi8;
-import com.repackage.ii8;
-import com.repackage.mu4;
-import com.repackage.oi;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SquareActivity extends BaseActivity<Object> implements SwipeBackLayout.c {
     public static /* synthetic */ Interceptable $ic;
     public static boolean m;
     public transient /* synthetic */ FieldHolder $fh;
-    public ii8 a;
+    public qi8 a;
     public SquareModel b;
     public boolean c;
     public boolean d;
@@ -45,9 +45,9 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
     public final SquareModel.a i;
     public final NoNetworkView.b j;
     public final View.OnKeyListener k;
-    public final av4.g l;
+    public final dv4.g l;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements SquareModel.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,13 +105,13 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         }
 
         @Override // com.baidu.tieba.square.square.SquareModel.a
-        public void a(boolean z, String str, gi8 gi8Var) {
+        public void a(boolean z, String str, oi8 oi8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, gi8Var}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, oi8Var}) == null) {
                 this.a.a.m(true, "");
                 SquareActivity squareActivity = this.a;
                 squareActivity.hideLoadingView(squareActivity.a.n());
-                if (z && gi8Var != null && !gi8Var.g()) {
+                if (z && oi8Var != null && !oi8Var.g()) {
                     this.a.a.q(this.a.b.I());
                     this.a.c = true;
                     this.a.a.o();
@@ -132,14 +132,14 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
                         this.a.e = -1L;
                     }
                     if (!this.a.c) {
-                        if (oi.z()) {
-                            this.a.a.t(R.string.obfuscated_res_0x7f0f0c57);
+                        if (pi.z()) {
+                            this.a.a.t(R.string.obfuscated_res_0x7f0f0c5a);
                         } else {
-                            this.a.a.t(R.string.obfuscated_res_0x7f0f079d);
+                            this.a.a.t(R.string.obfuscated_res_0x7f0f079e);
                         }
                     }
                 }
-                if (!oi.z()) {
+                if (!pi.z()) {
                     this.a.a.l();
                     if (this.a.c) {
                         return;
@@ -153,7 +153,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements NoNetworkView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -186,7 +186,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements View.OnKeyListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -236,8 +236,8 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class e implements av4.g {
+    /* loaded from: classes5.dex */
+    public class e implements dv4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SquareActivity a;
@@ -260,7 +260,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
             this.a = squareActivity;
         }
 
-        @Override // com.repackage.av4.g
+        @Override // com.baidu.tieba.dv4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -335,13 +335,13 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
     public final void N1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ii8 ii8Var = new ii8(getPageContext(), this.h, this.k);
-            this.a = ii8Var;
-            ii8Var.s(this.l);
-            NavigationBar navigationBar = (NavigationBar) this.g.getPageActivity().findViewById(R.id.obfuscated_res_0x7f09255c);
+            qi8 qi8Var = new qi8(getPageContext(), this.h, this.k);
+            this.a = qi8Var;
+            qi8Var.s(this.l);
+            NavigationBar navigationBar = (NavigationBar) this.g.getPageActivity().findViewById(R.id.obfuscated_res_0x7f092566);
             this.f = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.f.setTitleText(this.g.getString(R.string.obfuscated_res_0x7f0f02c8));
+            this.f.setTitleText(this.g.getString(R.string.obfuscated_res_0x7f0f02c9));
         }
     }
 
@@ -361,7 +361,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         boolean z2 = false;
         boolean z3 = squareModel.I() == null || this.b.I().g();
         boolean z4 = z;
-        if (!oi.z()) {
+        if (!pi.z()) {
             this.d = false;
             z4 = false;
             z3 = true;
@@ -399,9 +399,9 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount != null && currentAccount.length() > 0) {
-                mu4.e(getActivity(), 1);
+                ou4.e(getActivity(), 1);
             } else {
-                mu4.e(getActivity(), 2);
+                ou4.e(getActivity(), 2);
             }
         }
     }
@@ -422,9 +422,9 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             super.onChangeSkinType(i);
-            ii8 ii8Var = this.a;
-            if (ii8Var != null) {
-                ii8Var.onChangeSkinType(i);
+            qi8 qi8Var = this.a;
+            if (qi8Var != null) {
+                qi8Var.onChangeSkinType(i);
                 this.f.onChangeSkinType(getPageContext(), i);
             }
         }
@@ -437,7 +437,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
             super.onCreate(bundle);
             this.g = getPageContext();
             this.e = System.currentTimeMillis();
-            this.h = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07e3, (ViewGroup) null);
+            this.h = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07e5, (ViewGroup) null);
             getPageContext().getPageActivity().setContentView(this.h);
             N1();
             initData();

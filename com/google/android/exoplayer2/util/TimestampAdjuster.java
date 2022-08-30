@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.C;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class TimestampAdjuster {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DO_NOT_OFFSET = Long.MAX_VALUE;

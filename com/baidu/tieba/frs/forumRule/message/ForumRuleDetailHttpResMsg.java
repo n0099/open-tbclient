@@ -3,20 +3,20 @@ package com.baidu.tieba.frs.forumRule.message;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.vk6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nk6;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ForumRuleDetail.ForumRuleDetailResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ForumRuleDetailHttpResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nk6 mForumRuleDetailData;
+    public vk6 mForumRuleDetailData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumRuleDetailHttpResMsg() {
@@ -36,10 +36,10 @@ public class ForumRuleDetailHttpResMsg extends HttpResponsedMessage {
         }
     }
 
-    public nk6 getmForumRuleDetailData() {
+    public vk6 getmForumRuleDetailData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mForumRuleDetailData : (nk6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mForumRuleDetailData : (vk6) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,9 +56,9 @@ public class ForumRuleDetailHttpResMsg extends HttpResponsedMessage {
             setErrorString(forumRuleDetailResIdl.error.usermsg);
         }
         if (forumRuleDetailResIdl.data != null) {
-            nk6 nk6Var = new nk6();
-            this.mForumRuleDetailData = nk6Var;
-            nk6Var.q(forumRuleDetailResIdl.data);
+            vk6 vk6Var = new vk6();
+            this.mForumRuleDetailData = vk6Var;
+            vk6Var.q(forumRuleDetailResIdl.data);
         }
     }
 }

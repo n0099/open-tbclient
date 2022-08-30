@@ -13,7 +13,7 @@ import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.AdReporter;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class ReporterPidLoader<A> extends BasePidLoader<A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -15,13 +15,13 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.AlaLiveTabMyConcernResponse;
 import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.cs5;
+import com.baidu.tieba.pn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.on;
-import com.repackage.ur5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class MyConcernTabModel extends BdBaseModel {
@@ -30,7 +30,7 @@ public class MyConcernTabModel extends BdBaseModel {
     public int a;
     public TbPageContext b;
     public b c;
-    public ur5 d;
+    public cs5 d;
     public HttpMessageListener e;
 
     /* loaded from: classes3.dex */
@@ -85,7 +85,7 @@ public class MyConcernTabModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(List<on> list, boolean z, boolean z2);
+        void a(List<pn> list, boolean z, boolean z2);
 
         void b(boolean z);
     }
@@ -108,7 +108,7 @@ public class MyConcernTabModel extends BdBaseModel {
         this.a = 1;
         this.e = new a(this, AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
         this.b = tbPageContext;
-        this.d = new ur5(this.b);
+        this.d = new cs5(this.b);
         G();
         MessageManager.getInstance().registerListener(this.e);
     }

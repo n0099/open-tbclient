@@ -1,6 +1,8 @@
 package com.baidu.perf.signal.register;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.d81;
+import com.baidu.tieba.e81;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,16 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c81;
-import com.repackage.d81;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class NativeSignalCapture {
     public static /* synthetic */ Interceptable $ic;
-    public static final LinkedList<c81> sANRListeners;
+    public static final LinkedList<d81> sANRListeners;
     public static final Object sANRMutex;
-    public static final LinkedList<d81> sExceptionListeners;
+    public static final LinkedList<e81> sExceptionListeners;
     public static final Object sExceptionMutex;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,23 +54,23 @@ public class NativeSignalCapture {
         }
     }
 
-    public static void addANRListener(c81 c81Var) {
+    public static void addANRListener(d81 d81Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, c81Var) == null) || c81Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, d81Var) == null) || d81Var == null) {
             return;
         }
         synchronized (sANRMutex) {
-            sANRListeners.add(c81Var);
+            sANRListeners.add(d81Var);
         }
     }
 
-    public static void addExceptionListener(d81 d81Var) {
+    public static void addExceptionListener(e81 e81Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, d81Var) == null) || d81Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, e81Var) == null) || e81Var == null) {
             return;
         }
         synchronized (sExceptionMutex) {
-            sExceptionListeners.add(d81Var);
+            sExceptionListeners.add(e81Var);
         }
     }
 
@@ -100,7 +100,7 @@ public class NativeSignalCapture {
             return;
         }
         synchronized (sANRMutex) {
-            Iterator<c81> it = sANRListeners.iterator();
+            Iterator<d81> it = sANRListeners.iterator();
             while (it.hasNext()) {
                 it.next().onNativeANR(i);
             }
@@ -113,7 +113,7 @@ public class NativeSignalCapture {
             return;
         }
         synchronized (sExceptionMutex) {
-            Iterator<d81> it = sExceptionListeners.iterator();
+            Iterator<e81> it = sExceptionListeners.iterator();
             while (it.hasNext()) {
                 it.next().a(i, i2, i3);
             }
@@ -124,23 +124,23 @@ public class NativeSignalCapture {
 
     public static native int registerException(int i);
 
-    public static void removeANRListener(c81 c81Var) {
+    public static void removeANRListener(d81 d81Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, c81Var) == null) || c81Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65547, null, d81Var) == null) || d81Var == null) {
             return;
         }
         synchronized (sANRMutex) {
-            sANRListeners.remove(c81Var);
+            sANRListeners.remove(d81Var);
         }
     }
 
-    public static void removeExceptionListener(d81 d81Var) {
+    public static void removeExceptionListener(e81 e81Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65548, null, d81Var) == null) || d81Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65548, null, e81Var) == null) || e81Var == null) {
             return;
         }
         synchronized (sExceptionMutex) {
-            sExceptionListeners.remove(d81Var);
+            sExceptionListeners.remove(e81Var);
         }
     }
 

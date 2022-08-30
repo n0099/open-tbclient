@@ -33,12 +33,12 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import java.util.ArrayList;
 @RequiresApi(21)
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class AlwaysStatefulMaterialShapeDrawable extends MaterialShapeDrawable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +115,7 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, colorStateList)) == null) {
             Context context = this.f1073view.getContext();
             BorderDrawable borderDrawable = new BorderDrawable((ShapeAppearanceModel) Preconditions.checkNotNull(this.shapeAppearance));
-            borderDrawable.setGradientColors(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060710), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f06070f), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f06070d), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f06070e));
+            borderDrawable.setGradientColors(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060713), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060712), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060710), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060711));
             borderDrawable.setBorderWidth(i);
             borderDrawable.setBorderTint(colorStateList);
             return borderDrawable;

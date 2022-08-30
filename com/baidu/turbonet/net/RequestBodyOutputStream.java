@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RequestBodyOutputStream extends OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -28,10 +28,20 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.eh6;
 import com.baidu.tieba.frs.accelerator.AcceleratorData;
 import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
 import com.baidu.tieba.frs.accelerator.ui.AcceleratorFragment;
 import com.baidu.tieba.frs.accelerator.view.ProgressCircle;
+import com.baidu.tieba.hs4;
+import com.baidu.tieba.km4;
+import com.baidu.tieba.mn4;
+import com.baidu.tieba.nh6;
+import com.baidu.tieba.oh6;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.ph6;
+import com.baidu.tieba.rr6;
+import com.baidu.tieba.sg;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -46,17 +56,7 @@ import com.baidu.yunjiasu.tornadosdk.TornadoENV;
 import com.baidu.yunjiasu.tornadosdk.TornadoEvent;
 import com.baidu.yunjiasu.tornadosdk.TornadoRuntime;
 import com.baidu.yunjiasu.tornadosdk.TornadoTokenCallback;
-import com.repackage.fh6;
-import com.repackage.fs4;
-import com.repackage.gh6;
-import com.repackage.hh6;
-import com.repackage.jm4;
-import com.repackage.jr6;
-import com.repackage.ln4;
-import com.repackage.ms4;
-import com.repackage.rg;
-import com.repackage.wg6;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AcceleratorFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] G;
@@ -91,10 +91,10 @@ public class AcceleratorFragment extends BaseFragment {
     public ImageView v;
     public ImageView w;
     public View x;
-    public rg y;
+    public sg y;
     public long z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements TornadoTokenCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +131,7 @@ public class AcceleratorFragment extends BaseFragment {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements TornadoCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -173,7 +173,7 @@ public class AcceleratorFragment extends BaseFragment {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -232,7 +232,7 @@ public class AcceleratorFragment extends BaseFragment {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -277,7 +277,7 @@ public class AcceleratorFragment extends BaseFragment {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -320,7 +320,7 @@ public class AcceleratorFragment extends BaseFragment {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -354,13 +354,13 @@ public class AcceleratorFragment extends BaseFragment {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class g implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AcceleratorFragment a;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -389,14 +389,14 @@ public class AcceleratorFragment extends BaseFragment {
                 this.a.a.Z1();
             }
 
-            public /* synthetic */ void b(wg6 wg6Var, fs4 fs4Var, int i, View view2) {
-                PkgNameAndNodeInfoData pkgNameAndNodeInfoData = gh6.a(this.a.a.c.getAvailableTornadoNodeInfoList()).get(Integer.valueOf(i));
+            public /* synthetic */ void b(eh6 eh6Var, hs4 hs4Var, int i, View view2) {
+                PkgNameAndNodeInfoData pkgNameAndNodeInfoData = oh6.a(this.a.a.c.getAvailableTornadoNodeInfoList()).get(Integer.valueOf(i));
                 this.a.a.d = pkgNameAndNodeInfoData;
                 this.a.a.a.d = pkgNameAndNodeInfoData.getNodeInfo().getNodeTag();
                 this.a.a.a.e = pkgNameAndNodeInfoData.getNodeInfo().getNodeName();
-                wg6Var.b();
+                eh6Var.b();
                 this.a.a.e2();
-                this.a.a.y.postDelayed(new Runnable() { // from class: com.repackage.zg6
+                this.a.a.y.postDelayed(new Runnable() { // from class: com.baidu.tieba.hh6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -414,21 +414,21 @@ public class AcceleratorFragment extends BaseFragment {
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-                    final wg6 c = wg6.c(this.a.a.getPageContext());
-                    c.e(new fs4.e() { // from class: com.repackage.yg6
+                    final eh6 c = eh6.c(this.a.a.getPageContext());
+                    c.e(new hs4.e() { // from class: com.baidu.tieba.gh6
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
-                        @Override // com.repackage.fs4.e
-                        public final void i0(fs4 fs4Var, int i, View view3) {
+                        @Override // com.baidu.tieba.hs4.e
+                        public final void i0(hs4 hs4Var, int i, View view3) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, fs4Var, i, view3) == null) {
-                                AcceleratorFragment.g.a.this.b(c, fs4Var, i, view3);
+                            if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, hs4Var, i, view3) == null) {
+                                AcceleratorFragment.g.a.this.b(c, hs4Var, i, view3);
                             }
                         }
                     });
                     c.d(this.a.a.a.e);
-                    c.f(gh6.b(this.a.a.c.getAvailableTornadoNodeInfoList(), this.a.a.c.getAvailableNodesNum()));
+                    c.f(oh6.b(this.a.a.c.getAvailableTornadoNodeInfoList(), this.a.a.c.getAvailableNodesNum()));
                     c.g(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0062));
                     c.h();
                 }
@@ -457,12 +457,12 @@ public class AcceleratorFragment extends BaseFragment {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && Tornado.INSTANCE.isRunning()) {
-                jr6.f(this.a.getActivity(), new a(this));
+                rr6.f(this.a.getActivity(), new a(this));
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class h implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -495,7 +495,7 @@ public class AcceleratorFragment extends BaseFragment {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class i implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -523,12 +523,12 @@ public class AcceleratorFragment extends BaseFragment {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                jm4.o(this.a.getContext(), "https://tieba.baidu.com/tb/wise/speedup-SDK.html");
+                km4.o(this.a.getContext(), "https://tieba.baidu.com/tb/wise/speedup-SDK.html");
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class j implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -562,7 +562,7 @@ public class AcceleratorFragment extends BaseFragment {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -605,7 +605,7 @@ public class AcceleratorFragment extends BaseFragment {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -663,7 +663,7 @@ public class AcceleratorFragment extends BaseFragment {
         }
         this.a = new k(this);
         this.b = new l(this);
-        this.y = rg.a();
+        this.y = sg.a();
         this.z = 0L;
         this.D = new c(this);
         this.E = new d(this);
@@ -694,8 +694,8 @@ public class AcceleratorFragment extends BaseFragment {
             this.j.K(this.a.i, 10, false);
             TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0607).into(this.k);
             this.t.setText(R.string.obfuscated_res_0x7f0f0064);
-            hh6.d(this.z);
-            this.t.setOnClickListener(new View.OnClickListener() { // from class: com.repackage.ch6
+            ph6.d(this.z);
+            this.t.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.kh6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -746,10 +746,10 @@ public class AcceleratorFragment extends BaseFragment {
             this.j.K(this.a.i, 10, false);
             TBSelector.makeDrawableSelector().setShape(1).gradientLinear(DrawableSelector.TOP_BOTTOM, R.color.CAM_X0503, R.color.CAM_X0609).into(this.k);
             this.t.setText(R.string.obfuscated_res_0x7f0f005e);
-            hh6.b(this.z);
+            ph6.b(this.z);
             this.u.setText(R.string.obfuscated_res_0x7f0f0067);
-            hh6.g(this.z);
-            this.t.setOnClickListener(new View.OnClickListener() { // from class: com.repackage.bh6
+            ph6.g(this.z);
+            this.t.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.jh6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -761,7 +761,7 @@ public class AcceleratorFragment extends BaseFragment {
                     }
                 }
             });
-            this.u.setOnClickListener(new View.OnClickListener() { // from class: com.repackage.ah6
+            this.u.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ih6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -776,7 +776,7 @@ public class AcceleratorFragment extends BaseFragment {
             a2();
             O1();
             if (z) {
-                jr6.g(getActivity(), new i(this));
+                rr6.g(getActivity(), new i(this));
             }
             if (this.z > 0) {
                 TbSingleton.getInstance().acceleratorItemId = this.z;
@@ -845,16 +845,16 @@ public class AcceleratorFragment extends BaseFragment {
             this.v = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903bc);
             this.w = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903bd);
             this.x = view2.findViewById(R.id.obfuscated_res_0x7f0903b2);
-            WebPManager.setPureDrawable(this.v, R.drawable.obfuscated_res_0x7f080953, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
-            WebPManager.setPureDrawable(this.w, R.drawable.obfuscated_res_0x7f080a10, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
-            ms4 d2 = ms4.d(this.t);
+            WebPManager.setPureDrawable(this.v, R.drawable.obfuscated_res_0x7f080954, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.w, R.drawable.obfuscated_res_0x7f080a11, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+            os4 d2 = os4.d(this.t);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0302);
-            ms4 d3 = ms4.d(this.u);
+            os4 d3 = os4.d(this.u);
             d3.e(R.string.A_X11);
             d3.n(R.string.J_X01);
             d3.f(R.color.CAM_X0101);
-            ms4 d4 = ms4.d(this.p);
+            os4 d4 = os4.d(this.p);
             d4.n(R.string.J_X01);
             d4.f(R.color.CAM_X0613);
             TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0607).into(this.k);
@@ -888,17 +888,17 @@ public class AcceleratorFragment extends BaseFragment {
     public /* synthetic */ void V1(View view2) {
         S1();
         Z1();
-        hh6.c(this.z);
+        ph6.c(this.z);
     }
 
     public /* synthetic */ void W1(View view2) {
         b2(this.a.c);
-        hh6.a(this.z);
+        ph6.a(this.z);
     }
 
     public /* synthetic */ void X1(View view2) {
-        hh6.f(this.z);
-        jr6.i(getActivity(), new fh6(this));
+        ph6.f(this.z);
+        rr6.i(getActivity(), new nh6(this));
     }
 
     public final void a2() {
@@ -982,7 +982,7 @@ public class AcceleratorFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048596, this, layoutInflater, viewGroup, bundle)) == null) ? layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02cd, viewGroup, false) : (View) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048596, this, layoutInflater, viewGroup, bundle)) == null) ? layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02ce, viewGroup, false) : (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -1025,7 +1025,7 @@ public class AcceleratorFragment extends BaseFragment {
             if (getActivity() != null && getActivity().getWindow() != null) {
                 getActivity().getWindow().addFlags(512);
             }
-            hh6.e(this.A, this.z, this.B);
+            ph6.e(this.A, this.z, this.B);
         }
     }
 
@@ -1045,13 +1045,13 @@ public class AcceleratorFragment extends BaseFragment {
             Tornado tornado = Tornado.INSTANCE;
             Context applicationContext = requireContext().getApplicationContext();
             k kVar = this.a;
-            tornado.init(applicationContext, kVar.a, kVar.g, "tieba", ln4.d());
+            tornado.init(applicationContext, kVar.a, kVar.g, "tieba", mn4.d());
             Tornado.INSTANCE.setEnv(TornadoENV.PRINT_LOG, "true");
             Tornado.INSTANCE.setEnv(TornadoENV.ENABLE_DEBUG, "false");
             Tornado.INSTANCE.setCallback(new b(this));
             if (this.C) {
                 Tornado.INSTANCE.stop();
-                this.y.postDelayed(new Runnable() { // from class: com.repackage.eh6
+                this.y.postDelayed(new Runnable() { // from class: com.baidu.tieba.mh6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -1069,7 +1069,7 @@ public class AcceleratorFragment extends BaseFragment {
                         Q1(false);
                     } else {
                         Tornado.INSTANCE.stop();
-                        this.y.postDelayed(new Runnable() { // from class: com.repackage.dh6
+                        this.y.postDelayed(new Runnable() { // from class: com.baidu.tieba.lh6
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 

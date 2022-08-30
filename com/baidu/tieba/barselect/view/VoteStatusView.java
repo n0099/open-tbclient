@@ -11,11 +11,11 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.xy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.py5;
 /* loaded from: classes3.dex */
 public class VoteStatusView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -119,19 +119,19 @@ public class VoteStatusView extends View {
                 this.d = new LinearGradient(f, 0.0f, f4, 0.0f, this.e, this.f, Shader.TileMode.CLAMP);
                 this.b = false;
             }
-            if (this.a == py5.c) {
+            if (this.a == xy5.c) {
                 this.c.setShader(this.d);
             }
             canvas.drawPath(this.n, this.c);
             canvas.drawPath(this.k, this.c);
-            if (this.a == py5.b) {
+            if (this.a == xy5.b) {
                 this.c.setShader(this.d);
             }
             canvas.drawPath(this.m, this.c);
             canvas.drawPath(this.j, this.c);
             canvas.drawPath(this.l, this.c);
             canvas.drawPath(this.i, this.c);
-            if (this.a == py5.a) {
+            if (this.a == xy5.a) {
                 this.c.setShader(this.d);
             }
             canvas.drawPath(this.h, this.c);

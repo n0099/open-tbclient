@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class KSLifecycleObserve {
     public static final String TAG = "KSLifecycleObserve";
     public static KSLifecycleObserve sKSLifecycleObserve;

@@ -27,7 +27,7 @@ import java.net.HttpURLConnection;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class WebViewFactoryProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "WebViewFactoryProvider";
@@ -70,7 +70,7 @@ public abstract class WebViewFactoryProvider {
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, Object> mStaticWebSettings;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface SettingsStatics {
         void addPreConnectPrefixes(String str);
 
@@ -415,7 +415,7 @@ public abstract class WebViewFactoryProvider {
         boolean useCronet();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface Statics {
         int AdBlockInit(String str, boolean z);
 

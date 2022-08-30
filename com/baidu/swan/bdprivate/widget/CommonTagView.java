@@ -10,11 +10,11 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.re3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qe3;
 /* loaded from: classes3.dex */
 public class CommonTagView extends TextView {
     public static /* synthetic */ Interceptable $ic;
@@ -57,7 +57,7 @@ public class CommonTagView extends TextView {
             this.c = obtainStyledAttributes.getColor(0, -16777216);
             this.d = obtainStyledAttributes.getDimensionPixelOffset(2, 3);
             obtainStyledAttributes.recycle();
-            setPadding(getPaddingLeft() == 0 ? qe3.f(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? qe3.f(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? qe3.f(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? qe3.f(context, 1.0f) : getPaddingBottom());
+            setPadding(getPaddingLeft() == 0 ? re3.f(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? re3.f(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? re3.f(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? re3.f(context, 1.0f) : getPaddingBottom());
             b(context);
         }
     }

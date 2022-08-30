@@ -7,6 +7,7 @@ import android.opengl.GLES20;
 import android.opengl.Matrix;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ne0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,8 +17,7 @@ import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
 import com.faceunity.gles.GeneratedTexture;
-import com.repackage.me0;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -210,7 +210,7 @@ public class a {
             PointF pointF = this.x;
             Matrix.multiplyMM(fArr, 0, fArr2, 0, a(f, pointF.x, pointF.y, -this.C, this.D), 0);
             fullFrameRect.setVertexPoint(fArr);
-            fullFrameRect.drawFrame(this.u.textureId, me0.b);
+            fullFrameRect.drawFrame(this.u.textureId, ne0.b);
             Matrix.setIdentityM(fArr, 0);
             fullFrameRect.setVertexPoint(fArr);
         }
@@ -228,14 +228,14 @@ public class a {
         int i2 = gLViewPortLocation.height;
         Matrix.multiplyMM(fArr, 0, fArr2, 0, a(0.0f, i / 2.0f, i2 / 2.0f, Math.min(i, i2), 5.0f), 0);
         fullFrameRect.setVertexPoint(fArr);
-        fullFrameRect.drawFrame(multiMediaData.textureId, me0.b);
+        fullFrameRect.drawFrame(multiMediaData.textureId, ne0.b);
         float[] fArr3 = this.f;
         GLViewPortLocation gLViewPortLocation2 = this.i;
         int i3 = gLViewPortLocation2.width;
         int i4 = gLViewPortLocation2.height;
         Matrix.multiplyMM(fArr, 0, fArr3, 0, a(90.0f, i3 / 2.0f, i4 / 2.0f, Math.min(i3, i4), 5.0f), 0);
         fullFrameRect.setVertexPoint(fArr);
-        fullFrameRect.drawFrame(multiMediaData.textureId, me0.b);
+        fullFrameRect.drawFrame(multiMediaData.textureId, ne0.b);
         Matrix.setIdentityM(fArr, 0);
         fullFrameRect.setVertexPoint(fArr);
     }
@@ -397,13 +397,13 @@ public class a {
             PointF pointF = this.v;
             Matrix.multiplyMM(fArr, 0, fArr2, 0, a(f, pointF.x, pointF.y, -this.C, this.D), 0);
             fullFrameRect.setVertexPoint(fArr);
-            fullFrameRect.drawFrame(this.s.textureId, me0.b);
+            fullFrameRect.drawFrame(this.s.textureId, ne0.b);
             float[] fArr3 = this.f;
             float f2 = this.j;
             PointF pointF2 = this.w;
             Matrix.multiplyMM(fArr, 0, fArr3, 0, a(f2, pointF2.x, pointF2.y, -this.C, this.D), 0);
             fullFrameRect.setVertexPoint(fArr);
-            fullFrameRect.drawFrame(this.t.textureId, me0.b);
+            fullFrameRect.drawFrame(this.t.textureId, ne0.b);
             Matrix.setIdentityM(fArr, 0);
             fullFrameRect.setVertexPoint(fArr);
         }

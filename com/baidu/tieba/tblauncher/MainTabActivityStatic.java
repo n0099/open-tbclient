@@ -32,6 +32,10 @@ import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ForumWriteData;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.ou4;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.sz8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,20 +43,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g75;
-import com.repackage.jz8;
-import com.repackage.mu4;
-import com.repackage.og;
 import java.net.URLDecoder;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MainTabActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
     public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class MainTabActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (!StringUtils.isNull(str) && str.startsWith("tiebavr:") && !TbadkCoreApplication.getInst().appResponseToIntentClass(VrPlayerActivityConfig.class)) {
-                        tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f158f);
+                        tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f1592);
                         return 1;
                     }
                 }
@@ -89,7 +89,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,13 +121,13 @@ public class MainTabActivityStatic {
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Activity) {
-                    mu4.d((Activity) data);
+                    ou4.d((Activity) data);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,10 +160,10 @@ public class MainTabActivityStatic {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
                         if (str.contains(UrlSchemaHelper.GOTO_ENTERFORUM_TAB)) {
-                            mu4.f(tbPageContext.getPageActivity(), 1, true);
+                            ou4.f(tbPageContext.getPageActivity(), 1, true);
                             return 1;
                         } else if (str.contains(UrlSchemaHelper.GOTO_RECOMMNEDS_FRS_TAB)) {
-                            mu4.f(tbPageContext.getPageActivity(), 2, true);
+                            ou4.f(tbPageContext.getPageActivity(), 2, true);
                             return 1;
                         }
                     }
@@ -173,7 +173,7 @@ public class MainTabActivityStatic {
                             if (parse == null || StringUtils.isNull(parse.getQueryParameter("subTabIndex"))) {
                                 i = -1;
                             } else {
-                                int e = og.e(parse.getQueryParameter("subTabIndex"), 0);
+                                int e = pg.e(parse.getQueryParameter("subTabIndex"), 0);
                                 i = e == 1 ? 18 : 17;
                                 try {
                                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921446, Integer.valueOf(e)));
@@ -190,7 +190,7 @@ public class MainTabActivityStatic {
                             i = -1;
                         }
                         if (i != -1) {
-                            mu4.f(tbPageContext.getPageActivity(), i, true);
+                            ou4.f(tbPageContext.getPageActivity(), i, true);
                             return 1;
                         }
                     }
@@ -201,7 +201,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -236,7 +236,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -268,17 +268,17 @@ public class MainTabActivityStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof KeyBoardSwitchMessage) && (data = ((KeyBoardSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (!data.booleanValue()) {
-                    g75.b().m(g75.b().j());
-                    g75.b().c();
-                } else if (g75.b().i() || !g75.b().k()) {
+                    m75.b().m(m75.b().j());
+                    m75.b().c();
+                } else if (m75.b().i() || !m75.b().k()) {
                 } else {
-                    g75.b().o();
+                    m75.b().o();
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -310,17 +310,17 @@ public class MainTabActivityStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof WindowSwitchMessage) && (data = ((WindowSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (data.booleanValue()) {
-                    g75.b().m(g75.b().j());
-                    g75.b().c();
-                } else if (g75.b().i() || !g75.b().k()) {
+                    m75.b().m(m75.b().j());
+                    m75.b().c();
+                } else if (m75.b().i() || !m75.b().k()) {
                 } else {
-                    g75.b().o();
+                    m75.b().o();
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class g implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -371,11 +371,11 @@ public class MainTabActivityStatic {
                             if (!StringUtils.isNull(str) && !StringUtils.isNull(str3)) {
                                 ForumWriteData forumWriteData = new ForumWriteData(str3, str, null, null);
                                 forumWriteData.writeCallFrom = "0";
-                                jz8.j(tbPageContext, "", forumWriteData);
+                                sz8.j(tbPageContext, "", forumWriteData);
                             } else {
                                 ForumWriteData forumWriteData2 = new ForumWriteData("", "", null, null);
                                 forumWriteData2.writeCallFrom = "0";
-                                jz8.j(tbPageContext, str2, forumWriteData2);
+                                sz8.j(tbPageContext, str2, forumWriteData2);
                             }
                             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", 4).param("obj_type", 2));
                             TiebaStatic.log(new StatisticItem("c12292").param("obj_locate", "3"));
@@ -389,7 +389,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class h implements CustomMessageTask.CustomRunnable<MainTabActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -422,7 +422,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class i implements CustomMessageTask.CustomRunnable<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -456,7 +456,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class j implements CustomMessageTask.CustomRunnable<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

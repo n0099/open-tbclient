@@ -2,12 +2,12 @@ package com.baidu.tbadk.core.util;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.httpNet.HttpNetContext;
+import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
 /* loaded from: classes3.dex */
 public class NetWorkCoreFacotry {
     public static /* synthetic */ Interceptable $ic = null;
@@ -54,11 +54,11 @@ public class NetWorkCoreFacotry {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             try {
-                if (oi.z()) {
-                    if (oi.H()) {
+                if (pi.z()) {
+                    if (pi.H()) {
                         return "wifi";
                     }
-                    String c = oi.c();
+                    String c = pi.c();
                     if (c != null) {
                         if (c.length() > 0) {
                             return "wap";

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.module.csj.g0;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class CSJNativeAdVerticalVideoView extends g0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

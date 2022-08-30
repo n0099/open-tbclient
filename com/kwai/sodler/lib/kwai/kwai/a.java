@@ -16,7 +16,7 @@ import java.net.URL;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a extends PathClassLoader {
     public static /* synthetic */ Interceptable $ic;
     public static a axB;

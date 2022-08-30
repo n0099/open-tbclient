@@ -6,6 +6,11 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.a13;
+import com.baidu.tieba.bv2;
+import com.baidu.tieba.em2;
+import com.baidu.tieba.hk2;
+import com.baidu.tieba.ud3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,16 +21,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
-import com.repackage.av2;
-import com.repackage.dm2;
-import com.repackage.gk2;
-import com.repackage.td3;
-import com.repackage.z03;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class SwanPrefetchImageRes implements dm2 {
+public class SwanPrefetchImageRes implements em2 {
     public static /* synthetic */ Interceptable $ic;
     public static final HashMap<String, List<String>> c;
     public static final List<String> d;
@@ -67,7 +67,7 @@ public class SwanPrefetchImageRes implements dm2 {
                 for (String str : this.a) {
                     this.c.f(str);
                 }
-                if (dm2.a) {
+                if (em2.a) {
                     Log.d("SwanPerformance", "start prefetch image appKey = " + this.b + " ; cost = " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
                 }
             }
@@ -414,7 +414,7 @@ public class SwanPrefetchImageRes implements dm2 {
                     add("http://b.hiphotos.baidu.com/baike/whfpf%3D640%2C360%2C0/sign=f5fefd63a8cc7cd9fa7867995f3c170b/3c6d55fbb2fb431634739cf42ba4462308f7d3d4.jpg");
                 }
             });
-            if (dm2.a) {
+            if (em2.a) {
                 Log.d("SwanPerformance", "prefetch image init cost = " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
             }
         }
@@ -422,9 +422,9 @@ public class SwanPrefetchImageRes implements dm2 {
 
     public void d(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str) && av2.m()) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str) && bv2.m()) {
             if (d.contains(str)) {
-                if (dm2.a) {
+                if (em2.a) {
                     Log.d("SwanPerformance", "has prefetch this appKey = " + str);
                     return;
                 }
@@ -432,14 +432,14 @@ public class SwanPrefetchImageRes implements dm2 {
             }
             List<String> list = c.get(str);
             if (list != null && !list.isEmpty()) {
-                z03 b0 = z03.b0();
+                a13 b0 = a13.b0();
                 if (b0 != null && !b0.I()) {
                     d.add(str);
-                    td3.k(new a(this, list, str), "PrefetchImageRes");
-                } else if (dm2.a) {
+                    ud3.k(new a(this, list, str), "PrefetchImageRes");
+                } else if (em2.a) {
                     Log.d("SwanPerformance", "app is occupied");
                 }
-            } else if (dm2.a) {
+            } else if (em2.a) {
                 Log.d("SwanPerformance", "can't find res, appKey = " + str);
             }
         }
@@ -455,7 +455,7 @@ public class SwanPrefetchImageRes implements dm2 {
     public final void f(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            BdNet bdNet = new BdNet(gk2.c());
+            BdNet bdNet = new BdNet(hk2.c());
             bdNet.setEventListener(new INetListener(this) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.12
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -520,7 +520,7 @@ public class SwanPrefetchImageRes implements dm2 {
                 @Override // com.baidu.webkit.net.INetListener
                 public void onNetResponseCode(BdNet bdNet2, BdNetTask bdNetTask, int i) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLLI(1048581, this, bdNet2, bdNetTask, i) == null) && dm2.a) {
+                    if ((interceptable2 == null || interceptable2.invokeLLI(1048581, this, bdNet2, bdNetTask, i) == null) && em2.a) {
                         Log.d("SwanPerformance", "response code = " + i);
                     }
                 }
@@ -542,7 +542,7 @@ public class SwanPrefetchImageRes implements dm2 {
                 @Override // com.baidu.webkit.net.INetListener
                 public void onNetTaskStart(BdNet bdNet2, BdNetTask bdNetTask) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdNet2, bdNetTask) == null) && dm2.a) {
+                    if ((interceptable2 == null || interceptable2.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdNet2, bdNetTask) == null) && em2.a) {
                         Log.d("SwanPerformance", "start prefetch image = " + bdNetTask.getUrl());
                     }
                 }

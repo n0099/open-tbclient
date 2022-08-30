@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class HkWebView extends HkMWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HkWebView d;
     public Context e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a extends HkMWebView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

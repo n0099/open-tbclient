@@ -3,6 +3,7 @@ package com.baidu.adp.base;
 import android.app.Service;
 import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.pa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,11 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oa;
 /* loaded from: classes.dex */
 public abstract class BdBaseService extends Service {
     public static /* synthetic */ Interceptable $ic = null;
-    public static oa sCallBack = null;
+    public static pa sCallBack = null;
     public static int serviceStartFlag = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -47,10 +47,10 @@ public abstract class BdBaseService extends Service {
         }
     }
 
-    public static void setServiceOnCreateCallBack(oa oaVar) {
+    public static void setServiceOnCreateCallBack(pa paVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, oaVar) == null) {
-            sCallBack = oaVar;
+        if (interceptable == null || interceptable.invokeL(65538, null, paVar) == null) {
+            sCallBack = paVar;
         }
     }
 
@@ -59,9 +59,9 @@ public abstract class BdBaseService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onCreate();
-            oa oaVar = sCallBack;
-            if (oaVar != null) {
-                oaVar.onServiceCreate();
+            pa paVar = sCallBack;
+            if (paVar != null) {
+                paVar.onServiceCreate();
             }
         }
     }

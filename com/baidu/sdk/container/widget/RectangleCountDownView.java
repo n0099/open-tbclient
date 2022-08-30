@@ -9,11 +9,11 @@ import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sdk.container.widget.AbsCountDownView;
+import com.baidu.tieba.q01;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p01;
 @SuppressLint({"AppCompatCustomView", "DefaultLocale", "NewApi"})
 /* loaded from: classes2.dex */
 public class RectangleCountDownView extends AbsCountDownView {
@@ -85,11 +85,11 @@ public class RectangleCountDownView extends AbsCountDownView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
             setTextColor(Color.parseColor("#ffffff"));
-            setWidth(p01.c.a(context, 72.0f));
-            setHeight(p01.c.a(context, 30.0f));
+            setWidth(q01.c.a(context, 72.0f));
+            setHeight(q01.c.a(context, 30.0f));
             setGravity(17);
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setCornerRadius(p01.c.a(context, 15.0f));
+            gradientDrawable.setCornerRadius(q01.c.a(context, 15.0f));
             gradientDrawable.setColor(Color.parseColor("#33000000"));
             setBackground(gradientDrawable);
             setText(String.format("跳过 %02d", Long.valueOf(this.e / 1000)));

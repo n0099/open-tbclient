@@ -6,29 +6,29 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.jd6;
+import com.baidu.tieba.pc6;
+import com.baidu.tieba.qc6;
+import com.baidu.tieba.rc6;
+import com.baidu.tieba.rk8;
+import com.baidu.tieba.tc6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bd6;
-import com.repackage.hc6;
-import com.repackage.ic6;
-import com.repackage.jc6;
-import com.repackage.jk8;
-import com.repackage.lc6;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jc6 a;
-    public hc6 b;
+    public rc6 a;
+    public pc6 b;
     public long c;
-    public hc6.c d;
+    public pc6.c d;
     public NoNetworkView.b e;
 
-    /* loaded from: classes3.dex */
-    public class a implements hc6.c {
+    /* loaded from: classes4.dex */
+    public class a implements pc6.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BawuTeamInfoActivity a;
@@ -51,15 +51,15 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
             this.a = bawuTeamInfoActivity;
         }
 
-        @Override // com.repackage.hc6.c
-        public void a(ArrayList<lc6> arrayList, bd6 bd6Var, boolean z, int i, String str) {
+        @Override // com.baidu.tieba.pc6.c
+        public void a(ArrayList<tc6> arrayList, jd6 jd6Var, boolean z, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, bd6Var, Boolean.valueOf(z), Integer.valueOf(i), str}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, jd6Var, Boolean.valueOf(z), Integer.valueOf(i), str}) == null) {
                 if (!z) {
                     if (arrayList != null && arrayList.size() > 0) {
                         BawuTeamInfoActivity bawuTeamInfoActivity = this.a;
                         bawuTeamInfoActivity.hideLoadingView(bawuTeamInfoActivity.a.d());
-                        this.a.a.k(arrayList, bd6Var, false);
+                        this.a.a.k(arrayList, jd6Var, false);
                     }
                     this.a.b.l(this.a.c);
                     return;
@@ -67,7 +67,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
                 BawuTeamInfoActivity bawuTeamInfoActivity2 = this.a;
                 bawuTeamInfoActivity2.hideLoadingView(bawuTeamInfoActivity2.a.d());
                 if (i == 0) {
-                    this.a.a.k(arrayList, bd6Var, true);
+                    this.a.a.k(arrayList, jd6Var, true);
                     return;
                 }
                 this.a.showToast(str);
@@ -78,7 +78,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements NoNetworkView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,9 +130,9 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     public void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            jc6 jc6Var = new jc6(this, this.c);
-            this.a = jc6Var;
-            jc6Var.h(this.e);
+            rc6 rc6Var = new rc6(this, this.c);
+            this.a = rc6Var;
+            rc6Var.h(this.e);
         }
     }
 
@@ -147,16 +147,16 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     public void F1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            jk8.h(301007, BawuTeamSocketResponseMessage.class, false, false);
-            jk8.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, false, false);
-            jk8.b(2003005, ic6.class);
+            rk8.h(301007, BawuTeamSocketResponseMessage.class, false, false);
+            rk8.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, false, false);
+            rk8.b(2003005, qc6.class);
         }
     }
 
     public void initData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = new hc6();
+            this.b = new pc6();
             a aVar = new a(this);
             this.d = aVar;
             this.b.n(aVar);
@@ -193,13 +193,13 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            hc6 hc6Var = this.b;
-            if (hc6Var != null) {
-                hc6Var.h();
+            pc6 pc6Var = this.b;
+            if (pc6Var != null) {
+                pc6Var.h();
             }
-            jc6 jc6Var = this.a;
-            if (jc6Var != null) {
-                jc6Var.g();
+            rc6 rc6Var = this.a;
+            if (rc6Var != null) {
+                rc6Var.g();
             }
         }
     }

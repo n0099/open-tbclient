@@ -3,10 +3,10 @@ package com.bytedance.sdk.openadsdk;
 import android.app.Activity;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface TTFullScreenVideoAd extends TTClientBidding {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface FullScreenVideoAdInteractionListener {
         void onAdClose();
 

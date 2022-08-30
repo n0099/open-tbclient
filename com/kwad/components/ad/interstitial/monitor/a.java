@@ -13,7 +13,7 @@ import com.kwad.sdk.core.videocache.b.a;
 import com.kwad.sdk.core.videocache.f;
 import com.kwad.sdk.utils.o;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,10 +51,10 @@ public final class a {
                 }
                 return r5;
             } else {
-                a.C0396a c0396a = new a.C0396a();
+                a.C0611a c0611a = new a.C0611a();
                 f bC = com.kwad.sdk.core.videocache.b.a.bC(KsAdSDKImpl.get().getContext());
-                r5 = bC.cC(A) ? true : bC.a(A, sc * 1024, c0396a);
-                str = c0396a.Qd;
+                r5 = bC.cC(A) ? true : bC.a(A, sc * 1024, c0611a);
+                str = c0611a.Qd;
                 adTemplate.mDownloadSize = sc * 1024;
                 i = 3;
             }

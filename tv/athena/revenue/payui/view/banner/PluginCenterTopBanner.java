@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.n3a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e3a;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
 import java.util.ArrayList;
 import java.util.List;
@@ -110,7 +110,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
         @Override // android.widget.AdapterView.OnItemSelectedListener
         public void onItemSelected(AdapterView<?> adapterView, View view2, int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || i >= e3a.a.a(PluginCenterTopBanner.c(this.a).getData())) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || i >= n3a.a.a(PluginCenterTopBanner.c(this.a).getData())) {
                 return;
             }
             RadioGroup radioGroup = this.a.b;
@@ -201,7 +201,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
                 radioButton.setId(i + 4660);
                 Context context = getContext();
                 Intrinsics.checkExpressionValueIsNotNull(context, "context");
-                radioButton.setButtonDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e8d));
+                radioButton.setButtonDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e8e));
                 RadioGroup radioGroup2 = this.b;
                 if (radioGroup2 == null) {
                     Intrinsics.throwNpe();
@@ -232,11 +232,11 @@ public final class PluginCenterTopBanner extends RelativeLayout {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040558}, i, 0);
             this.e = obtainStyledAttributes.getFloat(0, 0.0f);
             obtainStyledAttributes.recycle();
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d069a, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091293);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d069c, (ViewGroup) this, true);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091295);
             if (findViewById != null) {
                 this.a = (PluginCenterBannerGallery) findViewById;
-                View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091292);
+                View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091294);
                 if (findViewById2 != null) {
                     this.b = (RadioGroup) findViewById2;
                     this.d = findViewById(R.id.obfuscated_res_0x7f09031e);

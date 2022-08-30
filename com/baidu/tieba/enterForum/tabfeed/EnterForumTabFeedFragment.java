@@ -11,27 +11,27 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a96;
+import com.baidu.tieba.c06;
+import com.baidu.tieba.ea5;
 import com.baidu.tieba.enterForum.tabfeed.model.EnterForumTabFeedNetModel;
+import com.baidu.tieba.j86;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.y86;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b86;
-import com.repackage.oi;
-import com.repackage.q86;
-import com.repackage.qi;
-import com.repackage.s86;
-import com.repackage.uz5;
-import com.repackage.x95;
 /* loaded from: classes3.dex */
-public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
+public class EnterForumTabFeedFragment extends BaseFragment implements j86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
     public EnterForumTabFeedNetModel c;
-    public s86 d;
+    public a96 d;
     public ViewGroup e;
     public int f;
 
@@ -49,7 +49,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
         }
     }
 
-    @Override // com.repackage.av4.g
+    @Override // com.baidu.tieba.dv4.g
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -57,7 +57,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
         }
     }
 
-    @Override // com.repackage.b86
+    @Override // com.baidu.tieba.j86
     public void f(ErrorData errorData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorData) == null) {
@@ -66,20 +66,20 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
                 if (!StringUtils.isNull(errorData.error_msg)) {
                     showToast(errorData.error_msg);
                 } else {
-                    showToast(R.string.obfuscated_res_0x7f0f08ba);
+                    showToast(R.string.obfuscated_res_0x7f0f08bd);
                 }
             }
             if (!this.c.a()) {
-                showNetRefreshView(this.e, errorData != null ? getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c3c, errorData.error_msg, Integer.valueOf(errorData.error_code)) : null, true);
+                showNetRefreshView(this.e, errorData != null ? getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c3f, errorData.error_msg, Integer.valueOf(errorData.error_code)) : null, true);
             }
-            s86 s86Var = this.d;
-            if (s86Var != null) {
-                s86Var.q(false);
+            a96 a96Var = this.d;
+            if (a96Var != null) {
+                a96Var.q(false);
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.u95
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ba5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,17 +87,17 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public x95 getPageStayDurationItem() {
+    public ea5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            x95 pageStayDurationItem = super.getPageStayDurationItem();
+            ea5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.s = this.a;
             }
             return pageStayDurationItem;
         }
-        return (x95) invokeV.objValue;
+        return (ea5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -105,9 +105,9 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             super.hideLoadingView(view2);
-            s86 s86Var = this.d;
-            if (s86Var != null) {
-                s86Var.r(true);
+            a96 a96Var = this.d;
+            if (a96Var != null) {
+                a96Var.r(true);
             }
         }
     }
@@ -117,14 +117,14 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
             super.hideNetRefreshView(view2);
-            s86 s86Var = this.d;
-            if (s86Var != null) {
-                s86Var.r(true);
+            a96 a96Var = this.d;
+            if (a96Var != null) {
+                a96Var.r(true);
             }
         }
     }
 
-    @Override // com.repackage.b86
+    @Override // com.baidu.tieba.j86
     public void i() {
         EnterForumTabFeedNetModel enterForumTabFeedNetModel;
         Interceptable interceptable = $ic;
@@ -134,18 +134,18 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
         enterForumTabFeedNetModel.b();
     }
 
-    @Override // com.repackage.b86
-    public void n1(q86 q86Var) {
+    @Override // com.baidu.tieba.j86
+    public void n1(y86 y86Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, q86Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, y86Var) == null) {
             hideLoadingView(this.e);
             if (!this.c.a()) {
                 showNoDataRefreshView(this.e, false);
                 return;
             }
-            s86 s86Var = this.d;
-            if (s86Var != null) {
-                s86Var.m(q86Var);
+            a96 a96Var = this.d;
+            if (a96Var != null) {
+                a96Var.m(y86Var);
             }
         }
     }
@@ -169,9 +169,9 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             super.onChangeSkinType(i);
-            s86 s86Var = this.d;
-            if (s86Var != null) {
-                s86Var.l(i);
+            a96 a96Var = this.d;
+            if (a96Var != null) {
+                a96Var.l(i);
             }
         }
     }
@@ -198,8 +198,8 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, layoutInflater, viewGroup, bundle)) == null) {
             ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(s1(), (ViewGroup) null);
             this.e = viewGroup2;
-            this.d = new s86(this, this, viewGroup2, this.a);
-            this.f = (qi.i(getContext()) - qi.f(getContext(), R.dimen.tbds304)) / 2;
+            this.d = new a96(this, this, viewGroup2, this.a);
+            this.f = (ri.i(getContext()) - ri.f(getContext(), R.dimen.tbds304)) / 2;
             return this.e;
         }
         return (View) invokeLLL.objValue;
@@ -210,7 +210,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDestroy();
-            uz5.b().e(false);
+            c06.b().e(false);
             EnterForumTabFeedNetModel enterForumTabFeedNetModel = this.c;
             if (enterForumTabFeedNetModel != null) {
                 enterForumTabFeedNetModel.destory();
@@ -223,7 +223,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onLazyLoad();
-            if (oi.z()) {
+            if (pi.z()) {
                 showLoadingView(this.e);
                 EnterForumTabFeedNetModel enterForumTabFeedNetModel = this.c;
                 if (enterForumTabFeedNetModel != null) {
@@ -239,7 +239,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && oi.z()) {
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && pi.z()) {
             hideNetRefreshView(this.e);
             showLoadingView(this.e);
             r1(false);
@@ -251,7 +251,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onPause();
-            uz5.b().e(false);
+            c06.b().e(false);
         }
     }
 
@@ -261,16 +261,16 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onPrimary();
             if (isAdded() && isPrimary()) {
-                s86 s86Var = this.d;
-                if (s86Var != null) {
-                    s86Var.p();
+                a96 a96Var = this.d;
+                if (a96Var != null) {
+                    a96Var.p();
                     return;
                 }
                 return;
             }
-            s86 s86Var2 = this.d;
-            if (s86Var2 != null) {
-                s86Var2.n();
+            a96 a96Var2 = this.d;
+            if (a96Var2 != null) {
+                a96Var2.n();
             }
         }
     }
@@ -296,16 +296,16 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
     public int s1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? R.layout.obfuscated_res_0x7f0d0270 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? R.layout.obfuscated_res_0x7f0d0271 : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showLoadingView(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, view2) == null) {
-            s86 s86Var = this.d;
-            if (s86Var != null) {
-                s86Var.r(false);
+            a96 a96Var = this.d;
+            if (a96Var != null) {
+                a96Var.r(false);
             }
             super.showLoadingView(view2, false, this.f);
         }
@@ -315,12 +315,12 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
     public void showNetRefreshView(View view2, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048596, this, view2, str, z) == null) {
-            s86 s86Var = this.d;
-            if (s86Var != null) {
-                s86Var.r(false);
+            a96 a96Var = this.d;
+            if (a96Var != null) {
+                a96Var.r(false);
             }
-            super.showNetRefreshView(view2, getString(R.string.obfuscated_res_0x7f0f0fba), str, null, z, getNetRefreshListener());
-            setNetRefreshViewTopMargin(qi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ab));
+            super.showNetRefreshView(view2, getString(R.string.obfuscated_res_0x7f0f0fbd), str, null, z, getNetRefreshListener());
+            setNetRefreshViewTopMargin(ri.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ab));
         }
     }
 
@@ -328,12 +328,12 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
     public void showNoDataRefreshView(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048597, this, view2, z) == null) {
-            s86 s86Var = this.d;
-            if (s86Var != null) {
-                s86Var.r(false);
+            a96 a96Var = this.d;
+            if (a96Var != null) {
+                a96Var.r(false);
             }
             super.showNoDataRefreshView(view2, z);
-            setNetRefreshViewTopMargin(qi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ab));
+            setNetRefreshViewTopMargin(ri.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ab));
         }
     }
 
@@ -347,16 +347,16 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            s86 s86Var = this.d;
-            if (s86Var != null) {
-                return s86Var.k();
+            a96 a96Var = this.d;
+            if (a96Var != null) {
+                return a96Var.k();
             }
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.b86
+    @Override // com.baidu.tieba.j86
     public void x0(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048600, this, i, i2) == null) {
@@ -364,9 +364,9 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b86 {
                 showNoDataRefreshView(this.e, false);
                 return;
             }
-            s86 s86Var = this.d;
-            if (s86Var != null) {
-                s86Var.o(i, i2);
+            a96 a96Var = this.d;
+            if (a96Var != null) {
+                a96Var.o(i, i2);
             }
         }
     }

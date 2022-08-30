@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.LPBigImgCard;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
     public int q;
     public final int r;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,13 +117,13 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
                 return;
             }
         }
-        this.r = qi.k(getContext());
+        this.r = ri.k(getContext());
     }
 
     public final int C(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? qi.d(this.i.getPageActivity(), (int) (i / 2.0d)) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? ri.d(this.i.getPageActivity(), (int) (i / 2.0d)) : invokeI.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -222,11 +222,11 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0176, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0177, (ViewGroup) null);
             this.m = relativeLayout;
-            this.n = (TbImageView) l(relativeLayout, R.id.obfuscated_res_0x7f092084);
-            this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f092085);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092313);
+            this.n = (TbImageView) l(relativeLayout, R.id.obfuscated_res_0x7f092087);
+            this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f092088);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f09231c);
             return this.m;
         }
         return (View) invokeV.objValue;

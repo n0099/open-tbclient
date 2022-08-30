@@ -19,6 +19,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.NoNetworkMoreActivity;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,8 +28,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
-import com.repackage.oi;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
@@ -138,7 +138,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            if (oi.z()) {
+            if (pi.z()) {
                 setIsHasNetwork(true);
             } else {
                 setIsHasNetwork(false);
@@ -184,7 +184,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
             this.b = context;
             LayoutInflater.from(context).inflate(getLayout(), this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09169f);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0916a1);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905fc);
             setOnClickListener(this);
             if (attributeSet != null) {
@@ -193,7 +193,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                 obtainStyledAttributes.recycle();
             }
             try {
-                if (oi.z()) {
+                if (pi.z()) {
                     update(false);
                     setIsHasNetwork(true);
                     return;
@@ -228,7 +228,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d064b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d064d : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -277,7 +277,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     return;
                 }
                 this.e = 1;
-                this.a.setText(R.string.obfuscated_res_0x7f0f0c76);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0c79);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
@@ -291,7 +291,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     return;
                 }
                 this.e = 2;
-                this.a.setText(R.string.obfuscated_res_0x7f0f0cde);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0ce1);
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation2.setFillAfter(true);
                 alphaAnimation2.setDuration(500L);

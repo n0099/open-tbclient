@@ -20,7 +20,7 @@ import tbclient.ManagerApplyInfo;
 import tbclient.PriManagerApplyInfo;
 import tbclient.RecommendForumInfo;
 import tbclient.SimpleThreadInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

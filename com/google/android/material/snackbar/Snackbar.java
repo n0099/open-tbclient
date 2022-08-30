@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class Snackbar extends BaseTransientBottomBar<Snackbar> {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] SNACKBAR_BUTTON_STYLE_ATTR;
@@ -45,7 +45,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
     public BaseTransientBottomBar.BaseCallback<Snackbar> callback;
     public boolean hasAction;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Callback extends BaseTransientBottomBar.BaseCallback<Snackbar> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DISMISS_EVENT_ACTION = 1;
@@ -87,7 +87,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class SnackbarLayout extends BaseTransientBottomBar.SnackbarBaseLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -279,7 +279,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, view2, charSequence, i)) == null) {
             ViewGroup findSuitableParent = findSuitableParent(view2);
             if (findSuitableParent != null) {
-                SnackbarContentLayout snackbarContentLayout = (SnackbarContentLayout) LayoutInflater.from(findSuitableParent.getContext()).inflate(hasSnackbarContentStyleAttrs(findSuitableParent.getContext()) ? R.layout.obfuscated_res_0x7f0d05a1 : R.layout.obfuscated_res_0x7f0d0212, findSuitableParent, false);
+                SnackbarContentLayout snackbarContentLayout = (SnackbarContentLayout) LayoutInflater.from(findSuitableParent.getContext()).inflate(hasSnackbarContentStyleAttrs(findSuitableParent.getContext()) ? R.layout.obfuscated_res_0x7f0d05a3 : R.layout.obfuscated_res_0x7f0d0213, findSuitableParent, false);
                 Snackbar snackbar = new Snackbar(findSuitableParent, snackbarContentLayout, snackbarContentLayout);
                 snackbar.setText(charSequence);
                 snackbar.setDuration(i);

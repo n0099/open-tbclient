@@ -4,6 +4,7 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.bb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,22 +12,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetOfficialSwitch.OfficialList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class OfficialAccountPushModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public static int NET_SUCCESS;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public ab b;
+    public bb b;
     public ArrayList<OfficialAccountPushInfo> list;
     public List<OfficialList> official_list;
 
-    /* loaded from: classes4.dex */
-    public class a extends ab {
+    /* loaded from: classes5.dex */
+    public class a extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ OfficialAccountPushModel a;
@@ -53,7 +53,7 @@ public class OfficialAccountPushModel extends BdBaseModel {
             this.a = officialAccountPushModel;
         }
 
-        @Override // com.repackage.ab
+        @Override // com.baidu.tieba.bb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             OfficialAccountPushHttpResponseMessage officialAccountPushHttpResponseMessage;
             Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class OfficialAccountPushModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(ArrayList<OfficialAccountPushInfo> arrayList, int i, String str);
     }

@@ -9,16 +9,16 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tieba.d9;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetMsg;
+import com.baidu.tieba.ve;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
-import com.repackage.tr4;
-import com.repackage.ue;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ForumRankModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,13 +26,13 @@ public class ForumRankModel extends BdBaseModel {
     public b b;
     public String c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends BdAsyncTask<Void, ForumRankData, ForumRankData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,8 +65,8 @@ public class ForumRankModel extends BdBaseModel {
             ForumRankData forumRankData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                tr4.f();
-                ue<String> g = tr4.g("tb.forum_rank");
+                vr4.f();
+                ve<String> g = vr4.g("tb.forum_rank");
                 if (g != null) {
                     str = g.get("forum_rank_cache_key_" + this.a.a);
                 } else {

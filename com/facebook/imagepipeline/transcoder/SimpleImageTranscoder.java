@@ -18,7 +18,7 @@ import com.facebook.imagepipeline.common.RotationOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
 import java.io.OutputStream;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SimpleImageTranscoder implements ImageTranscoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SimpleImageTranscoder";

@@ -17,23 +17,23 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.editortools.DLauncher;
 import com.baidu.tbadk.editortools.view.CommonTabHost;
 import com.baidu.tieba.R;
+import com.baidu.tieba.n25;
+import com.baidu.tieba.nm7;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.pm7;
+import com.baidu.tieba.qk7;
+import com.baidu.tieba.t25;
+import com.baidu.tieba.u25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fm7;
-import com.repackage.h25;
-import com.repackage.hm7;
-import com.repackage.ik7;
-import com.repackage.n25;
-import com.repackage.o25;
-import com.repackage.og;
 import java.util.LinkedList;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PrivilegeDeskView extends CommonTabHost {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<o25> m;
+    public LinkedList<u25> m;
     public int n;
     public DLauncher o;
     public DLauncher p;
@@ -43,7 +43,7 @@ public class PrivilegeDeskView extends CommonTabHost {
     public View.OnClickListener t;
     public View.OnClickListener u;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public class PrivilegeDeskView extends CommonTabHost {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +128,7 @@ public class PrivilegeDeskView extends CommonTabHost {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,12 +157,12 @@ public class PrivilegeDeskView extends CommonTabHost {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.hide();
-                this.a.J(new h25(1, 16, null));
+                this.a.J(new n25(1, 16, null));
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -191,7 +191,7 @@ public class PrivilegeDeskView extends CommonTabHost {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.hide();
-                this.a.J(new h25(1, 12, null));
+                this.a.J(new n25(1, 12, null));
             }
         }
     }
@@ -220,22 +220,22 @@ public class PrivilegeDeskView extends CommonTabHost {
         this.t = new c(this);
         this.u = new d(this);
         r(context);
-        hm7 hm7Var = new hm7(context, 1);
-        p(new ik7(context));
-        q(hm7Var);
+        pm7 pm7Var = new pm7(context, 1);
+        p(new qk7(context));
+        q(pm7Var);
         this.q = context;
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.repackage.i25
-    public void A(h25 h25Var) {
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.o25
+    public void A(n25 n25Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, h25Var) == null) {
-            super.A(h25Var);
-            if (h25Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, n25Var) == null) {
+            super.A(n25Var);
+            if (n25Var == null) {
                 return;
             }
-            if (h25Var.a == 2) {
-                Object obj = h25Var.c;
+            if (n25Var.a == 2) {
+                Object obj = n25Var.c;
                 if (obj == null) {
                     this.n--;
                 } else if (obj instanceof String) {
@@ -245,29 +245,29 @@ public class PrivilegeDeskView extends CommonTabHost {
                     } else if (TextUtils.isEmpty(str.trim())) {
                         this.n++;
                     } else {
-                        this.n += og.e(str, 1);
+                        this.n += pg.e(str, 1);
                     }
                 }
                 if (this.n > 0) {
-                    J(new h25(2, 18, " "));
+                    J(new n25(2, 18, " "));
                 } else {
-                    J(new h25(2, 18, null));
+                    J(new n25(2, 18, null));
                 }
             }
-            if (h25Var.a == 1) {
+            if (n25Var.a == 1) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 2));
             }
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.repackage.t25
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.z25
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setShowDelete(false);
-            fm7 fm7Var = new fm7();
-            fm7Var.z(this.m);
-            h(fm7Var);
+            nm7 nm7Var = new nm7();
+            nm7Var.z(this.m);
+            h(nm7Var);
             t();
             s();
         }
@@ -284,7 +284,7 @@ public class PrivilegeDeskView extends CommonTabHost {
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.repackage.t25
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.z25
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -304,20 +304,20 @@ public class PrivilegeDeskView extends CommonTabHost {
         }
     }
 
-    public final void p(ik7 ik7Var) {
+    public final void p(qk7 qk7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ik7Var) == null) {
-            DLauncher dLauncher = (DLauncher) n25.a(getContext(), ik7Var, 6);
+        if (interceptable == null || interceptable.invokeL(1048581, this, qk7Var) == null) {
+            DLauncher dLauncher = (DLauncher) t25.a(getContext(), qk7Var, 6);
             this.p = dLauncher;
             dLauncher.setOnClickListener(this.u);
             this.m.add(this.p);
         }
     }
 
-    public final void q(hm7 hm7Var) {
+    public final void q(pm7 pm7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, hm7Var) == null) {
-            DLauncher dLauncher = (DLauncher) n25.a(getContext(), hm7Var, 6);
+        if (interceptable == null || interceptable.invokeL(1048582, this, pm7Var) == null) {
+            DLauncher dLauncher = (DLauncher) t25.a(getContext(), pm7Var, 6);
             this.o = dLauncher;
             dLauncher.setOnClickListener(this.t);
             this.m.add(this.o);
@@ -376,13 +376,13 @@ public class PrivilegeDeskView extends CommonTabHost {
             String text2 = this.p.getText();
             if (text != null && !text.equals("")) {
                 z = true;
-                J(new h25(2, 18, " "));
-                J(new h25(2, 16, " "));
+                J(new n25(2, 18, " "));
+                J(new n25(2, 16, " "));
             } else {
                 if (text2 != null && !text2.equals("")) {
-                    J(new h25(2, 18, " "));
+                    J(new n25(2, 18, " "));
                 } else {
-                    J(new h25(2, 18, null));
+                    J(new n25(2, 18, null));
                 }
                 z = false;
             }

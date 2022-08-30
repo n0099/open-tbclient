@@ -3,12 +3,12 @@ package com.baidu.tbadk.BdToken.backUser;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.fk4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ek4;
 import com.squareup.wire.Wire;
 import tbclient.BackUser.BackUserResIdl;
 import tbclient.Error;
@@ -16,7 +16,7 @@ import tbclient.Error;
 public class BackUserSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ek4 mData;
+    public fk4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackUserSocketResMsg() {
@@ -50,9 +50,9 @@ public class BackUserSocketResMsg extends SocketResponsedMessage {
                     setErrorString(backUserResIdl.error.usermsg);
                 }
                 if (backUserResIdl.data != null) {
-                    ek4 ek4Var = new ek4();
-                    this.mData = ek4Var;
-                    ek4Var.a(backUserResIdl.data);
+                    fk4 fk4Var = new fk4();
+                    this.mData = fk4Var;
+                    fk4Var.a(backUserResIdl.data);
                 }
             }
             return backUserResIdl;
@@ -60,9 +60,9 @@ public class BackUserSocketResMsg extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public ek4 getData() {
+    public fk4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (ek4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (fk4) invokeV.objValue;
     }
 }

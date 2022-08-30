@@ -10,6 +10,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.mf6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,8 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ef6;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public static final int d;
@@ -65,7 +65,7 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view2;
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092551);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09255b);
         this.b = textView;
         int i3 = e;
         textView.setPadding(0, i3, 0, i3 - d);
@@ -76,18 +76,18 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0304);
-            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080917, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
+            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080918, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
             pureDrawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds42), UtilHelper.getDimenPixelSize(R.dimen.tbds42));
             this.b.setCompoundDrawables(pureDrawable, null, null, null);
         }
     }
 
-    public void b(ef6 ef6Var) {
+    public void b(mf6 mf6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ef6Var) == null) || ef6Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mf6Var) == null) || mf6Var == null) {
             return;
         }
-        this.b.setText(R.string.obfuscated_res_0x7f0f0f7d);
+        this.b.setText(R.string.obfuscated_res_0x7f0f0f80);
         a();
     }
 }

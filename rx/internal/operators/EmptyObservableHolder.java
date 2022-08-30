@@ -1,6 +1,8 @@
 package rx.internal.operators;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.av9;
+import com.baidu.tieba.gv9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,14 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ru9;
-import com.repackage.xu9;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class EmptyObservableHolder implements ru9.a<Object> {
+public final class EmptyObservableHolder implements av9.a<Object> {
     public static final /* synthetic */ EmptyObservableHolder[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
-    public static final ru9<Object> EMPTY;
+    public static final av9<Object> EMPTY;
     public static final EmptyObservableHolder INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,7 +35,7 @@ public final class EmptyObservableHolder implements ru9.a<Object> {
         EmptyObservableHolder emptyObservableHolder = new EmptyObservableHolder("INSTANCE", 0);
         INSTANCE = emptyObservableHolder;
         $VALUES = new EmptyObservableHolder[]{emptyObservableHolder};
-        EMPTY = ru9.a(emptyObservableHolder);
+        EMPTY = av9.a(emptyObservableHolder);
     }
 
     public EmptyObservableHolder(String str, int i) {
@@ -57,10 +57,10 @@ public final class EmptyObservableHolder implements ru9.a<Object> {
         }
     }
 
-    public static <T> ru9<T> instance() {
+    public static <T> av9<T> instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (ru9<T>) EMPTY : (ru9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (av9<T>) EMPTY : (av9) invokeV.objValue;
     }
 
     public static EmptyObservableHolder valueOf(String str) {
@@ -76,11 +76,11 @@ public final class EmptyObservableHolder implements ru9.a<Object> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ru9.a, com.repackage.fv9
-    public void call(xu9<? super Object> xu9Var) {
+    @Override // com.baidu.tieba.av9.a, com.baidu.tieba.ov9
+    public void call(gv9<? super Object> gv9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, xu9Var) == null) {
-            xu9Var.onCompleted();
+        if (interceptable == null || interceptable.invokeL(1048576, this, gv9Var) == null) {
+            gv9Var.onCompleted();
         }
     }
 }

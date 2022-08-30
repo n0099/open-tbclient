@@ -5,7 +5,7 @@ import java.net.InetAddress;
 import java.util.Arrays;
 import java.util.List;
 import okhttp3.Dns;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class c implements Dns {
     public static final Dns SYSTEM = Dns.SYSTEM;
 

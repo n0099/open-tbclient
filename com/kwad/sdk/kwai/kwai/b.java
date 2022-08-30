@@ -15,7 +15,7 @@ import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Stack;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static volatile b Re;
     public Stack<AdTemplate> Rb = new Stack<>();
@@ -23,7 +23,7 @@ public class b {
     public File Rd;
     public boolean mHasInit;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void fT();
 

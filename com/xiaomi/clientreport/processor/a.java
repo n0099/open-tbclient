@@ -6,6 +6,7 @@ import android.text.format.Formatter;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -233,7 +234,7 @@ public class a implements IEventProcessor {
             try {
                 File file = new File(b + ".lock");
                 ab.m161a(file);
-                randomAccessFile = new RandomAccessFile(file, "rw");
+                randomAccessFile = new RandomAccessFile(file, rw.c);
                 try {
                     isEmpty = randomAccessFile.getChannel().lock();
                     try {
@@ -382,7 +383,7 @@ public class a implements IEventProcessor {
                         File file3 = new File(absolutePath + ".lock");
                         try {
                             ab.m161a(file3);
-                            randomAccessFile = new RandomAccessFile(file3, "rw");
+                            randomAccessFile = new RandomAccessFile(file3, rw.c);
                         } catch (Exception e4) {
                             e = e4;
                         } catch (Throwable th2) {

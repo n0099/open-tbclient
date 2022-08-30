@@ -19,7 +19,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class JobScheduler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String QUEUE_TIME_KEY = "queueTime";
@@ -46,7 +46,7 @@ public class JobScheduler {
     public final Runnable mSubmitJobRunnable;
 
     /* renamed from: com.facebook.imagepipeline.producers.JobScheduler$3  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState;
         public static /* synthetic */ Interceptable $ic;
@@ -86,13 +86,13 @@ public class JobScheduler {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface JobRunnable {
         void run(EncodedImage encodedImage, int i);
     }
 
     @VisibleForTesting
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class JobStartExecutorSupplier {
         public static /* synthetic */ Interceptable $ic;
         public static ScheduledExecutorService sJobStarterExecutor;
@@ -127,7 +127,7 @@ public class JobScheduler {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @VisibleForTesting
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class JobState {
         public static final /* synthetic */ JobState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

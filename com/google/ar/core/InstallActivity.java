@@ -14,6 +14,13 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.tieba.jp9;
+import com.baidu.tieba.lp9;
+import com.baidu.tieba.np9;
+import com.baidu.tieba.op9;
+import com.baidu.tieba.pp9;
+import com.baidu.tieba.qp9;
+import com.baidu.tieba.sp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,16 +31,9 @@ import com.google.ar.core.exceptions.FatalException;
 import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 import com.google.protobuf.CodedInputStream;
-import com.repackage.ap9;
-import com.repackage.cp9;
-import com.repackage.ep9;
-import com.repackage.fp9;
-import com.repackage.gp9;
-import com.repackage.hp9;
-import com.repackage.jp9;
 import java.util.concurrent.atomic.AtomicReference;
 @TargetApi(24)
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class InstallActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,26 +63,26 @@ public class InstallActivity extends Activity {
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.jp9.a(com.google.ar.core.p):void, com.repackage.jp9.b(java.lang.Exception):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.sp9.a(com.google.ar.core.p):void, com.baidu.tieba.sp9.b(java.lang.Exception):void] */
     public static /* synthetic */ void a(InstallActivity installActivity, Exception exc) {
         installActivity.j(exc);
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.jp9.a(com.google.ar.core.p):void, com.repackage.jp9.b(java.lang.Exception):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.sp9.a(com.google.ar.core.p):void, com.baidu.tieba.sp9.b(java.lang.Exception):void] */
     public static /* synthetic */ p e(InstallActivity installActivity, p pVar) {
         installActivity.d = pVar;
         return pVar;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.jp9.a(com.google.ar.core.p):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.sp9.a(com.google.ar.core.p):void] */
     public static /* synthetic */ boolean f(InstallActivity installActivity) {
         return installActivity.g;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.jp9.a(com.google.ar.core.p):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.sp9.a(com.google.ar.core.p):void] */
     public static /* synthetic */ void g(InstallActivity installActivity) {
         installActivity.i();
     }
@@ -107,8 +107,8 @@ public class InstallActivity extends Activity {
             getWindow().getDecorView().setMinimumWidth(i);
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             ofFloat.setDuration(300L);
-            ofFloat.addUpdateListener(new gp9(this, width, i, height));
-            ofFloat.addListener(new hp9(this));
+            ofFloat.addUpdateListener(new pp9(this, width, i, height));
+            ofFloat.addListener(new qp9(this));
             ofFloat.start();
         }
     }
@@ -123,8 +123,8 @@ public class InstallActivity extends Activity {
     public final void j(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
-            cp9.d().a = exc;
-            cp9.d().g();
+            lp9.d().a = exc;
+            lp9.d().g();
             this.e = true;
             super.finish();
         }
@@ -140,11 +140,11 @@ public class InstallActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             setContentView(R.layout.__arcore_education);
-            findViewById(R.id.__arcore_cancelButton).setOnClickListener(new ep9(this));
+            findViewById(R.id.__arcore_cancelButton).setOnClickListener(new np9(this));
             if (!k()) {
                 findViewById(R.id.__arcore_cancelButton).setVisibility(8);
             }
-            findViewById(R.id.__arcore_continueButton).setOnClickListener(new fp9(this));
+            findViewById(R.id.__arcore_continueButton).setOnClickListener(new op9(this));
             TextView textView = (TextView) findViewById(R.id.__arcore_messageText);
             if (this.b.ordinal() != 1) {
                 textView.setText(R.string.__arcore_install_app);
@@ -186,7 +186,7 @@ public class InstallActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.f = true;
             this.d = p.b;
-            cp9.d().e(this).c(this, new jp9(this));
+            lp9.d().e(this).c(this, new sp9(this));
         }
     }
 
@@ -224,7 +224,7 @@ public class InstallActivity extends Activity {
                         return;
                     }
                     AtomicReference atomicReference = new AtomicReference(ArCoreApk.Availability.UNKNOWN_CHECKING);
-                    cp9.d().e(this).e(this, new ap9(atomicReference));
+                    lp9.d().e(this).e(this, new jp9(atomicReference));
                     int ordinal = ((ArCoreApk.Availability) atomicReference.get()).ordinal();
                     if (ordinal == 0) {
                         Log.w("ARCore-InstallActivity", "Preliminary compatibility check failed.");
@@ -248,7 +248,7 @@ public class InstallActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             if (!this.e) {
-                cp9.d().g();
+                lp9.d().g();
             }
             super.onDestroy();
         }
@@ -278,7 +278,7 @@ public class InstallActivity extends Activity {
                     } else if (this.d == p.a) {
                         this.g = true;
                     } else {
-                        j(cp9.d().a);
+                        j(lp9.d().a);
                     }
                 }
             }

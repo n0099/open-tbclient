@@ -13,14 +13,14 @@ import com.bun.miitmdid.interfaces.IIdProvider;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
 import com.bun.miitmdid.pojo.IdSupplierImpl;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class n implements IIdProvider {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] b;
     public transient /* synthetic */ FieldHolder $fh;
     public IIdentifierListener a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public abstract class n implements IIdProvider {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

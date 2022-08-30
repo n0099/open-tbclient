@@ -20,21 +20,21 @@ import com.baidu.tbadk.core.view.CommonPagerSlidingTabStrip;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.dq7;
+import com.baidu.tieba.fq7;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.CreateNewEmotionFragment;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.MyEmotionManagerFragment;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.SingleThreadEmotionFragment;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-import com.repackage.vp7;
-import com.repackage.xp7;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
-public class NativeEmotionManagerActivity extends BaseFragmentActivity implements xp7<Boolean> {
+/* loaded from: classes5.dex */
+public class NativeEmotionManagerActivity extends BaseFragmentActivity implements fq7<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FragmentPagerAdapter a;
@@ -53,7 +53,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     public boolean n;
     public int o;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a extends FragmentPagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +114,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class b extends ViewPager.SimpleOnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -186,7 +186,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.j = getIntent().getIntExtra(NativeEmotionManagerActivityConfig.KEY, 0);
-            this.k = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908b8);
+            this.k = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908b9);
             this.d.add("我的表情");
             MyEmotionManagerFragment myEmotionManagerFragment = new MyEmotionManagerFragment();
             this.l = myEmotionManagerFragment;
@@ -201,21 +201,21 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             TextView textView = new TextView(getPageContext().getPageActivity());
             this.i = textView;
-            textView.setPadding(0, qi.f(this, R.dimen.obfuscated_res_0x7f0701d5), qi.f(this, R.dimen.obfuscated_res_0x7f07029b), qi.f(this, R.dimen.obfuscated_res_0x7f0701d5));
+            textView.setPadding(0, ri.f(this, R.dimen.obfuscated_res_0x7f0701d5), ri.f(this, R.dimen.obfuscated_res_0x7f07029b), ri.f(this, R.dimen.obfuscated_res_0x7f0701d5));
             this.i.setClickable(true);
             this.i.setLayoutParams(layoutParams);
-            this.i.setText(R.string.obfuscated_res_0x7f0f0560);
+            this.i.setText(R.string.obfuscated_res_0x7f0f0561);
             this.i.setOnClickListener(this);
             SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0302);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091634);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091636);
             this.e = navigationBar;
             navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.i, (View.OnClickListener) null);
             this.g = this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0259, (View.OnClickListener) null);
-            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) this.e.findViewById(R.id.obfuscated_res_0x7f0908ad);
+            this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d025a, (View.OnClickListener) null);
+            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) this.e.findViewById(R.id.obfuscated_res_0x7f0908ae);
             this.f = commonPagerSlidingTabStrip;
-            commonPagerSlidingTabStrip.k(qi.f(this, R.dimen.obfuscated_res_0x7f070207), qi.f(this, R.dimen.obfuscated_res_0x7f0701e8), qi.f(this, R.dimen.obfuscated_res_0x7f0701e8), qi.f(this, R.dimen.obfuscated_res_0x7f0701e8), qi.f(this, R.dimen.obfuscated_res_0x7f0701e8), qi.f(this, R.dimen.obfuscated_res_0x7f070302), qi.f(this, R.dimen.obfuscated_res_0x7f070261), R.color.CAM_X0107, R.color.CAM_X0105);
-            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f0908b0);
+            commonPagerSlidingTabStrip.k(ri.f(this, R.dimen.obfuscated_res_0x7f070207), ri.f(this, R.dimen.obfuscated_res_0x7f0701e8), ri.f(this, R.dimen.obfuscated_res_0x7f0701e8), ri.f(this, R.dimen.obfuscated_res_0x7f0701e8), ri.f(this, R.dimen.obfuscated_res_0x7f0701e8), ri.f(this, R.dimen.obfuscated_res_0x7f070302), ri.f(this, R.dimen.obfuscated_res_0x7f070261), R.color.CAM_X0107, R.color.CAM_X0105);
+            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f0908b1);
             this.h = bdBaseViewPager;
             bdBaseViewPager.setmDisallowSlip(true);
             this.h.setOffscreenPageLimit(1);
@@ -228,12 +228,12 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
             Bundle bundle = new Bundle();
             bundle.putInt(NativeEmotionManagerActivityConfig.KEY, this.j);
             this.c.setArguments(bundle);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0908ac, this.c).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0908ad, this.c).commit();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.xp7
+    @Override // com.baidu.tieba.fq7
     /* renamed from: N0 */
     public void onUpdate(Boolean bool) {
         Interceptable interceptable = $ic;
@@ -271,12 +271,12 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             super.onClick(view2);
             if (view2 == this.i) {
-                boolean z = !vp7.b().a();
-                vp7.b().d(z);
+                boolean z = !dq7.b().a();
+                dq7.b().d(z);
                 if (z) {
-                    this.i.setText(R.string.obfuscated_res_0x7f0f0561);
+                    this.i.setText(R.string.obfuscated_res_0x7f0f0562);
                 } else {
-                    this.i.setText(R.string.obfuscated_res_0x7f0f0560);
+                    this.i.setText(R.string.obfuscated_res_0x7f0f0561);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921310));
             }
@@ -289,7 +289,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d0256);
+            setContentView(R.layout.obfuscated_res_0x7f0d0257);
             M0();
         }
     }

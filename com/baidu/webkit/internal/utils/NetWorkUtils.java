@@ -5,6 +5,7 @@ import android.content.Context;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class NetWorkUtils implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CELL_2G = 2;
@@ -175,7 +176,7 @@ public final class NetWorkUtils implements INoProGuard {
                         }
                         String str = null;
                         try {
-                            str = telephonyManager.getSubscriberId();
+                            str = ApiReplaceUtil.getSubscriberId(telephonyManager);
                         } catch (SecurityException unused) {
                             sOperatorType = 99;
                         }

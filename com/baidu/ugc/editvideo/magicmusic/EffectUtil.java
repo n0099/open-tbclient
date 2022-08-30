@@ -1,15 +1,15 @@
 package com.baidu.ugc.editvideo.magicmusic;
 
+import com.baidu.tieba.fc9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.magicmusic.effect.BaseEffect;
-import com.repackage.wb9;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class EffectUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +78,7 @@ public class EffectUtil {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, list)) == null) {
-            if (wb9.e(list)) {
+            if (fc9.e(list)) {
                 return null;
             }
             for (int size = list.size() - 1; size >= 0; size--) {

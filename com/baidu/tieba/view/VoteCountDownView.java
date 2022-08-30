@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VoteCountDownView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class VoteCountDownView extends LinearLayout {
     public CountDownTimer f;
     public b g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class VoteCountDownView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a();
     }
@@ -112,10 +112,10 @@ public class VoteCountDownView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f090df0);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091517);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090df1);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091518);
+            this.b = findViewById(R.id.obfuscated_res_0x7f090df1);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091519);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090df2);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09151a);
         }
     }
 
@@ -127,7 +127,7 @@ public class VoteCountDownView extends LinearLayout {
             setClipToPadding(false);
             setClipChildren(false);
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08e9, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08eb, (ViewGroup) this, true);
             c();
         }
     }

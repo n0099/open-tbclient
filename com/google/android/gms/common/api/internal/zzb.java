@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.en9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,14 +16,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vm9;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.Map;
 import java.util.WeakHashMap;
-/* loaded from: classes5.dex */
-public final class zzb extends Fragment implements vm9 {
+/* loaded from: classes7.dex */
+public final class zzb extends Fragment implements en9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, LifecycleCallback> a;
@@ -72,7 +72,7 @@ public final class zzb extends Fragment implements vm9 {
         }
     }
 
-    @Override // com.repackage.vm9
+    @Override // com.baidu.tieba.en9
     @Nullable
     public final Activity g0() {
         InterceptResult invokeV;

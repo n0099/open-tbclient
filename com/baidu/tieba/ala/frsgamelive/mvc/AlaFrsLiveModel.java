@@ -11,14 +11,14 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRequestMessage;
 import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRespMessage;
+import com.baidu.tieba.av5;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.pn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
-import com.repackage.on;
-import com.repackage.su5;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -38,7 +38,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
     public int f;
     public boolean g;
     public int h;
-    public List<on> i;
+    public List<pn> i;
     public boolean j;
     public b k;
     public HttpMessageListener l;
@@ -86,7 +86,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
                         }
                         return;
                     }
-                    List<on> liveList = alaGameFrsLiveThreadsRespMessage.getLiveList();
+                    List<pn> liveList = alaGameFrsLiveThreadsRespMessage.getLiveList();
                     if (this.a.i == null) {
                         this.a.i = new ArrayList();
                     }
@@ -105,7 +105,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
                             alaFrsLiveModel.i = alaFrsLiveModel.N(alaFrsLiveModel.i, liveList);
                         }
                     } else {
-                        List<on> recommandList = alaGameFrsLiveThreadsRespMessage.getRecommandList();
+                        List<pn> recommandList = alaGameFrsLiveThreadsRespMessage.getRecommandList();
                         this.a.g = false;
                         this.a.b = alaGameFrsLiveThreadsRequestMessage.getPn();
                         this.a.h = 0;
@@ -176,7 +176,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j : invokeV.booleanValue;
     }
 
-    public final List<on> N(List<on> list, List<on> list2) {
+    public final List<pn> N(List<pn> list, List<pn> list2) {
         InterceptResult invokeLL;
         ThreadData threadData;
         ThreadData threadData2;
@@ -184,24 +184,24 @@ public class AlaFrsLiveModel extends BdBaseModel {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, list, list2)) == null) {
             LinkedList linkedList = new LinkedList();
             linkedList.addAll(list);
-            for (on onVar : list2) {
-                if (onVar != null && (onVar instanceof su5) && (threadData = ((su5) onVar).a) != null && (threadData.getThreadType() == 49 || threadData.getThreadType() == 69)) {
+            for (pn pnVar : list2) {
+                if (pnVar != null && (pnVar instanceof av5) && (threadData = ((av5) pnVar).a) != null && (threadData.getThreadType() == 49 || threadData.getThreadType() == 69)) {
                     String tid = threadData.getTid();
                     if (!TextUtils.isEmpty(tid)) {
                         boolean z = false;
-                        Iterator<on> it = list.iterator();
+                        Iterator<pn> it = list.iterator();
                         while (true) {
                             if (!it.hasNext()) {
                                 break;
                             }
-                            on next = it.next();
-                            if (next != null && (next instanceof su5) && (threadData2 = ((su5) next).a) != null && tid.equals(threadData2.getTid())) {
+                            pn next = it.next();
+                            if (next != null && (next instanceof av5) && (threadData2 = ((av5) next).a) != null && tid.equals(threadData2.getTid())) {
                                 z = true;
                                 break;
                             }
                         }
                         if (!z) {
-                            linkedList.add(onVar);
+                            linkedList.add(pnVar);
                         }
                     }
                 }
@@ -270,7 +270,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
     }
 
     public void clearData() {
-        List<on> list;
+        List<pn> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (list = this.i) == null) {
             return;
@@ -278,7 +278,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
         list.clear();
     }
 
-    public List<on> getData() {
+    public List<pn> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.i : (List) invokeV.objValue;

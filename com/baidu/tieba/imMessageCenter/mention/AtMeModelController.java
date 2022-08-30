@@ -21,35 +21,35 @@ import com.baidu.tbadk.mvc.message.WriteCacheMessage;
 import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
 import com.baidu.tbadk.mvc.model.CacheModel;
 import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.ac7;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.fc7;
+import com.baidu.tieba.i9;
+import com.baidu.tieba.nz4;
+import com.baidu.tieba.pn;
+import com.baidu.tieba.qc7;
+import com.baidu.tieba.zb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
-import com.repackage.h9;
-import com.repackage.ic7;
-import com.repackage.jz4;
-import com.repackage.on;
-import com.repackage.rb7;
-import com.repackage.sb7;
-import com.repackage.xb7;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
-public class AtMeModelController extends BdBaseModel implements CacheModel.c<sb7>, NetModel.k<rb7, sb7> {
+/* loaded from: classes4.dex */
+public class AtMeModelController extends BdBaseModel implements CacheModel.c<ac7>, NetModel.k<zb7, ac7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AtMessageFragment a;
-    public rb7 b;
+    public zb7 b;
     public AtMeNetModel c;
     public AtMeCacheModel d;
     public FeedData e;
-    public xb7 f;
+    public fc7 f;
     public final CustomMessageListener g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,9 +106,9 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.c<sb7
     }
 
     public void A(int i) {
-        xb7 xb7Var;
+        fc7 fc7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (xb7Var = this.f) == null || xb7Var.a() == null || i >= this.f.a().size()) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (fc7Var = this.f) == null || fc7Var.a() == null || i >= this.f.a().size()) {
             return;
         }
         this.f.a().remove(i);
@@ -134,8 +134,8 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.c<sb7
     public void C(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            this.b = new rb7();
-            AtMeNetModel atMeNetModel = new AtMeNetModel((TbPageContext) h9.a(this.a.getPageContext().getPageActivity()), this.b);
+            this.b = new zb7();
+            AtMeNetModel atMeNetModel = new AtMeNetModel((TbPageContext) i9.a(this.a.getPageContext().getPageActivity()), this.b);
             this.c = atMeNetModel;
             atMeNetModel.b0(this);
             AtMessageFragment atMessageFragment = this.a;
@@ -145,12 +145,12 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.c<sb7
             this.c.registerListener(this.g);
             AtMessageFragment atMessageFragment2 = this.a;
             if (atMessageFragment2 != null) {
-                AtMeCacheModel atMeCacheModel = new AtMeCacheModel((TbPageContext) h9.a(atMessageFragment2.getPageContext().getPageActivity()));
+                AtMeCacheModel atMeCacheModel = new AtMeCacheModel((TbPageContext) i9.a(atMessageFragment2.getPageContext().getPageActivity()));
                 this.d = atMeCacheModel;
                 atMeCacheModel.R(this);
                 this.d.setUniqueId(this.a.getUniqueId());
             }
-            this.f = new xb7();
+            this.f = new fc7();
         }
     }
 
@@ -169,40 +169,40 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.c<sb7
         return invokeV.booleanValue;
     }
 
-    public boolean E(rb7 rb7Var, sb7 sb7Var, Boolean bool) {
+    public boolean E(zb7 zb7Var, ac7 ac7Var, Boolean bool) {
         InterceptResult invokeLLL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, rb7Var, sb7Var, bool)) == null) {
-            if (rb7Var.a() != 4) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, zb7Var, ac7Var, bool)) == null) {
+            if (zb7Var.a() != 4) {
                 this.f.a().clear();
             }
-            this.f.c(sb7Var);
+            this.f.c(ac7Var);
             boolean z2 = true;
-            if (sb7Var != null && sb7Var.a() != null && sb7Var.a().size() > 0) {
-                this.e = sb7Var.a().get(sb7Var.a().size() - 1);
+            if (ac7Var != null && ac7Var.a() != null && ac7Var.a().size() > 0) {
+                this.e = ac7Var.a().get(ac7Var.a().size() - 1);
                 z = this.f.b() == null || this.f.b().b() == 1;
-                if (rb7Var != null) {
-                    rb7Var.d();
+                if (zb7Var != null) {
+                    zb7Var.d();
                 }
             } else {
                 this.e = null;
                 z = false;
                 z2 = false;
             }
-            jz4.h0().j();
+            nz4.h0().j();
             if (!TbadkCoreApplication.isLogin()) {
                 this.f.a().clear();
             }
-            ArrayList<on> arrayList = new ArrayList<>();
+            ArrayList<pn> arrayList = new ArrayList<>();
             Iterator<FeedData> it = this.f.a.iterator();
             while (it.hasNext()) {
-                ic7 ic7Var = new ic7();
-                ic7Var.I(it.next());
+                qc7 qc7Var = new qc7();
+                qc7Var.I(it.next());
                 if (bool.booleanValue()) {
-                    ic7Var.K(false);
+                    qc7Var.K(false);
                 }
-                arrayList.add(ic7Var);
+                arrayList.add(qc7Var);
             }
             this.a.L1(z, arrayList);
             return z2;
@@ -237,14 +237,14 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.c<sb7
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-    public void f(WriteCacheRespMsg<List<sb7>> writeCacheRespMsg, WriteCacheMessage<sb7> writeCacheMessage) {
+    public void f(WriteCacheRespMsg<List<ac7>> writeCacheRespMsg, WriteCacheMessage<ac7> writeCacheMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, writeCacheRespMsg, writeCacheMessage) == null) {
         }
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-    public void h(ReadCacheRespMsg<List<sb7>> readCacheRespMsg, ReadCacheMessage<sb7> readCacheMessage) {
+    public void h(ReadCacheRespMsg<List<ac7>> readCacheRespMsg, ReadCacheMessage<ac7> readCacheMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, readCacheRespMsg, readCacheMessage) == null) {
             if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
@@ -268,21 +268,21 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.c<sb7
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void n(MvcSocketResponsedMessage<sb7, ?> mvcSocketResponsedMessage, MvcSocketMessage<rb7, sb7> mvcSocketMessage, MvcNetMessage<rb7, sb7> mvcNetMessage) {
-        sb7 sb7Var;
+    public void n(MvcSocketResponsedMessage<ac7, ?> mvcSocketResponsedMessage, MvcSocketMessage<zb7, ac7> mvcSocketMessage, MvcNetMessage<zb7, ac7> mvcNetMessage) {
+        ac7 ac7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048586, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) {
             if (mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
-                sb7Var = mvcSocketResponsedMessage.getData();
+                ac7Var = mvcSocketResponsedMessage.getData();
                 r0 = mvcSocketMessage != null ? mvcSocketMessage.getRequestData() : null;
                 if (mvcNetMessage != null) {
                     r0 = mvcNetMessage.getRequestData();
                 }
             } else {
-                jz4.h0().Z(0);
-                sb7Var = null;
+                nz4.h0().Z(0);
+                ac7Var = null;
             }
-            if (r0 == null || sb7Var == null || !E(r0, sb7Var, Boolean.FALSE)) {
+            if (r0 == null || ac7Var == null || !E(r0, ac7Var, Boolean.FALSE)) {
                 if (mvcSocketResponsedMessage != null) {
                     this.mErrorCode = mvcSocketResponsedMessage.getError();
                     this.mErrorString = mvcSocketResponsedMessage.getErrorString();
@@ -312,21 +312,21 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.c<sb7
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void s(MvcHttpResponsedMessage<sb7> mvcHttpResponsedMessage, MvcHttpMessage<rb7, sb7> mvcHttpMessage, MvcNetMessage<rb7, sb7> mvcNetMessage) {
-        sb7 sb7Var;
+    public void s(MvcHttpResponsedMessage<ac7> mvcHttpResponsedMessage, MvcHttpMessage<zb7, ac7> mvcHttpMessage, MvcNetMessage<zb7, ac7> mvcNetMessage) {
+        ac7 ac7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048588, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) {
             if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
-                sb7Var = mvcHttpResponsedMessage.getData();
+                ac7Var = mvcHttpResponsedMessage.getData();
                 r0 = mvcHttpMessage != null ? mvcHttpMessage.getRequestData() : null;
                 if (mvcNetMessage != null) {
                     r0 = mvcNetMessage.getRequestData();
                 }
             } else {
-                jz4.h0().Z(0);
-                sb7Var = null;
+                nz4.h0().Z(0);
+                ac7Var = null;
             }
-            if (r0 == null || sb7Var == null || !E(r0, sb7Var, Boolean.FALSE)) {
+            if (r0 == null || ac7Var == null || !E(r0, ac7Var, Boolean.FALSE)) {
                 if (mvcHttpResponsedMessage != null) {
                     this.mErrorCode = mvcHttpResponsedMessage.getError();
                     this.mErrorString = mvcHttpResponsedMessage.getErrorString();
@@ -349,8 +349,8 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.c<sb7
             if (TbadkCoreApplication.isLogin()) {
                 return true;
             }
-            xb7 xb7Var = this.f;
-            if (xb7Var != null && (arrayList = xb7Var.a) != null) {
+            fc7 fc7Var = this.f;
+            if (fc7Var != null && (arrayList = fc7Var.a) != null) {
                 arrayList.clear();
                 AtMessageFragment atMessageFragment = this.a;
                 if (atMessageFragment != null) {

@@ -11,7 +11,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LruDiskCache implements DiskCache {
     public static final int DEFAULT_BUFFER_SIZE = 32768;
     public static final Bitmap.CompressFormat DEFAULT_COMPRESS_FORMAT = Bitmap.CompressFormat.PNG;
@@ -144,7 +144,7 @@ public class LruDiskCache implements DiskCache {
 
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
     public boolean save(String str, Bitmap bitmap) {
-        a.C0386a by = this.cache.by(getKey(str));
+        a.C0601a by = this.cache.by(getKey(str));
         if (by == null) {
             return false;
         }
@@ -164,7 +164,7 @@ public class LruDiskCache implements DiskCache {
 
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
     public boolean save(String str, InputStream inputStream, IoUtils.CopyListener copyListener) {
-        a.C0386a by = this.cache.by(getKey(str));
+        a.C0601a by = this.cache.by(getKey(str));
         if (by == null) {
             return false;
         }

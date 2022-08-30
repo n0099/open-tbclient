@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FocusCircleView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,20 +31,20 @@ public class FocusCircleView extends View {
     public boolean e;
     public Bitmap f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FocusCircleView a;
 
         /* renamed from: com.baidu.tieba.view.widget.FocusCircleView$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C0261a implements Animator.AnimatorListener {
+        /* loaded from: classes6.dex */
+        public class C0427a implements Animator.AnimatorListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0261a(a aVar) {
+            public C0427a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -125,7 +125,7 @@ public class FocusCircleView extends View {
                     FocusCircleView focusCircleView = this.a;
                     focusCircleView.d = ObjectAnimator.ofFloat(focusCircleView, Key.ALPHA, 1.0f, 0.0f);
                     this.a.d.setDuration(960L);
-                    this.a.d.addListener(new C0261a(this));
+                    this.a.d.addListener(new C0427a(this));
                 }
                 this.a.d.start();
             }

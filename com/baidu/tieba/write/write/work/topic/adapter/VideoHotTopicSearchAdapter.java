@@ -10,6 +10,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.w57;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,25 +18,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o57;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
     public static /* synthetic */ Interceptable $ic;
     public static final int h;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String b;
-    public List<o57> c;
+    public List<w57> c;
     public LayoutInflater d;
     public TbPageContext e;
     public a f;
     public long g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
-        void a(o57 o57Var);
+        void a(w57 w57Var);
     }
 
     static {
@@ -76,7 +76,7 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
         this.d = LayoutInflater.from(tbPageContext.getPageActivity());
     }
 
-    public void d(String str, List<o57> list) {
+    public void d(String str, List<w57> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) {
             this.b = str;
@@ -132,17 +132,17 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        o57 o57Var;
+        w57 w57Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048583, this, viewHolder, i) == null) || (o57Var = (o57) ListUtils.getItem(this.c, i)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048583, this, viewHolder, i) == null) || (w57Var = (w57) ListUtils.getItem(this.c, i)) == null) {
             return;
         }
         if (viewHolder instanceof HotNormalViewHolder) {
             HotNormalViewHolder hotNormalViewHolder = (HotNormalViewHolder) viewHolder;
-            hotNormalViewHolder.b(hotNormalViewHolder, i, o57Var, this.e, this.b, this.f);
+            hotNormalViewHolder.b(hotNormalViewHolder, i, w57Var, this.e, this.b, this.f);
         } else if (viewHolder instanceof HotVideoViewHolder) {
             HotVideoViewHolder hotVideoViewHolder = (HotVideoViewHolder) viewHolder;
-            hotVideoViewHolder.a(hotVideoViewHolder, i, o57Var, this.e, this.g, this.f, this);
+            hotVideoViewHolder.a(hotVideoViewHolder, i, w57Var, this.e, this.g, this.f, this);
         }
     }
 
@@ -152,9 +152,9 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i)) == null) {
             if (i == 2) {
-                return new HotVideoViewHolder(this.d.inflate(R.layout.obfuscated_res_0x7f0d03b4, viewGroup, false));
+                return new HotVideoViewHolder(this.d.inflate(R.layout.obfuscated_res_0x7f0d03b5, viewGroup, false));
             }
-            return new HotNormalViewHolder(this.d.inflate(R.layout.obfuscated_res_0x7f0d03b3, viewGroup, false));
+            return new HotNormalViewHolder(this.d.inflate(R.layout.obfuscated_res_0x7f0d03b4, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }

@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LruMemoryCache implements MemoryCache {
     public final LinkedHashMap<String, DecodedResult> map;
     public final int maxSize;

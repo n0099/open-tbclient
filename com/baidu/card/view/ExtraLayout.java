@@ -12,13 +12,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ho4;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fo4;
-import com.repackage.pv4;
-import com.repackage.qi;
 /* loaded from: classes.dex */
 public class ExtraLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -88,26 +88,26 @@ public class ExtraLayout extends RelativeLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0192, (ViewGroup) this, true);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090955);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0193, (ViewGroup) this, true);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090956);
             this.b = textView;
-            textView.setCompoundDrawablePadding(qi.f(context, R.dimen.tbds10));
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090954);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090951);
+            textView.setCompoundDrawablePadding(ri.f(context, R.dimen.tbds10));
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090955);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090952);
             this.a = tBSpecificationBtn;
             tBSpecificationBtn.setOnClickListener(this.e);
-            pv4 pv4Var = new pv4();
-            pv4Var.r(R.color.CAM_X0302);
-            this.a.setConfig(pv4Var);
-            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f050b));
+            sv4 sv4Var = new sv4();
+            sv4Var.r(R.color.CAM_X0302);
+            this.a.setConfig(sv4Var);
+            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f050c));
         }
     }
 
-    public void setData(fo4 fo4Var) {
+    public void setData(ho4 ho4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fo4Var) == null) {
-            ThreadData threadData = fo4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ho4Var) == null) {
+            ThreadData threadData = ho4Var.getThreadData();
             boolean z2 = true;
             if (!TextUtils.isEmpty(threadData.extraText)) {
                 this.b.setVisibility(0);

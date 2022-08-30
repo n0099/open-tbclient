@@ -5,24 +5,24 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.sp7;
+import com.baidu.tieba.tp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kp7;
-import com.repackage.lp7;
 import com.tencent.open.SocialConstants;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kp7 mData;
+    public sp7 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetFaceGroupInfoResponseMessage(int i) {
@@ -56,40 +56,40 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public kp7 getData() {
+    public sp7 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (kp7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (sp7) invokeV.objValue;
     }
 
-    public kp7 parseData(JSONObject jSONObject) {
+    public sp7 parseData(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
             if (jSONObject == null) {
                 return null;
             }
-            kp7 kp7Var = new kp7();
+            sp7 sp7Var = new sp7();
             String optString = jSONObject.optString("id");
-            kp7Var.a = optString;
+            sp7Var.a = optString;
             if (TextUtils.isEmpty(optString)) {
                 return null;
             }
-            kp7Var.b = jSONObject.optString("name");
+            sp7Var.b = jSONObject.optString("name");
             jSONObject.optInt("type");
             jSONObject.optString("owner");
             jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
             jSONObject.optString("timestamp");
             jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-            kp7Var.c = jSONObject.optString("covername");
-            kp7Var.d = jSONObject.optString("url");
-            kp7Var.e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
-            return kp7Var;
+            sp7Var.c = jSONObject.optString("covername");
+            sp7Var.d = jSONObject.optString("url");
+            sp7Var.e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
+            return sp7Var;
         }
-        return (kp7) invokeL.objValue;
+        return (sp7) invokeL.objValue;
     }
 
-    public List<lp7> parsePicsData(JSONArray jSONArray) {
+    public List<tp7> parsePicsData(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
@@ -100,15 +100,15 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
-                    lp7 lp7Var = new lp7();
-                    lp7Var.b = jSONObject.optString("id");
+                    tp7 tp7Var = new tp7();
+                    tp7Var.b = jSONObject.optString("id");
                     jSONObject.optString("url");
                     jSONObject.optString("thumbnail");
-                    lp7Var.c = jSONObject.optString("name");
-                    lp7Var.d = jSONObject.optString("thumbname");
-                    lp7Var.f = jSONObject.optInt("width");
-                    lp7Var.e = jSONObject.optInt("height");
-                    arrayList.add(lp7Var);
+                    tp7Var.c = jSONObject.optString("name");
+                    tp7Var.d = jSONObject.optString("thumbname");
+                    tp7Var.f = jSONObject.optInt("width");
+                    tp7Var.e = jSONObject.optInt("height");
+                    arrayList.add(tp7Var);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

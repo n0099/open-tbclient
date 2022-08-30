@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.internal.api.SceneImpl;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class eu implements com.kwad.sdk.core.d<SceneImpl> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(SceneImpl sceneImpl, JSONObject jSONObject) {

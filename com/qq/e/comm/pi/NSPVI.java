@@ -7,7 +7,7 @@ import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.constants.LoadAdParams;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface NSPVI extends LADI {
     public static final Map<String, String> ext = new HashMap();
 

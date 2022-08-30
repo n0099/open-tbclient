@@ -20,6 +20,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tieba.ff9;
+import com.baidu.tieba.gf9;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -35,8 +37,6 @@ import com.coremedia.iso.boxes.TrackReferenceBox;
 import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
-import com.repackage.we9;
-import com.repackage.xe9;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -58,7 +58,7 @@ import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DefaultHandler2;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SVGParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public class SVGParser {
     public StringBuilder i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class SVGAttr {
         public static final /* synthetic */ SVGAttr[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -335,7 +335,7 @@ public class SVGParser {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class SVGElem {
         public static final /* synthetic */ SVGElem[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -476,7 +476,7 @@ public class SVGParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -983,7 +983,7 @@ public class SVGParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final Map<String, PreserveAspectRatio.Alignment> a;
@@ -1023,7 +1023,7 @@ public class SVGParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public static final Map<String, Integer> a;
@@ -1202,7 +1202,7 @@ public class SVGParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public static final Map<String, SVG.o> a;
@@ -1241,7 +1241,7 @@ public class SVGParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public static final Map<String, Integer> a;
@@ -1284,7 +1284,7 @@ public class SVGParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class f extends DefaultHandler2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1361,14 +1361,14 @@ public class SVGParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public int b;
         public int c;
-        public xe9 d;
+        public gf9 d;
 
         public g(String str) {
             Interceptable interceptable = $ic;
@@ -1387,7 +1387,7 @@ public class SVGParser {
             }
             this.b = 0;
             this.c = 0;
-            this.d = new xe9();
+            this.d = new gf9();
             String trim = str.trim();
             this.a = trim;
             this.c = trim.length();
@@ -1795,7 +1795,7 @@ public class SVGParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class h implements Attributes {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2594,7 +2594,7 @@ public class SVGParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
             if (str.charAt(0) == '#') {
-                we9 b2 = we9.b(str, 1, str.length());
+                ff9 b2 = ff9.b(str, 1, str.length());
                 if (b2 != null) {
                     int a2 = b2.a();
                     if (a2 == 4) {
@@ -2761,7 +2761,7 @@ public class SVGParser {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65562, null, str, i, i2)) == null) {
-            float b2 = new xe9().b(str, i, i2);
+            float b2 = new gf9().b(str, i, i2);
             if (Float.isNaN(b2)) {
                 throw new SVGParseException("Invalid float value: " + str);
             }

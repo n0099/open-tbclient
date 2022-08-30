@@ -16,7 +16,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class HashUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final Charset UTF8;

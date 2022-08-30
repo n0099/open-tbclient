@@ -6,15 +6,15 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tieba.af5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.te5;
 import tbclient.PbFloor.DataReq;
 import tbclient.PbFloor.PbFloorReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SubPbRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class SubPbRequestMessage extends NetMessage {
             builder.top_ugc_pid = this.oriUgcTopPid;
             builder.forum_id = Long.valueOf(this.forumId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                te5.a(builder, true);
+                af5.a(builder, true);
             }
             PbFloorReqIdl.Builder builder2 = new PbFloorReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -2,6 +2,8 @@ package com.badlogic.gdx.utils;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.j8;
+import com.baidu.tieba.q7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,8 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j8;
-import com.repackage.q7;
 import java.util.regex.Pattern;
 import kotlin.text.Typography;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */

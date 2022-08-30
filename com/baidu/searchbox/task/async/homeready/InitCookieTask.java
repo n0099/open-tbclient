@@ -3,12 +3,12 @@ package com.baidu.searchbox.task.async.homeready;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.km4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jm4;
 /* loaded from: classes2.dex */
 public class InitCookieTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -32,7 +32,7 @@ public class InitCookieTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            jm4.g(TbadkCoreApplication.getInst());
+            km4.g(TbadkCoreApplication.getInst());
         }
     }
 

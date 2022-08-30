@@ -3,6 +3,8 @@ package com.facebook.imagepipeline.core;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.h0;
+import com.baidu.tieba.i0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,15 +42,13 @@ import com.facebook.imagepipeline.producers.ThreadHandoffProducerQueue;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
-import com.repackage.h0;
-import com.repackage.i0;
 import java.util.Set;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicLong;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ImagePipeline {
     public static /* synthetic */ Interceptable $ic;
     public static final CancellationException PREFETCH_EXCEPTION;
@@ -71,7 +71,7 @@ public class ImagePipeline {
     public final ThreadHandoffProducerQueue mThreadHandoffProducerQueue;
 
     /* renamed from: com.facebook.imagepipeline.core.ImagePipeline$9  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass9 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$request$ImageRequest$CacheChoice;
         public static /* synthetic */ Interceptable $ic;
@@ -818,7 +818,7 @@ public class ImagePipeline {
         } : (Supplier) invokeLLLL.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: com.repackage.h0<java.lang.Boolean, com.repackage.i0<java.lang.Boolean>>, com.repackage.h0<java.lang.Boolean, com.repackage.i0<TContinuationResult>> */
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: com.baidu.tieba.h0<java.lang.Boolean, com.baidu.tieba.i0<java.lang.Boolean>>, com.baidu.tieba.h0<java.lang.Boolean, com.baidu.tieba.i0<TContinuationResult>> */
     public DataSource<Boolean> isInDiskCache(ImageRequest imageRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -852,7 +852,7 @@ public class ImagePipeline {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.repackage.h0
+                @Override // com.baidu.tieba.h0
                 public i0<Boolean> then(i0<Boolean> i0Var) throws Exception {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
@@ -890,7 +890,7 @@ public class ImagePipeline {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.repackage.h0
+                @Override // com.baidu.tieba.h0
                 public Void then(i0<Boolean> i0Var) throws Exception {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;

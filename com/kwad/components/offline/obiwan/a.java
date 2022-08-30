@@ -17,14 +17,14 @@ import com.kwad.components.offline.api.obiwan.IObiwanOfflineCompo;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.config.d;
 import com.kwad.sdk.core.response.model.SdkConfigData;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a extends com.kwad.components.core.offline.init.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.components.offline.obiwan.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class C0379a {
+    /* loaded from: classes7.dex */
+    public static final class C0594a {
         public static /* synthetic */ Interceptable $ic;
         public static final a Qh;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public final class a extends com.kwad.components.core.offline.init.a {
     public static a qw() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0379a.Qh : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0594a.Qh : (a) invokeV.objValue;
     }
 
     @Override // com.kwad.components.core.offline.init.a

@@ -10,8 +10,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
+import com.baidu.tieba.h67;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
+import com.baidu.tieba.n77;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.pn;
+import com.baidu.tieba.y9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,18 +24,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f77;
-import com.repackage.og;
-import com.repackage.on;
-import com.repackage.x9;
-import com.repackage.z57;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public abstract class ChatMessage extends TbSocketMessage implements x9, on {
+/* loaded from: classes4.dex */
+public abstract class ChatMessage extends TbSocketMessage implements y9, pn {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId TYPE_MSG_GROUP_ACTIVITY;
     public static final BdUniqueId TYPE_MSG_ICE_BREAK;
@@ -56,10 +56,10 @@ public abstract class ChatMessage extends TbSocketMessage implements x9, on {
     public String groupId;
     public boolean hasRead;
     public int height;
-    public List<f77> iceBreakEmotions;
+    public List<n77> iceBreakEmotions;
     public int isFriend;
     public boolean isUploading;
-    public WeakReference<z57> itemViewWeakReference;
+    public WeakReference<h67> itemViewWeakReference;
     public String link;
     public MsgLocalData localData;
     public long logTime;
@@ -253,7 +253,7 @@ public abstract class ChatMessage extends TbSocketMessage implements x9, on {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.height : invokeV.intValue;
     }
 
-    public List<f77> getIceBreakEmotions() {
+    public List<n77> getIceBreakEmotions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.iceBreakEmotions : (List) invokeV.objValue;
@@ -272,17 +272,17 @@ public abstract class ChatMessage extends TbSocketMessage implements x9, on {
     }
 
     @Nullable
-    public z57 getItemView() {
+    public h67 getItemView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            WeakReference<z57> weakReference = this.itemViewWeakReference;
+            WeakReference<h67> weakReference = this.itemViewWeakReference;
             if (weakReference == null) {
                 return null;
             }
             return weakReference.get();
         }
-        return (z57) invokeV.objValue;
+        return (h67) invokeV.objValue;
     }
 
     public String getLink() {
@@ -375,7 +375,7 @@ public abstract class ChatMessage extends TbSocketMessage implements x9, on {
                 try {
                     JSONArray jSONArray = new JSONArray(this.content);
                     if (jSONArray.length() > 0) {
-                        this.statisticsTaskId = og.g(jSONArray.optJSONObject(0).optString("task_id"), 0L);
+                        this.statisticsTaskId = pg.g(jSONArray.optJSONObject(0).optString("task_id"), 0L);
                     }
                 } catch (Exception unused) {
                 }
@@ -401,7 +401,7 @@ public abstract class ChatMessage extends TbSocketMessage implements x9, on {
                 try {
                     JSONArray jSONArray = new JSONArray(this.content);
                     if (jSONArray.length() > 0) {
-                        this.statisticsServiceId = og.g(jSONArray.optJSONObject(0).optString("service_id"), 0L);
+                        this.statisticsServiceId = pg.g(jSONArray.optJSONObject(0).optString("service_id"), 0L);
                     }
                 } catch (Exception unused) {
                 }
@@ -439,7 +439,7 @@ public abstract class ChatMessage extends TbSocketMessage implements x9, on {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.toUserInfo : (UserData) invokeV.objValue;
     }
 
-    @Override // com.repackage.on
+    @Override // com.baidu.tieba.pn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -510,7 +510,7 @@ public abstract class ChatMessage extends TbSocketMessage implements x9, on {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.mIsPushForOperateAccount : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.x9
+    @Override // com.baidu.tieba.y9
     public boolean onFindMessage(SocketMessage socketMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -600,7 +600,7 @@ public abstract class ChatMessage extends TbSocketMessage implements x9, on {
         }
     }
 
-    public void setIceBreakEmotions(List<f77> list) {
+    public void setIceBreakEmotions(List<n77> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, list) == null) {
             this.iceBreakEmotions = list;
@@ -628,24 +628,24 @@ public abstract class ChatMessage extends TbSocketMessage implements x9, on {
         }
     }
 
-    public void setItemView(@Nullable z57 z57Var) {
-        WeakReference<z57> weakReference;
+    public void setItemView(@Nullable h67 h67Var) {
+        WeakReference<h67> weakReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, z57Var) == null) {
-            if (z57Var == null && (weakReference = this.itemViewWeakReference) != null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, h67Var) == null) {
+            if (h67Var == null && (weakReference = this.itemViewWeakReference) != null) {
                 weakReference.clear();
                 this.itemViewWeakReference = null;
                 return;
             }
-            WeakReference<z57> weakReference2 = this.itemViewWeakReference;
+            WeakReference<h67> weakReference2 = this.itemViewWeakReference;
             if (weakReference2 != null) {
-                if (weakReference2.get() == z57Var) {
+                if (weakReference2.get() == h67Var) {
                     return;
                 }
                 this.itemViewWeakReference.clear();
                 this.itemViewWeakReference = null;
             }
-            this.itemViewWeakReference = new WeakReference<>(z57Var);
+            this.itemViewWeakReference = new WeakReference<>(h67Var);
         }
     }
 

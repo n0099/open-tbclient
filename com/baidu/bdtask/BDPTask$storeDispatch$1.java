@@ -1,12 +1,12 @@
 package com.baidu.bdtask;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.yq;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xq;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
@@ -14,17 +14,17 @@ import kotlin.jvm.internal.Lambda;
 /* loaded from: classes.dex */
 public final class BDPTask$storeDispatch$1 extends Lambda implements Function0<String> {
     public static /* synthetic */ Interceptable $ic;
-    public final /* synthetic */ xq $action;
+    public final /* synthetic */ yq $action;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$storeDispatch$1(xq xqVar) {
+    public BDPTask$storeDispatch$1(yq yqVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xqVar};
+            Object[] objArr = {yqVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,7 +35,7 @@ public final class BDPTask$storeDispatch$1 extends Lambda implements Function0<S
                 return;
             }
         }
-        this.$action = xqVar;
+        this.$action = yqVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

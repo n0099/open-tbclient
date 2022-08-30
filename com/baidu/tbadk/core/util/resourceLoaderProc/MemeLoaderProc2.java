@@ -12,23 +12,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
+import com.baidu.tieba.ac;
+import com.baidu.tieba.an;
+import com.baidu.tieba.jg;
+import com.baidu.tieba.mg;
+import com.baidu.tieba.o55;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.tn4;
+import com.baidu.tieba.ue5;
+import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i55;
-import com.repackage.ig;
-import com.repackage.lg;
-import com.repackage.ne5;
-import com.repackage.oi;
-import com.repackage.qi;
-import com.repackage.rn4;
-import com.repackage.vb;
-import com.repackage.zb;
-import com.repackage.zm;
 /* loaded from: classes3.dex */
-public class MemeLoaderProc2 implements lg<zm> {
+public class MemeLoaderProc2 implements mg<an> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isFromCDN;
@@ -57,42 +57,42 @@ public class MemeLoaderProc2 implements lg<zm> {
         return (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bitmap, i, i2)) == null) ? BitmapHelper.checkBitmapSize(bitmap, i, i2) : (Bitmap) invokeLII.objValue;
     }
 
-    public zm createImageFromDiskPicOperate(zb zbVar, String str, int i, int i2) {
+    public an createImageFromDiskPicOperate(ac acVar, String str, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zbVar, str, i, i2)) == null) {
-            if (zbVar == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, acVar, str, i, i2)) == null) {
+            if (acVar == null) {
                 return null;
             }
-            zbVar.formatData(zbVar.getData());
-            Bitmap checkBitmapSize = BitmapHelper.checkBitmapSize(zbVar.getBitmap(), i, i2);
-            if (checkBitmapSize == null && zbVar.c() == null) {
+            acVar.formatData(acVar.getData());
+            Bitmap checkBitmapSize = BitmapHelper.checkBitmapSize(acVar.getBitmap(), i, i2);
+            if (checkBitmapSize == null && acVar.c() == null) {
                 return null;
             }
-            return new zm(checkBitmapSize, zbVar.isGif(), str, zbVar.c());
+            return new an(checkBitmapSize, acVar.isGif(), str, acVar.c());
         }
-        return (zm) invokeLLII.objValue;
+        return (an) invokeLLII.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public zm m49decodeToResource(byte[] bArr, Object... objArr) {
+    public an m49decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bArr, objArr)) == null) {
             return null;
         }
-        return (zm) invokeLL.objValue;
+        return (an) invokeLL.objValue;
     }
 
-    @Override // com.repackage.lg
+    @Override // com.baidu.tieba.mg
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ImageLoadSpeedRecorder.sharedInstance().getAsyncTaskParallel() : (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // com.repackage.lg
+    @Override // com.baidu.tieba.mg
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -102,11 +102,11 @@ public class MemeLoaderProc2 implements lg<zm> {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.lg
+    @Override // com.baidu.tieba.mg
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? rn4.c().g() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? tn4.c().g() : invokeV.booleanValue;
     }
 
     public void setIsShare(boolean z) {
@@ -116,32 +116,32 @@ public class MemeLoaderProc2 implements lg<zm> {
         }
     }
 
-    public zm storeBitmap(String str, String str2, ig igVar, zm zmVar, Bitmap bitmap, boolean z, WebClient webClient, byte[] bArr, boolean z2) {
+    public an storeBitmap(String str, String str2, jg jgVar, an anVar, Bitmap bitmap, boolean z, WebClient webClient, byte[] bArr, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{str, str2, igVar, zmVar, bitmap, Boolean.valueOf(z), webClient, bArr, Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{str, str2, jgVar, anVar, bitmap, Boolean.valueOf(z), webClient, bArr, Boolean.valueOf(z2)})) == null) {
             if (bitmap != null || bArr != null) {
-                zmVar = new zm(bitmap, z, str2, bArr);
-                zmVar.y(z2);
+                anVar = new an(bitmap, z, str2, bArr);
+                anVar.y(z2);
                 if (z2) {
-                    zb zbVar = new zb("images", TbMd5.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
-                    zbVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-                    zbVar.setSubFolder(true);
-                    zbVar.setData(bArr);
-                    zbVar.setGif(z);
-                    zbVar.setSdCard(false);
-                    zbVar.setSavedCache(true);
-                    vb.f().a(zbVar);
-                    if (igVar != null) {
+                    ac acVar = new ac("images", TbMd5.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
+                    acVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+                    acVar.setSubFolder(true);
+                    acVar.setData(bArr);
+                    acVar.setGif(z);
+                    acVar.setSdCard(false);
+                    acVar.setSavedCache(true);
+                    wb.f().a(acVar);
+                    if (jgVar != null) {
                         DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
-                        diskCancelWorker.setOperate(zbVar);
-                        igVar.a = diskCancelWorker;
+                        diskCancelWorker.setOperate(acVar);
+                        jgVar.a = diskCancelWorker;
                     }
                 }
             }
-            return zmVar;
+            return anVar;
         }
-        return (zm) invokeCommon.objValue;
+        return (an) invokeCommon.objValue;
     }
 
     public void storeLocal(String str, byte[] bArr, Object... objArr) {
@@ -150,109 +150,109 @@ public class MemeLoaderProc2 implements lg<zm> {
         }
     }
 
-    @Override // com.repackage.lg
+    @Override // com.baidu.tieba.mg
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof zm)) {
-            zm zmVar = (zm) obj;
-            if (zmVar.u()) {
-                zmVar.A(i);
-                zmVar.z(i2);
-                i55.k().d(str, zmVar);
+        if ((interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof an)) {
+            an anVar = (an) obj;
+            if (anVar.u()) {
+                anVar.A(i);
+                anVar.z(i2);
+                o55.k().d(str, anVar);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.lg
-    public zm getFromLocal(String str, String str2, int i, int i2, ig igVar, Object... objArr) {
+    @Override // com.baidu.tieba.mg
+    public an getFromLocal(String str, String str2, int i, int i2, jg jgVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), igVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), jgVar, objArr})) == null) {
             byte[] bArr = new byte[0];
-            zb zbVar = new zb("images", TbMd5.getNameMd5FromUrl(str2), DiskFileOperate.Action.READ);
-            zbVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-            zbVar.setSubFolder(true);
-            zbVar.setIsFormatData(false);
-            zbVar.setSdCard(false);
-            zbVar.setSavedCache(true);
-            zbVar.setLock(bArr);
-            if (igVar != null) {
+            ac acVar = new ac("images", TbMd5.getNameMd5FromUrl(str2), DiskFileOperate.Action.READ);
+            acVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+            acVar.setSubFolder(true);
+            acVar.setIsFormatData(false);
+            acVar.setSdCard(false);
+            acVar.setSavedCache(true);
+            acVar.setLock(bArr);
+            if (jgVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
-                diskCancelWorker.setOperate(zbVar);
-                igVar.a = diskCancelWorker;
+                diskCancelWorker.setOperate(acVar);
+                jgVar.a = diskCancelWorker;
             }
-            if (vb.f().a(zbVar)) {
-                int i3 = oi.H() ? 300 : 2000;
+            if (wb.f().a(acVar)) {
+                int i3 = pi.H() ? 300 : 2000;
                 synchronized (bArr) {
                     try {
                         bArr.wait(i3);
                     } catch (InterruptedException unused) {
                     }
                 }
-                if (zbVar.isSuccess()) {
-                    return createImageFromDiskPicOperate(zbVar, str, i, i2);
+                if (acVar.isSuccess()) {
+                    return createImageFromDiskPicOperate(acVar, str, i, i2);
                 }
                 return null;
             }
             return null;
         }
-        return (zm) invokeCommon.objValue;
+        return (an) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.lg
-    public zm getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tieba.mg
+    public an getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            zm checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, i55.k().m(str), i, i2);
+            an checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, o55.k().m(str), i, i2);
             if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
                 return null;
             }
             return checkIsValidPicMemoryCache;
         }
-        return (zm) invokeCommon.objValue;
+        return (an) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.lg
-    public zm getFromRemote(String str, String str2, int i, int i2, ig igVar, Object... objArr) {
+    @Override // com.baidu.tieba.mg
+    public an getFromRemote(String str, String str2, int i, int i2, jg jgVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), igVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), jgVar, objArr})) == null) {
             String str3 = str;
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            int d = i == 0 ? qi.d(TbadkCoreApplication.getInst().getApp(), 105.0f) : i;
-            int d2 = i2 == 0 ? qi.d(TbadkCoreApplication.getInst().getApp(), 105.0f) : i2;
+            int d = i == 0 ? ri.d(TbadkCoreApplication.getInst().getApp(), 105.0f) : i;
+            int d2 = i2 == 0 ? ri.d(TbadkCoreApplication.getInst().getApp(), 105.0f) : i2;
             if (!this.isShare) {
-                ne5.e(this.isFromCDN, str, str);
-                Pair<Boolean, String> d3 = ne5.d(str);
+                ue5.e(this.isFromCDN, str, str);
+                Pair<Boolean, String> d3 = ue5.d(str);
                 if (((Boolean) d3.first).booleanValue()) {
                     str3 = (String) d3.second;
                 }
             } else {
-                ne5.g(MemeLoaderProc2.class.getSimpleName(), str);
+                ue5.g(MemeLoaderProc2.class.getSimpleName(), str);
             }
             String str4 = str3;
             WebClient webClient = new WebClient();
-            if (igVar != null) {
-                igVar.a = webClient;
+            if (jgVar != null) {
+                jgVar.a = webClient;
             }
             byte[] downloadImageBytes = webClient.downloadImageBytes(str4, !this.isFromCDN);
             boolean needCache = webClient.needCache();
             if (downloadImageBytes != null || webClient.getResponse().a) {
                 boolean z = false;
-                i55.k().i(TbConfig.getPbImageSize() + (downloadImageBytes != null ? downloadImageBytes.length : 0));
-                return storeBitmap(str4, str2, igVar, null, checkBitmapSize(BitmapHelper.Bytes2Bitmap(downloadImageBytes), d, d2), (webClient.isGif || qi.B(downloadImageBytes)) ? true : true, webClient, downloadImageBytes, needCache);
+                o55.k().i(TbConfig.getPbImageSize() + (downloadImageBytes != null ? downloadImageBytes.length : 0));
+                return storeBitmap(str4, str2, jgVar, null, checkBitmapSize(BitmapHelper.Bytes2Bitmap(downloadImageBytes), d, d2), (webClient.isGif || ri.B(downloadImageBytes)) ? true : true, webClient, downloadImageBytes, needCache);
             }
             return null;
         }
-        return (zm) invokeCommon.objValue;
+        return (an) invokeCommon.objValue;
     }
 }

@@ -10,7 +10,7 @@ import java.lang.reflect.Field;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class e implements Serializable, Comparable<e> {
     public static final char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     public static final e b = a(new byte[0]);

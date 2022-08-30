@@ -1,7 +1,7 @@
 package com.kwad.sdk;
 
 import com.kwad.sdk.components.DevelopMangerComponents;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static String qJ() {
         String str = "https://" + com.kwad.sdk.core.network.idc.a.tH().F("api", "open.e.kuaishou.com");

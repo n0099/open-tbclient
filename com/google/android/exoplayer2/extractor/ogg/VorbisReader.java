@@ -15,7 +15,7 @@ import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class VorbisReader extends StreamReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public final class VorbisReader extends StreamReader {
     public VorbisUtil.VorbisIdHeader vorbisIdHeader;
     public VorbisSetup vorbisSetup;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class VorbisSetup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

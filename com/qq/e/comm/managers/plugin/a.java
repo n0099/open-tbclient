@@ -3,7 +3,7 @@ package com.qq.e.comm.managers.plugin;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static Method a;

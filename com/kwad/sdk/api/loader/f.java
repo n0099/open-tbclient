@@ -27,7 +27,7 @@ import java.util.Map;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class f {
     public Map<String, String> Sm = new HashMap();
     public IKsAdSDK Sn;
@@ -35,7 +35,7 @@ public final class f {
     public String b;
     public int c;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(a.b bVar);
 
@@ -203,15 +203,15 @@ public final class f {
                         }
                         bVar.a = jSONObject.optLong(TiebaStatic.LogFields.RESULT);
                         bVar.b = jSONObject.optString("errorMsg");
-                        a.C0381a c0381a = new a.C0381a();
-                        bVar.Sg = c0381a;
+                        a.C0596a c0596a = new a.C0596a();
+                        bVar.Sg = c0596a;
                         JSONObject optJSONObject = jSONObject.optJSONObject("data");
                         if (optJSONObject != null) {
-                            c0381a.a = optJSONObject.optInt("dynamicType");
-                            c0381a.b = optJSONObject.optString("dynamicUrl");
-                            c0381a.c = optJSONObject.optString(PackageTable.MD5);
-                            c0381a.Se = optJSONObject.optLong("interval");
-                            c0381a.e = optJSONObject.optString(CommandMessage.SDK_VERSION);
+                            c0596a.a = optJSONObject.optInt("dynamicType");
+                            c0596a.b = optJSONObject.optString("dynamicUrl");
+                            c0596a.c = optJSONObject.optString(PackageTable.MD5);
+                            c0596a.Se = optJSONObject.optLong("interval");
+                            c0596a.e = optJSONObject.optString(CommandMessage.SDK_VERSION);
                         }
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {

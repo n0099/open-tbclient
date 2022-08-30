@@ -16,7 +16,7 @@ import com.kwad.components.ad.reward.k;
 import com.kwad.components.core.video.g;
 import com.kwad.components.core.video.h;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class d extends com.kwad.components.ad.reward.presenter.a implements View.OnClickListener, com.kwad.components.core.webview.b.d.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -190,15 +190,15 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.eI = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911c8);
-            this.eJ = (TextView) findViewById(R.id.obfuscated_res_0x7f0911ee);
+            this.eI = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911ca);
+            this.eJ = (TextView) findViewById(R.id.obfuscated_res_0x7f0911f0);
             if (TextUtils.isEmpty(com.kwad.components.ad.fullscreen.kwai.b.bD())) {
                 if (com.kwad.components.ad.fullscreen.kwai.b.bC() == 0) {
                     imageView = this.eI;
-                    i = R.drawable.obfuscated_res_0x7f080c2e;
+                    i = R.drawable.obfuscated_res_0x7f080c2f;
                 } else {
                     imageView = this.eI;
-                    i = R.drawable.obfuscated_res_0x7f080c8a;
+                    i = R.drawable.obfuscated_res_0x7f080c8b;
                 }
                 imageView.setImageResource(i);
                 this.eJ.setVisibility(8);

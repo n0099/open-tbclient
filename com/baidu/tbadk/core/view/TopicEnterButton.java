@@ -13,6 +13,9 @@ import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.data.RecommendTopicData;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,9 +23,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ms4;
-import com.repackage.pi;
-import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class TopicEnterButton extends AppCompatTextView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -45,9 +45,9 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        b = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-        c = qi.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
-        d = (((((qi.k(TbadkCoreApplication.getInst()) / 2) - qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - qi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - b) - c;
+        b = ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        c = ri.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        d = (((((ri.k(TbadkCoreApplication.getInst()) / 2) - ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - ri.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - b) - c;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -77,7 +77,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
             this.a = recommendTopicListData;
             if (recommendTopicListData != null) {
                 String topicName = recommendTopicListData.getTopicName();
-                if (pi.isEmpty(topicName)) {
+                if (qi.isEmpty(topicName)) {
                     setVisibility(8);
                     return;
                 }
@@ -105,7 +105,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ms4 d2 = ms4.d(this);
+            os4 d2 = os4.d(this);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0304);
@@ -113,7 +113,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
             d2.n(R.string.J_X01);
             d2.l(R.dimen.L_X02);
             d2.k(R.color.CAM_X0304);
-            Drawable maskDrawable = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0808a9, WebPManager.ResourceStateType.NORMAL_PRESS);
+            Drawable maskDrawable = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0808aa, WebPManager.ResourceStateType.NORMAL_PRESS);
             setCompoundDrawablePadding(b);
             if (maskDrawable != null) {
                 int i = c;
@@ -127,7 +127,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     public void onClick(View view2) {
         RecommendTopicData.RecommendTopicListData recommendTopicListData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || (recommendTopicListData = this.a) == null || pi.isEmpty(recommendTopicListData.getTopicName())) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || (recommendTopicListData = this.a) == null || qi.isEmpty(recommendTopicListData.getTopicName())) {
             return;
         }
         new HotTopicActivityConfig(view2.getContext()).createNormalConfig(null, this.a.getTopicName(), "2").start();

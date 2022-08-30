@@ -32,40 +32,40 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.editortools.pb.DataModel;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ax7;
+import com.baidu.tieba.bb;
+import com.baidu.tieba.d25;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.gc8;
+import com.baidu.tieba.ij8;
+import com.baidu.tieba.il8;
+import com.baidu.tieba.iq4;
+import com.baidu.tieba.iu4;
+import com.baidu.tieba.j15;
+import com.baidu.tieba.jx7;
+import com.baidu.tieba.mt7;
 import com.baidu.tieba.pb.PbPageRequestMessage;
 import com.baidu.tieba.pb.pb.main.PbPageReadLocalRequestMessage;
 import com.baidu.tieba.pb.pb.main.pbPageHttpResponseMessage;
 import com.baidu.tieba.pb.pb.main.pbPageSocketResponseMessage;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.pl8;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
 import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tieba.tu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab;
-import com.repackage.aj8;
-import com.repackage.al8;
-import com.repackage.bx7;
-import com.repackage.d15;
-import com.repackage.d9;
-import com.repackage.et7;
-import com.repackage.gq4;
-import com.repackage.gu4;
-import com.repackage.hl8;
-import com.repackage.og;
-import com.repackage.oi;
-import com.repackage.pi;
-import com.repackage.qi;
-import com.repackage.rg;
-import com.repackage.ru4;
-import com.repackage.sw7;
-import com.repackage.x15;
-import com.repackage.yb8;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import tbclient.PbPage.PbSortType;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PbDanmuModel extends DataModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DB_KEY_HOST = "_host";
@@ -88,7 +88,7 @@ public class PbDanmuModel extends DataModel {
     public boolean A0;
     public String B;
     public String B0;
-    public et7 C;
+    public mt7 C;
     public String C0;
     public int D;
     public String D0;
@@ -99,7 +99,7 @@ public class PbDanmuModel extends DataModel {
     public boolean G;
     public CustomMessageListener G0;
     public boolean H;
-    public ab H0;
+    public bb H0;
     public String I;
     public CustomMessageListener I0;
     public g J;
@@ -112,7 +112,7 @@ public class PbDanmuModel extends DataModel {
     public int O;
     public int P;
     public boolean Q;
-    public hl8 R;
+    public pl8 R;
     public TbPageContext<BaseFragmentActivity> S;
     public boolean T;
     public boolean U;
@@ -128,7 +128,7 @@ public class PbDanmuModel extends DataModel {
     public String c;
     public boolean c0;
     public String d;
-    public final sw7 d0;
+    public final ax7 d0;
     public String e;
     public boolean e0;
     public boolean f;
@@ -152,7 +152,7 @@ public class PbDanmuModel extends DataModel {
     public int q;
     public boolean q0;
     public int r;
-    public al8 r0;
+    public il8 r0;
     public boolean s;
     public String s0;
     public boolean t;
@@ -170,7 +170,7 @@ public class PbDanmuModel extends DataModel {
     public long z;
     public boolean z0;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements BdUniDispatchSchemeController.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -210,7 +210,7 @@ public class PbDanmuModel extends DataModel {
                 this.a.t0 = (String) hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_TID);
             }
             if (hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE) instanceof String) {
-                this.a.u0 = og.e((String) hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE), 0);
+                this.a.u0 = pg.e((String) hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE), 0);
             }
             if (hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_VID) instanceof String) {
                 this.a.v0 = (String) hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_VID);
@@ -218,7 +218,7 @@ public class PbDanmuModel extends DataModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -260,8 +260,8 @@ public class PbDanmuModel extends DataModel {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c extends ab {
+    /* loaded from: classes6.dex */
+    public class c extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbDanmuModel a;
@@ -288,14 +288,14 @@ public class PbDanmuModel extends DataModel {
             this.a = pbDanmuModel;
         }
 
-        @Override // com.repackage.ab
+        @Override // com.baidu.tieba.bb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 boolean z2 = responsedMessage instanceof pbPageSocketResponseMessage;
                 if ((z2 || (responsedMessage instanceof pbPageHttpResponseMessage)) && responsedMessage.getOrginalMessage().getTag() == this.a.getUniqueId()) {
-                    if (responsedMessage.hasError() && oi.z()) {
+                    if (responsedMessage.hasError() && pi.z()) {
                         this.a.S.showToast(responsedMessage.getErrorString());
                     }
                     if (z2) {
@@ -321,7 +321,7 @@ public class PbDanmuModel extends DataModel {
                         objArr[3] = pbPageRequestMessage != null ? String.valueOf(pbPageRequestMessage.get_kz()) : null;
                         objArr[4] = "seq_id";
                         objArr[5] = Long.valueOf(j);
-                        gu4.a("pb", clientLogID, cmd, "resp", error, errorString, objArr);
+                        iu4.a("pb", clientLogID, cmd, "resp", error, errorString, objArr);
                     }
                     if (this.a.T && this.a.U) {
                         return;
@@ -339,7 +339,7 @@ public class PbDanmuModel extends DataModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -372,8 +372,8 @@ public class PbDanmuModel extends DataModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                 String valueOf = String.valueOf(customResponsedMessage.getData());
-                et7 et7Var = this.a.C;
-                if (et7Var == null || et7Var.h() == null || this.a.C.h().d() == null || !this.a.C.h().d().equals(valueOf)) {
+                mt7 mt7Var = this.a.C;
+                if (mt7Var == null || mt7Var.h() == null || this.a.C.h().d() == null || !this.a.C.h().d().equals(valueOf)) {
                     return;
                 }
                 this.a.C.h().setIsLike(false);
@@ -381,7 +381,7 @@ public class PbDanmuModel extends DataModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -414,8 +414,8 @@ public class PbDanmuModel extends DataModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                 String valueOf = String.valueOf(customResponsedMessage.getData());
-                et7 et7Var = this.a.C;
-                if (et7Var == null || et7Var.h() == null || this.a.C.h().d() == null || !this.a.C.h().d().equals(valueOf)) {
+                mt7 mt7Var = this.a.C;
+                if (mt7Var == null || mt7Var.h() == null || this.a.C.h().d() == null || !this.a.C.h().d().equals(valueOf)) {
                     return;
                 }
                 this.a.C.h().setIsLike(true);
@@ -423,19 +423,19 @@ public class PbDanmuModel extends DataModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ et7 a;
+        public final /* synthetic */ mt7 a;
         public final /* synthetic */ PbDanmuModel b;
 
-        public f(PbDanmuModel pbDanmuModel, et7 et7Var) {
+        public f(PbDanmuModel pbDanmuModel, mt7 mt7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pbDanmuModel, et7Var};
+                Object[] objArr = {pbDanmuModel, mt7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -446,7 +446,7 @@ public class PbDanmuModel extends DataModel {
                 }
             }
             this.b = pbDanmuModel;
-            this.a = et7Var;
+            this.a = mt7Var;
         }
 
         @Override // java.lang.Runnable
@@ -459,13 +459,13 @@ public class PbDanmuModel extends DataModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface g {
         void a(int i, boolean z, ResponsedMessage<?> responsedMessage, boolean z2, long j);
 
-        void b(et7 et7Var);
+        void b(mt7 mt7Var);
 
-        void c(boolean z, int i, int i2, int i3, et7 et7Var, String str, int i4);
+        void c(boolean z, int i, int i2, int i3, mt7 mt7Var, String str, int i4);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -546,11 +546,11 @@ public class PbDanmuModel extends DataModel {
         registerListener(this.G0);
         registerListener(this.J0);
         registerListener(this.I0);
-        et7 et7Var = new et7();
-        this.C = et7Var;
-        et7Var.B0(0);
+        mt7 mt7Var = new mt7();
+        this.C = mt7Var;
+        mt7Var.B0(0);
         this.S = tbPageContext;
-        this.d0 = new sw7();
+        this.d0 = new ax7();
         this.F0 = new a(this);
     }
 
@@ -590,9 +590,9 @@ public class PbDanmuModel extends DataModel {
     }
 
     public void C0() {
-        et7 et7Var;
+        mt7 mt7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (et7Var = this.C) == null || ListUtils.isEmpty(et7Var.F())) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (mt7Var = this.C) == null || ListUtils.isEmpty(mt7Var.F())) {
             return;
         }
         if (this.i0 != null) {
@@ -642,20 +642,20 @@ public class PbDanmuModel extends DataModel {
             }
             this.isLoading = true;
             t0(i);
-            et7 f2 = bx7.b().f();
+            mt7 f2 = jx7.b().f();
             if (f2 != null && f2.O() != null && StringHelper.equals(f2.Q(), this.b)) {
                 f2.O().setCopyThreadRemindType(0);
-                this.i = bx7.b().i();
-                this.g = bx7.b().a();
-                this.h0 = bx7.b().g();
-                this.i0 = bx7.b().h();
-                this.j0 = bx7.b().d();
+                this.i = jx7.b().i();
+                this.g = jx7.b().a();
+                this.h0 = jx7.b().g();
+                this.i0 = jx7.b().h();
+                this.j0 = jx7.b().d();
                 boolean z2 = this.g;
                 this.e0 = z2;
                 if (z2 || this.w) {
                     this.Q = false;
                 }
-                rg.a().post(new f(this, f2));
+                sg.a().post(new f(this, f2));
                 return false;
             }
             if (i == 4 && !this.X) {
@@ -672,7 +672,7 @@ public class PbDanmuModel extends DataModel {
             PbPageRequestMessage pbPageRequestMessage = new PbPageRequestMessage();
             pbPageRequestMessage.setUpdateType(i);
             pbPageRequestMessage.setIsReqAd(this.r0 == null ? 1 : 0);
-            pbPageRequestMessage.setLastids(x15.l);
+            pbPageRequestMessage.setLastids(d25.l);
             if (this.g || this.w) {
                 this.Q = false;
             }
@@ -681,13 +681,13 @@ public class PbDanmuModel extends DataModel {
                 BdLog.e(e2.getMessage());
             }
             if (this.b != null && this.b.length() != 0) {
-                pbPageRequestMessage.set_kz(og.g(this.b, 0L));
+                pbPageRequestMessage.set_kz(pg.g(this.b, 0L));
                 pbPageRequestMessage.setFloorSortType(1);
                 pbPageRequestMessage.setFloor_rn(this.a);
                 pbPageRequestMessage.set_rn(15);
                 pbPageRequestMessage.set_with_floor(1);
-                pbPageRequestMessage.set_scr_w(Integer.valueOf(qi.k(TbadkCoreApplication.getInst().getApp())));
-                pbPageRequestMessage.set_scr_h(Integer.valueOf(qi.i(TbadkCoreApplication.getInst().getApp())));
+                pbPageRequestMessage.set_scr_w(Integer.valueOf(ri.k(TbadkCoreApplication.getInst().getApp())));
+                pbPageRequestMessage.set_scr_h(Integer.valueOf(ri.i(TbadkCoreApplication.getInst().getApp())));
                 pbPageRequestMessage.set_scr_dip(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
                 pbPageRequestMessage.set_q_type(Integer.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1));
                 pbPageRequestMessage.setSchemeUrl(this.w0);
@@ -714,7 +714,7 @@ public class PbDanmuModel extends DataModel {
                 if (this.K != null) {
                     pbPageRequestMessage.setOpType(this.K);
                     pbPageRequestMessage.setOpUrl(this.L);
-                    pbPageRequestMessage.setOpStat(og.e(this.M, 0));
+                    pbPageRequestMessage.setOpStat(pg.e(this.M, 0));
                     pbPageRequestMessage.setOpMessageID(this.z);
                 }
                 pbPageRequestMessage.set_thread_type(Integer.valueOf(this.E));
@@ -753,7 +753,7 @@ public class PbDanmuModel extends DataModel {
                                     }
                                 }
                                 if (this.c == null && this.c.length() > 0) {
-                                    pbPageRequestMessage.set_pid(og.g(this.c, 0L));
+                                    pbPageRequestMessage.set_pid(pg.g(this.c, 0L));
                                     if (this.j == 2) {
                                         pbPageRequestMessage.set_pid(0L);
                                     }
@@ -799,7 +799,7 @@ public class PbDanmuModel extends DataModel {
                             }
                         }
                         if (this.c != null && this.c.length() > 0) {
-                            pbPageRequestMessage.set_pid(og.g(this.c, 0L));
+                            pbPageRequestMessage.set_pid(pg.g(this.c, 0L));
                             if (this.j == 2) {
                                 pbPageRequestMessage.set_pid(0L);
                             }
@@ -835,7 +835,7 @@ public class PbDanmuModel extends DataModel {
                     case 4:
                         pbPageRequestMessage.set_st_type("store_thread");
                         pbPageRequestMessage.set_mark(1);
-                        pbPageRequestMessage.set_pid(og.g(this.c, 0L));
+                        pbPageRequestMessage.set_pid(pg.g(this.c, 0L));
                         pbPageRequestMessage.set_back(0);
                         pbPageRequestMessage.set_banner(0);
                         G0(pbPageRequestMessage);
@@ -851,7 +851,7 @@ public class PbDanmuModel extends DataModel {
                         if (this.j == 1 && this.e0 && !this.g) {
                             pbPageRequestMessage.set_pid(0L);
                         } else {
-                            pbPageRequestMessage.set_pid(og.g(this.c, 0L));
+                            pbPageRequestMessage.set_pid(pg.g(this.c, 0L));
                             if (this.j == 2) {
                                 pbPageRequestMessage.set_pid(0L);
                             }
@@ -871,7 +871,7 @@ public class PbDanmuModel extends DataModel {
                         G0(pbPageRequestMessage);
                         break;
                     case 8:
-                        pbPageRequestMessage.set_pid(og.g(this.g0, 0L));
+                        pbPageRequestMessage.set_pid(pg.g(this.g0, 0L));
                         if (this.j == 1) {
                             pbPageRequestMessage.set_arround(1);
                             pbPageRequestMessage.set_back(1);
@@ -991,8 +991,8 @@ public class PbDanmuModel extends DataModel {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            et7 et7Var = this.C;
-            if (et7Var == null || et7Var.O() == null || this.C.l() == null) {
+            mt7 mt7Var = this.C;
+            if (mt7Var == null || mt7Var.O() == null || this.C.l() == null) {
                 return null;
             }
             WriteData writeData = new WriteData();
@@ -1021,11 +1021,11 @@ public class PbDanmuModel extends DataModel {
 
     public final void G0(PbPageRequestMessage pbPageRequestMessage) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, pbPageRequestMessage) == null) || TextUtils.isEmpty(e0()) || yb8.l().b() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, pbPageRequestMessage) == null) || TextUtils.isEmpty(e0()) || gc8.l().b() == null) {
             return;
         }
-        pbPageRequestMessage.setLoadCount(yb8.l().b().e(e0(), true) + 1);
-        pbPageRequestMessage.setRefreshCount(yb8.l().b().d(e0(), true));
+        pbPageRequestMessage.setLoadCount(gc8.l().b().e(e0(), true) + 1);
+        pbPageRequestMessage.setRefreshCount(gc8.l().b().d(e0(), true));
     }
 
     public void H0(g gVar) {
@@ -1044,11 +1044,11 @@ public class PbDanmuModel extends DataModel {
 
     public final void I0(PbPageRequestMessage pbPageRequestMessage) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, pbPageRequestMessage) == null) || TextUtils.isEmpty(e0()) || yb8.l().b() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, pbPageRequestMessage) == null) || TextUtils.isEmpty(e0()) || gc8.l().b() == null) {
             return;
         }
-        pbPageRequestMessage.setRefreshCount(yb8.l().b().d(e0(), true) + 1);
-        pbPageRequestMessage.setLoadCount(yb8.l().b().e(e0(), true));
+        pbPageRequestMessage.setRefreshCount(gc8.l().b().d(e0(), true) + 1);
+        pbPageRequestMessage.setLoadCount(gc8.l().b().e(e0(), true));
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
@@ -1078,14 +1078,14 @@ public class PbDanmuModel extends DataModel {
         return invokeV.booleanValue;
     }
 
-    public et7 K0(et7 et7Var) {
+    public mt7 K0(mt7 mt7Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, et7Var)) == null) {
-            if (et7Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, mt7Var)) == null) {
+            if (mt7Var == null) {
                 return null;
             }
-            ThreadData O = et7Var.O();
+            ThreadData O = mt7Var.O();
             O.setIs_good(this.l);
             O.setIs_top(this.m);
             long j = this.n;
@@ -1093,81 +1093,81 @@ public class PbDanmuModel extends DataModel {
                 O.setLast_time_int(j);
             }
             a0(O);
-            return et7Var;
+            return mt7Var;
         }
-        return (et7) invokeL.objValue;
+        return (mt7) invokeL.objValue;
     }
 
-    public final void L0(@NonNull et7 et7Var) {
-        et7 et7Var2;
+    public final void L0(@NonNull mt7 mt7Var) {
+        mt7 mt7Var2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, et7Var) == null) || (et7Var2 = this.C) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048596, this, mt7Var) == null) || (mt7Var2 = this.C) == null) {
             return;
         }
-        et7Var2.e().clear();
-        this.C.e().addAll(et7Var.e());
+        mt7Var2.e().clear();
+        this.C.e().addAll(mt7Var.e());
     }
 
-    public void M0(et7 et7Var, ArrayList<PostData> arrayList) {
+    public void M0(mt7 mt7Var, ArrayList<PostData> arrayList) {
         String h0;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048597, this, et7Var, arrayList) == null) || arrayList == null || et7Var.F() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048597, this, mt7Var, arrayList) == null) || arrayList == null || mt7Var.F() == null) {
             return;
         }
-        PostData postData = (PostData) ListUtils.getItem(et7Var.F(), 0);
+        PostData postData = (PostData) ListUtils.getItem(mt7Var.F(), 0);
         if (postData != null && (h0 = h0(arrayList)) != null && h0.equals(postData.K())) {
-            et7Var.F().remove(postData);
+            mt7Var.F().remove(postData);
         }
         this.C.a0 = arrayList.size();
-        arrayList.addAll(et7Var.F());
+        arrayList.addAll(mt7Var.F());
     }
 
-    public void N0(et7 et7Var) {
+    public void N0(mt7 mt7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, et7Var) == null) || et7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, mt7Var) == null) || mt7Var == null) {
             return;
         }
-        et7Var.Q0(this.C.Y());
-        et7 et7Var2 = this.C;
-        if (!et7Var2.Y && et7Var.Y && et7Var2.i() != null) {
-            et7Var.E0(this.C.i());
+        mt7Var.Q0(this.C.Y());
+        mt7 mt7Var2 = this.C;
+        if (!mt7Var2.Y && mt7Var.Y && mt7Var2.i() != null) {
+            mt7Var.E0(this.C.i());
         }
-        this.C = et7Var;
-        B0(et7Var.y().a());
+        this.C = mt7Var;
+        B0(mt7Var.y().a());
     }
 
-    public void X(gq4 gq4Var) {
+    public void X(iq4 iq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, gq4Var) == null) {
-            if (gq4Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, iq4Var) == null) {
+            if (iq4Var == null) {
                 B0(1);
                 return;
             }
-            if (this.p < gq4Var.a()) {
-                this.p = gq4Var.a();
+            if (this.p < iq4Var.a()) {
+                this.p = iq4Var.a();
             }
-            if (this.q > gq4Var.a()) {
-                this.q = gq4Var.a();
+            if (this.q > iq4Var.a()) {
+                this.q = iq4Var.a();
             }
-            this.r = gq4Var.h();
+            this.r = iq4Var.h();
         }
     }
 
-    public final void Y(et7 et7Var) {
+    public final void Y(mt7 mt7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048600, this, et7Var) == null) || et7Var == null || et7Var.z() == null || et7Var.z().getAdvertAppInfo() == null || !et7Var.z().m1() || et7Var.z().getAdvertAppInfo().c == 1001) {
+        if (!(interceptable == null || interceptable.invokeL(1048600, this, mt7Var) == null) || mt7Var == null || mt7Var.z() == null || mt7Var.z().getAdvertAppInfo() == null || !mt7Var.z().m1() || mt7Var.z().getAdvertAppInfo().c == 1001) {
             return;
         }
-        this.r0 = et7Var.z();
+        this.r0 = mt7Var.z();
     }
 
-    public void Z(et7 et7Var) {
+    public void Z(mt7 mt7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048601, this, et7Var) == null) || et7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048601, this, mt7Var) == null) || mt7Var == null) {
             return;
         }
         if (this.H || this.F || this.G) {
-            K0(et7Var);
+            K0(mt7Var);
         }
     }
 
@@ -1235,7 +1235,7 @@ public class PbDanmuModel extends DataModel {
             ArrayList<PostData> F = k0().F();
             for (int size = F.size() - 1; size >= 0; size--) {
                 PostData postData = F.get(size);
-                if (!(postData instanceof al8)) {
+                if (!(postData instanceof il8)) {
                     i++;
                 } else if (postData.getType() != AdvertAppInfo.x) {
                     return i;
@@ -1382,14 +1382,14 @@ public class PbDanmuModel extends DataModel {
                     this.t0 = uri.getQueryParameter("key_ori_ugc_tid");
                 }
                 if (this.u0 == 0) {
-                    this.u0 = og.e(uri.getQueryParameter("key_ori_ugc_type"), 0);
+                    this.u0 = pg.e(uri.getQueryParameter("key_ori_ugc_type"), 0);
                 }
                 if (StringUtils.isNull(this.v0)) {
                     this.v0 = uri.getQueryParameter("key_ori_ugc_vid");
                 }
             }
         }
-        if (pi.isEmpty(this.b)) {
+        if (qi.isEmpty(this.b)) {
             this.b = "0";
         }
         int intExtra = intent.getIntExtra("key_start_from", 0);
@@ -1406,7 +1406,7 @@ public class PbDanmuModel extends DataModel {
         int intExtra2 = intent.getIntExtra("sort_type", -1);
         this.j = intExtra2;
         if (intExtra2 < 0) {
-            intExtra2 = ru4.k().l("key_pb_current_sort_type", 2);
+            intExtra2 = tu4.k().l("key_pb_current_sort_type", 2);
         }
         this.j = intExtra2;
         this.c = intExtra2 != 2 ? this.c : "0";
@@ -1451,10 +1451,10 @@ public class PbDanmuModel extends DataModel {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.f0 : invokeV.intValue;
     }
 
-    public et7 k0() {
+    public mt7 k0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.C : (et7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.C : (mt7) invokeV.objValue;
     }
 
     public int l0() {
@@ -1476,9 +1476,9 @@ public class PbDanmuModel extends DataModel {
             }
             cancelLoadData();
             if (this.R == null) {
-                hl8 hl8Var = new hl8("pbStat");
-                this.R = hl8Var;
-                hl8Var.f();
+                pl8 pl8Var = new pl8("pbStat");
+                this.R = pl8Var;
+                pl8Var.f();
             }
             boolean D0 = D0(3);
             if (this.K != null) {
@@ -1521,13 +1521,13 @@ public class PbDanmuModel extends DataModel {
 
     public boolean q0(boolean z) {
         InterceptResult invokeZ;
-        et7 et7Var;
+        mt7 mt7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048623, this, z)) == null) {
-            if (this.b == null || (et7Var = this.C) == null) {
+            if (this.b == null || (mt7Var = this.C) == null) {
                 return false;
             }
-            if (z || et7Var.y().b() != 0) {
+            if (z || mt7Var.y().b() != 0) {
                 return D0(1);
             }
             return false;
@@ -1551,23 +1551,23 @@ public class PbDanmuModel extends DataModel {
         return invokeV.booleanValue;
     }
 
-    public void s0(et7 et7Var, int i, String str) {
+    public void s0(mt7 mt7Var, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048625, this, et7Var, i, str) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048625, this, mt7Var, i, str) == null) {
             this.X = true;
-            if (et7Var == null || et7Var.h != null) {
+            if (mt7Var == null || mt7Var.h != null) {
                 return;
             }
-            N0(et7Var);
-            Z(et7Var);
-            if (et7Var.O() != null) {
-                et7Var.O().setCopyThreadRemindType(0);
+            N0(mt7Var);
+            Z(mt7Var);
+            if (mt7Var.O() != null) {
+                mt7Var.O().setCopyThreadRemindType(0);
             }
             g gVar = this.J;
-            if (gVar == null || et7Var == null) {
+            if (gVar == null || mt7Var == null) {
                 return;
             }
-            gVar.c(true, 0, i, 0, et7Var, str, 0);
+            gVar.c(true, 0, i, 0, mt7Var, str, 0);
         }
     }
 
@@ -1580,7 +1580,7 @@ public class PbDanmuModel extends DataModel {
             this.W = false;
             if (i != 1) {
                 if (i == 2) {
-                    while (F.size() + 30 > d15.a()) {
+                    while (F.size() + 30 > j15.a()) {
                         F.remove(F.size() - 1);
                         z = true;
                     }
@@ -1593,7 +1593,7 @@ public class PbDanmuModel extends DataModel {
                 return;
             }
             boolean z2 = false;
-            while (F.size() + 30 > d15.a()) {
+            while (F.size() + 30 > j15.a()) {
                 F.remove(0);
                 z2 = true;
             }
@@ -1623,69 +1623,69 @@ public class PbDanmuModel extends DataModel {
         }
     }
 
-    public void w0(et7 et7Var, int i, boolean z, int i2, String str, boolean z2, int i3, long j, long j2) {
+    public void w0(mt7 mt7Var, int i, boolean z, int i2, String str, boolean z2, int i3, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{et7Var, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), str, Boolean.valueOf(z2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            et7 et7Var2 = z ? null : et7Var;
+        if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{mt7Var, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), str, Boolean.valueOf(z2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            mt7 mt7Var2 = z ? null : mt7Var;
             this.isLoading = false;
-            if (et7Var2 != null) {
-                Z(et7Var2);
+            if (mt7Var2 != null) {
+                Z(mt7Var2);
             }
-            Y(et7Var2);
-            al8 al8Var = this.r0;
-            if (al8Var != null && al8Var.m1()) {
-                TiebaStatic.log(aj8.e("a005", "common_fill", true, 1));
+            Y(mt7Var2);
+            il8 il8Var = this.r0;
+            if (il8Var != null && il8Var.m1()) {
+                TiebaStatic.log(ij8.e("a005", "common_fill", true, 1));
             }
-            x0(et7Var2, i, z, i2, str, z2, i3, j, j2, false);
+            x0(mt7Var2, i, z, i2, str, z2, i3, j, j2, false);
         }
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public void x0(et7 et7Var, int i, boolean z, int i2, String str, boolean z2, int i3, long j, long j2, boolean z3) {
+    public void x0(mt7 mt7Var, int i, boolean z, int i2, String str, boolean z2, int i3, long j, long j2, boolean z3) {
         int i4;
         int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048630, this, new Object[]{et7Var, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), str, Boolean.valueOf(z2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048630, this, new Object[]{mt7Var, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), str, Boolean.valueOf(z2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z3)}) == null) {
             boolean z4 = !z;
             this.b0 = z3;
-            hl8 hl8Var = this.R;
-            if (hl8Var != null && !z3) {
-                hl8Var.b(z2, z4, i2, str, i3, j, j2);
+            pl8 pl8Var = this.R;
+            if (pl8Var != null && !z3) {
+                pl8Var.b(z2, z4, i2, str, i3, j, j2);
                 this.R = null;
             }
-            et7 et7Var2 = this.C;
-            if (et7Var2 != null) {
-                et7Var2.b0 = z3;
-                et7Var2.c0 = i;
+            mt7 mt7Var2 = this.C;
+            if (mt7Var2 != null) {
+                mt7Var2.b0 = z3;
+                mt7Var2.c0 = i;
             }
-            if (z4 && !z3 && !TextUtils.isEmpty(e0()) && yb8.l().b() != null) {
-                yb8.l().b().g(e0(), A0(m0()), true);
+            if (z4 && !z3 && !TextUtils.isEmpty(e0()) && gc8.l().b() != null) {
+                gc8.l().b().g(e0(), A0(m0()), true);
             }
-            if (et7Var != null && (this.o != 1 || i != 5 || et7Var.F() == null || et7Var.F().size() >= 1)) {
+            if (mt7Var != null && (this.o != 1 || i != 5 || mt7Var.F() == null || mt7Var.F().size() >= 1)) {
                 this.h = this.i;
                 if (i != 8) {
                     this.k = this.j;
-                    this.j = et7Var.g;
+                    this.j = mt7Var.g;
                 }
-                List<PbSortType> list = et7Var.f;
+                List<PbSortType> list = mt7Var.f;
                 if (list != null && list.isEmpty()) {
                     PbSortType.Builder builder = new PbSortType.Builder();
-                    builder.sort_name = this.S.getResources().getString(R.string.obfuscated_res_0x7f0f049b);
+                    builder.sort_name = this.S.getResources().getString(R.string.obfuscated_res_0x7f0f049c);
                     builder.sort_type = 0;
                     ArrayList arrayList = new ArrayList();
-                    et7Var.f = arrayList;
+                    mt7Var.f = arrayList;
                     arrayList.add(builder.build(false));
                     PbSortType.Builder builder2 = new PbSortType.Builder();
-                    builder2.sort_name = this.S.getResources().getString(R.string.obfuscated_res_0x7f0f1549);
+                    builder2.sort_name = this.S.getResources().getString(R.string.obfuscated_res_0x7f0f154c);
                     builder2.sort_type = 1;
-                    et7Var.f.add(builder2.build(false));
+                    mt7Var.f.add(builder2.build(false));
                     int i6 = this.k;
                     this.j = i6;
-                    et7Var.g = i6;
+                    mt7Var.g = i6;
                 }
                 this.A = false;
-                if (et7Var.y() != null && (this.j != 2 || i != 8)) {
-                    X(et7Var.y());
+                if (mt7Var.y() != null && (this.j != 2 || i != 8)) {
+                    X(mt7Var.y());
                 }
                 int i7 = this.r;
                 if (i7 < 1) {
@@ -1695,59 +1695,59 @@ public class PbDanmuModel extends DataModel {
                 ArrayList<PostData> F = this.C.F();
                 switch (i) {
                     case 1:
-                        this.C.I0(et7Var.y(), 1);
-                        M0(et7Var, F);
-                        L0(et7Var);
+                        this.C.I0(mt7Var.y(), 1);
+                        M0(mt7Var, F);
+                        L0(mt7Var);
                         i4 = 0;
                         break;
                     case 2:
-                        if (et7Var.F() != null) {
-                            i4 = et7Var.F().size() + 1;
+                        if (mt7Var.F() != null) {
+                            i4 = mt7Var.F().size() + 1;
                             PostData postData = (PostData) ListUtils.getItem(F, 0);
-                            PostData postData2 = (PostData) ListUtils.getItem(et7Var.F(), ListUtils.getCount(et7Var.F()) - 1);
+                            PostData postData2 = (PostData) ListUtils.getItem(mt7Var.F(), ListUtils.getCount(mt7Var.F()) - 1);
                             if (postData != null && postData2 != null && postData.K().equals(postData2.K())) {
-                                et7Var.F().remove(postData2);
+                                mt7Var.F().remove(postData2);
                                 i4--;
                             }
-                            F.addAll(0, et7Var.F());
+                            F.addAll(0, mt7Var.F());
                         } else {
                             i4 = 0;
                         }
-                        L0(et7Var);
-                        this.C.I0(et7Var.y(), 2);
+                        L0(mt7Var);
+                        this.C.I0(mt7Var.y(), 2);
                         break;
                     case 3:
-                        if (this.j == 1 && et7Var.y() != null) {
-                            et7Var.y().k(et7Var.y().h());
+                        if (this.j == 1 && mt7Var.y() != null) {
+                            mt7Var.y().k(mt7Var.y().h());
                         }
-                        N0(et7Var);
+                        N0(mt7Var);
                         i4 = 0;
                         break;
                     case 4:
-                        N0(et7Var);
+                        N0(mt7Var);
                         i4 = 0;
                         break;
                     case 5:
-                        N0(et7Var);
+                        N0(mt7Var);
                         i4 = 0;
                         break;
                     case 6:
-                        N0(et7Var);
+                        N0(mt7Var);
                         i4 = 0;
                         break;
                     case 7:
-                        N0(et7Var);
+                        N0(mt7Var);
                         i4 = 0;
                         break;
                     case 8:
-                        if (et7Var == null || ListUtils.isEmpty(et7Var.F()) || this.C == null || (this.g && !z0(et7Var).equals(et7Var.F().get(0).s().getUserId()))) {
+                        if (mt7Var == null || ListUtils.isEmpty(mt7Var.F()) || this.C == null || (this.g && !z0(mt7Var).equals(mt7Var.F().get(0).s().getUserId()))) {
                             i5 = 0;
                         } else {
                             if (this.C.y().b() == 0) {
                                 this.C.y().l(1);
                             }
                             C0();
-                            this.h0 = et7Var.F().get(0);
+                            this.h0 = mt7Var.F().get(0);
                             if (!o0() && !this.C.i0()) {
                                 if (this.j0 >= 3) {
                                     PostData postData3 = new PostData();
@@ -1769,20 +1769,20 @@ public class PbDanmuModel extends DataModel {
                                 this.C.F().add(this.h0);
                                 i5 = this.C.F().size() - 1;
                             }
-                            if (!StringHelper.isTaday(ru4.k().m("pb_post_recommend_live_date_" + TbadkCoreApplication.getCurrentAccount(), 0L))) {
+                            if (!StringHelper.isTaday(tu4.k().m("pb_post_recommend_live_date_" + TbadkCoreApplication.getCurrentAccount(), 0L))) {
                                 this.h0.R = this.C.J();
-                                ru4.k().x("pb_post_recommend_live_date_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
+                                tu4.k().x("pb_post_recommend_live_date_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
                             }
                         }
-                        L0(et7Var);
+                        L0(mt7Var);
                         i4 = i5;
                         break;
                     default:
                         i4 = 0;
                         break;
                 }
-                et7 et7Var3 = this.C;
-                if (et7Var3 != null && et7Var3.O() != null) {
+                mt7 mt7Var3 = this.C;
+                if (mt7Var3 != null && mt7Var3.O() != null) {
                     PraiseData praise = this.C.O().getPraise();
                     if (this.K0 != null && !praise.isPriaseDataValid()) {
                         this.C.O().setPraise(this.K0);
@@ -1791,26 +1791,26 @@ public class PbDanmuModel extends DataModel {
                         this.K0 = praise2;
                         praise2.setPostId(this.C.O().getFirstPostId());
                     }
-                    if (et7Var.y() != null && et7Var.y().a() == 1 && et7Var.O() != null && et7Var.O().getActDatas() != null && et7Var.O().getActDatas().size() > 0) {
-                        this.C.O().setActDatas(et7Var.O().getActDatas());
+                    if (mt7Var.y() != null && mt7Var.y().a() == 1 && mt7Var.O() != null && mt7Var.O().getActDatas() != null && mt7Var.O().getActDatas().size() > 0) {
+                        this.C.O().setActDatas(mt7Var.O().getActDatas());
                     }
-                    this.C.O().setReply_num(et7Var.O().getReply_num());
-                    this.C.O().setAnchorLevel(et7Var.O().getAnchorLevel());
-                    this.C.O().setCopyThreadRemindType(et7Var.O().getCopyThreadRemindType());
+                    this.C.O().setReply_num(mt7Var.O().getReply_num());
+                    this.C.O().setAnchorLevel(mt7Var.O().getAnchorLevel());
+                    this.C.O().setCopyThreadRemindType(mt7Var.O().getCopyThreadRemindType());
                     if (this.E == 33) {
-                        this.C.O().getAuthor().setHadConcerned(et7Var.O().getAuthor().hadConcerned());
+                        this.C.O().getAuthor().setHadConcerned(mt7Var.O().getAuthor().hadConcerned());
                     }
-                    if (et7Var != null && et7Var.O() != null) {
-                        this.C.O().updateIsNotitle(et7Var.O().getIsNoTitle());
+                    if (mt7Var != null && mt7Var.O() != null) {
+                        this.C.O().updateIsNotitle(mt7Var.O().getIsNoTitle());
                     }
                 }
-                et7 et7Var4 = this.C;
-                if (et7Var4 != null && et7Var4.V() != null && et7Var.V() != null) {
-                    this.C.V().setBimg_end_time(et7Var.V().getBimg_end_time());
-                    this.C.V().setBimg_url(et7Var.V().getBimg_url());
+                mt7 mt7Var4 = this.C;
+                if (mt7Var4 != null && mt7Var4.V() != null && mt7Var.V() != null) {
+                    this.C.V().setBimg_end_time(mt7Var.V().getBimg_end_time());
+                    this.C.V().setBimg_url(mt7Var.V().getBimg_url());
                 }
-                if (et7Var.y() != null && et7Var.y().a() == 1 && et7Var.X() != null) {
-                    this.C.P0(et7Var.X());
+                if (mt7Var.y() != null && mt7Var.y().a() == 1 && mt7Var.X() != null) {
+                    this.C.P0(mt7Var.X());
                 }
                 if (this.b0) {
                     if (this.C.O() != null && this.C.O().getAuthor() != null && this.C.F() != null && ListUtils.getItem(this.C.F(), 0) != null) {
@@ -1830,9 +1830,9 @@ public class PbDanmuModel extends DataModel {
                             }
                         }
                     }
-                    et7 et7Var5 = this.C;
-                    et7Var5.e = -1;
-                    et7Var5.d = -1;
+                    mt7 mt7Var5 = this.C;
+                    mt7Var5.e = -1;
+                    mt7Var5.d = -1;
                 }
                 g gVar = this.J;
                 if (gVar != null) {
@@ -1845,8 +1845,8 @@ public class PbDanmuModel extends DataModel {
                 }
                 this.J.c(false, i2, i, 0, null, str, 1);
             }
-            et7 et7Var6 = this.C;
-            if (et7Var6 == null || et7Var6.O() == null || this.C.l() == null || this.C.i0()) {
+            mt7 mt7Var6 = this.C;
+            if (mt7Var6 == null || mt7Var6.O() == null || this.C.l() == null || this.C.i0()) {
                 return;
             }
             HistoryMessage historyMessage = new HistoryMessage();
@@ -1871,14 +1871,14 @@ public class PbDanmuModel extends DataModel {
     }
 
     public final void y0(int i) {
-        et7 et7Var;
+        mt7 mt7Var;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048631, this, i) == null) || i == 8) {
             return;
         }
         this.g0 = "";
         if (this.h0 != null) {
-            if (i == 1 && (et7Var = this.C) != null && et7Var.i0()) {
+            if (i == 1 && (mt7Var = this.C) != null && mt7Var.i0()) {
                 if (this.i0 != null) {
                     k0().F().remove(this.i0);
                 }
@@ -1898,16 +1898,16 @@ public class PbDanmuModel extends DataModel {
         this.i0 = null;
     }
 
-    public String z0(et7 et7Var) {
+    public String z0(mt7 mt7Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, et7Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, mt7Var)) == null) {
             String str = null;
-            if (et7Var == null) {
+            if (mt7Var == null) {
                 return null;
             }
-            if (et7Var.O() != null && et7Var.O().getAuthor() != null) {
-                str = et7Var.O().getAuthor().getUserId();
+            if (mt7Var.O() != null && mt7Var.O().getAuthor() != null) {
+                str = mt7Var.O().getAuthor().getUserId();
             }
             return str == null ? "" : str;
         }

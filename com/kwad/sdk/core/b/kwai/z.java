@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.response.model.AdInfo;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class z implements com.kwad.sdk.core.d<AdInfo.AdStyleConfInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(AdInfo.AdStyleConfInfo adStyleConfInfo, JSONObject jSONObject) {

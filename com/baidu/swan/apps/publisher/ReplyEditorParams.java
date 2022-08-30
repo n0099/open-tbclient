@@ -8,6 +8,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.dy2;
+import com.baidu.tieba.hk2;
+import com.baidu.tieba.kh1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,9 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cy2;
-import com.repackage.gk2;
-import com.repackage.jh1;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -138,31 +138,31 @@ public class ReplyEditorParams implements Parcelable {
                     }
                 }
             }
-            String c = cy2.c(jSONObject, "sendText", "发表");
+            String c = dy2.c(jSONObject, "sendText", "发表");
             if (c.length() > 2) {
                 c = c.substring(0, 2);
             }
             String str = c;
             try {
-                i = SwanAppConfigData.t(cy2.c(jSONObject, "sendTextColor", "#FFFFFF"));
+                i = SwanAppConfigData.t(dy2.c(jSONObject, "sendTextColor", "#FFFFFF"));
             } catch (Exception e) {
-                if (jh1.a) {
+                if (kh1.a) {
                     e.printStackTrace();
                 }
                 i = -1;
             }
-            Application c2 = gk2.c();
-            String c3 = cy2.c(jSONObject, "sendBackgroundColor", "#3388FF");
-            int color = c2.getResources().getColor(R.color.obfuscated_res_0x7f060a8e);
+            Application c2 = hk2.c();
+            String c3 = dy2.c(jSONObject, "sendBackgroundColor", "#3388FF");
+            int color = c2.getResources().getColor(R.color.obfuscated_res_0x7f060a91);
             try {
                 i2 = SwanAppConfigData.t(c3);
             } catch (Exception e2) {
-                if (jh1.a) {
+                if (kh1.a) {
                     e2.printStackTrace();
                 }
                 i2 = color;
             }
-            String d = cy2.d(jSONObject.optString("contentPlaceholder", c2.getResources().getString(R.string.obfuscated_res_0x7f0f12ea)), 20, StringHelper.STRING_MORE);
+            String d = dy2.d(jSONObject.optString("contentPlaceholder", c2.getResources().getString(R.string.obfuscated_res_0x7f0f12ed)), 20, StringHelper.STRING_MORE);
             String optString2 = jSONObject.optString("emojiPath");
             if (TextUtils.isEmpty(optString2)) {
                 arrayList.remove(MODULE_EMOJI);

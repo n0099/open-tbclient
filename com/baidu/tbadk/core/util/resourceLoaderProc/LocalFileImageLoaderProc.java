@@ -6,19 +6,19 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.img.effect.ImageOperation;
+import com.baidu.tieba.a65;
+import com.baidu.tieba.an;
+import com.baidu.tieba.jg;
+import com.baidu.tieba.mg;
+import com.baidu.tieba.o55;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i55;
-import com.repackage.ig;
-import com.repackage.lg;
-import com.repackage.qi;
-import com.repackage.u55;
-import com.repackage.zm;
 /* loaded from: classes3.dex */
-public class LocalFileImageLoaderProc implements lg<zm> {
+public class LocalFileImageLoaderProc implements mg<an> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int height;
@@ -45,23 +45,23 @@ public class LocalFileImageLoaderProc implements lg<zm> {
     private void initDefalutMaxSize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.width = qi.k(TbadkCoreApplication.getInst());
-            this.height = qi.i(TbadkCoreApplication.getInst());
+            this.width = ri.k(TbadkCoreApplication.getInst());
+            this.height = ri.i(TbadkCoreApplication.getInst());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public zm m46decodeToResource(byte[] bArr, Object... objArr) {
+    public an m46decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, objArr)) == null) {
             return null;
         }
-        return (zm) invokeLL.objValue;
+        return (an) invokeLL.objValue;
     }
 
-    @Override // com.repackage.lg
+    @Override // com.baidu.tieba.mg
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class LocalFileImageLoaderProc implements lg<zm> {
         return (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // com.repackage.lg
+    @Override // com.baidu.tieba.mg
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -81,35 +81,35 @@ public class LocalFileImageLoaderProc implements lg<zm> {
         return invokeV.intValue;
     }
 
-    public zm getBitmapFromFile(String str, int i, int i2) {
+    public an getBitmapFromFile(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, str, i, i2)) == null) {
             try {
                 if (str.toLowerCase().endsWith(".gif")) {
-                    return new zm(BitmapHelper.loadBitmap(str), true, str);
+                    return new an(BitmapHelper.loadBitmap(str), true, str);
                 }
-                return new zm(BitmapHelper.checkBitmapSize(BitmapHelper.loadResizedBitmap(str, this.width, this.height), i, i2), false, str);
+                return new an(BitmapHelper.checkBitmapSize(BitmapHelper.loadResizedBitmap(str, this.width, this.height), i, i2), false, str);
             } catch (Throwable unused) {
                 return null;
             }
         }
-        return (zm) invokeLII.objValue;
+        return (an) invokeLII.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.lg
-    public zm getFromRemote(String str, String str2, int i, int i2, ig igVar, Object... objArr) {
+    @Override // com.baidu.tieba.mg
+    public an getFromRemote(String str, String str2, int i, int i2, jg jgVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), igVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), jgVar, objArr})) == null) {
             return null;
         }
-        return (zm) invokeCommon.objValue;
+        return (an) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.lg
+    @Override // com.baidu.tieba.mg
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -129,54 +129,54 @@ public class LocalFileImageLoaderProc implements lg<zm> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            ImageOperation g = u55.g(this.width, this.height);
+            ImageOperation g = a65.g(this.width, this.height);
             return "image_" + str + ':' + g.actionName + '=' + g.actionParam;
         }
         return (String) invokeL.objValue;
     }
 
-    @Override // com.repackage.lg
+    @Override // com.baidu.tieba.mg
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof zm)) {
-            zm zmVar = (zm) obj;
-            if (zmVar.u()) {
-                zmVar.A(i);
-                zmVar.z(i2);
-                i55.k().d(toCacheKey(str), zmVar);
+        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof an)) {
+            an anVar = (an) obj;
+            if (anVar.u()) {
+                anVar.A(i);
+                anVar.z(i2);
+                o55.k().d(toCacheKey(str), anVar);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.lg
-    public zm getFromLocal(String str, String str2, int i, int i2, ig igVar, Object... objArr) {
+    @Override // com.baidu.tieba.mg
+    public an getFromLocal(String str, String str2, int i, int i2, jg jgVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), igVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), jgVar, objArr})) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
             return getBitmapFromFile(str, i, i2);
         }
-        return (zm) invokeCommon.objValue;
+        return (an) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.lg
-    public zm getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tieba.mg
+    public an getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            zm checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), i55.k().m(toCacheKey(str)), i, i2);
+            an checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), o55.k().m(toCacheKey(str)), i, i2);
             if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
                 return null;
             }
             return checkIsValidPicMemoryCache;
         }
-        return (zm) invokeCommon.objValue;
+        return (an) invokeCommon.objValue;
     }
 
     public LocalFileImageLoaderProc(int i, int i2) {

@@ -16,6 +16,9 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.eh0;
+import com.baidu.tieba.n01;
+import com.baidu.tieba.q01;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,9 +26,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dh0;
-import com.repackage.m01;
-import com.repackage.p01;
 /* loaded from: classes2.dex */
 public class NadDragView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -69,7 +69,7 @@ public class NadDragView extends RelativeLayout {
                 return;
             }
         }
-        p = p01.c.c(dh0.b()) / 5;
+        p = q01.c.c(eh0.b()) / 5;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -203,7 +203,7 @@ public class NadDragView extends RelativeLayout {
             int i = action & 255;
             if (i == 0) {
                 if (this.c == null) {
-                    this.c = m01.a(this.b);
+                    this.c = n01.a(this.b);
                 }
                 if (this.d == null && this.c != null) {
                     int measuredWidth = getMeasuredWidth();
@@ -217,7 +217,7 @@ public class NadDragView extends RelativeLayout {
                 if (this.e == null && (bitmap = this.c) != null) {
                     int height = bitmap.getHeight();
                     int width = bitmap.getWidth();
-                    float b2 = p01.c.b(getContext());
+                    float b2 = q01.c.b(getContext());
                     int i2 = (int) (height * b2);
                     int i3 = (int) (width * b2);
                     if (i3 > this.c.getWidth() && this.c.getWidth() != 0) {
@@ -228,8 +228,8 @@ public class NadDragView extends RelativeLayout {
                         i3 = (int) (i3 / ((i2 * 1.0f) / this.c.getHeight()));
                         i2 = this.c.getHeight();
                     }
-                    int c = (p01.c.c(getContext()) - i2) / 2;
-                    int e = (p01.c.e(getContext()) - i3) / 2;
+                    int c = (q01.c.c(getContext()) - i2) / 2;
+                    int e = (q01.c.e(getContext()) - i3) / 2;
                     this.e = new Rect(e, c, i3 + e, i2 + c);
                     this.f = new Rect(0, 0, this.c.getWidth(), this.c.getHeight());
                 }

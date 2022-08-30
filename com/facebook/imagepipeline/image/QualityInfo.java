@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.image;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface QualityInfo {
     int getQuality();
 

@@ -9,7 +9,7 @@ import com.facebook.common.internal.DoNotStrip;
 import com.facebook.soloader.SoLoader;
 import java.io.IOException;
 @DoNotStrip
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class NativeCodeInitializer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

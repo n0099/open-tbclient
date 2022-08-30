@@ -1,7 +1,7 @@
 package com.facebook.datasource;
 
 import javax.annotation.Nonnull;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface DataSubscriber<T> {
     void onCancellation(@Nonnull DataSource<T> dataSource);
 

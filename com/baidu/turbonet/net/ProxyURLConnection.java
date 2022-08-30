@@ -3,15 +3,15 @@ package com.baidu.turbonet.net;
 import android.annotation.TargetApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.c49;
+import com.baidu.tieba.r39;
+import com.baidu.tieba.u39;
+import com.baidu.tieba.x39;
+import com.baidu.tieba.y39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.turbonet.net.proxy.ProxyConfig;
-import com.repackage.i39;
-import com.repackage.l39;
-import com.repackage.o39;
-import com.repackage.p39;
-import com.repackage.t39;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -27,26 +27,26 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes4.dex */
-public class ProxyURLConnection extends HttpsURLConnection implements p39 {
+/* loaded from: classes6.dex */
+public class ProxyURLConnection extends HttpsURLConnection implements y39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l39 a;
+    public u39 a;
     public HttpURLConnection b;
-    public t39 c;
+    public c49 c;
     public TurbonetEngine d;
     public ProxyConfig e;
 
-    @Override // com.repackage.p39
+    @Override // com.baidu.tieba.y39
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            l39 l39Var = this.a;
-            l39Var.e = j;
-            l39Var.c();
-            l39 l39Var2 = this.a;
-            l39Var2.c = -12;
-            l39Var2.d(this.d);
+            u39 u39Var = this.a;
+            u39Var.e = j;
+            u39Var.c();
+            u39 u39Var2 = this.a;
+            u39Var2.c = -12;
+            u39Var2.d(this.d);
         }
     }
 
@@ -62,13 +62,13 @@ public class ProxyURLConnection extends HttpsURLConnection implements p39 {
         }
     }
 
-    @Override // com.repackage.p39
+    @Override // com.baidu.tieba.y39
     public void b(Exception exc, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, exc, j) == null) {
-            l39 l39Var = this.a;
-            l39Var.e = j;
-            l39Var.c();
+            u39 u39Var = this.a;
+            u39Var.e = j;
+            u39Var.c();
             this.a.a(exc);
             this.a.d(this.d);
         }
@@ -78,7 +78,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements p39 {
     public void connect() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            i39.a("ProxyURLConn", "connect by libtype: " + this.e.toString());
+            r39.a("ProxyURLConn", "connect by libtype: " + this.e.toString());
             if (!this.e.a()) {
                 this.c.connect();
                 return;
@@ -96,7 +96,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements p39 {
     public void disconnect() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            i39.a("ProxyURLConn", "disconnect by libtype: " + this.e.toString());
+            r39.a("ProxyURLConn", "disconnect by libtype: " + this.e.toString());
             if (!this.e.a()) {
                 this.c.disconnect();
             } else {
@@ -369,12 +369,12 @@ public class ProxyURLConnection extends HttpsURLConnection implements p39 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            i39.a("ProxyURLConn", "getInputStream by libtype: " + this.e.toString());
+            r39.a("ProxyURLConn", "getInputStream by libtype: " + this.e.toString());
             if (!this.e.a()) {
                 return this.c.getInputStream();
             }
             try {
-                return new o39(this.b.getInputStream(), this);
+                return new x39(this.b.getInputStream(), this);
             } catch (IOException e) {
                 b(e, 0L);
                 throw e;
@@ -551,7 +551,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements p39 {
                     throw e;
                 }
             }
-            i39.a("ProxyURLConn", "getResponseCode: " + i + " by libtype: " + this.e.toString());
+            r39.a("ProxyURLConn", "getResponseCode: " + i + " by libtype: " + this.e.toString());
             return i;
         }
         return invokeV.intValue;
@@ -568,7 +568,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements p39 {
             } else {
                 responseMessage = this.b.getResponseMessage();
             }
-            i39.a("ProxyURLConn", "getResponseMessage by libtype: " + this.e.toString() + " Message: " + responseMessage);
+            r39.a("ProxyURLConn", "getResponseMessage by libtype: " + this.e.toString() + " Message: " + responseMessage);
             return responseMessage;
         }
         return (String) invokeV.objValue;
@@ -628,16 +628,16 @@ public class ProxyURLConnection extends HttpsURLConnection implements p39 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.p39
+    @Override // com.baidu.tieba.y39
     public void onComplete(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048620, this, j) == null) {
-            l39 l39Var = this.a;
-            l39Var.e = j;
-            l39Var.c();
-            l39 l39Var2 = this.a;
-            l39Var2.c = 0;
-            l39Var2.d(this.d);
+            u39 u39Var = this.a;
+            u39Var.e = j;
+            u39Var.c();
+            u39 u39Var2 = this.a;
+            u39Var2.c = 0;
+            u39Var2.d(this.d);
         }
     }
 

@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.b.g;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class j {
     public final byte[] a;
     public int b;

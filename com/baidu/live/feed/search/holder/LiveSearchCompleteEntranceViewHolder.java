@@ -35,7 +35,7 @@ public class LiveSearchCompleteEntranceViewHolder extends RecyclerView.ViewHolde
             }
         }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091373);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091385);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091375);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091387);
     }
 }

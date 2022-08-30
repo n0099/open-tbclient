@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.model.User;
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MultipartUploadSummary {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

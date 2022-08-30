@@ -6,12 +6,12 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.coreExtra.view.BannerView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EntelechyBannerView extends BannerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class EntelechyBannerView extends BannerView {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (button = this.c) != null && (button.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
-            layoutParams.topMargin = (qi.f(getContext(), R.dimen.obfuscated_res_0x7f07019a) - qi.d(getContext(), 20.0f)) / 2;
+            layoutParams.topMargin = (ri.f(getContext(), R.dimen.obfuscated_res_0x7f07019a) - ri.d(getContext(), 20.0f)) / 2;
             layoutParams.addRule(10);
             this.c.requestLayout();
         }

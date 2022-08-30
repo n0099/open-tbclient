@@ -3,20 +3,20 @@ package com.baidu.tieba.newinterest.data;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ar7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sq7;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetVerticalForumList.GetVerticalForumListResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class InterestedForumSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sq7 pageData;
+    public ar7 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public InterestedForumSocketResMsg() {
@@ -54,17 +54,17 @@ public class InterestedForumSocketResMsg extends SocketResponsedMessage {
                 }
                 setErrorString(getVerticalForumListResIdl.error.usermsg);
             }
-            sq7 sq7Var = new sq7();
-            this.pageData = sq7Var;
-            sq7Var.a(getVerticalForumListResIdl.data);
+            ar7 ar7Var = new ar7();
+            this.pageData = ar7Var;
+            ar7Var.a(getVerticalForumListResIdl.data);
             return getVerticalForumListResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public sq7 getPageData() {
+    public ar7 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pageData : (sq7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pageData : (ar7) invokeV.objValue;
     }
 }

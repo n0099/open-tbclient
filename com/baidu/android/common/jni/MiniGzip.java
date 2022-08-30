@@ -1,6 +1,7 @@
 package com.baidu.android.common.jni;
 
 import android.os.SystemClock;
+import com.baidu.tieba.x8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.LogUtil;
-import com.repackage.x8;
 import java.io.File;
 /* loaded from: classes.dex */
 public final class MiniGzip {

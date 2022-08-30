@@ -6,7 +6,7 @@ import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.au;
 import com.kwad.sdk.utils.n;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a implements h {
     public static String tf() {
         Context context = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext();

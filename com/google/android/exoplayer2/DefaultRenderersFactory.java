@@ -27,7 +27,7 @@ import com.google.android.exoplayer2.video.VideoRendererEventListener;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DefaultRenderersFactory implements RenderersFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_ALLOWED_VIDEO_JOINING_TIME_MS = 5000;
@@ -44,7 +44,7 @@ public class DefaultRenderersFactory implements RenderersFactory {
     public final int extensionRendererMode;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public @interface ExtensionRendererMode {
     }
 

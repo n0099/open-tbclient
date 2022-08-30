@@ -48,11 +48,11 @@ public class AlaAllLiveSimpleActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d07e1);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0915ff);
+            setContentView(R.layout.obfuscated_res_0x7f0d07e3);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091601);
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setTitleText(R.string.obfuscated_res_0x7f0f026f);
+            this.a.setTitleText(R.string.obfuscated_res_0x7f0f0270);
             if (bundle == null) {
                 AlaSquareLiveFragment alaSquareLiveFragment = new AlaSquareLiveFragment(true);
                 this.b = alaSquareLiveFragment;

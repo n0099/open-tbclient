@@ -17,7 +17,7 @@ import com.bytedance.pangle.GlobalParam;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ZeusLogger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Zeus";

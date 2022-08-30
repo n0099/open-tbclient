@@ -29,7 +29,7 @@ import com.kwad.sdk.utils.bd;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class k extends v implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public final class k extends v implements View.OnClickListener {
             this.vp.setText(aVar.getTitle());
             this.iu.setText(aVar.gJ());
             String eL = aVar.eL();
-            Drawable drawable = this.nC.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bf8);
+            Drawable drawable = this.nC.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bf9);
             KSImageLoader.loadCircleIcon(this.nC, eL, drawable);
             String aj = com.kwad.components.ad.c.b.aj();
             if (!ax.dT(aj)) {
@@ -242,17 +242,17 @@ public final class k extends v implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || (viewGroup = this.pV) == null) {
             return;
         }
-        this.vr = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09116d);
-        this.vo = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091176);
-        this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091175);
-        this.vp = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091177);
-        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091170);
-        this.vq = this.pV.findViewById(R.id.obfuscated_res_0x7f09116e);
-        this.vs = this.pV.findViewById(R.id.obfuscated_res_0x7f091171);
-        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091172));
-        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091173));
+        this.vr = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09116f);
+        this.vo = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091178);
+        this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091177);
+        this.vp = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091179);
+        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091172);
+        this.vq = this.pV.findViewById(R.id.obfuscated_res_0x7f091170);
+        this.vs = this.pV.findViewById(R.id.obfuscated_res_0x7f091173);
         this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091174));
-        this.vu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09116f);
+        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091175));
+        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091176));
+        this.vu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091171);
         this.pV.setOnClickListener(this);
         this.vq.setOnClickListener(this);
     }
@@ -299,7 +299,7 @@ public final class k extends v implements View.OnClickListener {
     public final void f(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) {
-            super.a(viewGroup, R.id.obfuscated_res_0x7f09117a, R.id.obfuscated_res_0x7f091179);
+            super.a(viewGroup, R.id.obfuscated_res_0x7f09117c, R.id.obfuscated_res_0x7f09117b);
             initView();
         }
     }

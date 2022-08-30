@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import com.facebook.imagepipeline.image.CloseableImage;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface DrawableFactory {
     @Nullable
     Drawable createDrawable(@Nonnull CloseableImage closeableImage);

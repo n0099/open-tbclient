@@ -11,20 +11,20 @@ import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
 import com.baidu.tbadk.core.util.CustomToast;
 import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
 import com.baidu.tieba.R;
+import com.baidu.tieba.jy4;
+import com.baidu.tieba.la6;
+import com.baidu.tieba.ma6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.da6;
-import com.repackage.ea6;
-import com.repackage.gy4;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PbFullScreenEditorInputView extends SpanGroupEditText {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public class a implements ea6.h {
+    /* loaded from: classes5.dex */
+    public class a implements ma6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFullScreenEditorInputView a;
@@ -47,7 +47,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
             this.a = pbFullScreenEditorInputView;
         }
 
-        @Override // com.repackage.ea6.h
+        @Override // com.baidu.tieba.ma6.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -58,8 +58,8 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b implements ea6.h {
+    /* loaded from: classes5.dex */
+    public class b implements ma6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFullScreenEditorInputView a;
@@ -82,7 +82,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
             this.a = pbFullScreenEditorInputView;
         }
 
-        @Override // com.repackage.ea6.h
+        @Override // com.baidu.tieba.ma6.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -91,8 +91,8 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class c implements ea6.h {
+    /* loaded from: classes5.dex */
+    public class c implements ma6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFullScreenEditorInputView a;
@@ -115,7 +115,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
             this.a = pbFullScreenEditorInputView;
         }
 
-        @Override // com.repackage.ea6.h
+        @Override // com.baidu.tieba.ma6.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -167,29 +167,29 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        ea6.f(getContext(), str, new a(this));
+        ma6.f(getContext(), str, new a(this));
     }
 
     public void m(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
             if (!TextUtils.isEmpty(str)) {
-                ea6.f(getContext(), str, new b(this));
+                ma6.f(getContext(), str, new b(this));
             }
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
-            ea6.f(getContext(), str2, new c(this));
+            ma6.f(getContext(), str2, new c(this));
         }
     }
 
-    public void n(gy4 gy4Var) {
+    public void n(jy4 jy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, gy4Var) == null) {
-            if (da6.a(getText().toString()) >= 10) {
-                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1433);
+        if (interceptable == null || interceptable.invokeL(1048580, this, jy4Var) == null) {
+            if (la6.a(getText().toString()) >= 10) {
+                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1436);
             } else {
-                ea6.b(getContext(), gy4Var, this);
+                ma6.b(getContext(), jy4Var, this);
             }
         }
     }

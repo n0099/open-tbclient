@@ -14,14 +14,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.an4;
+import com.baidu.tieba.i9;
+import com.baidu.tieba.zm4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h9;
-import com.repackage.ym4;
-import com.repackage.zm4;
 /* loaded from: classes3.dex */
 public class BannerGifView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -33,13 +33,13 @@ public class BannerGifView extends RelativeLayout {
     public String e;
     public String f;
     public boolean g;
-    public ym4 h;
-    public zm4 i;
-    public final zm4 j;
+    public zm4 h;
+    public an4 i;
+    public final an4 j;
     public final View.OnClickListener k;
 
     /* loaded from: classes3.dex */
-    public class a implements zm4 {
+    public class a implements an4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BannerGifView a;
@@ -62,7 +62,7 @@ public class BannerGifView extends RelativeLayout {
             this.a = bannerGifView;
         }
 
-        @Override // com.repackage.zm4
+        @Override // com.baidu.tieba.an4
         public boolean a(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -154,7 +154,7 @@ public class BannerGifView extends RelativeLayout {
                 if (TextUtils.isEmpty(this.f)) {
                     return;
                 }
-                UrlManager.getInstance().dealOneLink((TbPageContext) h9.a(getContext()), new String[]{this.f});
+                UrlManager.getInstance().dealOneLink((TbPageContext) i9.a(getContext()), new String[]{this.f});
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -164,10 +164,10 @@ public class BannerGifView extends RelativeLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0377, this);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0378, this);
             this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090423);
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f090e87);
-            GifView gifView = (GifView) inflate.findViewById(R.id.obfuscated_res_0x7f090e81);
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f090e88);
+            GifView gifView = (GifView) inflate.findViewById(R.id.obfuscated_res_0x7f090e82);
             this.a = gifView;
             gifView.setShowStaticDrawable(false);
             this.a.setSupportNoImage(false);
@@ -248,10 +248,10 @@ public class BannerGifView extends RelativeLayout {
         }
     }
 
-    public void setIWindowChangedListener(ym4 ym4Var) {
+    public void setIWindowChangedListener(zm4 zm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, ym4Var) == null) {
-            this.h = ym4Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, zm4Var) == null) {
+            this.h = zm4Var;
         }
     }
 
@@ -263,10 +263,10 @@ public class BannerGifView extends RelativeLayout {
         }
     }
 
-    public void setOnClickEventListener(zm4 zm4Var) {
+    public void setOnClickEventListener(an4 an4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, zm4Var) == null) {
-            this.i = zm4Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, an4Var) == null) {
+            this.i = an4Var;
         }
     }
 

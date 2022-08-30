@@ -12,6 +12,7 @@ import com.baidu.searchbox.block.impl.BlockMonitor;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
+import com.baidu.tieba.jc1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ic1;
 @Autowired
 /* loaded from: classes2.dex */
 public class ANRContext {
@@ -65,7 +65,7 @@ public class ANRContext {
                     if (AppConfig.isDebug()) {
                         Log.d(BlockMonitor.TAG, "onAppNotResponding");
                     }
-                    ic1<IANRRegister> iANRUploadList = ANRRuntime.getInstance().getIANRUploadList();
+                    jc1<IANRRegister> iANRUploadList = ANRRuntime.getInstance().getIANRUploadList();
                     if (iANRUploadList == null || iANRUploadList.getList() == null || aNRInfo == null) {
                         return;
                     }

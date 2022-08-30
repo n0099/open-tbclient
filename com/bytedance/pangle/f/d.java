@@ -13,7 +13,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.security.cert.Certificate;
 @RequiresApi(api = 21)
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public final class d {
                             try {
                                 m mVar = f.a.get(str).get(-262969152);
                                 if (mVar != null) {
-                                    c.C0282c a = c.a(randomAccessFile, mVar);
+                                    c.C0497c a = c.a(randomAccessFile, mVar);
                                     Signature[] a2 = a(new Certificate[][]{a.a});
                                     if (a.b != null) {
                                         int size = a.b.a.size();

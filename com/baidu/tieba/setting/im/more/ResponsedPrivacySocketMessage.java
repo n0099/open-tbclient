@@ -3,22 +3,22 @@ package com.baidu.tieba.setting.im.more;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ue8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.me8;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetPrivateInfo.GetPrivateInfoResIdl;
 import tbclient.GetPrivateInfo.ResData;
 import tbclient.SimpleUser;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public me8 privacyData;
+    public ue8 privacyData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsedPrivacySocketMessage() {
@@ -36,7 +36,7 @@ public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
                 return;
             }
         }
-        this.privacyData = new me8();
+        this.privacyData = new ue8();
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -100,9 +100,9 @@ public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public me8 getPrivacyData() {
+    public ue8 getPrivacyData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.privacyData : (me8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.privacyData : (ue8) invokeV.objValue;
     }
 }

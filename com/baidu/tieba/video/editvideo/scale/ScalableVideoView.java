@@ -14,17 +14,17 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ut8;
+import com.baidu.tieba.vt8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lt8;
-import com.repackage.mt8;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ScalableVideoView extends TextureView implements TextureView.SurfaceTextureListener, MediaPlayer.OnVideoSizeChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -130,7 +130,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public final void g(int i, int i2) {
         Matrix m;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) || i == 0 || i2 == 0 || (m = new lt8(new mt8(getWidth(), getHeight()), new mt8(i, i2)).m(this.b)) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) || i == 0 || i2 == 0 || (m = new ut8(new vt8(getWidth(), getHeight()), new vt8(i, i2)).m(this.b)) == null) {
             return;
         }
         setTransform(m);

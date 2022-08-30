@@ -6,13 +6,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.games.view.button.base.ApiButton;
 import com.baidu.tieba.R;
+import com.baidu.tieba.j02;
+import com.baidu.tieba.nm2;
+import com.baidu.tieba.s03;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i02;
-import com.repackage.mm2;
-import com.repackage.r03;
 /* loaded from: classes3.dex */
 public class OpenSettingButton extends ApiButton {
     public static /* synthetic */ Interceptable $ic;
@@ -49,13 +49,13 @@ public class OpenSettingButton extends ApiButton {
     public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            i02 V = mm2.U().V();
+            j02 V = nm2.U().V();
             if (V == null) {
-                r03.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f01a4).G();
+                s03.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f01a4).G();
                 return;
             }
-            i02.b i = V.i("navigateTo");
-            i.n(i02.g, i02.i);
+            j02.b i = V.i("navigateTo");
+            i.n(j02.g, j02.i);
             i.k("authority", null).a();
         }
     }

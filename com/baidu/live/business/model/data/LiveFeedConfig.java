@@ -4,12 +4,12 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tieba.p80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o80;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -169,10 +169,10 @@ public class LiveFeedConfig {
                 this.footprintSwitch = jSONObject.optString("watch_history_switch").equals("1");
                 this.footprintUrl = jSONObject.optString("watch_history_url");
                 if (z && z2) {
-                    o80.f(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, jSONObject.toString());
+                    p80.f(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, jSONObject.toString());
                 }
             } else if (z && z2) {
-                String b = o80.b(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, "");
+                String b = p80.b(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, "");
                 if (TextUtils.isEmpty(b)) {
                     return;
                 }
@@ -184,7 +184,7 @@ public class LiveFeedConfig {
                     this.playConfig = PlayConfig.parserJson(jSONObject2.optJSONObject("auto_play"));
                     this.abSwitchConfig = AbSwitchConfig.parserJson(jSONObject2.optJSONObject("ab_switch"));
                 } catch (JSONException unused) {
-                    o80.g(LIVE_FEED_PAGE_CONFIG_CACHE_KEY);
+                    p80.g(LIVE_FEED_PAGE_CONFIG_CACHE_KEY);
                 }
             }
         }

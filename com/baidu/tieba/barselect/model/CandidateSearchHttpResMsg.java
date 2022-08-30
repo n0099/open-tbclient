@@ -3,11 +3,11 @@ package com.baidu.tieba.barselect.model;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
+import com.baidu.tieba.jy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.by5;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.Search.SearchResIdl;
@@ -15,7 +15,7 @@ import tbclient.Search.SearchResIdl;
 public class CandidateSearchHttpResMsg extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public by5 candidateData;
+    public jy5 candidateData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CandidateSearchHttpResMsg() {
@@ -51,9 +51,9 @@ public class CandidateSearchHttpResMsg extends TbHttpResponsedMessage {
                 setErrorString(searchResIdl.error.errmsg);
             }
             if (searchResIdl.data.uid.longValue() != 0) {
-                by5 by5Var = new by5();
-                this.candidateData = by5Var;
-                by5Var.a(searchResIdl.data);
+                jy5 jy5Var = new jy5();
+                this.candidateData = jy5Var;
+                jy5Var.a(searchResIdl.data);
                 if (getOrginalMessage() == null || !(getOrginalMessage().getExtra() instanceof CandidateSearchReqMsg)) {
                     return;
                 }

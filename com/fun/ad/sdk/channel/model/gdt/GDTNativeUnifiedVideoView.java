@@ -25,7 +25,7 @@ import com.qq.e.ads.nativ.NativeUnifiedADData;
 import com.qq.e.comm.util.AdError;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GDTNativeUnifiedVideoView extends u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class GDTNativeUnifiedVideoView extends u {
     public View.OnClickListener f;
     public float g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements NativeADMediaListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

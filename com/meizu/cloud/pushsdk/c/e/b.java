@@ -9,14 +9,14 @@ import com.kuaishou.weapon.p0.u;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static String a = "b";
     public HashMap<String, String> b;
     public HashMap<String, Object> c;
     public HashMap<String, String> d;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public Context a = null;
 

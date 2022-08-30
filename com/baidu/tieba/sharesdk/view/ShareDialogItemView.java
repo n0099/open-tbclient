@@ -18,6 +18,7 @@ import com.baidu.tbadk.core.util.svg.SvgPureType;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,8 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ShareDialogItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int g;
@@ -55,10 +55,10 @@ public class ShareDialogItemView extends LinearLayout {
                 return;
             }
         }
-        g = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds104);
-        h = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-        i = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
-        j = qi.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        g = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        h = ri.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        i = ri.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+        j = ri.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
         k = 1;
     }
 

@@ -13,12 +13,12 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ProfessionDialogLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class ProfessionDialogLayout extends LinearLayout {
     public View.OnClickListener b;
     public Context c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class ProfessionDialogLayout extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,18 +119,18 @@ public class ProfessionDialogLayout extends LinearLayout {
         int k;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, tbImageView) == null) {
-            int f = qi.f(this.c, R.dimen.obfuscated_res_0x7f070225);
+            int f = ri.f(this.c, R.dimen.obfuscated_res_0x7f070225);
             if (UtilHelper.getRealScreenOrientation(this.c) == 2) {
-                k = qi.i(this.c);
+                k = ri.i(this.c);
             } else {
-                k = qi.k(this.c);
+                k = ri.k(this.c);
             }
             int i = k - (f * 2);
             ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
             layoutParams.width = -1;
             layoutParams.height = (i * 558) / 992;
             tbImageView.setLayoutParams(layoutParams);
-            tbImageView.setRadius(qi.f(this.c, R.dimen.obfuscated_res_0x7f0701be));
+            tbImageView.setRadius(ri.f(this.c, R.dimen.obfuscated_res_0x7f0701be));
             tbImageView.setConrers(3);
             tbImageView.setIsBitmapPic(true);
         }
@@ -140,16 +140,16 @@ public class ProfessionDialogLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.c = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d073a, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d073c, this);
             setOrientation(1);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090eb1);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f090784), (int) R.color.CAM_X0107);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090eb2);
             SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f090785), (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f090786), (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f090471), (int) R.color.CAM_X0302);
             setImageAttribute(tbImageView);
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080bc7);
+            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080bc8);
             TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09064a);
-            SkinManager.setImageResource(tbImageView2, R.drawable.obfuscated_res_0x7f0808fb);
+            SkinManager.setImageResource(tbImageView2, R.drawable.obfuscated_res_0x7f0808fc);
             tbImageView2.setOnClickListener(new a(this));
             findViewById(R.id.obfuscated_res_0x7f090471).setOnClickListener(new b(this));
         }

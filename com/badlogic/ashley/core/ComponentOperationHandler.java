@@ -1,6 +1,9 @@
 package com.badlogic.ashley.core;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.a7;
+import com.baidu.tieba.o0;
+import com.baidu.tieba.z7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,9 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a7;
-import com.repackage.o0;
-import com.repackage.z7;
 import com.yy.hiidostatis.inner.util.log.ActLog;
 /* loaded from: classes.dex */
 public class ComponentOperationHandler {
@@ -117,7 +117,7 @@ public class ComponentOperationHandler {
             }
         }
 
-        @Override // com.repackage.z7.a
+        @Override // com.baidu.tieba.z7.a
         public void reset() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -187,7 +187,7 @@ public class ComponentOperationHandler {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.z7
+        @Override // com.baidu.tieba.z7
         /* renamed from: g */
         public ComponentOperation d() {
             InterceptResult invokeV;

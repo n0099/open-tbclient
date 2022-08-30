@@ -3,6 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -211,7 +212,7 @@ public class he {
             try {
                 File file3 = new File(context.getFilesDir(), "tiny_data.lock");
                 ab.m161a(file3);
-                randomAccessFile = new RandomAccessFile(file3, "rw");
+                randomAccessFile = new RandomAccessFile(file3, rw.c);
                 try {
                     try {
                         fileLock = randomAccessFile.getChannel().lock();

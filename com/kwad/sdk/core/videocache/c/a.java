@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.kwad.sdk.core.videocache.m;
 import com.kwad.sdk.utils.am;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a extends SQLiteOpenHelper implements b {
     public static final String[] afb = {"_id", "url", CloudStabilityUBCUtils.KEY_LENGTH, "mime"};
 

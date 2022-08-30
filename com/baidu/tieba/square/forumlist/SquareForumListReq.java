@@ -3,15 +3,15 @@ package com.baidu.tieba.square.forumlist;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tieba.af5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.te5;
 import tbclient.GetForumsFromForumClass.DataReq;
 import tbclient.GetForumsFromForumClass.GetForumsFromForumClassReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SquareForumListReq extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class SquareForumListReq extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                te5.a(builder, true);
+                af5.a(builder, true);
             }
             GetForumsFromForumClassReqIdl.Builder builder2 = new GetForumsFromForumClassReqIdl.Builder();
             builder.limit = Integer.valueOf(this.pageLimit);

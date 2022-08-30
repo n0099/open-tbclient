@@ -7,13 +7,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.message.RequestCheckUserMaskMessage;
 import com.baidu.tbadk.core.message.RequestGetMaskInfoMessage;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
+import com.baidu.tieba.d9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BlackListModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ISMASK_FALSE_FROM_SERVER = 0;

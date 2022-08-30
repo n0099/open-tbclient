@@ -8,23 +8,23 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ym6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qm6;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<LiveFuseForumData> a;
     public Context b;
-    public qm6 c;
+    public ym6 c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,13 +95,13 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
     public a onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0310, (ViewGroup) null)) : (a) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0311, (ViewGroup) null)) : (a) invokeLI.objValue;
     }
 
-    public void g(qm6 qm6Var) {
+    public void g(ym6 ym6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, qm6Var) == null) {
-            this.c = qm6Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ym6Var) == null) {
+            this.c = ym6Var;
         }
     }
 

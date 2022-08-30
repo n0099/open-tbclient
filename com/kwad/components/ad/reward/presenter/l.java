@@ -12,7 +12,7 @@ import com.kwad.components.core.playable.PlayableSource;
 import com.kwad.components.core.webview.KsAdWebView;
 import com.kwad.components.core.webview.jshandler.x;
 import com.kwad.sdk.core.response.model.AdInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class l extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -229,7 +229,7 @@ public final class l extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            ((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091117)).setVisibility(4);
+            ((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091119)).setVisibility(4);
         }
     }
 

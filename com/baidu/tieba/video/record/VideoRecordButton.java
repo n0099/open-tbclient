@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoRecordButton extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,11 +53,11 @@ public class VideoRecordButton extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04bc, this);
-            this.a = findViewById(R.id.obfuscated_res_0x7f091b68);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091b69);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091b6a);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b2);
+            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04be, this);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091b6a);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091b6b);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091b6c);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923bb);
             this.c.setScaleX(0.766f);
             this.c.setScaleY(0.766f);
         }
@@ -81,7 +81,7 @@ public class VideoRecordButton extends FrameLayout {
             if (z) {
                 this.a.setVisibility(8);
             } else {
-                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fb8);
+                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fb9);
             }
             this.d.setVisibility(8);
             this.e.start();
@@ -117,7 +117,7 @@ public class VideoRecordButton extends FrameLayout {
                 ofPropertyValuesHolder.setDuration((Math.abs(0.766f - this.c.getScaleX()) * 500.0f) / 0.3f);
             }
             this.a.setVisibility(0);
-            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fb7);
+            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fb8);
             this.f.start();
         }
     }

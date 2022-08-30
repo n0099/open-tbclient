@@ -18,6 +18,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ao6;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,11 +27,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-import com.repackage.sn6;
 import java.util.List;
 import tbclient.GameCodeList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GameCodeListDialog extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int i;
@@ -43,7 +43,7 @@ public class GameCodeListDialog extends FrameLayout {
     public final CustomMessageListener g;
     public CustomMessageListener h;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,11 +77,11 @@ public class GameCodeListDialog extends FrameLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921640 || this.a.a == null) {
                 return;
             }
-            this.a.a.b((sn6) customResponsedMessage.getData());
+            this.a.a.b((ao6) customResponsedMessage.getData());
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public class GameCodeListDialog extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,7 +150,7 @@ public class GameCodeListDialog extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -183,7 +183,7 @@ public class GameCodeListDialog extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -246,7 +246,7 @@ public class GameCodeListDialog extends FrameLayout {
                 return;
             }
         }
-        i = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds161);
+        i = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds161);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -274,7 +274,7 @@ public class GameCodeListDialog extends FrameLayout {
         frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         this.b.setOnClickListener(new c(this));
         addView(this.b);
-        GameCodeListView gameCodeListView = new GameCodeListView(context, qi.i(context) - i);
+        GameCodeListView gameCodeListView = new GameCodeListView(context, ri.i(context) - i);
         this.a = gameCodeListView;
         gameCodeListView.setCancelClickListener(new d(this));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);

@@ -6,7 +6,7 @@ import com.kwad.sdk.collector.AppStatusNative;
 import com.kwad.sdk.collector.model.e;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class UploadEntryNative extends NativeObject implements e {
     public UploadEntryNative() {
         this.mPtr = AppStatusNative.nativeCreateUploadEntry();

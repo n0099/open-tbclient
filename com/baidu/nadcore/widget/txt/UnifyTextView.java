@@ -11,12 +11,12 @@ import android.util.Log;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.q01;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p01;
 import java.util.regex.Pattern;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -88,8 +88,8 @@ public class UnifyTextView extends TextView {
                 int i6 = round - textSize;
                 fm.ascent = i6;
                 fm.top = (i6 - this.c) - this.f;
-                String a = p01.a.a();
-                int a2 = p01.b.a();
+                String a = q01.a.a();
+                int a2 = q01.b.a();
                 int i7 = 0;
                 try {
                     if (text.length() == i2 && (subSequence = text.subSequence(i, i2)) != null && (StringsKt__StringsKt.contains$default(subSequence, 'y', false, 2, (Object) null) || StringsKt__StringsKt.contains$default(subSequence, 'g', false, 2, (Object) null))) {

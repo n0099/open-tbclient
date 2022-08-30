@@ -4,20 +4,20 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister_PerfFrameRuntime_ListProvider;
+import com.baidu.tieba.hc1;
+import com.baidu.tieba.jc1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gc1;
-import com.repackage.ic1;
 /* loaded from: classes2.dex */
 public class PerfFrameRuntime {
     public static /* synthetic */ Interceptable $ic;
     public static PerfFrameRuntime sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public ic1<IPerfFrameRegister> mIPerfFrameMonitorList;
+    public jc1<IPerfFrameRegister> mIPerfFrameMonitorList;
 
     public PerfFrameRuntime() {
         Interceptable interceptable = $ic;
@@ -51,16 +51,16 @@ public class PerfFrameRuntime {
         return (PerfFrameRuntime) invokeV.objValue;
     }
 
-    public ic1<IPerfFrameRegister> getPerfFrameRegister() {
+    public jc1<IPerfFrameRegister> getPerfFrameRegister() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mIPerfFrameMonitorList : (ic1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mIPerfFrameMonitorList : (jc1) invokeV.objValue;
     }
 
     public void initmIPerfFrameMonitorList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            gc1 b = gc1.b();
+            hc1 b = hc1.b();
             this.mIPerfFrameMonitorList = b;
             b.a(new IPerfFrameRegister_PerfFrameRuntime_ListProvider());
         }

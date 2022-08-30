@@ -5,7 +5,7 @@ import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.util.regex.Pattern;
 import org.apache.http.conn.ConnectTimeoutException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DomainException extends Exception {
     public final Pattern CONNECT_ERR_PATTERN;
     public final int httpCode;

@@ -4,28 +4,28 @@ import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.tieba.at1;
+import com.baidu.tieba.bp1;
+import com.baidu.tieba.oq1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ap1;
-import com.repackage.nq1;
-import com.repackage.zs1;
 @Keep
 /* loaded from: classes2.dex */
 public class SwanApiNetworkV8Module {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MODULE_NAME = "_naV8Network";
     public transient /* synthetic */ FieldHolder $fh;
-    public nq1 requestApi;
+    public oq1 requestApi;
 
-    public SwanApiNetworkV8Module(@NonNull ap1 ap1Var) {
+    public SwanApiNetworkV8Module(@NonNull bp1 bp1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ap1Var};
+            Object[] objArr = {bp1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,7 +35,7 @@ public class SwanApiNetworkV8Module {
                 return;
             }
         }
-        this.requestApi = new nq1(ap1Var);
+        this.requestApi = new oq1(bp1Var);
     }
 
     @JavascriptInterface
@@ -43,7 +43,7 @@ public class SwanApiNetworkV8Module {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsObject)) == null) {
-            zs1 T = this.requestApi.T(jsObject);
+            at1 T = this.requestApi.T(jsObject);
             return T == null ? "" : T.a();
         }
         return (String) invokeL.objValue;

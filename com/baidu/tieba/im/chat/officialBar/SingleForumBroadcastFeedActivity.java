@@ -11,29 +11,29 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.mutiprocess.event.TopToastEvent;
+import com.baidu.tieba.c77;
+import com.baidu.tieba.l87;
+import com.baidu.tieba.v75;
+import com.baidu.tieba.y87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d87;
-import com.repackage.p75;
-import com.repackage.q87;
-import com.repackage.u67;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u67 a;
+    public c77 a;
     public OfficialBarFeedMsglistView b;
     public String c;
     public byte d;
-    public p75 e;
-    public u67.d f;
+    public v75 e;
+    public c77.d f;
 
-    /* loaded from: classes3.dex */
-    public class a extends p75<TopToastEvent> {
+    /* loaded from: classes4.dex */
+    public class a extends v75<TopToastEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity c;
@@ -57,7 +57,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.i75
+        @Override // com.baidu.tieba.o75
         /* renamed from: a */
         public boolean onEvent(TopToastEvent topToastEvent) {
             InterceptResult invokeL;
@@ -73,8 +73,8 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b implements u67.d {
+    /* loaded from: classes4.dex */
+    public class b implements c77.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity a;
@@ -97,16 +97,16 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
             this.a = singleForumBroadcastFeedActivity;
         }
 
-        @Override // com.repackage.u67.d
-        public void a(List<q87> list) {
+        @Override // com.baidu.tieba.c77.d
+        public void a(List<y87> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 this.a.b.r(list, null);
             }
         }
 
-        @Override // com.repackage.u67.d
-        public void onReadCountLoad(LongSparseArray<d87> longSparseArray) {
+        @Override // com.baidu.tieba.c77.d
+        public void onReadCountLoad(LongSparseArray<l87> longSparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, longSparseArray) == null) {
                 this.a.b.s(longSparseArray);
@@ -145,9 +145,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            u67 u67Var = new u67(getPageContext());
-            this.a = u67Var;
-            u67Var.i(this.f);
+            c77 c77Var = new c77(getPageContext());
+            this.a = c77Var;
+            c77Var.i(this.f);
             this.b = new OfficialBarFeedMsglistView(this, true);
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra("key_uid");
@@ -164,9 +164,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            u67 u67Var = this.a;
-            if (u67Var != null) {
-                u67Var.e();
+            c77 c77Var = this.a;
+            if (c77Var != null) {
+                c77Var.e();
             }
             unRegisterResponsedEventListener();
         }

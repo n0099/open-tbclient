@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.internal.ParcelableSparseArray;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BadgeUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean USE_COMPAT_PARENT;

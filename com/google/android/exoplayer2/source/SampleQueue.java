@@ -22,7 +22,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class SampleQueue implements TrackOutput {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ADVANCE_FAILED = -1;
@@ -44,7 +44,7 @@ public final class SampleQueue implements TrackOutput {
     public UpstreamFormatChangedListener upstreamFormatChangeListener;
     public AllocationNode writeAllocationNode;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class AllocationNode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +103,7 @@ public final class SampleQueue implements TrackOutput {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface UpstreamFormatChangedListener {
         void onUpstreamFormatChanged(Format format);
     }

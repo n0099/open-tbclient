@@ -10,16 +10,16 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.alasquare.special_forum.message.AlaSpecialConcernResponse;
+import com.baidu.tieba.lt5;
+import com.baidu.tieba.mt5;
+import com.baidu.tieba.nt5;
+import com.baidu.tieba.ot5;
+import com.baidu.tieba.pn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dt5;
-import com.repackage.et5;
-import com.repackage.ft5;
-import com.repackage.gt5;
-import com.repackage.on;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -28,7 +28,7 @@ public class SpecialConcernTabModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public b b;
-    public List<on> c;
+    public List<pn> c;
     public HttpMessageListener d;
 
     /* loaded from: classes3.dex */
@@ -71,31 +71,31 @@ public class SpecialConcernTabModel extends BdBaseModel {
                     boolean z = alaSpecialConcernResponse.hasMore;
                     if (ListUtils.isEmpty(alaSpecialConcernResponse.followList)) {
                         if (this.a.a == 1) {
-                            this.a.c.add(new et5());
+                            this.a.c.add(new mt5());
                         }
                     } else {
-                        for (dt5 dt5Var : alaSpecialConcernResponse.followList) {
-                            ft5 ft5Var = new ft5();
-                            ft5Var.a = dt5Var.a;
-                            ft5Var.b = dt5Var.b;
-                            ft5Var.c = false;
-                            this.a.c.add(ft5Var);
+                        for (lt5 lt5Var : alaSpecialConcernResponse.followList) {
+                            nt5 nt5Var = new nt5();
+                            nt5Var.a = lt5Var.a;
+                            nt5Var.b = lt5Var.b;
+                            nt5Var.c = false;
+                            this.a.c.add(nt5Var);
                         }
                     }
                     if (!ListUtils.isEmpty(alaSpecialConcernResponse.recommendList)) {
-                        gt5 gt5Var = new gt5();
+                        ot5 ot5Var = new ot5();
                         if (!ListUtils.isEmpty(alaSpecialConcernResponse.followList)) {
-                            gt5Var.a = false;
+                            ot5Var.a = false;
                         } else {
-                            gt5Var.a = true;
+                            ot5Var.a = true;
                         }
-                        this.a.c.add(gt5Var);
-                        for (dt5 dt5Var2 : alaSpecialConcernResponse.recommendList) {
-                            ft5 ft5Var2 = new ft5();
-                            ft5Var2.a = dt5Var2.a;
-                            ft5Var2.b = dt5Var2.b;
-                            ft5Var2.c = true;
-                            this.a.c.add(ft5Var2);
+                        this.a.c.add(ot5Var);
+                        for (lt5 lt5Var2 : alaSpecialConcernResponse.recommendList) {
+                            nt5 nt5Var2 = new nt5();
+                            nt5Var2.a = lt5Var2.a;
+                            nt5Var2.b = lt5Var2.b;
+                            nt5Var2.c = true;
+                            this.a.c.add(nt5Var2);
                         }
                     }
                     SpecialConcernTabModel.A(this.a);
@@ -113,7 +113,7 @@ public class SpecialConcernTabModel extends BdBaseModel {
     public interface b {
         void a(int i, String str);
 
-        void b(List<on> list, boolean z, int i);
+        void b(List<pn> list, boolean z, int i);
     }
 
     public SpecialConcernTabModel(TbPageContext tbPageContext) {

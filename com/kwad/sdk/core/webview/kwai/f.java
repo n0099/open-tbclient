@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class f implements com.kwad.sdk.core.b {
     public final com.kwad.sdk.core.b agl;
     public final int result = 1;

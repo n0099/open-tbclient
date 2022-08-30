@@ -31,23 +31,23 @@ import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.special_forum.model.SpecialConcernTabModel;
+import com.baidu.tieba.cn;
+import com.baidu.tieba.dt5;
+import com.baidu.tieba.dv4;
+import com.baidu.tieba.et5;
+import com.baidu.tieba.ev4;
+import com.baidu.tieba.ft5;
+import com.baidu.tieba.n65;
+import com.baidu.tieba.nt5;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.pn;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.zn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.av4;
-import com.repackage.bn;
-import com.repackage.bv4;
-import com.repackage.ft5;
-import com.repackage.h65;
-import com.repackage.oi;
-import com.repackage.on;
-import com.repackage.qi;
-import com.repackage.vs5;
-import com.repackage.ws5;
-import com.repackage.xs5;
-import com.repackage.yn;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -58,8 +58,8 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
     public BdTypeRecyclerView e;
     public BdSwipeRefreshLayout f;
     public PbListView g;
-    public bv4 h;
-    public h65 i;
+    public ev4 h;
+    public n65 i;
     public e j;
     public SpecialConcernTabModel k;
     public boolean l;
@@ -70,7 +70,7 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
     public CustomMessageListener q;
     public SpecialConcernTabModel.b r;
     public BdListView.p s;
-    public final av4.g t;
+    public final dv4.g t;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -146,7 +146,7 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         }
 
         @Override // com.baidu.tieba.ala.alasquare.special_forum.model.SpecialConcernTabModel.b
-        public void b(List<on> list, boolean z, int i) {
+        public void b(List<pn> list, boolean z, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
                 this.a.l = z;
@@ -198,7 +198,7 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!qi.D()) {
+                if (!ri.D()) {
                     this.a.L1();
                 } else if (this.a.l) {
                     this.a.k.E();
@@ -208,7 +208,7 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements av4.g {
+    public class d implements dv4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ConcernTabFragment a;
@@ -231,11 +231,11 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
             this.a = concernTabFragment;
         }
 
-        @Override // com.repackage.av4.g
+        @Override // com.baidu.tieba.dv4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (oi.z()) {
+                if (pi.z()) {
                     this.a.k.F();
                 } else {
                     this.a.P1(false);
@@ -248,14 +248,14 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
     public class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public vs5 a;
-        public ws5 b;
-        public xs5 c;
-        public List<bn> d;
+        public dt5 a;
+        public et5 b;
+        public ft5 c;
+        public List<cn> d;
         public final /* synthetic */ ConcernTabFragment e;
 
         /* loaded from: classes3.dex */
-        public class a implements yn {
+        public class a implements zn {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ConcernTabFragment a;
@@ -280,26 +280,26 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
                 this.a = concernTabFragment;
             }
 
-            @Override // com.repackage.yn
-            public void b(View view2, on onVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            @Override // com.baidu.tieba.zn
+            public void b(View view2, pn pnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, onVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && onVar != null && (onVar instanceof ft5)) {
-                    ft5 ft5Var = (ft5) onVar;
-                    if (ft5Var.b == null) {
+                if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, pnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && pnVar != null && (pnVar instanceof nt5)) {
+                    nt5 nt5Var = (nt5) pnVar;
+                    if (nt5Var.b == null) {
                         return;
                     }
-                    if (!qi.D()) {
-                        this.b.e.getPageContext().showToast((int) R.string.obfuscated_res_0x7f0f0c3d);
+                    if (!ri.D()) {
+                        this.b.e.getPageContext().showToast((int) R.string.obfuscated_res_0x7f0f0c40);
                         return;
                     }
-                    if (ft5Var.c) {
+                    if (nt5Var.c) {
                         TiebaStatic.log(new StatisticItem("c12896"));
                     } else {
                         StatisticItem statisticItem = new StatisticItem("c12894");
                         statisticItem.addParam("fid", this.b.e.o);
                         statisticItem.addParam("fname", this.b.e.p);
-                        if (ft5Var.b.isLegalYYLiveData()) {
-                            AlaInfoData alaInfoData = ft5Var.b;
+                        if (nt5Var.b.isLegalYYLiveData()) {
+                            AlaInfoData alaInfoData = nt5Var.b;
                             int calculateLiveType = YYLiveUtil.calculateLiveType(alaInfoData);
                             String str = StringUtils.isNull(alaInfoData.appId) ? null : alaInfoData.appId;
                             if (alaInfoData.mYyExtData != null) {
@@ -307,18 +307,18 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
                             }
                             statisticItem.addParam("obj_param1", calculateLiveType);
                             statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, str);
-                            YYLiveUtil.calculateLiveType(ft5Var.b);
-                            TiebaStaticHelper.addYYParam(statisticItem, ft5Var.b.mYyExtData);
+                            YYLiveUtil.calculateLiveType(nt5Var.b);
+                            TiebaStaticHelper.addYYParam(statisticItem, nt5Var.b.mYyExtData);
                         }
                         TiebaStatic.log(statisticItem);
                     }
-                    if (ft5Var.b.isLegalYYLiveData()) {
+                    if (nt5Var.b.isLegalYYLiveData()) {
                         TbPageContext<BaseFragmentActivity> pageContext = this.b.e.getPageContext();
-                        YyExtData yyExtData = ft5Var.b.mYyExtData;
+                        YyExtData yyExtData = nt5Var.b.mYyExtData;
                         String str2 = yyExtData.mSid;
                         String str3 = yyExtData.mSsid;
                         String str4 = yyExtData.mTemplateId;
-                        YYLiveUtil.jumpToYYLiveRoom(pageContext, str2, str3, str4, "" + ft5Var.b.roomId, YYLiveUtil.SOURCE_BAIDU_LIVE_FOLLOW_HEAD);
+                        YYLiveUtil.jumpToYYLiveRoom(pageContext, str2, str3, str4, "" + nt5Var.b.roomId, YYLiveUtil.SOURCE_BAIDU_LIVE_FOLLOW_HEAD);
                     }
                 }
             }
@@ -341,12 +341,12 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
             }
             this.e = concernTabFragment;
             this.d = new LinkedList();
-            this.a = new vs5(concernTabFragment.getPageContext());
-            ws5 ws5Var = new ws5(concernTabFragment.getPageContext());
-            this.b = ws5Var;
-            ws5Var.u(concernTabFragment.o);
+            this.a = new dt5(concernTabFragment.getPageContext());
+            et5 et5Var = new et5(concernTabFragment.getPageContext());
+            this.b = et5Var;
+            et5Var.u(concernTabFragment.o);
             this.b.a(concernTabFragment.p);
-            this.c = new xs5(concernTabFragment.getPageContext());
+            this.c = new ft5(concernTabFragment.getPageContext());
             this.b.setOnAdapterItemClickListener(new a(this, concernTabFragment));
             this.d.add(this.a);
             this.d.add(this.b);
@@ -399,12 +399,12 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
     }
 
     public final void M1() {
-        h65 h65Var;
+        n65 n65Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             BdTypeRecyclerView bdTypeRecyclerView = this.e;
-            if (bdTypeRecyclerView != null && (h65Var = this.i) != null) {
-                bdTypeRecyclerView.removeHeaderView(h65Var.b());
+            if (bdTypeRecyclerView != null && (n65Var = this.i) != null) {
+                bdTypeRecyclerView.removeHeaderView(n65Var.b());
             }
             this.m = false;
         }
@@ -438,14 +438,14 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.i == null) {
-                h65 h65Var = new h65(getPageContext().getContext(), getNetRefreshListener());
-                this.i = h65Var;
-                h65Var.n(null);
+                n65 n65Var = new n65(getPageContext().getContext(), getNetRefreshListener());
+                this.i = n65Var;
+                n65Var.n(null);
                 this.i.g(null);
                 this.i.p();
                 this.i.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }
-            this.i.m(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f11d8));
+            this.i.m(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f11db));
             this.i.onChangeSkinType();
             if (!this.m) {
                 this.e.t(this.i.b(), 0);
@@ -458,7 +458,7 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.e.setNextPage(this.g);
-            this.g.C(getResources().getString(R.string.obfuscated_res_0x7f0f0a16));
+            this.g.C(getResources().getString(R.string.obfuscated_res_0x7f0f0a19));
             this.g.f();
         }
     }
@@ -468,9 +468,9 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            bv4 bv4Var = this.h;
-            if (bv4Var != null) {
-                bv4Var.H(i);
+            ev4 ev4Var = this.h;
+            if (ev4Var != null) {
+                ev4Var.H(i);
             }
             PbListView pbListView = this.g;
             if (pbListView != null) {
@@ -511,7 +511,7 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
             if (this.d == null) {
-                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d07bc, viewGroup, false);
+                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d07be, viewGroup, false);
                 this.d = inflate;
                 BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f0906dc);
                 this.e = bdTypeRecyclerView;
@@ -519,20 +519,20 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
                 this.e.setFadingEdgeLength(0);
                 this.e.setOverScrollMode(2);
                 this.e.setOnSrollToBottomListener(this.s);
-                bv4 bv4Var = new bv4(getPageContext());
-                this.h = bv4Var;
-                bv4Var.f(this.t);
+                ev4 ev4Var = new ev4(getPageContext());
+                this.h = ev4Var;
+                ev4Var.f(this.t);
                 PbListView pbListView = new PbListView(getContext());
                 this.g = pbListView;
                 pbListView.a();
                 this.g.p(R.color.CAM_X0201);
-                this.g.t(qi.f(getContext(), R.dimen.tbds182));
+                this.g.t(ri.f(getContext(), R.dimen.tbds182));
                 this.g.x();
                 this.g.G(R.dimen.tbfontsize33);
                 this.g.E(SkinManager.getColor(R.color.CAM_X0107));
                 this.g.A(R.color.CAM_X0110);
                 this.g.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091aaf);
+                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091ab1);
                 this.f = bdSwipeRefreshLayout;
                 bdSwipeRefreshLayout.setProgressView(this.h);
                 e eVar = new e(this);

@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SpannableClickTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a extends LinkMovementMethod {
         public static /* synthetic */ Interceptable $ic;
         public static a a;

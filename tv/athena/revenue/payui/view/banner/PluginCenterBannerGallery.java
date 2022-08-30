@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.widget.SpinnerAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.tieba.o3a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f3a;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
 import java.util.List;
@@ -24,7 +24,7 @@ import tv.athena.revenue.payui.model.ImageLoaderSupplier;
 public final class PluginCenterBannerGallery extends AdGallery {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f3a j;
+    public o3a j;
 
     static {
         InterceptResult invokeClinit;
@@ -60,7 +60,7 @@ public final class PluginCenterBannerGallery extends AdGallery {
                 return;
             }
         }
-        this.j = new f3a(context);
+        this.j = new o3a(context);
     }
 
     public final List<BannerConfigItem.BannerInfo> getData() {
@@ -110,7 +110,7 @@ public final class PluginCenterBannerGallery extends AdGallery {
                 return;
             }
         }
-        this.j = new f3a(context);
+        this.j = new o3a(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -132,6 +132,6 @@ public final class PluginCenterBannerGallery extends AdGallery {
                 return;
             }
         }
-        this.j = new f3a(context);
+        this.j = new o3a(context);
     }
 }

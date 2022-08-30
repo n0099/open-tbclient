@@ -19,7 +19,7 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class DefaultImageHeaderParser implements ImageHeaderParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BYTES_PER_FORMAT;
@@ -47,7 +47,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     public static final int WEBP_LOSSLESS_ALPHA_FLAG = 8;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class ByteBufferReader implements Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +128,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class RandomAccessReader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -196,7 +196,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface Reader {
         int getByte() throws IOException;
 
@@ -209,7 +209,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         long skip(long j) throws IOException;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class StreamReader implements Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

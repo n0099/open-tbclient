@@ -7,12 +7,12 @@ import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MaxHeightFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,9 +47,9 @@ public class MaxHeightFrameLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             float f = this.b;
             if (f <= 0.0f) {
-                this.b = this.a * qi.i(getContext());
+                this.b = this.a * ri.i(getContext());
             } else {
-                this.b = Math.min(f, this.a * qi.i(getContext()));
+                this.b = Math.min(f, this.a * ri.i(getContext()));
             }
         }
     }

@@ -43,6 +43,10 @@ import androidx.core.widget.EdgeEffectCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.tieba.horizonalList.widget.AdapterView;
+import com.baidu.tieba.o47;
+import com.baidu.tieba.p47;
+import com.baidu.tieba.q47;
+import com.baidu.tieba.w47;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,14 +54,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g47;
-import com.repackage.h47;
-import com.repackage.i47;
-import com.repackage.o47;
 import java.util.ArrayList;
 import java.util.List;
 @TargetApi(11)
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class AbsHListView extends AdapterView<ListAdapter> implements ViewTreeObserver.OnGlobalLayoutListener, ViewTreeObserver.OnTouchModeChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CHECK_POSITION_SEARCH_DISTANCE = 20;
@@ -169,9 +169,9 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
     public int mTranscriptMode;
     public float mVelocityScale;
     public VelocityTracker mVelocityTracker;
-    public g47.a mViewHelper;
+    public o47.a mViewHelper;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -266,7 +266,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -282,7 +282,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         public int viewLeft;
         public int width;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class a implements Parcelable.Creator<SavedState> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -501,7 +501,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -544,7 +544,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -589,7 +589,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends AdapterView<ListAdapter>.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -633,7 +633,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d extends o implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -696,7 +696,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e extends o implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -769,7 +769,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -843,16 +843,16 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final o47 a;
+        public final w47 a;
         public int b;
         public final Runnable c;
         public final /* synthetic */ AbsHListView d;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -882,13 +882,13 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     int i = this.a.d.mActivePointerId;
                     VelocityTracker velocityTracker = this.a.d.mVelocityTracker;
-                    o47 o47Var = this.a.a;
+                    w47 w47Var = this.a.a;
                     if (velocityTracker == null || i == -1) {
                         return;
                     }
                     velocityTracker.computeCurrentVelocity(1000, this.a.d.mMaximumVelocity);
                     float f = -velocityTracker.getXVelocity(i);
-                    if (Math.abs(f) >= this.a.d.mMinimumVelocity && o47Var.h(f, 0.0f)) {
+                    if (Math.abs(f) >= this.a.d.mMinimumVelocity && w47Var.h(f, 0.0f)) {
                         this.a.d.postDelayed(this, 40L);
                         return;
                     }
@@ -917,7 +917,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
             }
             this.d = absHListView;
             this.c = new a(this);
-            this.a = new o47(absHListView.getContext());
+            this.a = new w47(absHListView.getContext());
         }
 
         public void b(int i) {
@@ -1034,10 +1034,10 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                             c();
                             return;
                         }
-                        o47 o47Var = this.a;
-                        if (o47Var.b()) {
+                        w47 w47Var = this.a;
+                        if (w47Var.b()) {
                             int scrollX = this.d.getScrollX();
-                            int f = o47Var.f();
+                            int f = w47Var.f();
                             AbsHListView absHListView = this.d;
                             if (!absHListView.overScrollBy(f - scrollX, 0, scrollX, 0, 0, 0, absHListView.mOverflingDistance, 0, false)) {
                                 this.d.invalidate();
@@ -1052,11 +1052,11 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                                 h();
                                 return;
                             }
-                            int e = (int) o47Var.e();
+                            int e = (int) w47Var.e();
                             if (z) {
                                 e = -e;
                             }
-                            o47Var.a();
+                            w47Var.a();
                             e(e);
                             return;
                         }
@@ -1072,9 +1072,9 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                 }
                 AbsHListView absHListView3 = this.d;
                 if (absHListView3.mItemCount != 0 && absHListView3.getChildCount() != 0) {
-                    o47 o47Var2 = this.a;
-                    boolean b = o47Var2.b();
-                    int f2 = o47Var2.f();
+                    w47 w47Var2 = this.a;
+                    boolean b = w47Var2.b();
+                    int f2 = w47Var2.f();
                     int i2 = this.b - f2;
                     if (i2 > 0) {
                         AbsHListView absHListView4 = this.d;
@@ -1123,7 +1123,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
     }
 
     @TargetApi(14)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class h extends AccessibilityDelegateCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1214,14 +1214,14 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface i {
         void a(AbsHListView absHListView, int i, int i2, int i3);
 
         void b(AbsHListView absHListView, int i);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class j extends o implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1276,7 +1276,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class k implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1289,7 +1289,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         public int g;
         public final /* synthetic */ AbsHListView h;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -1326,7 +1326,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -1712,7 +1712,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2056,17 +2056,17 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface m {
         void onMovedToScrapHeap(View view2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface n {
         void adjustListItemSelectionBounds(Rect rect);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class o {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2295,7 +2295,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
             this.mMaximumVelocity = viewConfiguration.getScaledMaximumFlingVelocity();
             this.mOverscrollDistance = viewConfiguration.getScaledOverscrollDistance();
             this.mOverflingDistance = viewConfiguration.getScaledOverflingDistance();
-            this.mViewHelper = g47.a(this);
+            this.mViewHelper = o47.a(this);
         }
     }
 
@@ -2708,7 +2708,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                         i2--;
                         this.mCheckedItemCount--;
                         if (Build.VERSION.SDK_INT > 11 && (obj2 = this.mChoiceActionMode) != null && (obj3 = this.mMultiChoiceModeCallback) != null) {
-                            ((i47) obj3).a((ActionMode) obj2, intValue, keyAt, false);
+                            ((q47) obj3).a((ActionMode) obj2, intValue, keyAt, false);
                         }
                         z2 = true;
                     }
@@ -3706,7 +3706,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
             }
             this.mCheckedItemCount = savedState.checkedItemCount;
             if (Build.VERSION.SDK_INT >= 11 && savedState.inActionMode && this.mChoiceMode == 3 && (obj = this.mMultiChoiceModeCallback) != null) {
-                this.mChoiceActionMode = startActionMode((i47) obj);
+                this.mChoiceActionMode = startActionMode((q47) obj);
             }
             requestLayout();
         }
@@ -4185,7 +4185,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                     }
                     Object obj = this.mChoiceActionMode;
                     if (obj != null) {
-                        ((i47) this.mMultiChoiceModeCallback).a((ActionMode) obj, i2, j2, z4);
+                        ((q47) this.mMultiChoiceModeCallback).a((ActionMode) obj, i2, j2, z4);
                     } else {
                         z2 = true;
                     }
@@ -4208,7 +4208,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048654, this, new Object[]{view2, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             if (Build.VERSION.SDK_INT >= 11 && this.mChoiceMode == 3) {
                 if (this.mChoiceActionMode == null) {
-                    ActionMode startActionMode = startActionMode((i47) this.mMultiChoiceModeCallback);
+                    ActionMode startActionMode = startActionMode((q47) this.mMultiChoiceModeCallback);
                     this.mChoiceActionMode = startActionMode;
                     if (startActionMode != null) {
                         setItemChecked(i2, true);
@@ -4614,8 +4614,8 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         }
         if (Build.VERSION.SDK_INT >= 11 && z && i3 == 3 && this.mChoiceActionMode == null) {
             Object obj = this.mMultiChoiceModeCallback;
-            if (obj != null && ((i47) obj).b()) {
-                this.mChoiceActionMode = startActionMode((i47) this.mMultiChoiceModeCallback);
+            if (obj != null && ((q47) obj).b()) {
+                this.mChoiceActionMode = startActionMode((q47) this.mMultiChoiceModeCallback);
             } else {
                 throw new IllegalStateException("AbsListView: attempted to start selection mode for CHOICE_MODE_MULTIPLE_MODAL but no choice mode callback was supplied. Call setMultiChoiceModeListener to set a callback.");
             }
@@ -4656,7 +4656,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                 }
             }
             if (this.mChoiceActionMode != null) {
-                ((i47) this.mMultiChoiceModeCallback).a((ActionMode) this.mChoiceActionMode, i2, this.mAdapter.getItemId(i2), z);
+                ((q47) this.mMultiChoiceModeCallback).a((ActionMode) this.mChoiceActionMode, i2, this.mAdapter.getItemId(i2), z);
             }
         }
         if (this.mInLayout || this.mBlockLayoutRequests) {
@@ -4668,15 +4668,15 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
     }
 
     @TargetApi(11)
-    public void setMultiChoiceModeListener(h47 h47Var) {
+    public void setMultiChoiceModeListener(p47 p47Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048675, this, h47Var) == null) || Build.VERSION.SDK_INT < 11) {
+        if (!(interceptable == null || interceptable.invokeL(1048675, this, p47Var) == null) || Build.VERSION.SDK_INT < 11) {
             return;
         }
         if (this.mMultiChoiceModeCallback == null) {
-            this.mMultiChoiceModeCallback = new i47(this);
+            this.mMultiChoiceModeCallback = new q47(this);
         }
-        ((i47) this.mMultiChoiceModeCallback).c(h47Var);
+        ((q47) this.mMultiChoiceModeCallback).c(p47Var);
     }
 
     public void setOnScrollListener(i iVar) {

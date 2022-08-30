@@ -13,7 +13,7 @@ import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class b extends c<RegisterStatus> {
     public Handler a;
     public ScheduledExecutorService b;

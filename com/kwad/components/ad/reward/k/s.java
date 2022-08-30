@@ -22,7 +22,7 @@ import com.kwad.components.ad.reward.l;
 import com.kwad.components.core.widget.KSCornerImageView;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class s extends d implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,7 @@ public final class s extends d implements View.OnClickListener {
         this.wj = viewGroup;
         this.adTemplate = adTemplate;
         this.nf = aVar;
-        ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0461, viewGroup, false);
+        ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0462, viewGroup, false);
         this.pV = viewGroup2;
         this.mContext = viewGroup2.getContext();
         initView();
@@ -73,8 +73,8 @@ public final class s extends d implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
             SpannableString spannableString = new SpannableString("再看" + str + "秒，即可获得奖励");
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f06076e));
-            ForegroundColorSpan foregroundColorSpan2 = new ForegroundColorSpan(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f06076e));
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060771));
+            ForegroundColorSpan foregroundColorSpan2 = new ForegroundColorSpan(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060771));
             StyleSpan styleSpan = new StyleSpan(1);
             int length = spannableString.length();
             spannableString.setSpan(foregroundColorSpan, 2, length - 7, 34);
@@ -88,14 +88,14 @@ public final class s extends d implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911af);
-            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911b1);
-            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911ad);
-            this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911b0);
-            this.iv = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911ae);
-            this.wk = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a1);
-            this.vi = this.pV.findViewById(R.id.obfuscated_res_0x7f0911ac);
-            this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f0911ab);
+            this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911b1);
+            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911b3);
+            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911af);
+            this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911b2);
+            this.iv = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911b0);
+            this.wk = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911a3);
+            this.vi = this.pV.findViewById(R.id.obfuscated_res_0x7f0911ae);
+            this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f0911ad);
             this.vi.setOnClickListener(this);
             this.vj.setOnClickListener(this);
             this.it.setOnClickListener(this);

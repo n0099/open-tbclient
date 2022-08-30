@@ -2,18 +2,18 @@ package com.baidu.tieba.memberCenter.memberpay;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.sl7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kl7;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class ResponseCardBoxMemberPayMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kl7 mData;
+    public sl7 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseCardBoxMemberPayMessage(int i) {
@@ -43,22 +43,22 @@ public class ResponseCardBoxMemberPayMessage extends JsonHttpResponsedMessage {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null) {
-                kl7 kl7Var = new kl7();
-                this.mData = kl7Var;
-                kl7Var.a(jSONObject);
+                sl7 sl7Var = new sl7();
+                this.mData = sl7Var;
+                sl7Var.a(jSONObject);
             }
         }
     }
 
-    public kl7 getMemberPayResult() {
+    public sl7 getMemberPayResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.mData == null) {
-                this.mData = new kl7();
+                this.mData = new sl7();
             }
             return this.mData;
         }
-        return (kl7) invokeV.objValue;
+        return (sl7) invokeV.objValue;
     }
 }

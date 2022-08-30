@@ -5,7 +5,7 @@ import com.meizu.cloud.pushinternal.DebugLogger;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public abstract class BasicPushStatus implements Serializable {
     public static final String SUCCESS_CODE = "200";
     public static final String TAG = "BasicPushStatus";

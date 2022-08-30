@@ -1,6 +1,12 @@
 package com.badlogic.ashley.core;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.a7;
+import com.baidu.tieba.o0;
+import com.baidu.tieba.p0;
+import com.baidu.tieba.x7;
+import com.baidu.tieba.y0;
+import com.baidu.tieba.z7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,12 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a7;
-import com.repackage.o0;
-import com.repackage.p0;
-import com.repackage.x7;
-import com.repackage.y0;
-import com.repackage.z7;
 import com.yy.hiidostatis.inner.util.log.ActLog;
 /* loaded from: classes.dex */
 public class EntityManager {
@@ -109,7 +109,7 @@ public class EntityManager {
             }
         }
 
-        @Override // com.repackage.z7.a
+        @Override // com.baidu.tieba.z7.a
         public void reset() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -178,7 +178,7 @@ public class EntityManager {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.z7
+        @Override // com.baidu.tieba.z7
         /* renamed from: g */
         public EntityOperation d() {
             InterceptResult invokeV;

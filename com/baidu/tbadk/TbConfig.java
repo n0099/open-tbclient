@@ -14,6 +14,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.o55;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,8 +23,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i55;
-import com.repackage.qi;
 import java.util.HashMap;
 import java.util.HashSet;
 /* loaded from: classes3.dex */
@@ -46,6 +46,7 @@ public class TbConfig {
     public static final String ALA_VERIFY_STRATEGY = "ala/sys/strategy";
     public static final String ALL_THEME_LIST_PAGE = "c/e/theme/getSkinList";
     public static int ALPHA_80 = 0;
+    public static final String API_CLICK_TO_CHAT = "/peiwan/api/team/click";
     public static final String API_GOD_IDENTITY = "/peiwan/api/god/identity";
     public static final String APPLY_GAME_CARD = "c/u/game/applygamecard";
     public static final long APP_ENTER_BACKGROUND_INTERVAL = 1000;
@@ -1167,7 +1168,7 @@ public class TbConfig {
     public static final int getDimens(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65558, null, i)) == null) ? qi.f(TbadkCoreApplication.getInst().getContext(), i) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65558, null, i)) == null) ? ri.f(TbadkCoreApplication.getInst().getContext(), i) : invokeI.intValue;
     }
 
     public static int getEmotionContentSize() {
@@ -1432,7 +1433,7 @@ public class TbConfig {
             return;
         }
         sThreadImageMaxInited = true;
-        int sqrt = (int) Math.sqrt(qi.k(context) * qi.i(context));
+        int sqrt = (int) Math.sqrt(ri.k(context) * ri.i(context));
         if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
             THREAD_IMAGE_MAX_WIDTH = sqrt;
         }
@@ -1459,7 +1460,7 @@ public class TbConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, context)) == null) {
-            int d = qi.d(context, 427.0f);
+            int d = ri.d(context, 427.0f);
             if (d > 640) {
                 d = 640;
             }
@@ -1530,7 +1531,7 @@ public class TbConfig {
                 i = 60;
             }
             if (MAX_PHOTO_MEMORY_CACHE != i) {
-                i55.k().t(i);
+                o55.k().t(i);
             }
             MAX_PHOTO_MEMORY_CACHE = i;
         }

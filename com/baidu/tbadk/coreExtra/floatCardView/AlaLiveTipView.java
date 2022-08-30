@@ -40,25 +40,24 @@ import com.baidu.tbadk.data.LiveRemindRecommendData;
 import com.baidu.tbadk.mutiprocess.live.LiveStartClickDataEvent;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.gu4;
+import com.baidu.tieba.hu4;
+import com.baidu.tieba.iz4;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.u75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eu4;
-import com.repackage.fu4;
-import com.repackage.fz4;
-import com.repackage.ms4;
-import com.repackage.o75;
-import com.repackage.qi;
-import com.repackage.rg;
 /* loaded from: classes3.dex */
 public class AlaLiveTipView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener A;
     public CustomMessageListener B;
-    public CustomMessageListener C;
     public TbPageContext<?> a;
     public Context b;
     public TBLottieAnimationView c;
@@ -91,51 +90,9 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ AlaLiveTipView d;
-
-        public a(AlaLiveTipView alaLiveTipView, View view2, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {alaLiveTipView, view2, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = alaLiveTipView;
-            this.a = view2;
-            this.b = i;
-            this.c = i2;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                IntEvaluator intEvaluator = new IntEvaluator();
-                float animatedFraction = valueAnimator.getAnimatedFraction();
-                this.a.getLayoutParams().width = intEvaluator.evaluate(animatedFraction, Integer.valueOf(this.b), Integer.valueOf(this.c)).intValue();
-                this.a.requestLayout();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
         public final /* synthetic */ AlaLiveTipView b;
 
-        public b(AlaLiveTipView alaLiveTipView, View view2) {
+        public a(AlaLiveTipView alaLiveTipView, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -164,7 +121,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
     }
 
     /* loaded from: classes3.dex */
-    public class c implements ValueAnimator.AnimatorUpdateListener {
+    public class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View a;
@@ -172,7 +129,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         public final /* synthetic */ int c;
         public final /* synthetic */ AlaLiveTipView d;
 
-        public c(AlaLiveTipView alaLiveTipView, View view2, int i, int i2) {
+        public b(AlaLiveTipView alaLiveTipView, View view2, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -211,13 +168,13 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
     }
 
     /* loaded from: classes3.dex */
-    public class d implements ValueAnimator.AnimatorUpdateListener {
+    public class c implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View a;
         public final /* synthetic */ AlaLiveTipView b;
 
-        public d(AlaLiveTipView alaLiveTipView, View view2) {
+        public c(AlaLiveTipView alaLiveTipView, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -246,13 +203,13 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
     }
 
     /* loaded from: classes3.dex */
-    public class e extends AnimatorListenerAdapter {
+    public class d extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View a;
         public final /* synthetic */ AlaLiveTipView b;
 
-        public e(AlaLiveTipView alaLiveTipView, View view2) {
+        public d(AlaLiveTipView alaLiveTipView, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -289,6 +246,43 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
     }
 
     /* loaded from: classes3.dex */
+    public class e extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AlaLiveTipView a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(AlaLiveTipView alaLiveTipView, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alaLiveTipView, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = alaLiveTipView;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728 && !customResponsedMessage.hasError() && customResponsedMessage.getError() == 0) {
+                this.a.setData(gu4.a().b, gu4.a().c(this.a.m), false);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
     public class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -319,8 +313,8 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728 && !customResponsedMessage.hasError() && customResponsedMessage.getError() == 0) {
-                this.a.setData(eu4.a().b, eu4.a().c(this.a.m), false);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921733 && this.a.m == 2) {
+                this.a.setData(gu4.a().b, gu4.a().c(this.a.m), false);
             }
         }
     }
@@ -356,43 +350,6 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921733 && this.a.m == 2) {
-                this.a.setData(eu4.a().b, eu4.a().c(this.a.m), false);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class h extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AlaLiveTipView a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public h(AlaLiveTipView alaLiveTipView, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {alaLiveTipView, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = alaLiveTipView;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304) {
                 this.a.C(TbadkCoreApplication.getInst().getSkinType());
             }
@@ -400,54 +357,12 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
     }
 
     /* loaded from: classes3.dex */
-    public class i extends CustomMessageListener {
+    public class h implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaLiveTipView a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public i(AlaLiveTipView alaLiveTipView, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {alaLiveTipView, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = alaLiveTipView;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921734 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
-                int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-                if (intValue == 1) {
-                    this.a.A();
-                } else if (intValue == 2) {
-                    this.a.z();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class j implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AlaLiveTipView a;
-
-        public j(AlaLiveTipView alaLiveTipView) {
+        public h(AlaLiveTipView alaLiveTipView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -475,12 +390,12 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
     }
 
     /* loaded from: classes3.dex */
-    public class k implements Runnable {
+    public class i implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaLiveTipView a;
 
-        public k(AlaLiveTipView alaLiveTipView) {
+        public i(AlaLiveTipView alaLiveTipView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -503,6 +418,72 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.e.playAnimation();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class j extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AlaLiveTipView a;
+
+        public j(AlaLiveTipView alaLiveTipView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alaLiveTipView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = alaLiveTipView;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.a.s();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class k extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AlaLiveTipView a;
+
+        public k(AlaLiveTipView alaLiveTipView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alaLiveTipView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = alaLiveTipView;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && this.a.q == 2) {
+                this.a.p();
             }
         }
     }
@@ -535,76 +516,52 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.s();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class m extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AlaLiveTipView a;
-
-        public m(AlaLiveTipView alaLiveTipView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {alaLiveTipView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = alaLiveTipView;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && this.a.q == 2) {
-                this.a.p();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class n extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AlaLiveTipView a;
-
-        public n(AlaLiveTipView alaLiveTipView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {alaLiveTipView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = alaLiveTipView;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 if (this.a.r && !this.a.s) {
                     this.a.N(false);
                 }
                 this.a.setBubbleClickable(false);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class m implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ AlaLiveTipView d;
+
+        public m(AlaLiveTipView alaLiveTipView, View view2, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alaLiveTipView, view2, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = alaLiveTipView;
+            this.a = view2;
+            this.b = i;
+            this.c = i2;
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                IntEvaluator intEvaluator = new IntEvaluator();
+                float animatedFraction = valueAnimator.getAnimatedFraction();
+                this.a.getLayoutParams().width = intEvaluator.evaluate(animatedFraction, Integer.valueOf(this.b), Integer.valueOf(this.c)).intValue();
+                this.a.requestLayout();
             }
         }
     }
@@ -636,10 +593,9 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         this.v = "";
         this.w = "";
         this.x = false;
-        this.z = new f(this, 2921728);
-        this.A = new g(this, 2921733);
-        this.B = new h(this, 2001304);
-        this.C = new i(this, 2921734);
+        this.z = new e(this, 2921728);
+        this.A = new f(this, 2921733);
+        this.B = new g(this, 2001304);
         t(context);
     }
 
@@ -660,11 +616,11 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
                 z();
                 return;
             }
-            String a2 = fz4.a(liveRemindRecommendData);
-            if (StringUtils.isNull(a2)) {
-                new AlaTabFeedActivityConfig(getContext()).start();
+            String b2 = iz4.b(liveRemindRecommendData);
+            if (StringUtils.isNull(b2)) {
+                o("");
             } else {
-                UrlManager.getInstance().dealOneLink(this.a, new String[]{a2}, true);
+                o(b2);
             }
         }
     }
@@ -689,8 +645,8 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             O(i2);
             this.f.setSkinType(i2);
-            SkinManager.setBackgroundShapeDrawable(this.g, qi.f(this.b, R.dimen.tbds74), R.color.CAM_X0310, R.color.CAM_X0310);
-            ms4 d2 = ms4.d(this.h);
+            SkinManager.setBackgroundShapeDrawable(this.g, ri.f(this.b, R.dimen.tbds74), R.color.CAM_X0310, R.color.CAM_X0310);
+            os4 d2 = os4.d(this.h);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0101);
@@ -733,7 +689,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
             if (this.o) {
                 this.g.setVisibility(0);
             }
-            m(this.g, qi.f(this.b, R.dimen.tbds74), qi.f(this.b, R.dimen.tbds74), new l(this), 100L, 0L);
+            m(this.g, ri.f(this.b, R.dimen.tbds74), ri.f(this.b, R.dimen.tbds74), new j(this), 100L, 0L);
         }
     }
 
@@ -900,10 +856,10 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
                     this.e.setSpeed(0.7f);
                     this.e.setRepeatMode(1);
                     this.e.setRepeatCount(-1);
-                    this.e.post(new k(this));
+                    this.e.post(new i(this));
                 }
                 if (this.f.getVisibility() == 0) {
-                    fu4.b().f(LiveRemindConfig.Scene.LIVE_BUBBLE);
+                    hu4.b().f(LiveRemindConfig.Scene.LIVE_BUBBLE);
                     L();
                     return;
                 }
@@ -977,9 +933,9 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
             ValueAnimator ofFloat2 = ValueAnimator.ofFloat(1.0f, 0.0f);
             ofFloat.setDuration(j2);
             ofFloat.setInterpolator(new AccelerateInterpolator());
-            ofFloat.addUpdateListener(new a(this, view2, i2, i3));
+            ofFloat.addUpdateListener(new m(this, view2, i2, i3));
             ofFloat2.setDuration(j2);
-            ofFloat2.addUpdateListener(new b(this, view2));
+            ofFloat2.addUpdateListener(new a(this, view2));
             AnimatorSet animatorSet = new AnimatorSet();
             if (animatorListenerAdapter != null) {
                 animatorSet.addListener(animatorListenerAdapter);
@@ -997,9 +953,9 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
             ValueAnimator ofFloat2 = ValueAnimator.ofFloat(0.0f, 1.0f);
             ofFloat.setDuration(j2);
             ofFloat.setInterpolator(new DecelerateInterpolator());
-            ofFloat.addUpdateListener(new c(this, view2, i2, i3));
+            ofFloat.addUpdateListener(new b(this, view2, i2, i3));
             ofFloat2.setDuration(j2);
-            ofFloat2.addUpdateListener(new d(this, view2));
+            ofFloat2.addUpdateListener(new c(this, view2));
             AnimatorSet animatorSet = new AnimatorSet();
             if (animatorListenerAdapter != null) {
                 animatorSet.addListener(animatorListenerAdapter);
@@ -1010,18 +966,21 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    public final void o(int i2) {
+    public final void o(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                LiveStartClickDataEvent liveStartClickDataEvent = new LiveStartClickDataEvent();
-                liveStartClickDataEvent.viewTag = Integer.valueOf(i2);
-                o75.i(liveStartClickDataEvent);
-            } else if (i2 == 1) {
-                A();
-            } else {
-                z();
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
+                if (StringUtils.isNull(str)) {
+                    new AlaTabFeedActivityConfig(getContext()).start();
+                    return;
+                } else {
+                    UrlManager.getInstance().dealOneLink(this.a, new String[]{str}, true);
+                    return;
+                }
             }
+            LiveStartClickDataEvent liveStartClickDataEvent = new LiveStartClickDataEvent();
+            liveStartClickDataEvent.viewTag = str;
+            u75.i(liveStartClickDataEvent);
         }
     }
 
@@ -1030,7 +989,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onAttachedToWindow();
-            setData(eu4.a().b, eu4.a().c(this.m), true);
+            setData(gu4.a().b, gu4.a().c(this.m), true);
         }
     }
 
@@ -1038,16 +997,16 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, view2) == null) {
-            fz4.c();
+            iz4.e();
             if (view2.getId() != R.id.obfuscated_res_0x7f0901c5 && view2.getId() != R.id.obfuscated_res_0x7f090200) {
-                o(2);
+                z();
                 H();
                 return;
             }
             if (this.q == 1) {
                 p();
             }
-            o(1);
+            A();
             N(false);
             K();
         }
@@ -1062,7 +1021,6 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
             M();
             MessageManager.getInstance().unRegisterListener(this.z);
             MessageManager.getInstance().unRegisterListener(this.A);
-            MessageManager.getInstance().unRegisterListener(this.C);
             MessageManager.getInstance().unRegisterListener(this.B);
         }
     }
@@ -1071,7 +1029,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             ViewGroup viewGroup = this.g;
-            m(viewGroup, viewGroup.getWidth(), qi.f(this.b, R.dimen.tbds74), new n(this), 500L, this.p);
+            m(viewGroup, viewGroup.getWidth(), ri.f(this.b, R.dimen.tbds74), new l(this), 500L, this.p);
         }
     }
 
@@ -1081,7 +1039,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
             view3.setAlpha(0.0f);
             view3.setVisibility(0);
             view3.animate().alpha(1.0f).setDuration(800L).setListener(null);
-            view2.animate().alpha(0.0f).setDuration(800L).setListener(new e(this, view2));
+            view2.animate().alpha(0.0f).setDuration(800L).setListener(new d(this, view2));
         }
     }
 
@@ -1089,8 +1047,8 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             if (this.q == 2 && this.p >= 0) {
-                this.t = new j(this);
-                rg.a().postDelayed(this.t, this.p);
+                this.t = new h(this);
+                sg.a().postDelayed(this.t, this.p);
                 return;
             }
             this.r = false;
@@ -1103,7 +1061,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             this.g.getLayoutParams().width = -2;
             this.g.measure(0, 0);
-            n(this.g, qi.f(this.b, R.dimen.tbds74), this.g.getMeasuredWidth(), new m(this), 500L, 1500L);
+            n(this.g, ri.f(this.b, R.dimen.tbds74), this.g.getMeasuredWidth(), new k(this), 500L, 1500L);
         }
     }
 
@@ -1120,7 +1078,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
                 this.p = this.l.getDisappearSecond() * 1000;
                 this.h.setText(this.l.getDesc());
                 B(false);
-                if (fu4.b().j(LiveRemindConfig.Scene.LIVE_BUBBLE)) {
+                if (hu4.b().j(LiveRemindConfig.Scene.LIVE_BUBBLE)) {
                     N(true);
                     G();
                 } else if (this.x) {
@@ -1183,10 +1141,10 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00fc, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00fd, (ViewGroup) this, true);
             this.b = context;
-            this.i = findViewById(R.id.obfuscated_res_0x7f0916ba);
-            this.c = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0916bb);
+            this.i = findViewById(R.id.obfuscated_res_0x7f0916bc);
+            this.c = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0916bd);
             this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090272);
             this.g = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0901c5);
             this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0901c4);
@@ -1199,7 +1157,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
             headImageView.setIsRound(true);
             this.f.setDefaultResource(17170445);
             this.f.setPlaceHolder(1);
-            this.f.setRadius(qi.f(this.b, R.dimen.tbds37));
+            this.f.setRadius(ri.f(this.b, R.dimen.tbds37));
             this.f.setDrawBorder(true);
             this.f.setBorderWidth(R.dimen.L_X02);
             this.f.setBorderColor(SkinManager.getColor(R.color.CAM_X0622));
@@ -1211,7 +1169,6 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
             getPageContext();
             MessageManager.getInstance().registerListener(this.z);
             MessageManager.getInstance().registerListener(this.A);
-            MessageManager.getInstance().registerListener(this.C);
             MessageManager.getInstance().registerListener(this.B);
         }
     }
@@ -1255,10 +1212,10 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
             LiveRemindNormalConfigData liveRemindNormalConfigData = this.k;
             if (liveRemindNormalConfigData != null && !StringUtils.isNull(liveRemindNormalConfigData.getNormalIconScheme())) {
-                UrlManager.getInstance().dealOneLink(this.a, new String[]{this.k.getNormalIconScheme()}, true);
-                return;
+                o(iz4.a(this.k.getNormalIconScheme(), this.m));
+            } else {
+                o("");
             }
-            new AlaTabFeedActivityConfig(getContext()).start();
         }
     }
 
@@ -1290,10 +1247,9 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         this.v = "";
         this.w = "";
         this.x = false;
-        this.z = new f(this, 2921728);
-        this.A = new g(this, 2921733);
-        this.B = new h(this, 2001304);
-        this.C = new i(this, 2921734);
+        this.z = new e(this, 2921728);
+        this.A = new f(this, 2921733);
+        this.B = new g(this, 2001304);
         t(context);
     }
 
@@ -1325,10 +1281,9 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         this.v = "";
         this.w = "";
         this.x = false;
-        this.z = new f(this, 2921728);
-        this.A = new g(this, 2921733);
-        this.B = new h(this, 2001304);
-        this.C = new i(this, 2921734);
+        this.z = new e(this, 2921728);
+        this.A = new f(this, 2921733);
+        this.B = new g(this, 2001304);
         t(context);
     }
 }

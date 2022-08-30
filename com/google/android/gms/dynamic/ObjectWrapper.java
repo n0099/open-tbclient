@@ -2,15 +2,15 @@ package com.google.android.gms.dynamic;
 
 import android.os.IBinder;
 import androidx.annotation.NonNull;
+import com.baidu.tieba.jn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.dynamic.IObjectWrapper;
-import com.repackage.an9;
 import java.lang.reflect.Field;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ObjectWrapper<T> extends IObjectWrapper.Stub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public final class ObjectWrapper<T> extends IObjectWrapper.Stub {
                 }
             }
             if (i == 1) {
-                an9.d(field);
+                jn9.d(field);
                 if (!field.isAccessible()) {
                     field.setAccessible(true);
                     try {

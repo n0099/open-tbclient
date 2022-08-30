@@ -14,6 +14,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ay1;
+import com.baidu.tieba.pw1;
+import com.baidu.tieba.qw1;
+import com.baidu.tieba.rw1;
+import com.baidu.tieba.tx1;
+import com.baidu.tieba.up2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,15 +30,9 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import com.repackage.ow1;
-import com.repackage.pw1;
-import com.repackage.qw1;
-import com.repackage.sx1;
-import com.repackage.tp2;
-import com.repackage.zx1;
 import java.io.File;
 /* loaded from: classes3.dex */
-public class VideoContainerManager extends ow1<VideoHolderWrapper, tp2> {
+public class VideoContainerManager extends pw1<VideoHolderWrapper, up2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context i;
@@ -113,9 +113,9 @@ public class VideoContainerManager extends ow1<VideoHolderWrapper, tp2> {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 ImageView imageView = new ImageView(this.d.i);
                 this.b = imageView;
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f0811aa);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f0811ab);
                 this.b.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811a0);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811a1);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 17;
                 addView(this.b, layoutParams);
@@ -200,19 +200,19 @@ public class VideoContainerManager extends ow1<VideoHolderWrapper, tp2> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoContainerManager(@NonNull Context context, @NonNull tp2 tp2Var) {
-        super(context, tp2Var);
+    public VideoContainerManager(@NonNull Context context, @NonNull up2 up2Var) {
+        super(context, up2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, tp2Var};
+            Object[] objArr = {context, up2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (pw1) objArr2[1]);
+                super((Context) objArr2[0], (qw1) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -264,7 +264,7 @@ public class VideoContainerManager extends ow1<VideoHolderWrapper, tp2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ow1
+    @Override // com.baidu.tieba.pw1
     @NonNull
     /* renamed from: L */
     public VideoHolderWrapper v(@NonNull Context context) {
@@ -290,17 +290,17 @@ public class VideoContainerManager extends ow1<VideoHolderWrapper, tp2> {
         }
     }
 
-    public void O(tp2 tp2Var) {
+    public void O(up2 up2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tp2Var) == null) || tp2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, up2Var) == null) || up2Var == null) {
             return;
         }
-        P(tp2Var);
+        P(up2Var);
     }
 
-    public final void P(tp2 tp2Var) {
+    public final void P(up2 up2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, tp2Var) == null) || tp2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, up2Var) == null) || up2Var == null) {
             return;
         }
         if (!(m() != null)) {
@@ -308,16 +308,16 @@ public class VideoContainerManager extends ow1<VideoHolderWrapper, tp2> {
                 ((ViewGroup) I().getParent()).removeView(I());
             }
             G().setDescendantFocusability(393216);
-            qw1 insert = insert();
-            zx1.b("video", "Add CoverContainerWrapper " + insert.a() + " position " + tp2Var.h);
+            rw1 insert = insert();
+            ay1.b("video", "Add CoverContainerWrapper " + insert.a() + " position " + up2Var.h);
             return;
         }
-        tp2 n = n();
-        if (!TextUtils.equals(tp2Var.b, n.b) || !TextUtils.equals(tp2Var.c, n.c) || !TextUtils.equals(tp2Var.d, n.d)) {
-            sx1.a("video", "updateCoverContainerPosition with different id");
+        up2 n = n();
+        if (!TextUtils.equals(up2Var.b, n.b) || !TextUtils.equals(up2Var.c, n.c) || !TextUtils.equals(up2Var.d, n.d)) {
+            tx1.a("video", "updateCoverContainerPosition with different id");
         }
-        qw1 update = update((VideoContainerManager) tp2Var);
-        zx1.b("video", "Update CoverContainerWrapper " + update.a() + " position " + tp2Var.h);
+        rw1 update = update((VideoContainerManager) up2Var);
+        ay1.b("video", "Update CoverContainerWrapper " + update.a() + " position " + up2Var.h);
     }
 
     public final void Q(View view2, int i) {
@@ -328,7 +328,7 @@ public class VideoContainerManager extends ow1<VideoHolderWrapper, tp2> {
         view2.setVisibility(i);
     }
 
-    @Override // com.repackage.ow1
+    @Override // com.baidu.tieba.pw1
     @NonNull
     public SwanAppComponentContainerView u(@NonNull Context context) {
         InterceptResult invokeL;

@@ -2,6 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
+import com.baidu.tieba.tu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ru4;
 @ModifyClass
 /* loaded from: classes3.dex */
 public class AiAppsLazyInitSwitch extends BaseNormalSwitch {
@@ -58,14 +58,14 @@ public class AiAppsLazyInitSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 1) {
-                type = ru4.k().l("key_ai_apps_lazy_init", 0);
+                type = tu4.k().l("key_ai_apps_lazy_init", 0);
             }
             return type == 1;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.repackage.bf
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.cf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

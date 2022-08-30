@@ -9,20 +9,20 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.i9;
+import com.baidu.tieba.ij8;
+import com.baidu.tieba.kj8;
+import com.baidu.tieba.y66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aj8;
-import com.repackage.cj8;
-import com.repackage.h9;
-import com.repackage.q66;
 /* loaded from: classes3.dex */
 public class EnterForumAdModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q66 a;
+    public y66 a;
     public boolean b;
     public HttpMessageListener c;
 
@@ -91,10 +91,10 @@ public class EnterForumAdModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.c);
     }
 
-    public q66 E() {
+    public y66 E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (q66) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (y66) invokeV.objValue;
     }
 
     public void F() {
@@ -105,12 +105,12 @@ public class EnterForumAdModel extends BdBaseModel {
     }
 
     public void G(Context context) {
-        q66 q66Var;
+        y66 y66Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) || this.b || (q66Var = this.a) == null || !q66Var.a()) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) || this.b || (y66Var = this.a) == null || !y66Var.a()) {
             return;
         }
-        cj8.g().c(h9.a(context).getUniqueId(), aj8.f("a025", "common_fill", true, 1, 5));
+        kj8.g().c(i9.a(context).getUniqueId(), ij8.f("a025", "common_fill", true, 1, 5));
         this.b = true;
     }
 

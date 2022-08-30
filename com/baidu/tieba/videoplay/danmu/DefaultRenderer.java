@@ -14,6 +14,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.j26;
+import com.baidu.tieba.l46;
+import com.baidu.tieba.la6;
+import com.baidu.tieba.p26;
+import com.baidu.tieba.p46;
+import com.baidu.tieba.q26;
+import com.baidu.tieba.x46;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,13 +28,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b26;
-import com.repackage.d46;
-import com.repackage.da6;
-import com.repackage.h26;
-import com.repackage.h46;
-import com.repackage.i26;
-import com.repackage.p46;
 import java.util.HashMap;
 import java.util.Map;
 import kotlin.Metadata;
@@ -40,8 +40,8 @@ import kotlinx.coroutines.BuildersKt__Builders_commonKt;
 import kotlinx.coroutines.CoroutineScopeKt;
 import kotlinx.coroutines.Dispatchers;
 @Metadata(d1 = {"\u0000V\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\r\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u0000 \u001d2\u00020\u0001:\u0001\u001dB\u0005¢\u0006\u0002\u0010\u0002J(\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u0014H\u0016J\u001e\u0010\u0015\u001a\u00020\u00162\u0006\u0010\u0017\u001a\u00020\u00182\u0006\u0010\n\u001a\u00020\t2\u0006\u0010\u0019\u001a\u00020\u0004J \u0010\u001a\u001a\u00020\u001b2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u0014H\u0016J \u0010\u001c\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u0014H\u0016R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001e"}, d2 = {"Lcom/baidu/tieba/videoplay/danmu/DefaultRenderer;", "Lcom/baidu/tieba/danmu/render/DanmakuRenderer;", "()V", "SELF_SEND_LEFT_PADDING", "", "SELF_SEND_TOP_PADDING", "borderPaint", "Landroid/graphics/Paint;", "strokePaint", "Landroid/text/TextPaint;", "textPaint", "draw", "", "item", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "canvas", "Landroid/graphics/Canvas;", "displayer", "Lcom/baidu/tieba/danmu/ui/DanmakuDisplayer;", "config", "Lcom/baidu/tieba/danmu/DanmakuConfig;", "makeLayout", "Landroid/text/StaticLayout;", "charSequence", "", "width", "measure", "Lcom/baidu/tieba/danmu/utils/Size;", "updatePaint", "Companion", "VideoPlay_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes4.dex */
-public final class DefaultRenderer implements d46 {
+/* loaded from: classes6.dex */
+public final class DefaultRenderer implements l46 {
     public static /* synthetic */ Interceptable $ic;
     public static final a f;
     public static final Map<Float, Float> g;
@@ -52,7 +52,7 @@ public final class DefaultRenderer implements d46 {
     public final TextPaint d;
     public final Paint e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,8 +149,8 @@ public final class DefaultRenderer implements d46 {
         this.e = paint;
     }
 
-    @Override // com.repackage.d46
-    public p46 a(h26 item, h46 displayer, b26 config) {
+    @Override // com.baidu.tieba.l46
+    public x46 a(p26 item, p46 displayer, j26 config) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, displayer, config)) == null) {
@@ -158,8 +158,8 @@ public final class DefaultRenderer implements d46 {
             Intrinsics.checkNotNullParameter(displayer, "displayer");
             Intrinsics.checkNotNullParameter(config, "config");
             i(item, displayer, config);
-            i26 e = item.e();
-            int b = da6.b(e.c());
+            q26 e = item.e();
+            int b = la6.b(e.c());
             float textSize = b * (this.c.getTextSize() + UtilHelper.getDimenPixelSize(R.dimen.tbds6));
             String replace = new Regex("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)").replace(e.c(), "");
             if (TextUtils.isEmpty(replace)) {
@@ -171,13 +171,13 @@ public final class DefaultRenderer implements d46 {
             if (e.g() == 8) {
                 measureText += this.b * 2;
             }
-            return new p46(MathKt__MathJVMKt.roundToInt(measureText) + 6, MathKt__MathJVMKt.roundToInt(f.b(this.c)) + MathKt__MathJVMKt.roundToInt(34.86f));
+            return new x46(MathKt__MathJVMKt.roundToInt(measureText) + 6, MathKt__MathJVMKt.roundToInt(f.b(this.c)) + MathKt__MathJVMKt.roundToInt(34.86f));
         }
-        return (p46) invokeLLL.objValue;
+        return (x46) invokeLLL.objValue;
     }
 
-    @Override // com.repackage.d46
-    public void b(h26 item, Canvas canvas, h46 displayer, b26 config) {
+    @Override // com.baidu.tieba.l46
+    public void b(p26 item, Canvas canvas, p46 displayer, j26 config) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item, canvas, displayer, config) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
@@ -185,7 +185,7 @@ public final class DefaultRenderer implements d46 {
             Intrinsics.checkNotNullParameter(displayer, "displayer");
             Intrinsics.checkNotNullParameter(config, "config");
             i(item, displayer, config);
-            i26 e = item.e();
+            q26 e = item.e();
             if (e.d().length() > 0) {
                 BuildersKt__Builders_commonKt.launch$default(CoroutineScopeKt.CoroutineScope(Dispatchers.getMain()), null, null, new DefaultRenderer$draw$1(e, canvas, this, null), 3, null);
             }
@@ -215,13 +215,13 @@ public final class DefaultRenderer implements d46 {
         return (StaticLayout) invokeLLI.objValue;
     }
 
-    public void i(h26 item, h46 displayer, b26 config) {
+    public void i(p26 item, p46 displayer, j26 config) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, item, displayer, config) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
             Intrinsics.checkNotNullParameter(displayer, "displayer");
             Intrinsics.checkNotNullParameter(config, "config");
-            i26 e = item.e();
+            q26 e = item.e();
             float clamp = MathUtils.clamp(e.n(), 12.0f, 25.0f) * (displayer.b() - 0.6f);
             this.c.setColor(e.m() | Color.argb(255, 0, 0, 0));
             this.c.setTextSize(clamp * config.v());

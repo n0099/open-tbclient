@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class QmStickerItem extends OrmObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NO_STICKER_ID = -1;

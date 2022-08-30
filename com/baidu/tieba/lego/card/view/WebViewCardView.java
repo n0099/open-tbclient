@@ -24,6 +24,7 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.lego.card.model.WebViewCard;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,10 +32,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WebViewCardView extends BaseCardView<WebViewCard> {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean r = true;
@@ -45,7 +45,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
     public XiubaTbJsBridge p;
     public final CustomMessageListener q;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +115,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements BaseWebView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,7 +151,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -298,12 +298,12 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         if (webViewCard.getHeight() > 0) {
             setWebviewHeight(webViewCard.getHeight());
         } else if (webViewCard.getContainer() > 0) {
-            int i = qi.i(getContext());
+            int i = ri.i(getContext());
             int container = webViewCard.getContainer();
             if (container == 1) {
-                setWebviewHeight(i - qi.f(getContext(), R.dimen.obfuscated_res_0x7f070280));
+                setWebviewHeight(i - ri.f(getContext(), R.dimen.obfuscated_res_0x7f070280));
             } else if (container == 2) {
-                setWebviewHeight(i - qi.f(getContext(), R.dimen.obfuscated_res_0x7f07029e));
+                setWebviewHeight(i - ri.f(getContext(), R.dimen.obfuscated_res_0x7f07029e));
             }
         }
         if (TextUtils.isEmpty(webViewCard.getPageUrl())) {
@@ -312,7 +312,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         CompatibleUtile.getInstance().loadUrl(this.o, webViewCard.getPageUrl());
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.repackage.jf7
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.rf7
     public void c(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) || bdUniqueId == null) {
@@ -327,7 +327,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            this.n = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01c2, (ViewGroup) null);
+            this.n = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01c3, (ViewGroup) null);
             G();
             return this.n;
         }

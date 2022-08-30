@@ -11,12 +11,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.mt7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.et7;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PbThreadPostView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,9 +50,9 @@ public class PbThreadPostView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f091849);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09184a);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091848);
+            this.b = findViewById(R.id.obfuscated_res_0x7f09184b);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09184c);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09184a);
         }
     }
 
@@ -64,7 +64,7 @@ public class PbThreadPostView extends LinearLayout {
             setClipToPadding(false);
             setOrientation(1);
             setGravity(17);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06cf, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06d1, (ViewGroup) this, true);
             a();
         }
     }
@@ -86,9 +86,9 @@ public class PbThreadPostView extends LinearLayout {
         }
     }
 
-    public void setData(et7 et7Var) {
+    public void setData(mt7 mt7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, et7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, mt7Var) == null) {
             c(TbadkCoreApplication.getInst().getSkinType());
         }
     }

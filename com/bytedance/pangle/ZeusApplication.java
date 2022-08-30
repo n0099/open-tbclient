@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.plugin.Plugin;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ZeusApplication extends PluginContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,5 +1,6 @@
 package com.baidu.tbadk.switchs;
 
+import com.baidu.tieba.tu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ru4;
 /* loaded from: classes3.dex */
 public class LaunchViewOptSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
@@ -51,14 +51,14 @@ public class LaunchViewOptSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 1) {
-                type = ru4.k().l(KEY_SWITCH, 1);
+                type = tu4.k().l(KEY_SWITCH, 1);
             }
             return type == 1;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.repackage.bf
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.cf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -25,7 +25,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class Excluder implements TypeAdapterFactory, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Excluder DEFAULT;

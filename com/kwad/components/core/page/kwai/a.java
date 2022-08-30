@@ -11,7 +11,7 @@ import com.kwad.components.core.c.a.a;
 import com.kwad.components.core.widget.d;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a extends Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public final class a extends Presenter {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                         if (com.kwad.sdk.core.response.a.a.am(com.kwad.sdk.core.response.a.d.bQ(this.Ge.adTemplate))) {
                             if (this.Ge.DV != null) {
-                                this.Ge.DV.m(new a.C0354a(this.Gf.getActivity()).aj(false).ak(false).L(this.Ge.adTemplate).am(false));
+                                this.Ge.DV.m(new a.C0569a(this.Gf.getActivity()).aj(false).ak(false).L(this.Ge.adTemplate).am(false));
                                 return;
                             }
                             return;

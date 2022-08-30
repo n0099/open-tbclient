@@ -10,11 +10,11 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class FragmentTabSwellingView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -105,13 +105,13 @@ public class FragmentTabSwellingView extends View {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.e = qi.f(getContext().getApplicationContext(), R.dimen.tbds137);
-            this.f = qi.f(getContext().getApplicationContext(), R.dimen.tbds204);
-            this.g = qi.f(getContext().getApplicationContext(), R.dimen.tbds23);
-            this.h = qi.f(getContext().getApplicationContext(), R.dimen.tbds51);
-            this.i = qi.f(getContext().getApplicationContext(), R.dimen.tbds16);
-            this.j = qi.f(getContext().getApplicationContext(), R.dimen.tbds52);
-            this.k = qi.f(getContext().getApplicationContext(), R.dimen.tbds2);
+            this.e = ri.f(getContext().getApplicationContext(), R.dimen.tbds137);
+            this.f = ri.f(getContext().getApplicationContext(), R.dimen.tbds204);
+            this.g = ri.f(getContext().getApplicationContext(), R.dimen.tbds23);
+            this.h = ri.f(getContext().getApplicationContext(), R.dimen.tbds51);
+            this.i = ri.f(getContext().getApplicationContext(), R.dimen.tbds16);
+            this.j = ri.f(getContext().getApplicationContext(), R.dimen.tbds52);
+            this.k = ri.f(getContext().getApplicationContext(), R.dimen.tbds2);
         }
     }
 
@@ -120,7 +120,7 @@ public class FragmentTabSwellingView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
-            if (getWidth() > qi.k(getContext())) {
+            if (getWidth() > ri.k(getContext())) {
                 return;
             }
             this.c.reset();

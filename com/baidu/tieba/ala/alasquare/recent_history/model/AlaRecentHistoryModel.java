@@ -15,20 +15,20 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.alasquare.recent_history.message.AlaRecentHistoryResponseMessage;
+import com.baidu.tieba.at5;
+import com.baidu.tieba.zs5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rs5;
-import com.repackage.ss5;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaRecentHistoryModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ss5> a;
+    public List<at5> a;
     public b b;
     public int c;
     public int d;
@@ -75,12 +75,12 @@ public class AlaRecentHistoryModel extends BdBaseModel {
                         this.a.b.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.f);
                     }
                 } else {
-                    rs5 recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
+                    zs5 recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
                     if (recentHistoryData == null) {
                         return;
                     }
                     this.a.e = recentHistoryData.a;
-                    List<ss5> list = recentHistoryData.b;
+                    List<at5> list = recentHistoryData.b;
                     if (!this.a.f) {
                         this.a.a.clear();
                         if (!ListUtils.isEmpty(list)) {
@@ -101,7 +101,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(boolean z, List<ss5> list);
+        void a(boolean z, List<at5> list);
 
         void b(int i, String str, boolean z);
     }
@@ -158,7 +158,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public List<ss5> getData() {
+    public List<at5> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (List) invokeV.objValue;

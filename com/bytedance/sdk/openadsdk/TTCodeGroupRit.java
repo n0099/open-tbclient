@@ -1,8 +1,8 @@
 package com.bytedance.sdk.openadsdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface TTCodeGroupRit {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface TTCodeGroupRitListener {
         void onFail(int i, String str);
 

@@ -11,7 +11,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.SendFreeGift.DataRes;
 import tbclient.SendFreeGift.SendFreeGiftResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SendFreeGiftHttpResponse extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

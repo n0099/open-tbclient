@@ -13,6 +13,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.lh5;
+import com.baidu.tieba.li;
+import com.baidu.tieba.mh5;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,10 +24,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eh5;
-import com.repackage.fh5;
-import com.repackage.ki;
-import com.repackage.pi;
 import java.io.File;
 import java.io.InputStream;
 /* loaded from: classes3.dex */
@@ -31,15 +31,15 @@ public class TBLottieAnimationView extends LottieAnimationView {
     public static /* synthetic */ Interceptable $ic;
     public static final String g;
     public transient /* synthetic */ FieldHolder $fh;
-    public fh5 a;
+    public mh5 a;
     public String b;
     public boolean c;
     public boolean d;
     public boolean e;
-    public fh5.a f;
+    public mh5.a f;
 
     /* loaded from: classes3.dex */
-    public class a implements fh5.a {
+    public class a implements mh5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TBLottieAnimationView a;
@@ -62,10 +62,10 @@ public class TBLottieAnimationView extends LottieAnimationView {
             this.a = tBLottieAnimationView;
         }
 
-        @Override // com.repackage.fh5.a
+        @Override // com.baidu.tieba.mh5.a
         public void a(boolean z, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) && z && !pi.isEmpty(str)) {
+            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) && z && !qi.isEmpty(str)) {
                 this.a.setAnimationDir(str);
             }
         }
@@ -163,7 +163,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
             try {
                 return file.mkdirs();
             } catch (Exception e) {
-                TiebaStatic.file(e, pi.join("FileHelper", ".", "CheckTempDir", " ", str));
+                TiebaStatic.file(e, qi.join("FileHelper", ".", "CheckTempDir", " ", str));
                 return false;
             }
         }
@@ -189,7 +189,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
                 if (new File(str3).exists()) {
                     File file = new File(str3 + str2);
                     if (file.exists()) {
-                        return ki.v(file);
+                        return li.v(file);
                     }
                     return null;
                 }
@@ -211,13 +211,13 @@ public class TBLottieAnimationView extends LottieAnimationView {
 
     public final void g(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || pi.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || qi.isEmpty(str)) {
             return;
         }
-        eh5 eh5Var = new eh5();
-        eh5Var.d(str);
-        eh5Var.c(getFristLoadInternal());
-        setImageAssetDelegate(eh5Var);
+        lh5 lh5Var = new lh5();
+        lh5Var.d(str);
+        lh5Var.c(getFristLoadInternal());
+        setImageAssetDelegate(lh5Var);
     }
 
     public boolean getFristLoadInternal() {
@@ -228,7 +228,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
 
     public final void k(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || pi.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || qi.isEmpty(str)) {
             return;
         }
         boolean z = this.c;
@@ -287,7 +287,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
 
     public void setAnimationDir(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || pi.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || qi.isEmpty(str)) {
             return;
         }
         g(str);
@@ -296,13 +296,13 @@ public class TBLottieAnimationView extends LottieAnimationView {
 
     public void setAnimationUrl(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || pi.isEmpty(str) || str.equals(this.b)) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || qi.isEmpty(str) || str.equals(this.b)) {
             return;
         }
         this.b = str;
-        fh5 fh5Var = new fh5(getAnimationPath(), str, this.f);
-        this.a = fh5Var;
-        fh5Var.execute(new Void[0]);
+        mh5 mh5Var = new mh5(getAnimationPath(), str, this.f);
+        this.a = mh5Var;
+        mh5Var.execute(new Void[0]);
     }
 
     @Override // com.airbnb.lottie.LottieAnimationView

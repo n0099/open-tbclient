@@ -1,18 +1,18 @@
 package com.fun.ad.sdk.internal.api.reporter;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.rl9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.il9;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface Reporter {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public interface Reporter {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (this.a != null) {
-                    return new il9(this.a, false);
+                    return new rl9(this.a, false);
                 }
                 throw new RuntimeException("Call setUrl(String url) first.");
             }

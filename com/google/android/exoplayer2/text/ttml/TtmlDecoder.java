@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class TtmlDecoder extends SimpleSubtitleDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ATTR_BEGIN = "begin";
@@ -46,7 +46,7 @@ public final class TtmlDecoder extends SimpleSubtitleDecoder {
     public transient /* synthetic */ FieldHolder $fh;
     public final XmlPullParserFactory xmlParserFactory;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class FrameAndTickRate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

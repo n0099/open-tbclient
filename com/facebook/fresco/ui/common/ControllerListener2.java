@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import javax.annotation.Nullable;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface ControllerListener2<INFO> {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Extras {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

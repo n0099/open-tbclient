@@ -27,7 +27,7 @@ import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.TreeSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class SysUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte APK_SIGNATURE_VERSION = 1;
@@ -36,7 +36,7 @@ public final class SysUtil {
 
     @DoNotOptimize
     @TargetApi(21)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class LollipopSysdeps {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +110,7 @@ public final class SysUtil {
 
     @DoNotOptimize
     @TargetApi(23)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class MarshmallowSysdeps {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

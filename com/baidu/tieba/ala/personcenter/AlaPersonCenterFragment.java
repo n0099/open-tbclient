@@ -11,12 +11,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.qw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.iw5;
 /* loaded from: classes3.dex */
 public class AlaPersonCenterFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -25,7 +25,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
     public String b;
     public String c;
     public String d;
-    public iw5 e;
+    public qw5 e;
 
     public AlaPersonCenterFragment() {
         Interceptable interceptable = $ic;
@@ -46,9 +46,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.changeSkinType(i);
-            iw5 iw5Var = this.e;
-            if (iw5Var != null) {
-                iw5Var.m(i);
+            qw5 qw5Var = this.e;
+            if (qw5Var != null) {
+                qw5Var.m(i);
             }
         }
     }
@@ -58,9 +58,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            iw5 iw5Var = this.e;
-            if (iw5Var != null) {
-                iw5Var.m(i);
+            qw5 qw5Var = this.e;
+            if (qw5Var != null) {
+                qw5Var.m(i);
             }
         }
     }
@@ -81,9 +81,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             this.a = pageContext;
-            iw5 iw5Var = new iw5(pageContext, true);
-            this.e = iw5Var;
-            iw5Var.s(this.c);
+            qw5 qw5Var = new qw5(pageContext, true);
+            this.e = qw5Var;
+            qw5Var.s(this.c);
             this.e.r(this.b);
             this.e.t(this.d);
             if (getArguments() != null) {

@@ -13,14 +13,14 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.uz5;
+import com.baidu.tieba.zp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mz5;
-import com.repackage.pi;
-import com.repackage.qi;
-import com.repackage.xp4;
 /* loaded from: classes3.dex */
 public class ThreadLinkView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -59,18 +59,18 @@ public class ThreadLinkView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d050d, (ViewGroup) this, true);
-            this.f = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091c29);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091301);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d050f, (ViewGroup) this, true);
+            this.f = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091c2b);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091303);
             this.b = tbImageView;
             tbImageView.setDefaultBgResource(R.drawable.icon_card_url_n);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091303);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0912fe);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091304);
-            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f0912ff);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091305);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091300);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091306);
+            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f091301);
             this.b.setLongIconSupport(false);
             this.b.setGifIconSupport(false);
-            this.b.setRadius(qi.f(context, R.dimen.tbds10));
+            this.b.setRadius(ri.f(context, R.dimen.tbds10));
             this.b.setConrers(5);
             d(inflate);
         }
@@ -87,9 +87,9 @@ public class ThreadLinkView extends RelativeLayout {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            mz5.l(this.c, str, R.color.CAM_X0107, R.color.CAM_X0109);
-            mz5.l(this.e, str, R.color.CAM_X0107, R.color.CAM_X0109);
-            mz5.l(this.d, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            uz5.l(this.c, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            uz5.l(this.e, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            uz5.l(this.d, str, R.color.CAM_X0107, R.color.CAM_X0109);
         }
     }
 
@@ -98,7 +98,7 @@ public class ThreadLinkView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || this.f == null || this.b == null) {
             return;
         }
-        int k = (((qi.k(this.a) - (qi.f(this.a, R.dimen.tbds44) * 2)) - (qi.f(getContext(), R.dimen.tbds26) * 2)) - (qi.f(getContext(), R.dimen.tbds10) * 4)) / 5;
+        int k = (((ri.k(this.a) - (ri.f(this.a, R.dimen.tbds44) * 2)) - (ri.f(getContext(), R.dimen.tbds26) * 2)) - (ri.f(getContext(), R.dimen.tbds10) * 4)) / 5;
         ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
         layoutParams.height = k;
         this.f.setLayoutParams(layoutParams);
@@ -111,9 +111,9 @@ public class ThreadLinkView extends RelativeLayout {
     public void setData(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) {
-            if (threadData != null && threadData.getLinkThreadData() != null && !pi.isEmpty(threadData.getLinkThreadData().e())) {
-                xp4 linkThreadData = threadData.getLinkThreadData();
-                if (!linkThreadData.f() && linkThreadData.c() != xp4.g) {
+            if (threadData != null && threadData.getLinkThreadData() != null && !qi.isEmpty(threadData.getLinkThreadData().e())) {
+                zp4 linkThreadData = threadData.getLinkThreadData();
+                if (!linkThreadData.f() && linkThreadData.c() != zp4.g) {
                     setVisibility(8);
                     return;
                 }
@@ -129,20 +129,20 @@ public class ThreadLinkView extends RelativeLayout {
                     this.e.setVisibility(8);
                     String d = linkThreadData.d();
                     String a = linkThreadData.a();
-                    if (!pi.isEmpty(d)) {
+                    if (!qi.isEmpty(d)) {
                         this.c.setText(d);
                         this.c.setVisibility(0);
                         this.d.setVisibility(8);
                     } else {
                         this.c.setVisibility(8);
-                        if (!pi.isEmpty(a)) {
+                        if (!qi.isEmpty(a)) {
                             this.d.setText(a);
                             this.d.setVisibility(0);
                         } else {
                             this.d.setVisibility(4);
                         }
                     }
-                    if (!pi.isEmpty(linkThreadData.b())) {
+                    if (!qi.isEmpty(linkThreadData.b())) {
                         this.b.K(linkThreadData.b(), 10, false);
                     } else {
                         this.b.F();

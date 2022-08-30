@@ -9,12 +9,12 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.ThreadForumEnterButton;
 import com.baidu.tbadk.widget.layout.FlowLabelLayout;
 import com.baidu.tieba.R;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder 
         }
         this.a = context;
         this.b = (FlowLabelLayout) ((ViewGroup) view2).getChildAt(0);
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f0909f1);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f0909f2);
     }
 
     public void a() {
@@ -68,7 +68,7 @@ public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder 
             return;
         }
         this.b.removeAllViews();
-        if (pi.isEmpty(threadData.getForum_name())) {
+        if (qi.isEmpty(threadData.getForum_name())) {
             return;
         }
         ThreadForumEnterButton threadForumEnterButton = new ThreadForumEnterButton(this.a);

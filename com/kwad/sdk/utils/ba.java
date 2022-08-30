@@ -1,7 +1,7 @@
 package com.kwad.sdk.utils;
 
 import com.kwad.sdk.components.DevelopMangerComponents;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class ba {
     public static String getAppId() {
         com.kwad.sdk.components.c.f(DevelopMangerComponents.class);

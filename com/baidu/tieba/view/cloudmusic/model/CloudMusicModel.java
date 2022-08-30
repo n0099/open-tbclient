@@ -11,23 +11,23 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.d9;
 import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.tieba.zx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d9;
-import com.repackage.qx8;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CloudMusicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qx8<CloudMusicData> a;
+    public zx8<CloudMusicData> a;
     public final HttpMessageListener b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class VideoCloudMusicWithTagResponseMessage extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class CloudMusicModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,13 +128,13 @@ public class CloudMusicModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public void A(qx8<CloudMusicData> qx8Var) {
+    public void A(zx8<CloudMusicData> zx8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, qx8Var) == null) || qx8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, zx8Var) == null) || zx8Var == null) {
             return;
         }
         sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_WITH_TAGS));
-        this.a = qx8Var;
+        this.a = zx8Var;
     }
 
     public final void B() {

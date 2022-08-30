@@ -6,6 +6,7 @@ import com.baidu.bdtask.model.ITaskModelData;
 import com.baidu.bdtask.model.rule.TaskRuleData;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tieba.ov;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import com.repackage.nv;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -253,7 +253,7 @@ public final class TaskProcess implements ITaskModelData {
                         size = i;
                     }
                 }
-                this.duplicateIds.add(nv.a.b(str));
+                this.duplicateIds.add(ov.a.b(str));
             } finally {
                 reentrantLock.unlock();
             }
@@ -463,7 +463,7 @@ public final class TaskProcess implements ITaskModelData {
             ReentrantLock reentrantLock = this.fairLock;
             reentrantLock.lock();
             try {
-                return this.duplicateIds.contains(nv.a.b(str));
+                return this.duplicateIds.contains(ov.a.b(str));
             } finally {
                 reentrantLock.unlock();
             }

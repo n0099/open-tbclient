@@ -5,7 +5,7 @@ import android.content.Context;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class bj {
     @Nullable
     public static Activity dB(@Nullable Context context) {

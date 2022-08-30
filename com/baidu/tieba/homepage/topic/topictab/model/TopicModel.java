@@ -4,26 +4,26 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.bb;
 import com.baidu.tieba.homepage.topic.topictab.message.RequestGetTopicListMessage;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.t37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.ab;
-import com.repackage.l37;
-import com.repackage.oi;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TopicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l37 a;
-    public ab b;
-    public ab c;
+    public t37 a;
+    public bb b;
+    public bb c;
     public boolean d;
 
-    public void A(l37 l37Var) {
+    public void A(t37 t37Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, l37Var) == null) {
-            this.a = l37Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, t37Var) == null) {
+            this.a = t37Var;
         }
     }
 
@@ -72,10 +72,10 @@ public class TopicModel extends BdBaseModel {
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (!oi.A()) {
-                l37 l37Var = this.a;
-                if (l37Var != null) {
-                    l37Var.j(-1, null);
+            if (!pi.A()) {
+                t37 t37Var = this.a;
+                if (t37Var != null) {
+                    t37Var.j(-1, null);
                 }
             } else if (this.d) {
             } else {

@@ -27,6 +27,8 @@ import com.baidu.tbadk.core.util.TiebaStaticHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,8 +36,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ms4;
-import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class ThreadForumEnterButton extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -63,9 +63,9 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 return;
             }
         }
-        qi.k(TbadkCoreApplication.getInst());
-        qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
-        qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
+        ri.k(TbadkCoreApplication.getInst());
+        ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+        ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -105,7 +105,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 setVisibility(0);
                 f();
                 TextView textView = this.f;
-                textView.setText(StringHelper.cutForumNameWithSuffix(forum_name, 14, StringHelper.STRING_MORE) + this.b.getString(R.string.obfuscated_res_0x7f0f065a));
+                textView.setText(StringHelper.cutForumNameWithSuffix(forum_name, 14, StringHelper.STRING_MORE) + this.b.getString(R.string.obfuscated_res_0x7f0f065b));
                 this.f.setVisibility(0);
                 if (YYLiveUtil.isLiveRoom(forum_name)) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
@@ -132,8 +132,8 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 }
                 setVisibility(0);
                 f();
-                float measureText = (i - (paddingLeft * 2)) - this.f.getPaint().measureText(getResources().getString(R.string.obfuscated_res_0x7f0f065a));
-                this.f.setText(((Object) TextUtils.ellipsize(forum_name, this.f.getPaint(), measureText, TextUtils.TruncateAt.END)) + getResources().getString(R.string.obfuscated_res_0x7f0f065a));
+                float measureText = (i - (paddingLeft * 2)) - this.f.getPaint().measureText(getResources().getString(R.string.obfuscated_res_0x7f0f065b));
+                this.f.setText(((Object) TextUtils.ellipsize(forum_name, this.f.getPaint(), measureText, TextUtils.TruncateAt.END)) + getResources().getString(R.string.obfuscated_res_0x7f0f065b));
                 this.f.setVisibility(0);
                 if (YYLiveUtil.isLiveRoom(threadData.getForum_name())) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
@@ -152,11 +152,11 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             this.b = context;
             setOnClickListener(this);
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0193, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0194, (ViewGroup) this, true);
             this.c = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a74);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a75);
             this.f = textView;
-            textView.setCompoundDrawablePadding(qi.f(this.b, R.dimen.M_W_X002));
+            textView.setCompoundDrawablePadding(ri.f(this.b, R.dimen.M_W_X002));
         }
     }
 
@@ -175,7 +175,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         }
         this.i = skinType;
         if (this.e) {
-            ms4 d = ms4.d(this.f);
+            os4 d = os4.d(this.f);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0304);
@@ -184,7 +184,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
             d.l(R.dimen.L_X01);
             d.k(R.color.CAM_X0304);
         } else {
-            ms4 d2 = ms4.d(this.f);
+            os4 d2 = os4.d(this.f);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0304);
@@ -193,10 +193,10 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
             d2.l(R.dimen.L_X02);
             d2.k(R.color.CAM_X0304);
         }
-        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080907, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL_PRESS);
+        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080908, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL_PRESS);
         this.g = pureDrawable;
         if (pureDrawable != null) {
-            int f = qi.f(this.b, R.dimen.T_X09);
+            int f = ri.f(this.b, R.dimen.T_X09);
             this.g.setBounds(0, 0, f, f);
         }
         f();
@@ -215,7 +215,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             if (this.a.getType() == ThreadData.TYPE_FAKE_VIDEO) {
                 Context context = this.b;
-                BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f1514));
+                BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f1517));
                 b.f(BdToast.ToastIcon.FAILURE);
                 b.i();
             } else if (StringUtils.isNull(this.a.getForum_name())) {

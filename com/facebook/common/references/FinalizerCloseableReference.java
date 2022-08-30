@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import com.facebook.common.references.CloseableReference;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FinalizerCloseableReference<T> extends CloseableReference<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FinalizerCloseableReference";

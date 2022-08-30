@@ -209,9 +209,9 @@ public class GAIDClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                Object invoke = Class.forName("com.repackage.lm9").getMethod("getAdvertisingIdInfo", Context.class).invoke(null, context);
+                Object invoke = Class.forName("com.baidu.tieba.um9").getMethod("getAdvertisingIdInfo", Context.class).invoke(null, context);
                 if (invoke != null) {
-                    Class<?> cls = Class.forName("com.repackage.lm9$a");
+                    Class<?> cls = Class.forName("com.baidu.tieba.um9$a");
                     return new AdInfo((String) cls.getMethod("getId", new Class[0]).invoke(invoke, new Object[0]), ((Boolean) cls.getMethod("isLimitAdTrackingEnabled", new Class[0]).invoke(invoke, null)).booleanValue());
                 }
             } catch (Throwable th) {

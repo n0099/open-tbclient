@@ -4,17 +4,17 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoRequestMessage;
+import com.baidu.tieba.pd6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hd6;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetLevelInfo.DataRes;
 import tbclient.GetLevelInfo.GetLevelInfoResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetLevelInfoSocketResponsedMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,8 +72,8 @@ public class GetLevelInfoSocketResponsedMessage extends SocketResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             GetLevelInfoRequestMessage getLevelInfoRequestMessage = (getOrginalMessage() == null || getOrginalMessage().getExtra() == null) ? null : (GetLevelInfoRequestMessage) getOrginalMessage().getExtra();
             if (getLevelInfoRequestMessage != null) {
-                hd6 hd6Var = new hd6();
-                hd6Var.c(getLevelInfoRequestMessage.getForumId() + "", bArr);
+                pd6 pd6Var = new pd6();
+                pd6Var.c(getLevelInfoRequestMessage.getForumId() + "", bArr);
             }
         }
     }

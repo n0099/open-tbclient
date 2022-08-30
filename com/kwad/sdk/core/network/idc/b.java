@@ -7,7 +7,7 @@ import com.kwad.sdk.utils.w;
 import java.io.IOException;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static void a(Context context, com.kwad.sdk.core.network.idc.kwai.a aVar) {
         w.c(context, "ksadsdk_idc", "idc_data", aVar == null ? "" : aVar.toJson().toString());

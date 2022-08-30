@@ -5,22 +5,22 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
+import com.baidu.tieba.ib8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab8;
 import com.squareup.wire.Wire;
 import java.util.HashMap;
 import java.util.Map;
 import tbclient.GetWebviewCacheInfo.GetWebviewCacheInfoResIdl;
 import tbclient.GetWebviewCacheInfo.Offpack;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class WebViewCacheResSocketMsg extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, ab8> mModuleInfos;
+    public Map<String, ib8> mModuleInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WebViewCacheResSocketMsg() {
@@ -56,9 +56,9 @@ public class WebViewCacheResSocketMsg extends TbSocketReponsedMessage {
                 this.mModuleInfos.clear();
                 for (Offpack offpack : getWebviewCacheInfoResIdl.data.offpack_list) {
                     if (offpack != null && !TextUtils.isEmpty(offpack.mod_name)) {
-                        ab8 ab8Var = new ab8();
-                        ab8Var.e(offpack);
-                        this.mModuleInfos.put(offpack.mod_name, ab8Var);
+                        ib8 ib8Var = new ib8();
+                        ib8Var.e(offpack);
+                        this.mModuleInfos.put(offpack.mod_name, ib8Var);
                     }
                 }
             }
@@ -67,7 +67,7 @@ public class WebViewCacheResSocketMsg extends TbSocketReponsedMessage {
         return invokeIL.objValue;
     }
 
-    public Map<String, ab8> getModuleInfos() {
+    public Map<String, ib8> getModuleInfos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mModuleInfos : (Map) invokeV.objValue;

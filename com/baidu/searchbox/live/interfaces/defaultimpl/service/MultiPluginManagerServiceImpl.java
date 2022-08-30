@@ -28,6 +28,9 @@ import com.baidu.searchbox.live.interfaces.multiplugin.MultiPluginLoadCallback;
 import com.baidu.searchbox.live.interfaces.multiplugin.SubPluginBundleInfo;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.searchbox.live.interfaces.service.MultiPluginManagerService;
+import com.baidu.tieba.q61;
+import com.baidu.tieba.s61;
+import com.baidu.tieba.t61;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,9 +39,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.repackage.p61;
-import com.repackage.r61;
-import com.repackage.s61;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
@@ -444,7 +444,7 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
     public void downloadUpdatePackage(String str, final MultiPluginDownloadCallback multiPluginDownloadCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, multiPluginDownloadCallback) == null) {
-            NPSPackageManager.getInstance().downloadUpdatePackage(str, new p61(multiPluginDownloadCallback) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$downloadUpdatePackage$1
+            NPSPackageManager.getInstance().downloadUpdatePackage(str, new q61(multiPluginDownloadCallback) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$downloadUpdatePackage$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ MultiPluginDownloadCallback $downloadCallback;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -467,7 +467,7 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
                     this.$downloadCallback = multiPluginDownloadCallback;
                 }
 
-                @Override // com.repackage.p61
+                @Override // com.baidu.tieba.q61
                 public void onProgress(long j, long j2) {
                     MultiPluginDownloadCallback multiPluginDownloadCallback2;
                     Interceptable interceptable2 = $ic;
@@ -477,7 +477,7 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
                     multiPluginDownloadCallback2.onProgress(j, j2);
                 }
 
-                @Override // com.repackage.p61
+                @Override // com.baidu.tieba.q61
                 public void onResult(int i, String str2) {
                     MultiPluginDownloadCallback multiPluginDownloadCallback2;
                     Interceptable interceptable2 = $ic;
@@ -486,7 +486,7 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
                     }
                     multiPluginDownloadCallback2.onResult(i, str2);
                 }
-            }, new r61() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$downloadUpdatePackage$2
+            }, new s61() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$downloadUpdatePackage$2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -504,13 +504,13 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
                     }
                 }
 
-                @Override // com.repackage.r61
-                public void checkAuthorization(IBundleInfo iBundleInfo, int i, s61 s61Var) {
+                @Override // com.baidu.tieba.s61
+                public void checkAuthorization(IBundleInfo iBundleInfo, int i, t61 t61Var) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, s61Var) == null) || s61Var == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, t61Var) == null) || t61Var == null) {
                         return;
                     }
-                    s61Var.onResult(1);
+                    t61Var.onResult(1);
                 }
             }, 1, true);
         }

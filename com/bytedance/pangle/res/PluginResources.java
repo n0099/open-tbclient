@@ -17,7 +17,7 @@ import com.bytedance.pangle.util.i;
 import java.util.HashSet;
 import java.util.List;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PluginResources extends Resources {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

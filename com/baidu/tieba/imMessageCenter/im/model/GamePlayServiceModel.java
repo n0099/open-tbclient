@@ -8,16 +8,16 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.GamePlayServiceData;
 import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tieba.tu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
-import com.repackage.ru4;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GamePlayServiceModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PREFIX = "GamePlayService_";
@@ -25,12 +25,12 @@ public class GamePlayServiceModel {
     public final Gson mGson;
     public b mPostAsyncTask;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(GamePlayServiceData gamePlayServiceData);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends BdAsyncTask<Object, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +144,7 @@ public class GamePlayServiceModel {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
-            ru4 k = ru4.k();
+            tu4 k = tu4.k();
             return k.q(PREFIX + str, "");
         }
         return (String) invokeL.objValue;
@@ -183,11 +183,11 @@ public class GamePlayServiceModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, this, str, gamePlayServiceData) == null) {
             if (gamePlayServiceData == null) {
-                ru4 k = ru4.k();
+                tu4 k = tu4.k();
                 k.y(PREFIX + str, "");
                 return;
             }
-            ru4 k2 = ru4.k();
+            tu4 k2 = tu4.k();
             k2.y(PREFIX + str, new Gson().toJson(gamePlayServiceData));
         }
     }

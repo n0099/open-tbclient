@@ -3,15 +3,15 @@ package com.baidu.tieba.homepage.concern.message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tieba.af5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.te5;
 import tbclient.RedNotify.DataReq;
 import tbclient.RedNotify.RedNotifyReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CheckRedNotifyReqMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class CheckRedNotifyReqMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    te5.a(builder, true);
+                    af5.a(builder, true);
                 }
                 RedNotifyReqIdl.Builder builder2 = new RedNotifyReqIdl.Builder();
                 builder2.data = builder.build(false);

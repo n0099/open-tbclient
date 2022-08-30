@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.s39;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,12 +15,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.BaseChromiumApplication;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
-import com.repackage.j39;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @JNINamespace
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ApplicationStatus {
     public static /* synthetic */ Interceptable $ic;
     public static Object a;
@@ -27,11 +27,11 @@ public class ApplicationStatus {
     public static Activity c;
     public static f d;
     public static final Map<Activity, d> e;
-    public static final j39<e> f;
-    public static final j39<f> g;
+    public static final s39<e> f;
+    public static final s39<f> g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a implements BaseChromiumApplication.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class ApplicationStatus {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class b implements Application.ActivityLifecycleCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,12 +136,12 @@ public class ApplicationStatus {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public class a implements f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -195,12 +195,12 @@ public class ApplicationStatus {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface e {
         void a(Activity activity, int i);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface f {
         void a(int i);
     }
@@ -220,8 +220,8 @@ public class ApplicationStatus {
         }
         a = new Object();
         e = new ConcurrentHashMap();
-        f = new j39<>();
-        g = new j39<>();
+        f = new s39<>();
+        g = new s39<>();
     }
 
     public ApplicationStatus() {
@@ -363,12 +363,12 @@ public class ApplicationStatus {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-        public j39<e> b;
+        public s39<e> b;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -384,13 +384,13 @@ public class ApplicationStatus {
                 }
             }
             this.a = 6;
-            this.b = new j39<>();
+            this.b = new s39<>();
         }
 
-        public j39<e> a() {
+        public s39<e> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (j39) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (s39) invokeV.objValue;
         }
 
         public int b() {

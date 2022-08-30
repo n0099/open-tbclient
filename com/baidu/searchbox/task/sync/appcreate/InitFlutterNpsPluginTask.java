@@ -1,19 +1,20 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
+import android.os.Looper;
+import android.os.MessageQueue;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.switchs.FixNpsAnrSwitch;
+import com.baidu.tieba.eb5;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi;
-import com.repackage.rb;
-import com.repackage.rg;
-import com.repackage.xa5;
 /* loaded from: classes2.dex */
 public class InitFlutterNpsPluginTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -37,8 +38,8 @@ public class InitFlutterNpsPluginTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (FixNpsAnrSwitch.getIsOn() && qi.o() > 1) {
-                rg.a().postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.1
+            if (FixNpsAnrSwitch.getIsOn() && ri.o() > 1) {
+                sg.a().postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ InitFlutterNpsPluginTask this$0;
@@ -85,7 +86,7 @@ public class InitFlutterNpsPluginTask extends LaunchTask {
     public void initFlutterPlugin() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, new xa5(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, new eb5(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitFlutterNpsPluginTask this$0;
@@ -108,18 +109,18 @@ public class InitFlutterNpsPluginTask extends LaunchTask {
                     this.this$0 = this;
                 }
 
-                @Override // com.repackage.xa5
+                @Override // com.baidu.tieba.eb5
                 public void onFail() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     }
                 }
 
-                @Override // com.repackage.xa5
+                @Override // com.baidu.tieba.eb5
                 public void onSuccess() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        rg.a().postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2.1
+                        sg.a().postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass2 this$1;
@@ -146,7 +147,7 @@ public class InitFlutterNpsPluginTask extends LaunchTask {
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    rb.b().a("BdTokenController", new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2.1.1
+                                    Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2.1.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
                                         public final /* synthetic */ AnonymousClass1 this$2;
@@ -169,17 +170,20 @@ public class InitFlutterNpsPluginTask extends LaunchTask {
                                             this.this$2 = this;
                                         }
 
-                                        @Override // java.lang.Runnable
-                                        public void run() {
+                                        @Override // android.os.MessageQueue.IdleHandler
+                                        public boolean queueIdle() {
+                                            InterceptResult invokeV;
                                             Interceptable interceptable4 = $ic;
-                                            if (interceptable4 == null || interceptable4.invokeV(1048576, this) == null) {
+                                            if (interceptable4 == null || (invokeV = interceptable4.invokeV(1048576, this)) == null) {
                                                 MessageManager.getInstance().runTask(2921735, null, null);
+                                                return false;
                                             }
+                                            return invokeV.booleanValue;
                                         }
                                     });
                                 }
                             }
-                        }, 1000L);
+                        }, 10000L);
                     }
                 }
             }));

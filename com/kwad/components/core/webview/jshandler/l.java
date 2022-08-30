@@ -19,7 +19,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class l implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public final class l implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.sdk.core.webview.b Lk;
     public com.kwad.sdk.core.network.m<com.kwad.components.core.k.a, AdResultData> fr;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

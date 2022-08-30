@@ -20,7 +20,7 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.kuaishou.weapon.p0.jni.Engine;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class k2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

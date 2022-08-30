@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.ParserException;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class CodecSpecificDataUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUDIO_OBJECT_TYPE_AAC_LC = 2;

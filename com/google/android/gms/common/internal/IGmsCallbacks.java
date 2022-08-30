@@ -5,7 +5,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.RemoteException;
 import androidx.annotation.NonNull;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface IGmsCallbacks extends IInterface {
     void onPostInitComplete(int i, @NonNull IBinder iBinder, @NonNull Bundle bundle) throws RemoteException;
 

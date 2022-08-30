@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BarEmotionResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForumEmotionData data;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ForumEmotionData extends OrmObject {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STATUS_OK = 1;

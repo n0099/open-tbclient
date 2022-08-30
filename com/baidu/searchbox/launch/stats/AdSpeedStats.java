@@ -4,12 +4,12 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
@@ -135,7 +135,7 @@ public final class AdSpeedStats extends AbstractSpeedStats {
             if (i != 5054) {
                 switch (i) {
                     case SpeedStatsStampTable.AD_LOAD_METHOD_START_STAMP_KEY /* 3301 */:
-                        this.mNetType = oi.m();
+                        this.mNetType = pi.m();
                         this.mAdLoadMethodStartTimeStamp = j;
                         return;
                     case SpeedStatsStampTable.AD_LOAD_METHOD_END_STAMP_KEY /* 3302 */:

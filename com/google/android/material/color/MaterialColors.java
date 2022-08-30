@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.resources.MaterialAttributes;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class MaterialColors {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float ALPHA_DISABLED = 0.38f;

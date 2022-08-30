@@ -2,6 +2,8 @@ package com.facebook.imagepipeline.producers;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.h0;
+import com.baidu.tieba.i0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,13 +16,11 @@ import com.facebook.imagepipeline.cache.BufferedDiskCache;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
-import com.repackage.h0;
-import com.repackage.i0;
 import java.util.Map;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DiskCacheReadProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCODED_IMAGE_SIZE = "encodedImageSize";
@@ -121,7 +121,7 @@ public class DiskCacheReadProducer implements Producer<EncodedImage> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.h0
+            @Override // com.baidu.tieba.h0
             public Void then(i0<EncodedImage> i0Var) throws Exception {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;

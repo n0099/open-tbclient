@@ -12,7 +12,7 @@ import dalvik.system.DexClassLoader;
 import java.util.HashSet;
 import java.util.List;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PluginClassLoader extends DexClassLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PluginClassLoader";

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class BdMemberCenterListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static int V = 1;
@@ -37,7 +37,7 @@ public class BdMemberCenterListView extends BdTypeListView {
     public final int T;
     public a U;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(float f);
 
@@ -46,7 +46,7 @@ public class BdMemberCenterListView extends BdTypeListView {
         void onRefresh();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

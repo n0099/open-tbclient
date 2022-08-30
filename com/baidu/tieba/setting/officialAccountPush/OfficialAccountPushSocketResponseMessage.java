@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.GetOfficialSwitch.DataRes;
 import tbclient.GetOfficialSwitch.GetOfficialSwitchResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class OfficialAccountPushSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

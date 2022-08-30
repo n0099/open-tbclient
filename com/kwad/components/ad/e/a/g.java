@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class g extends com.kwad.components.ad.e.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public final class g extends com.kwad.components.ad.e.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.kc = (ImageView) findViewById(R.id.obfuscated_res_0x7f091201);
+            this.kc = (ImageView) findViewById(R.id.obfuscated_res_0x7f091203);
         }
     }
 }

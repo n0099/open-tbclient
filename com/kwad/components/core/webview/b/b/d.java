@@ -23,7 +23,7 @@ import com.kwad.components.core.i.e;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.widget.KSFrameLayout;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class d extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,12 +39,12 @@ public class d extends e {
     public AdTemplate mAdTemplate;
     public Presenter mPresenter;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         boolean fG();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -186,7 +186,7 @@ public class d extends e {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, layoutInflater, viewGroup)) == null) {
             getDialog().requestWindowFeature(1);
             if (this.Om == null) {
-                this.Om = (KSFrameLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0481, viewGroup, false);
+                this.Om = (KSFrameLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0482, viewGroup, false);
             }
             return this.Om;
         }

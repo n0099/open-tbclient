@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GifHeader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NETSCAPE_LOOP_COUNT_DOES_NOT_EXIST = -1;

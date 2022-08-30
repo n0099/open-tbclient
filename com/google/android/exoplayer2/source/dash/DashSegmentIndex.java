@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.source.dash;
 
 import com.google.android.exoplayer2.source.dash.manifest.RangedUri;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface DashSegmentIndex {
     public static final int INDEX_UNBOUNDED = -1;
 

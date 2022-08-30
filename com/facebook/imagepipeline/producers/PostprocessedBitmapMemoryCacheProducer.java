@@ -16,7 +16,7 @@ import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.Postprocessor;
 import com.facebook.imagepipeline.request.RepeatedPostprocessor;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PostprocessedBitmapMemoryCacheProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "PostprocessedBitmapMemoryCacheProducer";
@@ -27,7 +27,7 @@ public class PostprocessedBitmapMemoryCacheProducer implements Producer<Closeabl
     public final Producer<CloseableReference<CloseableImage>> mInputProducer;
     public final MemoryCache<CacheKey, CloseableImage> mMemoryCache;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class CachedPostprocessorConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

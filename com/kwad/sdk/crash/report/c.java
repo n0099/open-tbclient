@@ -5,11 +5,11 @@ import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class c implements e {
     public ArrayList<a> ahB = new ArrayList<>();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public ExceptionMessage ahC;
         public int ahD;

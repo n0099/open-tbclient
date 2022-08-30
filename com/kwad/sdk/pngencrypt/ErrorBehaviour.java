@@ -1,5 +1,5 @@
 package com.kwad.sdk.pngencrypt;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public enum ErrorBehaviour {
     STRICT(0),
     LENIENT1_CRC(1),

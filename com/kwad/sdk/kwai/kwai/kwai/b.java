@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.kwad.sdk.utils.w;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static int NL = 0;
     public static long oT = -1;

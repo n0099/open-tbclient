@@ -9,14 +9,14 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SpecHotTopicHelper;
+import com.baidu.tieba.pn;
+import com.baidu.tieba.sd8;
+import com.baidu.tieba.xp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kd8;
-import com.repackage.on;
-import com.repackage.vp4;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,12 +27,12 @@ import tbclient.ThreadInfo;
 import tbclient.ThreadList.DataRes;
 import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BannerListData bannerListData;
-    public ArrayList<on> threadList;
+    public ArrayList<pn> threadList;
     public HashMap<String, MetaData> userMap;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,7 +61,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.bannerListData : (BannerListData) invokeV.objValue;
     }
 
-    public ArrayList<on> getThreadList() {
+    public ArrayList<pn> getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.threadList : (ArrayList) invokeV.objValue;
@@ -122,18 +122,18 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             threadData.parser_title();
                             threadData.isFromBrandForum = z;
                             if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                                vp4 vp4Var = new vp4();
-                                vp4Var.h(threadData.getLegoCard());
-                                this.threadList.add(vp4Var);
+                                xp4 xp4Var = new xp4();
+                                xp4Var.h(threadData.getLegoCard());
+                                this.threadList.add(xp4Var);
                             } else {
                                 this.threadList.add(threadData);
-                                JSONObject b = kd8.b(threadInfo);
+                                JSONObject b = sd8.b(threadInfo);
                                 if (b != null) {
                                     arrayList.add(b);
                                 }
                             }
                         }
-                        kd8.f().h("FRS", arrayList);
+                        sd8.f().h("FRS", arrayList);
                     }
                 }
                 this.bannerListData = null;

@@ -17,7 +17,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractDataSource<T> implements DataSource<T> {
     public static /* synthetic */ Interceptable $ic;
     @Nullable
@@ -38,13 +38,13 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
     public T mResult;
     public final ConcurrentLinkedQueue<Pair<DataSubscriber<T>, Executor>> mSubscribers;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface DataSourceInstrumenter {
         Runnable decorateRunnable(Runnable runnable, String str);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class DataSourceStatus {
         public static final /* synthetic */ DataSourceStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

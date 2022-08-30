@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ExtractFromZipSoSource extends UnpackingSoSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,13 +28,13 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
     public final String mZipSearchPattern;
 
     /* renamed from: com.facebook.soloader.ExtractFromZipSoSource$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class ZipDso extends UnpackingSoSource.Dso implements Comparable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +78,7 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class ZipUnpacker extends UnpackingSoSource.Unpacker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
         public final ZipFile mZipFile;
         public final /* synthetic */ ExtractFromZipSoSource this$0;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes7.dex */
         public final class ZipBackedInputDsoIterator extends UnpackingSoSource.InputDsoIterator {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

@@ -10,7 +10,7 @@ import com.facebook.common.internal.Preconditions;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.concurrent.Executor;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ThreadHandoffProducerQueueImpl implements ThreadHandoffProducerQueue {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

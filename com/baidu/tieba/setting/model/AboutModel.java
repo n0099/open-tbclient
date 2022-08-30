@@ -14,23 +14,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.c9;
+import com.baidu.tieba.d9;
+import com.baidu.tieba.fi;
+import com.baidu.tieba.hz4;
+import com.baidu.tieba.pz4;
+import com.baidu.tieba.qx4;
+import com.baidu.tieba.ri;
 import com.baidu.tieba.setting.more.AboutActivity;
+import com.baidu.tieba.tu4;
+import com.baidu.tieba.yz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitFactory;
-import com.repackage.c9;
-import com.repackage.d9;
-import com.repackage.ei;
-import com.repackage.ez4;
-import com.repackage.lz4;
-import com.repackage.nx4;
-import com.repackage.qi;
-import com.repackage.ru4;
-import com.repackage.tz4;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AboutModel extends BdBaseModel<AboutActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
     public Context b;
     public final boolean c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,8 +103,8 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends BdAsyncTask<String, Integer, tz4> {
+    /* loaded from: classes5.dex */
+    public class b extends BdAsyncTask<String, Integer, yz4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -132,23 +132,23 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public tz4 doInBackground(String... strArr) {
+        public yz4 doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, strArr)) != null) {
-                return (tz4) invokeL.objValue;
+                return (yz4) invokeL.objValue;
             }
-            tz4 tz4Var = null;
+            yz4 yz4Var = null;
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_SYNC_ADDRESS);
                 this.a = netWork;
                 netWork.addPostData("_os_version", Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
-                stringBuffer.append(String.valueOf(qi.k(TbadkCoreApplication.getInst().getApp())));
+                stringBuffer.append(String.valueOf(ri.k(TbadkCoreApplication.getInst().getApp())));
                 stringBuffer.append(",");
-                stringBuffer.append(String.valueOf(qi.i(TbadkCoreApplication.getInst().getApp())));
+                stringBuffer.append(String.valueOf(ri.i(TbadkCoreApplication.getInst().getApp())));
                 this.a.addPostData("_phone_screen", stringBuffer.toString());
-                if (lz4.d().f() > 0) {
+                if (pz4.d().f() > 0) {
                     this.a.addPostData("_msg_status", "0");
                 } else {
                     this.a.addPostData("_msg_status", "1");
@@ -164,37 +164,37 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                 this.a.addPostData("signmd5", TbMd5.creatSignInt(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
                 this.a.addPostData(PackageTable.MD5, UtilHelper.getTiebaApkMd5());
                 NetWork netWork3 = this.a;
-                boolean a = ei.a();
+                boolean a = fi.a();
                 String str = WebKitFactory.OS_64;
                 netWork3.addPostData("running_abi", a ? WebKitFactory.OS_64 : "32");
                 NetWork netWork4 = this.a;
-                if (!ei.b()) {
+                if (!fi.b()) {
                     str = "32";
                 }
                 netWork4.addPostData("support_abi", str);
                 String postNetData = this.a.postNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    tz4 tz4Var2 = new tz4();
+                    yz4 yz4Var2 = new yz4();
                     try {
-                        tz4Var2.A(postNetData);
-                        if (TbadkCoreApplication.getClientId() == null && tz4Var2.i().a() != null && tz4Var2.i().a().length() > 0) {
-                            TbadkCoreApplication.saveClientId(this.b.b, tz4Var2.i().a());
-                            TbadkCoreApplication.setClientId(tz4Var2.i().a());
+                        yz4Var2.A(postNetData);
+                        if (TbadkCoreApplication.getClientId() == null && yz4Var2.i().a() != null && yz4Var2.i().a().length() > 0) {
+                            TbadkCoreApplication.saveClientId(this.b.b, yz4Var2.i().a());
+                            TbadkCoreApplication.setClientId(yz4Var2.i().a());
                         }
-                        ez4 u = tz4Var2.u();
+                        hz4 u = yz4Var2.u();
                         if (u != null) {
-                            ru4.k().u("localvideo_open", u.y());
+                            tu4.k().u("localvideo_open", u.y());
                         }
-                        nx4 e = tz4Var2.e();
+                        qx4 e = yz4Var2.e();
                         if (e != null && !TextUtils.isEmpty(e.c())) {
-                            ru4.k().y("sync_ad_privacy_url", e.c());
+                            tu4.k().y("sync_ad_privacy_url", e.c());
                         }
-                        return tz4Var2;
+                        return yz4Var2;
                     } catch (Exception e2) {
                         e = e2;
-                        tz4Var = tz4Var2;
+                        yz4Var = yz4Var2;
                         BdLog.e(e.getMessage());
-                        return tz4Var;
+                        return yz4Var;
                     }
                 }
                 return null;
@@ -206,15 +206,15 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(tz4 tz4Var) {
+        public void onPostExecute(yz4 yz4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tz4Var) == null) {
-                super.onPostExecute(tz4Var);
-                if (tz4Var != null && tz4Var.e() != null) {
-                    TbadkCoreApplication.getInst().setAdAdSense(tz4Var.e());
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yz4Var) == null) {
+                super.onPostExecute(yz4Var);
+                if (yz4Var != null && yz4Var.e() != null) {
+                    TbadkCoreApplication.getInst().setAdAdSense(yz4Var.e());
                 }
                 this.b.a = null;
-                this.b.mLoadDataCallBack.c(tz4Var);
+                this.b.mLoadDataCallBack.c(yz4Var);
             }
         }
 

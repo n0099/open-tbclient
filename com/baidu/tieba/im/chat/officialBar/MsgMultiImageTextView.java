@@ -5,24 +5,24 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
+import com.baidu.tieba.h67;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.x87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p87;
-import com.repackage.z57;
 import java.util.List;
-/* loaded from: classes3.dex */
-public class MsgMultiImageTextView extends z57 {
+/* loaded from: classes4.dex */
+public class MsgMultiImageTextView extends h67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiContentView E;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgMultiImageTextView(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0589);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d058b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,8 +45,8 @@ public class MsgMultiImageTextView extends z57 {
     public final void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.i = (TextView) j(R.id.obfuscated_res_0x7f0920a6);
-            this.E = (MultiContentView) j(R.id.obfuscated_res_0x7f091552);
+            this.i = (TextView) j(R.id.obfuscated_res_0x7f0920a9);
+            this.E = (MultiContentView) j(R.id.obfuscated_res_0x7f091554);
         }
     }
 
@@ -56,7 +56,7 @@ public class MsgMultiImageTextView extends z57 {
             return;
         }
         M(chatMessage);
-        List<p87.a> b = p87.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+        List<x87.a> b = x87.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
         this.E.setPosition(this.f);
         this.E.setOnItemViewLongClickListener(this.c);
         this.E.setNeedNightMode(true);

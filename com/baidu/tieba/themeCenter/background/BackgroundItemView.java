@@ -14,14 +14,14 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ri;
 import com.baidu.tieba.themeCenter.SkinProgressView;
+import com.baidu.tieba.uq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lq8;
-import com.repackage.qi;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BackgroundItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,10 +36,10 @@ public class BackgroundItemView extends LinearLayout {
     public DressItemData i;
     public int j;
     public int k;
-    public lq8 l;
+    public uq8 l;
     public View.OnClickListener m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,23 +142,23 @@ public class BackgroundItemView extends LinearLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int k = (qi.k(this.a) - qi.f(this.a, R.dimen.obfuscated_res_0x7f070306)) / 3;
+            int k = (ri.k(this.a) - ri.f(this.a, R.dimen.obfuscated_res_0x7f070306)) / 3;
             this.j = k;
             this.k = (int) (k / 0.66d);
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d012a, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d012b, this);
             this.b = inflate;
             this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09037a);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091897);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091899);
             this.d = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081210);
-            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081210);
-            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f28);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081211);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081211);
+            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f2a);
             this.e = tbImageView2;
-            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081210);
-            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081210);
+            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081211);
+            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081211);
             this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09060d);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920b7);
-            SkinProgressView skinProgressView = (SkinProgressView) this.b.findViewById(R.id.obfuscated_res_0x7f09253f);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920ba);
+            SkinProgressView skinProgressView = (SkinProgressView) this.b.findViewById(R.id.obfuscated_res_0x7f092549);
             this.h = skinProgressView;
             skinProgressView.setOnClickListener(this.m);
             this.c.setOnClickListener(this.m);
@@ -169,10 +169,10 @@ public class BackgroundItemView extends LinearLayout {
         }
     }
 
-    public void setController(lq8 lq8Var) {
+    public void setController(uq8 uq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, lq8Var) == null) {
-            this.l = lq8Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, uq8Var) == null) {
+            this.l = uq8Var;
         }
     }
 

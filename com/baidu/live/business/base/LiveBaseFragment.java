@@ -17,12 +17,12 @@ import com.baidu.live.business.model.data.LiveFeedWrapData;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.feedpage.interfaces.ILiveFeedRefresh;
+import com.baidu.tieba.aa0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.z90;
 /* loaded from: classes2.dex */
 public abstract class LiveBaseFragment extends Fragment {
     public static /* synthetic */ Interceptable $ic;
@@ -177,7 +177,7 @@ public abstract class LiveBaseFragment extends Fragment {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
             this.b = null;
-            z90.a().e(this);
+            aa0.a().e(this);
         }
     }
 

@@ -2,7 +2,7 @@ package com.kwad.sdk.utils;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LruHashMap<K, V> extends LinkedHashMap<K, V> {
     public static final float DEFAULT_LOAD_FACTOR = 0.75f;
     public final long maxSize;

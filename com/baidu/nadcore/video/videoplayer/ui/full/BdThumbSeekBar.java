@@ -19,6 +19,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.widget.BdThumbSeekBarView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.x11;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +27,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w11;
 /* loaded from: classes2.dex */
 public class BdThumbSeekBar extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -292,7 +292,7 @@ public class BdThumbSeekBar extends View {
                 return;
             }
         }
-        y = w11.d(0.0f);
+        y = x11.d(0.0f);
         z = BdSeekBarStyle.LINE;
     }
 
@@ -891,23 +891,23 @@ public class BdThumbSeekBar extends View {
         Paint paint = new Paint();
         this.d = paint;
         paint.setAntiAlias(true);
-        this.d.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06086c));
+        this.d.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06086f));
         Paint paint2 = new Paint();
         this.r = paint2;
         paint2.setAntiAlias(true);
-        this.r.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06086e));
+        this.r.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060871));
         Paint paint3 = new Paint();
         this.s = paint3;
         paint3.setAntiAlias(true);
-        this.s.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06086d));
+        this.s.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060870));
         this.o = 100.0f;
         this.p = 0.0f;
         this.q = 0;
         if (this.c != null) {
             if (this.k == null) {
-                this.k = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080e04);
+                this.k = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080e05);
             }
-            this.l = w11.a(0.0f);
+            this.l = x11.a(0.0f);
         }
         if (this.m == null) {
             f(1.5f);

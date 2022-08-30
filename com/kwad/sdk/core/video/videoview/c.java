@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.video.videoview;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface c {
     int getBufferPercentage();
 

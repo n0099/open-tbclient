@@ -6,6 +6,7 @@ import android.os.StrictMode;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +24,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class UnpackingSoSource extends DirectorySoSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEPS_FILE_NAME = "dso_deps";
@@ -42,7 +43,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
     public String mCorruptedLib;
     public final Map<String, Object> mLibsBeingLoaded;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Dso {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +70,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class DsoManifest {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,7 +134,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class InputDso implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -168,7 +169,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static abstract class InputDsoIterator implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -199,7 +200,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
         public abstract InputDso next() throws IOException;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static abstract class Unpacker implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -287,11 +288,11 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
             if (this.soDirectory.setWritable(true, true)) {
                 File file = new File(this.soDirectory, inputDso.dso.name);
                 try {
-                    randomAccessFile = new RandomAccessFile(file, "rw");
+                    randomAccessFile = new RandomAccessFile(file, rw.c);
                 } catch (IOException e) {
                     Log.w(TAG, "error overwriting " + file + " trying to delete and start over", e);
                     SysUtil.dumbDeleteRecursive(file);
-                    randomAccessFile = new RandomAccessFile(file, "rw");
+                    randomAccessFile = new RandomAccessFile(file, rw.c);
                 }
                 try {
                     try {
@@ -363,7 +364,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
             return invokeLIL.booleanValue;
         }
         File file = new File(this.soDirectory, STATE_FILE_NAME);
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, rw.c);
         try {
             b = randomAccessFile.readByte();
         } catch (EOFException unused) {
@@ -376,7 +377,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
         randomAccessFile.close();
         File file2 = new File(this.soDirectory, DEPS_FILE_NAME);
         DsoManifest dsoManifest2 = null;
-        randomAccessFile = new RandomAccessFile(file2, "rw");
+        randomAccessFile = new RandomAccessFile(file2, rw.c);
         try {
             int length = (int) randomAccessFile.length();
             byte[] bArr2 = new byte[length];
@@ -436,11 +437,11 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 try {
                                     Log.v(UnpackingSoSource.TAG, "starting syncer worker");
-                                    RandomAccessFile randomAccessFile2 = new RandomAccessFile(this.val$depsFileName, "rw");
+                                    RandomAccessFile randomAccessFile2 = new RandomAccessFile(this.val$depsFileName, rw.c);
                                     randomAccessFile2.write(this.val$deps);
                                     randomAccessFile2.setLength(randomAccessFile2.getFilePointer());
                                     randomAccessFile2.close();
-                                    RandomAccessFile randomAccessFile3 = new RandomAccessFile(new File(this.this$0.soDirectory, UnpackingSoSource.MANIFEST_FILE_NAME), "rw");
+                                    RandomAccessFile randomAccessFile3 = new RandomAccessFile(new File(this.this$0.soDirectory, UnpackingSoSource.MANIFEST_FILE_NAME), rw.c);
                                     this.val$manifest.write(randomAccessFile3);
                                     randomAccessFile3.close();
                                     SysUtil.fsyncRecursive(this.this$0.soDirectory);
@@ -509,7 +510,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Byte.valueOf(b), dsoManifest, inputDsoIterator}) == null) {
             Log.v(TAG, "regenerating DSO store " + getClass().getName());
-            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.soDirectory, MANIFEST_FILE_NAME), "rw");
+            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.soDirectory, MANIFEST_FILE_NAME), rw.c);
             if (b == 1) {
                 try {
                     try {
@@ -561,7 +562,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
         if (interceptable != null && interceptable.invokeCommon(65545, null, new Object[]{file, Byte.valueOf(b)}) != null) {
             return;
         }
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, rw.c);
         try {
             randomAccessFile.seek(0L);
             randomAccessFile.write(b);

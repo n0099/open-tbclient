@@ -7,16 +7,16 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.bw4;
+import com.baidu.tieba.fh6;
 import com.baidu.tieba.frs.itemtab.holder.FrsItemAcceleratorHolder;
 import com.baidu.tieba.frs.itemtab.view.FrsItemAcceleratorView;
+import com.baidu.tieba.sn6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kn6;
-import com.repackage.xg6;
-import com.repackage.yv4;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,14 +47,14 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
         this.b = bdUniqueId;
     }
 
-    public void a(kn6 kn6Var) {
+    public void a(sn6 sn6Var) {
         FrsItemAcceleratorView frsItemAcceleratorView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, kn6Var) == null) || (frsItemAcceleratorView = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, sn6Var) == null) || (frsItemAcceleratorView = this.a) == null) {
             return;
         }
-        frsItemAcceleratorView.setBtnColor(kn6Var.b());
-        this.a.setBtnImgClickListener(new View.OnClickListener() { // from class: com.repackage.un6
+        frsItemAcceleratorView.setBtnColor(sn6Var.b());
+        this.a.setBtnImgClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.co6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,7 +66,7 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
                 }
             }
         });
-        this.a.setBtnDescClickListener(new View.OnClickListener() { // from class: com.repackage.tn6
+        this.a.setBtnDescClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bo6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -109,18 +109,18 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
 
     public /* synthetic */ void e(View view2) {
         g(2);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new yv4(19)));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new bw4(19)));
     }
 
     public /* synthetic */ void f(View view2) {
         g(1);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new yv4(18)));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new bw4(18)));
     }
 
     public final void g(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new xg6(i));
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new fh6(i));
             CustomMessage customMessage = new CustomMessage(2921662);
             customMessage.setTag(this.b);
             customResponsedMessage.setOrginalMessage(customMessage);

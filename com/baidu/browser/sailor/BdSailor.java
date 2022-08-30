@@ -17,6 +17,7 @@ import com.baidu.browser.sailor.platform.nativeability.BdGeoLocationInfo;
 import com.baidu.browser.sailor.webkit.loader.BdWebkitManager;
 import com.baidu.browser.sailor.webkit.loader.IWebkitLoaderListener;
 import com.baidu.browser.sailor.webkit.update.BdZeusUpdate;
+import com.baidu.tieba.mw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +40,6 @@ import com.baidu.webkit.sdk.dumper.CrashCallback;
 import com.baidu.webkit.sdk.dumper.ZwDebug;
 import com.baidu.webkit.sdk.location.ZeusGeoLocationInfo;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
-import com.repackage.lw;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -333,14 +333,14 @@ public class BdSailor implements INoProGuard {
         return (BdSailorSettings) invokeV.objValue;
     }
 
-    public lw getStatic() {
+    public mw getStatic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             BdSailorPlatform.getInstance();
             return BdSailorPlatform.getStatic();
         }
-        return (lw) invokeV.objValue;
+        return (mw) invokeV.objValue;
     }
 
     public String getZeusVersionName() {

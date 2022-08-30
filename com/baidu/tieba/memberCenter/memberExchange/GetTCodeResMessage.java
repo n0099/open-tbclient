@@ -2,19 +2,19 @@ package com.baidu.tieba.memberCenter.memberExchange;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.kl7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cl7;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class GetTCodeResMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVATION_CODE = "activation_code";
     public transient /* synthetic */ FieldHolder $fh;
-    public cl7 mData;
+    public kl7 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetTCodeResMessage(int i) {
@@ -44,16 +44,16 @@ public class GetTCodeResMessage extends JsonHttpResponsedMessage {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null) {
-                cl7 cl7Var = new cl7();
-                this.mData = cl7Var;
-                cl7Var.a(jSONObject);
+                kl7 kl7Var = new kl7();
+                this.mData = kl7Var;
+                kl7Var.a(jSONObject);
             }
         }
     }
 
-    public cl7 getTCodeInfo() {
+    public kl7 getTCodeInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (cl7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (kl7) invokeV.objValue;
     }
 }

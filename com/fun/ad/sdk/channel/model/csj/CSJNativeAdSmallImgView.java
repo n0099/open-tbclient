@@ -17,7 +17,7 @@ import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.fun.module.csj.g0;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class CSJNativeAdSmallImgView extends g0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
